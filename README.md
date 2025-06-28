@@ -1,5 +1,7 @@
 # Facebook Business MCP Server
 
+Opensource by @PromoBase
+
 Unofficial MCP server implementation for Facebook Business API.
 
 ## Overview
@@ -15,11 +17,13 @@ This server provides access to Facebook Business API through the Model Context P
 ## Setup
 
 1. Install dependencies:
+
    ```bash
    uv sync
    ```
 
 2. Set environment variables:
+
    ```bash
    export FACEBOOK_APP_ID="your-app-id"
    export FACEBOOK_APP_SECRET="your-app-secret"
