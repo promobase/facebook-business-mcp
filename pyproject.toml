@@ -38,6 +38,8 @@ classifiers = [
 # ---- Main dependencies ----
 
 dependencies = [
+    "facebook-business>=23.0.0",
+    "fastmcp>=2.9.2",
 ]
 
 
