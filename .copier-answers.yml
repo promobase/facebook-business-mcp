@@ -1,9 +1,0 @@
-# Changes here will be overwritten by Copier. Do not edit manually.
-_commit: v0.2.14
-_src_path: gh:jlevy/simple-modern-uv
-package_author_email: li.ruize09@gmail.com
-package_author_name: PromoBase
-package_description: unofficial MCP server implementation for Facebook Business API
-package_github_org: promobase
-package_module: facebook_business_mcp
-package_name: facebook-business-mcp

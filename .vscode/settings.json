@@ -1,0 +1,19 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "python.defaultInterpreterPath": "./venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.ruffEnabled": true,
+    "python.linting.lintOnSave": true,
+    "python.formatting.provider": "none",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "ruff.configurationPreference": "filesystemFirst",
+    "ruff.importStrategy": "fromEnvironment"
+}

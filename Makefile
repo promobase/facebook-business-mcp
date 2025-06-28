@@ -23,16 +23,6 @@ upgrade:
 build:
 	uv build
 
-agent-rules: CLAUDE.md AGENTS.md
-
-# Use .cursor/rules for sources of rules.
-# Create Claude and Codex rules from these.
-CLAUDE.md: .cursor/rules/general.mdc .cursor/rules/python.mdc
-	cat .cursor/rules/general.mdc .cursor/rules/python.mdc > CLAUDE.md
-
-AGENTS.md: .cursor/rules/general.mdc .cursor/rules/python.mdc
-	cat .cursor/rules/general.mdc .cursor/rules/python.mdc > AGENTS.md
-
 clean:
 	-rm -rf dist/
 	-rm -rf *.egg-info/
