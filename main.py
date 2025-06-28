@@ -1,5 +1,6 @@
 """Facebook Business MCP Server - Modular implementation with mounted sub-servers."""
 
+import asyncio
 from typing import Any
 
 from facebook_business.adobjects.user import User
@@ -80,7 +81,7 @@ def health_check() -> dict[str, Any]:
         return {"status": "error", "message": f"Health check failed: {str(e)}"}
 
 
-def main() -> None:
+async def main() -> None:
     """Main entry point."""
     try:
         # Initialize Facebook API
@@ -90,17 +91,10 @@ def main() -> None:
         if config["ad_account_id"]:
             logger.info(f"Default Ad Account: {config['ad_account_id']}")
 
-        logger.info("\nMounted servers:")
-        logger.info("  /ad-account - Ad Account management")
-        logger.info("  /campaign - Campaign operations")
-        logger.info("  /adset - Ad Set management")
-        logger.info("  /ad - Ad management")
-        logger.info("  /insights - Performance data and analytics")
-        logger.info("\nUse health_check() to verify API connectivity")
-        logger.info("Use get_server_info() to see all available tools")
+        tools = await mcp.get_tools()
+        logger.info(f"Available tools: {', '.join(tools.keys())}")
 
-        # Run the server
-        mcp.run()
+        await mcp.run_async()
 
     except KeyboardInterrupt:
         logger.info("\nServer stopped by user.")
@@ -110,4 +104,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
