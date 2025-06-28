@@ -1,35 +1,113 @@
-from facebook_business.adobjects.adaccount import AdAccount
+"""Facebook Business MCP Server - Modular implementation with mounted sub-servers."""
+
+from typing import Any
+
+from facebook_business.adobjects.user import User
 from facebook_business.api import FacebookAdsApi
+from facebook_business.exceptions import FacebookError
 from fastmcp import FastMCP
 
-my_app_id = "your-app-id"
-my_app_secret = "your-appsecret"
-my_access_token = "your-page-access-token"
-FacebookAdsApi.init(my_app_id, my_app_secret, my_access_token)
-my_account = AdAccount("act_<your-adaccount-id>")
-campaigns = my_account.get_campaigns()
-print(campaigns)
-
-
-instructions = """
-"""
-# You can also add instructions for how to interact with the server
-mcp = FastMCP(
-    name="FacebookBusinessMCPServer",
-    instructions=instructions,
-    on_duplicate_prompts="error",
-    on_duplicate_resources="error",
-    on_duplicate_tools="error",
+from src.config import get_config_from_env, initialize_facebook_api, validate_facebook_connection
+from src.servers import (
+    ad_account_server,
+    ad_server,
+    adset_server,
+    campaign_server,
+    insights_server,
 )
+from src.utils import get_logger, load_dotenv
+
+logger = get_logger(__name__)
+
+load_dotenv(".env")
+
+mcp = FastMCP(
+    name="FacebookBusinessMCP",
+    instructions="""
+    Facebook Business MCP Server - Comprehensive access to Facebook Business API.
+    
+    This server provides modular tools to interact with Facebook Business API including:
+    - Ad Account management (ad_account_server)
+    - Campaign operations (campaign_server)
+    - Ad Set management (adset_server)
+    - Ad management (ad_server)
+    - Insights and reporting (insights_server)
+    """,
+)
+
+# Mount sub-servers
+mcp.mount(ad_account_server, "/ad-account")
+mcp.mount(campaign_server, "/campaign")
+mcp.mount(adset_server, "/adset")
+mcp.mount(ad_server, "/ad")
+mcp.mount(insights_server, "/insights")
 
 
 @mcp.tool
-def get_campaigns() -> list:
+def health_check() -> dict[str, Any]:
+    """Check if the Facebook Business API is properly configured and accessible.
+
+    Returns:
+        Health status information including API connectivity and user details
     """
-    Get all campaigns from the Facebook Ad Account.
-    """
-    return my_account.get_campaigns(fields=["id", "name", "status"])
+    try:
+        config = get_config_from_env()
+
+        if not config["app_id"] or not config["app_secret"] or not config["access_token"]:
+            return {"status": "error", "message": "Missing required Facebook API credentials"}
+
+        # Validate connection
+        if not validate_facebook_connection():
+            return {"status": "error", "message": "Unable to connect to Facebook API"}
+
+        # Get user info
+        api = FacebookAdsApi.get_default_api()
+        user = User(fbid="me", api=api)
+        user_data = user.api_get(fields=["id", "name"])
+
+        return {
+            "status": "healthy",
+            "message": "Facebook Business API is accessible",
+            "user_id": user_data.get("id"),
+            "user_name": user_data.get("name"),
+            "api_version": config["api_version"],
+            "default_account_id": config.get("ad_account_id"),
+        }
+
+    except FacebookError as e:
+        return {"status": "error", "message": f"Facebook API error: {str(e)}"}
+    except Exception as e:
+        return {"status": "error", "message": f"Health check failed: {str(e)}"}
+
+
+def main() -> None:
+    """Main entry point."""
+    try:
+        # Initialize Facebook API
+        config = initialize_facebook_api()
+        logger.info("Starting Facebook Business MCP Server...")
+        logger.info(f"API Version: {config['api_version']}")
+        if config["ad_account_id"]:
+            logger.info(f"Default Ad Account: {config['ad_account_id']}")
+
+        logger.info("\nMounted servers:")
+        logger.info("  /ad-account - Ad Account management")
+        logger.info("  /campaign - Campaign operations")
+        logger.info("  /adset - Ad Set management")
+        logger.info("  /ad - Ad management")
+        logger.info("  /insights - Performance data and analytics")
+        logger.info("\nUse health_check() to verify API connectivity")
+        logger.info("Use get_server_info() to see all available tools")
+
+        # Run the server
+        mcp.run()
+
+    except KeyboardInterrupt:
+        logger.info("\nServer stopped by user.")
+    except Exception as e:
+        logger.info(f"Error starting server: {e}")
+        exit(1)
 
 
 if __name__ == "__main__":
-    mcp.run()
+    main()

@@ -58,7 +58,7 @@ dev = [
 
 [project.scripts]
 # Add script entry points here:
-facebook-business-mcp = "facebook_business_mcp:main"
+facebook-business-mcp = "main:main"
 
 
 # ---- Build system ----
@@ -83,7 +83,7 @@ bump = "true"
 
 [tool.hatch.build.targets.wheel]
 # The source location for the package.
-packages = ["src/facebook_business_mcp"]
+packages = ["main.py"]
 
 
 # ---- Settings ----
