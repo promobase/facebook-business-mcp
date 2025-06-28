@@ -6,42 +6,14 @@ from typing import Any
 from facebook_business.adobjects.user import User
 from facebook_business.api import FacebookAdsApi
 from facebook_business.exceptions import FacebookError
-from fastmcp import FastMCP
 
+from src import mcp
 from src.config import get_config_from_env, initialize_facebook_api, validate_facebook_connection
-from src.servers import (
-    ad_account_server,
-    ad_server,
-    adset_server,
-    campaign_server,
-    insights_server,
-)
 from src.utils import get_logger, load_dotenv
 
 logger = get_logger(__name__)
 
 load_dotenv(".env")
-
-mcp = FastMCP(
-    name="FacebookBusinessMCP",
-    instructions="""
-    Facebook Business MCP Server - Comprehensive access to Facebook Business API.
-    
-    This server provides modular tools to interact with Facebook Business API including:
-    - Ad Account management (ad_account_server)
-    - Campaign operations (campaign_server)
-    - Ad Set management (adset_server)
-    - Ad management (ad_server)
-    - Insights and reporting (insights_server)
-    """,
-)
-
-# Mount sub-servers
-mcp.mount(ad_account_server, "/ad-account")
-mcp.mount(campaign_server, "/campaign")
-mcp.mount(adset_server, "/adset")
-mcp.mount(ad_server, "/ad")
-mcp.mount(insights_server, "/insights")
 
 
 @mcp.tool
