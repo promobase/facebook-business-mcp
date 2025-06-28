@@ -7,10 +7,18 @@ from facebook_business.adobjects.campaign import Campaign
 from facebook_business.exceptions import FacebookError
 from fastmcp import FastMCP
 
+from ..config import extract_pagination_info
+
 
 class AdSetResponse(TypedDict):
     success: bool
     data: dict[str, Any] | list[dict[str, Any]]
+
+
+class PaginatedResponse(TypedDict):
+    success: bool
+    data: list[dict[str, Any]]
+    pagination: dict[str, Any]
 
 
 class ErrorResponse(TypedDict):
@@ -75,25 +83,37 @@ adset_server = FastMCP(
 
 
 @adset_server.tool
-def get_campaign_adsets(campaign_id: str, limit: int = 25) -> AdSetResponse | ErrorResponse:
+def get_campaign_adsets(
+    campaign_id: str, limit: int = 25, after: str | None = None
+) -> PaginatedResponse | ErrorResponse:
     """Get ad sets for a campaign.
 
     Args:
         campaign_id: Campaign ID
-        limit: Maximum number of ad sets to return
+        limit: Maximum number of ad sets to return (max 100)
+        after: Pagination cursor for next page
 
     Returns:
-        List of ad sets with comprehensive fields
+        List of ad sets with comprehensive fields and pagination info
     """
     try:
+        # Limit the maximum to 100 as per Facebook API limits
+        limit = min(limit, 100)
+
         campaign = Campaign(campaign_id)
-        adsets = campaign.get_ad_sets(
+        params = {"limit": limit}
+        if after:
+            params["after"] = after
+
+        adsets_cursor = campaign.get_ad_sets(
             fields=AdSetFields.BASIC_FIELDS,
-            params={"limit": limit},
+            params=params,
         )
 
-        adsets_list = [dict(adset) for adset in adsets]
-        return {"success": True, "data": adsets_list}
+        adsets_list = [dict(adset) for adset in adsets_cursor]
+        pagination_info = extract_pagination_info(adsets_cursor)
+
+        return {"success": True, "data": adsets_list, "pagination": pagination_info}
 
     except FacebookError as e:
         return {"error": f"Facebook API error: {str(e)}"}

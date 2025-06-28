@@ -18,6 +18,12 @@ class InsightsResponse(TypedDict):
     data: list[dict[str, Any]] | dict[str, Any]
 
 
+class PaginatedInsightsResponse(TypedDict):
+    success: bool
+    data: list[dict[str, Any]]
+    pagination: dict[str, Any]
+
+
 class ErrorResponse(TypedDict):
     error: str
 
@@ -76,7 +82,8 @@ def get_account_insights(
     fields: list[str] | None = None,
     breakdowns: list[str] | None = None,
     limit: int = 25,
-) -> InsightsResponse | ErrorResponse:
+    after: str | None = None,
+) -> PaginatedInsightsResponse | ErrorResponse:
     """Get insights for an ad account.
 
     Args:
@@ -84,15 +91,19 @@ def get_account_insights(
         time_range: Time range dict with 'since' and 'until' keys (YYYY-MM-DD format)
         fields: List of insight fields to retrieve
         breakdowns: List of breakdown dimensions
-        limit: Maximum number of insights to return
+        limit: Maximum number of insights to return (max 100)
+        after: Pagination cursor for next page
 
     Returns:
-        Account insights data
+        Account insights data and pagination info
     """
     try:
         account_id, error = resolve_account_id(account_id)
         if error:
             return {"error": error}
+
+        # Limit the maximum to 100 as per Facebook API limits
+        limit = min(limit, 100)
 
         account = AdAccount(account_id)
 
@@ -105,11 +116,28 @@ def get_account_insights(
             params["time_range"] = time_range
         if breakdowns:
             params["breakdowns"] = breakdowns
+        if after:
+            params["after"] = after
 
-        insights = account.get_insights(fields=fields, params=params)
+        insights_cursor = account.get_insights(fields=fields, params=params)
 
-        insights_list = [dict(insight) for insight in insights]
-        return {"success": True, "data": insights_list}
+        insights_list = [dict(insight) for insight in insights_cursor]
+
+        # Extract pagination info
+        pagination_info = {}
+        if (
+            hasattr(insights_cursor, "_finished_iteration")
+            and not insights_cursor._finished_iteration
+        ):
+            if hasattr(insights_cursor, "params") and "after" in insights_cursor.params:
+                pagination_info["next_cursor"] = insights_cursor.params["after"]
+                pagination_info["has_next_page"] = True
+            else:
+                pagination_info["has_next_page"] = False
+        else:
+            pagination_info["has_next_page"] = False
+
+        return {"success": True, "data": insights_list, "pagination": pagination_info}
 
     except FacebookError as e:
         return {"error": f"Facebook API error: {str(e)}"}
@@ -124,7 +152,8 @@ def get_campaign_insights(
     fields: list[str] | None = None,
     breakdowns: list[str] | None = None,
     limit: int = 25,
-) -> InsightsResponse | ErrorResponse:
+    after: str | None = None,
+) -> PaginatedInsightsResponse | ErrorResponse:
     """Get insights for a campaign.
 
     Args:
@@ -132,12 +161,16 @@ def get_campaign_insights(
         time_range: Time range dict with 'since' and 'until' keys (YYYY-MM-DD format)
         fields: List of insight fields to retrieve
         breakdowns: List of breakdown dimensions
-        limit: Maximum number of insights to return
+        limit: Maximum number of insights to return (max 100)
+        after: Pagination cursor for next page
 
     Returns:
-        Campaign insights data
+        Campaign insights data and pagination info
     """
     try:
+        # Limit the maximum to 100 as per Facebook API limits
+        limit = min(limit, 100)
+
         campaign = Campaign(campaign_id)
 
         # Default fields if none provided
@@ -149,11 +182,28 @@ def get_campaign_insights(
             params["time_range"] = time_range
         if breakdowns:
             params["breakdowns"] = breakdowns
+        if after:
+            params["after"] = after
 
-        insights = campaign.get_insights(fields=fields, params=params)
+        insights_cursor = campaign.get_insights(fields=fields, params=params)
 
-        insights_list = [dict(insight) for insight in insights]
-        return {"success": True, "data": insights_list}
+        insights_list = [dict(insight) for insight in insights_cursor]
+
+        # Extract pagination info
+        pagination_info = {}
+        if (
+            hasattr(insights_cursor, "_finished_iteration")
+            and not insights_cursor._finished_iteration
+        ):
+            if hasattr(insights_cursor, "params") and "after" in insights_cursor.params:
+                pagination_info["next_cursor"] = insights_cursor.params["after"]
+                pagination_info["has_next_page"] = True
+            else:
+                pagination_info["has_next_page"] = False
+        else:
+            pagination_info["has_next_page"] = False
+
+        return {"success": True, "data": insights_list, "pagination": pagination_info}
 
     except FacebookError as e:
         return {"error": f"Facebook API error: {str(e)}"}
@@ -168,7 +218,8 @@ def get_adset_insights(
     fields: list[str] | None = None,
     breakdowns: list[str] | None = None,
     limit: int = 25,
-) -> InsightsResponse | ErrorResponse:
+    after: str | None = None,
+) -> PaginatedInsightsResponse | ErrorResponse:
     """Get insights for an ad set.
 
     Args:
@@ -176,12 +227,16 @@ def get_adset_insights(
         time_range: Time range dict with 'since' and 'until' keys (YYYY-MM-DD format)
         fields: List of insight fields to retrieve
         breakdowns: List of breakdown dimensions
-        limit: Maximum number of insights to return
+        limit: Maximum number of insights to return (max 100)
+        after: Pagination cursor for next page
 
     Returns:
-        Ad set insights data
+        Ad set insights data and pagination info
     """
     try:
+        # Limit the maximum to 100 as per Facebook API limits
+        limit = min(limit, 100)
+
         adset = AdSet(adset_id)
 
         # Default fields if none provided
@@ -193,11 +248,28 @@ def get_adset_insights(
             params["time_range"] = time_range
         if breakdowns:
             params["breakdowns"] = breakdowns
+        if after:
+            params["after"] = after
 
-        insights = adset.get_insights(fields=fields, params=params)
+        insights_cursor = adset.get_insights(fields=fields, params=params)
 
-        insights_list = [dict(insight) for insight in insights]
-        return {"success": True, "data": insights_list}
+        insights_list = [dict(insight) for insight in insights_cursor]
+
+        # Extract pagination info
+        pagination_info = {}
+        if (
+            hasattr(insights_cursor, "_finished_iteration")
+            and not insights_cursor._finished_iteration
+        ):
+            if hasattr(insights_cursor, "params") and "after" in insights_cursor.params:
+                pagination_info["next_cursor"] = insights_cursor.params["after"]
+                pagination_info["has_next_page"] = True
+            else:
+                pagination_info["has_next_page"] = False
+        else:
+            pagination_info["has_next_page"] = False
+
+        return {"success": True, "data": insights_list, "pagination": pagination_info}
 
     except FacebookError as e:
         return {"error": f"Facebook API error: {str(e)}"}
@@ -212,7 +284,8 @@ def get_ad_insights(
     fields: list[str] | None = None,
     breakdowns: list[str] | None = None,
     limit: int = 25,
-) -> InsightsResponse | ErrorResponse:
+    after: str | None = None,
+) -> PaginatedInsightsResponse | ErrorResponse:
     """Get insights for an ad.
 
     Args:
@@ -220,12 +293,16 @@ def get_ad_insights(
         time_range: Time range dict with 'since' and 'until' keys (YYYY-MM-DD format)
         fields: List of insight fields to retrieve
         breakdowns: List of breakdown dimensions
-        limit: Maximum number of insights to return
+        limit: Maximum number of insights to return (max 100)
+        after: Pagination cursor for next page
 
     Returns:
-        Ad insights data
+        Ad insights data and pagination info
     """
     try:
+        # Limit the maximum to 100 as per Facebook API limits
+        limit = min(limit, 100)
+
         ad = Ad(ad_id)
 
         # Default fields if none provided
@@ -237,11 +314,28 @@ def get_ad_insights(
             params["time_range"] = time_range
         if breakdowns:
             params["breakdowns"] = breakdowns
+        if after:
+            params["after"] = after
 
-        insights = ad.get_insights(fields=fields, params=params)
+        insights_cursor = ad.get_insights(fields=fields, params=params)
 
-        insights_list = [dict(insight) for insight in insights]
-        return {"success": True, "data": insights_list}
+        insights_list = [dict(insight) for insight in insights_cursor]
+
+        # Extract pagination info
+        pagination_info = {}
+        if (
+            hasattr(insights_cursor, "_finished_iteration")
+            and not insights_cursor._finished_iteration
+        ):
+            if hasattr(insights_cursor, "params") and "after" in insights_cursor.params:
+                pagination_info["next_cursor"] = insights_cursor.params["after"]
+                pagination_info["has_next_page"] = True
+            else:
+                pagination_info["has_next_page"] = False
+        else:
+            pagination_info["has_next_page"] = False
+
+        return {"success": True, "data": insights_list, "pagination": pagination_info}
 
     except FacebookError as e:
         return {"error": f"Facebook API error: {str(e)}"}

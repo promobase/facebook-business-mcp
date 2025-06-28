@@ -78,3 +78,30 @@ def validate_facebook_connection() -> bool:
         return False
     except Exception:
         return False
+
+
+def extract_pagination_info(cursor) -> dict[str, Any]:
+    """Extract pagination information from a Facebook API cursor.
+
+    Args:
+        cursor: Facebook API cursor object
+
+    Returns:
+        Dictionary containing pagination information
+    """
+    pagination_info = {}
+
+    if hasattr(cursor, "_finished_iteration") and not cursor._finished_iteration:
+        if hasattr(cursor, "params") and "after" in cursor.params:
+            pagination_info["next_cursor"] = cursor.params["after"]
+            pagination_info["has_next_page"] = True
+        else:
+            pagination_info["has_next_page"] = False
+    else:
+        pagination_info["has_next_page"] = False
+
+    # Add total count if available
+    if hasattr(cursor, "_total_count") and cursor._total_count is not None:
+        pagination_info["total_count"] = cursor._total_count
+
+    return pagination_info

@@ -7,12 +7,18 @@ from facebook_business.adobjects.campaign import Campaign
 from facebook_business.exceptions import FacebookError
 from fastmcp import FastMCP
 
-from ..config import resolve_account_id
+from ..config import extract_pagination_info, resolve_account_id
 
 
 class CampaignResponse(TypedDict):
     success: bool
     data: dict[str, Any] | list[dict[str, Any]]
+
+
+class PaginatedResponse(TypedDict):
+    success: bool
+    data: list[dict[str, Any]]
+    pagination: dict[str, Any]
 
 
 class ErrorResponse(TypedDict):
@@ -76,30 +82,40 @@ campaign_server = FastMCP(
 
 @campaign_server.tool
 def get_campaigns(
-    account_id: str | None = None, limit: int = 25
-) -> CampaignResponse | ErrorResponse:
+    account_id: str | None = None, limit: int = 25, after: str | None = None
+) -> PaginatedResponse | ErrorResponse:
     """Get campaigns for an ad account.
 
     Args:
         account_id: Ad account ID (optional, uses default from env if not provided)
-        limit: Maximum number of campaigns to return
+        limit: Maximum number of campaigns to return (max 100)
+        after: Pagination cursor for next page
 
     Returns:
-        List of campaigns with comprehensive fields
+        List of campaigns with comprehensive fields and pagination info
     """
     try:
         account_id, error = resolve_account_id(account_id)
         if error:
             return {"error": error}
 
+        # Limit the maximum to 100 as per Facebook API limits
+        limit = min(limit, 100)
+
         account = AdAccount(account_id)
-        campaigns = account.get_campaigns(
+        params = {"limit": limit}
+        if after:
+            params["after"] = after
+
+        campaigns_cursor = account.get_campaigns(
             fields=CampaignFields.BASIC_FIELDS,
-            params={"limit": limit},
+            params=params,
         )
 
-        campaigns_list = [dict(campaign) for campaign in campaigns]
-        return {"success": True, "data": campaigns_list}
+        campaigns_list = [dict(campaign) for campaign in campaigns_cursor]
+        pagination_info = extract_pagination_info(campaigns_cursor)
+
+        return {"success": True, "data": campaigns_list, "pagination": pagination_info}
 
     except FacebookError as e:
         return {"error": f"Facebook API error: {str(e)}"}
