@@ -8,6 +8,9 @@
 
 default: agent-rules install lint test 
 
+# claude is source of truth
+agent-rules:
+	cp CLAUDE.md AGENTS.md
 install:
 	uv sync --all-extras
 
