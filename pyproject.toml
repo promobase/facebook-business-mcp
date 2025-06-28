@@ -40,6 +40,7 @@ classifiers = [
 dependencies = [
     "facebook-business>=23.0.0",
     "fastmcp>=2.9.2",
+    "openai>=1.93.0",
 ]
 
 
