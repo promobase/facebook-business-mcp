@@ -8,9 +8,7 @@ Repository = "https://github.com/promobase/facebook-business-mcp"
 [project]
 name = "facebook-business-mcp"
 description = "unofficial MCP server implementation for Facebook Business API"
-authors = [
-    { name="PromoBase", email="li.ruize09@gmail.com" },
-]
+authors = [{ name = "PromoBase", email = "li.ruize09@gmail.com" }]
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11,<4.0"
@@ -37,11 +35,7 @@ classifiers = [
 
 # ---- Main dependencies ----
 
-dependencies = [
-    "facebook-business>=23.0.0",
-    "fastmcp>=2.9.2",
-    "openai>=1.93.0",
-]
+dependencies = ["facebook-business>=23.0.0", "fastmcp>=2.9.2", "openai>=1.93.0"]
 
 
 # ---- Dev dependencies ----
@@ -97,11 +91,11 @@ line-length = 100
 select = [
     # See: https://docs.astral.sh/ruff/rules/
     # Basic list from: https://docs.astral.sh/ruff/linter/#rule-selection
-    "E", # https://docs.astral.sh/ruff/rules/#error-e
-    "F", # https://docs.astral.sh/ruff/rules/#pyflakes-f
+    "E",  # https://docs.astral.sh/ruff/rules/#error-e
+    "F",  # https://docs.astral.sh/ruff/rules/#pyflakes-f
     "UP", # https://docs.astral.sh/ruff/rules/#pyupgrade-up
-    "B", # https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
-    "I", # https://docs.astral.sh/ruff/rules/#isort-i
+    "B",  # https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+    "I",  # https://docs.astral.sh/ruff/rules/#isort-i
     # Other possibilities:
     # "D" # https://docs.astral.sh/ruff/rules/#pydocstyle-d
     # "Q" # https://docs.astral.sh/ruff/rules/#flake8-quotes-q
@@ -116,19 +110,20 @@ ignore = [
     "E731", # https://docs.astral.sh/ruff/rules/lambda-assignment/
     # We use both ruff formatter and linter so some rules should always be disabled.
     # See: https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
-    "W191", # https://docs.astral.sh/ruff/rules/tab-indentation/
-    "E111", # https://docs.astral.sh/ruff/rules/indentation-with-invalid-multiple/
-    "E114", # https://docs.astral.sh/ruff/rules/indentation-with-invalid-multiple-comment/
-    "E117", # https://docs.astral.sh/ruff/rules/over-indented/
-    "D206", # https://docs.astral.sh/ruff/rules/docstring-tab-indentation/
-    "D300", # https://docs.astral.sh/ruff/rules/triple-single-quotes/
-    "Q000", # https://docs.astral.sh/ruff/rules/bad-quotes-inline-string/
-    "Q001", # https://docs.astral.sh/ruff/rules/bad-quotes-multiline-string/
-    "Q002", # https://docs.astral.sh/ruff/rules/bad-quotes-docstring/
-    "Q003", # https://docs.astral.sh/ruff/rules/avoidable-escaped-quote/
+    "W191",   # https://docs.astral.sh/ruff/rules/tab-indentation/
+    "E111",   # https://docs.astral.sh/ruff/rules/indentation-with-invalid-multiple/
+    "E114",   # https://docs.astral.sh/ruff/rules/indentation-with-invalid-multiple-comment/
+    "E117",   # https://docs.astral.sh/ruff/rules/over-indented/
+    "D206",   # https://docs.astral.sh/ruff/rules/docstring-tab-indentation/
+    "D300",   # https://docs.astral.sh/ruff/rules/triple-single-quotes/
+    "Q000",   # https://docs.astral.sh/ruff/rules/bad-quotes-inline-string/
+    "Q001",   # https://docs.astral.sh/ruff/rules/bad-quotes-multiline-string/
+    "Q002",   # https://docs.astral.sh/ruff/rules/bad-quotes-docstring/
+    "Q003",   # https://docs.astral.sh/ruff/rules/avoidable-escaped-quote/
     "COM812", # https://docs.astral.sh/ruff/rules/missing-trailing-comma/
     "COM819", # https://docs.astral.sh/ruff/rules/prohibited-trailing-comma/
     "ISC002", # https://docs.astral.sh/ruff/rules/multi-line-implicit-string-concatenation/
+    "B006",
 ]
 
 [tool.basedpyright]
@@ -167,9 +162,6 @@ reportUnreachable = false
 python_files = ["*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-testpaths = [
-    "src",
-    "tests",
-]
+testpaths = ["src", "tests"]
 norecursedirs = []
 filterwarnings = []

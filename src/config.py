@@ -87,21 +87,55 @@ def extract_pagination_info(cursor) -> dict[str, Any]:
         cursor: Facebook API cursor object
 
     Returns:
-        Dictionary containing pagination information
+        Dictionary containing pagination information matching Facebook Graph API structure
     """
-    pagination_info = {}
+    pagination_info = {
+        "cursors": None,
+        "next": None,
+        "previous": None,
+        "has_next_page": False,
+        "has_previous_page": False,
+    }
 
-    if hasattr(cursor, "_finished_iteration") and not cursor._finished_iteration:
-        if hasattr(cursor, "params") and "after" in cursor.params:
-            pagination_info["next_cursor"] = cursor.params["after"]
-            pagination_info["has_next_page"] = True
-        else:
-            pagination_info["has_next_page"] = False
-    else:
-        pagination_info["has_next_page"] = False
+    try:
+        # Extract cursor information from the response
+        if hasattr(cursor, "_response") and cursor._response:
+            response_data = cursor._response
 
-    # Add total count if available
-    if hasattr(cursor, "_total_count") and cursor._total_count is not None:
-        pagination_info["total_count"] = cursor._total_count
+            # Check for paging information in the response
+            if isinstance(response_data, dict) and "paging" in response_data:
+                paging = response_data["paging"]
+
+                # Extract cursors
+                if "cursors" in paging:
+                    pagination_info["cursors"] = {
+                        "before": paging["cursors"].get("before"),
+                        "after": paging["cursors"].get("after"),
+                    }
+
+                # Extract next/previous links
+                if "next" in paging:
+                    pagination_info["next"] = paging["next"]
+                    pagination_info["has_next_page"] = True
+
+                if "previous" in paging:
+                    pagination_info["previous"] = paging["previous"]
+                    pagination_info["has_previous_page"] = True
+
+        # Fallback to checking cursor state
+        elif hasattr(cursor, "_finished_iteration"):
+            if not cursor._finished_iteration:
+                pagination_info["has_next_page"] = True
+
+                # Try to extract the after cursor from params
+                if hasattr(cursor, "params") and "after" in cursor.params:
+                    pagination_info["cursors"] = {
+                        "before": None,
+                        "after": cursor.params["after"],
+                    }
+
+    except Exception:
+        # If extraction fails, return safe defaults
+        pass
 
     return pagination_info

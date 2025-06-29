@@ -1,306 +1,99 @@
-"""Ad Account MCP Server using Facebook Business SDK."""
+"""Simplified Ad Account MCP Server using Facebook Business SDK."""
 
-from typing import Any, TypedDict
+from typing import Any
 
 from facebook_business.adobjects.adaccount import AdAccount
-from facebook_business.adobjects.customaudience import CustomAudience
-from facebook_business.adobjects.savedaudience import SavedAudience
-from facebook_business.exceptions import FacebookError
 from fastmcp import FastMCP
 
-from ..config import extract_pagination_info, resolve_account_id
+from src.utils import (
+    handle_facebook_errors,
+    list_callable_methods,
+    log_execution,
+    safe_getsource,
+)
 
-
-class AdAccountResponse(TypedDict):
-    success: bool
-    data: dict[str, Any] | list[dict[str, Any]]
-
-
-class PaginatedResponse(TypedDict):
-    success: bool
-    data: list[dict[str, Any]]
-    pagination: dict[str, Any]
-
-
-class ErrorResponse(TypedDict):
-    error: str
-
-
-# Field constants for better type safety and maintainability
-class AdAccountFields:
-    """Ad Account field constants using SDK Field enums."""
-
-    BASIC_FIELDS = [
-        AdAccount.Field.id,
-        AdAccount.Field.account_id,
-        AdAccount.Field.name,
-        AdAccount.Field.account_status,
-        AdAccount.Field.currency,
-        AdAccount.Field.timezone_name,
-        AdAccount.Field.business,
-        AdAccount.Field.amount_spent,
-        AdAccount.Field.balance,
-        AdAccount.Field.spend_cap,
-        AdAccount.Field.created_time,
-        AdAccount.Field.owner,
-        AdAccount.Field.capabilities,
-        AdAccount.Field.min_daily_budget,
-    ]
-
-
-class CustomAudienceFields:
-    """Custom Audience field constants using SDK Field enums."""
-
-    BASIC_FIELDS = [
-        CustomAudience.Field.id,
-        CustomAudience.Field.name,
-        CustomAudience.Field.description,
-        CustomAudience.Field.approximate_count_lower_bound,
-        CustomAudience.Field.approximate_count_upper_bound,
-        CustomAudience.Field.subtype,
-        CustomAudience.Field.time_created,
-        CustomAudience.Field.time_updated,
-    ]
-
-
-class SavedAudienceFields:
-    """Saved Audience field constants using SDK Field enums."""
-
-    BASIC_FIELDS = [
-        SavedAudience.Field.id,
-        SavedAudience.Field.name,
-        SavedAudience.Field.targeting,
-        SavedAudience.Field.time_created,
-        SavedAudience.Field.time_updated,
-    ]
-
+#  ---- constants ----
+server_name = "FacebookAdAccount"
+instructions = """
+This is the AdAccount MCP Server for managing Facebook Ad Accounts.
+always use the `get_usage_on_ad_account` tool first to understand how to use the methods and fields available.
+Then, you can use the `run_any_ad_account_fn.` tool to call any method on the AdAccount object.
+"""
 
 ad_account_server = FastMCP(
-    name="FacebookAdAccount",
-    instructions="Facebook Ad Account management server providing tools for ad account operations.",
+    name=server_name,
+    instructions=instructions,
+    on_duplicate_prompts="error",
+    on_duplicate_resources="error",
+    on_duplicate_tools="error",
 )
 
 
-@ad_account_server.tool
-def get_ad_account(account_id: str | None = None) -> AdAccountResponse | ErrorResponse:
-    """Get ad account information.
-
-    Args:
-        account_id: Ad account ID (optional, uses default from env if not provided)
-
-    Returns:
-        Ad account information with all available fields
+@log_execution
+@handle_facebook_errors
+def get_usage_on_ad_account(
+    fn: str | None = None,
+) -> str:
+    """ALWAYS use this tool first.
+    Provides info on how to use the tools and methods available. This includes examples.
+    Optionally, you can pass in a metod name and you will see the src code for usage of that method.
     """
-    try:
-        account_id, error = resolve_account_id(account_id)
-        if error:
-            return {"error": error}
+    field_enum_info: dict = AdAccount._get_field_enum_info()
+    methods = list_callable_methods(AdAccount)
 
-        account = AdAccount(account_id)
-        account_data = account.api_get(fields=AdAccountFields.BASIC_FIELDS)
+    usage = f"""
+    This is the AdAccount wrapper on Facebook Business Python SDK. 
+    You can use the {run_any_ad_account_fn.__name__} tool to call any methods, here is the docstring for it: {run_any_ad_account_fn.__doc__}
 
-        return {"success": True, "data": dict(account_data)}
+    Available methods:
+    methods: {methods}
+    here are the ALL field types possible. NOTE that for each operation, you only need a subset. refer to the methods' src code for details.
+    field_types: {AdAccount._field_types}
+    field_enum_info: {field_enum_info}
 
-    except FacebookError as e:
-        return {"error": f"Facebook API error: {str(e)}"}
-    except Exception as e:
-        return {"error": f"Error: {str(e)}"}
+    Examples:
+    here are some code examples. The underlying is graph API. it relies on fields & params.
 
-
-@ad_account_server.tool
-def get_ad_account_users(
-    account_id: str | None = None, limit: int = 25, after: str | None = None
-) -> PaginatedResponse | ErrorResponse:
-    """Get users associated with an ad account.
-
-    Args:
-        account_id: Ad account ID (optional, uses default from env if not provided)
-        limit: Maximum number of users to return (max 100)
-        after: Pagination cursor for next page
-
-    Returns:
-        List of users with access to the ad account and pagination info
+    account = AdAccount(..)
+    account.get_campaigns(fields=[..], params=..) // get campaigns
+    account.get_ads(fields=[..], params=..) // get ads
     """
-    try:
-        account_id, error = resolve_account_id(account_id)
-        if error:
-            return {"error": error}
 
-        # Limit the maximum to 100 as per Facebook API limits
-        limit = min(limit, 100)
-
-        account = AdAccount(account_id)
-        params = {"limit": limit}
-        if after:
-            params["after"] = after
-
-        # Note: User fields don't have Field enums in the SDK, using strings as required
-        users_cursor = account.get_assigned_users(
-            fields=["id", "name", "email", "role", "permissions"], params=params
-        )
-
-        users_list = [dict(user) for user in users_cursor]
-        pagination_info = extract_pagination_info(users_cursor)
-
-        return {"success": True, "data": users_list, "pagination": pagination_info}
-
-    except FacebookError as e:
-        return {"error": f"Facebook API error: {str(e)}"}
-    except Exception as e:
-        return {"error": f"Error: {str(e)}"}
-
-
-@ad_account_server.tool
-def get_ad_account_activities(
-    account_id: str | None = None, limit: int = 25, after: str | None = None
-) -> PaginatedResponse | ErrorResponse:
-    """Get recent activities for an ad account.
-
-    Args:
-        account_id: Ad account ID (optional, uses default from env if not provided)
-        limit: Maximum number of activities to return (max 100)
-        after: Pagination cursor for next page
-
-    Returns:
-        List of recent account activities and pagination info
-    """
-    try:
-        account_id, error = resolve_account_id(account_id)
-        if error:
-            return {"error": error}
-
-        # Limit the maximum to 100 as per Facebook API limits
-        limit = min(limit, 100)
-
-        account = AdAccount(account_id)
-        params = {"limit": limit}
-        if after:
-            params["after"] = after
-
-        # Note: Activity fields don't have Field enums in the SDK, using strings as required
-        activities_cursor = account.get_activities(
-            fields=["event_time", "event_type", "extra_data", "object_id", "object_name"],
-            params=params,
-        )
-
-        activities_list = [dict(activity) for activity in activities_cursor]
-        pagination_info = extract_pagination_info(activities_cursor)
-
-        return {"success": True, "data": activities_list, "pagination": pagination_info}
-
-    except FacebookError as e:
-        return {"error": f"Facebook API error: {str(e)}"}
-    except Exception as e:
-        return {"error": f"Error: {str(e)}"}
-
-
-@ad_account_server.tool
-def get_ad_account_custom_audiences(
-    account_id: str | None = None, limit: int = 25, after: str | None = None
-) -> PaginatedResponse | ErrorResponse:
-    """Get custom audiences for an ad account.
-
-    Args:
-        account_id: Ad account ID (optional, uses default from env if not provided)
-        limit: Maximum number of custom audiences to return (max 100)
-        after: Pagination cursor for next page
-
-    Returns:
-        List of custom audiences and pagination info
-    """
-    try:
-        account_id, error = resolve_account_id(account_id)
-        if error:
-            return {"error": error}
-
-        # Limit the maximum to 100 as per Facebook API limits
-        limit = min(limit, 100)
-
-        account = AdAccount(account_id)
-        params = {"limit": limit}
-        if after:
-            params["after"] = after
-
-        audiences_cursor = account.get_custom_audiences(
-            fields=CustomAudienceFields.BASIC_FIELDS,
-            params=params,
-        )
-
-        audiences_list = [dict(audience) for audience in audiences_cursor]
-
-        # Extract pagination info
-        pagination_info = {}
-        if (
-            hasattr(audiences_cursor, "_finished_iteration")
-            and not audiences_cursor._finished_iteration
-        ):
-            if hasattr(audiences_cursor, "params") and "after" in audiences_cursor.params:
-                pagination_info["next_cursor"] = audiences_cursor.params["after"]
-                pagination_info["has_next_page"] = True
+    if fn:
+        # append method src
+        if hasattr(AdAccount, fn):
+            method = getattr(AdAccount, fn)
+            if callable(method):
+                usage += f"\n\nHere is the source code for {fn}:\n{safe_getsource(method)}"
             else:
-                pagination_info["has_next_page"] = False
-        else:
-            pagination_info["has_next_page"] = False
-
-        return {"success": True, "data": audiences_list, "pagination": pagination_info}
-
-    except FacebookError as e:
-        return {"error": f"Facebook API error: {str(e)}"}
-    except Exception as e:
-        return {"error": f"Error: {str(e)}"}
+                usage += f"\n\n{fn} is not a callable method on AdAccount."
+    return usage
 
 
-@ad_account_server.tool
-def get_ad_account_saved_audiences(
-    account_id: str | None = None, limit: int = 25, after: str | None = None
-) -> PaginatedResponse | ErrorResponse:
-    """Get saved audiences for an ad account.
-
-    Args:
-        account_id: Ad account ID (optional, uses default from env if not provided)
-        limit: Maximum number of saved audiences to return (max 100)
-        after: Pagination cursor for next page
-
-    Returns:
-        List of saved audiences and pagination info
+@log_execution
+@handle_facebook_errors
+def run_any_ad_account_fn(
+    account_id: str,
+    fn: str,
+    args: list[str] = [],
+    kwargs: dict[str, Any] = {},
+) -> str:
+    """Dynamically calls a method on the AdAccount object.
+    takes in an account_id, method name (fn), and optional args/kwargs.
+    it will be called like this:
+    ```account = AdAccount(account_id)
+    result = getattr(account, fn)(*args, **kwargs)
+    ```
     """
-    try:
-        account_id, error = resolve_account_id(account_id)
-        if error:
-            return {"error": error}
+    account = AdAccount(account_id)
+    if not hasattr(account, fn):
+        return f"AdAccount does not have method '{fn}'. use the {get_usage_on_ad_account.__name__} tool to see available methods & usage."
+    f = getattr(account, fn)
+    if not callable(f):
+        return f"{fn} is not a callable method on AdAccount."
+    return str(f(*args, **kwargs))
 
-        # Limit the maximum to 100 as per Facebook API limits
-        limit = min(limit, 100)
 
-        account = AdAccount(account_id)
-        params = {"limit": limit}
-        if after:
-            params["after"] = after
-
-        audiences_cursor = account.get_saved_audiences(
-            fields=SavedAudienceFields.BASIC_FIELDS,
-            params=params,
-        )
-
-        audiences_list = [dict(audience) for audience in audiences_cursor]
-
-        # Extract pagination info
-        pagination_info = {}
-        if (
-            hasattr(audiences_cursor, "_finished_iteration")
-            and not audiences_cursor._finished_iteration
-        ):
-            if hasattr(audiences_cursor, "params") and "after" in audiences_cursor.params:
-                pagination_info["next_cursor"] = audiences_cursor.params["after"]
-                pagination_info["has_next_page"] = True
-            else:
-                pagination_info["has_next_page"] = False
-        else:
-            pagination_info["has_next_page"] = False
-
-        return {"success": True, "data": audiences_list, "pagination": pagination_info}
-
-    except FacebookError as e:
-        return {"error": f"Facebook API error: {str(e)}"}
-    except Exception as e:
-        return {"error": f"Error: {str(e)}"}
+# ---- register tools ----
+ad_account_server.tool(run_any_ad_account_fn)
+ad_account_server.tool(get_usage_on_ad_account)
