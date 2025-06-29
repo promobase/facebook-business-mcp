@@ -3,7 +3,7 @@ from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 from src.config import get_config_from_env
-from src.servers import ad_account_server
+from src.servers import ad_account_server, ad_server, adset_server, campaign_server, insights_server
 from src.utils import handle_facebook_errors
 
 instructions = """
@@ -47,5 +47,9 @@ def create_root_mcp() -> FastMCP:
         return config.get("ad_account_id", "No default ad account configured")
 
     mcp.mount(ad_account_server, "ad_account")
+    mcp.mount(campaign_server, "campaign")
+    mcp.mount(adset_server, "adset")
+    mcp.mount(ad_server, "ad")
+    mcp.mount(insights_server, "insights")
 
     return mcp
