@@ -11,20 +11,25 @@ from pydantic import BaseModel, Field
 
 class CampaignBidStrategy(str, Enum):
     """Enum for Campaign.BidStrategy."""
+
     COST_CAP = "COST_CAP"
     LOWEST_COST_WITHOUT_CAP = "LOWEST_COST_WITHOUT_CAP"
     LOWEST_COST_WITH_BID_CAP = "LOWEST_COST_WITH_BID_CAP"
     LOWEST_COST_WITH_MIN_ROAS = "LOWEST_COST_WITH_MIN_ROAS"
 
+
 class CampaignConfiguredStatus(str, Enum):
     """Enum for Campaign.ConfiguredStatus."""
+
     ACTIVE = "ACTIVE"
     ARCHIVED = "ARCHIVED"
     DELETED = "DELETED"
     PAUSED = "PAUSED"
 
+
 class CampaignEffectiveStatus(str, Enum):
     """Enum for Campaign.EffectiveStatus."""
+
     ACTIVE = "ACTIVE"
     ARCHIVED = "ARCHIVED"
     DELETED = "DELETED"
@@ -32,15 +37,19 @@ class CampaignEffectiveStatus(str, Enum):
     PAUSED = "PAUSED"
     WITH_ISSUES = "WITH_ISSUES"
 
+
 class CampaignStatus(str, Enum):
     """Enum for Campaign.Status."""
+
     ACTIVE = "ACTIVE"
     ARCHIVED = "ARCHIVED"
     DELETED = "DELETED"
     PAUSED = "PAUSED"
 
+
 class CampaignDatePreset(str, Enum):
     """Enum for Campaign.DatePreset."""
+
     DATA_MAXIMUM = "data_maximum"
     LAST_14D = "last_14d"
     LAST_28D = "last_28d"
@@ -62,13 +71,17 @@ class CampaignDatePreset(str, Enum):
     TODAY = "today"
     YESTERDAY = "yesterday"
 
+
 class CampaignExecutionOptions(str, Enum):
     """Enum for Campaign.ExecutionOptions."""
+
     INCLUDE_RECOMMENDATIONS = "include_recommendations"
     VALIDATE_ONLY = "validate_only"
 
+
 class CampaignObjective(str, Enum):
     """Enum for Campaign.Objective."""
+
     APP_INSTALLS = "APP_INSTALLS"
     BRAND_AWARENESS = "BRAND_AWARENESS"
     CONVERSIONS = "CONVERSIONS"
@@ -91,13 +104,17 @@ class CampaignObjective(str, Enum):
     STORE_VISITS = "STORE_VISITS"
     VIDEO_VIEWS = "VIDEO_VIEWS"
 
+
 class CampaignSmartPromotionType(str, Enum):
     """Enum for Campaign.SmartPromotionType."""
+
     GUIDED_CREATION = "GUIDED_CREATION"
     SMART_APP_PROMOTION = "SMART_APP_PROMOTION"
 
+
 class CampaignSpecialAdCategories(str, Enum):
     """Enum for Campaign.SpecialAdCategories."""
+
     CREDIT = "CREDIT"
     EMPLOYMENT = "EMPLOYMENT"
     FINANCIAL_PRODUCTS_SERVICES = "FINANCIAL_PRODUCTS_SERVICES"
@@ -106,8 +123,10 @@ class CampaignSpecialAdCategories(str, Enum):
     NONE = "NONE"
     ONLINE_GAMBLING_AND_GAMING = "ONLINE_GAMBLING_AND_GAMING"
 
+
 class CampaignSpecialAdCategoryCountry(str, Enum):
     """Enum for Campaign.SpecialAdCategoryCountry."""
+
     AD = "AD"
     AE = "AE"
     AF = "AF"
@@ -360,13 +379,17 @@ class CampaignSpecialAdCategoryCountry(str, Enum):
     ZM = "ZM"
     ZW = "ZW"
 
+
 class CampaignOperator(str, Enum):
     """Enum for Campaign.Operator."""
+
     ALL = "ALL"
     ANY = "ANY"
 
+
 class CampaignSpecialAdCategory(str, Enum):
     """Enum for Campaign.SpecialAdCategory."""
+
     CREDIT = "CREDIT"
     EMPLOYMENT = "EMPLOYMENT"
     FINANCIAL_PRODUCTS_SERVICES = "FINANCIAL_PRODUCTS_SERVICES"
@@ -375,11 +398,14 @@ class CampaignSpecialAdCategory(str, Enum):
     NONE = "NONE"
     ONLINE_GAMBLING_AND_GAMING = "ONLINE_GAMBLING_AND_GAMING"
 
+
 class CampaignStatusOption(str, Enum):
     """Enum for Campaign.StatusOption."""
+
     ACTIVE = "ACTIVE"
     INHERITED_FROM_SOURCE = "INHERITED_FROM_SOURCE"
     PAUSED = "PAUSED"
+
 
 CampaignField = Literal[
     "account_id",
@@ -426,7 +452,7 @@ CampaignField = Literal[
     "updated_time",
     "adbatch",
     "execution_options",
-    "iterative_split_test_configs"
+    "iterative_split_test_configs",
 ]
 
 
@@ -449,7 +475,9 @@ class CampaignFields(BaseModel):
     created_time: datetime | None = Field(None, alias="created_time")
     daily_budget: str | None = Field(None, alias="daily_budget")
     effective_status: dict[str, Any] | None = Field(None, alias="effective_status")
-    has_secondary_skadnetwork_reporting: bool | None = Field(None, alias="has_secondary_skadnetwork_reporting")
+    has_secondary_skadnetwork_reporting: bool | None = Field(
+        None, alias="has_secondary_skadnetwork_reporting"
+    )
     id: str | None = Field(None, alias="id")
     is_budget_schedule_enabled: bool | None = Field(None, alias="is_budget_schedule_enabled")
     is_skadnetwork_attribution: bool | None = Field(None, alias="is_skadnetwork_attribution")
@@ -477,11 +505,14 @@ class CampaignFields(BaseModel):
     updated_time: datetime | None = Field(None, alias="updated_time")
     adbatch: list[dict[str, Any]] | None = Field(None, alias="adbatch")
     execution_options: list[dict[str, Any]] | None = Field(None, alias="execution_options")
-    iterative_split_test_configs: list[dict[str, Any]] | None = Field(None, alias="iterative_split_test_configs")
+    iterative_split_test_configs: list[dict[str, Any]] | None = Field(
+        None, alias="iterative_split_test_configs"
+    )
 
     class Config:
         populate_by_name = True
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignApiGetParams(BaseModel):
     """Parameters for Campaign.api_get()."""
@@ -492,36 +523,48 @@ class CampaignApiGetParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignApiUpdateParams(BaseModel):
     """Parameters for Campaign.api_update()."""
 
     adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    adset_bid_amounts: dict[str, Any] | None = Field(None, description="adset_bid_amounts parameter")
+    adset_bid_amounts: dict[str, Any] | None = Field(
+        None, description="adset_bid_amounts parameter"
+    )
     adset_budgets: list[dict[str, Any]] | None = Field(None, description="adset_budgets parameter")
     bid_strategy: str | None = Field(None, description="bid_strategy parameter")
     budget_rebalance_flag: bool | None = Field(None, description="budget_rebalance_flag parameter")
     daily_budget: int | None = Field(None, description="daily_budget parameter")
     execution_options: list[str] | None = Field(None, description="execution_options parameter")
-    is_skadnetwork_attribution: bool | None = Field(None, description="is_skadnetwork_attribution parameter")
-    iterative_split_test_configs: list[Any] | None = Field(None, description="iterative_split_test_configs parameter")
+    is_skadnetwork_attribution: bool | None = Field(
+        None, description="is_skadnetwork_attribution parameter"
+    )
+    iterative_split_test_configs: list[Any] | None = Field(
+        None, description="iterative_split_test_configs parameter"
+    )
     lifetime_budget: int | None = Field(None, description="lifetime_budget parameter")
     name: str | None = Field(None, description="name parameter")
     objective: str | None = Field(None, description="objective parameter")
     pacing_type: list[str] | None = Field(None, description="pacing_type parameter")
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
     smart_promotion_type: str | None = Field(None, description="smart_promotion_type parameter")
-    special_ad_categories: list[str] | None = Field(None, description="special_ad_categories parameter")
+    special_ad_categories: list[str] | None = Field(
+        None, description="special_ad_categories parameter"
+    )
     special_ad_category: str | None = Field(None, description="special_ad_category parameter")
-    special_ad_category_country: list[str] | None = Field(None, description="special_ad_category_country parameter")
+    special_ad_category_country: list[str] | None = Field(
+        None, description="special_ad_category_country parameter"
+    )
     spend_cap: int | None = Field(None, description="spend_cap parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
     status: str | None = Field(None, description="status parameter")
     stop_time: datetime | None = Field(None, description="stop_time parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignCreateAdLabelParams(BaseModel):
     """Parameters for Campaign.create_ad_label()."""
@@ -530,7 +573,8 @@ class CampaignCreateAdLabelParams(BaseModel):
     execution_options: list[str] | None = Field(None, description="execution_options parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignGetAdRulesGovernedParams(BaseModel):
     """Parameters for Campaign.get_ad_rules_governed()."""
@@ -538,7 +582,8 @@ class CampaignGetAdRulesGovernedParams(BaseModel):
     pass_evaluation: bool | None = Field(None, description="pass_evaluation parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignGetAdsParams(BaseModel):
     """Parameters for Campaign.get_ads()."""
@@ -549,7 +594,8 @@ class CampaignGetAdsParams(BaseModel):
     updated_since: int | None = Field(None, description="updated_since parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignGetAdSetsParams(BaseModel):
     """Parameters for Campaign.get_ad_sets()."""
@@ -560,7 +606,8 @@ class CampaignGetAdSetsParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignCreateBudgetScheduleParams(BaseModel):
     """Parameters for Campaign.create_budget_schedule()."""
@@ -571,7 +618,8 @@ class CampaignCreateBudgetScheduleParams(BaseModel):
     time_start: int | None = Field(None, description="time_start parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignGetCopiesParams(BaseModel):
     """Parameters for Campaign.get_copies()."""
@@ -582,7 +630,8 @@ class CampaignGetCopiesParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignCreateCopyParams(BaseModel):
     """Parameters for Campaign.create_copy()."""
@@ -594,12 +643,15 @@ class CampaignCreateCopyParams(BaseModel):
     status_option: str | None = Field(None, description="status_option parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignGetInsightsParams(BaseModel):
     """Parameters for Campaign.get_insights()."""
 
-    action_attribution_windows: list[str] | None = Field(None, description="action_attribution_windows parameter")
+    action_attribution_windows: list[str] | None = Field(
+        None, description="action_attribution_windows parameter"
+    )
     action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
     action_report_time: str | None = Field(None, description="action_report_time parameter")
     breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
@@ -615,20 +667,29 @@ class CampaignGetInsightsParams(BaseModel):
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(None, description="summary_action_breakdowns parameter")
+    summary_action_breakdowns: list[str] | None = Field(
+        None, description="summary_action_breakdowns parameter"
+    )
     time_increment: str | None = Field(None, description="time_increment parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     time_ranges: list[dict[str, Any]] | None = Field(None, description="time_ranges parameter")
-    use_account_attribution_setting: bool | None = Field(None, description="use_account_attribution_setting parameter")
-    use_unified_attribution_setting: bool | None = Field(None, description="use_unified_attribution_setting parameter")
+    use_account_attribution_setting: bool | None = Field(
+        None, description="use_account_attribution_setting parameter"
+    )
+    use_unified_attribution_setting: bool | None = Field(
+        None, description="use_unified_attribution_setting parameter"
+    )
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CampaignGetInsightsAsyncParams(BaseModel):
     """Parameters for Campaign.get_insights_async()."""
 
-    action_attribution_windows: list[str] | None = Field(None, description="action_attribution_windows parameter")
+    action_attribution_windows: list[str] | None = Field(
+        None, description="action_attribution_windows parameter"
+    )
     action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
     action_report_time: str | None = Field(None, description="action_report_time parameter")
     breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
@@ -644,12 +705,18 @@ class CampaignGetInsightsAsyncParams(BaseModel):
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(None, description="summary_action_breakdowns parameter")
+    summary_action_breakdowns: list[str] | None = Field(
+        None, description="summary_action_breakdowns parameter"
+    )
     time_increment: str | None = Field(None, description="time_increment parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     time_ranges: list[dict[str, Any]] | None = Field(None, description="time_ranges parameter")
-    use_account_attribution_setting: bool | None = Field(None, description="use_account_attribution_setting parameter")
-    use_unified_attribution_setting: bool | None = Field(None, description="use_unified_attribution_setting parameter")
+    use_account_attribution_setting: bool | None = Field(
+        None, description="use_account_attribution_setting parameter"
+    )
+    use_unified_attribution_setting: bool | None = Field(
+        None, description="use_unified_attribution_setting parameter"
+    )
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"

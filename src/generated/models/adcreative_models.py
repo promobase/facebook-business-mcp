@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 class AdCreativeCallToActionType(str, Enum):
     """Enum for AdCreative.CallToActionType."""
+
     ADD_TO_CART = "ADD_TO_CART"
     APPLY_NOW = "APPLY_NOW"
     ASK_ABOUT_SERVICES = "ASK_ABOUT_SERVICES"
@@ -101,8 +102,10 @@ class AdCreativeCallToActionType(str, Enum):
     WHATSAPP_MESSAGE = "WHATSAPP_MESSAGE"
     WOODHENGE_SUPPORT = "WOODHENGE_SUPPORT"
 
+
 class AdCreativeObjectType(str, Enum):
     """Enum for AdCreative.ObjectType."""
+
     APPLICATION = "APPLICATION"
     DOMAIN = "DOMAIN"
     EVENT = "EVENT"
@@ -117,48 +120,63 @@ class AdCreativeObjectType(str, Enum):
     STORE_ITEM = "STORE_ITEM"
     VIDEO = "VIDEO"
 
+
 class AdCreativeStatus(str, Enum):
     """Enum for AdCreative.Status."""
+
     ACTIVE = "ACTIVE"
     DELETED = "DELETED"
     IN_PROCESS = "IN_PROCESS"
     WITH_ISSUES = "WITH_ISSUES"
 
+
 class AdCreativeApplinkTreatment(str, Enum):
     """Enum for AdCreative.ApplinkTreatment."""
+
     AUTOMATIC = "automatic"
     DEEPLINK_WITH_APPSTORE_FALLBACK = "deeplink_with_appstore_fallback"
     DEEPLINK_WITH_WEB_FALLBACK = "deeplink_with_web_fallback"
     WEB_ONLY = "web_only"
 
+
 class AdCreativeAuthorizationCategory(str, Enum):
     """Enum for AdCreative.AuthorizationCategory."""
+
     NONE = "NONE"
     POLITICAL = "POLITICAL"
     POLITICAL_WITH_DIGITALLY_CREATED_MEDIA = "POLITICAL_WITH_DIGITALLY_CREATED_MEDIA"
 
+
 class AdCreativeCategorizationCriteria(str, Enum):
     """Enum for AdCreative.CategorizationCriteria."""
+
     BRAND = "brand"
     CATEGORY = "category"
     PRODUCT_TYPE = "product_type"
 
+
 class AdCreativeCategoryMediaSource(str, Enum):
     """Enum for AdCreative.CategoryMediaSource."""
+
     CATEGORY = "CATEGORY"
     MIXED = "MIXED"
     PRODUCTS_COLLAGE = "PRODUCTS_COLLAGE"
     PRODUCTS_SLIDESHOW = "PRODUCTS_SLIDESHOW"
 
+
 class AdCreativeDynamicAdVoice(str, Enum):
     """Enum for AdCreative.DynamicAdVoice."""
+
     DYNAMIC = "DYNAMIC"
     STORY_OWNER = "STORY_OWNER"
 
+
 class AdCreativeOperator(str, Enum):
     """Enum for AdCreative.Operator."""
+
     ALL = "ALL"
     ANY = "ANY"
+
 
 AdCreativeField = Literal[
     "account_id",
@@ -232,7 +250,7 @@ AdCreativeField = Literal[
     "use_page_actor_override",
     "video_id",
     "image_file",
-    "is_dco_internal"
+    "is_dco_internal",
 ]
 
 
@@ -249,19 +267,25 @@ class AdCreativeFields(BaseModel):
     auto_update: bool | None = Field(None, alias="auto_update")
     body: str | None = Field(None, alias="body")
     branded_content: dict[str, Any] | None = Field(None, alias="branded_content")
-    branded_content_sponsor_page_id: str | None = Field(None, alias="branded_content_sponsor_page_id")
+    branded_content_sponsor_page_id: str | None = Field(
+        None, alias="branded_content_sponsor_page_id"
+    )
     bundle_folder_id: str | None = Field(None, alias="bundle_folder_id")
     call_to_action: dict[str, Any] | None = Field(None, alias="call_to_action")
     call_to_action_type: dict[str, Any] | None = Field(None, alias="call_to_action_type")
     categorization_criteria: str | None = Field(None, alias="categorization_criteria")
     category_media_source: str | None = Field(None, alias="category_media_source")
-    collaborative_ads_lsb_image_bank_id: str | None = Field(None, alias="collaborative_ads_lsb_image_bank_id")
+    collaborative_ads_lsb_image_bank_id: str | None = Field(
+        None, alias="collaborative_ads_lsb_image_bank_id"
+    )
     contextual_multi_ads: dict[str, Any] | None = Field(None, alias="contextual_multi_ads")
     creative_sourcing_spec: dict[str, Any] | None = Field(None, alias="creative_sourcing_spec")
     degrees_of_freedom_spec: dict[str, Any] | None = Field(None, alias="degrees_of_freedom_spec")
     destination_set_id: str | None = Field(None, alias="destination_set_id")
     dynamic_ad_voice: str | None = Field(None, alias="dynamic_ad_voice")
-    effective_authorization_category: str | None = Field(None, alias="effective_authorization_category")
+    effective_authorization_category: str | None = Field(
+        None, alias="effective_authorization_category"
+    )
     effective_instagram_media_id: str | None = Field(None, alias="effective_instagram_media_id")
     effective_object_story_id: str | None = Field(None, alias="effective_object_story_id")
     enable_direct_install: bool | None = Field(None, alias="enable_direct_install")
@@ -271,10 +295,14 @@ class AdCreativeFields(BaseModel):
     image_crops: dict[str, Any] | None = Field(None, alias="image_crops")
     image_hash: str | None = Field(None, alias="image_hash")
     image_url: str | None = Field(None, alias="image_url")
-    instagram_branded_content: dict[str, Any] | None = Field(None, alias="instagram_branded_content")
+    instagram_branded_content: dict[str, Any] | None = Field(
+        None, alias="instagram_branded_content"
+    )
     instagram_permalink_url: str | None = Field(None, alias="instagram_permalink_url")
     instagram_user_id: str | None = Field(None, alias="instagram_user_id")
-    interactive_components_spec: dict[str, Any] | None = Field(None, alias="interactive_components_spec")
+    interactive_components_spec: dict[str, Any] | None = Field(
+        None, alias="interactive_components_spec"
+    )
     link_deep_link_url: str | None = Field(None, alias="link_deep_link_url")
     link_destination_display_url: str | None = Field(None, alias="link_destination_display_url")
     link_og_id: str | None = Field(None, alias="link_og_id")
@@ -289,7 +317,9 @@ class AdCreativeFields(BaseModel):
     object_url: str | None = Field(None, alias="object_url")
     omnichannel_link_spec: dict[str, Any] | None = Field(None, alias="omnichannel_link_spec")
     page_welcome_message: str | None = Field(None, alias="page_welcome_message")
-    photo_album_source_object_story_id: str | None = Field(None, alias="photo_album_source_object_story_id")
+    photo_album_source_object_story_id: str | None = Field(
+        None, alias="photo_album_source_object_story_id"
+    )
     place_page_set_id: str | None = Field(None, alias="place_page_set_id")
     platform_customizations: dict[str, Any] | None = Field(None, alias="platform_customizations")
     playable_asset_id: str | None = Field(None, alias="playable_asset_id")
@@ -297,7 +327,9 @@ class AdCreativeFields(BaseModel):
     product_data: list[dict[str, Any]] | None = Field(None, alias="product_data")
     product_set_id: str | None = Field(None, alias="product_set_id")
     recommender_settings: dict[str, Any] | None = Field(None, alias="recommender_settings")
-    regional_regulation_disclaimer_spec: dict[str, Any] | None = Field(None, alias="regional_regulation_disclaimer_spec")
+    regional_regulation_disclaimer_spec: dict[str, Any] | None = Field(
+        None, alias="regional_regulation_disclaimer_spec"
+    )
     source_facebook_post_id: str | None = Field(None, alias="source_facebook_post_id")
     source_instagram_media_id: str | None = Field(None, alias="source_instagram_media_id")
     status: dict[str, Any] | None = Field(None, alias="status")
@@ -314,7 +346,8 @@ class AdCreativeFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class AdCreativeApiDeleteParams(BaseModel):
     """Parameters for AdCreative.api_delete()."""
@@ -325,7 +358,8 @@ class AdCreativeApiDeleteParams(BaseModel):
     status: str | None = Field(None, description="status parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class AdCreativeApiGetParams(BaseModel):
     """Parameters for AdCreative.api_get()."""
@@ -334,7 +368,8 @@ class AdCreativeApiGetParams(BaseModel):
     thumbnail_width: int | None = Field(None, description="thumbnail_width parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class AdCreativeApiUpdateParams(BaseModel):
     """Parameters for AdCreative.api_update()."""
@@ -345,7 +380,8 @@ class AdCreativeApiUpdateParams(BaseModel):
     status: str | None = Field(None, description="status parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class AdCreativeCreateAdLabelParams(BaseModel):
     """Parameters for AdCreative.create_ad_label()."""
@@ -353,7 +389,8 @@ class AdCreativeCreateAdLabelParams(BaseModel):
     adlabels: list[Any] | None = Field(None, description="adlabels parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class AdCreativeGetPreviewsParams(BaseModel):
     """Parameters for AdCreative.get_previews()."""
@@ -374,4 +411,4 @@ class AdCreativeGetPreviewsParams(BaseModel):
     width: int | None = Field(None, description="width parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"

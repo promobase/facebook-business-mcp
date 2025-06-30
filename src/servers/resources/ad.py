@@ -5,7 +5,6 @@ from typing import Any
 from facebook_business.adobjects.ad import Ad
 from fastmcp import FastMCP
 
-from src.generated.models.ad_models import AdFields
 from src.utils import wrapped_fn_tool
 
 # Server setup

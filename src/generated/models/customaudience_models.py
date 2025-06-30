@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 class CustomAudienceClaimObjective(str, Enum):
     """Enum for CustomAudience.ClaimObjective."""
+
     AUTOMOTIVE_MODEL = "AUTOMOTIVE_MODEL"
     COLLABORATIVE_ADS = "COLLABORATIVE_ADS"
     HOME_LISTING = "HOME_LISTING"
@@ -20,8 +21,10 @@ class CustomAudienceClaimObjective(str, Enum):
     VEHICLE = "VEHICLE"
     VEHICLE_OFFER = "VEHICLE_OFFER"
 
+
 class CustomAudienceContentType(str, Enum):
     """Enum for CustomAudience.ContentType."""
+
     AUTOMOTIVE_MODEL = "AUTOMOTIVE_MODEL"
     DESTINATION = "DESTINATION"
     FLIGHT = "FLIGHT"
@@ -35,19 +38,25 @@ class CustomAudienceContentType(str, Enum):
     VEHICLE = "VEHICLE"
     VEHICLE_OFFER = "VEHICLE_OFFER"
 
+
 class CustomAudienceCustomerFileSource(str, Enum):
     """Enum for CustomAudience.CustomerFileSource."""
+
     BOTH_USER_AND_PARTNER_PROVIDED = "BOTH_USER_AND_PARTNER_PROVIDED"
     PARTNER_PROVIDED_ONLY = "PARTNER_PROVIDED_ONLY"
     USER_PROVIDED_ONLY = "USER_PROVIDED_ONLY"
 
+
 class CustomAudienceSubscriptionInfo(str, Enum):
     """Enum for CustomAudience.SubscriptionInfo."""
+
     MESSENGER = "MESSENGER"
     WHATSAPP = "WHATSAPP"
 
+
 class CustomAudienceSubtype(str, Enum):
     """Enum for CustomAudience.Subtype."""
+
     APP = "APP"
     BAG_OF_ACCOUNTS = "BAG_OF_ACCOUNTS"
     BIDDING = "BIDDING"
@@ -68,15 +77,20 @@ class CustomAudienceSubtype(str, Enum):
     VIDEO = "VIDEO"
     WEBSITE = "WEBSITE"
 
+
 class CustomAudienceUseForProducts(str, Enum):
     """Enum for CustomAudience.UseForProducts."""
+
     ADS = "ADS"
     MARKETING_MESSAGES = "MARKETING_MESSAGES"
 
+
 class CustomAudienceActionSource(str, Enum):
     """Enum for CustomAudience.ActionSource."""
+
     PHYSICAL_STORE = "PHYSICAL_STORE"
     WEBSITE = "WEBSITE"
+
 
 CustomAudienceField = Literal[
     "account_id",
@@ -143,7 +157,7 @@ CustomAudienceField = Literal[
     "use_for_products",
     "use_in_campaigns",
     "video_group_ids",
-    "whats_app_business_phone_number_id"
+    "whats_app_business_phone_number_id",
 ]
 
 
@@ -156,15 +170,21 @@ class CustomAudienceFields(BaseModel):
     customer_file_source: str | None = Field(None, alias="customer_file_source")
     data_source: dict[str, Any] | None = Field(None, alias="data_source")
     data_source_types: str | None = Field(None, alias="data_source_types")
-    datafile_custom_audience_uploading_status: str | None = Field(None, alias="datafile_custom_audience_uploading_status")
+    datafile_custom_audience_uploading_status: str | None = Field(
+        None, alias="datafile_custom_audience_uploading_status"
+    )
     delete_time: int | None = Field(None, alias="delete_time")
     delivery_status: dict[str, Any] | None = Field(None, alias="delivery_status")
     description: str | None = Field(None, alias="description")
-    excluded_custom_audiences: list[dict[str, Any]] | None = Field(None, alias="excluded_custom_audiences")
+    excluded_custom_audiences: list[dict[str, Any]] | None = Field(
+        None, alias="excluded_custom_audiences"
+    )
     external_event_source: dict[str, Any] | None = Field(None, alias="external_event_source")
     household_audience: int | None = Field(None, alias="household_audience")
     id: str | None = Field(None, alias="id")
-    included_custom_audiences: list[dict[str, Any]] | None = Field(None, alias="included_custom_audiences")
+    included_custom_audiences: list[dict[str, Any]] | None = Field(
+        None, alias="included_custom_audiences"
+    )
     is_eligible_for_sac_campaigns: bool | None = Field(None, alias="is_eligible_for_sac_campaigns")
     is_household: bool | None = Field(None, alias="is_household")
     is_snapshot: bool | None = Field(None, alias="is_snapshot")
@@ -175,7 +195,9 @@ class CustomAudienceFields(BaseModel):
     operation_status: dict[str, Any] | None = Field(None, alias="operation_status")
     opt_out_link: str | None = Field(None, alias="opt_out_link")
     owner_business: dict[str, Any] | None = Field(None, alias="owner_business")
-    page_deletion_marked_delete_time: int | None = Field(None, alias="page_deletion_marked_delete_time")
+    page_deletion_marked_delete_time: int | None = Field(
+        None, alias="page_deletion_marked_delete_time"
+    )
     permission_for_actions: dict[str, Any] | None = Field(None, alias="permission_for_actions")
     pixel_id: str | None = Field(None, alias="pixel_id")
     regulated_audience_spec: dict[str, Any] | None = Field(None, alias="regulated_audience_spec")
@@ -204,7 +226,9 @@ class CustomAudienceFields(BaseModel):
     facebook_page_id: str | None = Field(None, alias="facebook_page_id")
     inclusions: list[dict[str, Any]] | None = Field(None, alias="inclusions")
     list_of_accounts: list[int] | None = Field(None, alias="list_of_accounts")
-    marketing_message_channels: dict[str, Any] | None = Field(None, alias="marketing_message_channels")
+    marketing_message_channels: dict[str, Any] | None = Field(
+        None, alias="marketing_message_channels"
+    )
     origin_audience_id: str | None = Field(None, alias="origin_audience_id")
     parent_audience_id: int | None = Field(None, alias="parent_audience_id")
     partner_reference_key: str | None = Field(None, alias="partner_reference_key")
@@ -214,22 +238,30 @@ class CustomAudienceFields(BaseModel):
     use_for_products: list[dict[str, Any]] | None = Field(None, alias="use_for_products")
     use_in_campaigns: bool | None = Field(None, alias="use_in_campaigns")
     video_group_ids: list[str] | None = Field(None, alias="video_group_ids")
-    whats_app_business_phone_number_id: str | None = Field(None, alias="whats_app_business_phone_number_id")
+    whats_app_business_phone_number_id: str | None = Field(
+        None, alias="whats_app_business_phone_number_id"
+    )
 
     class Config:
         populate_by_name = True
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceApiGetParams(BaseModel):
     """Parameters for CustomAudience.api_get()."""
 
     ad_account_id: str | None = Field(None, description="ad_account_id parameter")
-    special_ad_categories: list[str] | None = Field(None, description="special_ad_categories parameter")
-    special_ad_category_countries: list[str] | None = Field(None, description="special_ad_category_countries parameter")
+    special_ad_categories: list[str] | None = Field(
+        None, description="special_ad_categories parameter"
+    )
+    special_ad_category_countries: list[str] | None = Field(
+        None, description="special_ad_category_countries parameter"
+    )
     target_countries: list[str] | None = Field(None, description="target_countries parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceApiUpdateParams(BaseModel):
     """Parameters for CustomAudience.api_update()."""
@@ -240,7 +272,9 @@ class CustomAudienceApiUpdateParams(BaseModel):
     countries: str | None = Field(None, description="countries parameter")
     customer_file_source: str | None = Field(None, description="customer_file_source parameter")
     description: str | None = Field(None, description="description parameter")
-    enable_fetch_or_create: bool | None = Field(None, description="enable_fetch_or_create parameter")
+    enable_fetch_or_create: bool | None = Field(
+        None, description="enable_fetch_or_create parameter"
+    )
     event_source_group: str | None = Field(None, description="event_source_group parameter")
     event_sources: list[dict[str, Any]] | None = Field(None, description="event_sources parameter")
     exclusions: list[Any] | None = Field(None, description="exclusions parameter")
@@ -258,7 +292,8 @@ class CustomAudienceApiUpdateParams(BaseModel):
     use_in_campaigns: bool | None = Field(None, description="use_in_campaigns parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceDeleteAdAccountsParams(BaseModel):
     """Parameters for CustomAudience.delete_ad_accounts()."""
@@ -266,7 +301,8 @@ class CustomAudienceDeleteAdAccountsParams(BaseModel):
     adaccounts: list[str] | None = Field(None, description="adaccounts parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceGetAdAccountsParams(BaseModel):
     """Parameters for CustomAudience.get_ad_accounts()."""
@@ -274,7 +310,8 @@ class CustomAudienceGetAdAccountsParams(BaseModel):
     permissions: str | None = Field(None, description="permissions parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceCreateAdAccountParams(BaseModel):
     """Parameters for CustomAudience.create_ad_account()."""
@@ -285,7 +322,8 @@ class CustomAudienceCreateAdAccountParams(BaseModel):
     replace: bool | None = Field(None, description="replace parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceGetAdsParams(BaseModel):
     """Parameters for CustomAudience.get_ads()."""
@@ -294,20 +332,24 @@ class CustomAudienceGetAdsParams(BaseModel):
     status: list[str] | None = Field(None, description="status parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceGetHealthParams(BaseModel):
     """Parameters for CustomAudience.get_health()."""
 
     calculated_date: str | None = Field(None, description="calculated_date parameter")
     processed_date: str | None = Field(None, description="processed_date parameter")
-    value_aggregation_duration: int | None = Field(None, description="value_aggregation_duration parameter")
+    value_aggregation_duration: int | None = Field(
+        None, description="value_aggregation_duration parameter"
+    )
     value_country: str | None = Field(None, description="value_country parameter")
     value_currency: str | None = Field(None, description="value_currency parameter")
     value_version: int | None = Field(None, description="value_version parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceGetSaltsParams(BaseModel):
     """Parameters for CustomAudience.get_salts()."""
@@ -315,7 +357,8 @@ class CustomAudienceGetSaltsParams(BaseModel):
     params: list[str] | None = Field(None, description="params parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceCreateSaltParams(BaseModel):
     """Parameters for CustomAudience.create_salt()."""
@@ -325,7 +368,8 @@ class CustomAudienceCreateSaltParams(BaseModel):
     valid_to: datetime | None = Field(None, description="valid_to parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceGetSessionsParams(BaseModel):
     """Parameters for CustomAudience.get_sessions()."""
@@ -333,7 +377,8 @@ class CustomAudienceGetSessionsParams(BaseModel):
     session_id: int | None = Field(None, description="session_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceDeleteUsersParams(BaseModel):
     """Parameters for CustomAudience.delete_users()."""
@@ -343,7 +388,8 @@ class CustomAudienceDeleteUsersParams(BaseModel):
     session: Any | None = Field(None, description="session parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceCreateUserParams(BaseModel):
     """Parameters for CustomAudience.create_user()."""
@@ -353,7 +399,8 @@ class CustomAudienceCreateUserParams(BaseModel):
     session: Any | None = Field(None, description="session parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class CustomAudienceCreateUsersReplaceParams(BaseModel):
     """Parameters for CustomAudience.create_users_replace()."""
@@ -363,4 +410,4 @@ class CustomAudienceCreateUsersReplaceParams(BaseModel):
     session: Any | None = Field(None, description="session parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
