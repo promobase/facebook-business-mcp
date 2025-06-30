@@ -90,6 +90,19 @@ def log_execution(fn: Callable) -> Callable:
     return wrapper
 
 
+def wrapped_fn_tool(f: Callable) -> Callable:
+    """util for composing different HOFs for a MCP server tool fn"""
+
+    @handle_facebook_errors
+    @log_execution
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        """Wrapper to apply error handling and logging to a tool function."""
+        return f(*args, **kwargs)
+
+    return wrapper
+
+
 #  ---- utils for source code extraction ----
 def safe_getsource(obj: Any) -> str:
     try:

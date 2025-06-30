@@ -114,6 +114,7 @@ def list_available_adobjects() -> str:
     )
 
 
+@higher_order_server.prompt
 @log_execution
 @handle_facebook_errors
 def get_usage_on_adobject(
@@ -201,14 +202,10 @@ def run_any_adobject_method(
     if not callable(method):
         return f"{method_name} is not a callable method on {object_name}."
 
-    try:
-        result = method(*args, **kwargs)
-        return str(result)
-    except Exception as e:
-        return f"Error calling {method_name}: {str(e)}"
+    result = method(*args, **kwargs)
+    return result
 
 
 # ---- register tools ----
 higher_order_server.tool(list_available_adobjects)
-higher_order_server.tool(get_usage_on_adobject)
 higher_order_server.tool(run_any_adobject_method)

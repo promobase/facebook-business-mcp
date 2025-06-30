@@ -1,11 +1,11 @@
 """Facebook Business MCP Servers."""
 
-from .ad import ad_server
-from .ad_account import ad_account_server
-from .adset import adset_server
-from .campaign import campaign_server
 from .higher_order_server import higher_order_server
-from .insights import insights_server
+from .marketing_api.ad import ad_server
+from .marketing_api.ad_account import ad_account_server
+from .marketing_api.adset import adset_server
+from .marketing_api.campaign import campaign_server
+from .marketing_api.insights import insights_server
 
 __all__ = [
     "ad_account_server",
