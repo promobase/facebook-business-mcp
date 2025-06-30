@@ -86,6 +86,11 @@ packages = ["main.py"]
 [tool.ruff]
 # Set as desired, typically 88 (black standard) or 100 (wide).
 line-length = 100
+fix = true
+
+[tool.ruff.format]
+# Use Unix-style line endings
+line-ending = "lf"
 
 [tool.ruff.lint]
 select = [
@@ -124,6 +129,7 @@ ignore = [
     "COM819", # https://docs.astral.sh/ruff/rules/prohibited-trailing-comma/
     "ISC002", # https://docs.astral.sh/ruff/rules/multi-line-implicit-string-concatenation/
     "B006",
+    "UP045",
 ]
 
 [tool.basedpyright]

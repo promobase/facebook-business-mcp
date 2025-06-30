@@ -5,6 +5,7 @@ from typing import Any
 from facebook_business.adobjects.campaign import Campaign
 from fastmcp import FastMCP
 
+from src.generated.models.campaign_models import CampaignFields
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -34,7 +35,17 @@ def get_campaign(
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve (e.g., ['name', 'status', 'objective', 'daily_budget']).
+        fields: Fields to retrieve. Available fields include:
+            - name: Campaign name
+            - status: Current status (ACTIVE, PAUSED, DELETED, ARCHIVED)
+            - effective_status: Actual running status considering all factors
+            - objective: Campaign objective (see CampaignObjective enum)
+            - daily_budget: Daily budget in cents
+            - lifetime_budget: Lifetime budget in cents
+            - spend_cap: Total spending limit
+            - created_time: When campaign was created
+            - start_time/stop_time: Campaign schedule
+            See CampaignFields for all available fields.
     """
     return Campaign(campaign_id).api_get(fields=fields)
 
@@ -50,7 +61,14 @@ def update_campaign(
     Args:
         campaign_id: The ID of the Campaign.
         fields: Fields to return after update.
-        params: Parameters to update (e.g., {'name': 'New Name', 'status': 'PAUSED'}).
+        params: Parameters to update. Common updates:
+            - name: Change campaign name
+            - status: ACTIVE or PAUSED (see CampaignStatus enum)
+            - daily_budget: Update daily budget in cents
+            - lifetime_budget: Update lifetime budget in cents
+            - spend_cap: Update total spending limit
+            - bid_strategy: Change bidding strategy
+            Note: Some fields like objective cannot be changed after creation.
     """
     return Campaign(campaign_id).api_update(fields=fields, params=params)
 
@@ -111,8 +129,20 @@ def get_insights(
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Metrics to retrieve (e.g., ['impressions', 'clicks', 'spend', 'cpm', 'ctr']).
-        params: Query parameters (e.g., {'date_preset': 'last_7d', 'breakdowns': ['age', 'gender']}).
+        fields: Metrics to retrieve. Common metrics:
+            - impressions: Number of times ads were shown
+            - reach: Unique people who saw ads
+            - clicks: Total clicks
+            - spend: Amount spent
+            - cpm: Cost per 1000 impressions
+            - cpp: Cost per 1000 people reached
+            - ctr: Click-through rate
+            - conversions: Conversion events
+            - cost_per_conversion: Average conversion cost
+        params: Query parameters:
+            - date_preset: last_7d, last_30d, lifetime (see CampaignDatePreset)
+            - breakdowns: ['age', 'gender', 'placement', 'device_platform']
+            - time_increment: 1, 7, or 'monthly' for time series data
     """
     return Campaign(campaign_id).get_insights(fields=fields, params=params)
 

@@ -5,6 +5,7 @@ from typing import Any
 from facebook_business.adobjects.adset import AdSet
 from fastmcp import FastMCP
 
+from src.generated.models.adset_models import AdSetFields
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -34,7 +35,17 @@ def get_adset(
 
     Args:
         adset_id: The ID of the AdSet.
-        fields: Fields to retrieve (e.g., ['name', 'status', 'daily_budget', 'targeting']).
+        fields: Fields to retrieve. Available fields include:
+            - name: Ad set name
+            - status: Current status (ACTIVE, PAUSED, DELETED, ARCHIVED)
+            - effective_status: Actual running status
+            - daily_budget: Daily budget in cents
+            - lifetime_budget: Lifetime budget in cents
+            - optimization_goal: What the ad set optimizes for (see AdSetOptimizationGoal)
+            - billing_event: What you're charged for (see AdSetBillingEvent)
+            - targeting: Audience targeting specifications
+            - start_time/end_time: Ad set schedule
+            See AdSetFields for all available fields.
     """
     return AdSet(adset_id).api_get(fields=fields)
 
@@ -50,7 +61,14 @@ def update_adset(
     Args:
         adset_id: The ID of the AdSet.
         fields: Fields to return after update.
-        params: Parameters to update (e.g., {'name': 'New Name', 'daily_budget': 5000}).
+        params: Parameters to update. Common updates:
+            - name: Change ad set name
+            - status: ACTIVE or PAUSED (see AdSetStatus enum)
+            - daily_budget: Update daily budget in cents
+            - bid_amount: Update manual bid in cents
+            - targeting: Update audience targeting
+            - end_time: Extend or set end date
+            Note: optimization_goal and billing_event cannot be changed.
     """
     return AdSet(adset_id).api_update(fields=fields, params=params)
 
@@ -95,8 +113,20 @@ def get_insights(
 
     Args:
         adset_id: The ID of the AdSet.
-        fields: Metrics to retrieve (e.g., ['impressions', 'clicks', 'spend', 'cpm', 'ctr']).
-        params: Query parameters (e.g., {'date_preset': 'last_7d', 'breakdowns': ['age', 'gender']}).
+        fields: Metrics to retrieve. Common metrics:
+            - impressions: Number of ad impressions
+            - reach: Unique people reached
+            - frequency: Average times each person saw ads
+            - clicks: Total clicks
+            - unique_clicks: Unique people who clicked
+            - spend: Amount spent
+            - cpm/cpc/ctr: Cost and rate metrics
+            - conversions: Conversion events by type
+            - cost_per_conversion: Average conversion cost
+        params: Query parameters:
+            - date_preset: last_7d, last_30d, lifetime (see AdSetDatePreset)
+            - breakdowns: ['age', 'gender', 'placement', 'device_platform']
+            - action_breakdowns: ['action_type', 'action_target_id']
     """
     return AdSet(adset_id).get_insights(fields=fields, params=params)
 
@@ -114,8 +144,14 @@ def get_delivery_estimate(
 
     Args:
         adset_id: The ID of the AdSet.
-        fields: Fields to retrieve.
-        params: Estimation parameters.
+        fields: Fields to retrieve:
+            - estimate_dau: Estimated daily active users
+            - estimate_mau: Estimated monthly active users
+            - estimate_ready: Whether estimate is ready
+        params: Estimation parameters:
+            - optimization_goal: Goal to estimate for
+            - targeting_spec: Targeting to estimate
+            - creative_action_spec: Creative details
     """
     return AdSet(adset_id).get_delivery_estimate(fields=fields, params=params)
 

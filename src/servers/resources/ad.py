@@ -5,6 +5,7 @@ from typing import Any
 from facebook_business.adobjects.ad import Ad
 from fastmcp import FastMCP
 
+from src.generated.models.ad_models import AdFields
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -34,7 +35,16 @@ def get_ad(
 
     Args:
         ad_id: The ID of the Ad.
-        fields: Fields to retrieve (e.g., ['name', 'status', 'adset_id', 'creative']).
+        fields: Fields to retrieve. Available fields include:
+            - name: Ad name
+            - status: Current status (ACTIVE, PAUSED, DELETED, ARCHIVED)
+            - effective_status: Actual delivery status (see AdEffectiveStatus)
+            - adset_id: Parent ad set ID
+            - campaign_id: Parent campaign ID
+            - creative: Associated creative object
+            - bid_amount: Bid amount if using manual bidding
+            - created_time/updated_time: Timestamps
+            See AdFields for all available fields.
     """
     return Ad(ad_id).api_get(fields=fields)
 
@@ -50,7 +60,13 @@ def update_ad(
     Args:
         ad_id: The ID of the Ad.
         fields: Fields to return after update.
-        params: Parameters to update (e.g., {'name': 'New Name', 'status': 'PAUSED'}).
+        params: Parameters to update. Common updates:
+            - name: Change ad name
+            - status: ACTIVE or PAUSED (see AdStatus enum)
+            - creative: Change creative by providing new creative ID
+            - tracking_specs: Update tracking pixels
+            - adlabels: Add or update ad labels for organization
+            Note: Most targeting and optimization settings are at ad set level.
     """
     return Ad(ad_id).api_update(fields=fields, params=params)
 
@@ -78,7 +94,15 @@ def get_ad_creatives(
 
     Args:
         ad_id: The ID of the Ad.
-        fields: Fields to retrieve (e.g., ['name', 'object_story_spec', 'image_url']).
+        fields: Fields to retrieve:
+            - name: Creative name
+            - object_story_spec: Post/link specification
+            - title: Ad title text
+            - body: Ad body text
+            - image_url: URL of the ad image
+            - video_id: ID of video if video ad
+            - call_to_action_type: Button text (LEARN_MORE, SHOP_NOW, etc.)
+            - link_url: Destination URL
         params: Query parameters.
     """
     return Ad(ad_id).get_ad_creatives(fields=fields, params=params)
@@ -95,8 +119,21 @@ def get_insights(
 
     Args:
         ad_id: The ID of the Ad.
-        fields: Metrics to retrieve (e.g., ['impressions', 'clicks', 'spend', 'cpm', 'ctr']).
-        params: Query parameters (e.g., {'date_preset': 'last_7d', 'breakdowns': ['age', 'gender']}).
+        fields: Metrics to retrieve. Common metrics:
+            - impressions: Number of times ad was shown
+            - reach: Unique people who saw the ad
+            - frequency: Average times each person saw ad
+            - clicks: All clicks (link clicks + other)
+            - unique_clicks: Unique people who clicked
+            - spend: Amount spent on this ad
+            - cpm/cpc/ctr: Cost and performance rates
+            - conversions: Conversions by type
+            - video_avg_time_watched_actions: Video metrics
+            - cost_per_action_type: Cost per conversion type
+        params: Query parameters:
+            - date_preset: last_7d, last_30d, lifetime (see AdDatePreset)
+            - breakdowns: ['age', 'gender', 'placement', 'impression_device']
+            - use_unified_attribution_setting: true for cross-device attribution
     """
     return Ad(ad_id).get_insights(fields=fields, params=params)
 

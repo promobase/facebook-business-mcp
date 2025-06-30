@@ -1,11 +1,9 @@
 """Campaign Management Workflow Server - High-level operations for common campaign tasks."""
 
-from typing import Any, Optional
+from typing import Any
 
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.campaign import Campaign
-from facebook_business.adobjects.adset import AdSet
-from facebook_business.adobjects.ad import Ad
 from fastmcp import FastMCP
 
 from src.utils import wrapped_fn_tool
@@ -27,6 +25,8 @@ campaign_management_server = FastMCP(
     instructions=instructions,
 )
 
+Campaign.Field.__dict__.values()
+
 
 # ---- Complete Campaign Creation ----
 @wrapped_fn_tool
@@ -40,7 +40,7 @@ def create_complete_campaign(
     optimization_goal: str = "LINK_CLICKS",
     billing_event: str = "IMPRESSIONS",
     bid_strategy: str = "LOWEST_COST_WITHOUT_CAP",
-    destination_url: Optional[str] = None,
+    destination_url: str | None = None,
     special_ad_categories: list[str] = [],
 ) -> str:
     """Create a complete campaign with ad set in one operation.

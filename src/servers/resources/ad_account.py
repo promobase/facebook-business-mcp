@@ -5,6 +5,8 @@ from typing import Any
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 
+from src.generated.models.adaccount_models import AdAccountField
+from src.generated.models.campaign_models import CampaignField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,13 +30,21 @@ ad_account_server = FastMCP(
 @wrapped_fn_tool
 def get_ad_account(
     ad_account_id: str,
-    fields: list[str] = [],
+    fields: list[AdAccountField] = [],
 ) -> str:
     """Get an AdAccount object by ID.
 
     Args:
         ad_account_id: The ID of the Ad Account (must start with 'act_').
-        fields: Fields to retrieve (e.g., ['name', 'account_status', 'currency']).
+        fields: Fields to retrieve. Available fields include:
+            - name: Account name
+            - account_status: 1 = active, 2 = disabled, 3 = unsettled
+            - currency: Three letter currency code (e.g., 'USD', 'EUR')
+            - balance: Current balance in account currency
+            - spend_cap: Account spending limit
+            - timezone_name: Business timezone
+            - created_time: When the account was created
+            See AdAccountFields for all available fields.
     """
     account = AdAccount(ad_account_id)
     return account.api_get(fields=fields)
@@ -60,7 +70,7 @@ def update_ad_account(
 @wrapped_fn_tool
 def get_campaigns(
     ad_account_id: str,
-    fields: list[str] = [],
+    fields: list[CampaignField] = [],
     params: dict[str, Any] = {},
 ) -> str:
     """Get campaigns for this ad account.
@@ -76,7 +86,7 @@ def get_campaigns(
 @wrapped_fn_tool
 def create_campaign(
     ad_account_id: str,
-    fields: list[str] = [],
+    fields: list[CampaignField] = [],
     params: dict[str, Any] = {},
 ) -> str:
     """Create a new campaign in this ad account.
@@ -84,7 +94,16 @@ def create_campaign(
     Args:
         ad_account_id: The ID of the Ad Account (must start with 'act_').
         fields: Fields to return for created campaign.
-        params: Campaign creation parameters (e.g., {'name': 'My Campaign', 'objective': 'LINK_CLICKS', 'status': 'PAUSED'}).
+        params: Campaign creation parameters. Required fields:
+            - name: Campaign name
+            - objective: Campaign objective (see CampaignObjective enum)
+              Options: LINK_CLICKS, CONVERSIONS, BRAND_AWARENESS, REACH, etc.
+            - status: ACTIVE or PAUSED (start paused recommended)
+            Optional fields:
+            - special_ad_categories: ['NONE'] or ['HOUSING', 'EMPLOYMENT', 'CREDIT']
+            - daily_budget: Daily budget in cents
+            - lifetime_budget: Lifetime budget in cents
+            - bid_strategy: LOWEST_COST_WITHOUT_CAP (default) or COST_CAP
     """
     return AdAccount(ad_account_id).create_campaign(fields=fields, params=params)
 
@@ -116,7 +135,18 @@ def create_ad_set(
     Args:
         ad_account_id: The ID of the Ad Account (must start with 'act_').
         fields: Fields to return for created ad set.
-        params: Ad set creation parameters (e.g., {'name': 'My AdSet', 'campaign_id': '123', 'daily_budget': 10000, 'billing_event': 'IMPRESSIONS', 'optimization_goal': 'LINK_CLICKS', 'targeting': {...}, 'status': 'PAUSED'}).
+        params: Ad set creation parameters. Required fields:
+            - name: Ad set name
+            - campaign_id: Parent campaign ID
+            - daily_budget or lifetime_budget: Budget in cents (e.g., 10000 = $100)
+            - billing_event: IMPRESSIONS, CLICKS, or other (see AdSetBillingEvent)
+            - optimization_goal: What to optimize for (see AdSetOptimizationGoal)
+              Common: REACH, IMPRESSIONS, LINK_CLICKS, CONVERSIONS, VALUE
+            - targeting: Targeting spec dict with geo_locations, age_min/max, etc.
+            - status: ACTIVE or PAUSED (start paused recommended)
+            Optional fields:
+            - start_time/end_time: Schedule as datetime strings
+            - bid_amount: Manual bid in cents (if not using auto-bidding)
     """
     return AdAccount(ad_account_id).create_ad_set(fields=fields, params=params)
 
@@ -132,8 +162,20 @@ def get_insights(
 
     Args:
         ad_account_id: The ID of the Ad Account (must start with 'act_').
-        fields: Metrics to retrieve (e.g., ['impressions', 'clicks', 'spend', 'cpm', 'ctr']).
-        params: Query parameters (e.g., {'date_preset': 'last_7d', 'level': 'campaign'}).
+        fields: Metrics to retrieve. Common metrics:
+            - impressions: Number of times ads were shown
+            - clicks: Total clicks (all click types)
+            - spend: Amount spent in account currency
+            - cpm: Cost per 1000 impressions
+            - cpc: Cost per click
+            - ctr: Click-through rate percentage
+            - conversions: Number of conversions
+            - cost_per_conversion: Average cost per conversion
+        params: Query parameters:
+            - date_preset: Time range (last_7d, last_30d, this_month, etc.)
+            - time_range: Custom range {'since': 'YYYY-MM-DD', 'until': 'YYYY-MM-DD'}
+            - level: Aggregation level (account, campaign, adset, ad)
+            - breakdowns: Dimensions to split by (age, gender, placement, etc.)
     """
     return AdAccount(ad_account_id).get_insights(fields=fields, params=params)
 

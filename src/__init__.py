@@ -3,24 +3,24 @@ from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 from src.config import get_config_from_env
-from src.utils import handle_facebook_errors
 
 # Foundation layer
 from src.servers.foundation.universal_server import higher_order_server
 
+# Legacy imports (to be phased out)
+from src.servers.marketing_api.insights import insights_server
+from src.servers.resources.ad import ad_server
+
 # Resources layer
 from src.servers.resources.ad_account import ad_account_server
-from src.servers.resources.campaign import campaign_server
 from src.servers.resources.adset import adset_server
-from src.servers.resources.ad import ad_server
+from src.servers.resources.campaign import campaign_server
+from src.servers.workflows.audience_server import audience_server
 
 # Workflows layer
 from src.servers.workflows.campaign_management_server import campaign_management_server
 from src.servers.workflows.reporting_server import reporting_server
-from src.servers.workflows.audience_server import audience_server
-
-# Legacy imports (to be phased out)
-from src.servers.marketing_api.insights import insights_server
+from src.utils import handle_facebook_errors
 
 instructions = """
 Facebook Business MCP Server - Three-Layer Architecture

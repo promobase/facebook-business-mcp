@@ -1,8 +1,5 @@
 """Reporting Workflow Server - Advanced reporting and analytics operations."""
 
-from typing import Any, Optional, List
-from datetime import datetime, timedelta
-
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.campaign import Campaign
 from fastmcp import FastMCP
@@ -31,9 +28,9 @@ reporting_server = FastMCP(
 def generate_campaign_performance_report(
     account_id: str,
     date_range: dict[str, str],
-    campaign_ids: Optional[list[str]] = None,
-    metrics: Optional[list[str]] = None,
-    breakdowns: Optional[list[str]] = None,
+    campaign_ids: list[str] | None = None,
+    metrics: list[str] | None = None,
+    breakdowns: list[str] | None = None,
 ) -> str:
     """Generate comprehensive performance report with insights.
 
@@ -320,7 +317,7 @@ def generate_creative_performance_report(
 @wrapped_fn_tool
 def generate_audience_insights_report(
     account_id: str,
-    campaign_ids: Optional[list[str]] = None,
+    campaign_ids: list[str] | None = None,
     date_preset: str = "last_30d",
 ) -> str:
     """Generate detailed audience performance insights.
@@ -529,7 +526,7 @@ def generate_budget_utilization_report(
 @wrapped_fn_tool
 def generate_conversion_funnel_report(
     account_id: str,
-    campaign_ids: Optional[list[str]] = None,
+    campaign_ids: list[str] | None = None,
     date_preset: str = "last_30d",
 ) -> str:
     """Analyze conversion funnel performance from impression to purchase.
