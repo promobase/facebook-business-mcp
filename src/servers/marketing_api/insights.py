@@ -1,5 +1,6 @@
 """Insights MCP Server using Facebook Business SDK."""
 
+from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.adsinsights import AdsInsights
 from fastmcp import FastMCP
 
@@ -72,6 +73,175 @@ def get_insights_action_breakdowns() -> str:
 def get_insights_action_report_time() -> str:
     action_report_time = AdsInsights.ActionReportTime._values
     return f"Available AdsInsights action report time:\n{action_report_time}"
+
+
+@wrapped_fn_tool
+def analyze_roas_by_campaign(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+    min_spend: float = 10.0,
+) -> str:
+    """Analyze Return on Ad Spend (ROAS) by campaign with revenue breakdown."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "campaign_name",
+            "campaign_id",
+            "spend",
+            "purchase_roas",
+            "website_purchase_roas",
+            "actions",
+            "action_values",
+            "conversions",
+            "conversion_values",
+            "cost_per_action_type",
+            "return_on_ad_spend",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "campaign",
+            "filtering": [{"field": "spend", "operator": "GREATER_THAN", "value": min_spend}],
+            "action_attribution_windows": ["7d_click", "1d_view"],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_geographic_performance(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+    breakdown_level: str = "country",
+) -> str:
+    """Analyze performance by geographic location."""
+    # Validate breakdown level
+    valid_levels = ["country", "region", "city", "zip"]
+    if breakdown_level not in valid_levels:
+        breakdown_level = "country"
+
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "impressions",
+            "reach",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "account",
+            "breakdowns": [breakdown_level],
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 100}],
+            "sort": ["spend_descending"],
+            "limit": 50,
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_device_performance_analysis(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Analyze performance by device type and platform."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "impressions",
+            "reach",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+            "mobile_app_install",
+            "website_clicks",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "account",
+            "breakdowns": ["device_platform", "impression_device"],
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 100}],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_hourly_performance_patterns(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Analyze performance patterns by hour of day."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "hourly_stats_aggregated_by_advertiser_time_zone",
+            "impressions",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "account",
+            "breakdowns": ["hourly_stats_aggregated_by_advertiser_time_zone"],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_custom_audience_performance(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Analyze performance of custom audiences vs broad targeting."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "adset_name",
+            "campaign_name",
+            "impressions",
+            "reach",
+            "frequency",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "adset",
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 1000}],
+            "sort": ["purchase_roas_descending"],
+            "limit": 100,
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
 
 
 @wrapped_fn_tool
@@ -300,6 +470,361 @@ params = {
 Note: Attribution windows significantly impact reported conversions and ROAS."""
 
 
+#  ---- Higher-level analysis tools ----
+@wrapped_fn_tool
+def get_account_performance_summary(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+    level: str = "account",
+) -> str:
+    """Get high-level performance summary for an ad account."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "impressions",
+            "reach",
+            "frequency",
+            "clicks",
+            "unique_clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+            "actions",
+            "action_values",
+            "cost_per_action_type",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": level,
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_campaign_performance_comparison(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+    fields: list[str] = [],
+) -> str:
+    """Compare performance across all campaigns in an account."""
+    if not fields:
+        fields = [
+            "campaign_name",
+            "campaign_id",
+            "impressions",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+        ]
+
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=fields,
+        params={
+            "date_preset": date_preset,
+            "level": "campaign",
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 0}],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_ad_performance_by_creative(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+    limit: int = 50,
+) -> str:
+    """Analyze ad performance grouped by creative elements."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "ad_name",
+            "ad_id",
+            "adset_name",
+            "campaign_name",
+            "impressions",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+            "frequency",
+            "quality_ranking",
+            "engagement_rate_ranking",
+            "conversion_rate_ranking",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "ad",
+            "limit": limit,
+            "sort": ["spend_descending"],
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 100}],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_audience_breakdown_analysis(
+    ad_account_id: str,
+    breakdowns: list[str] = [],
+    date_preset: str = "last_7d",
+    level: str = "account",
+) -> str:
+    """Analyze performance broken down by audience segments."""
+    if not breakdowns:
+        breakdowns = ["age", "gender"]
+
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "impressions",
+            "reach",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": level,
+            "breakdowns": breakdowns,
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 100}],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_placement_performance_analysis(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Analyze performance by placement (Facebook, Instagram, Audience Network, etc)."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "impressions",
+            "reach",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+            "frequency",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "account",
+            "breakdowns": ["publisher_platform", "platform_position"],
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 100}],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_time_series_performance(
+    ad_account_id: str,
+    date_preset: str = "last_30d",
+    time_increment: int = 1,
+    level: str = "account",
+) -> str:
+    """Get daily/weekly performance trends over time."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "date_start",
+            "date_stop",
+            "impressions",
+            "reach",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": level,
+            "time_increment": time_increment,
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_video_performance_metrics(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Get detailed video performance metrics for video ads."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "campaign_name",
+            "adset_name",
+            "ad_name",
+            "impressions",
+            "spend",
+            "video_play_actions",
+            "video_p25_watched_actions",
+            "video_p50_watched_actions",
+            "video_p75_watched_actions",
+            "video_p95_watched_actions",
+            "video_p100_watched_actions",
+            "video_avg_time_watched_actions",
+            "cost_per_thruplay",
+            "video_thruplay_watched_actions",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "ad",
+            "filtering": [{"field": "video_play_actions", "operator": "GREATER_THAN", "value": 0}],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_conversion_funnel_analysis(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Analyze conversion funnel from impressions to purchases."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "campaign_name",
+            "impressions",
+            "reach",
+            "clicks",
+            "unique_clicks",
+            "landing_page_views",
+            "link_clicks",
+            "add_to_cart",
+            "initiated_checkout",
+            "purchase",
+            "omni_purchase",
+            "spend",
+            "purchase_roas",
+            "website_purchase_roas",
+            "actions",
+            "action_values",
+            "cost_per_action_type",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "campaign",
+            "action_attribution_windows": ["7d_click", "1d_view"],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_mobile_app_performance(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Get mobile app install and engagement metrics."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "campaign_name",
+            "adset_name",
+            "impressions",
+            "clicks",
+            "spend",
+            "mobile_app_install",
+            "app_installs",
+            "cost_per_mobile_app_install",
+            "cost_per_app_install",
+            "app_use",
+            "app_custom_event",
+            "actions",
+            "action_values",
+            "cost_per_action_type",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "adset",
+            "filtering": [
+                {"field": "objective", "operator": "IN", "value": ["APP_INSTALLS", "LINK_CLICKS"]}
+            ],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
+@wrapped_fn_tool
+def get_quality_ranking_analysis(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Analyze ad quality rankings and competitive metrics."""
+    account = AdAccount(ad_account_id)
+    insights = account.get_insights(
+        fields=[
+            "ad_name",
+            "adset_name",
+            "campaign_name",
+            "impressions",
+            "spend",
+            "quality_ranking",
+            "engagement_rate_ranking",
+            "conversion_rate_ranking",
+            "auction_bid",
+            "auction_competitiveness",
+            "auction_max_competitor_bid",
+            "cpm",
+            "cpc",
+            "ctr",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "ad",
+            "filtering": [{"field": "impressions", "operator": "GREATER_THAN", "value": 1000}],
+            "sort": ["quality_ranking_ascending"],
+            "use_account_attribution_setting": True,
+        },
+    )
+    return list(insights)
+
+
 #  ---- Dynamic tools ----
 @log_execution
 @handle_facebook_errors
@@ -368,6 +893,114 @@ def get_usage_on_insights(
 
 # ---- tool docstrings ----
 
+# Higher-level analysis tools docstrings
+get_account_performance_summary.__doc__ = f"""Get high-level performance summary for an ad account.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+level: Aggregation level (default: account)
+
+Returns comprehensive metrics including traffic, cost, and conversion data.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_campaign_performance_comparison.__doc__ = f"""Compare performance across all campaigns in an account.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+fields: Custom fields to retrieve (optional)
+
+Useful for identifying top and bottom performing campaigns.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_ad_performance_by_creative.__doc__ = f"""Analyze ad performance grouped by creative elements.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+limit: Maximum number of ads to return (default: 50)
+
+Returns top spending ads with quality rankings and performance metrics.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_audience_breakdown_analysis.__doc__ = f"""Analyze performance broken down by audience segments.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+breakdowns: List of breakdown dimensions (default: ['age', 'gender'])
+date_preset: Time period for the report (default: last_7d)
+level: Aggregation level (default: account)
+
+Essential for understanding which audiences perform best.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_placement_performance_analysis.__doc__ = f"""Analyze performance by placement (Facebook, Instagram, Audience Network, etc).
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Helps optimize budget allocation across placements.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_time_series_performance.__doc__ = f"""Get daily/weekly performance trends over time.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_30d)
+time_increment: Time granularity in days (default: 1 for daily)
+level: Aggregation level (default: account)
+
+Perfect for trend analysis and identifying patterns.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_video_performance_metrics.__doc__ = f"""Get detailed video performance metrics for video ads.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Includes video completion rates and engagement metrics.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_conversion_funnel_analysis.__doc__ = f"""Analyze conversion funnel from impressions to purchases.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Shows full funnel metrics with attribution windows.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_mobile_app_performance.__doc__ = f"""Get mobile app install and engagement metrics.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Specialized metrics for app install campaigns.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_quality_ranking_analysis.__doc__ = f"""Analyze ad quality rankings and competitive metrics.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Identifies ads with quality issues affecting performance.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
 # Helper method docstrings
 get_insights_fields.__doc__ = f"""Get all available fields for AdsInsights queries.
 
@@ -432,6 +1065,57 @@ AdsInsights ActionReportTime class source:
 {safe_getsource(AdsInsights.ActionReportTime)}
 """
 
+analyze_roas_by_campaign.__doc__ = f"""Analyze Return on Ad Spend (ROAS) by campaign with revenue breakdown.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+min_spend: Minimum spend threshold to include campaigns (default: 10.0)
+
+Focuses on revenue generation and profitability metrics.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_geographic_performance.__doc__ = f"""Analyze performance by geographic location.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+breakdown_level: Geographic granularity - 'country', 'region', 'city', or 'zip' (default: country)
+
+Helps identify best performing geographic markets.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_device_performance_analysis.__doc__ = f"""Analyze performance by device type and platform.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Shows performance differences between mobile, desktop, and tablet.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_hourly_performance_patterns.__doc__ = f"""Analyze performance patterns by hour of day.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Identifies optimal times for ad delivery.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
+
+get_custom_audience_performance.__doc__ = f"""Analyze performance of custom audiences vs broad targeting.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for the report (default: last_7d)
+
+Compares effectiveness of different audience strategies.
+
+Source code:
+{safe_getsource(AdAccount.get_insights)}
+"""
 
 get_common_insights_params.__doc__ = """Get common parameters used in get_insights() calls.
 
@@ -484,6 +1168,23 @@ Essential for accurate conversion tracking and ROAS measurement.
 # ---- register tools ----
 # Core tools
 insights_server.tool(get_usage_on_insights)
+
+# Higher-level analysis tools
+insights_server.tool(get_account_performance_summary)
+insights_server.tool(get_campaign_performance_comparison)
+insights_server.tool(get_ad_performance_by_creative)
+insights_server.tool(get_audience_breakdown_analysis)
+insights_server.tool(get_placement_performance_analysis)
+insights_server.tool(get_time_series_performance)
+insights_server.tool(get_video_performance_metrics)
+insights_server.tool(get_conversion_funnel_analysis)
+insights_server.tool(get_mobile_app_performance)
+insights_server.tool(get_quality_ranking_analysis)
+insights_server.tool(analyze_roas_by_campaign)
+insights_server.tool(get_geographic_performance)
+insights_server.tool(get_device_performance_analysis)
+insights_server.tool(get_hourly_performance_patterns)
+insights_server.tool(get_custom_audience_performance)
 
 # Helper tools
 insights_server.tool(get_insights_fields)

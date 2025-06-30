@@ -15,10 +15,19 @@ from src.utils import (
 #  ---- constants ----
 server_name = "FacebookAdAccount"
 instructions = """
-This is the AdAccount MCP Server for managing Facebook Ad Accounts. You have the specific methods that wraps around the AdAccount object.
+This is the AdAccount MCP Server for managing Facebook Ad Accounts. 
 
-If the tools are not available to you, use the `get_usage_on_ad_account` tool first to understand how to use the methods and fields available.
-Then, you can use the `run_any_ad_account_fn.` tool to call any method on the AdAccount object.
+QUICK START - Use these workflow tools for common tasks:
+1. `get_account_structure_overview` - See what's in the account
+2. `create_complete_campaign` - Simple campaign creation
+3. `create_traffic_campaign_workflow` - Complete traffic campaign with targeting
+4. `create_conversion_campaign_workflow` - Conversion campaign with pixel setup
+5. `get_active_campaigns_with_performance` - Monitor active campaigns
+
+For advanced operations:
+- Use `get_usage_on_ad_account` to see all available methods
+- Use `run_any_ad_account_fn` to call any AdAccount method directly
+- Individual tools are available for granular control
 """
 
 ad_account_server = FastMCP(
@@ -429,6 +438,476 @@ def run_any_ad_account_fn(
     if not callable(f):
         return f"{fn} is not a callable method on AdAccount."
     return str(f(*args, **kwargs))
+
+
+#  ---- Higher-level workflow tools ----
+@wrapped_fn_tool
+def create_complete_campaign(
+    ad_account_id: str,
+    campaign_name: str,
+    objective: str,
+    daily_budget: int,
+    special_ad_categories: list[str] = [],
+) -> str:
+    """Create a complete campaign with common settings in one call."""
+    account = AdAccount(ad_account_id)
+    campaign = account.create_campaign(
+        fields=[],
+        params={
+            "name": campaign_name,
+            "objective": objective,
+            "status": "PAUSED",
+            "special_ad_categories": special_ad_categories,
+            "daily_budget": daily_budget * 100,  # Convert to cents
+            "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+        },
+    )
+    return campaign
+
+
+@wrapped_fn_tool
+def create_traffic_campaign_workflow(
+    ad_account_id: str,
+    campaign_name: str,
+    daily_budget: int,
+    destination_url: str,
+    audience_targeting: dict[str, Any] = {},
+) -> str:
+    """Complete workflow to create a traffic campaign with ad set and targeting."""
+    account = AdAccount(ad_account_id)
+
+    # Create campaign
+    campaign = account.create_campaign(
+        fields=["id"],
+        params={
+            "name": campaign_name,
+            "objective": "LINK_CLICKS",
+            "status": "PAUSED",
+            "daily_budget": daily_budget * 100,
+        },
+    )
+
+    # Create ad set with targeting
+    default_targeting = {
+        "geo_locations": {"countries": ["US"]},
+        "age_min": 18,
+        "age_max": 65,
+    }
+    default_targeting.update(audience_targeting)
+
+    adset = account.create_ad_set(
+        fields=["id"],
+        params={
+            "name": f"{campaign_name} - Ad Set",
+            "campaign_id": campaign["id"],
+            "daily_budget": daily_budget * 100,
+            "billing_event": "IMPRESSIONS",
+            "optimization_goal": "LINK_CLICKS",
+            "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+            "targeting": default_targeting,
+            "status": "PAUSED",
+            "destination_type": "WEBSITE",
+            "promoted_object": {"website_url": destination_url},
+        },
+    )
+
+    return {
+        "campaign": campaign,
+        "adset": adset,
+        "next_step": "Create ad creative and ad using the returned IDs",
+    }
+
+
+@wrapped_fn_tool
+def create_conversion_campaign_workflow(
+    ad_account_id: str,
+    campaign_name: str,
+    daily_budget: int,
+    pixel_id: str,
+    conversion_event: str = "Purchase",
+    audience_targeting: dict[str, Any] = {},
+) -> str:
+    """Complete workflow to create a conversion-optimized campaign."""
+    account = AdAccount(ad_account_id)
+
+    # Create campaign
+    campaign = account.create_campaign(
+        fields=["id"],
+        params={
+            "name": campaign_name,
+            "objective": "CONVERSIONS",
+            "status": "PAUSED",
+            "daily_budget": daily_budget * 100,
+        },
+    )
+
+    # Create ad set optimized for conversions
+    default_targeting = {
+        "geo_locations": {"countries": ["US"]},
+        "age_min": 18,
+        "age_max": 65,
+    }
+    default_targeting.update(audience_targeting)
+
+    adset = account.create_ad_set(
+        fields=["id"],
+        params={
+            "name": f"{campaign_name} - Conversion Ad Set",
+            "campaign_id": campaign["id"],
+            "daily_budget": daily_budget * 100,
+            "billing_event": "IMPRESSIONS",
+            "optimization_goal": "CONVERSIONS",
+            "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+            "targeting": default_targeting,
+            "status": "PAUSED",
+            "promoted_object": {
+                "pixel_id": pixel_id,
+                "custom_event_type": conversion_event,
+            },
+        },
+    )
+
+    return {
+        "campaign": campaign,
+        "adset": adset,
+        "pixel_id": pixel_id,
+        "conversion_event": conversion_event,
+        "next_step": "Create ad creative and ad using the returned IDs",
+    }
+
+
+@wrapped_fn_tool
+def get_account_structure_overview(
+    ad_account_id: str,
+    include_insights: bool = False,
+) -> str:
+    """Get a complete overview of account structure with counts and status."""
+    account = AdAccount(ad_account_id)
+
+    # Get account info
+    account_info = account.api_get(fields=["name", "account_status", "currency", "timezone_name"])
+
+    # Get campaigns
+    campaigns = account.get_campaigns(fields=["name", "status", "objective"], params={"limit": 100})
+    campaigns_list = list(campaigns)
+
+    # Get ad sets
+    adsets = account.get_ad_sets(fields=["name", "status", "campaign_id"], params={"limit": 100})
+    adsets_list = list(adsets)
+
+    # Get ads
+    ads = account.get_ads(fields=["name", "status", "adset_id"], params={"limit": 100})
+    ads_list = list(ads)
+
+    overview = {
+        "account": account_info,
+        "campaigns": {
+            "total": len(campaigns_list),
+            "active": len([c for c in campaigns_list if c.get("status") == "ACTIVE"]),
+            "paused": len([c for c in campaigns_list if c.get("status") == "PAUSED"]),
+        },
+        "adsets": {
+            "total": len(adsets_list),
+            "active": len([a for a in adsets_list if a.get("status") == "ACTIVE"]),
+            "paused": len([a for a in adsets_list if a.get("status") == "PAUSED"]),
+        },
+        "ads": {
+            "total": len(ads_list),
+            "active": len([a for a in ads_list if a.get("status") == "ACTIVE"]),
+            "paused": len([a for a in ads_list if a.get("status") == "PAUSED"]),
+        },
+    }
+
+    if include_insights:
+        # Get last 7 days performance
+        insights = account.get_insights(
+            fields=["impressions", "clicks", "spend", "conversions"],
+            params={"date_preset": "last_7d", "level": "account"},
+        )
+        insights_data = list(insights)
+        if insights_data:
+            overview["last_7d_performance"] = insights_data[0]
+
+    return overview
+
+
+@wrapped_fn_tool
+def get_active_campaigns_with_performance(
+    ad_account_id: str,
+    date_preset: str = "last_7d",
+) -> str:
+    """Get all active campaigns with their performance metrics."""
+    account = AdAccount(ad_account_id)
+
+    # Get active campaigns with insights
+    insights = account.get_insights(
+        fields=[
+            "campaign_name",
+            "campaign_id",
+            "impressions",
+            "clicks",
+            "spend",
+            "cpm",
+            "cpc",
+            "ctr",
+            "conversions",
+            "conversion_values",
+            "purchase_roas",
+        ],
+        params={
+            "date_preset": date_preset,
+            "level": "campaign",
+            "filtering": [
+                {"field": "campaign.effective_status", "operator": "IN", "value": ["ACTIVE"]},
+                {"field": "impressions", "operator": "GREATER_THAN", "value": 0},
+            ],
+        },
+    )
+
+    return list(insights)
+
+
+@wrapped_fn_tool
+def bulk_pause_campaigns(
+    ad_account_id: str,
+    campaign_ids: list[str],
+) -> str:
+    """Pause multiple campaigns at once."""
+    results = []
+    for campaign_id in campaign_ids:
+        try:
+            from facebook_business.adobjects.campaign import Campaign
+
+            campaign = Campaign(campaign_id)
+            result = campaign.api_update(fields=[], params={"status": "PAUSED"})
+            results.append({"campaign_id": campaign_id, "status": "success", "result": result})
+        except Exception as e:
+            results.append({"campaign_id": campaign_id, "status": "error", "error": str(e)})
+
+    return results
+
+
+@wrapped_fn_tool
+def create_saved_audience_from_criteria(
+    ad_account_id: str,
+    audience_name: str,
+    description: str,
+    targeting_spec: dict[str, Any],
+) -> str:
+    """Create a saved audience with specific targeting criteria."""
+    account = AdAccount(ad_account_id)
+
+    # Create saved audience
+    audience = account.create_saved_audience(
+        fields=[],
+        params={
+            "name": audience_name,
+            "description": description,
+            "targeting": targeting_spec,
+        },
+    )
+
+    return audience
+
+
+@wrapped_fn_tool
+def get_targeting_suggestions_for_interests(
+    ad_account_id: str,
+    interest_keywords: list[str],
+) -> str:
+    """Get targeting suggestions based on interest keywords."""
+    account = AdAccount(ad_account_id)
+    all_suggestions = []
+
+    for keyword in interest_keywords:
+        suggestions = account.get_targeting_search(
+            fields=[],
+            params={
+                "q": keyword,
+                "type": "adinterest",
+                "limit": 10,
+            },
+        )
+        all_suggestions.extend(list(suggestions))
+
+    return all_suggestions
+
+
+@wrapped_fn_tool
+def estimate_audience_size(
+    ad_account_id: str,
+    targeting_spec: dict[str, Any],
+) -> str:
+    """Estimate the size of an audience based on targeting criteria."""
+    account = AdAccount(ad_account_id)
+
+    estimate = account.get_reach_estimate(
+        fields=[],
+        params={
+            "targeting_spec": targeting_spec,
+            "optimization_goal": "IMPRESSIONS",
+        },
+    )
+
+    return list(estimate)
+
+
+#  ---- Helper tools ----
+@wrapped_fn_tool
+def list_available_tools_by_category() -> str:
+    """List all available tools organized by category for easier discovery."""
+    return """
+AVAILABLE TOOLS BY CATEGORY:
+
+🚀 QUICK START WORKFLOWS:
+- get_account_structure_overview: See complete account hierarchy
+- create_complete_campaign: Simple campaign creation
+- create_traffic_campaign_workflow: Traffic campaign with targeting
+- create_conversion_campaign_workflow: Conversion campaign with pixel
+- get_active_campaigns_with_performance: Monitor active campaigns
+
+📊 CAMPAIGN MANAGEMENT:
+- get_campaigns: List all campaigns
+- create_campaign: Create new campaign
+- delete_campaigns: Delete campaigns
+- get_campaigns_by_labels: Filter by labels
+- bulk_pause_campaigns: Pause multiple campaigns
+
+🎯 AD SET MANAGEMENT:
+- get_ad_sets: List all ad sets
+- create_ad_set: Create new ad set
+- get_ad_sets_by_labels: Filter by labels
+
+📢 AD MANAGEMENT:
+- get_ads: List all ads
+- create_ad: Create new ad
+- get_ads_by_labels: Filter by labels
+
+🎨 CREATIVE MANAGEMENT:
+- get_ad_creatives: List creatives
+- create_ad_creative: Create creative
+- get_ad_images: List images
+- create_ad_image: Upload image
+- get_ad_videos: List videos
+- create_ad_video: Upload video
+
+👥 AUDIENCE MANAGEMENT:
+- get_custom_audiences: List custom audiences
+- create_custom_audience: Create custom audience
+- create_saved_audience_from_criteria: Save targeting as audience
+- get_saved_audiences: List saved audiences
+
+🎯 TARGETING TOOLS:
+- get_targeting_browse: Browse targeting options
+- get_targeting_search: Search targeting options
+- get_targeting_suggestions: Get suggestions
+- get_targeting_suggestions_for_interests: Interest suggestions
+- estimate_audience_size: Estimate reach
+- get_reach_estimate: Detailed reach estimate
+- get_delivery_estimate: Delivery estimates
+
+📈 INSIGHTS & REPORTING:
+- get_insights: Get performance data
+- get_insights_async: Async insights for large queries
+
+⚙️ ADVANCED TOOLS:
+- get_usage_on_ad_account: See all SDK methods
+- run_any_ad_account_fn: Call any SDK method directly
+"""
+
+
+@wrapped_fn_tool
+def get_common_field_names() -> str:
+    """Get commonly used field names for various objects."""
+    return """
+COMMON FIELD NAMES BY OBJECT TYPE:
+
+Campaign Fields:
+- id, name, status, objective
+- daily_budget, lifetime_budget
+- start_time, stop_time
+- created_time, updated_time
+- effective_status
+- spend_cap
+- buying_type
+
+AdSet Fields:
+- id, name, status
+- campaign_id
+- daily_budget, lifetime_budget
+- start_time, end_time
+- targeting
+- optimization_goal
+- billing_event
+- bid_strategy
+- promoted_object
+
+Ad Fields:
+- id, name, status
+- adset_id, campaign_id
+- creative
+- created_time
+- effective_status
+- recommendations
+
+Insights Fields:
+- impressions, reach, frequency
+- clicks, unique_clicks, ctr
+- spend, cpm, cpc, cpp
+- conversions, conversion_values
+- purchase_roas
+- actions, action_values
+- quality_ranking
+- engagement_rate_ranking
+- conversion_rate_ranking
+
+Targeting Fields:
+- geo_locations
+- age_min, age_max
+- genders
+- interests
+- behaviors
+- custom_audiences
+- excluded_custom_audiences
+- device_platforms
+- publisher_platforms
+- facebook_positions
+"""
+
+
+@wrapped_fn_tool
+def get_campaign_objective_guide() -> str:
+    """Get a guide to choosing the right campaign objective."""
+    return """
+CAMPAIGN OBJECTIVE GUIDE:
+
+🎯 AWARENESS OBJECTIVES:
+- BRAND_AWARENESS: Increase brand recall
+- REACH: Show ads to maximum people
+- VIDEO_VIEWS: Get more video views
+
+🔗 CONSIDERATION OBJECTIVES:
+- TRAFFIC: Send people to website/app
+- ENGAGEMENT: Get post engagement
+- APP_INSTALLS: Drive app installations
+- MESSAGES: Get more messages
+- LEAD_GENERATION: Collect leads
+- LINK_CLICKS: Optimize for link clicks
+
+💰 CONVERSION OBJECTIVES:
+- CONVERSIONS: Drive valuable actions
+- PRODUCT_CATALOG_SALES: Dynamic product ads
+- STORE_TRAFFIC: Drive foot traffic
+
+RECOMMENDATIONS:
+- E-commerce: Use CONVERSIONS or PRODUCT_CATALOG_SALES
+- Lead Gen: Use LEAD_GENERATION or CONVERSIONS
+- Content/Blog: Use TRAFFIC or LINK_CLICKS
+- Brand Building: Use REACH or VIDEO_VIEWS
+- App Marketing: Use APP_INSTALLS
+
+NOTE: Objective affects available optimization options and bidding strategies.
+"""
 
 
 #  ---- Labels and Rules ----
@@ -1048,10 +1527,190 @@ Source code:
 {safe_getsource(AdAccount.get_broad_targeting_categories)}
 """
 
+# Higher-level workflow tools docstrings
+create_complete_campaign.__doc__ = f"""Create a complete campaign with common settings in one call.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+campaign_name: Name for the campaign
+objective: Campaign objective (e.g., 'LINK_CLICKS', 'CONVERSIONS', 'REACH')
+daily_budget: Daily budget in dollars (will be converted to cents)
+special_ad_categories: Special ad categories if applicable (e.g., ['CREDIT', 'HOUSING'])
+
+Creates a paused campaign ready for ad sets. Common objectives:
+- LINK_CLICKS: Drive traffic to website
+- CONVERSIONS: Optimize for conversions
+- REACH: Maximize reach
+- VIDEO_VIEWS: Video view campaigns
+- LEAD_GENERATION: Collect leads
+
+Source code:
+{safe_getsource(AdAccount.create_campaign)}
+"""
+
+create_traffic_campaign_workflow.__doc__ = """Complete workflow to create a traffic campaign with ad set and targeting.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+campaign_name: Name for the campaign
+daily_budget: Daily budget in dollars
+destination_url: URL where traffic should be sent
+audience_targeting: Additional targeting criteria (merged with defaults)
+
+Creates a complete traffic campaign structure:
+1. Campaign with LINK_CLICKS objective
+2. Ad set with targeting and budget
+3. Returns IDs for creating ads
+
+Default targeting: US, ages 18-65. Override with audience_targeting param.
+"""
+
+create_conversion_campaign_workflow.__doc__ = """Complete workflow to create a conversion-optimized campaign.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+campaign_name: Name for the campaign
+daily_budget: Daily budget in dollars
+pixel_id: Facebook Pixel ID for conversion tracking
+conversion_event: Conversion event to optimize for (default: 'Purchase')
+audience_targeting: Additional targeting criteria
+
+Creates conversion campaign optimized for specific events:
+- Purchase
+- AddToCart
+- InitiateCheckout
+- Lead
+- CompleteRegistration
+
+Requires Facebook Pixel to be installed on website.
+"""
+
+get_account_structure_overview.__doc__ = """Get a complete overview of account structure with counts and status.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+include_insights: Include last 7 days performance metrics
+
+Returns hierarchical overview:
+- Account info (name, status, currency)
+- Campaign counts (total, active, paused)
+- Ad set counts
+- Ad counts
+- Optional: Recent performance metrics
+
+Perfect for understanding account structure at a glance.
+"""
+
+get_active_campaigns_with_performance.__doc__ = """Get all active campaigns with their performance metrics.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+date_preset: Time period for metrics (default: 'last_7d')
+
+Returns active campaigns with:
+- Traffic metrics (impressions, clicks, CTR)
+- Cost metrics (spend, CPM, CPC)
+- Conversion metrics (conversions, ROAS)
+
+Useful for monitoring and optimization decisions.
+"""
+
+bulk_pause_campaigns.__doc__ = """Pause multiple campaigns at once.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+campaign_ids: List of campaign IDs to pause
+
+Batch operation to pause campaigns. Returns success/error status for each.
+Useful for budget management or pausing underperforming campaigns.
+"""
+
+create_saved_audience_from_criteria.__doc__ = """Create a saved audience with specific targeting criteria.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+audience_name: Name for the saved audience
+description: Description of the audience
+targeting_spec: Complete targeting specification
+
+Example targeting_spec:
+{
+  'geo_locations': {'countries': ['US']},
+  'age_min': 25,
+  'age_max': 45,
+  'genders': [1],  # 1=male, 2=female
+  'interests': [{'id': '6003139266461', 'name': 'Movies'}],
+  'behaviors': [{'id': '6002714895372', 'name': 'Frequent Travelers'}]
+}
+"""
+
+get_targeting_suggestions_for_interests.__doc__ = """Get targeting suggestions based on interest keywords.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+interest_keywords: List of keywords to search for interests
+
+Finds targetable interests matching keywords.
+Returns interest IDs and names for use in targeting.
+
+Example: ['fitness', 'yoga'] returns related targetable interests.
+"""
+
+estimate_audience_size.__doc__ = """Estimate the size of an audience based on targeting criteria.
+ad_account_id: The ID of the Ad Account. ALWAYS start with 'act_' prefix.
+targeting_spec: Targeting criteria to estimate
+
+Returns estimated daily and monthly reach.
+Helps ensure audience isn't too broad or narrow.
+
+Recommended audience sizes:
+- Too narrow: < 1,000 daily reach
+- Good: 10,000 - 500,000 daily reach
+- Too broad: > 5,000,000 daily reach
+"""
+
+list_available_tools_by_category.__doc__ = """List all available tools organized by category for easier discovery.
+
+Provides a categorized overview of all tools:
+- Quick Start Workflows
+- Campaign Management
+- Ad Set Management
+- Ad Management
+- Creative Management
+- Audience Management
+- Targeting Tools
+- Insights & Reporting
+- Advanced Tools
+
+Use this to quickly find the right tool for your task.
+"""
+
+get_common_field_names.__doc__ = """Get commonly used field names for various objects.
+
+Provides field names for:
+- Campaign fields
+- AdSet fields
+- Ad fields
+- Insights fields
+- Targeting fields
+
+Essential reference when using get_* or create_* methods.
+"""
+
+get_campaign_objective_guide.__doc__ = """Get a guide to choosing the right campaign objective.
+
+Explains all available objectives:
+- Awareness objectives
+- Consideration objectives
+- Conversion objectives
+
+Includes recommendations for different business goals.
+"""
+
 # ---- register tools ----
+# Helper tools (register first for discoverability)
+ad_account_server.tool(list_available_tools_by_category)
+ad_account_server.tool(get_common_field_names)
+ad_account_server.tool(get_campaign_objective_guide)
+
 # Core tools
 ad_account_server.tool(get_usage_on_ad_account)
 ad_account_server.tool(run_any_ad_account_fn)
+
+# Higher-level workflow tools
+ad_account_server.tool(get_account_structure_overview)
+ad_account_server.tool(create_complete_campaign)
+ad_account_server.tool(create_traffic_campaign_workflow)
+ad_account_server.tool(create_conversion_campaign_workflow)
+ad_account_server.tool(get_active_campaigns_with_performance)
+ad_account_server.tool(bulk_pause_campaigns)
+ad_account_server.tool(create_saved_audience_from_criteria)
+ad_account_server.tool(get_targeting_suggestions_for_interests)
+ad_account_server.tool(estimate_audience_size)
 
 # Core API methods
 ad_account_server.tool(get_ad_account)
