@@ -75,12 +75,6 @@ def get_insights_action_report_time() -> str:
 
 
 @wrapped_fn_tool
-def get_insights_summary() -> str:
-    summary = AdsInsights.Summary._values
-    return f"Available AdsInsights summary options:\n{summary}"
-
-
-@wrapped_fn_tool
 def get_common_insights_params() -> str:
     return """Common parameters for get_insights() calls:
 
@@ -438,14 +432,6 @@ AdsInsights ActionReportTime class source:
 {safe_getsource(AdsInsights.ActionReportTime)}
 """
 
-get_insights_summary.__doc__ = f"""Get available summary options for AdsInsights queries.
-
-Summary options provide aggregated totals across the selected time range.
-Useful for getting lifetime or period totals.
-
-AdsInsights Summary class source:
-{safe_getsource(AdsInsights.Summary)}
-"""
 
 get_common_insights_params.__doc__ = """Get common parameters used in get_insights() calls.
 
@@ -507,7 +493,6 @@ insights_server.tool(get_insights_date_presets)
 insights_server.tool(get_insights_levels)
 insights_server.tool(get_insights_action_breakdowns)
 insights_server.tool(get_insights_action_report_time)
-insights_server.tool(get_insights_summary)
 insights_server.tool(get_common_insights_params)
 insights_server.tool(get_insights_filtering_examples)
 insights_server.tool(get_insights_metrics_descriptions)
