@@ -4,6 +4,7 @@ from .ad import ad_server
 from .ad_account import ad_account_server
 from .adset import adset_server
 from .campaign import campaign_server
+from .higher_order_server import higher_order_server
 from .insights import insights_server
 
 __all__ = [
@@ -12,4 +13,5 @@ __all__ = [
     "adset_server",
     "ad_server",
     "insights_server",
+    "higher_order_server",
 ]
