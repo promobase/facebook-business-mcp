@@ -2,29 +2,16 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.whatsappbusinessaccount import WhatsAppBusinessAccount
+from facebook_business.adobjects.whatsappbusinessaccount import WhatsAppBusinessAccount
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.assigneduser import (
-    AssignedUserField,
-    AssignedUserFields,
-)
-from ..models.ctxpartnerappwelcomemessageflow import (
-    CTXPartnerAppWelcomeMessageFlowField,
-    CTXPartnerAppWelcomeMessageFlowFields,
-)
-from ..models.dataset import (
-    DatasetField,
-    DatasetFields,
-)
-from ..models.productcatalog import (
-    ProductCatalogField,
-    ProductCatalogFields,
-)
+from ..models.assigneduser import AssignedUserField
+from ..models.ctxpartnerappwelcomemessageflow import CTXPartnerAppWelcomeMessageFlowField
+from ..models.dataset import DatasetField
+from ..models.productcatalog import ProductCatalogField
 from ..models.whatsappbusinessaccount import (
     WhatsAppBusinessAccountCreateAssignedUserParams,
     WhatsAppBusinessAccountCreateDatasetParams,
@@ -46,7 +33,6 @@ from ..models.whatsappbusinessaccount import (
     WhatsAppBusinessAccountDeletePaymentConfigurationParams,
     WhatsAppBusinessAccountDeleteProductCatalogsParams,
     WhatsAppBusinessAccountField,
-    WhatsAppBusinessAccountFields,
     WhatsAppBusinessAccountGetAssignedUsersParams,
     WhatsAppBusinessAccountGetCallAnalyticsParams,
     WhatsAppBusinessAccountGetConversationAnalyticsParams,
@@ -59,688 +45,510 @@ from ..models.whatsappbusinessaccount import (
     WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams,
     WhatsAppBusinessAccountGetWelcomeMessageSequencesParams,
 )
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class WhatsAppBusinessAccountWrappers:
-    """Type-safe wrapper functions for WhatsAppBusinessAccount API methods."""
-
-    @staticmethod
-    def delete_assigned_users(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountDeleteAssignedUsersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.delete_assigned_users().
-
-        Endpoint: DELETE /assigned_users
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_assigned_users(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_assigned_users(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetAssignedUsersParams] = None,
-        fields: Optional[list[AssignedUserField]] = None,
-    ) -> TypedCursor[AssignedUserFields]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_assigned_users().
-
-        Endpoint: GET /assigned_users
-        Returns: TypedCursor[AssignedUserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_users(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AssignedUserFields)
-
-    @staticmethod
-    def create_assigned_user(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateAssignedUserParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_assigned_user().
-
-        Endpoint: POST /assigned_users
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_assigned_user(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def get_call_analytics(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetCallAnalyticsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_call_analytics().
-
-        Endpoint: GET /call_analytics
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_call_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_conversation_analytics(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetConversationAnalyticsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_conversation_analytics().
-
-        Endpoint: GET /conversation_analytics
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_conversation_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_dataset(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateDatasetParams,
-    ) -> DatasetFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_dataset().
-
-        Endpoint: POST /dataset
-        Returns: DatasetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_dataset(params=params_dict)
-
-        # Convert result to typed model
-        return DatasetFields(**result)
-
-    @staticmethod
-    def create_flow(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateFlowParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_flow().
-
-        Endpoint: POST /flows
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_flow(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_generate_payment_configuration_oauth_link(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_generate_payment_configuration_oauth_link().
-
-        Endpoint: POST /generate_payment_configuration_oauth_link
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_generate_payment_configuration_oauth_link(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def get_message_template_previews(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetMessageTemplatePreviewsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_message_template_previews().
-
-        Endpoint: GET /message_template_previews
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_message_template_previews(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def delete_message_templates(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountDeleteMessageTemplatesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.delete_message_templates().
-
-        Endpoint: DELETE /message_templates
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_message_templates(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_message_templates(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetMessageTemplatesParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_message_templates().
-
-        Endpoint: GET /message_templates
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_message_templates(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_message_template(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateMessageTemplateParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_message_template().
-
-        Endpoint: POST /message_templates
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_message_template(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def create_migrate_flow(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateMigrateFlowParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_migrate_flow().
-
-        Endpoint: POST /migrate_flows
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_migrate_flow(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def create_migrate_message_template(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateMigrateMessageTemplateParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_migrate_message_template().
-
-        Endpoint: POST /migrate_message_templates
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_migrate_message_template(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def delete_payment_configuration(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountDeletePaymentConfigurationParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.delete_payment_configuration().
-
-        Endpoint: DELETE /payment_configuration
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_payment_configuration(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_payment_configuration(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetPaymentConfigurationParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_payment_configuration().
-
-        Endpoint: GET /payment_configuration
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_payment_configuration(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_payment_configuration(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreatePaymentConfigurationParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_payment_configuration().
-
-        Endpoint: POST /payment_configuration
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_payment_configuration(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def create_phone_number(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreatePhoneNumberParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_phone_number().
-
-        Endpoint: POST /phone_numbers
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_phone_number(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_pricing_analytics(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetPricingAnalyticsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_pricing_analytics().
-
-        Endpoint: GET /pricing_analytics
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_pricing_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def delete_product_catalogs(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountDeleteProductCatalogsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.delete_product_catalogs().
-
-        Endpoint: DELETE /product_catalogs
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_product_catalogs(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_product_catalog(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateProductCatalogParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_product_catalog().
-
-        Endpoint: POST /product_catalogs
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product_catalog(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def create_set_obo_mobility_intent(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateSetOboMobilityIntentParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_set_obo_mobility_intent().
-
-        Endpoint: POST /set_obo_mobility_intent
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_set_obo_mobility_intent(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_set_solution_migration_intent(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_set_solution_migration_intent().
-
-        Endpoint: POST /set_solution_migration_intent
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_set_solution_migration_intent(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_subscribed_app(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateSubscribedAppParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_subscribed_app().
-
-        Endpoint: POST /subscribed_apps
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_subscribed_app(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def get_template_analytics(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetTemplateAnalyticsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_template_analytics().
-
-        Endpoint: GET /template_analytics
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_template_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_template_group_analytics(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_template_group_analytics().
-
-        Endpoint: GET /template_group_analytics
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_template_group_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_template_group(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateTemplateGroupParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_template_group().
-
-        Endpoint: POST /template_groups
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_template_group(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_template_performance_metrics(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_template_performance_metrics().
-
-        Endpoint: GET /template_performance_metrics
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_template_performance_metrics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_upsert_message_template(
-        obj: WhatsAppBusinessAccount,
-        params: WhatsAppBusinessAccountCreateUpsertMessageTemplateParams,
-    ) -> WhatsAppBusinessAccountFields:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.create_upsert_message_template().
-
-        Endpoint: POST /upsert_message_templates
-        Returns: WhatsAppBusinessAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_upsert_message_template(params=params_dict)
-
-        # Convert result to typed model
-        return WhatsAppBusinessAccountFields(**result)
-
-    @staticmethod
-    def get_welcome_message_sequences(
-        obj: WhatsAppBusinessAccount,
-        params: Optional[WhatsAppBusinessAccountGetWelcomeMessageSequencesParams] = None,
-        fields: Optional[list[CTXPartnerAppWelcomeMessageFlowField]] = None,
-    ) -> TypedCursor[CTXPartnerAppWelcomeMessageFlowFields]:
-        """
-        Type-safe wrapper for WhatsAppBusinessAccount.get_welcome_message_sequences().
-
-        Endpoint: GET /welcome_message_sequences
-        Returns: TypedCursor[CTXPartnerAppWelcomeMessageFlowFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_welcome_message_sequences(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CTXPartnerAppWelcomeMessageFlowFields)
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def delete_assigned_users(
+    whatsappbusinessaccount_id: str,
+    params: WhatsAppBusinessAccountDeleteAssignedUsersParams = {},
+) -> Any:
+    """Delete Assigned Users for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        params: Parameters for the operation.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_assigned_users(params=params)
+
+
+def get_assigned_users(
+    whatsappbusinessaccount_id: str,
+    fields: list[AssignedUserField] = [],
+    params: WhatsAppBusinessAccountGetAssignedUsersParams = {},
+) -> Any:
+    """Get Assigned Users for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_assigned_users(
+        fields=fields, params=params
+    )
+
+
+def create_assigned_user(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateAssignedUserParams = {},
+) -> Any:
+    """Create Assigned User for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_assigned_user(
+        fields=fields, params=params
+    )
+
+
+def get_call_analytics(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetCallAnalyticsParams = {},
+) -> Any:
+    """Get Call Analytics for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_call_analytics(
+        fields=fields, params=params
+    )
+
+
+def get_conversation_analytics(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetConversationAnalyticsParams = {},
+) -> Any:
+    """Get Conversation Analytics for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_conversation_analytics(
+        fields=fields, params=params
+    )
+
+
+def create_dataset(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateDatasetParams = {},
+) -> Any:
+    """Create Dataset for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_dataset(
+        fields=fields, params=params
+    )
+
+
+def create_flow(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateFlowParams = {},
+) -> Any:
+    """Create Flow for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_flow(
+        fields=fields, params=params
+    )
+
+
+def create_generate_payment_configuration_oauth_link(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams = {},
+) -> Any:
+    """Create Generate Payment Configuration Oauth Link for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(
+        whatsappbusinessaccount_id
+    ).create_generate_payment_configuration_oauth_link(fields=fields, params=params)
+
+
+def get_message_template_previews(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetMessageTemplatePreviewsParams = {},
+) -> Any:
+    """Get Message Template Previews for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_message_template_previews(
+        fields=fields, params=params
+    )
+
+
+def delete_message_templates(
+    whatsappbusinessaccount_id: str,
+    params: WhatsAppBusinessAccountDeleteMessageTemplatesParams = {},
+) -> Any:
+    """Delete Message Templates for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        params: Parameters for the operation.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_message_templates(
+        params=params
+    )
+
+
+def get_message_templates(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetMessageTemplatesParams = {},
+) -> Any:
+    """Get Message Templates for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_message_templates(
+        fields=fields, params=params
+    )
+
+
+def create_message_template(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateMessageTemplateParams = {},
+) -> Any:
+    """Create Message Template for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_message_template(
+        fields=fields, params=params
+    )
+
+
+def create_migrate_flow(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateMigrateFlowParams = {},
+) -> Any:
+    """Create Migrate Flow for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_migrate_flow(
+        fields=fields, params=params
+    )
+
+
+def create_migrate_message_template(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateMigrateMessageTemplateParams = {},
+) -> Any:
+    """Create Migrate Message Template for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_migrate_message_template(
+        fields=fields, params=params
+    )
+
+
+def delete_payment_configuration(
+    whatsappbusinessaccount_id: str,
+    params: WhatsAppBusinessAccountDeletePaymentConfigurationParams = {},
+) -> Any:
+    """Delete Payment Configuration for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        params: Parameters for the operation.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_payment_configuration(
+        params=params
+    )
+
+
+def get_payment_configuration(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetPaymentConfigurationParams = {},
+) -> Any:
+    """Get Payment Configuration for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_payment_configuration(
+        fields=fields, params=params
+    )
+
+
+def create_payment_configuration(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreatePaymentConfigurationParams = {},
+) -> Any:
+    """Create Payment Configuration for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_payment_configuration(
+        fields=fields, params=params
+    )
+
+
+def create_phone_number(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreatePhoneNumberParams = {},
+) -> Any:
+    """Create Phone Number for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_phone_number(
+        fields=fields, params=params
+    )
+
+
+def get_pricing_analytics(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetPricingAnalyticsParams = {},
+) -> Any:
+    """Get Pricing Analytics for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_pricing_analytics(
+        fields=fields, params=params
+    )
+
+
+def delete_product_catalogs(
+    whatsappbusinessaccount_id: str,
+    params: WhatsAppBusinessAccountDeleteProductCatalogsParams = {},
+) -> Any:
+    """Delete Product Catalogs for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        params: Parameters for the operation.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_product_catalogs(
+        params=params
+    )
+
+
+def create_product_catalog(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateProductCatalogParams = {},
+) -> Any:
+    """Create Product Catalog for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_product_catalog(
+        fields=fields, params=params
+    )
+
+
+def create_set_obo_mobility_intent(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateSetOboMobilityIntentParams = {},
+) -> Any:
+    """Create Set Obo Mobility Intent for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_set_obo_mobility_intent(
+        fields=fields, params=params
+    )
+
+
+def create_set_solution_migration_intent(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams = {},
+) -> Any:
+    """Create Set Solution Migration Intent for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_set_solution_migration_intent(
+        fields=fields, params=params
+    )
+
+
+def create_subscribed_app(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateSubscribedAppParams = {},
+) -> Any:
+    """Create Subscribed App for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_subscribed_app(
+        fields=fields, params=params
+    )
+
+
+def get_template_analytics(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetTemplateAnalyticsParams = {},
+) -> Any:
+    """Get Template Analytics for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_analytics(
+        fields=fields, params=params
+    )
+
+
+def get_template_group_analytics(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams = {},
+) -> Any:
+    """Get Template Group Analytics for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_group_analytics(
+        fields=fields, params=params
+    )
+
+
+def create_template_group(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateTemplateGroupParams = {},
+) -> Any:
+    """Create Template Group for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_template_group(
+        fields=fields, params=params
+    )
+
+
+def get_template_performance_metrics(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams = {},
+) -> Any:
+    """Get Template Performance Metrics for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_performance_metrics(
+        fields=fields, params=params
+    )
+
+
+def create_upsert_message_template(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessAccountCreateUpsertMessageTemplateParams = {},
+) -> Any:
+    """Create Upsert Message Template for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_upsert_message_template(
+        fields=fields, params=params
+    )
+
+
+def get_welcome_message_sequences(
+    whatsappbusinessaccount_id: str,
+    fields: list[CTXPartnerAppWelcomeMessageFlowField] = [],
+    params: WhatsAppBusinessAccountGetWelcomeMessageSequencesParams = {},
+) -> Any:
+    """Get Welcome Message Sequences for this WhatsAppBusinessAccount.
+
+    Args:
+        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_welcome_message_sequences(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

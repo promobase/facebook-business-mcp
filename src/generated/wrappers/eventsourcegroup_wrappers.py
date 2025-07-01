@@ -2,50 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.eventsourcegroup import EventSourceGroup
+from facebook_business.adobjects.eventsourcegroup import EventSourceGroup
 
 from ..models.eventsourcegroup import (
     EventSourceGroupCreateSharedAccountParams,
     EventSourceGroupField,
-    EventSourceGroupFields,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class EventSourceGroupWrappers:
-    """Type-safe wrapper functions for EventSourceGroup API methods."""
+def create_shared_account(
+    eventsourcegroup_id: str,
+    fields: list[str] = [],
+    params: EventSourceGroupCreateSharedAccountParams = {},
+) -> Any:
+    """Create Shared Account for this EventSourceGroup.
 
-    @staticmethod
-    def create_shared_account(
-        obj: EventSourceGroup,
-        params: EventSourceGroupCreateSharedAccountParams,
-    ) -> EventSourceGroupFields:
-        """
-        Type-safe wrapper for EventSourceGroup.create_shared_account().
-
-        Endpoint: POST /shared_accounts
-        Returns: EventSourceGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_shared_account(params=params_dict)
-
-        # Convert result to typed model
-        return EventSourceGroupFields(**result)
+    Args:
+        eventsourcegroup_id: The ID of the EventSourceGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return EventSourceGroup(eventsourcegroup_id).create_shared_account(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

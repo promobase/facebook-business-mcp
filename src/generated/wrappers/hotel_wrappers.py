@@ -2,59 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.hotel import Hotel
+from facebook_business.adobjects.hotel import Hotel
 
 from ..models.hotel import (
     HotelField,
-    HotelFields,
     HotelGetOverrideDetailsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.overridedetails import (
-    OverrideDetailsField,
-    OverrideDetailsFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.overridedetails import OverrideDetailsField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class HotelWrappers:
-    """Type-safe wrapper functions for Hotel API methods."""
+def get_override_details(
+    hotel_id: str,
+    fields: list[OverrideDetailsField] = [],
+    params: HotelGetOverrideDetailsParams = {},
+) -> Any:
+    """Get Override Details for this Hotel.
 
-    @staticmethod
-    def get_override_details(
-        obj: Hotel,
-        params: Optional[HotelGetOverrideDetailsParams] = None,
-        fields: Optional[list[OverrideDetailsField]] = None,
-    ) -> TypedCursor[OverrideDetailsFields]:
-        """
-        Type-safe wrapper for Hotel.get_override_details().
-
-        Endpoint: GET /override_details
-        Returns: TypedCursor[OverrideDetailsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_override_details(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, OverrideDetailsFields)
+    Args:
+        hotel_id: The ID of the Hotel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Hotel(hotel_id).get_override_details(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

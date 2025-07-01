@@ -140,6 +140,21 @@ class ProductSetGetVehiclesParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ProductSetUpdateParams(BaseModel):
+    """Parameters for ProductSet.api_update()."""
+
+    filter: Any | None = Field(None, description="filter parameter")
+    metadata: dict[str, Any] | None = Field(None, description="metadata parameter")
+    name: str | None = Field(None, description="name parameter")
+    ordering_info: list[int] | None = Field(None, description="ordering_info parameter")
+    publish_to_shops: list[dict[str, Any]] | None = Field(
+        None, description="publish_to_shops parameter"
+    )
+    retailer_id: str | None = Field(None, description="retailer_id parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

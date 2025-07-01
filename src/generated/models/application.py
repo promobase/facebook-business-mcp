@@ -883,6 +883,55 @@ class ApplicationGetWhatsAppBusinessSolutionsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ApplicationUpdateParams(BaseModel):
+    """Parameters for Application.api_update()."""
+
+    allow_cycle_app_secret: bool | None = Field(
+        None, description="allow_cycle_app_secret parameter"
+    )
+    an_platforms: list[str] | None = Field(None, description="an_platforms parameter")
+    app_domains: list[str] | None = Field(None, description="app_domains parameter")
+    app_name: str | None = Field(None, description="app_name parameter")
+    app_type: bool | None = Field(None, description="app_type parameter")
+    auth_dialog_headline: str | None = Field(None, description="auth_dialog_headline parameter")
+    auth_dialog_perms_explanation: str | None = Field(
+        None, description="auth_dialog_perms_explanation parameter"
+    )
+    auth_referral_enabled: bool | None = Field(None, description="auth_referral_enabled parameter")
+    auth_referral_extended_perms: list[str] | None = Field(
+        None, description="auth_referral_extended_perms parameter"
+    )
+    auth_referral_friend_perms: list[str] | None = Field(
+        None, description="auth_referral_friend_perms parameter"
+    )
+    auth_referral_response_type: str | None = Field(
+        None, description="auth_referral_response_type parameter"
+    )
+    auth_referral_user_perms: list[str] | None = Field(
+        None, description="auth_referral_user_perms parameter"
+    )
+    canvas_fluid_height: bool | None = Field(None, description="canvas_fluid_height parameter")
+    canvas_fluid_width: bool | None = Field(None, description="canvas_fluid_width parameter")
+    canvas_url: str | None = Field(None, description="canvas_url parameter")
+    contact_email: str | None = Field(None, description="contact_email parameter")
+    deauth_callback_url: str | None = Field(None, description="deauth_callback_url parameter")
+    mobile_web_url: str | None = Field(None, description="mobile_web_url parameter")
+    namespace: str | None = Field(None, description="namespace parameter")
+    page_tab_default_name: str | None = Field(None, description="page_tab_default_name parameter")
+    privacy_policy_url: str | None = Field(None, description="privacy_policy_url parameter")
+    restrictions: str | None = Field(None, description="restrictions parameter")
+    secure_canvas_url: str | None = Field(None, description="secure_canvas_url parameter")
+    secure_page_tab_url: str | None = Field(None, description="secure_page_tab_url parameter")
+    server_ip_whitelist: list[str] | None = Field(None, description="server_ip_whitelist parameter")
+    terms_of_service_url: str | None = Field(None, description="terms_of_service_url parameter")
+    url_scheme_suffix: str | None = Field(None, description="url_scheme_suffix parameter")
+    user_support_email: str | None = Field(None, description="user_support_email parameter")
+    user_support_url: str | None = Field(None, description="user_support_url parameter")
+    website_url: str | None = Field(None, description="website_url parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

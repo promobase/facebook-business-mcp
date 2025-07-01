@@ -1,12 +1,13 @@
 """Streamlined Ad Account MCP Server - Core Operations Only."""
 
-from typing import Annotated, Any
+from typing import Annotated, Any, NotRequired, TypedDict
 
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 from pydantic import Field
 
-from src.generated.models.adaccount import AdAccountField
+import src.generated.models
+from src.generated.models.adaccount import AdAccountField, AdAccountUpdateParams
 from src.generated.models.campaign import CampaignField
 from src.utils import wrapped_fn_tool
 
@@ -54,42 +55,57 @@ def get_ad_account(
 @wrapped_fn_tool
 def update_ad_account(
     ad_account_id: str,
-    fields: list[str] = [],
-    params: dict[str, Any] = {},
+    fields: list[AdAccountField] = [],
+    params: AdAccountUpdateParams = {},
 ) -> str:
     """Update an AdAccount object.
 
     Args:
         ad_account_id: The ID of the Ad Account (must start with 'act_').
         fields: Fields to return after update.
-        params: Parameters to update (e.g., {'name': 'New Name'}).
+        params: Parameters to update. Available parameters:
+            - name: Account name
+            - spend_cap: Spending limit in cents (e.g., 50000 = $500)
+            - spend_cap_action: Action when spend cap is reached
+            - currency: Three letter currency code (e.g., 'USD', 'EUR')
+            - timezone_id: Timezone ID number
+            - is_notifications_enabled: Enable/disable notifications
+            - media_agency: Media agency ID
+            - partner: Partner ID
+            - end_advertiser: End advertiser ID
+            - attribution_spec: Attribution window settings
+            - business_info: Business information
+            - agency_client_declaration: Agency client declaration
+            - custom_audience_info: Custom audience settings
+            - default_dsa_beneficiary: DSA beneficiary
+            - default_dsa_payor: DSA payor
+            - existing_customers: List of existing customer types
+            - is_ba_skip_delayed_eligible: BA skip delayed eligibility
+            - tos_accepted: Terms of service acceptance
     """
     return AdAccount(ad_account_id).api_update(fields=fields, params=params)
 
 
 # ---- Resource Management (4) ----
-from src.generated.wrappers.adaccount_wrappers import AdAccountGetCampaignsParams
+import src.generated.wrappers.adaccount_wrappers as AdAccountWrappers
 
-AdAccountGetCampaignsParams.model_rebuild()
+# @ad_account_server.tool()
+# @wrapped_fn_tool
+# def get_campaigns(
+#     ad_account_id: str,
+#     fields: Annotated[
+#         list[CampaignField], Field(description="fields for querying ad campaigns")
+#     ] = [],
+#     params: AdAccountGetCampaignsParams = {},
+# ) -> Any:
+#     """Get campaigns for this ad account.
 
-
-@ad_account_server.tool()
-@wrapped_fn_tool
-def get_campaigns(
-    ad_account_id: str,
-    fields: Annotated[
-        list[CampaignField], Field(description="fields for querying ad campaigns")
-    ] = [],
-    params: AdAccountGetCampaignsParams = {},
-) -> str:
-    """Get campaigns for this ad account.
-
-    Args:
-        ad_account_id: The ID of the Ad Account (must start with 'act_').
-        fields: Fields to retrieve (e.g., ['name', 'status', 'objective']).
-        params: Query parameters (e.g., {'limit': 100, 'effective_status': ['ACTIVE']}).
-    """
-    return AdAccount(ad_account_id).get_campaigns(fields=fields, params=params)
+#     Args:
+#         ad_account_id: The ID of the Ad Account (must start with 'act_').
+#         fields: Fields to retrieve (e.g., ['name', 'status', 'objective']).
+#         params: Query parameters (e.g., {'limit': 100, 'effective_status': ['ACTIVE']}).
+#     """
+#     return AdAccount(ad_account_id).get_campaigns(fields=fields, params=params)
 
 
 @wrapped_fn_tool
@@ -269,14 +285,14 @@ def run_any_ad_account_fn(
 
 
 # ---- Register tools ----
-# ad_account_server.tool(get_ad_account)
-# ad_account_server.tool(update_ad_account)
-# ad_account_server.tool(get_campaigns)
-# ad_account_server.tool(create_campaign)
-# ad_account_server.tool(get_ad_sets)
-# ad_account_server.tool(create_ad_set)
-# ad_account_server.tool(get_insights)
-# ad_account_server.tool(get_insights_async)
-# ad_account_server.tool(get_custom_audiences)
-# ad_account_server.tool(create_custom_audience)
-# ad_account_server.tool(run_any_ad_account_fn)
+ad_account_server.tool(get_ad_account)
+ad_account_server.tool(update_ad_account)
+ad_account_server.tool(AdAccountWrappers.get_campaigns)
+ad_account_server.tool(create_campaign)
+ad_account_server.tool(get_ad_sets)
+ad_account_server.tool(create_ad_set)
+ad_account_server.tool(get_insights)
+ad_account_server.tool(get_insights_async)
+ad_account_server.tool(get_custom_audiences)
+ad_account_server.tool(create_custom_audience)
+ad_account_server.tool(run_any_ad_account_fn)

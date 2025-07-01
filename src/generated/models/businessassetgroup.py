@@ -235,6 +235,14 @@ class BusinessAssetGroupCreateContainedProductCatalogParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class BusinessAssetGroupUpdateParams(BaseModel):
+    """Parameters for BusinessAssetGroup.api_update()."""
+
+    name: str | None = Field(None, description="name parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

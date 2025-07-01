@@ -53,6 +53,19 @@ class AdStudyCellFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class AdStudyCellUpdateParams(BaseModel):
+    """Parameters for AdStudyCell.api_update()."""
+
+    adaccounts: list[int] | None = Field(None, description="adaccounts parameter")
+    adsets: list[str] | None = Field(None, description="adsets parameter")
+    campaigns: list[str] | None = Field(None, description="campaigns parameter")
+    creation_template: str | None = Field(None, description="creation_template parameter")
+    description: str | None = Field(None, description="description parameter")
+    name: str | None = Field(None, description="name parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

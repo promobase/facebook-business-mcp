@@ -80,6 +80,14 @@ class IGMediaForIGOnlyAPIGetInsightsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class IGMediaForIGOnlyAPIUpdateParams(BaseModel):
+    """Parameters for IGMediaForIGOnlyAPI.api_update()."""
+
+    comment_enabled: bool | None = Field(None, description="comment_enabled parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

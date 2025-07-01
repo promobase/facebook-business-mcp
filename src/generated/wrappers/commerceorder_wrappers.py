@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.commerceorder import CommerceOrder
+from facebook_business.adobjects.commerceorder import CommerceOrder
 
 from ..models.commerceorder import (
     CommerceOrderCreateAcknowledgeOrderParams,
@@ -16,190 +15,136 @@ from ..models.commerceorder import (
     CommerceOrderCreateShipmentParams,
     CommerceOrderCreateUpdateShipmentParams,
     CommerceOrderField,
-    CommerceOrderFields,
     CommerceOrderGetReturnsParams,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class CommerceOrderWrappers:
-    """Type-safe wrapper functions for CommerceOrder API methods."""
+def create_acknowledge_order(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderCreateAcknowledgeOrderParams = {},
+) -> Any:
+    """Create Acknowledge Order for this CommerceOrder.
 
-    @staticmethod
-    def create_acknowledge_order(
-        obj: CommerceOrder,
-        params: CommerceOrderCreateAcknowledgeOrderParams,
-    ) -> CommerceOrderFields:
-        """
-        Type-safe wrapper for CommerceOrder.create_acknowledge_order().
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).create_acknowledge_order(fields=fields, params=params)
 
-        Endpoint: POST /acknowledge_order
-        Returns: CommerceOrderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_acknowledge_order(params=params_dict)
+def create_cancellation(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderCreateCancellationParams = {},
+) -> Any:
+    """Create Cancellation for this CommerceOrder.
 
-        # Convert result to typed model
-        return CommerceOrderFields(**result)
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).create_cancellation(fields=fields, params=params)
 
-    @staticmethod
-    def create_cancellation(
-        obj: CommerceOrder,
-        params: CommerceOrderCreateCancellationParams,
-    ) -> CommerceOrderFields:
-        """
-        Type-safe wrapper for CommerceOrder.create_cancellation().
 
-        Endpoint: POST /cancellations
-        Returns: CommerceOrderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_item_update(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderCreateItemUpdateParams = {},
+) -> Any:
+    """Create Item Update for this CommerceOrder.
 
-        # Call the original method
-        result = obj.create_cancellation(params=params_dict)
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).create_item_update(fields=fields, params=params)
 
-        # Convert result to typed model
-        return CommerceOrderFields(**result)
 
-    @staticmethod
-    def create_item_update(
-        obj: CommerceOrder,
-        params: CommerceOrderCreateItemUpdateParams,
-    ) -> CommerceOrderFields:
-        """
-        Type-safe wrapper for CommerceOrder.create_item_update().
+def create_refund(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderCreateRefundParams = {},
+) -> Any:
+    """Create Refund for this CommerceOrder.
 
-        Endpoint: POST /item_updates
-        Returns: CommerceOrderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).create_refund(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_item_update(params=params_dict)
 
-        # Convert result to typed model
-        return CommerceOrderFields(**result)
+def get_returns(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderGetReturnsParams = {},
+) -> Any:
+    """Get Returns for this CommerceOrder.
 
-    @staticmethod
-    def create_refund(
-        obj: CommerceOrder,
-        params: CommerceOrderCreateRefundParams,
-    ) -> CommerceOrderFields:
-        """
-        Type-safe wrapper for CommerceOrder.create_refund().
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).get_returns(fields=fields, params=params)
 
-        Endpoint: POST /refunds
-        Returns: CommerceOrderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_refund(params=params_dict)
+def create_return(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderCreateReturnParams = {},
+) -> Any:
+    """Create Return for this CommerceOrder.
 
-        # Convert result to typed model
-        return CommerceOrderFields(**result)
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).create_return(fields=fields, params=params)
 
-    @staticmethod
-    def get_returns(
-        obj: CommerceOrder,
-        params: Optional[CommerceOrderGetReturnsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for CommerceOrder.get_returns().
 
-        Endpoint: GET /returns
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_shipment(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderCreateShipmentParams = {},
+) -> Any:
+    """Create Shipment for this CommerceOrder.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).create_shipment(fields=fields, params=params)
 
-        # Call the original method
-        cursor = obj.get_returns(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
+def create_update_shipment(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: CommerceOrderCreateUpdateShipmentParams = {},
+) -> Any:
+    """Create Update Shipment for this CommerceOrder.
 
-    @staticmethod
-    def create_return(
-        obj: CommerceOrder,
-        params: CommerceOrderCreateReturnParams,
-    ) -> CommerceOrderFields:
-        """
-        Type-safe wrapper for CommerceOrder.create_return().
-
-        Endpoint: POST /returns
-        Returns: CommerceOrderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_return(params=params_dict)
-
-        # Convert result to typed model
-        return CommerceOrderFields(**result)
-
-    @staticmethod
-    def create_shipment(
-        obj: CommerceOrder,
-        params: CommerceOrderCreateShipmentParams,
-    ) -> CommerceOrderFields:
-        """
-        Type-safe wrapper for CommerceOrder.create_shipment().
-
-        Endpoint: POST /shipments
-        Returns: CommerceOrderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_shipment(params=params_dict)
-
-        # Convert result to typed model
-        return CommerceOrderFields(**result)
-
-    @staticmethod
-    def create_update_shipment(
-        obj: CommerceOrder,
-        params: CommerceOrderCreateUpdateShipmentParams,
-    ) -> CommerceOrderFields:
-        """
-        Type-safe wrapper for CommerceOrder.create_update_shipment().
-
-        Endpoint: POST /update_shipment
-        Returns: CommerceOrderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_update_shipment(params=params_dict)
-
-        # Convert result to typed model
-        return CommerceOrderFields(**result)
+    Args:
+        commerceorder_id: The ID of the CommerceOrder.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceOrder(commerceorder_id).create_update_shipment(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

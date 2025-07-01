@@ -53,19 +53,15 @@ class WrapperGenerator:
         lines.append("")
         lines.append("from __future__ import annotations")
         lines.append("")
-        lines.append("from typing import Any, Optional, TYPE_CHECKING")
+        lines.append("from typing import Any")
         lines.append("")
-        lines.append("if TYPE_CHECKING:")
         lines.append(
-            f"    from facebook_business.adobjects.{adobject_info.module_path} import {adobject_info.name}"
+            f"from facebook_business.adobjects.{adobject_info.module_path} import {adobject_info.name}"
         )
-        lines.append("")
-        lines.append("from .cursor_utils import TypedCursor")
         lines.append("")
 
         # Import the models
         lines.append(f"from ..models.{adobject_info.module_path} import (")
-        lines.append(f"    {adobject_info.name}Fields,")
         lines.append(f"    {adobject_info.name}Field,")
 
         # Import param models
@@ -97,37 +93,33 @@ class WrapperGenerator:
                 if target_module:
                     if target_module not in target_imports:
                         target_imports[target_module] = set()
-                    target_imports[target_module].add(f"{method_info.target_class}Fields")
                     target_imports[target_module].add(f"{method_info.target_class}Field")
 
         for module, classes in sorted(target_imports.items()):
-            lines.append(f"from ..models.{module} import (")
-            for cls in sorted(classes):
-                lines.append(f"    {cls},")
-            lines.append(")")
+            lines.append(f"from ..models.{module} import {', '.join(sorted(classes))}")
+
+        if target_imports:
+            lines.append("")
+
+        # Always add manual pre-functions section (for model_rebuild calls)
+        # Check for both old and new section names for backwards compatibility
+        manual_pre_functions_content = manual_sections.get(
+            "pre_functions", ""
+        ) or manual_sections.get("pre_class", "")
+        lines.append("# ---- BEGIN MANUAL SECTION: pre_functions ----")
+        lines.append(manual_pre_functions_content)
+        lines.append("# ---- END MANUAL SECTION: pre_functions ----")
         lines.append("")
 
-        # Always add manual pre-class section (for model_rebuild calls)
-        manual_pre_class_content = manual_sections.get("pre_class", "")
-        lines.append("# ---- BEGIN MANUAL SECTION: pre_class ----")
-        lines.append(manual_pre_class_content)
-        lines.append("# ---- END MANUAL SECTION: pre_class ----")
-        lines.append("")
-
-        # Generate wrapper class
-        lines.append(f"class {adobject_info.name}Wrappers:")
-        lines.append(f'    """Type-safe wrapper functions for {adobject_info.name} API methods."""')
-        lines.append("")
-
-        # Generate wrapper methods
+        # Generate wrapper functions
         for method_info in adobject_info.api_methods:
-            wrapper_lines = self._generate_wrapper_method(adobject_info, method_info)
+            wrapper_lines = self._generate_wrapper_function(adobject_info, method_info)
             lines.extend(wrapper_lines)
+            lines.append("")
             lines.append("")
 
         # Always add manual end section
         manual_end_content = manual_sections.get("end", "")
-        lines.append("")
         lines.append("# ---- BEGIN MANUAL SECTION: end ----")
         lines.append(manual_end_content)
         lines.append("# ---- END MANUAL SECTION: end ----")
@@ -157,137 +149,68 @@ class WrapperGenerator:
             return self.parser._adobject_types[class_name]
         return module_name
 
-    def _generate_wrapper_method(
+    def _generate_wrapper_function(
         self, adobject_info: AdObjectInfo, method_info: ApiMethodInfo
     ) -> list[str]:
-        """Generate a wrapper method for an API method."""
+        """Generate a standalone function that uses generated params but raw API calls."""
         lines = []
-
-        # Method signature
-        lines.append("    @staticmethod")
 
         param_model_name = self._get_param_model_name(adobject_info.name, method_info.name)
 
-        # Determine return type
-        if method_info.target_class:
-            # Skip abstract base classes - return dict instead
-            if method_info.target_class == "AbstractCrudObject":
-                if method_info.http_method == "GET" and method_info.name != "api_get":
-                    return_type = "list[dict[str, Any]]"  # Cursor returns list
-                else:
-                    return_type = "dict[str, Any]"
-            else:
-                # Special case: get_insights_async is a POST method but still named get_*
-                if method_info.http_method == "GET" and method_info.name != "api_get":
-                    # GET methods on EDGE endpoints return Cursor objects for pagination
-                    return_type = f"TypedCursor[{method_info.target_class}Fields]"
-                else:
-                    return_type = f"{method_info.target_class}Fields"
-        else:
-            return_type = "dict[str, Any]"
+        # Determine return type - keep it simple with Any for now
+        return_type = "Any"
 
-        # Generate method signature
+        # Generate function signature
         if method_info.name.startswith("get_"):
-            lines.append(f"    def {method_info.name}(")
-            lines.append(f"        obj: {adobject_info.name},")
-            lines.append(f"        params: Optional[{param_model_name}] = None,")
+            lines.append(f"def {method_info.name}(")
+            lines.append(f"    {adobject_info.module_path}_id: str,")
             if method_info.target_class and method_info.target_class != "AbstractCrudObject":
                 target_field = f"{method_info.target_class}Field"
-                lines.append(f"        fields: Optional[list[{target_field}]] = None,")
+                lines.append(f"    fields: list[{target_field}] = [],")
             else:
-                lines.append("        fields: Optional[list[str]] = None,")
-            lines.append(f"    ) -> {return_type}:")
+                lines.append("    fields: list[str] = [],")
+            lines.append(f"    params: {param_model_name} = {{}},")
+            lines.append(f") -> {return_type}:")
 
         elif method_info.name.startswith("create_"):
-            lines.append(f"    def {method_info.name}(")
-            lines.append(f"        obj: {adobject_info.name},")
-            lines.append(f"        params: {param_model_name},")
-            lines.append(f"    ) -> {return_type}:")
+            lines.append(f"def {method_info.name}(")
+            lines.append(f"    {adobject_info.module_path}_id: str,")
+            lines.append("    fields: list[str] = [],")
+            lines.append(f"    params: {param_model_name} = {{}},")
+            lines.append(f") -> {return_type}:")
 
-        else:  # delete_
-            lines.append(f"    def {method_info.name}(")
-            lines.append(f"        obj: {adobject_info.name},")
+        else:  # delete_ or other methods
+            lines.append(f"def {method_info.name}(")
+            lines.append(f"    {adobject_info.module_path}_id: str,")
             if method_info.param_types:
-                lines.append(f"        params: Optional[{param_model_name}] = None,")
-            lines.append("    ) -> bool:")
+                lines.append(f"    params: {param_model_name} = {{}},")
+            lines.append(f") -> {return_type}:")
 
         # Generate docstring
-        lines.append('        """')
-        lines.append(f"        Type-safe wrapper for {adobject_info.name}.{method_info.name}().")
-        if method_info.endpoint:
-            lines.append("        ")
-            lines.append(f"        Endpoint: {method_info.http_method} {method_info.endpoint}")
-        if method_info.target_class:
-            lines.append(f"        Returns: {return_type}")
-        lines.append('        """')
-
-        # Generate method body
-        lines.append("        # Convert params to dict if provided")
         lines.append(
-            "        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None"
+            f'    """{method_info.name.replace("_", " ").title()} for this {adobject_info.name}.'
         )
+        lines.append("")
+        lines.append("    Args:")
+        lines.append(f"        {adobject_info.module_path}_id: The ID of the {adobject_info.name}.")
+        if method_info.name.startswith("get_") or method_info.name.startswith("create_"):
+            lines.append("        fields: Fields to retrieve.")
+        if method_info.name.startswith("get_") or method_info.name.startswith("create_"):
+            lines.append("        params: Query parameters.")
+        elif method_info.param_types:
+            lines.append("        params: Parameters for the operation.")
+        lines.append('    """')
 
-        if method_info.name.startswith("get_") and method_info.target_class:
-            lines.append("        ")
-            lines.append("        # Convert fields to list of strings")
-            lines.append("        fields_list = list(fields) if fields else None")
-            lines.append("        ")
-            lines.append("        # Call the original method")
-            if method_info.http_method == "GET":
-                lines.append(f"        cursor = obj.{method_info.name}(")
-                lines.append("            params=params_dict,")
-                lines.append("            fields=fields_list,")
-                lines.append("        )")
-                lines.append("        ")
-                if method_info.target_class == "AbstractCrudObject":
-                    lines.append("        # Return raw cursor data for abstract base class")
-                    lines.append("        return [item.export_all_data() for item in cursor]")
-                else:
-                    lines.append("        # Wrap the cursor for type safety")
-                    lines.append(
-                        f"        return TypedCursor(cursor, {method_info.target_class}Fields)"
-                    )
-            else:
-                # This is a POST method that happens to start with get_ (like get_insights_async)
-                lines.append(f"        result = obj.{method_info.name}(")
-                lines.append("            params=params_dict,")
-                lines.append("            fields=fields_list,")
-                lines.append("        )")
-                lines.append("        ")
-                if method_info.target_class == "AbstractCrudObject":
-                    lines.append("        # Return raw data for abstract base class")
-                    lines.append(
-                        "        return result.export_all_data() if hasattr(result, 'export_all_data') else result"
-                    )
-                else:
-                    lines.append("        # Convert result to typed model")
-                    lines.append(f"        return {method_info.target_class}Fields(**result)")
-
-        elif method_info.name.startswith("create_"):
-            lines.append("        ")
-            lines.append("        # Call the original method")
-            lines.append(f"        result = obj.{method_info.name}(params=params_dict)")
-            lines.append("        ")
-            if method_info.target_class == "AbstractCrudObject":
-                lines.append("        # Return raw data for abstract base class")
-                lines.append(
-                    "        return result.export_all_data() if hasattr(result, 'export_all_data') else result"
-                )
-            else:
-                lines.append("        # Convert result to typed model")
-                lines.append(
-                    f"        return {method_info.target_class or adobject_info.name}Fields(**result)"
-                )
-
-        else:  # delete_
-            lines.append("        ")
-            lines.append("        # Call the original method")
-            if method_info.param_types:
-                lines.append(f"        obj.{method_info.name}(params=params_dict)")
-            else:
-                lines.append(f"        obj.{method_info.name}()")
-            lines.append("        ")
-            lines.append("        return True  # Delete methods typically don't return anything")
+        # Generate method body - direct API call
+        lines.append(
+            f"    return {adobject_info.name}({adobject_info.module_path}_id).{method_info.name}("
+        )
+        if method_info.name.startswith("get_") or method_info.name.startswith("create_"):
+            lines.append("        fields=fields,")
+            lines.append("        params=params")
+        elif method_info.param_types:
+            lines.append("        params=params")
+        lines.append("    )")
 
         return lines
 
@@ -343,31 +266,23 @@ def main():
     init_file = output_dir / "__init__.py"
     with open(init_file, "w") as f:
         f.write('"""Code generated by PromoBase script - DO NOT EDIT MANUALLY."""\n')
-        f.write('"""Type-safe wrappers for Facebook Business SDK API methods."""\n\n')
+        f.write('"""Type-safe wrappers for Facebook Business SDK API methods."""\n')
+        f.write('"""\n')
+        f.write("Note: Due to naming conflicts, functions are not re-exported here.\n")
+        f.write("Import directly from the specific wrapper modules instead:\n")
+        f.write("\n")
+        f.write("from src.generated.wrappers.adaccount_wrappers import get_campaigns\n")
+        f.write("from src.generated.wrappers.campaign_wrappers import get_ad_sets\n")
+        f.write('"""\n\n')
 
-        # Import all wrapper classes
+        # List all available modules for reference
+        f.write("# Available wrapper modules:\n")
         for wrapper_file in sorted(generated_wrappers):
             module_name = wrapper_file.stem
-            # Get the actual class name from the adobject info
-            # Find the matching adobject_info
-            for file_path in files_to_process:
-                adobject_info = parser.parse_file(file_path)
-                if adobject_info and adobject_info.module_path + "_wrappers" == module_name:
-                    class_name = f"{adobject_info.name}Wrappers"
-                    f.write(f"from .{module_name} import {class_name}\n")
-                    break
+            f.write(f"# - {module_name}\n")
 
-        f.write("\n__all__ = [\n")
-        for wrapper_file in sorted(generated_wrappers):
-            module_name = wrapper_file.stem
-            # Get the actual class name from the adobject info
-            for file_path in files_to_process:
-                adobject_info = parser.parse_file(file_path)
-                if adobject_info and adobject_info.module_path + "_wrappers" == module_name:
-                    class_name = f"{adobject_info.name}Wrappers"
-                    f.write(f'    "{class_name}",\n')
-                    break
-        f.write("]\n")
+        f.write("\n")
+        f.write("__all__ = []  # Due to naming conflicts, import from specific modules\n")
 
     print(
         f"\n✓ Generated {len(generated_wrappers)} wrapper files with {wrapper_count} total methods"

@@ -65,6 +65,14 @@ class PublisherBlockListGetPagedWebPublishersParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class PublisherBlockListUpdateParams(BaseModel):
+    """Parameters for PublisherBlockList.api_update()."""
+
+    spec: Any | None = Field(None, description="spec parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -2,57 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.unifiedthread import UnifiedThread
+from facebook_business.adobjects.unifiedthread import UnifiedThread
 
 from ..models.unifiedthread import (
     UnifiedThreadField,
-    UnifiedThreadFields,
     UnifiedThreadGetMessagesParams,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class UnifiedThreadWrappers:
-    """Type-safe wrapper functions for UnifiedThread API methods."""
+def get_messages(
+    unifiedthread_id: str,
+    fields: list[str] = [],
+    params: UnifiedThreadGetMessagesParams = {},
+) -> Any:
+    """Get Messages for this UnifiedThread.
 
-    @staticmethod
-    def get_messages(
-        obj: UnifiedThread,
-        params: Optional[UnifiedThreadGetMessagesParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for UnifiedThread.get_messages().
-
-        Endpoint: GET /messages
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_messages(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
+    Args:
+        unifiedthread_id: The ID of the UnifiedThread.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return UnifiedThread(unifiedthread_id).get_messages(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

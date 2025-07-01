@@ -2,57 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.avatar import Avatar
+from facebook_business.adobjects.avatar import Avatar
 
 from ..models.avatar import (
     AvatarField,
-    AvatarFields,
     AvatarGetModelsParams,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AvatarWrappers:
-    """Type-safe wrapper functions for Avatar API methods."""
+def get_models(
+    avatar_id: str,
+    fields: list[str] = [],
+    params: AvatarGetModelsParams = {},
+) -> Any:
+    """Get Models for this Avatar.
 
-    @staticmethod
-    def get_models(
-        obj: Avatar,
-        params: Optional[AvatarGetModelsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Avatar.get_models().
-
-        Endpoint: GET /models
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_models(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
+    Args:
+        avatar_id: The ID of the Avatar.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Avatar(avatar_id).get_models(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

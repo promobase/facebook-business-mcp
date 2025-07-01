@@ -2,44 +2,24 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.productfeed import ProductFeed
+from facebook_business.adobjects.productfeed import ProductFeed
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.automotivemodel import (
-    AutomotiveModelField,
-    AutomotiveModelFields,
-)
-from ..models.destination import (
-    DestinationField,
-    DestinationFields,
-)
-from ..models.flight import (
-    FlightField,
-    FlightFields,
-)
-from ..models.homelisting import (
-    HomeListingField,
-    HomeListingFields,
-)
-from ..models.hotel import (
-    HotelField,
-    HotelFields,
-)
-from ..models.mediatitle import (
-    MediaTitleField,
-    MediaTitleFields,
-)
+from ..models.automotivemodel import AutomotiveModelField
+from ..models.destination import DestinationField
+from ..models.flight import FlightField
+from ..models.homelisting import HomeListingField
+from ..models.hotel import HotelField
+from ..models.mediatitle import MediaTitleField
 from ..models.productfeed import (
     ProductFeedCreateRuleParams,
     ProductFeedCreateSupplementaryFeedAssocParams,
     ProductFeedCreateUploadParams,
     ProductFeedCreateUploadScheduleParams,
     ProductFeedField,
-    ProductFeedFields,
     ProductFeedGetAutomotiveModelsParams,
     ProductFeedGetDestinationsParams,
     ProductFeedGetFlightsParams,
@@ -50,358 +30,210 @@ from ..models.productfeed import (
     ProductFeedGetVehicleOffersParams,
     ProductFeedGetVehiclesParams,
 )
-from ..models.productfeedrule import (
-    ProductFeedRuleField,
-    ProductFeedRuleFields,
-)
-from ..models.productfeedupload import (
-    ProductFeedUploadField,
-    ProductFeedUploadFields,
-)
-from ..models.productitem import (
-    ProductItemField,
-    ProductItemFields,
-)
-from ..models.vehicle import (
-    VehicleField,
-    VehicleFields,
-)
-from ..models.vehicleoffer import (
-    VehicleOfferField,
-    VehicleOfferFields,
-)
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class ProductFeedWrappers:
-    """Type-safe wrapper functions for ProductFeed API methods."""
-
-    @staticmethod
-    def get_automotive_models(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetAutomotiveModelsParams] = None,
-        fields: Optional[list[AutomotiveModelField]] = None,
-    ) -> TypedCursor[AutomotiveModelFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_automotive_models().
-
-        Endpoint: GET /automotive_models
-        Returns: TypedCursor[AutomotiveModelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_automotive_models(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AutomotiveModelFields)
-
-    @staticmethod
-    def get_destinations(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetDestinationsParams] = None,
-        fields: Optional[list[DestinationField]] = None,
-    ) -> TypedCursor[DestinationFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_destinations().
-
-        Endpoint: GET /destinations
-        Returns: TypedCursor[DestinationFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_destinations(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, DestinationFields)
-
-    @staticmethod
-    def get_flights(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetFlightsParams] = None,
-        fields: Optional[list[FlightField]] = None,
-    ) -> TypedCursor[FlightFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_flights().
-
-        Endpoint: GET /flights
-        Returns: TypedCursor[FlightFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_flights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, FlightFields)
-
-    @staticmethod
-    def get_home_listings(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetHomeListingsParams] = None,
-        fields: Optional[list[HomeListingField]] = None,
-    ) -> TypedCursor[HomeListingFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_home_listings().
-
-        Endpoint: GET /home_listings
-        Returns: TypedCursor[HomeListingFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_home_listings(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, HomeListingFields)
-
-    @staticmethod
-    def get_hotels(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetHotelsParams] = None,
-        fields: Optional[list[HotelField]] = None,
-    ) -> TypedCursor[HotelFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_hotels().
-
-        Endpoint: GET /hotels
-        Returns: TypedCursor[HotelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_hotels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, HotelFields)
-
-    @staticmethod
-    def get_media_titles(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetMediaTitlesParams] = None,
-        fields: Optional[list[MediaTitleField]] = None,
-    ) -> TypedCursor[MediaTitleFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_media_titles().
-
-        Endpoint: GET /media_titles
-        Returns: TypedCursor[MediaTitleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_media_titles(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, MediaTitleFields)
-
-    @staticmethod
-    def get_products(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetProductsParams] = None,
-        fields: Optional[list[ProductItemField]] = None,
-    ) -> TypedCursor[ProductItemFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_products().
-
-        Endpoint: GET /products
-        Returns: TypedCursor[ProductItemFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_products(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductItemFields)
-
-    @staticmethod
-    def create_rule(
-        obj: ProductFeed,
-        params: ProductFeedCreateRuleParams,
-    ) -> ProductFeedRuleFields:
-        """
-        Type-safe wrapper for ProductFeed.create_rule().
-
-        Endpoint: POST /rules
-        Returns: ProductFeedRuleFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_rule(params=params_dict)
-
-        # Convert result to typed model
-        return ProductFeedRuleFields(**result)
-
-    @staticmethod
-    def create_supplementary_feed_assoc(
-        obj: ProductFeed,
-        params: ProductFeedCreateSupplementaryFeedAssocParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for ProductFeed.create_supplementary_feed_assoc().
-
-        Endpoint: POST /supplementary_feed_assocs
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_supplementary_feed_assoc(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_upload_schedule(
-        obj: ProductFeed,
-        params: ProductFeedCreateUploadScheduleParams,
-    ) -> ProductFeedFields:
-        """
-        Type-safe wrapper for ProductFeed.create_upload_schedule().
-
-        Endpoint: POST /upload_schedules
-        Returns: ProductFeedFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_upload_schedule(params=params_dict)
-
-        # Convert result to typed model
-        return ProductFeedFields(**result)
-
-    @staticmethod
-    def create_upload(
-        obj: ProductFeed,
-        params: ProductFeedCreateUploadParams,
-    ) -> ProductFeedUploadFields:
-        """
-        Type-safe wrapper for ProductFeed.create_upload().
-
-        Endpoint: POST /uploads
-        Returns: ProductFeedUploadFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_upload(params=params_dict)
-
-        # Convert result to typed model
-        return ProductFeedUploadFields(**result)
-
-    @staticmethod
-    def get_vehicle_offers(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetVehicleOffersParams] = None,
-        fields: Optional[list[VehicleOfferField]] = None,
-    ) -> TypedCursor[VehicleOfferFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_vehicle_offers().
-
-        Endpoint: GET /vehicle_offers
-        Returns: TypedCursor[VehicleOfferFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_vehicle_offers(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, VehicleOfferFields)
-
-    @staticmethod
-    def get_vehicles(
-        obj: ProductFeed,
-        params: Optional[ProductFeedGetVehiclesParams] = None,
-        fields: Optional[list[VehicleField]] = None,
-    ) -> TypedCursor[VehicleFields]:
-        """
-        Type-safe wrapper for ProductFeed.get_vehicles().
-
-        Endpoint: GET /vehicles
-        Returns: TypedCursor[VehicleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_vehicles(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, VehicleFields)
+from ..models.productfeedrule import ProductFeedRuleField
+from ..models.productfeedupload import ProductFeedUploadField
+from ..models.productitem import ProductItemField
+from ..models.vehicle import VehicleField
+from ..models.vehicleoffer import VehicleOfferField
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def get_automotive_models(
+    productfeed_id: str,
+    fields: list[AutomotiveModelField] = [],
+    params: ProductFeedGetAutomotiveModelsParams = {},
+) -> Any:
+    """Get Automotive Models for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_automotive_models(fields=fields, params=params)
+
+
+def get_destinations(
+    productfeed_id: str,
+    fields: list[DestinationField] = [],
+    params: ProductFeedGetDestinationsParams = {},
+) -> Any:
+    """Get Destinations for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_destinations(fields=fields, params=params)
+
+
+def get_flights(
+    productfeed_id: str,
+    fields: list[FlightField] = [],
+    params: ProductFeedGetFlightsParams = {},
+) -> Any:
+    """Get Flights for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_flights(fields=fields, params=params)
+
+
+def get_home_listings(
+    productfeed_id: str,
+    fields: list[HomeListingField] = [],
+    params: ProductFeedGetHomeListingsParams = {},
+) -> Any:
+    """Get Home Listings for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_home_listings(fields=fields, params=params)
+
+
+def get_hotels(
+    productfeed_id: str,
+    fields: list[HotelField] = [],
+    params: ProductFeedGetHotelsParams = {},
+) -> Any:
+    """Get Hotels for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_hotels(fields=fields, params=params)
+
+
+def get_media_titles(
+    productfeed_id: str,
+    fields: list[MediaTitleField] = [],
+    params: ProductFeedGetMediaTitlesParams = {},
+) -> Any:
+    """Get Media Titles for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_media_titles(fields=fields, params=params)
+
+
+def get_products(
+    productfeed_id: str,
+    fields: list[ProductItemField] = [],
+    params: ProductFeedGetProductsParams = {},
+) -> Any:
+    """Get Products for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_products(fields=fields, params=params)
+
+
+def create_rule(
+    productfeed_id: str,
+    fields: list[str] = [],
+    params: ProductFeedCreateRuleParams = {},
+) -> Any:
+    """Create Rule for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).create_rule(fields=fields, params=params)
+
+
+def create_supplementary_feed_assoc(
+    productfeed_id: str,
+    fields: list[str] = [],
+    params: ProductFeedCreateSupplementaryFeedAssocParams = {},
+) -> Any:
+    """Create Supplementary Feed Assoc for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).create_supplementary_feed_assoc(fields=fields, params=params)
+
+
+def create_upload_schedule(
+    productfeed_id: str,
+    fields: list[str] = [],
+    params: ProductFeedCreateUploadScheduleParams = {},
+) -> Any:
+    """Create Upload Schedule for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).create_upload_schedule(fields=fields, params=params)
+
+
+def create_upload(
+    productfeed_id: str,
+    fields: list[str] = [],
+    params: ProductFeedCreateUploadParams = {},
+) -> Any:
+    """Create Upload for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).create_upload(fields=fields, params=params)
+
+
+def get_vehicle_offers(
+    productfeed_id: str,
+    fields: list[VehicleOfferField] = [],
+    params: ProductFeedGetVehicleOffersParams = {},
+) -> Any:
+    """Get Vehicle Offers for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_vehicle_offers(fields=fields, params=params)
+
+
+def get_vehicles(
+    productfeed_id: str,
+    fields: list[VehicleField] = [],
+    params: ProductFeedGetVehiclesParams = {},
+) -> Any:
+    """Get Vehicles for this ProductFeed.
+
+    Args:
+        productfeed_id: The ID of the ProductFeed.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeed(productfeed_id).get_vehicles(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

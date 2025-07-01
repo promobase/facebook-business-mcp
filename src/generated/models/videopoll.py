@@ -60,6 +60,18 @@ class VideoPollFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class VideoPollUpdateParams(BaseModel):
+    """Parameters for VideoPoll.api_update()."""
+
+    action: str | None = Field(None, description="action parameter")
+    close_after_voting: bool | None = Field(None, description="close_after_voting parameter")
+    default_open: bool | None = Field(None, description="default_open parameter")
+    show_gradient: bool | None = Field(None, description="show_gradient parameter")
+    show_results: bool | None = Field(None, description="show_results parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

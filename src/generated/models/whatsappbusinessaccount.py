@@ -518,6 +518,16 @@ class WhatsAppBusinessAccountGetWelcomeMessageSequencesParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class WhatsAppBusinessAccountUpdateParams(BaseModel):
+    """Parameters for WhatsAppBusinessAccount.api_update()."""
+
+    is_enabled_for_insights: bool | None = Field(
+        None, description="is_enabled_for_insights parameter"
+    )
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

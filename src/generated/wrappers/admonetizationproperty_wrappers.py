@@ -2,112 +2,76 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.admonetizationproperty import AdMonetizationProperty
+from facebook_business.adobjects.admonetizationproperty import AdMonetizationProperty
 
 from ..models.admonetizationproperty import (
     AdMonetizationPropertyCreateAdNetworkAnalyticParams,
     AdMonetizationPropertyField,
-    AdMonetizationPropertyFields,
     AdMonetizationPropertyGetAdNetworkAnalyticsParams,
     AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adnetworkanalyticsasyncqueryresult import (
-    AdNetworkAnalyticsAsyncQueryResultField,
-    AdNetworkAnalyticsAsyncQueryResultFields,
-)
-from ..models.adnetworkanalyticssyncqueryresult import (
-    AdNetworkAnalyticsSyncQueryResultField,
-    AdNetworkAnalyticsSyncQueryResultFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.adnetworkanalyticsasyncqueryresult import AdNetworkAnalyticsAsyncQueryResultField
+from ..models.adnetworkanalyticssyncqueryresult import AdNetworkAnalyticsSyncQueryResultField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdMonetizationPropertyWrappers:
-    """Type-safe wrapper functions for AdMonetizationProperty API methods."""
+def get_ad_network_analytics(
+    admonetizationproperty_id: str,
+    fields: list[AdNetworkAnalyticsSyncQueryResultField] = [],
+    params: AdMonetizationPropertyGetAdNetworkAnalyticsParams = {},
+) -> Any:
+    """Get Ad Network Analytics for this AdMonetizationProperty.
 
-    @staticmethod
-    def get_ad_network_analytics(
-        obj: AdMonetizationProperty,
-        params: Optional[AdMonetizationPropertyGetAdNetworkAnalyticsParams] = None,
-        fields: Optional[list[AdNetworkAnalyticsSyncQueryResultField]] = None,
-    ) -> TypedCursor[AdNetworkAnalyticsSyncQueryResultFields]:
-        """
-        Type-safe wrapper for AdMonetizationProperty.get_ad_network_analytics().
+    Args:
+        admonetizationproperty_id: The ID of the AdMonetizationProperty.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdMonetizationProperty(admonetizationproperty_id).get_ad_network_analytics(
+        fields=fields, params=params
+    )
 
-        Endpoint: GET /adnetworkanalytics
-        Returns: TypedCursor[AdNetworkAnalyticsSyncQueryResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_ad_network_analytic(
+    admonetizationproperty_id: str,
+    fields: list[str] = [],
+    params: AdMonetizationPropertyCreateAdNetworkAnalyticParams = {},
+) -> Any:
+    """Create Ad Network Analytic for this AdMonetizationProperty.
 
-        # Call the original method
-        cursor = obj.get_ad_network_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        admonetizationproperty_id: The ID of the AdMonetizationProperty.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdMonetizationProperty(admonetizationproperty_id).create_ad_network_analytic(
+        fields=fields, params=params
+    )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdNetworkAnalyticsSyncQueryResultFields)
 
-    @staticmethod
-    def create_ad_network_analytic(
-        obj: AdMonetizationProperty,
-        params: AdMonetizationPropertyCreateAdNetworkAnalyticParams,
-    ) -> AdMonetizationPropertyFields:
-        """
-        Type-safe wrapper for AdMonetizationProperty.create_ad_network_analytic().
+def get_ad_network_analytics_results(
+    admonetizationproperty_id: str,
+    fields: list[AdNetworkAnalyticsAsyncQueryResultField] = [],
+    params: AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams = {},
+) -> Any:
+    """Get Ad Network Analytics Results for this AdMonetizationProperty.
 
-        Endpoint: POST /adnetworkanalytics
-        Returns: AdMonetizationPropertyFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_network_analytic(params=params_dict)
-
-        # Convert result to typed model
-        return AdMonetizationPropertyFields(**result)
-
-    @staticmethod
-    def get_ad_network_analytics_results(
-        obj: AdMonetizationProperty,
-        params: Optional[AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams] = None,
-        fields: Optional[list[AdNetworkAnalyticsAsyncQueryResultField]] = None,
-    ) -> TypedCursor[AdNetworkAnalyticsAsyncQueryResultFields]:
-        """
-        Type-safe wrapper for AdMonetizationProperty.get_ad_network_analytics_results().
-
-        Endpoint: GET /adnetworkanalytics_results
-        Returns: TypedCursor[AdNetworkAnalyticsAsyncQueryResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_network_analytics_results(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdNetworkAnalyticsAsyncQueryResultFields)
+    Args:
+        admonetizationproperty_id: The ID of the AdMonetizationProperty.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdMonetizationProperty(admonetizationproperty_id).get_ad_network_analytics_results(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

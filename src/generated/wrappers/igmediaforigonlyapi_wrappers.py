@@ -2,80 +2,53 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.igmediaforigonlyapi import IGMediaForIGOnlyAPI
+from facebook_business.adobjects.igmediaforigonlyapi import IGMediaForIGOnlyAPI
 
 from ..models.igmediaforigonlyapi import (
     IGMediaForIGOnlyAPICreateCommentParams,
     IGMediaForIGOnlyAPIField,
-    IGMediaForIGOnlyAPIFields,
     IGMediaForIGOnlyAPIGetInsightsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.insightsresult import (
-    InsightsResultField,
-    InsightsResultFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.insightsresult import InsightsResultField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class IGMediaForIGOnlyAPIWrappers:
-    """Type-safe wrapper functions for IGMediaForIGOnlyAPI API methods."""
+def create_comment(
+    igmediaforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGMediaForIGOnlyAPICreateCommentParams = {},
+) -> Any:
+    """Create Comment for this IGMediaForIGOnlyAPI.
 
-    @staticmethod
-    def create_comment(
-        obj: IGMediaForIGOnlyAPI,
-        params: IGMediaForIGOnlyAPICreateCommentParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGMediaForIGOnlyAPI.create_comment().
+    Args:
+        igmediaforigonlyapi_id: The ID of the IGMediaForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).create_comment(fields=fields, params=params)
 
-        Endpoint: POST /comments
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
+def get_insights(
+    igmediaforigonlyapi_id: str,
+    fields: list[InsightsResultField] = [],
+    params: IGMediaForIGOnlyAPIGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this IGMediaForIGOnlyAPI.
 
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_insights(
-        obj: IGMediaForIGOnlyAPI,
-        params: Optional[IGMediaForIGOnlyAPIGetInsightsParams] = None,
-        fields: Optional[list[InsightsResultField]] = None,
-    ) -> TypedCursor[InsightsResultFields]:
-        """
-        Type-safe wrapper for IGMediaForIGOnlyAPI.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[InsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InsightsResultFields)
+    Args:
+        igmediaforigonlyapi_id: The ID of the IGMediaForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).get_insights(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

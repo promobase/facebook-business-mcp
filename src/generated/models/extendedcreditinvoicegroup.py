@@ -62,6 +62,15 @@ class ExtendedCreditInvoiceGroupCreateAdAccountParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ExtendedCreditInvoiceGroupUpdateParams(BaseModel):
+    """Parameters for ExtendedCreditInvoiceGroup.api_update()."""
+
+    emails: list[str] | None = Field(None, description="emails parameter")
+    name: str | None = Field(None, description="name parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -125,6 +125,24 @@ class BusinessUserGetAssignedPagesParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class BusinessUserUpdateParams(BaseModel):
+    """Parameters for BusinessUser.api_update()."""
+
+    clear_pending_email: bool | None = Field(None, description="clear_pending_email parameter")
+    email: str | None = Field(None, description="email parameter")
+    first_name: str | None = Field(None, description="first_name parameter")
+    last_name: str | None = Field(None, description="last_name parameter")
+    pending_email: str | None = Field(None, description="pending_email parameter")
+    role: str | None = Field(None, description="role parameter")
+    skip_verification_email: bool | None = Field(
+        None, description="skip_verification_email parameter"
+    )
+    tasks: list[str] | None = Field(None, description="tasks parameter")
+    title: str | None = Field(None, description="title parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

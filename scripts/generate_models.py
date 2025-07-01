@@ -88,6 +88,10 @@ class AdObjectInfo:
     enums: list[EnumInfo]
     field_types: dict[str, str]
     api_methods: Optional[list[ApiMethodInfo]] = None  # Will store API method info
+    instance_methods: Optional[list[str]] = (
+        None  # Store instance method names like api_get, api_update
+    )
+    update_params: Optional[dict[str, str]] = None  # Store api_update param_types
 
 
 class FacebookSDKParser:
@@ -177,9 +181,18 @@ class FacebookSDKParser:
                     if isinstance(target, ast.Name) and target.id == "_field_types":
                         field_types = self._extract_field_types(node.value)
 
-        # Find API methods with param_types
+        # Find API methods with param_types and instance methods
+        instance_methods = []
+        update_params = None
         for node in class_node.body:
             if isinstance(node, ast.FunctionDef):
+                # Check for CRUD methods
+                if node.name in ["api_get", "api_update", "api_delete", "api_create"]:
+                    instance_methods.append(node.name)
+                    # Extract update params if it's api_update
+                    if node.name == "api_update":
+                        update_params = self._extract_update_params(node)
+                # Check for edge methods
                 method_info = self._extract_api_method_info(node)
                 if method_info:
                     api_methods.append(method_info)
@@ -191,6 +204,8 @@ class FacebookSDKParser:
             enums=enums,
             field_types=field_types,
             api_methods=api_methods,
+            instance_methods=instance_methods,
+            update_params=update_params,
         )
 
     def _find_inner_class(self, class_node: ast.ClassDef, name: str) -> Optional[ast.ClassDef]:
@@ -288,6 +303,22 @@ class FacebookSDKParser:
             if isinstance(key, ast.Constant) and isinstance(value, ast.Constant):
                 field_types[key.value] = value.value
         return field_types
+
+    def _extract_update_params(self, func_node: ast.FunctionDef) -> Optional[dict[str, str]]:
+        """Extract param_types from api_update method."""
+        for node in ast.walk(func_node):
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if isinstance(target, ast.Name) and target.id == "param_types":
+                        if isinstance(node.value, ast.Dict):
+                            params = {}
+                            for key, value in zip(node.value.keys, node.value.values, strict=False):
+                                if isinstance(key, ast.Constant) and isinstance(
+                                    value, ast.Constant
+                                ):
+                                    params[key.value] = value.value
+                            return params
+        return None
 
     def _extract_api_method_info(self, func_node: ast.FunctionDef) -> Optional[ApiMethodInfo]:
         """Extract parameter types from API methods like get_ad_sets."""
@@ -448,6 +479,12 @@ class PydanticModelGenerator:
                 param_model = self._generate_param_model(adobject_info.name, method_info)
                 if param_model:
                     model_parts.append(param_model)
+
+        # Generate update params model if available
+        if adobject_info.update_params:
+            update_model = self._generate_update_params_model(adobject_info)
+            if update_model:
+                model_parts.append(update_model)
 
         # Combine imports and models with proper sorting
         # Separate imports into categories
@@ -782,6 +819,35 @@ class PydanticModelGenerator:
         }
 
         return type_map.get(param_type, "Any")
+
+    def _generate_update_params_model(self, adobject_info: AdObjectInfo) -> Optional[str]:
+        """Generate a Pydantic model for api_update parameters."""
+        if not adobject_info.update_params:
+            return None
+
+        lines = []
+        model_name = f"{adobject_info.name}UpdateParams"
+
+        lines.append(f"class {model_name}(BaseModel):")
+        lines.append(f'    """Parameters for {adobject_info.name}.api_update()."""')
+        lines.append("")
+
+        # Generate fields for each parameter
+        for param_name, param_type in adobject_info.update_params.items():
+            # Map the type - for enums in update, they're usually simple strings
+            if param_type.endswith("_enum"):
+                python_type = "str"
+            else:
+                python_type = self._map_param_type(param_type, {})
+
+            # Make all params optional
+            field_def = f'    {param_name}: {python_type} | None = Field(None, description="{param_name} parameter")'
+            lines.append(field_def)
+
+        lines.append("")
+        lines.append("    model_config = ConfigDict(extra='forbid')")
+
+        return "\n".join(lines)
 
 
 def generate_comprehensive_types_file(output_dir: Path):

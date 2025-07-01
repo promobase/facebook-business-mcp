@@ -30,6 +30,14 @@ class CPASLsbImageBankFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class CPASLsbImageBankUpdateParams(BaseModel):
+    """Parameters for CPASLsbImageBank.api_update()."""
+
+    backup_image_urls: list[str] | None = Field(None, description="backup_image_urls parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

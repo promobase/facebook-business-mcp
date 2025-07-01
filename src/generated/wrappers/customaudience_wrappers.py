@@ -2,21 +2,14 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.customaudience import CustomAudience
+from facebook_business.adobjects.customaudience import CustomAudience
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.ad import (
-    AdField,
-    AdFields,
-)
-from ..models.adaccount import (
-    AdAccountField,
-    AdAccountFields,
-)
+from ..models.ad import AdField
+from ..models.adaccount import AdAccountField
 from ..models.customaudience import (
     CustomAudienceCreateAdAccountParams,
     CustomAudienceCreateSaltParams,
@@ -25,287 +18,180 @@ from ..models.customaudience import (
     CustomAudienceDeleteAdAccountsParams,
     CustomAudienceDeleteUsersParams,
     CustomAudienceField,
-    CustomAudienceFields,
     CustomAudienceGetAdAccountsParams,
     CustomAudienceGetAdsParams,
     CustomAudienceGetHealthParams,
     CustomAudienceGetSaltsParams,
     CustomAudienceGetSessionsParams,
 )
-from ..models.customaudiencehealth import (
-    CustomAudienceHealthField,
-    CustomAudienceHealthFields,
-)
-from ..models.customaudiencesalts import (
-    CustomAudienceSaltsField,
-    CustomAudienceSaltsFields,
-)
-from ..models.customaudiencesession import (
-    CustomAudienceSessionField,
-    CustomAudienceSessionFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.customaudiencehealth import CustomAudienceHealthField
+from ..models.customaudiencesalts import CustomAudienceSaltsField
+from ..models.customaudiencesession import CustomAudienceSessionField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class CustomAudienceWrappers:
-    """Type-safe wrapper functions for CustomAudience API methods."""
+def delete_ad_accounts(
+    customaudience_id: str,
+    params: CustomAudienceDeleteAdAccountsParams = {},
+) -> Any:
+    """Delete Ad Accounts for this CustomAudience.
 
-    @staticmethod
-    def delete_ad_accounts(
-        obj: CustomAudience,
-        params: Optional[CustomAudienceDeleteAdAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for CustomAudience.delete_ad_accounts().
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        params: Parameters for the operation.
+    """
+    return CustomAudience(customaudience_id).delete_ad_accounts(params=params)
 
-        Endpoint: DELETE /adaccounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        obj.delete_ad_accounts(params=params_dict)
+def get_ad_accounts(
+    customaudience_id: str,
+    fields: list[AdAccountField] = [],
+    params: CustomAudienceGetAdAccountsParams = {},
+) -> Any:
+    """Get Ad Accounts for this CustomAudience.
 
-        return True  # Delete methods typically don't return anything
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).get_ad_accounts(fields=fields, params=params)
 
-    @staticmethod
-    def get_ad_accounts(
-        obj: CustomAudience,
-        params: Optional[CustomAudienceGetAdAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for CustomAudience.get_ad_accounts().
 
-        Endpoint: GET /adaccounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_ad_account(
+    customaudience_id: str,
+    fields: list[str] = [],
+    params: CustomAudienceCreateAdAccountParams = {},
+) -> Any:
+    """Create Ad Account for this CustomAudience.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).create_ad_account(fields=fields, params=params)
 
-        # Call the original method
-        cursor = obj.get_ad_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
+def get_ads(
+    customaudience_id: str,
+    fields: list[AdField] = [],
+    params: CustomAudienceGetAdsParams = {},
+) -> Any:
+    """Get Ads for this CustomAudience.
 
-    @staticmethod
-    def create_ad_account(
-        obj: CustomAudience,
-        params: CustomAudienceCreateAdAccountParams,
-    ) -> CustomAudienceFields:
-        """
-        Type-safe wrapper for CustomAudience.create_ad_account().
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).get_ads(fields=fields, params=params)
 
-        Endpoint: POST /adaccounts
-        Returns: CustomAudienceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_ad_account(params=params_dict)
+def get_health(
+    customaudience_id: str,
+    fields: list[CustomAudienceHealthField] = [],
+    params: CustomAudienceGetHealthParams = {},
+) -> Any:
+    """Get Health for this CustomAudience.
 
-        # Convert result to typed model
-        return CustomAudienceFields(**result)
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).get_health(fields=fields, params=params)
 
-    @staticmethod
-    def get_ads(
-        obj: CustomAudience,
-        params: Optional[CustomAudienceGetAdsParams] = None,
-        fields: Optional[list[AdField]] = None,
-    ) -> TypedCursor[AdFields]:
-        """
-        Type-safe wrapper for CustomAudience.get_ads().
 
-        Endpoint: GET /ads
-        Returns: TypedCursor[AdFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_salts(
+    customaudience_id: str,
+    fields: list[CustomAudienceSaltsField] = [],
+    params: CustomAudienceGetSaltsParams = {},
+) -> Any:
+    """Get Salts for this CustomAudience.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).get_salts(fields=fields, params=params)
 
-        # Call the original method
-        cursor = obj.get_ads(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdFields)
+def create_salt(
+    customaudience_id: str,
+    fields: list[str] = [],
+    params: CustomAudienceCreateSaltParams = {},
+) -> Any:
+    """Create Salt for this CustomAudience.
 
-    @staticmethod
-    def get_health(
-        obj: CustomAudience,
-        params: Optional[CustomAudienceGetHealthParams] = None,
-        fields: Optional[list[CustomAudienceHealthField]] = None,
-    ) -> TypedCursor[CustomAudienceHealthFields]:
-        """
-        Type-safe wrapper for CustomAudience.get_health().
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).create_salt(fields=fields, params=params)
 
-        Endpoint: GET /health
-        Returns: TypedCursor[CustomAudienceHealthFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_sessions(
+    customaudience_id: str,
+    fields: list[CustomAudienceSessionField] = [],
+    params: CustomAudienceGetSessionsParams = {},
+) -> Any:
+    """Get Sessions for this CustomAudience.
 
-        # Call the original method
-        cursor = obj.get_health(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).get_sessions(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomAudienceHealthFields)
 
-    @staticmethod
-    def get_salts(
-        obj: CustomAudience,
-        params: Optional[CustomAudienceGetSaltsParams] = None,
-        fields: Optional[list[CustomAudienceSaltsField]] = None,
-    ) -> TypedCursor[CustomAudienceSaltsFields]:
-        """
-        Type-safe wrapper for CustomAudience.get_salts().
+def delete_users(
+    customaudience_id: str,
+    params: CustomAudienceDeleteUsersParams = {},
+) -> Any:
+    """Delete Users for this CustomAudience.
 
-        Endpoint: GET /salts
-        Returns: TypedCursor[CustomAudienceSaltsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        params: Parameters for the operation.
+    """
+    return CustomAudience(customaudience_id).delete_users(params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_salts(
-            params=params_dict,
-            fields=fields_list,
-        )
+def create_user(
+    customaudience_id: str,
+    fields: list[str] = [],
+    params: CustomAudienceCreateUserParams = {},
+) -> Any:
+    """Create User for this CustomAudience.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomAudienceSaltsFields)
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).create_user(fields=fields, params=params)
 
-    @staticmethod
-    def create_salt(
-        obj: CustomAudience,
-        params: CustomAudienceCreateSaltParams,
-    ) -> CustomAudienceFields:
-        """
-        Type-safe wrapper for CustomAudience.create_salt().
 
-        Endpoint: POST /salts
-        Returns: CustomAudienceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_users_replace(
+    customaudience_id: str,
+    fields: list[str] = [],
+    params: CustomAudienceCreateUsersReplaceParams = {},
+) -> Any:
+    """Create Users Replace for this CustomAudience.
 
-        # Call the original method
-        result = obj.create_salt(params=params_dict)
-
-        # Convert result to typed model
-        return CustomAudienceFields(**result)
-
-    @staticmethod
-    def get_sessions(
-        obj: CustomAudience,
-        params: Optional[CustomAudienceGetSessionsParams] = None,
-        fields: Optional[list[CustomAudienceSessionField]] = None,
-    ) -> TypedCursor[CustomAudienceSessionFields]:
-        """
-        Type-safe wrapper for CustomAudience.get_sessions().
-
-        Endpoint: GET /sessions
-        Returns: TypedCursor[CustomAudienceSessionFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_sessions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomAudienceSessionFields)
-
-    @staticmethod
-    def delete_users(
-        obj: CustomAudience,
-        params: Optional[CustomAudienceDeleteUsersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for CustomAudience.delete_users().
-
-        Endpoint: DELETE /users
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_users(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_user(
-        obj: CustomAudience,
-        params: CustomAudienceCreateUserParams,
-    ) -> CustomAudienceFields:
-        """
-        Type-safe wrapper for CustomAudience.create_user().
-
-        Endpoint: POST /users
-        Returns: CustomAudienceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_user(params=params_dict)
-
-        # Convert result to typed model
-        return CustomAudienceFields(**result)
-
-    @staticmethod
-    def create_users_replace(
-        obj: CustomAudience,
-        params: CustomAudienceCreateUsersReplaceParams,
-    ) -> CustomAudienceFields:
-        """
-        Type-safe wrapper for CustomAudience.create_users_replace().
-
-        Endpoint: POST /usersreplace
-        Returns: CustomAudienceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_users_replace(params=params_dict)
-
-        # Convert result to typed model
-        return CustomAudienceFields(**result)
+    Args:
+        customaudience_id: The ID of the CustomAudience.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomAudience(customaudience_id).create_users_replace(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

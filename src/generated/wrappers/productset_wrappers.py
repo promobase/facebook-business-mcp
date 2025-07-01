@@ -2,44 +2,21 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.productset import ProductSet
+from facebook_business.adobjects.productset import ProductSet
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.automotivemodel import (
-    AutomotiveModelField,
-    AutomotiveModelFields,
-)
-from ..models.destination import (
-    DestinationField,
-    DestinationFields,
-)
-from ..models.flight import (
-    FlightField,
-    FlightFields,
-)
-from ..models.homelisting import (
-    HomeListingField,
-    HomeListingFields,
-)
-from ..models.hotel import (
-    HotelField,
-    HotelFields,
-)
-from ..models.mediatitle import (
-    MediaTitleField,
-    MediaTitleFields,
-)
-from ..models.productitem import (
-    ProductItemField,
-    ProductItemFields,
-)
+from ..models.automotivemodel import AutomotiveModelField
+from ..models.destination import DestinationField
+from ..models.flight import FlightField
+from ..models.homelisting import HomeListingField
+from ..models.hotel import HotelField
+from ..models.mediatitle import MediaTitleField
+from ..models.productitem import ProductItemField
 from ..models.productset import (
     ProductSetField,
-    ProductSetFields,
     ProductSetGetAutomotiveModelsParams,
     ProductSetGetDestinationsParams,
     ProductSetGetFlightsParams,
@@ -50,266 +27,147 @@ from ..models.productset import (
     ProductSetGetVehicleOffersParams,
     ProductSetGetVehiclesParams,
 )
-from ..models.vehicle import (
-    VehicleField,
-    VehicleFields,
-)
-from ..models.vehicleoffer import (
-    VehicleOfferField,
-    VehicleOfferFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.vehicle import VehicleField
+from ..models.vehicleoffer import VehicleOfferField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class ProductSetWrappers:
-    """Type-safe wrapper functions for ProductSet API methods."""
+def get_automotive_models(
+    productset_id: str,
+    fields: list[AutomotiveModelField] = [],
+    params: ProductSetGetAutomotiveModelsParams = {},
+) -> Any:
+    """Get Automotive Models for this ProductSet.
 
-    @staticmethod
-    def get_automotive_models(
-        obj: ProductSet,
-        params: Optional[ProductSetGetAutomotiveModelsParams] = None,
-        fields: Optional[list[AutomotiveModelField]] = None,
-    ) -> TypedCursor[AutomotiveModelFields]:
-        """
-        Type-safe wrapper for ProductSet.get_automotive_models().
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_automotive_models(fields=fields, params=params)
 
-        Endpoint: GET /automotive_models
-        Returns: TypedCursor[AutomotiveModelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_destinations(
+    productset_id: str,
+    fields: list[DestinationField] = [],
+    params: ProductSetGetDestinationsParams = {},
+) -> Any:
+    """Get Destinations for this ProductSet.
 
-        # Call the original method
-        cursor = obj.get_automotive_models(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_destinations(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AutomotiveModelFields)
 
-    @staticmethod
-    def get_destinations(
-        obj: ProductSet,
-        params: Optional[ProductSetGetDestinationsParams] = None,
-        fields: Optional[list[DestinationField]] = None,
-    ) -> TypedCursor[DestinationFields]:
-        """
-        Type-safe wrapper for ProductSet.get_destinations().
+def get_flights(
+    productset_id: str,
+    fields: list[FlightField] = [],
+    params: ProductSetGetFlightsParams = {},
+) -> Any:
+    """Get Flights for this ProductSet.
 
-        Endpoint: GET /destinations
-        Returns: TypedCursor[DestinationFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_flights(fields=fields, params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_destinations(
-            params=params_dict,
-            fields=fields_list,
-        )
+def get_home_listings(
+    productset_id: str,
+    fields: list[HomeListingField] = [],
+    params: ProductSetGetHomeListingsParams = {},
+) -> Any:
+    """Get Home Listings for this ProductSet.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, DestinationFields)
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_home_listings(fields=fields, params=params)
 
-    @staticmethod
-    def get_flights(
-        obj: ProductSet,
-        params: Optional[ProductSetGetFlightsParams] = None,
-        fields: Optional[list[FlightField]] = None,
-    ) -> TypedCursor[FlightFields]:
-        """
-        Type-safe wrapper for ProductSet.get_flights().
 
-        Endpoint: GET /flights
-        Returns: TypedCursor[FlightFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_hotels(
+    productset_id: str,
+    fields: list[HotelField] = [],
+    params: ProductSetGetHotelsParams = {},
+) -> Any:
+    """Get Hotels for this ProductSet.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_hotels(fields=fields, params=params)
 
-        # Call the original method
-        cursor = obj.get_flights(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, FlightFields)
+def get_media_titles(
+    productset_id: str,
+    fields: list[MediaTitleField] = [],
+    params: ProductSetGetMediaTitlesParams = {},
+) -> Any:
+    """Get Media Titles for this ProductSet.
 
-    @staticmethod
-    def get_home_listings(
-        obj: ProductSet,
-        params: Optional[ProductSetGetHomeListingsParams] = None,
-        fields: Optional[list[HomeListingField]] = None,
-    ) -> TypedCursor[HomeListingFields]:
-        """
-        Type-safe wrapper for ProductSet.get_home_listings().
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_media_titles(fields=fields, params=params)
 
-        Endpoint: GET /home_listings
-        Returns: TypedCursor[HomeListingFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_products(
+    productset_id: str,
+    fields: list[ProductItemField] = [],
+    params: ProductSetGetProductsParams = {},
+) -> Any:
+    """Get Products for this ProductSet.
 
-        # Call the original method
-        cursor = obj.get_home_listings(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_products(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, HomeListingFields)
 
-    @staticmethod
-    def get_hotels(
-        obj: ProductSet,
-        params: Optional[ProductSetGetHotelsParams] = None,
-        fields: Optional[list[HotelField]] = None,
-    ) -> TypedCursor[HotelFields]:
-        """
-        Type-safe wrapper for ProductSet.get_hotels().
+def get_vehicle_offers(
+    productset_id: str,
+    fields: list[VehicleOfferField] = [],
+    params: ProductSetGetVehicleOffersParams = {},
+) -> Any:
+    """Get Vehicle Offers for this ProductSet.
 
-        Endpoint: GET /hotels
-        Returns: TypedCursor[HotelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_vehicle_offers(fields=fields, params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_hotels(
-            params=params_dict,
-            fields=fields_list,
-        )
+def get_vehicles(
+    productset_id: str,
+    fields: list[VehicleField] = [],
+    params: ProductSetGetVehiclesParams = {},
+) -> Any:
+    """Get Vehicles for this ProductSet.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, HotelFields)
-
-    @staticmethod
-    def get_media_titles(
-        obj: ProductSet,
-        params: Optional[ProductSetGetMediaTitlesParams] = None,
-        fields: Optional[list[MediaTitleField]] = None,
-    ) -> TypedCursor[MediaTitleFields]:
-        """
-        Type-safe wrapper for ProductSet.get_media_titles().
-
-        Endpoint: GET /media_titles
-        Returns: TypedCursor[MediaTitleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_media_titles(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, MediaTitleFields)
-
-    @staticmethod
-    def get_products(
-        obj: ProductSet,
-        params: Optional[ProductSetGetProductsParams] = None,
-        fields: Optional[list[ProductItemField]] = None,
-    ) -> TypedCursor[ProductItemFields]:
-        """
-        Type-safe wrapper for ProductSet.get_products().
-
-        Endpoint: GET /products
-        Returns: TypedCursor[ProductItemFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_products(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductItemFields)
-
-    @staticmethod
-    def get_vehicle_offers(
-        obj: ProductSet,
-        params: Optional[ProductSetGetVehicleOffersParams] = None,
-        fields: Optional[list[VehicleOfferField]] = None,
-    ) -> TypedCursor[VehicleOfferFields]:
-        """
-        Type-safe wrapper for ProductSet.get_vehicle_offers().
-
-        Endpoint: GET /vehicle_offers
-        Returns: TypedCursor[VehicleOfferFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_vehicle_offers(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, VehicleOfferFields)
-
-    @staticmethod
-    def get_vehicles(
-        obj: ProductSet,
-        params: Optional[ProductSetGetVehiclesParams] = None,
-        fields: Optional[list[VehicleField]] = None,
-    ) -> TypedCursor[VehicleFields]:
-        """
-        Type-safe wrapper for ProductSet.get_vehicles().
-
-        Endpoint: GET /vehicles
-        Returns: TypedCursor[VehicleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_vehicles(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, VehicleFields)
+    Args:
+        productset_id: The ID of the ProductSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductSet(productset_id).get_vehicles(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

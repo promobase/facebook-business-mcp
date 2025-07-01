@@ -179,6 +179,27 @@ class HomeListingGetOverrideDetailsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class HomeListingUpdateParams(BaseModel):
+    """Parameters for HomeListing.api_update()."""
+
+    address: Any | None = Field(None, description="address parameter")
+    availability: str | None = Field(None, description="availability parameter")
+    currency: str | None = Field(None, description="currency parameter")
+    description: str | None = Field(None, description="description parameter")
+    images: list[Any] | None = Field(None, description="images parameter")
+    listing_type: str | None = Field(None, description="listing_type parameter")
+    name: str | None = Field(None, description="name parameter")
+    num_baths: float | None = Field(None, description="num_baths parameter")
+    num_beds: float | None = Field(None, description="num_beds parameter")
+    num_units: float | None = Field(None, description="num_units parameter")
+    price: float | None = Field(None, description="price parameter")
+    property_type: str | None = Field(None, description="property_type parameter")
+    url: str | None = Field(None, description="url parameter")
+    year_built: int | None = Field(None, description="year_built parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

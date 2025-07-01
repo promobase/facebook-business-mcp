@@ -134,6 +134,15 @@ class ProductGroupCreateProductParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ProductGroupUpdateParams(BaseModel):
+    """Parameters for ProductGroup.api_update()."""
+
+    default_product_id: str | None = Field(None, description="default_product_id parameter")
+    variants: list[Any] | None = Field(None, description="variants parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

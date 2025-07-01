@@ -641,6 +641,31 @@ class GroupCreateVideoParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class GroupUpdateParams(BaseModel):
+    """Parameters for Group.api_update()."""
+
+    cover: str | None = Field(None, description="cover parameter")
+    cover_url: str | None = Field(None, description="cover_url parameter")
+    description: str | None = Field(None, description="description parameter")
+    focus_x: float | None = Field(None, description="focus_x parameter")
+    focus_y: float | None = Field(None, description="focus_y parameter")
+    group_icon: str | None = Field(None, description="group_icon parameter")
+    is_official_group: bool | None = Field(None, description="is_official_group parameter")
+    join_setting: str | None = Field(None, description="join_setting parameter")
+    name: str | None = Field(None, description="name parameter")
+    no_feed_story: bool | None = Field(None, description="no_feed_story parameter")
+    offset_y: int | None = Field(None, description="offset_y parameter")
+    post_permissions: str | None = Field(None, description="post_permissions parameter")
+    post_requires_admin_approval: bool | None = Field(
+        None, description="post_requires_admin_approval parameter"
+    )
+    privacy: str | None = Field(None, description="privacy parameter")
+    purpose: str | None = Field(None, description="purpose parameter")
+    update_view_time: bool | None = Field(None, description="update_view_time parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

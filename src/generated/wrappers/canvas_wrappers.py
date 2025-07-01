@@ -2,59 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.canvas import Canvas
+from facebook_business.adobjects.canvas import Canvas
 
 from ..models.canvas import (
     CanvasField,
-    CanvasFields,
     CanvasGetPreViewsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.textwithentities import (
-    TextWithEntitiesField,
-    TextWithEntitiesFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.textwithentities import TextWithEntitiesField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class CanvasWrappers:
-    """Type-safe wrapper functions for Canvas API methods."""
+def get_pre_views(
+    canvas_id: str,
+    fields: list[TextWithEntitiesField] = [],
+    params: CanvasGetPreViewsParams = {},
+) -> Any:
+    """Get Pre Views for this Canvas.
 
-    @staticmethod
-    def get_pre_views(
-        obj: Canvas,
-        params: Optional[CanvasGetPreViewsParams] = None,
-        fields: Optional[list[TextWithEntitiesField]] = None,
-    ) -> TypedCursor[TextWithEntitiesFields]:
-        """
-        Type-safe wrapper for Canvas.get_pre_views().
-
-        Endpoint: GET /previews
-        Returns: TypedCursor[TextWithEntitiesFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_pre_views(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, TextWithEntitiesFields)
+    Args:
+        canvas_id: The ID of the Canvas.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Canvas(canvas_id).get_pre_views(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

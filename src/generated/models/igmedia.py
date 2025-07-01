@@ -123,6 +123,14 @@ class IGMediaCreateProductTagParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class IGMediaUpdateParams(BaseModel):
+    """Parameters for IGMedia.api_update()."""
+
+    comment_enabled: bool | None = Field(None, description="comment_enabled parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

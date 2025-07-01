@@ -180,6 +180,18 @@ class CommentGetReactionsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class CommentUpdateParams(BaseModel):
+    """Parameters for Comment.api_update()."""
+
+    attachment_id: str | None = Field(None, description="attachment_id parameter")
+    attachment_share_url: str | None = Field(None, description="attachment_share_url parameter")
+    attachment_url: str | None = Field(None, description="attachment_url parameter")
+    is_hidden: bool | None = Field(None, description="is_hidden parameter")
+    message: str | None = Field(None, description="message parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

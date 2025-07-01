@@ -2,49 +2,21 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.productcatalog import ProductCatalog
+from facebook_business.adobjects.productcatalog import ProductCatalog
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.assigneduser import (
-    AssignedUserField,
-    AssignedUserFields,
-)
-from ..models.automotivemodel import (
-    AutomotiveModelField,
-    AutomotiveModelFields,
-)
-from ..models.checkbatchrequeststatus import (
-    CheckBatchRequestStatusField,
-    CheckBatchRequestStatusFields,
-)
-from ..models.cpaslsbimagebank import (
-    CPASLsbImageBankField,
-    CPASLsbImageBankFields,
-)
-from ..models.creatorassetcreative import (
-    CreatorAssetCreativeField,
-    CreatorAssetCreativeFields,
-)
-from ..models.destination import (
-    DestinationField,
-    DestinationFields,
-)
-from ..models.flight import (
-    FlightField,
-    FlightFields,
-)
-from ..models.homelisting import (
-    HomeListingField,
-    HomeListingFields,
-)
-from ..models.hotel import (
-    HotelField,
-    HotelFields,
-)
+from ..models.assigneduser import AssignedUserField
+from ..models.automotivemodel import AutomotiveModelField
+from ..models.checkbatchrequeststatus import CheckBatchRequestStatusField
+from ..models.cpaslsbimagebank import CPASLsbImageBankField
+from ..models.creatorassetcreative import CreatorAssetCreativeField
+from ..models.destination import DestinationField
+from ..models.flight import FlightField
+from ..models.homelisting import HomeListingField
+from ..models.hotel import HotelField
 from ..models.productcatalog import (
     ProductCatalogCreateAgencyParams,
     ProductCatalogCreateAssignedUserParams,
@@ -73,7 +45,6 @@ from ..models.productcatalog import (
     ProductCatalogDeleteAssignedUsersParams,
     ProductCatalogDeleteExternalEventSourcesParams,
     ProductCatalogField,
-    ProductCatalogFields,
     ProductCatalogGetAssignedUsersParams,
     ProductCatalogGetAutomotiveModelsParams,
     ProductCatalogGetCategoriesParams,
@@ -95,1132 +66,737 @@ from ..models.productcatalog import (
     ProductCatalogGetVehicleOffersParams,
     ProductCatalogGetVehiclesParams,
 )
-from ..models.productcatalogcategory import (
-    ProductCatalogCategoryField,
-    ProductCatalogCategoryFields,
-)
+from ..models.productcatalogcategory import ProductCatalogCategoryField
 from ..models.productcatalogcheckmarketplacepartnersellersstatus import (
     ProductCatalogCheckMarketplacePartnerSellersStatusField,
-    ProductCatalogCheckMarketplacePartnerSellersStatusFields,
 )
-from ..models.productcatalogdatasource import (
-    ProductCatalogDataSourceField,
-    ProductCatalogDataSourceFields,
-)
-from ..models.productcatalogdiagnosticgroup import (
-    ProductCatalogDiagnosticGroupField,
-    ProductCatalogDiagnosticGroupFields,
-)
-from ..models.productcataloghotelroomsbatch import (
-    ProductCatalogHotelRoomsBatchField,
-    ProductCatalogHotelRoomsBatchFields,
-)
-from ..models.productcatalogpricingvariablesbatch import (
-    ProductCatalogPricingVariablesBatchField,
-    ProductCatalogPricingVariablesBatchFields,
-)
-from ..models.productcatalogproductsetsbatch import (
-    ProductCatalogProductSetsBatchField,
-    ProductCatalogProductSetsBatchFields,
-)
-from ..models.producteventstat import (
-    ProductEventStatField,
-    ProductEventStatFields,
-)
-from ..models.productfeed import (
-    ProductFeedField,
-    ProductFeedFields,
-)
-from ..models.productgroup import (
-    ProductGroupField,
-    ProductGroupFields,
-)
-from ..models.productitem import (
-    ProductItemField,
-    ProductItemFields,
-)
-from ..models.productset import (
-    ProductSetField,
-    ProductSetFields,
-)
-from ..models.storecatalogsettings import (
-    StoreCatalogSettingsField,
-    StoreCatalogSettingsFields,
-)
-from ..models.vehicle import (
-    VehicleField,
-    VehicleFields,
-)
-from ..models.vehicleoffer import (
-    VehicleOfferField,
-    VehicleOfferFields,
-)
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class ProductCatalogWrappers:
-    """Type-safe wrapper functions for ProductCatalog API methods."""
-
-    @staticmethod
-    def delete_agencies(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogDeleteAgenciesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for ProductCatalog.delete_agencies().
-
-        Endpoint: DELETE /agencies
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_agencies(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_agency(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateAgencyParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_agency().
-
-        Endpoint: POST /agencies
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_agency(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def delete_assigned_users(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogDeleteAssignedUsersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for ProductCatalog.delete_assigned_users().
-
-        Endpoint: DELETE /assigned_users
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_assigned_users(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_assigned_users(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetAssignedUsersParams] = None,
-        fields: Optional[list[AssignedUserField]] = None,
-    ) -> TypedCursor[AssignedUserFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_assigned_users().
-
-        Endpoint: GET /assigned_users
-        Returns: TypedCursor[AssignedUserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_users(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AssignedUserFields)
-
-    @staticmethod
-    def create_assigned_user(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateAssignedUserParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_assigned_user().
-
-        Endpoint: POST /assigned_users
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_assigned_user(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def get_automotive_models(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetAutomotiveModelsParams] = None,
-        fields: Optional[list[AutomotiveModelField]] = None,
-    ) -> TypedCursor[AutomotiveModelFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_automotive_models().
-
-        Endpoint: GET /automotive_models
-        Returns: TypedCursor[AutomotiveModelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_automotive_models(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AutomotiveModelFields)
-
-    @staticmethod
-    def create_batch(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateBatchParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_batch().
-
-        Endpoint: POST /batch
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_batch(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def create_catalog_store(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateCatalogStoreParams,
-    ) -> StoreCatalogSettingsFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_catalog_store().
-
-        Endpoint: POST /catalog_store
-        Returns: StoreCatalogSettingsFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_catalog_store(params=params_dict)
-
-        # Convert result to typed model
-        return StoreCatalogSettingsFields(**result)
-
-    @staticmethod
-    def get_categories(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetCategoriesParams] = None,
-        fields: Optional[list[ProductCatalogCategoryField]] = None,
-    ) -> TypedCursor[ProductCatalogCategoryFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_categories().
-
-        Endpoint: GET /categories
-        Returns: TypedCursor[ProductCatalogCategoryFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_categories(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductCatalogCategoryFields)
-
-    @staticmethod
-    def create_category(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateCategoryParams,
-    ) -> ProductCatalogCategoryFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_category().
-
-        Endpoint: POST /categories
-        Returns: ProductCatalogCategoryFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_category(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogCategoryFields(**result)
-
-    @staticmethod
-    def get_check_batch_request_status(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetCheckBatchRequestStatusParams] = None,
-        fields: Optional[list[CheckBatchRequestStatusField]] = None,
-    ) -> TypedCursor[CheckBatchRequestStatusFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_check_batch_request_status().
-
-        Endpoint: GET /check_batch_request_status
-        Returns: TypedCursor[CheckBatchRequestStatusFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_check_batch_request_status(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CheckBatchRequestStatusFields)
-
-    @staticmethod
-    def get_check_marketplace_partner_sellers_status(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetCheckMarketplacePartnerSellersStatusParams] = None,
-        fields: Optional[list[ProductCatalogCheckMarketplacePartnerSellersStatusField]] = None,
-    ) -> TypedCursor[ProductCatalogCheckMarketplacePartnerSellersStatusFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_check_marketplace_partner_sellers_status().
-
-        Endpoint: GET /check_marketplace_partner_sellers_status
-        Returns: TypedCursor[ProductCatalogCheckMarketplacePartnerSellersStatusFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_check_marketplace_partner_sellers_status(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductCatalogCheckMarketplacePartnerSellersStatusFields)
-
-    @staticmethod
-    def create_cpas_lsb_image_bank(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateCpasLsbImageBankParams,
-    ) -> CPASLsbImageBankFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_cpas_lsb_image_bank().
-
-        Endpoint: POST /cpas_lsb_image_bank
-        Returns: CPASLsbImageBankFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_cpas_lsb_image_bank(params=params_dict)
-
-        # Convert result to typed model
-        return CPASLsbImageBankFields(**result)
-
-    @staticmethod
-    def get_creator_asset_creatives(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetCreatorAssetCreativesParams] = None,
-        fields: Optional[list[CreatorAssetCreativeField]] = None,
-    ) -> TypedCursor[CreatorAssetCreativeFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_creator_asset_creatives().
-
-        Endpoint: GET /creator_asset_creatives
-        Returns: TypedCursor[CreatorAssetCreativeFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_creator_asset_creatives(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CreatorAssetCreativeFields)
-
-    @staticmethod
-    def get_data_sources(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetDataSourcesParams] = None,
-        fields: Optional[list[ProductCatalogDataSourceField]] = None,
-    ) -> TypedCursor[ProductCatalogDataSourceFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_data_sources().
-
-        Endpoint: GET /data_sources
-        Returns: TypedCursor[ProductCatalogDataSourceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_data_sources(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductCatalogDataSourceFields)
-
-    @staticmethod
-    def get_destinations(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetDestinationsParams] = None,
-        fields: Optional[list[DestinationField]] = None,
-    ) -> TypedCursor[DestinationFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_destinations().
-
-        Endpoint: GET /destinations
-        Returns: TypedCursor[DestinationFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_destinations(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, DestinationFields)
-
-    @staticmethod
-    def get_diagnostics(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetDiagnosticsParams] = None,
-        fields: Optional[list[ProductCatalogDiagnosticGroupField]] = None,
-    ) -> TypedCursor[ProductCatalogDiagnosticGroupFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_diagnostics().
-
-        Endpoint: GET /diagnostics
-        Returns: TypedCursor[ProductCatalogDiagnosticGroupFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_diagnostics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductCatalogDiagnosticGroupFields)
-
-    @staticmethod
-    def get_event_stats(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetEventStatsParams] = None,
-        fields: Optional[list[ProductEventStatField]] = None,
-    ) -> TypedCursor[ProductEventStatFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_event_stats().
-
-        Endpoint: GET /event_stats
-        Returns: TypedCursor[ProductEventStatFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_event_stats(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductEventStatFields)
-
-    @staticmethod
-    def delete_external_event_sources(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogDeleteExternalEventSourcesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for ProductCatalog.delete_external_event_sources().
-
-        Endpoint: DELETE /external_event_sources
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_external_event_sources(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_external_event_source(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateExternalEventSourceParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_external_event_source().
-
-        Endpoint: POST /external_event_sources
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_external_event_source(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def get_flights(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetFlightsParams] = None,
-        fields: Optional[list[FlightField]] = None,
-    ) -> TypedCursor[FlightFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_flights().
-
-        Endpoint: GET /flights
-        Returns: TypedCursor[FlightFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_flights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, FlightFields)
-
-    @staticmethod
-    def create_geolocated_items_batch(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateGeolocatedItemsBatchParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_geolocated_items_batch().
-
-        Endpoint: POST /geolocated_items_batch
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_geolocated_items_batch(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def get_home_listings(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetHomeListingsParams] = None,
-        fields: Optional[list[HomeListingField]] = None,
-    ) -> TypedCursor[HomeListingFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_home_listings().
-
-        Endpoint: GET /home_listings
-        Returns: TypedCursor[HomeListingFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_home_listings(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, HomeListingFields)
-
-    @staticmethod
-    def create_home_listing(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateHomeListingParams,
-    ) -> HomeListingFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_home_listing().
-
-        Endpoint: POST /home_listings
-        Returns: HomeListingFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_home_listing(params=params_dict)
-
-        # Convert result to typed model
-        return HomeListingFields(**result)
-
-    @staticmethod
-    def get_hotel_rooms_batch(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetHotelRoomsBatchParams] = None,
-        fields: Optional[list[ProductCatalogHotelRoomsBatchField]] = None,
-    ) -> TypedCursor[ProductCatalogHotelRoomsBatchFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_hotel_rooms_batch().
-
-        Endpoint: GET /hotel_rooms_batch
-        Returns: TypedCursor[ProductCatalogHotelRoomsBatchFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_hotel_rooms_batch(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductCatalogHotelRoomsBatchFields)
-
-    @staticmethod
-    def create_hotel_rooms_batch(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateHotelRoomsBatchParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_hotel_rooms_batch().
-
-        Endpoint: POST /hotel_rooms_batch
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_hotel_rooms_batch(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def get_hotels(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetHotelsParams] = None,
-        fields: Optional[list[HotelField]] = None,
-    ) -> TypedCursor[HotelFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_hotels().
-
-        Endpoint: GET /hotels
-        Returns: TypedCursor[HotelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_hotels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, HotelFields)
-
-    @staticmethod
-    def create_hotel(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateHotelParams,
-    ) -> HotelFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_hotel().
-
-        Endpoint: POST /hotels
-        Returns: HotelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_hotel(params=params_dict)
-
-        # Convert result to typed model
-        return HotelFields(**result)
-
-    @staticmethod
-    def create_items_batch(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateItemsBatchParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_items_batch().
-
-        Endpoint: POST /items_batch
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_items_batch(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def create_localized_items_batch(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateLocalizedItemsBatchParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_localized_items_batch().
-
-        Endpoint: POST /localized_items_batch
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_localized_items_batch(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def create_market_place_partner_sellers_detail(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateMarketPlacePartnerSellersDetailParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_market_place_partner_sellers_detail().
-
-        Endpoint: POST /marketplace_partner_sellers_details
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_market_place_partner_sellers_detail(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def create_market_place_partner_signal(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateMarketPlacePartnerSignalParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_market_place_partner_signal().
-
-        Endpoint: POST /marketplace_partner_signals
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_market_place_partner_signal(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def get_pricing_variables_batch(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetPricingVariablesBatchParams] = None,
-        fields: Optional[list[ProductCatalogPricingVariablesBatchField]] = None,
-    ) -> TypedCursor[ProductCatalogPricingVariablesBatchFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_pricing_variables_batch().
-
-        Endpoint: GET /pricing_variables_batch
-        Returns: TypedCursor[ProductCatalogPricingVariablesBatchFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_pricing_variables_batch(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductCatalogPricingVariablesBatchFields)
-
-    @staticmethod
-    def create_pricing_variables_batch(
-        obj: ProductCatalog,
-        params: ProductCatalogCreatePricingVariablesBatchParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_pricing_variables_batch().
-
-        Endpoint: POST /pricing_variables_batch
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_pricing_variables_batch(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def create_product_feed(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateProductFeedParams,
-    ) -> ProductFeedFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_product_feed().
-
-        Endpoint: POST /product_feeds
-        Returns: ProductFeedFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product_feed(params=params_dict)
-
-        # Convert result to typed model
-        return ProductFeedFields(**result)
-
-    @staticmethod
-    def create_product_group(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateProductGroupParams,
-    ) -> ProductGroupFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_product_group().
-
-        Endpoint: POST /product_groups
-        Returns: ProductGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product_group(params=params_dict)
-
-        # Convert result to typed model
-        return ProductGroupFields(**result)
-
-    @staticmethod
-    def get_product_sets(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetProductSetsParams] = None,
-        fields: Optional[list[ProductSetField]] = None,
-    ) -> TypedCursor[ProductSetFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_product_sets().
-
-        Endpoint: GET /product_sets
-        Returns: TypedCursor[ProductSetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_product_sets(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductSetFields)
-
-    @staticmethod
-    def create_product_set(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateProductSetParams,
-    ) -> ProductSetFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_product_set().
-
-        Endpoint: POST /product_sets
-        Returns: ProductSetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product_set(params=params_dict)
-
-        # Convert result to typed model
-        return ProductSetFields(**result)
-
-    @staticmethod
-    def get_product_sets_batch(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetProductSetsBatchParams] = None,
-        fields: Optional[list[ProductCatalogProductSetsBatchField]] = None,
-    ) -> TypedCursor[ProductCatalogProductSetsBatchFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_product_sets_batch().
-
-        Endpoint: GET /product_sets_batch
-        Returns: TypedCursor[ProductCatalogProductSetsBatchFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_product_sets_batch(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductCatalogProductSetsBatchFields)
-
-    @staticmethod
-    def get_products(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetProductsParams] = None,
-        fields: Optional[list[ProductItemField]] = None,
-    ) -> TypedCursor[ProductItemFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_products().
-
-        Endpoint: GET /products
-        Returns: TypedCursor[ProductItemFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_products(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductItemFields)
-
-    @staticmethod
-    def create_product(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateProductParams,
-    ) -> ProductItemFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_product().
-
-        Endpoint: POST /products
-        Returns: ProductItemFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product(params=params_dict)
-
-        # Convert result to typed model
-        return ProductItemFields(**result)
-
-    @staticmethod
-    def create_update_generated_image_config(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateUpdateGeneratedImageConfigParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_update_generated_image_config().
-
-        Endpoint: POST /update_generated_image_config
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_update_generated_image_config(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def get_vehicle_offers(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetVehicleOffersParams] = None,
-        fields: Optional[list[VehicleOfferField]] = None,
-    ) -> TypedCursor[VehicleOfferFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_vehicle_offers().
-
-        Endpoint: GET /vehicle_offers
-        Returns: TypedCursor[VehicleOfferFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_vehicle_offers(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, VehicleOfferFields)
-
-    @staticmethod
-    def get_vehicles(
-        obj: ProductCatalog,
-        params: Optional[ProductCatalogGetVehiclesParams] = None,
-        fields: Optional[list[VehicleField]] = None,
-    ) -> TypedCursor[VehicleFields]:
-        """
-        Type-safe wrapper for ProductCatalog.get_vehicles().
-
-        Endpoint: GET /vehicles
-        Returns: TypedCursor[VehicleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_vehicles(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, VehicleFields)
-
-    @staticmethod
-    def create_vehicle(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateVehicleParams,
-    ) -> VehicleFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_vehicle().
-
-        Endpoint: POST /vehicles
-        Returns: VehicleFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_vehicle(params=params_dict)
-
-        # Convert result to typed model
-        return VehicleFields(**result)
-
-    @staticmethod
-    def create_version_items_batch(
-        obj: ProductCatalog,
-        params: ProductCatalogCreateVersionItemsBatchParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for ProductCatalog.create_version_items_batch().
-
-        Endpoint: POST /version_items_batch
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_version_items_batch(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
+from ..models.productcatalogdatasource import ProductCatalogDataSourceField
+from ..models.productcatalogdiagnosticgroup import ProductCatalogDiagnosticGroupField
+from ..models.productcataloghotelroomsbatch import ProductCatalogHotelRoomsBatchField
+from ..models.productcatalogpricingvariablesbatch import ProductCatalogPricingVariablesBatchField
+from ..models.productcatalogproductsetsbatch import ProductCatalogProductSetsBatchField
+from ..models.producteventstat import ProductEventStatField
+from ..models.productfeed import ProductFeedField
+from ..models.productgroup import ProductGroupField
+from ..models.productitem import ProductItemField
+from ..models.productset import ProductSetField
+from ..models.storecatalogsettings import StoreCatalogSettingsField
+from ..models.vehicle import VehicleField
+from ..models.vehicleoffer import VehicleOfferField
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def delete_agencies(
+    productcatalog_id: str,
+    params: ProductCatalogDeleteAgenciesParams = {},
+) -> Any:
+    """Delete Agencies for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        params: Parameters for the operation.
+    """
+    return ProductCatalog(productcatalog_id).delete_agencies(params=params)
+
+
+def create_agency(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateAgencyParams = {},
+) -> Any:
+    """Create Agency for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_agency(fields=fields, params=params)
+
+
+def delete_assigned_users(
+    productcatalog_id: str,
+    params: ProductCatalogDeleteAssignedUsersParams = {},
+) -> Any:
+    """Delete Assigned Users for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        params: Parameters for the operation.
+    """
+    return ProductCatalog(productcatalog_id).delete_assigned_users(params=params)
+
+
+def get_assigned_users(
+    productcatalog_id: str,
+    fields: list[AssignedUserField] = [],
+    params: ProductCatalogGetAssignedUsersParams = {},
+) -> Any:
+    """Get Assigned Users for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_assigned_users(fields=fields, params=params)
+
+
+def create_assigned_user(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateAssignedUserParams = {},
+) -> Any:
+    """Create Assigned User for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_assigned_user(fields=fields, params=params)
+
+
+def get_automotive_models(
+    productcatalog_id: str,
+    fields: list[AutomotiveModelField] = [],
+    params: ProductCatalogGetAutomotiveModelsParams = {},
+) -> Any:
+    """Get Automotive Models for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_automotive_models(fields=fields, params=params)
+
+
+def create_batch(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateBatchParams = {},
+) -> Any:
+    """Create Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_batch(fields=fields, params=params)
+
+
+def create_catalog_store(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateCatalogStoreParams = {},
+) -> Any:
+    """Create Catalog Store for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_catalog_store(fields=fields, params=params)
+
+
+def get_categories(
+    productcatalog_id: str,
+    fields: list[ProductCatalogCategoryField] = [],
+    params: ProductCatalogGetCategoriesParams = {},
+) -> Any:
+    """Get Categories for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_categories(fields=fields, params=params)
+
+
+def create_category(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateCategoryParams = {},
+) -> Any:
+    """Create Category for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_category(fields=fields, params=params)
+
+
+def get_check_batch_request_status(
+    productcatalog_id: str,
+    fields: list[CheckBatchRequestStatusField] = [],
+    params: ProductCatalogGetCheckBatchRequestStatusParams = {},
+) -> Any:
+    """Get Check Batch Request Status for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_check_batch_request_status(
+        fields=fields, params=params
+    )
+
+
+def get_check_marketplace_partner_sellers_status(
+    productcatalog_id: str,
+    fields: list[ProductCatalogCheckMarketplacePartnerSellersStatusField] = [],
+    params: ProductCatalogGetCheckMarketplacePartnerSellersStatusParams = {},
+) -> Any:
+    """Get Check Marketplace Partner Sellers Status for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_check_marketplace_partner_sellers_status(
+        fields=fields, params=params
+    )
+
+
+def create_cpas_lsb_image_bank(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateCpasLsbImageBankParams = {},
+) -> Any:
+    """Create Cpas Lsb Image Bank for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_cpas_lsb_image_bank(
+        fields=fields, params=params
+    )
+
+
+def get_creator_asset_creatives(
+    productcatalog_id: str,
+    fields: list[CreatorAssetCreativeField] = [],
+    params: ProductCatalogGetCreatorAssetCreativesParams = {},
+) -> Any:
+    """Get Creator Asset Creatives for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_creator_asset_creatives(
+        fields=fields, params=params
+    )
+
+
+def get_data_sources(
+    productcatalog_id: str,
+    fields: list[ProductCatalogDataSourceField] = [],
+    params: ProductCatalogGetDataSourcesParams = {},
+) -> Any:
+    """Get Data Sources for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_data_sources(fields=fields, params=params)
+
+
+def get_destinations(
+    productcatalog_id: str,
+    fields: list[DestinationField] = [],
+    params: ProductCatalogGetDestinationsParams = {},
+) -> Any:
+    """Get Destinations for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_destinations(fields=fields, params=params)
+
+
+def get_diagnostics(
+    productcatalog_id: str,
+    fields: list[ProductCatalogDiagnosticGroupField] = [],
+    params: ProductCatalogGetDiagnosticsParams = {},
+) -> Any:
+    """Get Diagnostics for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_diagnostics(fields=fields, params=params)
+
+
+def get_event_stats(
+    productcatalog_id: str,
+    fields: list[ProductEventStatField] = [],
+    params: ProductCatalogGetEventStatsParams = {},
+) -> Any:
+    """Get Event Stats for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_event_stats(fields=fields, params=params)
+
+
+def delete_external_event_sources(
+    productcatalog_id: str,
+    params: ProductCatalogDeleteExternalEventSourcesParams = {},
+) -> Any:
+    """Delete External Event Sources for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        params: Parameters for the operation.
+    """
+    return ProductCatalog(productcatalog_id).delete_external_event_sources(params=params)
+
+
+def create_external_event_source(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateExternalEventSourceParams = {},
+) -> Any:
+    """Create External Event Source for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_external_event_source(
+        fields=fields, params=params
+    )
+
+
+def get_flights(
+    productcatalog_id: str,
+    fields: list[FlightField] = [],
+    params: ProductCatalogGetFlightsParams = {},
+) -> Any:
+    """Get Flights for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_flights(fields=fields, params=params)
+
+
+def create_geolocated_items_batch(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateGeolocatedItemsBatchParams = {},
+) -> Any:
+    """Create Geolocated Items Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_geolocated_items_batch(
+        fields=fields, params=params
+    )
+
+
+def get_home_listings(
+    productcatalog_id: str,
+    fields: list[HomeListingField] = [],
+    params: ProductCatalogGetHomeListingsParams = {},
+) -> Any:
+    """Get Home Listings for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_home_listings(fields=fields, params=params)
+
+
+def create_home_listing(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateHomeListingParams = {},
+) -> Any:
+    """Create Home Listing for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_home_listing(fields=fields, params=params)
+
+
+def get_hotel_rooms_batch(
+    productcatalog_id: str,
+    fields: list[ProductCatalogHotelRoomsBatchField] = [],
+    params: ProductCatalogGetHotelRoomsBatchParams = {},
+) -> Any:
+    """Get Hotel Rooms Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_hotel_rooms_batch(fields=fields, params=params)
+
+
+def create_hotel_rooms_batch(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateHotelRoomsBatchParams = {},
+) -> Any:
+    """Create Hotel Rooms Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_hotel_rooms_batch(fields=fields, params=params)
+
+
+def get_hotels(
+    productcatalog_id: str,
+    fields: list[HotelField] = [],
+    params: ProductCatalogGetHotelsParams = {},
+) -> Any:
+    """Get Hotels for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_hotels(fields=fields, params=params)
+
+
+def create_hotel(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateHotelParams = {},
+) -> Any:
+    """Create Hotel for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_hotel(fields=fields, params=params)
+
+
+def create_items_batch(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateItemsBatchParams = {},
+) -> Any:
+    """Create Items Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_items_batch(fields=fields, params=params)
+
+
+def create_localized_items_batch(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateLocalizedItemsBatchParams = {},
+) -> Any:
+    """Create Localized Items Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_localized_items_batch(
+        fields=fields, params=params
+    )
+
+
+def create_market_place_partner_sellers_detail(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateMarketPlacePartnerSellersDetailParams = {},
+) -> Any:
+    """Create Market Place Partner Sellers Detail for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_market_place_partner_sellers_detail(
+        fields=fields, params=params
+    )
+
+
+def create_market_place_partner_signal(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateMarketPlacePartnerSignalParams = {},
+) -> Any:
+    """Create Market Place Partner Signal for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_market_place_partner_signal(
+        fields=fields, params=params
+    )
+
+
+def get_pricing_variables_batch(
+    productcatalog_id: str,
+    fields: list[ProductCatalogPricingVariablesBatchField] = [],
+    params: ProductCatalogGetPricingVariablesBatchParams = {},
+) -> Any:
+    """Get Pricing Variables Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_pricing_variables_batch(
+        fields=fields, params=params
+    )
+
+
+def create_pricing_variables_batch(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreatePricingVariablesBatchParams = {},
+) -> Any:
+    """Create Pricing Variables Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_pricing_variables_batch(
+        fields=fields, params=params
+    )
+
+
+def create_product_feed(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateProductFeedParams = {},
+) -> Any:
+    """Create Product Feed for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_product_feed(fields=fields, params=params)
+
+
+def create_product_group(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateProductGroupParams = {},
+) -> Any:
+    """Create Product Group for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_product_group(fields=fields, params=params)
+
+
+def get_product_sets(
+    productcatalog_id: str,
+    fields: list[ProductSetField] = [],
+    params: ProductCatalogGetProductSetsParams = {},
+) -> Any:
+    """Get Product Sets for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_product_sets(fields=fields, params=params)
+
+
+def create_product_set(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateProductSetParams = {},
+) -> Any:
+    """Create Product Set for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_product_set(fields=fields, params=params)
+
+
+def get_product_sets_batch(
+    productcatalog_id: str,
+    fields: list[ProductCatalogProductSetsBatchField] = [],
+    params: ProductCatalogGetProductSetsBatchParams = {},
+) -> Any:
+    """Get Product Sets Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_product_sets_batch(fields=fields, params=params)
+
+
+def get_products(
+    productcatalog_id: str,
+    fields: list[ProductItemField] = [],
+    params: ProductCatalogGetProductsParams = {},
+) -> Any:
+    """Get Products for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_products(fields=fields, params=params)
+
+
+def create_product(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateProductParams = {},
+) -> Any:
+    """Create Product for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_product(fields=fields, params=params)
+
+
+def create_update_generated_image_config(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateUpdateGeneratedImageConfigParams = {},
+) -> Any:
+    """Create Update Generated Image Config for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_update_generated_image_config(
+        fields=fields, params=params
+    )
+
+
+def get_vehicle_offers(
+    productcatalog_id: str,
+    fields: list[VehicleOfferField] = [],
+    params: ProductCatalogGetVehicleOffersParams = {},
+) -> Any:
+    """Get Vehicle Offers for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_vehicle_offers(fields=fields, params=params)
+
+
+def get_vehicles(
+    productcatalog_id: str,
+    fields: list[VehicleField] = [],
+    params: ProductCatalogGetVehiclesParams = {},
+) -> Any:
+    """Get Vehicles for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).get_vehicles(fields=fields, params=params)
+
+
+def create_vehicle(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateVehicleParams = {},
+) -> Any:
+    """Create Vehicle for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_vehicle(fields=fields, params=params)
+
+
+def create_version_items_batch(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: ProductCatalogCreateVersionItemsBatchParams = {},
+) -> Any:
+    """Create Version Items Batch for this ProductCatalog.
+
+    Args:
+        productcatalog_id: The ID of the ProductCatalog.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductCatalog(productcatalog_id).create_version_items_batch(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

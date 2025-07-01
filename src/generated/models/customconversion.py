@@ -131,6 +131,18 @@ class CustomConversionGetStatsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class CustomConversionUpdateParams(BaseModel):
+    """Parameters for CustomConversion.api_update()."""
+
+    default_conversion_value: float | None = Field(
+        None, description="default_conversion_value parameter"
+    )
+    description: str | None = Field(None, description="description parameter")
+    name: str | None = Field(None, description="name parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

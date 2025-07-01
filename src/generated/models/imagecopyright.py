@@ -320,6 +320,22 @@ class ImageCopyrightFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class ImageCopyrightUpdateParams(BaseModel):
+    """Parameters for ImageCopyright.api_update()."""
+
+    artist: str | None = Field(None, description="artist parameter")
+    creator: str | None = Field(None, description="creator parameter")
+    custom_id: str | None = Field(None, description="custom_id parameter")
+    description: str | None = Field(None, description="description parameter")
+    geo_ownership: list[str] | None = Field(None, description="geo_ownership parameter")
+    original_content_creation_date: int | None = Field(
+        None, description="original_content_creation_date parameter"
+    )
+    title: str | None = Field(None, description="title parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

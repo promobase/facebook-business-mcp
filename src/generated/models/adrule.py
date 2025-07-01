@@ -111,6 +111,18 @@ class AdRuleGetHistoryParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdRuleUpdateParams(BaseModel):
+    """Parameters for AdRule.api_update()."""
+
+    evaluation_spec: Any | None = Field(None, description="evaluation_spec parameter")
+    execution_spec: Any | None = Field(None, description="execution_spec parameter")
+    name: str | None = Field(None, description="name parameter")
+    schedule_spec: Any | None = Field(None, description="schedule_spec parameter")
+    status: str | None = Field(None, description="status parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

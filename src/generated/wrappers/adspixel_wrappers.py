@@ -2,17 +2,13 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.adspixel import AdsPixel
+from facebook_business.adobjects.adspixel import AdsPixel
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adaccount import (
-    AdAccountField,
-    AdAccountFields,
-)
+from ..models.adaccount import AdAccountField
 from ..models.adspixel import (
     AdsPixelCreateAgencyParams,
     AdsPixelCreateAhpConfigParams,
@@ -22,7 +18,6 @@ from ..models.adspixel import (
     AdsPixelDeleteAgenciesParams,
     AdsPixelDeleteSharedAccountsParams,
     AdsPixelField,
-    AdsPixelFields,
     AdsPixelGetAdAccountsParams,
     AdsPixelGetAssignedUsersParams,
     AdsPixelGetDaChecksParams,
@@ -30,331 +25,205 @@ from ..models.adspixel import (
     AdsPixelGetSharedAccountsParams,
     AdsPixelGetStatsParams,
 )
-from ..models.adspixelstatsresult import (
-    AdsPixelStatsResultField,
-    AdsPixelStatsResultFields,
-)
-from ..models.assigneduser import (
-    AssignedUserField,
-    AssignedUserFields,
-)
-from ..models.dacheck import (
-    DACheckField,
-    DACheckFields,
-)
-from ..models.offlineconversiondatasetupload import (
-    OfflineConversionDataSetUploadField,
-    OfflineConversionDataSetUploadFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.adspixelstatsresult import AdsPixelStatsResultField
+from ..models.assigneduser import AssignedUserField
+from ..models.dacheck import DACheckField
+from ..models.offlineconversiondatasetupload import OfflineConversionDataSetUploadField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdsPixelWrappers:
-    """Type-safe wrapper functions for AdsPixel API methods."""
+def get_ad_accounts(
+    adspixel_id: str,
+    fields: list[AdAccountField] = [],
+    params: AdsPixelGetAdAccountsParams = {},
+) -> Any:
+    """Get Ad Accounts for this AdsPixel.
 
-    @staticmethod
-    def get_ad_accounts(
-        obj: AdsPixel,
-        params: Optional[AdsPixelGetAdAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for AdsPixel.get_ad_accounts().
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).get_ad_accounts(fields=fields, params=params)
 
-        Endpoint: GET /adaccounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def delete_agencies(
+    adspixel_id: str,
+    params: AdsPixelDeleteAgenciesParams = {},
+) -> Any:
+    """Delete Agencies for this AdsPixel.
 
-        # Call the original method
-        cursor = obj.get_ad_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        params: Parameters for the operation.
+    """
+    return AdsPixel(adspixel_id).delete_agencies(params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
 
-    @staticmethod
-    def delete_agencies(
-        obj: AdsPixel,
-        params: Optional[AdsPixelDeleteAgenciesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdsPixel.delete_agencies().
+def create_agency(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: AdsPixelCreateAgencyParams = {},
+) -> Any:
+    """Create Agency for this AdsPixel.
 
-        Endpoint: DELETE /agencies
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).create_agency(fields=fields, params=params)
 
-        # Call the original method
-        obj.delete_agencies(params=params_dict)
 
-        return True  # Delete methods typically don't return anything
+def create_ahp_config(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: AdsPixelCreateAhpConfigParams = {},
+) -> Any:
+    """Create Ahp Config for this AdsPixel.
 
-    @staticmethod
-    def create_agency(
-        obj: AdsPixel,
-        params: AdsPixelCreateAgencyParams,
-    ) -> AdsPixelFields:
-        """
-        Type-safe wrapper for AdsPixel.create_agency().
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).create_ahp_config(fields=fields, params=params)
 
-        Endpoint: POST /agencies
-        Returns: AdsPixelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_agency(params=params_dict)
+def get_assigned_users(
+    adspixel_id: str,
+    fields: list[AssignedUserField] = [],
+    params: AdsPixelGetAssignedUsersParams = {},
+) -> Any:
+    """Get Assigned Users for this AdsPixel.
 
-        # Convert result to typed model
-        return AdsPixelFields(**result)
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).get_assigned_users(fields=fields, params=params)
 
-    @staticmethod
-    def create_ahp_config(
-        obj: AdsPixel,
-        params: AdsPixelCreateAhpConfigParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for AdsPixel.create_ahp_config().
 
-        Endpoint: POST /ahp_configs
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_assigned_user(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: AdsPixelCreateAssignedUserParams = {},
+) -> Any:
+    """Create Assigned User for this AdsPixel.
 
-        # Call the original method
-        result = obj.create_ahp_config(params=params_dict)
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).create_assigned_user(fields=fields, params=params)
 
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
-    @staticmethod
-    def get_assigned_users(
-        obj: AdsPixel,
-        params: Optional[AdsPixelGetAssignedUsersParams] = None,
-        fields: Optional[list[AssignedUserField]] = None,
-    ) -> TypedCursor[AssignedUserFields]:
-        """
-        Type-safe wrapper for AdsPixel.get_assigned_users().
+def get_da_checks(
+    adspixel_id: str,
+    fields: list[DACheckField] = [],
+    params: AdsPixelGetDaChecksParams = {},
+) -> Any:
+    """Get Da Checks for this AdsPixel.
 
-        Endpoint: GET /assigned_users
-        Returns: TypedCursor[AssignedUserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).get_da_checks(fields=fields, params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_assigned_users(
-            params=params_dict,
-            fields=fields_list,
-        )
+def create_event(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: AdsPixelCreateEventParams = {},
+) -> Any:
+    """Create Event for this AdsPixel.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AssignedUserFields)
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).create_event(fields=fields, params=params)
 
-    @staticmethod
-    def create_assigned_user(
-        obj: AdsPixel,
-        params: AdsPixelCreateAssignedUserParams,
-    ) -> AdsPixelFields:
-        """
-        Type-safe wrapper for AdsPixel.create_assigned_user().
 
-        Endpoint: POST /assigned_users
-        Returns: AdsPixelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_offline_event_uploads(
+    adspixel_id: str,
+    fields: list[OfflineConversionDataSetUploadField] = [],
+    params: AdsPixelGetOfflineEventUploadsParams = {},
+) -> Any:
+    """Get Offline Event Uploads for this AdsPixel.
 
-        # Call the original method
-        result = obj.create_assigned_user(params=params_dict)
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).get_offline_event_uploads(fields=fields, params=params)
 
-        # Convert result to typed model
-        return AdsPixelFields(**result)
 
-    @staticmethod
-    def get_da_checks(
-        obj: AdsPixel,
-        params: Optional[AdsPixelGetDaChecksParams] = None,
-        fields: Optional[list[DACheckField]] = None,
-    ) -> TypedCursor[DACheckFields]:
-        """
-        Type-safe wrapper for AdsPixel.get_da_checks().
+def delete_shared_accounts(
+    adspixel_id: str,
+    params: AdsPixelDeleteSharedAccountsParams = {},
+) -> Any:
+    """Delete Shared Accounts for this AdsPixel.
 
-        Endpoint: GET /da_checks
-        Returns: TypedCursor[DACheckFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        params: Parameters for the operation.
+    """
+    return AdsPixel(adspixel_id).delete_shared_accounts(params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_da_checks(
-            params=params_dict,
-            fields=fields_list,
-        )
+def get_shared_accounts(
+    adspixel_id: str,
+    fields: list[AdAccountField] = [],
+    params: AdsPixelGetSharedAccountsParams = {},
+) -> Any:
+    """Get Shared Accounts for this AdsPixel.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, DACheckFields)
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).get_shared_accounts(fields=fields, params=params)
 
-    @staticmethod
-    def create_event(
-        obj: AdsPixel,
-        params: AdsPixelCreateEventParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for AdsPixel.create_event().
 
-        Endpoint: POST /events
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_shared_account(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: AdsPixelCreateSharedAccountParams = {},
+) -> Any:
+    """Create Shared Account for this AdsPixel.
 
-        # Call the original method
-        result = obj.create_event(params=params_dict)
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).create_shared_account(fields=fields, params=params)
 
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
-    @staticmethod
-    def get_offline_event_uploads(
-        obj: AdsPixel,
-        params: Optional[AdsPixelGetOfflineEventUploadsParams] = None,
-        fields: Optional[list[OfflineConversionDataSetUploadField]] = None,
-    ) -> TypedCursor[OfflineConversionDataSetUploadFields]:
-        """
-        Type-safe wrapper for AdsPixel.get_offline_event_uploads().
+def get_stats(
+    adspixel_id: str,
+    fields: list[AdsPixelStatsResultField] = [],
+    params: AdsPixelGetStatsParams = {},
+) -> Any:
+    """Get Stats for this AdsPixel.
 
-        Endpoint: GET /offline_event_uploads
-        Returns: TypedCursor[OfflineConversionDataSetUploadFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_offline_event_uploads(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, OfflineConversionDataSetUploadFields)
-
-    @staticmethod
-    def delete_shared_accounts(
-        obj: AdsPixel,
-        params: Optional[AdsPixelDeleteSharedAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdsPixel.delete_shared_accounts().
-
-        Endpoint: DELETE /shared_accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_shared_accounts(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_shared_accounts(
-        obj: AdsPixel,
-        params: Optional[AdsPixelGetSharedAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for AdsPixel.get_shared_accounts().
-
-        Endpoint: GET /shared_accounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_shared_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
-
-    @staticmethod
-    def create_shared_account(
-        obj: AdsPixel,
-        params: AdsPixelCreateSharedAccountParams,
-    ) -> AdsPixelFields:
-        """
-        Type-safe wrapper for AdsPixel.create_shared_account().
-
-        Endpoint: POST /shared_accounts
-        Returns: AdsPixelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_shared_account(params=params_dict)
-
-        # Convert result to typed model
-        return AdsPixelFields(**result)
-
-    @staticmethod
-    def get_stats(
-        obj: AdsPixel,
-        params: Optional[AdsPixelGetStatsParams] = None,
-        fields: Optional[list[AdsPixelStatsResultField]] = None,
-    ) -> TypedCursor[AdsPixelStatsResultFields]:
-        """
-        Type-safe wrapper for AdsPixel.get_stats().
-
-        Endpoint: GET /stats
-        Returns: TypedCursor[AdsPixelStatsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_stats(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsPixelStatsResultFields)
+    Args:
+        adspixel_id: The ID of the AdsPixel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdsPixel(adspixel_id).get_stats(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

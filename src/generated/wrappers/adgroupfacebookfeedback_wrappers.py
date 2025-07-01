@@ -2,59 +2,39 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.adgroupfacebookfeedback import AdgroupFacebookFeedback
+from facebook_business.adobjects.adgroupfacebookfeedback import AdgroupFacebookFeedback
 
 from ..models.adgroupfacebookfeedback import (
     AdgroupFacebookFeedbackField,
-    AdgroupFacebookFeedbackFields,
     AdgroupFacebookFeedbackGetCommentsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.comment import CommentField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdgroupFacebookFeedbackWrappers:
-    """Type-safe wrapper functions for AdgroupFacebookFeedback API methods."""
+def get_comments(
+    adgroupfacebookfeedback_id: str,
+    fields: list[CommentField] = [],
+    params: AdgroupFacebookFeedbackGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this AdgroupFacebookFeedback.
 
-    @staticmethod
-    def get_comments(
-        obj: AdgroupFacebookFeedback,
-        params: Optional[AdgroupFacebookFeedbackGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for AdgroupFacebookFeedback.get_comments().
-
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
+    Args:
+        adgroupfacebookfeedback_id: The ID of the AdgroupFacebookFeedback.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdgroupFacebookFeedback(adgroupfacebookfeedback_id).get_comments(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

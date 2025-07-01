@@ -2,17 +2,13 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.businessassetgroup import BusinessAssetGroup
+from facebook_business.adobjects.businessassetgroup import BusinessAssetGroup
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.assigneduser import (
-    AssignedUserField,
-    AssignedUserFields,
-)
+from ..models.assigneduser import AssignedUserField
 from ..models.businessassetgroup import (
     BusinessAssetGroupCreateAssignedUserParams,
     BusinessAssetGroupCreateContainedAdAccountParams,
@@ -31,357 +27,275 @@ from ..models.businessassetgroup import (
     BusinessAssetGroupDeleteContainedPixelsParams,
     BusinessAssetGroupDeleteContainedProductCatalogsParams,
     BusinessAssetGroupField,
-    BusinessAssetGroupFields,
     BusinessAssetGroupGetAssignedUsersParams,
 )
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class BusinessAssetGroupWrappers:
-    """Type-safe wrapper functions for BusinessAssetGroup API methods."""
-
-    @staticmethod
-    def delete_assigned_users(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteAssignedUsersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_assigned_users().
-
-        Endpoint: DELETE /assigned_users
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_assigned_users(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_assigned_users(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupGetAssignedUsersParams] = None,
-        fields: Optional[list[AssignedUserField]] = None,
-    ) -> TypedCursor[AssignedUserFields]:
-        """
-        Type-safe wrapper for BusinessAssetGroup.get_assigned_users().
-
-        Endpoint: GET /assigned_users
-        Returns: TypedCursor[AssignedUserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_users(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AssignedUserFields)
-
-    @staticmethod
-    def create_assigned_user(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateAssignedUserParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_assigned_user().
-
-        Endpoint: POST /assigned_users
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_assigned_user(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
-
-    @staticmethod
-    def delete_contained_ad_accounts(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteContainedAdAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_contained_ad_accounts().
-
-        Endpoint: DELETE /contained_adaccounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_contained_ad_accounts(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_contained_ad_account(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateContainedAdAccountParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_contained_ad_account().
-
-        Endpoint: POST /contained_adaccounts
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_contained_ad_account(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
-
-    @staticmethod
-    def delete_contained_applications(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteContainedApplicationsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_contained_applications().
-
-        Endpoint: DELETE /contained_applications
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_contained_applications(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_contained_application(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateContainedApplicationParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_contained_application().
-
-        Endpoint: POST /contained_applications
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_contained_application(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
-
-    @staticmethod
-    def delete_contained_custom_conversions(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteContainedCustomConversionsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_contained_custom_conversions().
-
-        Endpoint: DELETE /contained_custom_conversions
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_contained_custom_conversions(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_contained_custom_conversion(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateContainedCustomConversionParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_contained_custom_conversion().
-
-        Endpoint: POST /contained_custom_conversions
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_contained_custom_conversion(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
-
-    @staticmethod
-    def delete_contained_instagram_accounts(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteContainedInstagramAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_contained_instagram_accounts().
-
-        Endpoint: DELETE /contained_instagram_accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_contained_instagram_accounts(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_contained_instagram_account(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateContainedInstagramAccountParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_contained_instagram_account().
-
-        Endpoint: POST /contained_instagram_accounts
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_contained_instagram_account(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
-
-    @staticmethod
-    def delete_contained_pages(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteContainedPagesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_contained_pages().
-
-        Endpoint: DELETE /contained_pages
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_contained_pages(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_contained_page(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateContainedPageParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_contained_page().
-
-        Endpoint: POST /contained_pages
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_contained_page(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
-
-    @staticmethod
-    def delete_contained_pixels(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteContainedPixelsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_contained_pixels().
-
-        Endpoint: DELETE /contained_pixels
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_contained_pixels(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_contained_pixel(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateContainedPixelParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_contained_pixel().
-
-        Endpoint: POST /contained_pixels
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_contained_pixel(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
-
-    @staticmethod
-    def delete_contained_product_catalogs(
-        obj: BusinessAssetGroup,
-        params: Optional[BusinessAssetGroupDeleteContainedProductCatalogsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for BusinessAssetGroup.delete_contained_product_catalogs().
-
-        Endpoint: DELETE /contained_product_catalogs
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_contained_product_catalogs(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_contained_product_catalog(
-        obj: BusinessAssetGroup,
-        params: BusinessAssetGroupCreateContainedProductCatalogParams,
-    ) -> BusinessAssetGroupFields:
-        """
-        Type-safe wrapper for BusinessAssetGroup.create_contained_product_catalog().
-
-        Endpoint: POST /contained_product_catalogs
-        Returns: BusinessAssetGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_contained_product_catalog(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessAssetGroupFields(**result)
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def delete_assigned_users(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteAssignedUsersParams = {},
+) -> Any:
+    """Delete Assigned Users for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_assigned_users(params=params)
+
+
+def get_assigned_users(
+    businessassetgroup_id: str,
+    fields: list[AssignedUserField] = [],
+    params: BusinessAssetGroupGetAssignedUsersParams = {},
+) -> Any:
+    """Get Assigned Users for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).get_assigned_users(
+        fields=fields, params=params
+    )
+
+
+def create_assigned_user(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateAssignedUserParams = {},
+) -> Any:
+    """Create Assigned User for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_assigned_user(
+        fields=fields, params=params
+    )
+
+
+def delete_contained_ad_accounts(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteContainedAdAccountsParams = {},
+) -> Any:
+    """Delete Contained Ad Accounts for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_ad_accounts(params=params)
+
+
+def create_contained_ad_account(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateContainedAdAccountParams = {},
+) -> Any:
+    """Create Contained Ad Account for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_ad_account(
+        fields=fields, params=params
+    )
+
+
+def delete_contained_applications(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteContainedApplicationsParams = {},
+) -> Any:
+    """Delete Contained Applications for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_applications(params=params)
+
+
+def create_contained_application(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateContainedApplicationParams = {},
+) -> Any:
+    """Create Contained Application for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_application(
+        fields=fields, params=params
+    )
+
+
+def delete_contained_custom_conversions(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteContainedCustomConversionsParams = {},
+) -> Any:
+    """Delete Contained Custom Conversions for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_custom_conversions(
+        params=params
+    )
+
+
+def create_contained_custom_conversion(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateContainedCustomConversionParams = {},
+) -> Any:
+    """Create Contained Custom Conversion for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_custom_conversion(
+        fields=fields, params=params
+    )
+
+
+def delete_contained_instagram_accounts(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteContainedInstagramAccountsParams = {},
+) -> Any:
+    """Delete Contained Instagram Accounts for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_instagram_accounts(
+        params=params
+    )
+
+
+def create_contained_instagram_account(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateContainedInstagramAccountParams = {},
+) -> Any:
+    """Create Contained Instagram Account for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_instagram_account(
+        fields=fields, params=params
+    )
+
+
+def delete_contained_pages(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteContainedPagesParams = {},
+) -> Any:
+    """Delete Contained Pages for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_pages(params=params)
+
+
+def create_contained_page(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateContainedPageParams = {},
+) -> Any:
+    """Create Contained Page for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_page(
+        fields=fields, params=params
+    )
+
+
+def delete_contained_pixels(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteContainedPixelsParams = {},
+) -> Any:
+    """Delete Contained Pixels for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_pixels(params=params)
+
+
+def create_contained_pixel(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateContainedPixelParams = {},
+) -> Any:
+    """Create Contained Pixel for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_pixel(
+        fields=fields, params=params
+    )
+
+
+def delete_contained_product_catalogs(
+    businessassetgroup_id: str,
+    params: BusinessAssetGroupDeleteContainedProductCatalogsParams = {},
+) -> Any:
+    """Delete Contained Product Catalogs for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        params: Parameters for the operation.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_product_catalogs(
+        params=params
+    )
+
+
+def create_contained_product_catalog(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: BusinessAssetGroupCreateContainedProductCatalogParams = {},
+) -> Any:
+    """Create Contained Product Catalog for this BusinessAssetGroup.
+
+    Args:
+        businessassetgroup_id: The ID of the BusinessAssetGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_product_catalog(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

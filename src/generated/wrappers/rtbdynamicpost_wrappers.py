@@ -2,58 +2,36 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.rtbdynamicpost import RTBDynamicPost
+from facebook_business.adobjects.rtbdynamicpost import RTBDynamicPost
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
+from ..models.comment import CommentField
 from ..models.rtbdynamicpost import (
     RTBDynamicPostField,
-    RTBDynamicPostFields,
     RTBDynamicPostGetCommentsParams,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class RTBDynamicPostWrappers:
-    """Type-safe wrapper functions for RTBDynamicPost API methods."""
+def get_comments(
+    rtbdynamicpost_id: str,
+    fields: list[CommentField] = [],
+    params: RTBDynamicPostGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this RTBDynamicPost.
 
-    @staticmethod
-    def get_comments(
-        obj: RTBDynamicPost,
-        params: Optional[RTBDynamicPostGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for RTBDynamicPost.get_comments().
-
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
+    Args:
+        rtbdynamicpost_id: The ID of the RTBDynamicPost.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return RTBDynamicPost(rtbdynamicpost_id).get_comments(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

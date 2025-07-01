@@ -46,6 +46,16 @@ class AdsValueAdjustmentRuleCollectionFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class AdsValueAdjustmentRuleCollectionUpdateParams(BaseModel):
+    """Parameters for AdsValueAdjustmentRuleCollection.api_update()."""
+
+    is_default_setting: bool | None = Field(None, description="is_default_setting parameter")
+    name: str | None = Field(None, description="name parameter")
+    rules: list[dict[str, Any]] | None = Field(None, description="rules parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

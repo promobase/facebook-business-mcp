@@ -654,6 +654,45 @@ class AdVideoGetVideoInsightsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdVideoUpdateParams(BaseModel):
+    """Parameters for AdVideo.api_update()."""
+
+    ad_breaks: Any | None = Field(None, description="ad_breaks parameter")
+    allow_bm_crossposting: bool | None = Field(None, description="allow_bm_crossposting parameter")
+    allow_crossposting_for_pages: list[Any] | None = Field(
+        None, description="allow_crossposting_for_pages parameter"
+    )
+    backdated_time: datetime | None = Field(None, description="backdated_time parameter")
+    backdated_time_granularity: str | None = Field(
+        None, description="backdated_time_granularity parameter"
+    )
+    call_to_action: Any | None = Field(None, description="call_to_action parameter")
+    content_category: str | None = Field(None, description="content_category parameter")
+    content_tags: list[str] | None = Field(None, description="content_tags parameter")
+    custom_labels: list[str] | None = Field(None, description="custom_labels parameter")
+    description: str | None = Field(None, description="description parameter")
+    direct_share_status: int | None = Field(None, description="direct_share_status parameter")
+    embeddable: bool | None = Field(None, description="embeddable parameter")
+    expiration: Any | None = Field(None, description="expiration parameter")
+    expire_now: bool | None = Field(None, description="expire_now parameter")
+    increment_play_count: bool | None = Field(None, description="increment_play_count parameter")
+    name: str | None = Field(None, description="name parameter")
+    preferred_thumbnail_id: str | None = Field(None, description="preferred_thumbnail_id parameter")
+    privacy: str | None = Field(None, description="privacy parameter")
+    publish_to_news_feed: bool | None = Field(None, description="publish_to_news_feed parameter")
+    publish_to_videos_tab: bool | None = Field(None, description="publish_to_videos_tab parameter")
+    published: bool | None = Field(None, description="published parameter")
+    scheduled_publish_time: int | None = Field(None, description="scheduled_publish_time parameter")
+    social_actions: bool | None = Field(None, description="social_actions parameter")
+    sponsor_id: str | None = Field(None, description="sponsor_id parameter")
+    sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
+    tags: list[str] | None = Field(None, description="tags parameter")
+    target: str | None = Field(None, description="target parameter")
+    universal_video_id: str | None = Field(None, description="universal_video_id parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -300,6 +300,42 @@ class VehicleGetOverrideDetailsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class VehicleUpdateParams(BaseModel):
+    """Parameters for Vehicle.api_update()."""
+
+    address: dict[str, Any] | None = Field(None, description="address parameter")
+    applinks: Any | None = Field(None, description="applinks parameter")
+    availability: str | None = Field(None, description="availability parameter")
+    body_style: str | None = Field(None, description="body_style parameter")
+    condition: str | None = Field(None, description="condition parameter")
+    currency: str | None = Field(None, description="currency parameter")
+    date_first_on_lot: str | None = Field(None, description="date_first_on_lot parameter")
+    dealer_id: str | None = Field(None, description="dealer_id parameter")
+    dealer_name: str | None = Field(None, description="dealer_name parameter")
+    dealer_phone: str | None = Field(None, description="dealer_phone parameter")
+    description: str | None = Field(None, description="description parameter")
+    drivetrain: str | None = Field(None, description="drivetrain parameter")
+    exterior_color: str | None = Field(None, description="exterior_color parameter")
+    fb_page_id: str | None = Field(None, description="fb_page_id parameter")
+    fuel_type: str | None = Field(None, description="fuel_type parameter")
+    images: list[Any] | None = Field(None, description="images parameter")
+    interior_color: str | None = Field(None, description="interior_color parameter")
+    make: str | None = Field(None, description="make parameter")
+    mileage: dict[str, Any] | None = Field(None, description="mileage parameter")
+    model: str | None = Field(None, description="model parameter")
+    price: int | None = Field(None, description="price parameter")
+    state_of_vehicle: str | None = Field(None, description="state_of_vehicle parameter")
+    title: str | None = Field(None, description="title parameter")
+    transmission: str | None = Field(None, description="transmission parameter")
+    trim: str | None = Field(None, description="trim parameter")
+    url: str | None = Field(None, description="url parameter")
+    vehicle_type: str | None = Field(None, description="vehicle_type parameter")
+    vin: str | None = Field(None, description="vin parameter")
+    year: int | None = Field(None, description="year parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

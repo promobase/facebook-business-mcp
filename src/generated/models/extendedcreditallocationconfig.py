@@ -72,6 +72,14 @@ class ExtendedCreditAllocationConfigFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class ExtendedCreditAllocationConfigUpdateParams(BaseModel):
+    """Parameters for ExtendedCreditAllocationConfig.api_update()."""
+
+    amount: Any | None = Field(None, description="amount parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

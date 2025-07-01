@@ -48,6 +48,17 @@ class MediaFingerprintFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class MediaFingerprintUpdateParams(BaseModel):
+    """Parameters for MediaFingerprint.api_update()."""
+
+    metadata: Any | None = Field(None, description="metadata parameter")
+    source: Any | None = Field(None, description="source parameter")
+    title: str | None = Field(None, description="title parameter")
+    universal_content_id: str | None = Field(None, description="universal_content_id parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

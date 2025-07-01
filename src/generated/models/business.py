@@ -1947,6 +1947,19 @@ class BusinessCreateVideoParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class BusinessUpdateParams(BaseModel):
+    """Parameters for Business.api_update()."""
+
+    entry_point: str | None = Field(None, description="entry_point parameter")
+    name: str | None = Field(None, description="name parameter")
+    primary_page: str | None = Field(None, description="primary_page parameter")
+    timezone_id: int | None = Field(None, description="timezone_id parameter")
+    two_factor_type: str | None = Field(None, description="two_factor_type parameter")
+    vertical: str | None = Field(None, description="vertical parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

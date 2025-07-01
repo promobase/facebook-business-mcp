@@ -2,184 +2,116 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.post import Post
+from facebook_business.adobjects.post import Post
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
-from ..models.insightsresult import (
-    InsightsResultField,
-    InsightsResultFields,
-)
+from ..models.comment import CommentField
+from ..models.insightsresult import InsightsResultField
 from ..models.post import (
     PostCreateCommentParams,
     PostCreateLikeParams,
     PostDeleteLikesParams,
     PostField,
-    PostFields,
     PostGetCommentsParams,
     PostGetInsightsParams,
     PostGetReactionsParams,
 )
-from ..models.profile import (
-    ProfileField,
-    ProfileFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.profile import ProfileField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class PostWrappers:
-    """Type-safe wrapper functions for Post API methods."""
+def get_comments(
+    post_id: str,
+    fields: list[CommentField] = [],
+    params: PostGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this Post.
 
-    @staticmethod
-    def get_comments(
-        obj: Post,
-        params: Optional[PostGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for Post.get_comments().
+    Args:
+        post_id: The ID of the Post.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Post(post_id).get_comments(fields=fields, params=params)
 
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_comment(
+    post_id: str,
+    fields: list[str] = [],
+    params: PostCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this Post.
 
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        post_id: The ID of the Post.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Post(post_id).create_comment(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
 
-    @staticmethod
-    def create_comment(
-        obj: Post,
-        params: PostCreateCommentParams,
-    ) -> CommentFields:
-        """
-        Type-safe wrapper for Post.create_comment().
+def get_insights(
+    post_id: str,
+    fields: list[InsightsResultField] = [],
+    params: PostGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this Post.
 
-        Endpoint: POST /comments
-        Returns: CommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        post_id: The ID of the Post.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Post(post_id).get_insights(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
 
-        # Convert result to typed model
-        return CommentFields(**result)
+def delete_likes(
+    post_id: str,
+    params: PostDeleteLikesParams = {},
+) -> Any:
+    """Delete Likes for this Post.
 
-    @staticmethod
-    def get_insights(
-        obj: Post,
-        params: Optional[PostGetInsightsParams] = None,
-        fields: Optional[list[InsightsResultField]] = None,
-    ) -> TypedCursor[InsightsResultFields]:
-        """
-        Type-safe wrapper for Post.get_insights().
+    Args:
+        post_id: The ID of the Post.
+        params: Parameters for the operation.
+    """
+    return Post(post_id).delete_likes(params=params)
 
-        Endpoint: GET /insights
-        Returns: TypedCursor[InsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_like(
+    post_id: str,
+    fields: list[str] = [],
+    params: PostCreateLikeParams = {},
+) -> Any:
+    """Create Like for this Post.
 
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        post_id: The ID of the Post.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Post(post_id).create_like(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InsightsResultFields)
 
-    @staticmethod
-    def delete_likes(
-        obj: Post,
-        params: Optional[PostDeleteLikesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Post.delete_likes().
+def get_reactions(
+    post_id: str,
+    fields: list[ProfileField] = [],
+    params: PostGetReactionsParams = {},
+) -> Any:
+    """Get Reactions for this Post.
 
-        Endpoint: DELETE /likes
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_likes(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_like(
-        obj: Post,
-        params: PostCreateLikeParams,
-    ) -> PostFields:
-        """
-        Type-safe wrapper for Post.create_like().
-
-        Endpoint: POST /likes
-        Returns: PostFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_like(params=params_dict)
-
-        # Convert result to typed model
-        return PostFields(**result)
-
-    @staticmethod
-    def get_reactions(
-        obj: Post,
-        params: Optional[PostGetReactionsParams] = None,
-        fields: Optional[list[ProfileField]] = None,
-    ) -> TypedCursor[ProfileFields]:
-        """
-        Type-safe wrapper for Post.get_reactions().
-
-        Endpoint: GET /reactions
-        Returns: TypedCursor[ProfileFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_reactions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfileFields)
+    Args:
+        post_id: The ID of the Post.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Post(post_id).get_reactions(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

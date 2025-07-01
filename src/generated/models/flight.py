@@ -130,6 +130,22 @@ class FlightGetOverrideDetailsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class FlightUpdateParams(BaseModel):
+    """Parameters for Flight.api_update()."""
+
+    currency: str | None = Field(None, description="currency parameter")
+    description: str | None = Field(None, description="description parameter")
+    destination_airport: str | None = Field(None, description="destination_airport parameter")
+    destination_city: str | None = Field(None, description="destination_city parameter")
+    images: list[Any] | None = Field(None, description="images parameter")
+    origin_airport: str | None = Field(None, description="origin_airport parameter")
+    origin_city: str | None = Field(None, description="origin_city parameter")
+    price: int | None = Field(None, description="price parameter")
+    url: str | None = Field(None, description="url parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -928,6 +928,24 @@ class UserCreateVideoParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class UserUpdateParams(BaseModel):
+    """Parameters for User.api_update()."""
+
+    emoji_color_pref: int | None = Field(None, description="emoji_color_pref parameter")
+    firstname: str | None = Field(None, description="firstname parameter")
+    lastname: str | None = Field(None, description="lastname parameter")
+    local_news_megaphone_dismiss_status: str | None = Field(
+        None, description="local_news_megaphone_dismiss_status parameter"
+    )
+    local_news_subscription_status: str | None = Field(
+        None, description="local_news_subscription_status parameter"
+    )
+    name: str | None = Field(None, description="name parameter")
+    password: str | None = Field(None, description="password parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

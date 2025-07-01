@@ -2,50 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.igcomment import IGComment
+from facebook_business.adobjects.igcomment import IGComment
 
 from ..models.igcomment import (
     IGCommentCreateReplyParams,
     IGCommentField,
-    IGCommentFields,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class IGCommentWrappers:
-    """Type-safe wrapper functions for IGComment API methods."""
+def create_reply(
+    igcomment_id: str,
+    fields: list[str] = [],
+    params: IGCommentCreateReplyParams = {},
+) -> Any:
+    """Create Reply for this IGComment.
 
-    @staticmethod
-    def create_reply(
-        obj: IGComment,
-        params: IGCommentCreateReplyParams,
-    ) -> IGCommentFields:
-        """
-        Type-safe wrapper for IGComment.create_reply().
-
-        Endpoint: POST /replies
-        Returns: IGCommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_reply(params=params_dict)
-
-        # Convert result to typed model
-        return IGCommentFields(**result)
+    Args:
+        igcomment_id: The ID of the IGComment.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGComment(igcomment_id).create_reply(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

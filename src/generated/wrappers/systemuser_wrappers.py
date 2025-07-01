@@ -2,90 +2,55 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.systemuser import SystemUser
+from facebook_business.adobjects.systemuser import SystemUser
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.businessassetgroup import (
-    BusinessAssetGroupField,
-    BusinessAssetGroupFields,
-)
-from ..models.page import (
-    PageField,
-    PageFields,
-)
+from ..models.businessassetgroup import BusinessAssetGroupField
+from ..models.page import PageField
 from ..models.systemuser import (
     SystemUserField,
-    SystemUserFields,
     SystemUserGetAssignedBusinessAssetGroupsParams,
     SystemUserGetAssignedPagesParams,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class SystemUserWrappers:
-    """Type-safe wrapper functions for SystemUser API methods."""
+def get_assigned_business_asset_groups(
+    systemuser_id: str,
+    fields: list[BusinessAssetGroupField] = [],
+    params: SystemUserGetAssignedBusinessAssetGroupsParams = {},
+) -> Any:
+    """Get Assigned Business Asset Groups for this SystemUser.
 
-    @staticmethod
-    def get_assigned_business_asset_groups(
-        obj: SystemUser,
-        params: Optional[SystemUserGetAssignedBusinessAssetGroupsParams] = None,
-        fields: Optional[list[BusinessAssetGroupField]] = None,
-    ) -> TypedCursor[BusinessAssetGroupFields]:
-        """
-        Type-safe wrapper for SystemUser.get_assigned_business_asset_groups().
+    Args:
+        systemuser_id: The ID of the SystemUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return SystemUser(systemuser_id).get_assigned_business_asset_groups(
+        fields=fields, params=params
+    )
 
-        Endpoint: GET /assigned_business_asset_groups
-        Returns: TypedCursor[BusinessAssetGroupFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_assigned_pages(
+    systemuser_id: str,
+    fields: list[PageField] = [],
+    params: SystemUserGetAssignedPagesParams = {},
+) -> Any:
+    """Get Assigned Pages for this SystemUser.
 
-        # Call the original method
-        cursor = obj.get_assigned_business_asset_groups(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessAssetGroupFields)
-
-    @staticmethod
-    def get_assigned_pages(
-        obj: SystemUser,
-        params: Optional[SystemUserGetAssignedPagesParams] = None,
-        fields: Optional[list[PageField]] = None,
-    ) -> TypedCursor[PageFields]:
-        """
-        Type-safe wrapper for SystemUser.get_assigned_pages().
-
-        Endpoint: GET /assigned_pages
-        Returns: TypedCursor[PageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_pages(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageFields)
+    Args:
+        systemuser_id: The ID of the SystemUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return SystemUser(systemuser_id).get_assigned_pages(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

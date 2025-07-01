@@ -2,73 +2,53 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.adstudy import AdStudy
+from facebook_business.adobjects.adstudy import AdStudy
 
 from ..models.adstudy import (
     AdStudyCreateCheckPointParams,
     AdStudyCreateInstanceParams,
     AdStudyField,
-    AdStudyFields,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.privateliftstudyinstance import (
-    PrivateLiftStudyInstanceField,
-    PrivateLiftStudyInstanceFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.privateliftstudyinstance import PrivateLiftStudyInstanceField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdStudyWrappers:
-    """Type-safe wrapper functions for AdStudy API methods."""
+def create_check_point(
+    adstudy_id: str,
+    fields: list[str] = [],
+    params: AdStudyCreateCheckPointParams = {},
+) -> Any:
+    """Create Check Point for this AdStudy.
 
-    @staticmethod
-    def create_check_point(
-        obj: AdStudy,
-        params: AdStudyCreateCheckPointParams,
-    ) -> AdStudyFields:
-        """
-        Type-safe wrapper for AdStudy.create_check_point().
+    Args:
+        adstudy_id: The ID of the AdStudy.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdStudy(adstudy_id).create_check_point(fields=fields, params=params)
 
-        Endpoint: POST /checkpoint
-        Returns: AdStudyFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_check_point(params=params_dict)
+def create_instance(
+    adstudy_id: str,
+    fields: list[str] = [],
+    params: AdStudyCreateInstanceParams = {},
+) -> Any:
+    """Create Instance for this AdStudy.
 
-        # Convert result to typed model
-        return AdStudyFields(**result)
-
-    @staticmethod
-    def create_instance(
-        obj: AdStudy,
-        params: AdStudyCreateInstanceParams,
-    ) -> PrivateLiftStudyInstanceFields:
-        """
-        Type-safe wrapper for AdStudy.create_instance().
-
-        Endpoint: POST /instances
-        Returns: PrivateLiftStudyInstanceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_instance(params=params_dict)
-
-        # Convert result to typed model
-        return PrivateLiftStudyInstanceFields(**result)
+    Args:
+        adstudy_id: The ID of the AdStudy.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdStudy(adstudy_id).create_instance(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

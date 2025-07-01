@@ -60,6 +60,15 @@ class IGCommentCreateReplyParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class IGCommentUpdateParams(BaseModel):
+    """Parameters for IGComment.api_update()."""
+
+    ad_id: str | None = Field(None, description="ad_id parameter")
+    hide: bool | None = Field(None, description="hide parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

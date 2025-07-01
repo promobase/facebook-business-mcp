@@ -1936,6 +1936,41 @@ class AdAccountCreateVideoAdParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdAccountUpdateParams(BaseModel):
+    """Parameters for AdAccount.api_update()."""
+
+    agency_client_declaration: dict[str, Any] | None = Field(
+        None, description="agency_client_declaration parameter"
+    )
+    attribution_spec: list[Any] | None = Field(None, description="attribution_spec parameter")
+    business_info: dict[str, Any] | None = Field(None, description="business_info parameter")
+    currency: str | None = Field(None, description="currency parameter")
+    custom_audience_info: dict[str, Any] | None = Field(
+        None, description="custom_audience_info parameter"
+    )
+    default_dsa_beneficiary: str | None = Field(
+        None, description="default_dsa_beneficiary parameter"
+    )
+    default_dsa_payor: str | None = Field(None, description="default_dsa_payor parameter")
+    end_advertiser: str | None = Field(None, description="end_advertiser parameter")
+    existing_customers: list[str] | None = Field(None, description="existing_customers parameter")
+    is_ba_skip_delayed_eligible: bool | None = Field(
+        None, description="is_ba_skip_delayed_eligible parameter"
+    )
+    is_notifications_enabled: bool | None = Field(
+        None, description="is_notifications_enabled parameter"
+    )
+    media_agency: str | None = Field(None, description="media_agency parameter")
+    name: str | None = Field(None, description="name parameter")
+    partner: str | None = Field(None, description="partner parameter")
+    spend_cap: float | None = Field(None, description="spend_cap parameter")
+    spend_cap_action: str | None = Field(None, description="spend_cap_action parameter")
+    timezone_id: int | None = Field(None, description="timezone_id parameter")
+    tos_accepted: dict[str, Any] | None = Field(None, description="tos_accepted parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

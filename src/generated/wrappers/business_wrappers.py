@@ -2,53 +2,22 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.business import Business
+from facebook_business.adobjects.business import Business
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adaccount import (
-    AdAccountField,
-    AdAccountFields,
-)
-from ..models.adnetworkanalyticsasyncqueryresult import (
-    AdNetworkAnalyticsAsyncQueryResultField,
-    AdNetworkAnalyticsAsyncQueryResultFields,
-)
-from ..models.adnetworkanalyticssyncqueryresult import (
-    AdNetworkAnalyticsSyncQueryResultField,
-    AdNetworkAnalyticsSyncQueryResultFields,
-)
-from ..models.adsdataset import (
-    AdsDatasetField,
-    AdsDatasetFields,
-)
-from ..models.adspixel import (
-    AdsPixelField,
-    AdsPixelFields,
-)
-from ..models.adsreportbuildermmmreport import (
-    AdsReportBuilderMMMReportField,
-    AdsReportBuilderMMMReportFields,
-)
-from ..models.adstudy import (
-    AdStudyField,
-    AdStudyFields,
-)
-from ..models.advideo import (
-    AdVideoField,
-    AdVideoFields,
-)
-from ..models.almadaccountinfo import (
-    ALMAdAccountInfoField,
-    ALMAdAccountInfoFields,
-)
-from ..models.application import (
-    ApplicationField,
-    ApplicationFields,
-)
+from ..models.adaccount import AdAccountField
+from ..models.adnetworkanalyticsasyncqueryresult import AdNetworkAnalyticsAsyncQueryResultField
+from ..models.adnetworkanalyticssyncqueryresult import AdNetworkAnalyticsSyncQueryResultField
+from ..models.adsdataset import AdsDatasetField
+from ..models.adspixel import AdsPixelField
+from ..models.adsreportbuildermmmreport import AdsReportBuilderMMMReportField
+from ..models.adstudy import AdStudyField
+from ..models.advideo import AdVideoField
+from ..models.almadaccountinfo import ALMAdAccountInfoField
+from ..models.application import ApplicationField
 from ..models.business import (
     BusinessCreateAccessTokenParams,
     BusinessCreateAdAccountParams,
@@ -98,7 +67,6 @@ from ..models.business import (
     BusinessDeletePagesParams,
     BusinessDeleteSharePreVerifiedNumbersParams,
     BusinessField,
-    BusinessFields,
     BusinessGetAdAccountInfosParams,
     BusinessGetAdNetworkAnalyticsParams,
     BusinessGetAdNetworkAnalyticsResultsParams,
@@ -120,1566 +88,1037 @@ from ..models.business import (
     BusinessGetReceivedAudienceSharingRequestsParams,
     BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams,
 )
-from ..models.businessassetsharingagreement import (
-    BusinessAssetSharingAgreementField,
-    BusinessAssetSharingAgreementFields,
-)
-from ..models.businesscreativefolder import (
-    BusinessCreativeFolderField,
-    BusinessCreativeFolderFields,
-)
-from ..models.businessimage import (
-    BusinessImageField,
-    BusinessImageFields,
-)
-from ..models.businessrolerequest import (
-    BusinessRoleRequestField,
-    BusinessRoleRequestFields,
-)
-from ..models.businessuser import (
-    BusinessUserField,
-    BusinessUserFields,
-)
-from ..models.cpasbusinesssetupconfig import (
-    CPASBusinessSetupConfigField,
-    CPASBusinessSetupConfigFields,
-)
-from ..models.cpascollaborationrequest import (
-    CPASCollaborationRequestField,
-    CPASCollaborationRequestFields,
-)
-from ..models.customconversion import (
-    CustomConversionField,
-    CustomConversionFields,
-)
-from ..models.eventsourcegroup import (
-    EventSourceGroupField,
-    EventSourceGroupFields,
-)
-from ..models.extendedcredit import (
-    ExtendedCreditField,
-    ExtendedCreditFields,
-)
-from ..models.extendedcreditapplication import (
-    ExtendedCreditApplicationField,
-    ExtendedCreditApplicationFields,
-)
-from ..models.fundingsourcedetailscoupon import (
-    FundingSourceDetailsCouponField,
-    FundingSourceDetailsCouponFields,
-)
-from ..models.managedpartnerbusiness import (
-    ManagedPartnerBusinessField,
-    ManagedPartnerBusinessFields,
-)
-from ..models.omegacustomertrx import (
-    OmegaCustomerTrxField,
-    OmegaCustomerTrxFields,
-)
-from ..models.openbridgeconfiguration import (
-    OpenBridgeConfigurationField,
-    OpenBridgeConfigurationFields,
-)
-from ..models.productcatalog import (
-    ProductCatalogField,
-    ProductCatalogFields,
-)
-from ..models.profilepicturesource import (
-    ProfilePictureSourceField,
-    ProfilePictureSourceFields,
-)
-from ..models.systemuser import (
-    SystemUserField,
-    SystemUserFields,
-)
+from ..models.businessassetsharingagreement import BusinessAssetSharingAgreementField
+from ..models.businesscreativefolder import BusinessCreativeFolderField
+from ..models.businessimage import BusinessImageField
+from ..models.businessrolerequest import BusinessRoleRequestField
+from ..models.businessuser import BusinessUserField
+from ..models.cpasbusinesssetupconfig import CPASBusinessSetupConfigField
+from ..models.cpascollaborationrequest import CPASCollaborationRequestField
+from ..models.customconversion import CustomConversionField
+from ..models.eventsourcegroup import EventSourceGroupField
+from ..models.extendedcredit import ExtendedCreditField
+from ..models.extendedcreditapplication import ExtendedCreditApplicationField
+from ..models.fundingsourcedetailscoupon import FundingSourceDetailsCouponField
+from ..models.managedpartnerbusiness import ManagedPartnerBusinessField
+from ..models.omegacustomertrx import OmegaCustomerTrxField
+from ..models.openbridgeconfiguration import OpenBridgeConfigurationField
+from ..models.productcatalog import ProductCatalogField
+from ..models.profilepicturesource import ProfilePictureSourceField
+from ..models.systemuser import SystemUserField
 from ..models.whatsappbusinesspartnerclientverificationsubmission import (
     WhatsAppBusinessPartnerClientVerificationSubmissionField,
-    WhatsAppBusinessPartnerClientVerificationSubmissionFields,
 )
 from ..models.whatsappbusinesspreverifiedphonenumber import (
     WhatsAppBusinessPreVerifiedPhoneNumberField,
-    WhatsAppBusinessPreVerifiedPhoneNumberFields,
 )
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class BusinessWrappers:
-    """Type-safe wrapper functions for Business API methods."""
-
-    @staticmethod
-    def create_access_token(
-        obj: Business,
-        params: BusinessCreateAccessTokenParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_access_token().
-
-        Endpoint: POST /access_token
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_access_token(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def get_ad_account_infos(
-        obj: Business,
-        params: Optional[BusinessGetAdAccountInfosParams] = None,
-        fields: Optional[list[ALMAdAccountInfoField]] = None,
-    ) -> TypedCursor[ALMAdAccountInfoFields]:
-        """
-        Type-safe wrapper for Business.get_ad_account_infos().
-
-        Endpoint: GET /ad_account_infos
-        Returns: TypedCursor[ALMAdAccountInfoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_account_infos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ALMAdAccountInfoFields)
-
-    @staticmethod
-    def delete_ad_accounts(
-        obj: Business,
-        params: Optional[BusinessDeleteAdAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_ad_accounts().
-
-        Endpoint: DELETE /ad_accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_ad_accounts(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_ad_review_request(
-        obj: Business,
-        params: BusinessCreateAdReviewRequestParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Business.create_ad_review_request().
-
-        Endpoint: POST /ad_review_requests
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_review_request(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_ad_study(
-        obj: Business,
-        params: BusinessCreateAdStudyParams,
-    ) -> AdStudyFields:
-        """
-        Type-safe wrapper for Business.create_ad_study().
-
-        Endpoint: POST /ad_studies
-        Returns: AdStudyFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_study(params=params_dict)
-
-        # Convert result to typed model
-        return AdStudyFields(**result)
-
-    @staticmethod
-    def create_ad_account(
-        obj: Business,
-        params: BusinessCreateAdAccountParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for Business.create_ad_account().
-
-        Endpoint: POST /adaccount
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_account(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
-
-    @staticmethod
-    def create_add_phone_number(
-        obj: Business,
-        params: BusinessCreateAddPhoneNumberParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_add_phone_number().
-
-        Endpoint: POST /add_phone_numbers
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_add_phone_number(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_ad_network_application(
-        obj: Business,
-        params: BusinessCreateAdNetworkApplicationParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Business.create_ad_network_application().
-
-        Endpoint: POST /adnetwork_applications
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_network_application(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def get_ad_network_analytics(
-        obj: Business,
-        params: Optional[BusinessGetAdNetworkAnalyticsParams] = None,
-        fields: Optional[list[AdNetworkAnalyticsSyncQueryResultField]] = None,
-    ) -> TypedCursor[AdNetworkAnalyticsSyncQueryResultFields]:
-        """
-        Type-safe wrapper for Business.get_ad_network_analytics().
-
-        Endpoint: GET /adnetworkanalytics
-        Returns: TypedCursor[AdNetworkAnalyticsSyncQueryResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_network_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdNetworkAnalyticsSyncQueryResultFields)
-
-    @staticmethod
-    def create_ad_network_analytic(
-        obj: Business,
-        params: BusinessCreateAdNetworkAnalyticParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_ad_network_analytic().
-
-        Endpoint: POST /adnetworkanalytics
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_network_analytic(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def get_ad_network_analytics_results(
-        obj: Business,
-        params: Optional[BusinessGetAdNetworkAnalyticsResultsParams] = None,
-        fields: Optional[list[AdNetworkAnalyticsAsyncQueryResultField]] = None,
-    ) -> TypedCursor[AdNetworkAnalyticsAsyncQueryResultFields]:
-        """
-        Type-safe wrapper for Business.get_ad_network_analytics_results().
-
-        Endpoint: GET /adnetworkanalytics_results
-        Returns: TypedCursor[AdNetworkAnalyticsAsyncQueryResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_network_analytics_results(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdNetworkAnalyticsAsyncQueryResultFields)
-
-    @staticmethod
-    def get_ads_dataset(
-        obj: Business,
-        params: Optional[BusinessGetAdsDatasetParams] = None,
-        fields: Optional[list[AdsDatasetField]] = None,
-    ) -> TypedCursor[AdsDatasetFields]:
-        """
-        Type-safe wrapper for Business.get_ads_dataset().
-
-        Endpoint: GET /ads_dataset
-        Returns: TypedCursor[AdsDatasetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_dataset(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsDatasetFields)
-
-    @staticmethod
-    def create_ads_data_set(
-        obj: Business,
-        params: BusinessCreateAdsDataSetParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_ads_data_set().
-
-        Endpoint: POST /ads_dataset
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ads_data_set(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def get_ads_reporting_mmm_reports(
-        obj: Business,
-        params: Optional[BusinessGetAdsReportingMmmReportsParams] = None,
-        fields: Optional[list[AdsReportBuilderMMMReportField]] = None,
-    ) -> TypedCursor[AdsReportBuilderMMMReportFields]:
-        """
-        Type-safe wrapper for Business.get_ads_reporting_mmm_reports().
-
-        Endpoint: GET /ads_reporting_mmm_reports
-        Returns: TypedCursor[AdsReportBuilderMMMReportFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_reporting_mmm_reports(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsReportBuilderMMMReportFields)
-
-    @staticmethod
-    def get_ads_pixels(
-        obj: Business,
-        params: Optional[BusinessGetAdsPixelsParams] = None,
-        fields: Optional[list[AdsPixelField]] = None,
-    ) -> TypedCursor[AdsPixelFields]:
-        """
-        Type-safe wrapper for Business.get_ads_pixels().
-
-        Endpoint: GET /adspixels
-        Returns: TypedCursor[AdsPixelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_pixels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsPixelFields)
-
-    @staticmethod
-    def create_ads_pixel(
-        obj: Business,
-        params: BusinessCreateAdsPixelParams,
-    ) -> AdsPixelFields:
-        """
-        Type-safe wrapper for Business.create_ads_pixel().
-
-        Endpoint: POST /adspixels
-        Returns: AdsPixelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ads_pixel(params=params_dict)
-
-        # Convert result to typed model
-        return AdsPixelFields(**result)
-
-    @staticmethod
-    def delete_agencies(
-        obj: Business,
-        params: Optional[BusinessDeleteAgenciesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_agencies().
-
-        Endpoint: DELETE /agencies
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_agencies(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_block_list_draft(
-        obj: Business,
-        params: BusinessCreateBlockListDraftParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_block_list_draft().
-
-        Endpoint: POST /block_list_drafts
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_block_list_draft(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_bm_review_request(
-        obj: Business,
-        params: BusinessCreateBmReviewRequestParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Business.create_bm_review_request().
-
-        Endpoint: POST /bm_review_requests
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_bm_review_request(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_business_invoices(
-        obj: Business,
-        params: Optional[BusinessGetBusinessInvoicesParams] = None,
-        fields: Optional[list[OmegaCustomerTrxField]] = None,
-    ) -> TypedCursor[OmegaCustomerTrxFields]:
-        """
-        Type-safe wrapper for Business.get_business_invoices().
-
-        Endpoint: GET /business_invoices
-        Returns: TypedCursor[OmegaCustomerTrxFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_business_invoices(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, OmegaCustomerTrxFields)
-
-    @staticmethod
-    def create_business_user(
-        obj: Business,
-        params: BusinessCreateBusinessUserParams,
-    ) -> BusinessUserFields:
-        """
-        Type-safe wrapper for Business.create_business_user().
-
-        Endpoint: POST /business_users
-        Returns: BusinessUserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_business_user(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessUserFields(**result)
-
-    @staticmethod
-    def create_claim_custom_conversion(
-        obj: Business,
-        params: BusinessCreateClaimCustomConversionParams,
-    ) -> CustomConversionFields:
-        """
-        Type-safe wrapper for Business.create_claim_custom_conversion().
-
-        Endpoint: POST /claim_custom_conversions
-        Returns: CustomConversionFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_claim_custom_conversion(params=params_dict)
-
-        # Convert result to typed model
-        return CustomConversionFields(**result)
-
-    @staticmethod
-    def get_client_ad_accounts(
-        obj: Business,
-        params: Optional[BusinessGetClientAdAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for Business.get_client_ad_accounts().
-
-        Endpoint: GET /client_ad_accounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_client_ad_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
-
-    @staticmethod
-    def create_client_app(
-        obj: Business,
-        params: BusinessCreateClientAppParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_client_app().
-
-        Endpoint: POST /client_apps
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_client_app(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_client_page(
-        obj: Business,
-        params: BusinessCreateClientPageParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_client_page().
-
-        Endpoint: POST /client_pages
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_client_page(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def delete_clients(
-        obj: Business,
-        params: Optional[BusinessDeleteClientsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_clients().
-
-        Endpoint: DELETE /clients
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_clients(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_collaborative_ads_collaboration_requests(
-        obj: Business,
-        params: Optional[BusinessGetCollaborativeAdsCollaborationRequestsParams] = None,
-        fields: Optional[list[CPASCollaborationRequestField]] = None,
-    ) -> TypedCursor[CPASCollaborationRequestFields]:
-        """
-        Type-safe wrapper for Business.get_collaborative_ads_collaboration_requests().
-
-        Endpoint: GET /collaborative_ads_collaboration_requests
-        Returns: TypedCursor[CPASCollaborationRequestFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_collaborative_ads_collaboration_requests(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CPASCollaborationRequestFields)
-
-    @staticmethod
-    def create_collaborative_ads_collaboration_request(
-        obj: Business,
-        params: BusinessCreateCollaborativeAdsCollaborationRequestParams,
-    ) -> CPASCollaborationRequestFields:
-        """
-        Type-safe wrapper for Business.create_collaborative_ads_collaboration_request().
-
-        Endpoint: POST /collaborative_ads_collaboration_requests
-        Returns: CPASCollaborationRequestFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_collaborative_ads_collaboration_request(params=params_dict)
-
-        # Convert result to typed model
-        return CPASCollaborationRequestFields(**result)
-
-    @staticmethod
-    def create_cpas_business_setup_config(
-        obj: Business,
-        params: BusinessCreateCpasBusinessSetupConfigParams,
-    ) -> CPASBusinessSetupConfigFields:
-        """
-        Type-safe wrapper for Business.create_cpas_business_setup_config().
-
-        Endpoint: POST /cpas_business_setup_config
-        Returns: CPASBusinessSetupConfigFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_cpas_business_setup_config(params=params_dict)
-
-        # Convert result to typed model
-        return CPASBusinessSetupConfigFields(**result)
-
-    @staticmethod
-    def create_creative_folder(
-        obj: Business,
-        params: BusinessCreateCreativeFolderParams,
-    ) -> BusinessCreativeFolderFields:
-        """
-        Type-safe wrapper for Business.create_creative_folder().
-
-        Endpoint: POST /creative_folders
-        Returns: BusinessCreativeFolderFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_creative_folder(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessCreativeFolderFields(**result)
-
-    @staticmethod
-    def create_custom_conversion(
-        obj: Business,
-        params: BusinessCreateCustomConversionParams,
-    ) -> CustomConversionFields:
-        """
-        Type-safe wrapper for Business.create_custom_conversion().
-
-        Endpoint: POST /customconversions
-        Returns: CustomConversionFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_custom_conversion(params=params_dict)
-
-        # Convert result to typed model
-        return CustomConversionFields(**result)
-
-    @staticmethod
-    def create_event_source_group(
-        obj: Business,
-        params: BusinessCreateEventSourceGroupParams,
-    ) -> EventSourceGroupFields:
-        """
-        Type-safe wrapper for Business.create_event_source_group().
-
-        Endpoint: POST /event_source_groups
-        Returns: EventSourceGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_event_source_group(params=params_dict)
-
-        # Convert result to typed model
-        return EventSourceGroupFields(**result)
-
-    @staticmethod
-    def get_extended_credit_applications(
-        obj: Business,
-        params: Optional[BusinessGetExtendedCreditApplicationsParams] = None,
-        fields: Optional[list[ExtendedCreditApplicationField]] = None,
-    ) -> TypedCursor[ExtendedCreditApplicationFields]:
-        """
-        Type-safe wrapper for Business.get_extended_credit_applications().
-
-        Endpoint: GET /extendedcreditapplications
-        Returns: TypedCursor[ExtendedCreditApplicationFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_extended_credit_applications(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ExtendedCreditApplicationFields)
-
-    @staticmethod
-    def get_extended_credits(
-        obj: Business,
-        params: Optional[BusinessGetExtendedCreditsParams] = None,
-        fields: Optional[list[ExtendedCreditField]] = None,
-    ) -> TypedCursor[ExtendedCreditFields]:
-        """
-        Type-safe wrapper for Business.get_extended_credits().
-
-        Endpoint: GET /extendedcredits
-        Returns: TypedCursor[ExtendedCreditFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_extended_credits(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ExtendedCreditFields)
-
-    @staticmethod
-    def create_image(
-        obj: Business,
-        params: BusinessCreateImageParams,
-    ) -> BusinessImageFields:
-        """
-        Type-safe wrapper for Business.create_image().
-
-        Endpoint: POST /images
-        Returns: BusinessImageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_image(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessImageFields(**result)
-
-    @staticmethod
-    def get_initiated_audience_sharing_requests(
-        obj: Business,
-        params: Optional[BusinessGetInitiatedAudienceSharingRequestsParams] = None,
-        fields: Optional[list[BusinessAssetSharingAgreementField]] = None,
-    ) -> TypedCursor[BusinessAssetSharingAgreementFields]:
-        """
-        Type-safe wrapper for Business.get_initiated_audience_sharing_requests().
-
-        Endpoint: GET /initiated_audience_sharing_requests
-        Returns: TypedCursor[BusinessAssetSharingAgreementFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_initiated_audience_sharing_requests(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessAssetSharingAgreementFields)
-
-    @staticmethod
-    def delete_instagram_accounts(
-        obj: Business,
-        params: Optional[BusinessDeleteInstagramAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_instagram_accounts().
-
-        Endpoint: DELETE /instagram_accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_instagram_accounts(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def delete_managed_businesses(
-        obj: Business,
-        params: Optional[BusinessDeleteManagedBusinessesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_managed_businesses().
-
-        Endpoint: DELETE /managed_businesses
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_managed_businesses(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_managed_business(
-        obj: Business,
-        params: BusinessCreateManagedBusinessParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_managed_business().
-
-        Endpoint: POST /managed_businesses
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_managed_business(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def get_managed_partner_ads_funding_source_details(
-        obj: Business,
-        params: Optional[BusinessGetManagedPartnerAdsFundingSourceDetailsParams] = None,
-        fields: Optional[list[FundingSourceDetailsCouponField]] = None,
-    ) -> TypedCursor[FundingSourceDetailsCouponFields]:
-        """
-        Type-safe wrapper for Business.get_managed_partner_ads_funding_source_details().
-
-        Endpoint: GET /managed_partner_ads_funding_source_details
-        Returns: TypedCursor[FundingSourceDetailsCouponFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_managed_partner_ads_funding_source_details(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, FundingSourceDetailsCouponFields)
-
-    @staticmethod
-    def create_managed_partner_business_setup(
-        obj: Business,
-        params: BusinessCreateManagedPartnerBusinessSetupParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_managed_partner_business_setup().
-
-        Endpoint: POST /managed_partner_business_setup
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_managed_partner_business_setup(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def delete_managed_partner_businesses(
-        obj: Business,
-        params: Optional[BusinessDeleteManagedPartnerBusinessesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_managed_partner_businesses().
-
-        Endpoint: DELETE /managed_partner_businesses
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_managed_partner_businesses(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_managed_partner_business(
-        obj: Business,
-        params: BusinessCreateManagedPartnerBusinessParams,
-    ) -> ManagedPartnerBusinessFields:
-        """
-        Type-safe wrapper for Business.create_managed_partner_business().
-
-        Endpoint: POST /managed_partner_businesses
-        Returns: ManagedPartnerBusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_managed_partner_business(params=params_dict)
-
-        # Convert result to typed model
-        return ManagedPartnerBusinessFields(**result)
-
-    @staticmethod
-    def create_onboard_partners_to_mm_lite(
-        obj: Business,
-        params: BusinessCreateOnboardPartnersToMmLiteParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Business.create_onboard_partners_to_mm_lite().
-
-        Endpoint: POST /onboard_partners_to_mm_lite
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_onboard_partners_to_mm_lite(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_open_bridge_configuration(
-        obj: Business,
-        params: BusinessCreateOpenBridgeConfigurationParams,
-    ) -> OpenBridgeConfigurationFields:
-        """
-        Type-safe wrapper for Business.create_open_bridge_configuration().
-
-        Endpoint: POST /openbridge_configurations
-        Returns: OpenBridgeConfigurationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_open_bridge_configuration(params=params_dict)
-
-        # Convert result to typed model
-        return OpenBridgeConfigurationFields(**result)
-
-    @staticmethod
-    def get_owned_ad_accounts(
-        obj: Business,
-        params: Optional[BusinessGetOwnedAdAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for Business.get_owned_ad_accounts().
-
-        Endpoint: GET /owned_ad_accounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_owned_ad_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
-
-    @staticmethod
-    def create_owned_ad_account(
-        obj: Business,
-        params: BusinessCreateOwnedAdAccountParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_owned_ad_account().
-
-        Endpoint: POST /owned_ad_accounts
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_owned_ad_account(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_owned_app(
-        obj: Business,
-        params: BusinessCreateOwnedAppParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_owned_app().
-
-        Endpoint: POST /owned_apps
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_owned_app(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def delete_owned_businesses(
-        obj: Business,
-        params: Optional[BusinessDeleteOwnedBusinessesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_owned_businesses().
-
-        Endpoint: DELETE /owned_businesses
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_owned_businesses(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_owned_businesses(
-        obj: Business,
-        params: Optional[BusinessGetOwnedBusinessesParams] = None,
-        fields: Optional[list[BusinessField]] = None,
-    ) -> TypedCursor[BusinessFields]:
-        """
-        Type-safe wrapper for Business.get_owned_businesses().
-
-        Endpoint: GET /owned_businesses
-        Returns: TypedCursor[BusinessFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_owned_businesses(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessFields)
-
-    @staticmethod
-    def create_owned_business(
-        obj: Business,
-        params: BusinessCreateOwnedBusinessParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_owned_business().
-
-        Endpoint: POST /owned_businesses
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_owned_business(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_owned_page(
-        obj: Business,
-        params: BusinessCreateOwnedPageParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_owned_page().
-
-        Endpoint: POST /owned_pages
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_owned_page(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_owned_product_catalog(
-        obj: Business,
-        params: BusinessCreateOwnedProductCatalogParams,
-    ) -> ProductCatalogFields:
-        """
-        Type-safe wrapper for Business.create_owned_product_catalog().
-
-        Endpoint: POST /owned_product_catalogs
-        Returns: ProductCatalogFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_owned_product_catalog(params=params_dict)
-
-        # Convert result to typed model
-        return ProductCatalogFields(**result)
-
-    @staticmethod
-    def delete_pages(
-        obj: Business,
-        params: Optional[BusinessDeletePagesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_pages().
-
-        Endpoint: DELETE /pages
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_pages(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_partner_premium_option(
-        obj: Business,
-        params: BusinessCreatePartnerPremiumOptionParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Business.create_partner_premium_option().
-
-        Endpoint: POST /partner_premium_options
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_partner_premium_option(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_pending_users(
-        obj: Business,
-        params: Optional[BusinessGetPendingUsersParams] = None,
-        fields: Optional[list[BusinessRoleRequestField]] = None,
-    ) -> TypedCursor[BusinessRoleRequestFields]:
-        """
-        Type-safe wrapper for Business.get_pending_users().
-
-        Endpoint: GET /pending_users
-        Returns: TypedCursor[BusinessRoleRequestFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_pending_users(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessRoleRequestFields)
-
-    @staticmethod
-    def get_picture(
-        obj: Business,
-        params: Optional[BusinessGetPictureParams] = None,
-        fields: Optional[list[ProfilePictureSourceField]] = None,
-    ) -> TypedCursor[ProfilePictureSourceFields]:
-        """
-        Type-safe wrapper for Business.get_picture().
-
-        Endpoint: GET /picture
-        Returns: TypedCursor[ProfilePictureSourceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_picture(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfilePictureSourceFields)
-
-    @staticmethod
-    def get_pre_verified_numbers(
-        obj: Business,
-        params: Optional[BusinessGetPreVerifiedNumbersParams] = None,
-        fields: Optional[list[WhatsAppBusinessPreVerifiedPhoneNumberField]] = None,
-    ) -> TypedCursor[WhatsAppBusinessPreVerifiedPhoneNumberFields]:
-        """
-        Type-safe wrapper for Business.get_pre_verified_numbers().
-
-        Endpoint: GET /preverified_numbers
-        Returns: TypedCursor[WhatsAppBusinessPreVerifiedPhoneNumberFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_pre_verified_numbers(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, WhatsAppBusinessPreVerifiedPhoneNumberFields)
-
-    @staticmethod
-    def get_received_audience_sharing_requests(
-        obj: Business,
-        params: Optional[BusinessGetReceivedAudienceSharingRequestsParams] = None,
-        fields: Optional[list[BusinessAssetSharingAgreementField]] = None,
-    ) -> TypedCursor[BusinessAssetSharingAgreementFields]:
-        """
-        Type-safe wrapper for Business.get_received_audience_sharing_requests().
-
-        Endpoint: GET /received_audience_sharing_requests
-        Returns: TypedCursor[BusinessAssetSharingAgreementFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_received_audience_sharing_requests(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessAssetSharingAgreementFields)
-
-    @staticmethod
-    def get_self_certified_whats_app_business_submissions(
-        obj: Business,
-        params: Optional[BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams] = None,
-        fields: Optional[list[WhatsAppBusinessPartnerClientVerificationSubmissionField]] = None,
-    ) -> TypedCursor[WhatsAppBusinessPartnerClientVerificationSubmissionFields]:
-        """
-        Type-safe wrapper for Business.get_self_certified_whats_app_business_submissions().
-
-        Endpoint: GET /self_certified_whatsapp_business_submissions
-        Returns: TypedCursor[WhatsAppBusinessPartnerClientVerificationSubmissionFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_self_certified_whats_app_business_submissions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, WhatsAppBusinessPartnerClientVerificationSubmissionFields)
-
-    @staticmethod
-    def create_self_certify_whats_app_business(
-        obj: Business,
-        params: BusinessCreateSelfCertifyWhatsAppBusinessParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_self_certify_whats_app_business().
-
-        Endpoint: POST /self_certify_whatsapp_business
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_self_certify_whats_app_business(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_setup_managed_partner_ad_account(
-        obj: Business,
-        params: BusinessCreateSetupManagedPartnerAdAccountParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_setup_managed_partner_ad_account().
-
-        Endpoint: POST /setup_managed_partner_adaccounts
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_setup_managed_partner_ad_account(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def delete_share_pre_verified_numbers(
-        obj: Business,
-        params: Optional[BusinessDeleteSharePreVerifiedNumbersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Business.delete_share_pre_verified_numbers().
-
-        Endpoint: DELETE /share_preverified_numbers
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_share_pre_verified_numbers(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_share_pre_verified_number(
-        obj: Business,
-        params: BusinessCreateSharePreVerifiedNumberParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_share_pre_verified_number().
-
-        Endpoint: POST /share_preverified_numbers
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_share_pre_verified_number(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_system_user_access_token(
-        obj: Business,
-        params: BusinessCreateSystemUserAccessTokenParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for Business.create_system_user_access_token().
-
-        Endpoint: POST /system_user_access_tokens
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_system_user_access_token(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def create_system_user(
-        obj: Business,
-        params: BusinessCreateSystemUserParams,
-    ) -> SystemUserFields:
-        """
-        Type-safe wrapper for Business.create_system_user().
-
-        Endpoint: POST /system_users
-        Returns: SystemUserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_system_user(params=params_dict)
-
-        # Convert result to typed model
-        return SystemUserFields(**result)
-
-    @staticmethod
-    def create_video(
-        obj: Business,
-        params: BusinessCreateVideoParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for Business.create_video().
-
-        Endpoint: POST /videos
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def create_access_token(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAccessTokenParams = {},
+) -> Any:
+    """Create Access Token for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_access_token(fields=fields, params=params)
+
+
+def get_ad_account_infos(
+    business_id: str,
+    fields: list[ALMAdAccountInfoField] = [],
+    params: BusinessGetAdAccountInfosParams = {},
+) -> Any:
+    """Get Ad Account Infos for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_ad_account_infos(fields=fields, params=params)
+
+
+def delete_ad_accounts(
+    business_id: str,
+    params: BusinessDeleteAdAccountsParams = {},
+) -> Any:
+    """Delete Ad Accounts for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_ad_accounts(params=params)
+
+
+def create_ad_review_request(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAdReviewRequestParams = {},
+) -> Any:
+    """Create Ad Review Request for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_ad_review_request(fields=fields, params=params)
+
+
+def create_ad_study(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAdStudyParams = {},
+) -> Any:
+    """Create Ad Study for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_ad_study(fields=fields, params=params)
+
+
+def create_ad_account(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAdAccountParams = {},
+) -> Any:
+    """Create Ad Account for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_ad_account(fields=fields, params=params)
+
+
+def create_add_phone_number(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAddPhoneNumberParams = {},
+) -> Any:
+    """Create Add Phone Number for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_add_phone_number(fields=fields, params=params)
+
+
+def create_ad_network_application(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAdNetworkApplicationParams = {},
+) -> Any:
+    """Create Ad Network Application for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_ad_network_application(fields=fields, params=params)
+
+
+def get_ad_network_analytics(
+    business_id: str,
+    fields: list[AdNetworkAnalyticsSyncQueryResultField] = [],
+    params: BusinessGetAdNetworkAnalyticsParams = {},
+) -> Any:
+    """Get Ad Network Analytics for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_ad_network_analytics(fields=fields, params=params)
+
+
+def create_ad_network_analytic(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAdNetworkAnalyticParams = {},
+) -> Any:
+    """Create Ad Network Analytic for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_ad_network_analytic(fields=fields, params=params)
+
+
+def get_ad_network_analytics_results(
+    business_id: str,
+    fields: list[AdNetworkAnalyticsAsyncQueryResultField] = [],
+    params: BusinessGetAdNetworkAnalyticsResultsParams = {},
+) -> Any:
+    """Get Ad Network Analytics Results for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_ad_network_analytics_results(fields=fields, params=params)
+
+
+def get_ads_dataset(
+    business_id: str,
+    fields: list[AdsDatasetField] = [],
+    params: BusinessGetAdsDatasetParams = {},
+) -> Any:
+    """Get Ads Dataset for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_ads_dataset(fields=fields, params=params)
+
+
+def create_ads_data_set(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAdsDataSetParams = {},
+) -> Any:
+    """Create Ads Data Set for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_ads_data_set(fields=fields, params=params)
+
+
+def get_ads_reporting_mmm_reports(
+    business_id: str,
+    fields: list[AdsReportBuilderMMMReportField] = [],
+    params: BusinessGetAdsReportingMmmReportsParams = {},
+) -> Any:
+    """Get Ads Reporting Mmm Reports for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_ads_reporting_mmm_reports(fields=fields, params=params)
+
+
+def get_ads_pixels(
+    business_id: str,
+    fields: list[AdsPixelField] = [],
+    params: BusinessGetAdsPixelsParams = {},
+) -> Any:
+    """Get Ads Pixels for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_ads_pixels(fields=fields, params=params)
+
+
+def create_ads_pixel(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateAdsPixelParams = {},
+) -> Any:
+    """Create Ads Pixel for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_ads_pixel(fields=fields, params=params)
+
+
+def delete_agencies(
+    business_id: str,
+    params: BusinessDeleteAgenciesParams = {},
+) -> Any:
+    """Delete Agencies for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_agencies(params=params)
+
+
+def create_block_list_draft(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateBlockListDraftParams = {},
+) -> Any:
+    """Create Block List Draft for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_block_list_draft(fields=fields, params=params)
+
+
+def create_bm_review_request(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateBmReviewRequestParams = {},
+) -> Any:
+    """Create Bm Review Request for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_bm_review_request(fields=fields, params=params)
+
+
+def get_business_invoices(
+    business_id: str,
+    fields: list[OmegaCustomerTrxField] = [],
+    params: BusinessGetBusinessInvoicesParams = {},
+) -> Any:
+    """Get Business Invoices for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_business_invoices(fields=fields, params=params)
+
+
+def create_business_user(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateBusinessUserParams = {},
+) -> Any:
+    """Create Business User for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_business_user(fields=fields, params=params)
+
+
+def create_claim_custom_conversion(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateClaimCustomConversionParams = {},
+) -> Any:
+    """Create Claim Custom Conversion for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_claim_custom_conversion(fields=fields, params=params)
+
+
+def get_client_ad_accounts(
+    business_id: str,
+    fields: list[AdAccountField] = [],
+    params: BusinessGetClientAdAccountsParams = {},
+) -> Any:
+    """Get Client Ad Accounts for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_client_ad_accounts(fields=fields, params=params)
+
+
+def create_client_app(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateClientAppParams = {},
+) -> Any:
+    """Create Client App for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_client_app(fields=fields, params=params)
+
+
+def create_client_page(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateClientPageParams = {},
+) -> Any:
+    """Create Client Page for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_client_page(fields=fields, params=params)
+
+
+def delete_clients(
+    business_id: str,
+    params: BusinessDeleteClientsParams = {},
+) -> Any:
+    """Delete Clients for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_clients(params=params)
+
+
+def get_collaborative_ads_collaboration_requests(
+    business_id: str,
+    fields: list[CPASCollaborationRequestField] = [],
+    params: BusinessGetCollaborativeAdsCollaborationRequestsParams = {},
+) -> Any:
+    """Get Collaborative Ads Collaboration Requests for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_collaborative_ads_collaboration_requests(
+        fields=fields, params=params
+    )
+
+
+def create_collaborative_ads_collaboration_request(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateCollaborativeAdsCollaborationRequestParams = {},
+) -> Any:
+    """Create Collaborative Ads Collaboration Request for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_collaborative_ads_collaboration_request(
+        fields=fields, params=params
+    )
+
+
+def create_cpas_business_setup_config(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateCpasBusinessSetupConfigParams = {},
+) -> Any:
+    """Create Cpas Business Setup Config for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_cpas_business_setup_config(fields=fields, params=params)
+
+
+def create_creative_folder(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateCreativeFolderParams = {},
+) -> Any:
+    """Create Creative Folder for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_creative_folder(fields=fields, params=params)
+
+
+def create_custom_conversion(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateCustomConversionParams = {},
+) -> Any:
+    """Create Custom Conversion for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_custom_conversion(fields=fields, params=params)
+
+
+def create_event_source_group(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateEventSourceGroupParams = {},
+) -> Any:
+    """Create Event Source Group for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_event_source_group(fields=fields, params=params)
+
+
+def get_extended_credit_applications(
+    business_id: str,
+    fields: list[ExtendedCreditApplicationField] = [],
+    params: BusinessGetExtendedCreditApplicationsParams = {},
+) -> Any:
+    """Get Extended Credit Applications for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_extended_credit_applications(fields=fields, params=params)
+
+
+def get_extended_credits(
+    business_id: str,
+    fields: list[ExtendedCreditField] = [],
+    params: BusinessGetExtendedCreditsParams = {},
+) -> Any:
+    """Get Extended Credits for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_extended_credits(fields=fields, params=params)
+
+
+def create_image(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateImageParams = {},
+) -> Any:
+    """Create Image for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_image(fields=fields, params=params)
+
+
+def get_initiated_audience_sharing_requests(
+    business_id: str,
+    fields: list[BusinessAssetSharingAgreementField] = [],
+    params: BusinessGetInitiatedAudienceSharingRequestsParams = {},
+) -> Any:
+    """Get Initiated Audience Sharing Requests for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_initiated_audience_sharing_requests(
+        fields=fields, params=params
+    )
+
+
+def delete_instagram_accounts(
+    business_id: str,
+    params: BusinessDeleteInstagramAccountsParams = {},
+) -> Any:
+    """Delete Instagram Accounts for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_instagram_accounts(params=params)
+
+
+def delete_managed_businesses(
+    business_id: str,
+    params: BusinessDeleteManagedBusinessesParams = {},
+) -> Any:
+    """Delete Managed Businesses for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_managed_businesses(params=params)
+
+
+def create_managed_business(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateManagedBusinessParams = {},
+) -> Any:
+    """Create Managed Business for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_managed_business(fields=fields, params=params)
+
+
+def get_managed_partner_ads_funding_source_details(
+    business_id: str,
+    fields: list[FundingSourceDetailsCouponField] = [],
+    params: BusinessGetManagedPartnerAdsFundingSourceDetailsParams = {},
+) -> Any:
+    """Get Managed Partner Ads Funding Source Details for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_managed_partner_ads_funding_source_details(
+        fields=fields, params=params
+    )
+
+
+def create_managed_partner_business_setup(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateManagedPartnerBusinessSetupParams = {},
+) -> Any:
+    """Create Managed Partner Business Setup for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_managed_partner_business_setup(fields=fields, params=params)
+
+
+def delete_managed_partner_businesses(
+    business_id: str,
+    params: BusinessDeleteManagedPartnerBusinessesParams = {},
+) -> Any:
+    """Delete Managed Partner Businesses for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_managed_partner_businesses(params=params)
+
+
+def create_managed_partner_business(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateManagedPartnerBusinessParams = {},
+) -> Any:
+    """Create Managed Partner Business for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_managed_partner_business(fields=fields, params=params)
+
+
+def create_onboard_partners_to_mm_lite(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateOnboardPartnersToMmLiteParams = {},
+) -> Any:
+    """Create Onboard Partners To Mm Lite for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_onboard_partners_to_mm_lite(fields=fields, params=params)
+
+
+def create_open_bridge_configuration(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateOpenBridgeConfigurationParams = {},
+) -> Any:
+    """Create Open Bridge Configuration for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_open_bridge_configuration(fields=fields, params=params)
+
+
+def get_owned_ad_accounts(
+    business_id: str,
+    fields: list[AdAccountField] = [],
+    params: BusinessGetOwnedAdAccountsParams = {},
+) -> Any:
+    """Get Owned Ad Accounts for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_owned_ad_accounts(fields=fields, params=params)
+
+
+def create_owned_ad_account(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateOwnedAdAccountParams = {},
+) -> Any:
+    """Create Owned Ad Account for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_owned_ad_account(fields=fields, params=params)
+
+
+def create_owned_app(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateOwnedAppParams = {},
+) -> Any:
+    """Create Owned App for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_owned_app(fields=fields, params=params)
+
+
+def delete_owned_businesses(
+    business_id: str,
+    params: BusinessDeleteOwnedBusinessesParams = {},
+) -> Any:
+    """Delete Owned Businesses for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_owned_businesses(params=params)
+
+
+def get_owned_businesses(
+    business_id: str,
+    fields: list[BusinessField] = [],
+    params: BusinessGetOwnedBusinessesParams = {},
+) -> Any:
+    """Get Owned Businesses for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_owned_businesses(fields=fields, params=params)
+
+
+def create_owned_business(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateOwnedBusinessParams = {},
+) -> Any:
+    """Create Owned Business for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_owned_business(fields=fields, params=params)
+
+
+def create_owned_page(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateOwnedPageParams = {},
+) -> Any:
+    """Create Owned Page for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_owned_page(fields=fields, params=params)
+
+
+def create_owned_product_catalog(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateOwnedProductCatalogParams = {},
+) -> Any:
+    """Create Owned Product Catalog for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_owned_product_catalog(fields=fields, params=params)
+
+
+def delete_pages(
+    business_id: str,
+    params: BusinessDeletePagesParams = {},
+) -> Any:
+    """Delete Pages for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_pages(params=params)
+
+
+def create_partner_premium_option(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreatePartnerPremiumOptionParams = {},
+) -> Any:
+    """Create Partner Premium Option for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_partner_premium_option(fields=fields, params=params)
+
+
+def get_pending_users(
+    business_id: str,
+    fields: list[BusinessRoleRequestField] = [],
+    params: BusinessGetPendingUsersParams = {},
+) -> Any:
+    """Get Pending Users for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_pending_users(fields=fields, params=params)
+
+
+def get_picture(
+    business_id: str,
+    fields: list[ProfilePictureSourceField] = [],
+    params: BusinessGetPictureParams = {},
+) -> Any:
+    """Get Picture for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_picture(fields=fields, params=params)
+
+
+def get_pre_verified_numbers(
+    business_id: str,
+    fields: list[WhatsAppBusinessPreVerifiedPhoneNumberField] = [],
+    params: BusinessGetPreVerifiedNumbersParams = {},
+) -> Any:
+    """Get Pre Verified Numbers for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_pre_verified_numbers(fields=fields, params=params)
+
+
+def get_received_audience_sharing_requests(
+    business_id: str,
+    fields: list[BusinessAssetSharingAgreementField] = [],
+    params: BusinessGetReceivedAudienceSharingRequestsParams = {},
+) -> Any:
+    """Get Received Audience Sharing Requests for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_received_audience_sharing_requests(
+        fields=fields, params=params
+    )
+
+
+def get_self_certified_whats_app_business_submissions(
+    business_id: str,
+    fields: list[WhatsAppBusinessPartnerClientVerificationSubmissionField] = [],
+    params: BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams = {},
+) -> Any:
+    """Get Self Certified Whats App Business Submissions for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).get_self_certified_whats_app_business_submissions(
+        fields=fields, params=params
+    )
+
+
+def create_self_certify_whats_app_business(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateSelfCertifyWhatsAppBusinessParams = {},
+) -> Any:
+    """Create Self Certify Whats App Business for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_self_certify_whats_app_business(
+        fields=fields, params=params
+    )
+
+
+def create_setup_managed_partner_ad_account(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateSetupManagedPartnerAdAccountParams = {},
+) -> Any:
+    """Create Setup Managed Partner Ad Account for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_setup_managed_partner_ad_account(
+        fields=fields, params=params
+    )
+
+
+def delete_share_pre_verified_numbers(
+    business_id: str,
+    params: BusinessDeleteSharePreVerifiedNumbersParams = {},
+) -> Any:
+    """Delete Share Pre Verified Numbers for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        params: Parameters for the operation.
+    """
+    return Business(business_id).delete_share_pre_verified_numbers(params=params)
+
+
+def create_share_pre_verified_number(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateSharePreVerifiedNumberParams = {},
+) -> Any:
+    """Create Share Pre Verified Number for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_share_pre_verified_number(fields=fields, params=params)
+
+
+def create_system_user_access_token(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateSystemUserAccessTokenParams = {},
+) -> Any:
+    """Create System User Access Token for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_system_user_access_token(fields=fields, params=params)
+
+
+def create_system_user(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateSystemUserParams = {},
+) -> Any:
+    """Create System User for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_system_user(fields=fields, params=params)
+
+
+def create_video(
+    business_id: str,
+    fields: list[str] = [],
+    params: BusinessCreateVideoParams = {},
+) -> Any:
+    """Create Video for this Business.
+
+    Args:
+        business_id: The ID of the Business.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Business(business_id).create_video(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

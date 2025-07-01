@@ -698,6 +698,95 @@ class AdSetGetMessageDeliveryEstimateParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdSetUpdateParams(BaseModel):
+    """Parameters for AdSet.api_update()."""
+
+    account_id: str | None = Field(None, description="account_id parameter")
+    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
+    adset_schedule: list[Any] | None = Field(None, description="adset_schedule parameter")
+    attribution_spec: list[dict[str, Any]] | None = Field(
+        None, description="attribution_spec parameter"
+    )
+    bid_adjustments: Any | None = Field(None, description="bid_adjustments parameter")
+    bid_amount: int | None = Field(None, description="bid_amount parameter")
+    bid_constraints: Any | None = Field(None, description="bid_constraints parameter")
+    bid_strategy: str | None = Field(None, description="bid_strategy parameter")
+    billing_event: str | None = Field(None, description="billing_event parameter")
+    campaign_attribution: Any | None = Field(None, description="campaign_attribution parameter")
+    campaign_spec: Any | None = Field(None, description="campaign_spec parameter")
+    creative_sequence: list[str] | None = Field(None, description="creative_sequence parameter")
+    creative_sequence_repetition_pattern: str | None = Field(
+        None, description="creative_sequence_repetition_pattern parameter"
+    )
+    daily_budget: int | None = Field(None, description="daily_budget parameter")
+    daily_imps: int | None = Field(None, description="daily_imps parameter")
+    daily_min_spend_target: int | None = Field(None, description="daily_min_spend_target parameter")
+    daily_spend_cap: int | None = Field(None, description="daily_spend_cap parameter")
+    date_format: str | None = Field(None, description="date_format parameter")
+    destination_type: str | None = Field(None, description="destination_type parameter")
+    dsa_beneficiary: str | None = Field(None, description="dsa_beneficiary parameter")
+    dsa_payor: str | None = Field(None, description="dsa_payor parameter")
+    end_time: datetime | None = Field(None, description="end_time parameter")
+    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    existing_customer_budget_percentage: int | None = Field(
+        None, description="existing_customer_budget_percentage parameter"
+    )
+    full_funnel_exploration_mode: str | None = Field(
+        None, description="full_funnel_exploration_mode parameter"
+    )
+    is_ba_skip_delayed_eligible: bool | None = Field(
+        None, description="is_ba_skip_delayed_eligible parameter"
+    )
+    is_incremental_attribution_enabled: bool | None = Field(
+        None, description="is_incremental_attribution_enabled parameter"
+    )
+    is_sac_cfca_terms_certified: bool | None = Field(
+        None, description="is_sac_cfca_terms_certified parameter"
+    )
+    lifetime_budget: int | None = Field(None, description="lifetime_budget parameter")
+    lifetime_imps: int | None = Field(None, description="lifetime_imps parameter")
+    lifetime_min_spend_target: int | None = Field(
+        None, description="lifetime_min_spend_target parameter"
+    )
+    lifetime_spend_cap: int | None = Field(None, description="lifetime_spend_cap parameter")
+    max_budget_spend_percentage: int | None = Field(
+        None, description="max_budget_spend_percentage parameter"
+    )
+    min_budget_spend_percentage: int | None = Field(
+        None, description="min_budget_spend_percentage parameter"
+    )
+    multi_optimization_goal_weight: str | None = Field(
+        None, description="multi_optimization_goal_weight parameter"
+    )
+    name: str | None = Field(None, description="name parameter")
+    optimization_goal: str | None = Field(None, description="optimization_goal parameter")
+    optimization_sub_event: str | None = Field(None, description="optimization_sub_event parameter")
+    pacing_type: list[str] | None = Field(None, description="pacing_type parameter")
+    promoted_object: Any | None = Field(None, description="promoted_object parameter")
+    rb_prediction_id: str | None = Field(None, description="rb_prediction_id parameter")
+    regional_regulated_categories: list[str] | None = Field(
+        None, description="regional_regulated_categories parameter"
+    )
+    regional_regulation_identities: dict[str, Any] | None = Field(
+        None, description="regional_regulation_identities parameter"
+    )
+    rf_prediction_id: str | None = Field(None, description="rf_prediction_id parameter")
+    start_time: datetime | None = Field(None, description="start_time parameter")
+    status: str | None = Field(None, description="status parameter")
+    targeting: TargetingFields | None = Field(None, description="targeting parameter")
+    time_based_ad_rotation_id_blocks: list[list[int]] | None = Field(
+        None, description="time_based_ad_rotation_id_blocks parameter"
+    )
+    time_based_ad_rotation_intervals: list[int] | None = Field(
+        None, description="time_based_ad_rotation_intervals parameter"
+    )
+    time_start: datetime | None = Field(None, description="time_start parameter")
+    time_stop: datetime | None = Field(None, description="time_stop parameter")
+    tune_for_category: str | None = Field(None, description="tune_for_category parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

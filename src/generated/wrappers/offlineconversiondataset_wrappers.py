@@ -2,32 +2,18 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.offlineconversiondataset import OfflineConversionDataSet
+from facebook_business.adobjects.offlineconversiondataset import OfflineConversionDataSet
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adaccount import (
-    AdAccountField,
-    AdAccountFields,
-)
-from ..models.business import (
-    BusinessField,
-    BusinessFields,
-)
-from ..models.customaudience import (
-    CustomAudienceField,
-    CustomAudienceFields,
-)
-from ..models.customconversion import (
-    CustomConversionField,
-    CustomConversionFields,
-)
+from ..models.adaccount import AdAccountField
+from ..models.business import BusinessField
+from ..models.customaudience import CustomAudienceField
+from ..models.customconversion import CustomConversionField
 from ..models.offlineconversiondataset import (
     OfflineConversionDataSetField,
-    OfflineConversionDataSetFields,
     OfflineConversionDataSetGetAdAccountsParams,
     OfflineConversionDataSetGetAudiencesParams,
     OfflineConversionDataSetGetCustomConversionsParams,
@@ -36,208 +22,130 @@ from ..models.offlineconversiondataset import (
     OfflineConversionDataSetGetStatsParams,
     OfflineConversionDataSetGetUploadsParams,
 )
-from ..models.offlineconversiondatasetupload import (
-    OfflineConversionDataSetUploadField,
-    OfflineConversionDataSetUploadFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.offlineconversiondatasetupload import OfflineConversionDataSetUploadField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class OfflineConversionDataSetWrappers:
-    """Type-safe wrapper functions for OfflineConversionDataSet API methods."""
+def get_ad_accounts(
+    offlineconversiondataset_id: str,
+    fields: list[AdAccountField] = [],
+    params: OfflineConversionDataSetGetAdAccountsParams = {},
+) -> Any:
+    """Get Ad Accounts for this OfflineConversionDataSet.
 
-    @staticmethod
-    def get_ad_accounts(
-        obj: OfflineConversionDataSet,
-        params: Optional[OfflineConversionDataSetGetAdAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for OfflineConversionDataSet.get_ad_accounts().
+    Args:
+        offlineconversiondataset_id: The ID of the OfflineConversionDataSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_ad_accounts(
+        fields=fields, params=params
+    )
 
-        Endpoint: GET /adaccounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_audiences(
+    offlineconversiondataset_id: str,
+    fields: list[CustomAudienceField] = [],
+    params: OfflineConversionDataSetGetAudiencesParams = {},
+) -> Any:
+    """Get Audiences for this OfflineConversionDataSet.
 
-        # Call the original method
-        cursor = obj.get_ad_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        offlineconversiondataset_id: The ID of the OfflineConversionDataSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_audiences(
+        fields=fields, params=params
+    )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
 
-    @staticmethod
-    def get_audiences(
-        obj: OfflineConversionDataSet,
-        params: Optional[OfflineConversionDataSetGetAudiencesParams] = None,
-        fields: Optional[list[CustomAudienceField]] = None,
-    ) -> TypedCursor[CustomAudienceFields]:
-        """
-        Type-safe wrapper for OfflineConversionDataSet.get_audiences().
+def get_custom_conversions(
+    offlineconversiondataset_id: str,
+    fields: list[CustomConversionField] = [],
+    params: OfflineConversionDataSetGetCustomConversionsParams = {},
+) -> Any:
+    """Get Custom Conversions for this OfflineConversionDataSet.
 
-        Endpoint: GET /audiences
-        Returns: TypedCursor[CustomAudienceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        offlineconversiondataset_id: The ID of the OfflineConversionDataSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_custom_conversions(
+        fields=fields, params=params
+    )
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_audiences(
-            params=params_dict,
-            fields=fields_list,
-        )
+def get_shared_accounts(
+    offlineconversiondataset_id: str,
+    fields: list[AdAccountField] = [],
+    params: OfflineConversionDataSetGetSharedAccountsParams = {},
+) -> Any:
+    """Get Shared Accounts for this OfflineConversionDataSet.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomAudienceFields)
+    Args:
+        offlineconversiondataset_id: The ID of the OfflineConversionDataSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_shared_accounts(
+        fields=fields, params=params
+    )
 
-    @staticmethod
-    def get_custom_conversions(
-        obj: OfflineConversionDataSet,
-        params: Optional[OfflineConversionDataSetGetCustomConversionsParams] = None,
-        fields: Optional[list[CustomConversionField]] = None,
-    ) -> TypedCursor[CustomConversionFields]:
-        """
-        Type-safe wrapper for OfflineConversionDataSet.get_custom_conversions().
 
-        Endpoint: GET /customconversions
-        Returns: TypedCursor[CustomConversionFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_shared_agencies(
+    offlineconversiondataset_id: str,
+    fields: list[BusinessField] = [],
+    params: OfflineConversionDataSetGetSharedAgenciesParams = {},
+) -> Any:
+    """Get Shared Agencies for this OfflineConversionDataSet.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        offlineconversiondataset_id: The ID of the OfflineConversionDataSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_shared_agencies(
+        fields=fields, params=params
+    )
 
-        # Call the original method
-        cursor = obj.get_custom_conversions(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomConversionFields)
+def get_stats(
+    offlineconversiondataset_id: str,
+    fields: list[str] = [],
+    params: OfflineConversionDataSetGetStatsParams = {},
+) -> Any:
+    """Get Stats for this OfflineConversionDataSet.
 
-    @staticmethod
-    def get_shared_accounts(
-        obj: OfflineConversionDataSet,
-        params: Optional[OfflineConversionDataSetGetSharedAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for OfflineConversionDataSet.get_shared_accounts().
+    Args:
+        offlineconversiondataset_id: The ID of the OfflineConversionDataSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_stats(
+        fields=fields, params=params
+    )
 
-        Endpoint: GET /shared_accounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_uploads(
+    offlineconversiondataset_id: str,
+    fields: list[OfflineConversionDataSetUploadField] = [],
+    params: OfflineConversionDataSetGetUploadsParams = {},
+) -> Any:
+    """Get Uploads for this OfflineConversionDataSet.
 
-        # Call the original method
-        cursor = obj.get_shared_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
-
-    @staticmethod
-    def get_shared_agencies(
-        obj: OfflineConversionDataSet,
-        params: Optional[OfflineConversionDataSetGetSharedAgenciesParams] = None,
-        fields: Optional[list[BusinessField]] = None,
-    ) -> TypedCursor[BusinessFields]:
-        """
-        Type-safe wrapper for OfflineConversionDataSet.get_shared_agencies().
-
-        Endpoint: GET /shared_agencies
-        Returns: TypedCursor[BusinessFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_shared_agencies(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessFields)
-
-    @staticmethod
-    def get_stats(
-        obj: OfflineConversionDataSet,
-        params: Optional[OfflineConversionDataSetGetStatsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for OfflineConversionDataSet.get_stats().
-
-        Endpoint: GET /stats
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_stats(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_uploads(
-        obj: OfflineConversionDataSet,
-        params: Optional[OfflineConversionDataSetGetUploadsParams] = None,
-        fields: Optional[list[OfflineConversionDataSetUploadField]] = None,
-    ) -> TypedCursor[OfflineConversionDataSetUploadFields]:
-        """
-        Type-safe wrapper for OfflineConversionDataSet.get_uploads().
-
-        Endpoint: GET /uploads
-        Returns: TypedCursor[OfflineConversionDataSetUploadFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_uploads(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, OfflineConversionDataSetUploadFields)
+    Args:
+        offlineconversiondataset_id: The ID of the OfflineConversionDataSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_uploads(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

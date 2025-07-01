@@ -56,6 +56,22 @@ class IGUpcomingEventFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class IGUpcomingEventUpdateParams(BaseModel):
+    """Parameters for IGUpcomingEvent.api_update()."""
+
+    end_time: datetime | None = Field(None, description="end_time parameter")
+    notification_subtypes: list[str] | None = Field(
+        None, description="notification_subtypes parameter"
+    )
+    notification_target_time: str | None = Field(
+        None, description="notification_target_time parameter"
+    )
+    start_time: datetime | None = Field(None, description="start_time parameter")
+    title: str | None = Field(None, description="title parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

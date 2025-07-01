@@ -57,6 +57,15 @@ class PrivateLiftStudyInstanceFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class PrivateLiftStudyInstanceUpdateParams(BaseModel):
+    """Parameters for PrivateLiftStudyInstance.api_update()."""
+
+    operation: str | None = Field(None, description="operation parameter")
+    run_id: str | None = Field(None, description="run_id parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

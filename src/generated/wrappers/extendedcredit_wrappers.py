@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.extendedcredit import ExtendedCredit
+from facebook_business.adobjects.extendedcredit import ExtendedCredit
 
 from ..models.extendedcredit import (
     ExtendedCreditCreateExtendedCreditInvoiceGroupParams,
@@ -14,156 +13,119 @@ from ..models.extendedcredit import (
     ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams,
     ExtendedCreditCreateWhatsAppCreditSharingParams,
     ExtendedCreditField,
-    ExtendedCreditFields,
     ExtendedCreditGetOwningCreditAllocationConfigsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.extendedcreditallocationconfig import (
-    ExtendedCreditAllocationConfigField,
-    ExtendedCreditAllocationConfigFields,
-)
-from ..models.extendedcreditinvoicegroup import (
-    ExtendedCreditInvoiceGroupField,
-    ExtendedCreditInvoiceGroupFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.extendedcreditallocationconfig import ExtendedCreditAllocationConfigField
+from ..models.extendedcreditinvoicegroup import ExtendedCreditInvoiceGroupField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class ExtendedCreditWrappers:
-    """Type-safe wrapper functions for ExtendedCredit API methods."""
+def create_extended_credit_invoice_group(
+    extendedcredit_id: str,
+    fields: list[str] = [],
+    params: ExtendedCreditCreateExtendedCreditInvoiceGroupParams = {},
+) -> Any:
+    """Create Extended Credit Invoice Group for this ExtendedCredit.
 
-    @staticmethod
-    def create_extended_credit_invoice_group(
-        obj: ExtendedCredit,
-        params: ExtendedCreditCreateExtendedCreditInvoiceGroupParams,
-    ) -> ExtendedCreditInvoiceGroupFields:
-        """
-        Type-safe wrapper for ExtendedCredit.create_extended_credit_invoice_group().
+    Args:
+        extendedcredit_id: The ID of the ExtendedCredit.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ExtendedCredit(extendedcredit_id).create_extended_credit_invoice_group(
+        fields=fields, params=params
+    )
 
-        Endpoint: POST /extended_credit_invoice_groups
-        Returns: ExtendedCreditInvoiceGroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_extended_credit_invoice_group(params=params_dict)
+def get_owning_credit_allocation_configs(
+    extendedcredit_id: str,
+    fields: list[ExtendedCreditAllocationConfigField] = [],
+    params: ExtendedCreditGetOwningCreditAllocationConfigsParams = {},
+) -> Any:
+    """Get Owning Credit Allocation Configs for this ExtendedCredit.
 
-        # Convert result to typed model
-        return ExtendedCreditInvoiceGroupFields(**result)
+    Args:
+        extendedcredit_id: The ID of the ExtendedCredit.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ExtendedCredit(extendedcredit_id).get_owning_credit_allocation_configs(
+        fields=fields, params=params
+    )
 
-    @staticmethod
-    def get_owning_credit_allocation_configs(
-        obj: ExtendedCredit,
-        params: Optional[ExtendedCreditGetOwningCreditAllocationConfigsParams] = None,
-        fields: Optional[list[ExtendedCreditAllocationConfigField]] = None,
-    ) -> TypedCursor[ExtendedCreditAllocationConfigFields]:
-        """
-        Type-safe wrapper for ExtendedCredit.get_owning_credit_allocation_configs().
 
-        Endpoint: GET /owning_credit_allocation_configs
-        Returns: TypedCursor[ExtendedCreditAllocationConfigFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_owning_credit_allocation_config(
+    extendedcredit_id: str,
+    fields: list[str] = [],
+    params: ExtendedCreditCreateOwningCreditAllocationConfigParams = {},
+) -> Any:
+    """Create Owning Credit Allocation Config for this ExtendedCredit.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        extendedcredit_id: The ID of the ExtendedCredit.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ExtendedCredit(extendedcredit_id).create_owning_credit_allocation_config(
+        fields=fields, params=params
+    )
 
-        # Call the original method
-        cursor = obj.get_owning_credit_allocation_configs(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ExtendedCreditAllocationConfigFields)
+def create_whats_app_credit_attach(
+    extendedcredit_id: str,
+    fields: list[str] = [],
+    params: ExtendedCreditCreateWhatsAppCreditAttachParams = {},
+) -> Any:
+    """Create Whats App Credit Attach for this ExtendedCredit.
 
-    @staticmethod
-    def create_owning_credit_allocation_config(
-        obj: ExtendedCredit,
-        params: ExtendedCreditCreateOwningCreditAllocationConfigParams,
-    ) -> ExtendedCreditAllocationConfigFields:
-        """
-        Type-safe wrapper for ExtendedCredit.create_owning_credit_allocation_config().
+    Args:
+        extendedcredit_id: The ID of the ExtendedCredit.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ExtendedCredit(extendedcredit_id).create_whats_app_credit_attach(
+        fields=fields, params=params
+    )
 
-        Endpoint: POST /owning_credit_allocation_configs
-        Returns: ExtendedCreditAllocationConfigFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_owning_credit_allocation_config(params=params_dict)
+def create_whats_app_credit_sharing(
+    extendedcredit_id: str,
+    fields: list[str] = [],
+    params: ExtendedCreditCreateWhatsAppCreditSharingParams = {},
+) -> Any:
+    """Create Whats App Credit Sharing for this ExtendedCredit.
 
-        # Convert result to typed model
-        return ExtendedCreditAllocationConfigFields(**result)
+    Args:
+        extendedcredit_id: The ID of the ExtendedCredit.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ExtendedCredit(extendedcredit_id).create_whats_app_credit_sharing(
+        fields=fields, params=params
+    )
 
-    @staticmethod
-    def create_whats_app_credit_attach(
-        obj: ExtendedCredit,
-        params: ExtendedCreditCreateWhatsAppCreditAttachParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for ExtendedCredit.create_whats_app_credit_attach().
 
-        Endpoint: POST /whatsapp_credit_attach
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_whats_app_credit_sharing_and_attach(
+    extendedcredit_id: str,
+    fields: list[str] = [],
+    params: ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams = {},
+) -> Any:
+    """Create Whats App Credit Sharing And Attach for this ExtendedCredit.
 
-        # Call the original method
-        result = obj.create_whats_app_credit_attach(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_whats_app_credit_sharing(
-        obj: ExtendedCredit,
-        params: ExtendedCreditCreateWhatsAppCreditSharingParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for ExtendedCredit.create_whats_app_credit_sharing().
-
-        Endpoint: POST /whatsapp_credit_sharing
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_whats_app_credit_sharing(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_whats_app_credit_sharing_and_attach(
-        obj: ExtendedCredit,
-        params: ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams,
-    ) -> ExtendedCreditAllocationConfigFields:
-        """
-        Type-safe wrapper for ExtendedCredit.create_whats_app_credit_sharing_and_attach().
-
-        Endpoint: POST /whatsapp_credit_sharing_and_attach
-        Returns: ExtendedCreditAllocationConfigFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_whats_app_credit_sharing_and_attach(params=params_dict)
-
-        # Convert result to typed model
-        return ExtendedCreditAllocationConfigFields(**result)
+    Args:
+        extendedcredit_id: The ID of the ExtendedCredit.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ExtendedCredit(extendedcredit_id).create_whats_app_credit_sharing_and_attach(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

@@ -2,59 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.productfeedupload import ProductFeedUpload
+from facebook_business.adobjects.productfeedupload import ProductFeedUpload
 
 from ..models.productfeedupload import (
     ProductFeedUploadField,
-    ProductFeedUploadFields,
     ProductFeedUploadGetErrorsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.productfeeduploaderror import (
-    ProductFeedUploadErrorField,
-    ProductFeedUploadErrorFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.productfeeduploaderror import ProductFeedUploadErrorField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class ProductFeedUploadWrappers:
-    """Type-safe wrapper functions for ProductFeedUpload API methods."""
+def get_errors(
+    productfeedupload_id: str,
+    fields: list[ProductFeedUploadErrorField] = [],
+    params: ProductFeedUploadGetErrorsParams = {},
+) -> Any:
+    """Get Errors for this ProductFeedUpload.
 
-    @staticmethod
-    def get_errors(
-        obj: ProductFeedUpload,
-        params: Optional[ProductFeedUploadGetErrorsParams] = None,
-        fields: Optional[list[ProductFeedUploadErrorField]] = None,
-    ) -> TypedCursor[ProductFeedUploadErrorFields]:
-        """
-        Type-safe wrapper for ProductFeedUpload.get_errors().
-
-        Endpoint: GET /errors
-        Returns: TypedCursor[ProductFeedUploadErrorFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_errors(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProductFeedUploadErrorFields)
+    Args:
+        productfeedupload_id: The ID of the ProductFeedUpload.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductFeedUpload(productfeedupload_id).get_errors(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

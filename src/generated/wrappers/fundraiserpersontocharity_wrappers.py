@@ -2,50 +2,39 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.fundraiserpersontocharity import FundraiserPersonToCharity
+from facebook_business.adobjects.fundraiserpersontocharity import FundraiserPersonToCharity
 
 from ..models.fundraiserpersontocharity import (
     FundraiserPersonToCharityCreateExternalDonationParams,
     FundraiserPersonToCharityField,
-    FundraiserPersonToCharityFields,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class FundraiserPersonToCharityWrappers:
-    """Type-safe wrapper functions for FundraiserPersonToCharity API methods."""
+def create_external_donation(
+    fundraiserpersontocharity_id: str,
+    fields: list[str] = [],
+    params: FundraiserPersonToCharityCreateExternalDonationParams = {},
+) -> Any:
+    """Create External Donation for this FundraiserPersonToCharity.
 
-    @staticmethod
-    def create_external_donation(
-        obj: FundraiserPersonToCharity,
-        params: FundraiserPersonToCharityCreateExternalDonationParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for FundraiserPersonToCharity.create_external_donation().
-
-        Endpoint: POST /external_donations
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_external_donation(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
+    Args:
+        fundraiserpersontocharity_id: The ID of the FundraiserPersonToCharity.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return FundraiserPersonToCharity(fundraiserpersontocharity_id).create_external_donation(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

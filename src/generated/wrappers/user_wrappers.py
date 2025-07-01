@@ -2,73 +2,27 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.user import User
+from facebook_business.adobjects.user import User
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adstudy import (
-    AdStudyField,
-    AdStudyFields,
-)
-from ..models.advideo import (
-    AdVideoField,
-    AdVideoFields,
-)
-from ..models.business import (
-    BusinessField,
-    BusinessFields,
-)
-from ..models.businessassetgroup import (
-    BusinessAssetGroupField,
-    BusinessAssetGroupFields,
-)
-from ..models.canvas import (
-    CanvasField,
-    CanvasFields,
-)
-from ..models.event import (
-    EventField,
-    EventFields,
-)
-from ..models.fundraiserpersontocharity import (
-    FundraiserPersonToCharityField,
-    FundraiserPersonToCharityFields,
-)
-from ..models.group import (
-    GroupField,
-    GroupFields,
-)
-from ..models.livevideo import (
-    LiveVideoField,
-    LiveVideoFields,
-)
-from ..models.page import (
-    PageField,
-    PageFields,
-)
-from ..models.permission import (
-    PermissionField,
-    PermissionFields,
-)
-from ..models.photo import (
-    PhotoField,
-    PhotoFields,
-)
-from ..models.post import (
-    PostField,
-    PostFields,
-)
-from ..models.profilepicturesource import (
-    ProfilePictureSourceField,
-    ProfilePictureSourceFields,
-)
-from ..models.unifiedthread import (
-    UnifiedThreadField,
-    UnifiedThreadFields,
-)
+from ..models.adstudy import AdStudyField
+from ..models.advideo import AdVideoField
+from ..models.business import BusinessField
+from ..models.businessassetgroup import BusinessAssetGroupField
+from ..models.canvas import CanvasField
+from ..models.event import EventField
+from ..models.fundraiserpersontocharity import FundraiserPersonToCharityField
+from ..models.group import GroupField
+from ..models.livevideo import LiveVideoField
+from ..models.page import PageField
+from ..models.permission import PermissionField
+from ..models.photo import PhotoField
+from ..models.post import PostField
+from ..models.profilepicturesource import ProfilePictureSourceField
+from ..models.unifiedthread import UnifiedThreadField
 from ..models.user import (
     UserCreateAccessTokenParams,
     UserCreateAccountParams,
@@ -86,7 +40,6 @@ from ..models.user import (
     UserDeleteBusinessesParams,
     UserDeletePermissionsParams,
     UserField,
-    UserFields,
     UserGetAccountsParams,
     UserGetAssignedBusinessAssetGroupsParams,
     UserGetAssignedPagesParams,
@@ -108,861 +61,533 @@ from ..models.user import (
     UserGetRichMediaDocumentsParams,
     UserGetVideosParams,
 )
-from ..models.useridforapp import (
-    UserIDForAppField,
-    UserIDForAppFields,
-)
-from ..models.useridforpage import (
-    UserIDForPageField,
-    UserIDForPageFields,
-)
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class UserWrappers:
-    """Type-safe wrapper functions for User API methods."""
-
-    @staticmethod
-    def create_access_token(
-        obj: User,
-        params: UserCreateAccessTokenParams,
-    ) -> UserFields:
-        """
-        Type-safe wrapper for User.create_access_token().
-
-        Endpoint: POST /access_tokens
-        Returns: UserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_access_token(params=params_dict)
-
-        # Convert result to typed model
-        return UserFields(**result)
-
-    @staticmethod
-    def get_accounts(
-        obj: User,
-        params: Optional[UserGetAccountsParams] = None,
-        fields: Optional[list[PageField]] = None,
-    ) -> TypedCursor[PageFields]:
-        """
-        Type-safe wrapper for User.get_accounts().
-
-        Endpoint: GET /accounts
-        Returns: TypedCursor[PageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageFields)
-
-    @staticmethod
-    def create_account(
-        obj: User,
-        params: UserCreateAccountParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for User.create_account().
-
-        Endpoint: POST /accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_account(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_ad_study(
-        obj: User,
-        params: UserCreateAdStudyParams,
-    ) -> AdStudyFields:
-        """
-        Type-safe wrapper for User.create_ad_study().
-
-        Endpoint: POST /ad_studies
-        Returns: AdStudyFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_study(params=params_dict)
-
-        # Convert result to typed model
-        return AdStudyFields(**result)
-
-    @staticmethod
-    def create_application(
-        obj: User,
-        params: UserCreateApplicationParams,
-    ) -> UserFields:
-        """
-        Type-safe wrapper for User.create_application().
-
-        Endpoint: POST /applications
-        Returns: UserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_application(params=params_dict)
-
-        # Convert result to typed model
-        return UserFields(**result)
-
-    @staticmethod
-    def get_assigned_business_asset_groups(
-        obj: User,
-        params: Optional[UserGetAssignedBusinessAssetGroupsParams] = None,
-        fields: Optional[list[BusinessAssetGroupField]] = None,
-    ) -> TypedCursor[BusinessAssetGroupFields]:
-        """
-        Type-safe wrapper for User.get_assigned_business_asset_groups().
-
-        Endpoint: GET /assigned_business_asset_groups
-        Returns: TypedCursor[BusinessAssetGroupFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_business_asset_groups(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessAssetGroupFields)
-
-    @staticmethod
-    def get_assigned_pages(
-        obj: User,
-        params: Optional[UserGetAssignedPagesParams] = None,
-        fields: Optional[list[PageField]] = None,
-    ) -> TypedCursor[PageFields]:
-        """
-        Type-safe wrapper for User.get_assigned_pages().
-
-        Endpoint: GET /assigned_pages
-        Returns: TypedCursor[PageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_pages(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageFields)
-
-    @staticmethod
-    def delete_businesses(
-        obj: User,
-        params: Optional[UserDeleteBusinessesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for User.delete_businesses().
-
-        Endpoint: DELETE /businesses
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_businesses(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_business(
-        obj: User,
-        params: UserCreateBusinessParams,
-    ) -> BusinessFields:
-        """
-        Type-safe wrapper for User.create_business().
-
-        Endpoint: POST /businesses
-        Returns: BusinessFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_business(params=params_dict)
-
-        # Convert result to typed model
-        return BusinessFields(**result)
-
-    @staticmethod
-    def get_conversations(
-        obj: User,
-        params: Optional[UserGetConversationsParams] = None,
-        fields: Optional[list[UnifiedThreadField]] = None,
-    ) -> TypedCursor[UnifiedThreadFields]:
-        """
-        Type-safe wrapper for User.get_conversations().
-
-        Endpoint: GET /conversations
-        Returns: TypedCursor[UnifiedThreadFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_conversations(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UnifiedThreadFields)
-
-    @staticmethod
-    def get_events(
-        obj: User,
-        params: Optional[UserGetEventsParams] = None,
-        fields: Optional[list[EventField]] = None,
-    ) -> TypedCursor[EventFields]:
-        """
-        Type-safe wrapper for User.get_events().
-
-        Endpoint: GET /events
-        Returns: TypedCursor[EventFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_events(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, EventFields)
-
-    @staticmethod
-    def get_feed(
-        obj: User,
-        params: Optional[UserGetFeedParams] = None,
-        fields: Optional[list[PostField]] = None,
-    ) -> TypedCursor[PostFields]:
-        """
-        Type-safe wrapper for User.get_feed().
-
-        Endpoint: GET /feed
-        Returns: TypedCursor[PostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_feed(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PostFields)
-
-    @staticmethod
-    def create_feed(
-        obj: User,
-        params: UserCreateFeedParams,
-    ) -> PostFields:
-        """
-        Type-safe wrapper for User.create_feed().
-
-        Endpoint: POST /feed
-        Returns: PostFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_feed(params=params_dict)
-
-        # Convert result to typed model
-        return PostFields(**result)
-
-    @staticmethod
-    def get_friends(
-        obj: User,
-        params: Optional[UserGetFriendsParams] = None,
-        fields: Optional[list[UserField]] = None,
-    ) -> TypedCursor[UserFields]:
-        """
-        Type-safe wrapper for User.get_friends().
-
-        Endpoint: GET /friends
-        Returns: TypedCursor[UserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_friends(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UserFields)
-
-    @staticmethod
-    def create_fundraiser(
-        obj: User,
-        params: UserCreateFundraiserParams,
-    ) -> FundraiserPersonToCharityFields:
-        """
-        Type-safe wrapper for User.create_fundraiser().
-
-        Endpoint: POST /fundraisers
-        Returns: FundraiserPersonToCharityFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_fundraiser(params=params_dict)
-
-        # Convert result to typed model
-        return FundraiserPersonToCharityFields(**result)
-
-    @staticmethod
-    def get_groups(
-        obj: User,
-        params: Optional[UserGetGroupsParams] = None,
-        fields: Optional[list[GroupField]] = None,
-    ) -> TypedCursor[GroupFields]:
-        """
-        Type-safe wrapper for User.get_groups().
-
-        Endpoint: GET /groups
-        Returns: TypedCursor[GroupFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_groups(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, GroupFields)
-
-    @staticmethod
-    def get_ids_for_apps(
-        obj: User,
-        params: Optional[UserGetIdsForAppsParams] = None,
-        fields: Optional[list[UserIDForAppField]] = None,
-    ) -> TypedCursor[UserIDForAppFields]:
-        """
-        Type-safe wrapper for User.get_ids_for_apps().
-
-        Endpoint: GET /ids_for_apps
-        Returns: TypedCursor[UserIDForAppFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ids_for_apps(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UserIDForAppFields)
-
-    @staticmethod
-    def get_ids_for_business(
-        obj: User,
-        params: Optional[UserGetIdsForBusinessParams] = None,
-        fields: Optional[list[UserIDForAppField]] = None,
-    ) -> TypedCursor[UserIDForAppFields]:
-        """
-        Type-safe wrapper for User.get_ids_for_business().
-
-        Endpoint: GET /ids_for_business
-        Returns: TypedCursor[UserIDForAppFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ids_for_business(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UserIDForAppFields)
-
-    @staticmethod
-    def get_ids_for_pages(
-        obj: User,
-        params: Optional[UserGetIdsForPagesParams] = None,
-        fields: Optional[list[UserIDForPageField]] = None,
-    ) -> TypedCursor[UserIDForPageFields]:
-        """
-        Type-safe wrapper for User.get_ids_for_pages().
-
-        Endpoint: GET /ids_for_pages
-        Returns: TypedCursor[UserIDForPageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ids_for_pages(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UserIDForPageFields)
-
-    @staticmethod
-    def get_likes(
-        obj: User,
-        params: Optional[UserGetLikesParams] = None,
-        fields: Optional[list[PageField]] = None,
-    ) -> TypedCursor[PageFields]:
-        """
-        Type-safe wrapper for User.get_likes().
-
-        Endpoint: GET /likes
-        Returns: TypedCursor[PageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_likes(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageFields)
-
-    @staticmethod
-    def get_live_videos(
-        obj: User,
-        params: Optional[UserGetLiveVideosParams] = None,
-        fields: Optional[list[LiveVideoField]] = None,
-    ) -> TypedCursor[LiveVideoFields]:
-        """
-        Type-safe wrapper for User.get_live_videos().
-
-        Endpoint: GET /live_videos
-        Returns: TypedCursor[LiveVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_live_videos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, LiveVideoFields)
-
-    @staticmethod
-    def create_live_video(
-        obj: User,
-        params: UserCreateLiveVideoParams,
-    ) -> LiveVideoFields:
-        """
-        Type-safe wrapper for User.create_live_video().
-
-        Endpoint: POST /live_videos
-        Returns: LiveVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_live_video(params=params_dict)
-
-        # Convert result to typed model
-        return LiveVideoFields(**result)
-
-    @staticmethod
-    def create_messenger_kids_accounts_unread_badge(
-        obj: User,
-        params: UserCreateMessengerKidsAccountsUnreadBadgeParams,
-    ) -> UserFields:
-        """
-        Type-safe wrapper for User.create_messenger_kids_accounts_unread_badge().
-
-        Endpoint: POST /messenger_kids_accounts_unread_badge
-        Returns: UserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_messenger_kids_accounts_unread_badge(params=params_dict)
-
-        # Convert result to typed model
-        return UserFields(**result)
-
-    @staticmethod
-    def get_music(
-        obj: User,
-        params: Optional[UserGetMusicParams] = None,
-        fields: Optional[list[PageField]] = None,
-    ) -> TypedCursor[PageFields]:
-        """
-        Type-safe wrapper for User.get_music().
-
-        Endpoint: GET /music
-        Returns: TypedCursor[PageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_music(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageFields)
-
-    @staticmethod
-    def create_notification(
-        obj: User,
-        params: UserCreateNotificationParams,
-    ) -> UserFields:
-        """
-        Type-safe wrapper for User.create_notification().
-
-        Endpoint: POST /notifications
-        Returns: UserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_notification(params=params_dict)
-
-        # Convert result to typed model
-        return UserFields(**result)
-
-    @staticmethod
-    def delete_permissions(
-        obj: User,
-        params: Optional[UserDeletePermissionsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for User.delete_permissions().
-
-        Endpoint: DELETE /permissions
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_permissions(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_permissions(
-        obj: User,
-        params: Optional[UserGetPermissionsParams] = None,
-        fields: Optional[list[PermissionField]] = None,
-    ) -> TypedCursor[PermissionFields]:
-        """
-        Type-safe wrapper for User.get_permissions().
-
-        Endpoint: GET /permissions
-        Returns: TypedCursor[PermissionFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_permissions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PermissionFields)
-
-    @staticmethod
-    def get_photos(
-        obj: User,
-        params: Optional[UserGetPhotosParams] = None,
-        fields: Optional[list[PhotoField]] = None,
-    ) -> TypedCursor[PhotoFields]:
-        """
-        Type-safe wrapper for User.get_photos().
-
-        Endpoint: GET /photos
-        Returns: TypedCursor[PhotoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_photos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PhotoFields)
-
-    @staticmethod
-    def create_photo(
-        obj: User,
-        params: UserCreatePhotoParams,
-    ) -> PhotoFields:
-        """
-        Type-safe wrapper for User.create_photo().
-
-        Endpoint: POST /photos
-        Returns: PhotoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_photo(params=params_dict)
-
-        # Convert result to typed model
-        return PhotoFields(**result)
-
-    @staticmethod
-    def get_picture(
-        obj: User,
-        params: Optional[UserGetPictureParams] = None,
-        fields: Optional[list[ProfilePictureSourceField]] = None,
-    ) -> TypedCursor[ProfilePictureSourceFields]:
-        """
-        Type-safe wrapper for User.get_picture().
-
-        Endpoint: GET /picture
-        Returns: TypedCursor[ProfilePictureSourceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_picture(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfilePictureSourceFields)
-
-    @staticmethod
-    def get_posts(
-        obj: User,
-        params: Optional[UserGetPostsParams] = None,
-        fields: Optional[list[PostField]] = None,
-    ) -> TypedCursor[PostFields]:
-        """
-        Type-safe wrapper for User.get_posts().
-
-        Endpoint: GET /posts
-        Returns: TypedCursor[PostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_posts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PostFields)
-
-    @staticmethod
-    def get_rich_media_documents(
-        obj: User,
-        params: Optional[UserGetRichMediaDocumentsParams] = None,
-        fields: Optional[list[CanvasField]] = None,
-    ) -> TypedCursor[CanvasFields]:
-        """
-        Type-safe wrapper for User.get_rich_media_documents().
-
-        Endpoint: GET /rich_media_documents
-        Returns: TypedCursor[CanvasFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_rich_media_documents(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CanvasFields)
-
-    @staticmethod
-    def create_staging_resource(
-        obj: User,
-        params: UserCreateStagingResourceParams,
-    ) -> UserFields:
-        """
-        Type-safe wrapper for User.create_staging_resource().
-
-        Endpoint: POST /staging_resources
-        Returns: UserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_staging_resource(params=params_dict)
-
-        # Convert result to typed model
-        return UserFields(**result)
-
-    @staticmethod
-    def get_videos(
-        obj: User,
-        params: Optional[UserGetVideosParams] = None,
-        fields: Optional[list[AdVideoField]] = None,
-    ) -> TypedCursor[AdVideoFields]:
-        """
-        Type-safe wrapper for User.get_videos().
-
-        Endpoint: GET /videos
-        Returns: TypedCursor[AdVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_videos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdVideoFields)
-
-    @staticmethod
-    def create_video(
-        obj: User,
-        params: UserCreateVideoParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for User.create_video().
-
-        Endpoint: POST /videos
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
+from ..models.useridforapp import UserIDForAppField
+from ..models.useridforpage import UserIDForPageField
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def create_access_token(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateAccessTokenParams = {},
+) -> Any:
+    """Create Access Token for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_access_token(fields=fields, params=params)
+
+
+def get_accounts(
+    user_id: str,
+    fields: list[PageField] = [],
+    params: UserGetAccountsParams = {},
+) -> Any:
+    """Get Accounts for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_accounts(fields=fields, params=params)
+
+
+def create_account(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateAccountParams = {},
+) -> Any:
+    """Create Account for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_account(fields=fields, params=params)
+
+
+def create_ad_study(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateAdStudyParams = {},
+) -> Any:
+    """Create Ad Study for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_ad_study(fields=fields, params=params)
+
+
+def create_application(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateApplicationParams = {},
+) -> Any:
+    """Create Application for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_application(fields=fields, params=params)
+
+
+def get_assigned_business_asset_groups(
+    user_id: str,
+    fields: list[BusinessAssetGroupField] = [],
+    params: UserGetAssignedBusinessAssetGroupsParams = {},
+) -> Any:
+    """Get Assigned Business Asset Groups for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_assigned_business_asset_groups(fields=fields, params=params)
+
+
+def get_assigned_pages(
+    user_id: str,
+    fields: list[PageField] = [],
+    params: UserGetAssignedPagesParams = {},
+) -> Any:
+    """Get Assigned Pages for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_assigned_pages(fields=fields, params=params)
+
+
+def delete_businesses(
+    user_id: str,
+    params: UserDeleteBusinessesParams = {},
+) -> Any:
+    """Delete Businesses for this User.
+
+    Args:
+        user_id: The ID of the User.
+        params: Parameters for the operation.
+    """
+    return User(user_id).delete_businesses(params=params)
+
+
+def create_business(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateBusinessParams = {},
+) -> Any:
+    """Create Business for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_business(fields=fields, params=params)
+
+
+def get_conversations(
+    user_id: str,
+    fields: list[UnifiedThreadField] = [],
+    params: UserGetConversationsParams = {},
+) -> Any:
+    """Get Conversations for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_conversations(fields=fields, params=params)
+
+
+def get_events(
+    user_id: str,
+    fields: list[EventField] = [],
+    params: UserGetEventsParams = {},
+) -> Any:
+    """Get Events for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_events(fields=fields, params=params)
+
+
+def get_feed(
+    user_id: str,
+    fields: list[PostField] = [],
+    params: UserGetFeedParams = {},
+) -> Any:
+    """Get Feed for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_feed(fields=fields, params=params)
+
+
+def create_feed(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateFeedParams = {},
+) -> Any:
+    """Create Feed for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_feed(fields=fields, params=params)
+
+
+def get_friends(
+    user_id: str,
+    fields: list[UserField] = [],
+    params: UserGetFriendsParams = {},
+) -> Any:
+    """Get Friends for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_friends(fields=fields, params=params)
+
+
+def create_fundraiser(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateFundraiserParams = {},
+) -> Any:
+    """Create Fundraiser for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_fundraiser(fields=fields, params=params)
+
+
+def get_groups(
+    user_id: str,
+    fields: list[GroupField] = [],
+    params: UserGetGroupsParams = {},
+) -> Any:
+    """Get Groups for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_groups(fields=fields, params=params)
+
+
+def get_ids_for_apps(
+    user_id: str,
+    fields: list[UserIDForAppField] = [],
+    params: UserGetIdsForAppsParams = {},
+) -> Any:
+    """Get Ids For Apps for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_ids_for_apps(fields=fields, params=params)
+
+
+def get_ids_for_business(
+    user_id: str,
+    fields: list[UserIDForAppField] = [],
+    params: UserGetIdsForBusinessParams = {},
+) -> Any:
+    """Get Ids For Business for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_ids_for_business(fields=fields, params=params)
+
+
+def get_ids_for_pages(
+    user_id: str,
+    fields: list[UserIDForPageField] = [],
+    params: UserGetIdsForPagesParams = {},
+) -> Any:
+    """Get Ids For Pages for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_ids_for_pages(fields=fields, params=params)
+
+
+def get_likes(
+    user_id: str,
+    fields: list[PageField] = [],
+    params: UserGetLikesParams = {},
+) -> Any:
+    """Get Likes for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_likes(fields=fields, params=params)
+
+
+def get_live_videos(
+    user_id: str,
+    fields: list[LiveVideoField] = [],
+    params: UserGetLiveVideosParams = {},
+) -> Any:
+    """Get Live Videos for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_live_videos(fields=fields, params=params)
+
+
+def create_live_video(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateLiveVideoParams = {},
+) -> Any:
+    """Create Live Video for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_live_video(fields=fields, params=params)
+
+
+def create_messenger_kids_accounts_unread_badge(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateMessengerKidsAccountsUnreadBadgeParams = {},
+) -> Any:
+    """Create Messenger Kids Accounts Unread Badge for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_messenger_kids_accounts_unread_badge(fields=fields, params=params)
+
+
+def get_music(
+    user_id: str,
+    fields: list[PageField] = [],
+    params: UserGetMusicParams = {},
+) -> Any:
+    """Get Music for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_music(fields=fields, params=params)
+
+
+def create_notification(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateNotificationParams = {},
+) -> Any:
+    """Create Notification for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_notification(fields=fields, params=params)
+
+
+def delete_permissions(
+    user_id: str,
+    params: UserDeletePermissionsParams = {},
+) -> Any:
+    """Delete Permissions for this User.
+
+    Args:
+        user_id: The ID of the User.
+        params: Parameters for the operation.
+    """
+    return User(user_id).delete_permissions(params=params)
+
+
+def get_permissions(
+    user_id: str,
+    fields: list[PermissionField] = [],
+    params: UserGetPermissionsParams = {},
+) -> Any:
+    """Get Permissions for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_permissions(fields=fields, params=params)
+
+
+def get_photos(
+    user_id: str,
+    fields: list[PhotoField] = [],
+    params: UserGetPhotosParams = {},
+) -> Any:
+    """Get Photos for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_photos(fields=fields, params=params)
+
+
+def create_photo(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreatePhotoParams = {},
+) -> Any:
+    """Create Photo for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_photo(fields=fields, params=params)
+
+
+def get_picture(
+    user_id: str,
+    fields: list[ProfilePictureSourceField] = [],
+    params: UserGetPictureParams = {},
+) -> Any:
+    """Get Picture for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_picture(fields=fields, params=params)
+
+
+def get_posts(
+    user_id: str,
+    fields: list[PostField] = [],
+    params: UserGetPostsParams = {},
+) -> Any:
+    """Get Posts for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_posts(fields=fields, params=params)
+
+
+def get_rich_media_documents(
+    user_id: str,
+    fields: list[CanvasField] = [],
+    params: UserGetRichMediaDocumentsParams = {},
+) -> Any:
+    """Get Rich Media Documents for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_rich_media_documents(fields=fields, params=params)
+
+
+def create_staging_resource(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateStagingResourceParams = {},
+) -> Any:
+    """Create Staging Resource for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_staging_resource(fields=fields, params=params)
+
+
+def get_videos(
+    user_id: str,
+    fields: list[AdVideoField] = [],
+    params: UserGetVideosParams = {},
+) -> Any:
+    """Get Videos for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).get_videos(fields=fields, params=params)
+
+
+def create_video(
+    user_id: str,
+    fields: list[str] = [],
+    params: UserCreateVideoParams = {},
+) -> Any:
+    """Create Video for this User.
+
+    Args:
+        user_id: The ID of the User.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return User(user_id).create_video(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

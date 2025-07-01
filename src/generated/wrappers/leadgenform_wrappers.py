@@ -2,51 +2,36 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.leadgenform import LeadgenForm
+from facebook_business.adobjects.leadgenform import LeadgenForm
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.lead import (
-    LeadField,
-    LeadFields,
-)
+from ..models.lead import LeadField
 from ..models.leadgenform import (
     LeadgenFormCreateTestLeadParams,
     LeadgenFormField,
-    LeadgenFormFields,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class LeadgenFormWrappers:
-    """Type-safe wrapper functions for LeadgenForm API methods."""
+def create_test_lead(
+    leadgenform_id: str,
+    fields: list[str] = [],
+    params: LeadgenFormCreateTestLeadParams = {},
+) -> Any:
+    """Create Test Lead for this LeadgenForm.
 
-    @staticmethod
-    def create_test_lead(
-        obj: LeadgenForm,
-        params: LeadgenFormCreateTestLeadParams,
-    ) -> LeadFields:
-        """
-        Type-safe wrapper for LeadgenForm.create_test_lead().
-
-        Endpoint: POST /test_leads
-        Returns: LeadFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_test_lead(params=params_dict)
-
-        # Convert result to typed model
-        return LeadFields(**result)
+    Args:
+        leadgenform_id: The ID of the LeadgenForm.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return LeadgenForm(leadgenform_id).create_test_lead(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

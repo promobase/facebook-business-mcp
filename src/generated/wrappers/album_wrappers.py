@@ -2,158 +2,103 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.album import Album
+from facebook_business.adobjects.album import Album
 
 from ..models.album import (
     AlbumCreateCommentParams,
     AlbumCreateLikeParams,
     AlbumCreatePhotoParams,
     AlbumField,
-    AlbumFields,
     AlbumGetCommentsParams,
     AlbumGetPictureParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
-from ..models.photo import (
-    PhotoField,
-    PhotoFields,
-)
-from ..models.profilepicturesource import (
-    ProfilePictureSourceField,
-    ProfilePictureSourceFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.comment import CommentField
+from ..models.photo import PhotoField
+from ..models.profilepicturesource import ProfilePictureSourceField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AlbumWrappers:
-    """Type-safe wrapper functions for Album API methods."""
+def get_comments(
+    album_id: str,
+    fields: list[CommentField] = [],
+    params: AlbumGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this Album.
 
-    @staticmethod
-    def get_comments(
-        obj: Album,
-        params: Optional[AlbumGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for Album.get_comments().
+    Args:
+        album_id: The ID of the Album.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Album(album_id).get_comments(fields=fields, params=params)
 
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_comment(
+    album_id: str,
+    fields: list[str] = [],
+    params: AlbumCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this Album.
 
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        album_id: The ID of the Album.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Album(album_id).create_comment(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
 
-    @staticmethod
-    def create_comment(
-        obj: Album,
-        params: AlbumCreateCommentParams,
-    ) -> CommentFields:
-        """
-        Type-safe wrapper for Album.create_comment().
+def create_like(
+    album_id: str,
+    fields: list[str] = [],
+    params: AlbumCreateLikeParams = {},
+) -> Any:
+    """Create Like for this Album.
 
-        Endpoint: POST /comments
-        Returns: CommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        album_id: The ID of the Album.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Album(album_id).create_like(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
 
-        # Convert result to typed model
-        return CommentFields(**result)
+def create_photo(
+    album_id: str,
+    fields: list[str] = [],
+    params: AlbumCreatePhotoParams = {},
+) -> Any:
+    """Create Photo for this Album.
 
-    @staticmethod
-    def create_like(
-        obj: Album,
-        params: AlbumCreateLikeParams,
-    ) -> AlbumFields:
-        """
-        Type-safe wrapper for Album.create_like().
+    Args:
+        album_id: The ID of the Album.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Album(album_id).create_photo(fields=fields, params=params)
 
-        Endpoint: POST /likes
-        Returns: AlbumFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_like(params=params_dict)
+def get_picture(
+    album_id: str,
+    fields: list[ProfilePictureSourceField] = [],
+    params: AlbumGetPictureParams = {},
+) -> Any:
+    """Get Picture for this Album.
 
-        # Convert result to typed model
-        return AlbumFields(**result)
-
-    @staticmethod
-    def create_photo(
-        obj: Album,
-        params: AlbumCreatePhotoParams,
-    ) -> PhotoFields:
-        """
-        Type-safe wrapper for Album.create_photo().
-
-        Endpoint: POST /photos
-        Returns: PhotoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_photo(params=params_dict)
-
-        # Convert result to typed model
-        return PhotoFields(**result)
-
-    @staticmethod
-    def get_picture(
-        obj: Album,
-        params: Optional[AlbumGetPictureParams] = None,
-        fields: Optional[list[ProfilePictureSourceField]] = None,
-    ) -> TypedCursor[ProfilePictureSourceFields]:
-        """
-        Type-safe wrapper for Album.get_picture().
-
-        Endpoint: GET /picture
-        Returns: TypedCursor[ProfilePictureSourceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_picture(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfilePictureSourceFields)
+    Args:
+        album_id: The ID of the Album.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Album(album_id).get_picture(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

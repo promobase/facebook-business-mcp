@@ -44,6 +44,14 @@ class BusinessAssetSharingAgreementFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class BusinessAssetSharingAgreementUpdateParams(BaseModel):
+    """Parameters for BusinessAssetSharingAgreement.api_update()."""
+
+    request_response: str | None = Field(None, description="request_response parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -2,51 +2,36 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.link import Link
+from facebook_business.adobjects.link import Link
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
+from ..models.comment import CommentField
 from ..models.link import (
     LinkCreateCommentParams,
     LinkField,
-    LinkFields,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class LinkWrappers:
-    """Type-safe wrapper functions for Link API methods."""
+def create_comment(
+    link_id: str,
+    fields: list[str] = [],
+    params: LinkCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this Link.
 
-    @staticmethod
-    def create_comment(
-        obj: Link,
-        params: LinkCreateCommentParams,
-    ) -> CommentFields:
-        """
-        Type-safe wrapper for Link.create_comment().
-
-        Endpoint: POST /comments
-        Returns: CommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
-
-        # Convert result to typed model
-        return CommentFields(**result)
+    Args:
+        link_id: The ID of the Link.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Link(link_id).create_comment(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

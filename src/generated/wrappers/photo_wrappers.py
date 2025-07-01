@@ -2,132 +2,85 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.photo import Photo
+from facebook_business.adobjects.photo import Photo
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
-from ..models.insightsresult import (
-    InsightsResultField,
-    InsightsResultFields,
-)
+from ..models.comment import CommentField
+from ..models.insightsresult import InsightsResultField
 from ..models.photo import (
     PhotoCreateCommentParams,
     PhotoCreateLikeParams,
     PhotoField,
-    PhotoFields,
     PhotoGetCommentsParams,
     PhotoGetInsightsParams,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class PhotoWrappers:
-    """Type-safe wrapper functions for Photo API methods."""
+def get_comments(
+    photo_id: str,
+    fields: list[CommentField] = [],
+    params: PhotoGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this Photo.
 
-    @staticmethod
-    def get_comments(
-        obj: Photo,
-        params: Optional[PhotoGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for Photo.get_comments().
+    Args:
+        photo_id: The ID of the Photo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Photo(photo_id).get_comments(fields=fields, params=params)
 
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_comment(
+    photo_id: str,
+    fields: list[str] = [],
+    params: PhotoCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this Photo.
 
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        photo_id: The ID of the Photo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Photo(photo_id).create_comment(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
 
-    @staticmethod
-    def create_comment(
-        obj: Photo,
-        params: PhotoCreateCommentParams,
-    ) -> CommentFields:
-        """
-        Type-safe wrapper for Photo.create_comment().
+def get_insights(
+    photo_id: str,
+    fields: list[InsightsResultField] = [],
+    params: PhotoGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this Photo.
 
-        Endpoint: POST /comments
-        Returns: CommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        photo_id: The ID of the Photo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Photo(photo_id).get_insights(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
 
-        # Convert result to typed model
-        return CommentFields(**result)
+def create_like(
+    photo_id: str,
+    fields: list[str] = [],
+    params: PhotoCreateLikeParams = {},
+) -> Any:
+    """Create Like for this Photo.
 
-    @staticmethod
-    def get_insights(
-        obj: Photo,
-        params: Optional[PhotoGetInsightsParams] = None,
-        fields: Optional[list[InsightsResultField]] = None,
-    ) -> TypedCursor[InsightsResultFields]:
-        """
-        Type-safe wrapper for Photo.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[InsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InsightsResultFields)
-
-    @staticmethod
-    def create_like(
-        obj: Photo,
-        params: PhotoCreateLikeParams,
-    ) -> PhotoFields:
-        """
-        Type-safe wrapper for Photo.create_like().
-
-        Endpoint: POST /likes
-        Returns: PhotoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_like(params=params_dict)
-
-        # Convert result to typed model
-        return PhotoFields(**result)
+    Args:
+        photo_id: The ID of the Photo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Photo(photo_id).create_like(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

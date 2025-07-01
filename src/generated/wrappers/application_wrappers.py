@@ -2,29 +2,16 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.application import Application
+from facebook_business.adobjects.application import Application
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adaccount import (
-    AdAccountField,
-    AdAccountFields,
-)
-from ..models.adnetworkanalyticsasyncqueryresult import (
-    AdNetworkAnalyticsAsyncQueryResultField,
-    AdNetworkAnalyticsAsyncQueryResultFields,
-)
-from ..models.adnetworkanalyticssyncqueryresult import (
-    AdNetworkAnalyticsSyncQueryResultField,
-    AdNetworkAnalyticsSyncQueryResultFields,
-)
-from ..models.adplacement import (
-    AdPlacementField,
-    AdPlacementFields,
-)
+from ..models.adaccount import AdAccountField
+from ..models.adnetworkanalyticsasyncqueryresult import AdNetworkAnalyticsAsyncQueryResultField
+from ..models.adnetworkanalyticssyncqueryresult import AdNetworkAnalyticsSyncQueryResultField
+from ..models.adplacement import AdPlacementField
 from ..models.application import (
     ApplicationCreateAccountParams,
     ApplicationCreateActivityParams,
@@ -49,7 +36,6 @@ from ..models.application import (
     ApplicationDeleteAccountsParams,
     ApplicationDeleteSubscriptionsParams,
     ApplicationField,
-    ApplicationFields,
     ApplicationGetAccountsParams,
     ApplicationGetAdNetworkAnalyticsParams,
     ApplicationGetAdNetworkAnalyticsResultsParams,
@@ -70,974 +56,635 @@ from ..models.application import (
     ApplicationGetSgwInstallDeferralLinkParams,
     ApplicationGetWhatsAppBusinessSolutionsParams,
 )
-from ..models.dacheck import (
-    DACheckField,
-    DACheckFields,
-)
-from ..models.group import (
-    GroupField,
-    GroupFields,
-)
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class ApplicationWrappers:
-    """Type-safe wrapper functions for Application API methods."""
-
-    @staticmethod
-    def delete_accounts(
-        obj: Application,
-        params: Optional[ApplicationDeleteAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Application.delete_accounts().
-
-        Endpoint: DELETE /accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_accounts(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_accounts(
-        obj: Application,
-        params: Optional[ApplicationGetAccountsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_accounts().
-
-        Endpoint: GET /accounts
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_account(
-        obj: Application,
-        params: ApplicationCreateAccountParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_account().
-
-        Endpoint: POST /accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_account(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_activity(
-        obj: Application,
-        params: ApplicationCreateActivityParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_activity().
-
-        Endpoint: POST /activities
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_activity(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_ad_network_placements(
-        obj: Application,
-        params: Optional[ApplicationGetAdNetworkPlacementsParams] = None,
-        fields: Optional[list[AdPlacementField]] = None,
-    ) -> TypedCursor[AdPlacementFields]:
-        """
-        Type-safe wrapper for Application.get_ad_network_placements().
-
-        Endpoint: GET /adnetwork_placements
-        Returns: TypedCursor[AdPlacementFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_network_placements(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdPlacementFields)
-
-    @staticmethod
-    def get_ad_network_analytics(
-        obj: Application,
-        params: Optional[ApplicationGetAdNetworkAnalyticsParams] = None,
-        fields: Optional[list[AdNetworkAnalyticsSyncQueryResultField]] = None,
-    ) -> TypedCursor[AdNetworkAnalyticsSyncQueryResultFields]:
-        """
-        Type-safe wrapper for Application.get_ad_network_analytics().
-
-        Endpoint: GET /adnetworkanalytics
-        Returns: TypedCursor[AdNetworkAnalyticsSyncQueryResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_network_analytics(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdNetworkAnalyticsSyncQueryResultFields)
-
-    @staticmethod
-    def create_ad_network_analytic(
-        obj: Application,
-        params: ApplicationCreateAdNetworkAnalyticParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_ad_network_analytic().
-
-        Endpoint: POST /adnetworkanalytics
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_network_analytic(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def get_ad_network_analytics_results(
-        obj: Application,
-        params: Optional[ApplicationGetAdNetworkAnalyticsResultsParams] = None,
-        fields: Optional[list[AdNetworkAnalyticsAsyncQueryResultField]] = None,
-    ) -> TypedCursor[AdNetworkAnalyticsAsyncQueryResultFields]:
-        """
-        Type-safe wrapper for Application.get_ad_network_analytics_results().
-
-        Endpoint: GET /adnetworkanalytics_results
-        Returns: TypedCursor[AdNetworkAnalyticsAsyncQueryResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_network_analytics_results(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdNetworkAnalyticsAsyncQueryResultFields)
-
-    @staticmethod
-    def get_aem_attribution(
-        obj: Application,
-        params: Optional[ApplicationGetAemAttributionParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_aem_attribution().
-
-        Endpoint: GET /aem_attribution
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_aem_attribution(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_aem_conversion_configs(
-        obj: Application,
-        params: Optional[ApplicationGetAemConversionConfigsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_aem_conversion_configs().
-
-        Endpoint: GET /aem_conversion_configs
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_aem_conversion_configs(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_aem_conversion_filter(
-        obj: Application,
-        params: Optional[ApplicationGetAemConversionFilterParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_aem_conversion_filter().
-
-        Endpoint: GET /aem_conversion_filter
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_aem_conversion_filter(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_aem_conversion(
-        obj: Application,
-        params: ApplicationCreateAemConversionParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_aem_conversion().
-
-        Endpoint: POST /aem_conversions
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_aem_conversion(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_aem_skan_readiness(
-        obj: Application,
-        params: ApplicationCreateAemSkanReadinessParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_aem_skan_readiness().
-
-        Endpoint: POST /aem_skan_readiness
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_aem_skan_readiness(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_aggregate_revenue(
-        obj: Application,
-        params: ApplicationCreateAggregateRevenueParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_aggregate_revenue().
-
-        Endpoint: POST /aggregate_revenue
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_aggregate_revenue(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_app_indexing(
-        obj: Application,
-        params: ApplicationCreateAppIndexingParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_app_indexing().
-
-        Endpoint: POST /app_indexing
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_app_indexing(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def create_app_indexing_session(
-        obj: Application,
-        params: ApplicationCreateAppIndexingSessionParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_app_indexing_session().
-
-        Endpoint: POST /app_indexing_session
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_app_indexing_session(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def get_app_installed_groups(
-        obj: Application,
-        params: Optional[ApplicationGetAppInstalledGroupsParams] = None,
-        fields: Optional[list[GroupField]] = None,
-    ) -> TypedCursor[GroupFields]:
-        """
-        Type-safe wrapper for Application.get_app_installed_groups().
-
-        Endpoint: GET /app_installed_groups
-        Returns: TypedCursor[GroupFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_app_installed_groups(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, GroupFields)
-
-    @staticmethod
-    def create_app_push_device_token(
-        obj: Application,
-        params: ApplicationCreateAppPushDeviceTokenParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_app_push_device_token().
-
-        Endpoint: POST /app_push_device_token
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_app_push_device_token(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def create_asset(
-        obj: Application,
-        params: ApplicationCreateAssetParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_asset().
-
-        Endpoint: POST /assets
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_asset(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def get_authorized_ad_accounts(
-        obj: Application,
-        params: Optional[ApplicationGetAuthorizedAdAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for Application.get_authorized_ad_accounts().
-
-        Endpoint: GET /authorized_adaccounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_authorized_ad_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
-
-    @staticmethod
-    def get_button_auto_detection_device_selection(
-        obj: Application,
-        params: Optional[ApplicationGetButtonAutoDetectionDeviceSelectionParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_button_auto_detection_device_selection().
-
-        Endpoint: GET /button_auto_detection_device_selection
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_button_auto_detection_device_selection(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_codeless_event_mapping(
-        obj: Application,
-        params: ApplicationCreateCodelessEventMappingParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_codeless_event_mapping().
-
-        Endpoint: POST /codeless_event_mappings
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_codeless_event_mapping(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def get_da_checks(
-        obj: Application,
-        params: Optional[ApplicationGetDaChecksParams] = None,
-        fields: Optional[list[DACheckField]] = None,
-    ) -> TypedCursor[DACheckFields]:
-        """
-        Type-safe wrapper for Application.get_da_checks().
-
-        Endpoint: GET /da_checks
-        Returns: TypedCursor[DACheckFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_da_checks(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, DACheckFields)
-
-    @staticmethod
-    def create_domain_report(
-        obj: Application,
-        params: ApplicationCreateDomainReportParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_domain_report().
-
-        Endpoint: POST /domain_reports
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_domain_report(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_iap_purchases(
-        obj: Application,
-        params: Optional[ApplicationGetIapPurchasesParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_iap_purchases().
-
-        Endpoint: GET /iap_purchases
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_iap_purchases(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_message_templates(
-        obj: Application,
-        params: Optional[ApplicationGetMessageTemplatesParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_message_templates().
-
-        Endpoint: GET /message_templates
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_message_templates(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_mmp_auditing(
-        obj: Application,
-        params: ApplicationCreateMmpAuditingParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_mmp_auditing().
-
-        Endpoint: POST /mmp_auditing
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_mmp_auditing(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_mobile_sdk_gk(
-        obj: Application,
-        params: Optional[ApplicationGetMobileSdkGkParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_mobile_sdk_gk().
-
-        Endpoint: GET /mobile_sdk_gk
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_mobile_sdk_gk(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_monetized_digital_store_object(
-        obj: Application,
-        params: ApplicationCreateMonetizedDigitalStoreObjectParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_monetized_digital_store_object().
-
-        Endpoint: POST /monetized_digital_store_objects
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_monetized_digital_store_object(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_occludes_popup(
-        obj: Application,
-        params: ApplicationCreateOccludesPopupParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_occludes_popup().
-
-        Endpoint: POST /occludespopups
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_occludes_popup(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_permissions(
-        obj: Application,
-        params: Optional[ApplicationGetPermissionsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_permissions().
-
-        Endpoint: GET /permissions
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_permissions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_products(
-        obj: Application,
-        params: Optional[ApplicationGetProductsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_products().
-
-        Endpoint: GET /products
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_products(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_sgw_dataset_status(
-        obj: Application,
-        params: Optional[ApplicationGetSgwDatasetStatusParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_sgw_dataset_status().
-
-        Endpoint: GET /sgw_dataset_status
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_sgw_dataset_status(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_sgw_install_deferral_link(
-        obj: Application,
-        params: Optional[ApplicationGetSgwInstallDeferralLinkParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_sgw_install_deferral_link().
-
-        Endpoint: GET /sgw_install_deferral_link
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_sgw_install_deferral_link(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_subscribed_domain(
-        obj: Application,
-        params: ApplicationCreateSubscribedDomainParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_subscribed_domain().
-
-        Endpoint: POST /subscribed_domains
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_subscribed_domain(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def create_subscribed_domains_phishing(
-        obj: Application,
-        params: ApplicationCreateSubscribedDomainsPhishingParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_subscribed_domains_phishing().
-
-        Endpoint: POST /subscribed_domains_phishing
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_subscribed_domains_phishing(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def delete_subscriptions(
-        obj: Application,
-        params: Optional[ApplicationDeleteSubscriptionsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Application.delete_subscriptions().
-
-        Endpoint: DELETE /subscriptions
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_subscriptions(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_subscription(
-        obj: Application,
-        params: ApplicationCreateSubscriptionParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_subscription().
-
-        Endpoint: POST /subscriptions
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_subscription(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_upload(
-        obj: Application,
-        params: ApplicationCreateUploadParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Application.create_upload().
-
-        Endpoint: POST /uploads
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_upload(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_whats_app_business_solution(
-        obj: Application,
-        params: ApplicationCreateWhatsAppBusinessSolutionParams,
-    ) -> ApplicationFields:
-        """
-        Type-safe wrapper for Application.create_whats_app_business_solution().
-
-        Endpoint: POST /whatsapp_business_solution
-        Returns: ApplicationFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_whats_app_business_solution(params=params_dict)
-
-        # Convert result to typed model
-        return ApplicationFields(**result)
-
-    @staticmethod
-    def get_whats_app_business_solutions(
-        obj: Application,
-        params: Optional[ApplicationGetWhatsAppBusinessSolutionsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for Application.get_whats_app_business_solutions().
-
-        Endpoint: GET /whatsapp_business_solutions
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_whats_app_business_solutions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
+from ..models.dacheck import DACheckField
+from ..models.group import GroupField
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def delete_accounts(
+    application_id: str,
+    params: ApplicationDeleteAccountsParams = {},
+) -> Any:
+    """Delete Accounts for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        params: Parameters for the operation.
+    """
+    return Application(application_id).delete_accounts(params=params)
+
+
+def get_accounts(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetAccountsParams = {},
+) -> Any:
+    """Get Accounts for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_accounts(fields=fields, params=params)
+
+
+def create_account(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAccountParams = {},
+) -> Any:
+    """Create Account for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_account(fields=fields, params=params)
+
+
+def create_activity(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateActivityParams = {},
+) -> Any:
+    """Create Activity for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_activity(fields=fields, params=params)
+
+
+def get_ad_network_placements(
+    application_id: str,
+    fields: list[AdPlacementField] = [],
+    params: ApplicationGetAdNetworkPlacementsParams = {},
+) -> Any:
+    """Get Ad Network Placements for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_ad_network_placements(fields=fields, params=params)
+
+
+def get_ad_network_analytics(
+    application_id: str,
+    fields: list[AdNetworkAnalyticsSyncQueryResultField] = [],
+    params: ApplicationGetAdNetworkAnalyticsParams = {},
+) -> Any:
+    """Get Ad Network Analytics for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_ad_network_analytics(fields=fields, params=params)
+
+
+def create_ad_network_analytic(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAdNetworkAnalyticParams = {},
+) -> Any:
+    """Create Ad Network Analytic for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_ad_network_analytic(fields=fields, params=params)
+
+
+def get_ad_network_analytics_results(
+    application_id: str,
+    fields: list[AdNetworkAnalyticsAsyncQueryResultField] = [],
+    params: ApplicationGetAdNetworkAnalyticsResultsParams = {},
+) -> Any:
+    """Get Ad Network Analytics Results for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_ad_network_analytics_results(
+        fields=fields, params=params
+    )
+
+
+def get_aem_attribution(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetAemAttributionParams = {},
+) -> Any:
+    """Get Aem Attribution for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_aem_attribution(fields=fields, params=params)
+
+
+def get_aem_conversion_configs(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetAemConversionConfigsParams = {},
+) -> Any:
+    """Get Aem Conversion Configs for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_aem_conversion_configs(fields=fields, params=params)
+
+
+def get_aem_conversion_filter(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetAemConversionFilterParams = {},
+) -> Any:
+    """Get Aem Conversion Filter for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_aem_conversion_filter(fields=fields, params=params)
+
+
+def create_aem_conversion(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAemConversionParams = {},
+) -> Any:
+    """Create Aem Conversion for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_aem_conversion(fields=fields, params=params)
+
+
+def create_aem_skan_readiness(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAemSkanReadinessParams = {},
+) -> Any:
+    """Create Aem Skan Readiness for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_aem_skan_readiness(fields=fields, params=params)
+
+
+def create_aggregate_revenue(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAggregateRevenueParams = {},
+) -> Any:
+    """Create Aggregate Revenue for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_aggregate_revenue(fields=fields, params=params)
+
+
+def create_app_indexing(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAppIndexingParams = {},
+) -> Any:
+    """Create App Indexing for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_app_indexing(fields=fields, params=params)
+
+
+def create_app_indexing_session(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAppIndexingSessionParams = {},
+) -> Any:
+    """Create App Indexing Session for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_app_indexing_session(fields=fields, params=params)
+
+
+def get_app_installed_groups(
+    application_id: str,
+    fields: list[GroupField] = [],
+    params: ApplicationGetAppInstalledGroupsParams = {},
+) -> Any:
+    """Get App Installed Groups for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_app_installed_groups(fields=fields, params=params)
+
+
+def create_app_push_device_token(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAppPushDeviceTokenParams = {},
+) -> Any:
+    """Create App Push Device Token for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_app_push_device_token(fields=fields, params=params)
+
+
+def create_asset(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateAssetParams = {},
+) -> Any:
+    """Create Asset for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_asset(fields=fields, params=params)
+
+
+def get_authorized_ad_accounts(
+    application_id: str,
+    fields: list[AdAccountField] = [],
+    params: ApplicationGetAuthorizedAdAccountsParams = {},
+) -> Any:
+    """Get Authorized Ad Accounts for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_authorized_ad_accounts(fields=fields, params=params)
+
+
+def get_button_auto_detection_device_selection(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetButtonAutoDetectionDeviceSelectionParams = {},
+) -> Any:
+    """Get Button Auto Detection Device Selection for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_button_auto_detection_device_selection(
+        fields=fields, params=params
+    )
+
+
+def create_codeless_event_mapping(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateCodelessEventMappingParams = {},
+) -> Any:
+    """Create Codeless Event Mapping for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_codeless_event_mapping(fields=fields, params=params)
+
+
+def get_da_checks(
+    application_id: str,
+    fields: list[DACheckField] = [],
+    params: ApplicationGetDaChecksParams = {},
+) -> Any:
+    """Get Da Checks for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_da_checks(fields=fields, params=params)
+
+
+def create_domain_report(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateDomainReportParams = {},
+) -> Any:
+    """Create Domain Report for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_domain_report(fields=fields, params=params)
+
+
+def get_iap_purchases(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetIapPurchasesParams = {},
+) -> Any:
+    """Get Iap Purchases for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_iap_purchases(fields=fields, params=params)
+
+
+def get_message_templates(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetMessageTemplatesParams = {},
+) -> Any:
+    """Get Message Templates for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_message_templates(fields=fields, params=params)
+
+
+def create_mmp_auditing(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateMmpAuditingParams = {},
+) -> Any:
+    """Create Mmp Auditing for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_mmp_auditing(fields=fields, params=params)
+
+
+def get_mobile_sdk_gk(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetMobileSdkGkParams = {},
+) -> Any:
+    """Get Mobile Sdk Gk for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_mobile_sdk_gk(fields=fields, params=params)
+
+
+def create_monetized_digital_store_object(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateMonetizedDigitalStoreObjectParams = {},
+) -> Any:
+    """Create Monetized Digital Store Object for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_monetized_digital_store_object(
+        fields=fields, params=params
+    )
+
+
+def create_occludes_popup(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateOccludesPopupParams = {},
+) -> Any:
+    """Create Occludes Popup for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_occludes_popup(fields=fields, params=params)
+
+
+def get_permissions(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetPermissionsParams = {},
+) -> Any:
+    """Get Permissions for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_permissions(fields=fields, params=params)
+
+
+def get_products(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetProductsParams = {},
+) -> Any:
+    """Get Products for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_products(fields=fields, params=params)
+
+
+def get_sgw_dataset_status(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetSgwDatasetStatusParams = {},
+) -> Any:
+    """Get Sgw Dataset Status for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_sgw_dataset_status(fields=fields, params=params)
+
+
+def get_sgw_install_deferral_link(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetSgwInstallDeferralLinkParams = {},
+) -> Any:
+    """Get Sgw Install Deferral Link for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_sgw_install_deferral_link(fields=fields, params=params)
+
+
+def create_subscribed_domain(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateSubscribedDomainParams = {},
+) -> Any:
+    """Create Subscribed Domain for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_subscribed_domain(fields=fields, params=params)
+
+
+def create_subscribed_domains_phishing(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateSubscribedDomainsPhishingParams = {},
+) -> Any:
+    """Create Subscribed Domains Phishing for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_subscribed_domains_phishing(
+        fields=fields, params=params
+    )
+
+
+def delete_subscriptions(
+    application_id: str,
+    params: ApplicationDeleteSubscriptionsParams = {},
+) -> Any:
+    """Delete Subscriptions for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        params: Parameters for the operation.
+    """
+    return Application(application_id).delete_subscriptions(params=params)
+
+
+def create_subscription(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateSubscriptionParams = {},
+) -> Any:
+    """Create Subscription for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_subscription(fields=fields, params=params)
+
+
+def create_upload(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateUploadParams = {},
+) -> Any:
+    """Create Upload for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_upload(fields=fields, params=params)
+
+
+def create_whats_app_business_solution(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationCreateWhatsAppBusinessSolutionParams = {},
+) -> Any:
+    """Create Whats App Business Solution for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).create_whats_app_business_solution(
+        fields=fields, params=params
+    )
+
+
+def get_whats_app_business_solutions(
+    application_id: str,
+    fields: list[str] = [],
+    params: ApplicationGetWhatsAppBusinessSolutionsParams = {},
+) -> Any:
+    """Get Whats App Business Solutions for this Application.
+
+    Args:
+        application_id: The ID of the Application.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Application(application_id).get_whats_app_business_solutions(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

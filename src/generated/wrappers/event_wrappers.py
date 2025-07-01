@@ -2,52 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.event import Event
+from facebook_business.adobjects.event import Event
 
 from ..models.event import (
     EventCreateLiveVideoParams,
     EventField,
-    EventFields,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.livevideo import (
-    LiveVideoField,
-    LiveVideoFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.livevideo import LiveVideoField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class EventWrappers:
-    """Type-safe wrapper functions for Event API methods."""
+def create_live_video(
+    event_id: str,
+    fields: list[str] = [],
+    params: EventCreateLiveVideoParams = {},
+) -> Any:
+    """Create Live Video for this Event.
 
-    @staticmethod
-    def create_live_video(
-        obj: Event,
-        params: EventCreateLiveVideoParams,
-    ) -> LiveVideoFields:
-        """
-        Type-safe wrapper for Event.create_live_video().
-
-        Endpoint: POST /live_videos
-        Returns: LiveVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_live_video(params=params_dict)
-
-        # Convert result to typed model
-        return LiveVideoFields(**result)
+    Args:
+        event_id: The ID of the Event.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Event(event_id).create_live_video(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

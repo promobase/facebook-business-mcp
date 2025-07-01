@@ -55,6 +55,17 @@ class HighDemandPeriodFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class HighDemandPeriodUpdateParams(BaseModel):
+    """Parameters for HighDemandPeriod.api_update()."""
+
+    budget_value: int | None = Field(None, description="budget_value parameter")
+    budget_value_type: str | None = Field(None, description="budget_value_type parameter")
+    time_end: int | None = Field(None, description="time_end parameter")
+    time_start: int | None = Field(None, description="time_start parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

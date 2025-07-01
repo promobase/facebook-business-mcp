@@ -84,6 +84,16 @@ class AdAsyncRequestSetGetRequestsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdAsyncRequestSetUpdateParams(BaseModel):
+    """Parameters for AdAsyncRequestSet.api_update()."""
+
+    name: str | None = Field(None, description="name parameter")
+    notification_mode: str | None = Field(None, description="notification_mode parameter")
+    notification_uri: str | None = Field(None, description="notification_uri parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

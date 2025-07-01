@@ -2,59 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.automotivemodel import AutomotiveModel
+from facebook_business.adobjects.automotivemodel import AutomotiveModel
 
 from ..models.automotivemodel import (
     AutomotiveModelField,
-    AutomotiveModelFields,
     AutomotiveModelGetOverrideDetailsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.overridedetails import (
-    OverrideDetailsField,
-    OverrideDetailsFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.overridedetails import OverrideDetailsField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AutomotiveModelWrappers:
-    """Type-safe wrapper functions for AutomotiveModel API methods."""
+def get_override_details(
+    automotivemodel_id: str,
+    fields: list[OverrideDetailsField] = [],
+    params: AutomotiveModelGetOverrideDetailsParams = {},
+) -> Any:
+    """Get Override Details for this AutomotiveModel.
 
-    @staticmethod
-    def get_override_details(
-        obj: AutomotiveModel,
-        params: Optional[AutomotiveModelGetOverrideDetailsParams] = None,
-        fields: Optional[list[OverrideDetailsField]] = None,
-    ) -> TypedCursor[OverrideDetailsFields]:
-        """
-        Type-safe wrapper for AutomotiveModel.get_override_details().
-
-        Endpoint: GET /override_details
-        Returns: TypedCursor[OverrideDetailsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_override_details(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, OverrideDetailsFields)
+    Args:
+        automotivemodel_id: The ID of the AutomotiveModel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AutomotiveModel(automotivemodel_id).get_override_details(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

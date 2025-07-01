@@ -2,45 +2,20 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.iguser import IGUser
+from facebook_business.adobjects.iguser import IGUser
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adaccount import (
-    AdAccountField,
-    AdAccountFields,
-)
-from ..models.brandedcontentshadowigmediaid import (
-    BrandedContentShadowIGMediaIDField,
-    BrandedContentShadowIGMediaIDFields,
-)
-from ..models.brandedcontentshadowiguserid import (
-    BrandedContentShadowIGUserIDField,
-    BrandedContentShadowIGUserIDFields,
-)
-from ..models.contentpublishinglimitresponse import (
-    ContentPublishingLimitResponseField,
-    ContentPublishingLimitResponseFields,
-)
-from ..models.dataset import (
-    DatasetField,
-    DatasetFields,
-)
-from ..models.igbcadspermission import (
-    IGBCAdsPermissionField,
-    IGBCAdsPermissionFields,
-)
-from ..models.igmedia import (
-    IGMediaField,
-    IGMediaFields,
-)
-from ..models.igshoppingproductappeal import (
-    IGShoppingProductAppealField,
-    IGShoppingProductAppealFields,
-)
+from ..models.adaccount import AdAccountField
+from ..models.brandedcontentshadowigmediaid import BrandedContentShadowIGMediaIDField
+from ..models.brandedcontentshadowiguserid import BrandedContentShadowIGUserIDField
+from ..models.contentpublishinglimitresponse import ContentPublishingLimitResponseField
+from ..models.dataset import DatasetField
+from ..models.igbcadspermission import IGBCAdsPermissionField
+from ..models.igmedia import IGMediaField
+from ..models.igshoppingproductappeal import IGShoppingProductAppealField
 from ..models.iguser import (
     IGUserCreateAuthorizedAdAccountParams,
     IGUserCreateBrandedContentAdPermissionParams,
@@ -53,7 +28,6 @@ from ..models.iguser import (
     IGUserCreateUpcomingEventParams,
     IGUserDeleteBrandedContentTagApprovalParams,
     IGUserField,
-    IGUserFields,
     IGUserGetAuthorizedAdAccountsParams,
     IGUserGetBrandedContentAdvertisableMediasParams,
     IGUserGetBrandedContentTagApprovalParams,
@@ -65,496 +39,313 @@ from ..models.iguser import (
     IGUserGetProductAppealParams,
     IGUserGetWelcomeMessageFlowsParams,
 )
-from ..models.instagraminsightsresult import (
-    InstagramInsightsResultField,
-    InstagramInsightsResultFields,
-)
-from ..models.shadowigusercatalogproductsearch import (
-    ShadowIGUserCatalogProductSearchField,
-    ShadowIGUserCatalogProductSearchFields,
-)
+from ..models.instagraminsightsresult import InstagramInsightsResultField
+from ..models.shadowigusercatalogproductsearch import ShadowIGUserCatalogProductSearchField
 from ..models.shadowiguserctxpartnerappwelcomemessageflow import (
     ShadowIGUserCTXPartnerAppWelcomeMessageFlowField,
-    ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields,
 )
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class IGUserWrappers:
-    """Type-safe wrapper functions for IGUser API methods."""
-
-    @staticmethod
-    def get_authorized_ad_accounts(
-        obj: IGUser,
-        params: Optional[IGUserGetAuthorizedAdAccountsParams] = None,
-        fields: Optional[list[AdAccountField]] = None,
-    ) -> TypedCursor[AdAccountFields]:
-        """
-        Type-safe wrapper for IGUser.get_authorized_ad_accounts().
-
-        Endpoint: GET /authorized_adaccounts
-        Returns: TypedCursor[AdAccountFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_authorized_ad_accounts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountFields)
-
-    @staticmethod
-    def create_authorized_ad_account(
-        obj: IGUser,
-        params: IGUserCreateAuthorizedAdAccountParams,
-    ) -> IGUserFields:
-        """
-        Type-safe wrapper for IGUser.create_authorized_ad_account().
-
-        Endpoint: POST /authorized_adaccounts
-        Returns: IGUserFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_authorized_ad_account(params=params_dict)
-
-        # Convert result to typed model
-        return IGUserFields(**result)
-
-    @staticmethod
-    def create_branded_content_ad_permission(
-        obj: IGUser,
-        params: IGUserCreateBrandedContentAdPermissionParams,
-    ) -> IGBCAdsPermissionFields:
-        """
-        Type-safe wrapper for IGUser.create_branded_content_ad_permission().
-
-        Endpoint: POST /branded_content_ad_permissions
-        Returns: IGBCAdsPermissionFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_branded_content_ad_permission(params=params_dict)
-
-        # Convert result to typed model
-        return IGBCAdsPermissionFields(**result)
-
-    @staticmethod
-    def get_branded_content_advertisable_medias(
-        obj: IGUser,
-        params: Optional[IGUserGetBrandedContentAdvertisableMediasParams] = None,
-        fields: Optional[list[BrandedContentShadowIGMediaIDField]] = None,
-    ) -> TypedCursor[BrandedContentShadowIGMediaIDFields]:
-        """
-        Type-safe wrapper for IGUser.get_branded_content_advertisable_medias().
-
-        Endpoint: GET /branded_content_advertisable_medias
-        Returns: TypedCursor[BrandedContentShadowIGMediaIDFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_branded_content_advertisable_medias(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BrandedContentShadowIGMediaIDFields)
-
-    @staticmethod
-    def delete_branded_content_tag_approval(
-        obj: IGUser,
-        params: Optional[IGUserDeleteBrandedContentTagApprovalParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for IGUser.delete_branded_content_tag_approval().
-
-        Endpoint: DELETE /branded_content_tag_approval
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_branded_content_tag_approval(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_branded_content_tag_approval(
-        obj: IGUser,
-        params: Optional[IGUserGetBrandedContentTagApprovalParams] = None,
-        fields: Optional[list[BrandedContentShadowIGUserIDField]] = None,
-    ) -> TypedCursor[BrandedContentShadowIGUserIDFields]:
-        """
-        Type-safe wrapper for IGUser.get_branded_content_tag_approval().
-
-        Endpoint: GET /branded_content_tag_approval
-        Returns: TypedCursor[BrandedContentShadowIGUserIDFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_branded_content_tag_approval(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BrandedContentShadowIGUserIDFields)
-
-    @staticmethod
-    def create_branded_content_tag_approval(
-        obj: IGUser,
-        params: IGUserCreateBrandedContentTagApprovalParams,
-    ) -> BrandedContentShadowIGUserIDFields:
-        """
-        Type-safe wrapper for IGUser.create_branded_content_tag_approval().
-
-        Endpoint: POST /branded_content_tag_approval
-        Returns: BrandedContentShadowIGUserIDFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_branded_content_tag_approval(params=params_dict)
-
-        # Convert result to typed model
-        return BrandedContentShadowIGUserIDFields(**result)
-
-    @staticmethod
-    def get_catalog_product_search(
-        obj: IGUser,
-        params: Optional[IGUserGetCatalogProductSearchParams] = None,
-        fields: Optional[list[ShadowIGUserCatalogProductSearchField]] = None,
-    ) -> TypedCursor[ShadowIGUserCatalogProductSearchFields]:
-        """
-        Type-safe wrapper for IGUser.get_catalog_product_search().
-
-        Endpoint: GET /catalog_product_search
-        Returns: TypedCursor[ShadowIGUserCatalogProductSearchFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_catalog_product_search(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ShadowIGUserCatalogProductSearchFields)
-
-    @staticmethod
-    def get_content_publishing_limit(
-        obj: IGUser,
-        params: Optional[IGUserGetContentPublishingLimitParams] = None,
-        fields: Optional[list[ContentPublishingLimitResponseField]] = None,
-    ) -> TypedCursor[ContentPublishingLimitResponseFields]:
-        """
-        Type-safe wrapper for IGUser.get_content_publishing_limit().
-
-        Endpoint: GET /content_publishing_limit
-        Returns: TypedCursor[ContentPublishingLimitResponseFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_content_publishing_limit(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ContentPublishingLimitResponseFields)
-
-    @staticmethod
-    def create_dataset(
-        obj: IGUser,
-        params: IGUserCreateDatasetParams,
-    ) -> DatasetFields:
-        """
-        Type-safe wrapper for IGUser.create_dataset().
-
-        Endpoint: POST /dataset
-        Returns: DatasetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_dataset(params=params_dict)
-
-        # Convert result to typed model
-        return DatasetFields(**result)
-
-    @staticmethod
-    def get_insights(
-        obj: IGUser,
-        params: Optional[IGUserGetInsightsParams] = None,
-        fields: Optional[list[InstagramInsightsResultField]] = None,
-    ) -> TypedCursor[InstagramInsightsResultFields]:
-        """
-        Type-safe wrapper for IGUser.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[InstagramInsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InstagramInsightsResultFields)
-
-    @staticmethod
-    def get_live_media(
-        obj: IGUser,
-        params: Optional[IGUserGetLiveMediaParams] = None,
-        fields: Optional[list[IGMediaField]] = None,
-    ) -> TypedCursor[IGMediaFields]:
-        """
-        Type-safe wrapper for IGUser.get_live_media().
-
-        Endpoint: GET /live_media
-        Returns: TypedCursor[IGMediaFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_live_media(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, IGMediaFields)
-
-    @staticmethod
-    def get_media(
-        obj: IGUser,
-        params: Optional[IGUserGetMediaParams] = None,
-        fields: Optional[list[IGMediaField]] = None,
-    ) -> TypedCursor[IGMediaFields]:
-        """
-        Type-safe wrapper for IGUser.get_media().
-
-        Endpoint: GET /media
-        Returns: TypedCursor[IGMediaFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_media(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, IGMediaFields)
-
-    @staticmethod
-    def create_media(
-        obj: IGUser,
-        params: IGUserCreateMediaParams,
-    ) -> IGMediaFields:
-        """
-        Type-safe wrapper for IGUser.create_media().
-
-        Endpoint: POST /media
-        Returns: IGMediaFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_media(params=params_dict)
-
-        # Convert result to typed model
-        return IGMediaFields(**result)
-
-    @staticmethod
-    def create_media_publish(
-        obj: IGUser,
-        params: IGUserCreateMediaPublishParams,
-    ) -> IGMediaFields:
-        """
-        Type-safe wrapper for IGUser.create_media_publish().
-
-        Endpoint: POST /media_publish
-        Returns: IGMediaFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_media_publish(params=params_dict)
-
-        # Convert result to typed model
-        return IGMediaFields(**result)
-
-    @staticmethod
-    def create_mention(
-        obj: IGUser,
-        params: IGUserCreateMentionParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUser.create_mention().
-
-        Endpoint: POST /mentions
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_mention(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_product_appeal(
-        obj: IGUser,
-        params: Optional[IGUserGetProductAppealParams] = None,
-        fields: Optional[list[IGShoppingProductAppealField]] = None,
-    ) -> TypedCursor[IGShoppingProductAppealFields]:
-        """
-        Type-safe wrapper for IGUser.get_product_appeal().
-
-        Endpoint: GET /product_appeal
-        Returns: TypedCursor[IGShoppingProductAppealFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_product_appeal(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, IGShoppingProductAppealFields)
-
-    @staticmethod
-    def create_product_appeal(
-        obj: IGUser,
-        params: IGUserCreateProductAppealParams,
-    ) -> IGShoppingProductAppealFields:
-        """
-        Type-safe wrapper for IGUser.create_product_appeal().
-
-        Endpoint: POST /product_appeal
-        Returns: IGShoppingProductAppealFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product_appeal(params=params_dict)
-
-        # Convert result to typed model
-        return IGShoppingProductAppealFields(**result)
-
-    @staticmethod
-    def create_upcoming_event(
-        obj: IGUser,
-        params: IGUserCreateUpcomingEventParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUser.create_upcoming_event().
-
-        Endpoint: POST /upcoming_events
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_upcoming_event(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_welcome_message_flows(
-        obj: IGUser,
-        params: Optional[IGUserGetWelcomeMessageFlowsParams] = None,
-        fields: Optional[list[ShadowIGUserCTXPartnerAppWelcomeMessageFlowField]] = None,
-    ) -> TypedCursor[ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields]:
-        """
-        Type-safe wrapper for IGUser.get_welcome_message_flows().
-
-        Endpoint: GET /welcome_message_flows
-        Returns: TypedCursor[ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_welcome_message_flows(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields)
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def get_authorized_ad_accounts(
+    iguser_id: str,
+    fields: list[AdAccountField] = [],
+    params: IGUserGetAuthorizedAdAccountsParams = {},
+) -> Any:
+    """Get Authorized Ad Accounts for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_authorized_ad_accounts(fields=fields, params=params)
+
+
+def create_authorized_ad_account(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateAuthorizedAdAccountParams = {},
+) -> Any:
+    """Create Authorized Ad Account for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_authorized_ad_account(fields=fields, params=params)
+
+
+def create_branded_content_ad_permission(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateBrandedContentAdPermissionParams = {},
+) -> Any:
+    """Create Branded Content Ad Permission for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_branded_content_ad_permission(fields=fields, params=params)
+
+
+def get_branded_content_advertisable_medias(
+    iguser_id: str,
+    fields: list[BrandedContentShadowIGMediaIDField] = [],
+    params: IGUserGetBrandedContentAdvertisableMediasParams = {},
+) -> Any:
+    """Get Branded Content Advertisable Medias for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_branded_content_advertisable_medias(fields=fields, params=params)
+
+
+def delete_branded_content_tag_approval(
+    iguser_id: str,
+    params: IGUserDeleteBrandedContentTagApprovalParams = {},
+) -> Any:
+    """Delete Branded Content Tag Approval for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        params: Parameters for the operation.
+    """
+    return IGUser(iguser_id).delete_branded_content_tag_approval(params=params)
+
+
+def get_branded_content_tag_approval(
+    iguser_id: str,
+    fields: list[BrandedContentShadowIGUserIDField] = [],
+    params: IGUserGetBrandedContentTagApprovalParams = {},
+) -> Any:
+    """Get Branded Content Tag Approval for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_branded_content_tag_approval(fields=fields, params=params)
+
+
+def create_branded_content_tag_approval(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateBrandedContentTagApprovalParams = {},
+) -> Any:
+    """Create Branded Content Tag Approval for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_branded_content_tag_approval(fields=fields, params=params)
+
+
+def get_catalog_product_search(
+    iguser_id: str,
+    fields: list[ShadowIGUserCatalogProductSearchField] = [],
+    params: IGUserGetCatalogProductSearchParams = {},
+) -> Any:
+    """Get Catalog Product Search for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_catalog_product_search(fields=fields, params=params)
+
+
+def get_content_publishing_limit(
+    iguser_id: str,
+    fields: list[ContentPublishingLimitResponseField] = [],
+    params: IGUserGetContentPublishingLimitParams = {},
+) -> Any:
+    """Get Content Publishing Limit for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_content_publishing_limit(fields=fields, params=params)
+
+
+def create_dataset(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateDatasetParams = {},
+) -> Any:
+    """Create Dataset for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_dataset(fields=fields, params=params)
+
+
+def get_insights(
+    iguser_id: str,
+    fields: list[InstagramInsightsResultField] = [],
+    params: IGUserGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_insights(fields=fields, params=params)
+
+
+def get_live_media(
+    iguser_id: str,
+    fields: list[IGMediaField] = [],
+    params: IGUserGetLiveMediaParams = {},
+) -> Any:
+    """Get Live Media for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_live_media(fields=fields, params=params)
+
+
+def get_media(
+    iguser_id: str,
+    fields: list[IGMediaField] = [],
+    params: IGUserGetMediaParams = {},
+) -> Any:
+    """Get Media for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_media(fields=fields, params=params)
+
+
+def create_media(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateMediaParams = {},
+) -> Any:
+    """Create Media for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_media(fields=fields, params=params)
+
+
+def create_media_publish(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateMediaPublishParams = {},
+) -> Any:
+    """Create Media Publish for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_media_publish(fields=fields, params=params)
+
+
+def create_mention(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateMentionParams = {},
+) -> Any:
+    """Create Mention for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_mention(fields=fields, params=params)
+
+
+def get_product_appeal(
+    iguser_id: str,
+    fields: list[IGShoppingProductAppealField] = [],
+    params: IGUserGetProductAppealParams = {},
+) -> Any:
+    """Get Product Appeal for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_product_appeal(fields=fields, params=params)
+
+
+def create_product_appeal(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateProductAppealParams = {},
+) -> Any:
+    """Create Product Appeal for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_product_appeal(fields=fields, params=params)
+
+
+def create_upcoming_event(
+    iguser_id: str,
+    fields: list[str] = [],
+    params: IGUserCreateUpcomingEventParams = {},
+) -> Any:
+    """Create Upcoming Event for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).create_upcoming_event(fields=fields, params=params)
+
+
+def get_welcome_message_flows(
+    iguser_id: str,
+    fields: list[ShadowIGUserCTXPartnerAppWelcomeMessageFlowField] = [],
+    params: IGUserGetWelcomeMessageFlowsParams = {},
+) -> Any:
+    """Get Welcome Message Flows for this IGUser.
+
+    Args:
+        iguser_id: The ID of the IGUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUser(iguser_id).get_welcome_message_flows(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

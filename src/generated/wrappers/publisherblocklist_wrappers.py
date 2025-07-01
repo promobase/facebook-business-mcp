@@ -2,80 +2,57 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.publisherblocklist import PublisherBlockList
+from facebook_business.adobjects.publisherblocklist import PublisherBlockList
 
 from ..models.publisherblocklist import (
     PublisherBlockListCreateAppendPublisherUrlParams,
     PublisherBlockListField,
-    PublisherBlockListFields,
     PublisherBlockListGetPagedWebPublishersParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.webpublisher import (
-    WebPublisherField,
-    WebPublisherFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.webpublisher import WebPublisherField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class PublisherBlockListWrappers:
-    """Type-safe wrapper functions for PublisherBlockList API methods."""
+def create_append_publisher_url(
+    publisherblocklist_id: str,
+    fields: list[str] = [],
+    params: PublisherBlockListCreateAppendPublisherUrlParams = {},
+) -> Any:
+    """Create Append Publisher Url for this PublisherBlockList.
 
-    @staticmethod
-    def create_append_publisher_url(
-        obj: PublisherBlockList,
-        params: PublisherBlockListCreateAppendPublisherUrlParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for PublisherBlockList.create_append_publisher_url().
+    Args:
+        publisherblocklist_id: The ID of the PublisherBlockList.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return PublisherBlockList(publisherblocklist_id).create_append_publisher_url(
+        fields=fields, params=params
+    )
 
-        Endpoint: POST /append_publisher_urls
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_append_publisher_url(params=params_dict)
+def get_paged_web_publishers(
+    publisherblocklist_id: str,
+    fields: list[WebPublisherField] = [],
+    params: PublisherBlockListGetPagedWebPublishersParams = {},
+) -> Any:
+    """Get Paged Web Publishers for this PublisherBlockList.
 
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_paged_web_publishers(
-        obj: PublisherBlockList,
-        params: Optional[PublisherBlockListGetPagedWebPublishersParams] = None,
-        fields: Optional[list[WebPublisherField]] = None,
-    ) -> TypedCursor[WebPublisherFields]:
-        """
-        Type-safe wrapper for PublisherBlockList.get_paged_web_publishers().
-
-        Endpoint: GET /paged_web_publishers
-        Returns: TypedCursor[WebPublisherFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_paged_web_publishers(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, WebPublisherFields)
+    Args:
+        publisherblocklist_id: The ID of the PublisherBlockList.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return PublisherBlockList(publisherblocklist_id).get_paged_web_publishers(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

@@ -2,52 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.productgroup import ProductGroup
+from facebook_business.adobjects.productgroup import ProductGroup
 
 from ..models.productgroup import (
     ProductGroupCreateProductParams,
     ProductGroupField,
-    ProductGroupFields,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.productitem import (
-    ProductItemField,
-    ProductItemFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.productitem import ProductItemField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class ProductGroupWrappers:
-    """Type-safe wrapper functions for ProductGroup API methods."""
+def create_product(
+    productgroup_id: str,
+    fields: list[str] = [],
+    params: ProductGroupCreateProductParams = {},
+) -> Any:
+    """Create Product for this ProductGroup.
 
-    @staticmethod
-    def create_product(
-        obj: ProductGroup,
-        params: ProductGroupCreateProductParams,
-    ) -> ProductItemFields:
-        """
-        Type-safe wrapper for ProductGroup.create_product().
-
-        Endpoint: POST /products
-        Returns: ProductItemFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product(params=params_dict)
-
-        # Convert result to typed model
-        return ProductItemFields(**result)
+    Args:
+        productgroup_id: The ID of the ProductGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ProductGroup(productgroup_id).create_product(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

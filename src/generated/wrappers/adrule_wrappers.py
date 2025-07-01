@@ -2,59 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.adrule import AdRule
+from facebook_business.adobjects.adrule import AdRule
 
 from ..models.adrule import (
     AdRuleField,
-    AdRuleFields,
     AdRuleGetHistoryParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adrulehistory import (
-    AdRuleHistoryField,
-    AdRuleHistoryFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.adrulehistory import AdRuleHistoryField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdRuleWrappers:
-    """Type-safe wrapper functions for AdRule API methods."""
+def get_history(
+    adrule_id: str,
+    fields: list[AdRuleHistoryField] = [],
+    params: AdRuleGetHistoryParams = {},
+) -> Any:
+    """Get History for this AdRule.
 
-    @staticmethod
-    def get_history(
-        obj: AdRule,
-        params: Optional[AdRuleGetHistoryParams] = None,
-        fields: Optional[list[AdRuleHistoryField]] = None,
-    ) -> TypedCursor[AdRuleHistoryFields]:
-        """
-        Type-safe wrapper for AdRule.get_history().
-
-        Endpoint: GET /history
-        Returns: TypedCursor[AdRuleHistoryFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_history(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdRuleHistoryFields)
+    Args:
+        adrule_id: The ID of the AdRule.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdRule(adrule_id).get_history(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

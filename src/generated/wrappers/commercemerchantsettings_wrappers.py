@@ -2,16 +2,14 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.commercemerchantsettings import CommerceMerchantSettings
+from facebook_business.adobjects.commercemerchantsettings import CommerceMerchantSettings
 
 from ..models.commercemerchantsettings import (
     CommerceMerchantSettingsCreateAcknowledgeOrderParams,
     CommerceMerchantSettingsCreateShippingProfileParams,
     CommerceMerchantSettingsField,
-    CommerceMerchantSettingsFields,
     CommerceMerchantSettingsGetCommerceOrdersParams,
     CommerceMerchantSettingsGetCommercePayoutsParams,
     CommerceMerchantSettingsGetCommerceTransactionsParams,
@@ -21,202 +19,132 @@ from ..models.commercemerchantsettings import (
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.commerceorder import (
-    CommerceOrderField,
-    CommerceOrderFields,
-)
-from ..models.commerceordertransactiondetail import (
-    CommerceOrderTransactionDetailField,
-    CommerceOrderTransactionDetailFields,
-)
-from ..models.commercepayout import (
-    CommercePayoutField,
-    CommercePayoutFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.commerceorder import CommerceOrderField
+from ..models.commerceordertransactiondetail import CommerceOrderTransactionDetailField
+from ..models.commercepayout import CommercePayoutField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class CommerceMerchantSettingsWrappers:
-    """Type-safe wrapper functions for CommerceMerchantSettings API methods."""
+def create_acknowledge_order(
+    commercemerchantsettings_id: str,
+    fields: list[str] = [],
+    params: CommerceMerchantSettingsCreateAcknowledgeOrderParams = {},
+) -> Any:
+    """Create Acknowledge Order for this CommerceMerchantSettings.
 
-    @staticmethod
-    def create_acknowledge_order(
-        obj: CommerceMerchantSettings,
-        params: CommerceMerchantSettingsCreateAcknowledgeOrderParams,
-    ) -> CommerceMerchantSettingsFields:
-        """
-        Type-safe wrapper for CommerceMerchantSettings.create_acknowledge_order().
+    Args:
+        commercemerchantsettings_id: The ID of the CommerceMerchantSettings.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceMerchantSettings(commercemerchantsettings_id).create_acknowledge_order(
+        fields=fields, params=params
+    )
 
-        Endpoint: POST /acknowledge_orders
-        Returns: CommerceMerchantSettingsFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_acknowledge_order(params=params_dict)
+def get_commerce_orders(
+    commercemerchantsettings_id: str,
+    fields: list[CommerceOrderField] = [],
+    params: CommerceMerchantSettingsGetCommerceOrdersParams = {},
+) -> Any:
+    """Get Commerce Orders for this CommerceMerchantSettings.
 
-        # Convert result to typed model
-        return CommerceMerchantSettingsFields(**result)
+    Args:
+        commercemerchantsettings_id: The ID of the CommerceMerchantSettings.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceMerchantSettings(commercemerchantsettings_id).get_commerce_orders(
+        fields=fields, params=params
+    )
 
-    @staticmethod
-    def get_commerce_orders(
-        obj: CommerceMerchantSettings,
-        params: Optional[CommerceMerchantSettingsGetCommerceOrdersParams] = None,
-        fields: Optional[list[CommerceOrderField]] = None,
-    ) -> TypedCursor[CommerceOrderFields]:
-        """
-        Type-safe wrapper for CommerceMerchantSettings.get_commerce_orders().
 
-        Endpoint: GET /commerce_orders
-        Returns: TypedCursor[CommerceOrderFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_commerce_payouts(
+    commercemerchantsettings_id: str,
+    fields: list[CommercePayoutField] = [],
+    params: CommerceMerchantSettingsGetCommercePayoutsParams = {},
+) -> Any:
+    """Get Commerce Payouts for this CommerceMerchantSettings.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        commercemerchantsettings_id: The ID of the CommerceMerchantSettings.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceMerchantSettings(commercemerchantsettings_id).get_commerce_payouts(
+        fields=fields, params=params
+    )
 
-        # Call the original method
-        cursor = obj.get_commerce_orders(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommerceOrderFields)
+def get_commerce_transactions(
+    commercemerchantsettings_id: str,
+    fields: list[CommerceOrderTransactionDetailField] = [],
+    params: CommerceMerchantSettingsGetCommerceTransactionsParams = {},
+) -> Any:
+    """Get Commerce Transactions for this CommerceMerchantSettings.
 
-    @staticmethod
-    def get_commerce_payouts(
-        obj: CommerceMerchantSettings,
-        params: Optional[CommerceMerchantSettingsGetCommercePayoutsParams] = None,
-        fields: Optional[list[CommercePayoutField]] = None,
-    ) -> TypedCursor[CommercePayoutFields]:
-        """
-        Type-safe wrapper for CommerceMerchantSettings.get_commerce_payouts().
+    Args:
+        commercemerchantsettings_id: The ID of the CommerceMerchantSettings.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceMerchantSettings(commercemerchantsettings_id).get_commerce_transactions(
+        fields=fields, params=params
+    )
 
-        Endpoint: GET /commerce_payouts
-        Returns: TypedCursor[CommercePayoutFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_returns(
+    commercemerchantsettings_id: str,
+    fields: list[str] = [],
+    params: CommerceMerchantSettingsGetReturnsParams = {},
+) -> Any:
+    """Get Returns for this CommerceMerchantSettings.
 
-        # Call the original method
-        cursor = obj.get_commerce_payouts(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        commercemerchantsettings_id: The ID of the CommerceMerchantSettings.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceMerchantSettings(commercemerchantsettings_id).get_returns(
+        fields=fields, params=params
+    )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommercePayoutFields)
 
-    @staticmethod
-    def get_commerce_transactions(
-        obj: CommerceMerchantSettings,
-        params: Optional[CommerceMerchantSettingsGetCommerceTransactionsParams] = None,
-        fields: Optional[list[CommerceOrderTransactionDetailField]] = None,
-    ) -> TypedCursor[CommerceOrderTransactionDetailFields]:
-        """
-        Type-safe wrapper for CommerceMerchantSettings.get_commerce_transactions().
+def get_shipping_profiles(
+    commercemerchantsettings_id: str,
+    fields: list[str] = [],
+    params: CommerceMerchantSettingsGetShippingProfilesParams = {},
+) -> Any:
+    """Get Shipping Profiles for this CommerceMerchantSettings.
 
-        Endpoint: GET /commerce_transactions
-        Returns: TypedCursor[CommerceOrderTransactionDetailFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        commercemerchantsettings_id: The ID of the CommerceMerchantSettings.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceMerchantSettings(commercemerchantsettings_id).get_shipping_profiles(
+        fields=fields, params=params
+    )
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_commerce_transactions(
-            params=params_dict,
-            fields=fields_list,
-        )
+def create_shipping_profile(
+    commercemerchantsettings_id: str,
+    fields: list[str] = [],
+    params: CommerceMerchantSettingsCreateShippingProfileParams = {},
+) -> Any:
+    """Create Shipping Profile for this CommerceMerchantSettings.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommerceOrderTransactionDetailFields)
-
-    @staticmethod
-    def get_returns(
-        obj: CommerceMerchantSettings,
-        params: Optional[CommerceMerchantSettingsGetReturnsParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for CommerceMerchantSettings.get_returns().
-
-        Endpoint: GET /returns
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_returns(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_shipping_profiles(
-        obj: CommerceMerchantSettings,
-        params: Optional[CommerceMerchantSettingsGetShippingProfilesParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for CommerceMerchantSettings.get_shipping_profiles().
-
-        Endpoint: GET /shipping_profiles
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_shipping_profiles(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_shipping_profile(
-        obj: CommerceMerchantSettings,
-        params: CommerceMerchantSettingsCreateShippingProfileParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for CommerceMerchantSettings.create_shipping_profile().
-
-        Endpoint: POST /shipping_profiles
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_shipping_profile(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
+    Args:
+        commercemerchantsettings_id: The ID of the CommerceMerchantSettings.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CommerceMerchantSettings(commercemerchantsettings_id).create_shipping_profile(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

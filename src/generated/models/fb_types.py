@@ -16,6 +16,7 @@ from .ad import (
     AdGetInsightsAsyncParams,
     AdGetInsightsParams,
     AdGetPreviewsParams,
+    AdUpdateParams,
 )
 from .adaccount import (
     AdAccountCreateAccountControlParams,
@@ -100,6 +101,7 @@ from .adaccount import (
     AdAccountGetTargetingValidATIOnParams,
     AdAccountGetValueRuleSetParams,
     AdAccountGetVideoAdsParams,
+    AdAccountUpdateParams,
 )
 from .adaccountaaacompatibleadobjects import (
     AdaccountaaacompatibleadobjectsField,
@@ -291,6 +293,7 @@ from .adasyncrequestset import (
     AdasyncrequestsetField,
     AdasyncrequestsetFields,
     AdAsyncRequestSetGetRequestsParams,
+    AdAsyncRequestSetUpdateParams,
 )
 from .adasyncrequestsetnotificationresult import (
     AdasyncrequestsetnotificationresultField,
@@ -362,6 +365,7 @@ from .adcreative import (
     AdcreativeField,
     AdcreativeFields,
     AdCreativeGetPreviewsParams,
+    AdCreativeUpdateParams,
 )
 from .adcreativeaddisclaimer import AdcreativeaddisclaimerField, AdcreativeaddisclaimerFields
 from .adcreativeassetgroupsspec import (
@@ -557,7 +561,7 @@ from .adjacentcontentdeliveryreport import (
 from .adkeywords import AdkeywordsField, AdkeywordsFields
 from .adkeywordstats import AdkeywordstatsField, AdkeywordstatsFields
 from .adkpishift import AdkpishiftField, AdkpishiftFields
-from .adlabel import AdlabelField, AdlabelFields
+from .adlabel import AdlabelField, AdlabelFields, AdLabelUpdateParams
 from .adlightadgroup import AdlightadgroupField, AdlightadgroupFields
 from .adlightcampaign import AdlightcampaignField, AdlightcampaignFields
 from .adlightcampaigngroup import AdlightcampaigngroupField, AdlightcampaigngroupFields
@@ -591,7 +595,7 @@ from .adproposal import AdproposalField, AdproposalFields
 from .adrecommendation import AdrecommendationField, AdrecommendationFields
 from .adrecommendationdata import AdrecommendationdataField, AdrecommendationdataFields
 from .adreportrun import AdreportrunField, AdreportrunFields
-from .adrule import AdruleField, AdruleFields, AdRuleGetHistoryParams
+from .adrule import AdruleField, AdruleFields, AdRuleGetHistoryParams, AdRuleUpdateParams
 from .adruleevaluationspec import AdruleevaluationspecField, AdruleevaluationspecFields
 from .adruleexecutionoptions import AdruleexecutionoptionsField, AdruleexecutionoptionsFields
 from .adruleexecutionspec import AdruleexecutionspecField, AdruleexecutionspecFields
@@ -631,6 +635,7 @@ from .adset import (
     AdSetGetInsightsAsyncParams,
     AdSetGetInsightsParams,
     AdSetGetMessageDeliveryEstimateParams,
+    AdSetUpdateParams,
 )
 from .adsguidanceqeexposure import AdsguidanceqeexposureField, AdsguidanceqeexposureFields
 from .adshistogramstats import AdshistogramstatsField, AdshistogramstatsFields
@@ -660,6 +665,7 @@ from .adspixel import (
     AdsPixelGetOfflineEventUploadsParams,
     AdsPixelGetSharedAccountsParams,
     AdsPixelGetStatsParams,
+    AdsPixelUpdateParams,
 )
 from .adspixelcapabilityoverride import (
     AdspixelcapabilityoverrideField,
@@ -737,9 +743,14 @@ from .adstudy import (
     AdStudyCreateInstanceParams,
     AdstudyField,
     AdstudyFields,
+    AdStudyUpdateParams,
 )
-from .adstudycell import AdstudycellField, AdstudycellFields
-from .adstudyobjective import AdstudyobjectiveField, AdstudyobjectiveFields
+from .adstudycell import AdstudycellField, AdstudycellFields, AdStudyCellUpdateParams
+from .adstudyobjective import (
+    AdstudyobjectiveField,
+    AdstudyobjectiveFields,
+    AdStudyObjectiveUpdateParams,
+)
 from .adstudyobjectiveid import AdstudyobjectiveidField, AdstudyobjectiveidFields
 from .adstudyobjectiveoffsitedatasets import (
     AdstudyobjectiveoffsitedatasetsField,
@@ -749,6 +760,7 @@ from .adsusersettings import AdsusersettingsField, AdsusersettingsFields
 from .adsvalueadjustmentrulecollection import (
     AdsvalueadjustmentrulecollectionField,
     AdsvalueadjustmentrulecollectionFields,
+    AdsValueAdjustmentRuleCollectionUpdateParams,
 )
 from .adtopline import AdtoplineField, AdtoplineFields
 from .adtoplinedetail import AdtoplinedetailField, AdtoplinedetailFields
@@ -769,6 +781,7 @@ from .advideo import (
     AdvideoFields,
     AdVideoGetCommentsParams,
     AdVideoGetVideoInsightsParams,
+    AdVideoUpdateParams,
 )
 from .advolume import AdvolumeField, AdvolumeFields
 from .agencyclientdeclaration import AgencyclientdeclarationField, AgencyclientdeclarationFields
@@ -851,6 +864,7 @@ from .application import (
     ApplicationGetSgwDatasetStatusParams,
     ApplicationGetSgwInstallDeferralLinkParams,
     ApplicationGetWhatsAppBusinessSolutionsParams,
+    ApplicationUpdateParams,
 )
 from .applinks import ApplinksField, ApplinksFields
 from .appoptimizedcustomevents import AppoptimizedcustomeventsField, AppoptimizedcustomeventsFields
@@ -1001,6 +1015,7 @@ from .business import (
     BusinessGetPreVerifiedNumbersParams,
     BusinessGetReceivedAudienceSharingRequestsParams,
     BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams,
+    BusinessUpdateParams,
 )
 from .businessadaccountrequest import BusinessadaccountrequestField, BusinessadaccountrequestFields
 from .businessadsreportingreportspecs import (
@@ -1011,7 +1026,11 @@ from .businessadvertisableapplicationsresult import (
     BusinessadvertisableapplicationsresultField,
     BusinessadvertisableapplicationsresultFields,
 )
-from .businessagreement import BusinessagreementField, BusinessagreementFields
+from .businessagreement import (
+    BusinessagreementField,
+    BusinessagreementFields,
+    BusinessAgreementUpdateParams,
+)
 from .businessapplicationrequest import (
     BusinessapplicationrequestField,
     BusinessapplicationrequestFields,
@@ -1036,10 +1055,12 @@ from .businessassetgroup import (
     BusinessassetgroupField,
     BusinessassetgroupFields,
     BusinessAssetGroupGetAssignedUsersParams,
+    BusinessAssetGroupUpdateParams,
 )
 from .businessassetsharingagreement import (
     BusinessassetsharingagreementField,
     BusinessassetsharingagreementFields,
+    BusinessAssetSharingAgreementUpdateParams,
 )
 from .businesscreative import BusinesscreativeField, BusinesscreativeFields
 from .businesscreativefolder import BusinesscreativefolderField, BusinesscreativefolderFields
@@ -1078,7 +1099,11 @@ from .businessproductcatalogtos import (
 )
 from .businessproject import BusinessprojectField, BusinessprojectFields
 from .businessrequest import BusinessrequestField, BusinessrequestFields
-from .businessrolerequest import BusinessrolerequestField, BusinessrolerequestFields
+from .businessrolerequest import (
+    BusinessrolerequestField,
+    BusinessrolerequestFields,
+    BusinessRoleRequestUpdateParams,
+)
 from .businesssettinglogsdata import BusinesssettinglogsdataField, BusinesssettinglogsdataFields
 from .businesstag import BusinesstagField, BusinesstagFields
 from .businesstrafficanalysisreport import (
@@ -1090,6 +1115,7 @@ from .businessuser import (
     BusinessuserFields,
     BusinessUserGetAssignedBusinessAssetGroupsParams,
     BusinessUserGetAssignedPagesParams,
+    BusinessUserUpdateParams,
 )
 from .businessvideo import BusinessvideoField, BusinessvideoFields
 from .businessvideotbusinessfolderpathitem import (
@@ -1110,12 +1136,13 @@ from .campaign import (
     CampaignGetCopiesParams,
     CampaignGetInsightsAsyncParams,
     CampaignGetInsightsParams,
+    CampaignUpdateParams,
 )
 from .campaigngroupbrandconfiguration import (
     CampaigngroupbrandconfigurationField,
     CampaigngroupbrandconfigurationFields,
 )
-from .canvas import CanvasField, CanvasFields, CanvasGetPreViewsParams
+from .canvas import CanvasField, CanvasFields, CanvasGetPreViewsParams, CanvasUpdateParams
 from .canvasadsettings import CanvasadsettingsField, CanvasadsettingsFields
 from .canvasbodyelement import CanvasbodyelementField, CanvasbodyelementFields
 from .canvascollectionthumbnail import (
@@ -1183,6 +1210,7 @@ from .comment import (
     CommentFields,
     CommentGetCommentsParams,
     CommentGetReactionsParams,
+    CommentUpdateParams,
 )
 from .commercemerchantsettings import (
     CommerceMerchantSettingsCreateAcknowledgeOrderParams,
@@ -1253,7 +1281,11 @@ from .cpasadvertiserpartnershiprecommendation import (
 )
 from .cpasbusinesssetupconfig import CpasbusinesssetupconfigField, CpasbusinesssetupconfigFields
 from .cpascollaborationrequest import CpascollaborationrequestField, CpascollaborationrequestFields
-from .cpaslsbimagebank import CpaslsbimagebankField, CpaslsbimagebankFields
+from .cpaslsbimagebank import (
+    CpaslsbimagebankField,
+    CpaslsbimagebankFields,
+    CPASLsbImageBankUpdateParams,
+)
 from .cpasmerchantconfig import CpasmerchantconfigField, CpasmerchantconfigFields
 from .cpasparentcatalogsettings import (
     CpasparentcatalogsettingsField,
@@ -1305,6 +1337,7 @@ from .customaudience import (
     CustomAudienceGetHealthParams,
     CustomAudienceGetSaltsParams,
     CustomAudienceGetSessionsParams,
+    CustomAudienceUpdateParams,
 )
 from .customaudienceadaccount import CustomaudienceadaccountField, CustomaudienceadaccountFields
 from .customaudiencecapabilities import (
@@ -1338,6 +1371,7 @@ from .customconversion import (
     CustomconversionField,
     CustomconversionFields,
     CustomConversionGetStatsParams,
+    CustomConversionUpdateParams,
 )
 from .customconversionactivities import (
     CustomconversionactivitiesField,
@@ -1384,6 +1418,7 @@ from .eventsourcegroup import (
     EventSourceGroupCreateSharedAccountParams,
     EventsourcegroupField,
     EventsourcegroupFields,
+    EventSourceGroupUpdateParams,
 )
 from .eventticketsetting import EventticketsettingField, EventticketsettingFields
 from .eventtickettier import EventtickettierField, EventtickettierFields
@@ -1402,6 +1437,7 @@ from .extendedcredit import (
 from .extendedcreditallocationconfig import (
     ExtendedcreditallocationconfigField,
     ExtendedcreditallocationconfigFields,
+    ExtendedCreditAllocationConfigUpdateParams,
 )
 from .extendedcreditapplication import (
     ExtendedcreditapplicationField,
@@ -1414,6 +1450,7 @@ from .extendedcreditinvoicegroup import (
     ExtendedCreditInvoiceGroupDeleteAdAccountsParams,
     ExtendedcreditinvoicegroupField,
     ExtendedcreditinvoicegroupFields,
+    ExtendedCreditInvoiceGroupUpdateParams,
 )
 from .externaleventsource import ExternaleventsourceField, ExternaleventsourceFields
 from .externaleventsourcecpaseventsdebugging import (
@@ -1436,7 +1473,7 @@ from .fbpageandinstagramaccount import (
 )
 from .financeobject import FinanceobjectField, FinanceobjectFields
 from .flexibletargeting import FlexibletargetingField, FlexibletargetingFields
-from .flight import FlightField, FlightFields, FlightGetOverrideDetailsParams
+from .flight import FlightField, FlightFields, FlightGetOverrideDetailsParams, FlightUpdateParams
 from .franchiseprogram import FranchiseprogramField, FranchiseprogramFields
 from .franchiseprogrammember import FranchiseprogrammemberField, FranchiseprogrammemberFields
 from .fundingsourcedetails import FundingsourcedetailsField, FundingsourcedetailsFields
@@ -1452,6 +1489,7 @@ from .fundraiserpersontocharity import (
     FundraiserPersonToCharityCreateExternalDonationParams,
     FundraiserpersontocharityField,
     FundraiserpersontocharityFields,
+    FundraiserPersonToCharityUpdateParams,
 )
 from .geogatingpolicy import GeogatingpolicyField, GeogatingpolicyFields
 from .group import (
@@ -1470,15 +1508,25 @@ from .group import (
     GroupGetLiveVideosParams,
     GroupGetPictureParams,
     GroupGetVideosParams,
+    GroupUpdateParams,
 )
 from .hasleadaccess import HasleadaccessField, HasleadaccessFields
-from .highdemandperiod import HighdemandperiodField, HighdemandperiodFields
+from .highdemandperiod import (
+    HighdemandperiodField,
+    HighdemandperiodFields,
+    HighDemandPeriodUpdateParams,
+)
 from .highdemandperiodtimesuggestionweeklysegment import (
     HighdemandperiodtimesuggestionweeklysegmentField,
     HighdemandperiodtimesuggestionweeklysegmentFields,
 )
-from .homelisting import HomelistingField, HomelistingFields, HomeListingGetOverrideDetailsParams
-from .hotel import HotelField, HotelFields, HotelGetOverrideDetailsParams
+from .homelisting import (
+    HomelistingField,
+    HomelistingFields,
+    HomeListingGetOverrideDetailsParams,
+    HomeListingUpdateParams,
+)
+from .hotel import HotelField, HotelFields, HotelGetOverrideDetailsParams, HotelUpdateParams
 from .hotelroom import HotelroomField, HotelroomFields
 from .hours import HoursField, HoursFields
 from .idname import IdnameField, IdnameFields
@@ -1488,7 +1536,12 @@ from .igaccesstokenforigonlyapi import (
 )
 from .igbcadspermission import IgbcadspermissionField, IgbcadspermissionFields
 from .igboostmediaad import IgboostmediaadField, IgboostmediaadFields
-from .igcomment import IGCommentCreateReplyParams, IgcommentField, IgcommentFields
+from .igcomment import (
+    IGCommentCreateReplyParams,
+    IgcommentField,
+    IgcommentFields,
+    IGCommentUpdateParams,
+)
 from .igcommentfromuser import IgcommentfromuserField, IgcommentfromuserFields
 from .igmedia import (
     IGMediaCreateBrandedContentPartnerPromoteParams,
@@ -1497,6 +1550,7 @@ from .igmedia import (
     IgmediaField,
     IgmediaFields,
     IGMediaGetInsightsParams,
+    IGMediaUpdateParams,
 )
 from .igmediaboosteligibilityinfo import (
     IgmediaboosteligibilityinfoField,
@@ -1507,6 +1561,7 @@ from .igmediaforigonlyapi import (
     IgmediaforigonlyapiField,
     IgmediaforigonlyapiFields,
     IGMediaForIGOnlyAPIGetInsightsParams,
+    IGMediaForIGOnlyAPIUpdateParams,
 )
 from .igproducttagginginvalidationerror import (
     IgproducttagginginvalidationerrorField,
@@ -1530,7 +1585,11 @@ from .igshoppingreviewstatusreasonwithhelpmessage import (
     IgshoppingreviewstatusreasonwithhelpmessageField,
     IgshoppingreviewstatusreasonwithhelpmessageFields,
 )
-from .igupcomingevent import IgupcomingeventField, IgupcomingeventFields
+from .igupcomingevent import (
+    IgupcomingeventField,
+    IgupcomingeventFields,
+    IGUpcomingEventUpdateParams,
+)
 from .iguser import (
     IGUserCreateAuthorizedAdAccountParams,
     IGUserCreateBrandedContentAdPermissionParams,
@@ -1590,7 +1649,7 @@ from .igvideocopyrightcheckstatus import (
     IgvideocopyrightcheckstatusField,
     IgvideocopyrightcheckstatusFields,
 )
-from .imagecopyright import ImagecopyrightField, ImagecopyrightFields
+from .imagecopyright import ImagecopyrightField, ImagecopyrightFields, ImageCopyrightUpdateParams
 from .imagecopyrightdispute import ImagecopyrightdisputeField, ImagecopyrightdisputeFields
 from .imagereferencematch import ImagereferencematchField, ImagereferencematchFields
 from .insightsresult import InsightsresultField, InsightsresultFields
@@ -1657,7 +1716,12 @@ from .leadgendirectcrmintegrationconfig import (
     LeadgendirectcrmintegrationconfigFields,
 )
 from .leadgendraftquestion import LeadgendraftquestionField, LeadgendraftquestionFields
-from .leadgenform import LeadgenFormCreateTestLeadParams, LeadgenformField, LeadgenformFields
+from .leadgenform import (
+    LeadgenFormCreateTestLeadParams,
+    LeadgenformField,
+    LeadgenformFields,
+    LeadgenFormUpdateParams,
+)
 from .leadgenformpreviewdetails import (
     LeadgenformpreviewdetailsField,
     LeadgenformpreviewdetailsFields,
@@ -1697,6 +1761,7 @@ from .livevideo import (
     LiveVideoGetBlockedUsersParams,
     LiveVideoGetCommentsParams,
     LiveVideoGetReactionsParams,
+    LiveVideoUpdateParams,
 )
 from .livevideoadbreakconfig import LivevideoadbreakconfigField, LivevideoadbreakconfigFields
 from .livevideoadcampaignconfig import (
@@ -1741,8 +1806,17 @@ from .mediacopyrightupdaterecord import (
     MediacopyrightupdaterecordField,
     MediacopyrightupdaterecordFields,
 )
-from .mediafingerprint import MediafingerprintField, MediafingerprintFields
-from .mediatitle import MediatitleField, MediatitleFields, MediaTitleGetOverrideDetailsParams
+from .mediafingerprint import (
+    MediafingerprintField,
+    MediafingerprintFields,
+    MediaFingerprintUpdateParams,
+)
+from .mediatitle import (
+    MediatitleField,
+    MediatitleFields,
+    MediaTitleGetOverrideDetailsParams,
+    MediaTitleUpdateParams,
+)
 from .merchantcompliance import MerchantcomplianceField, MerchantcomplianceFields
 from .messagedeliveryestimate import MessagedeliveryestimateField, MessagedeliveryestimateFields
 from .messagingappsinfo import MessagingappsinfoField, MessagingappsinfoFields
@@ -1755,6 +1829,7 @@ from .messengeradspartialautomatedsteplist import (
 from .messengerbusinesstemplate import (
     MessengerbusinesstemplateField,
     MessengerbusinesstemplateFields,
+    MessengerBusinessTemplateUpdateParams,
 )
 from .messengercallsettings import MessengercallsettingsField, MessengercallsettingsFields
 from .messengerdestinationpagewelcomemessage import (
@@ -1809,7 +1884,11 @@ from .offsitesignalcontainerbusinessobject import (
     OffsitesignalcontainerbusinessobjectFields,
 )
 from .omegacustomertrx import OmegacustomertrxField, OmegacustomertrxFields
-from .openbridgeconfiguration import OpenbridgeconfigurationField, OpenbridgeconfigurationFields
+from .openbridgeconfiguration import (
+    OpenbridgeconfigurationField,
+    OpenbridgeconfigurationFields,
+    OpenBridgeConfigurationUpdateParams,
+)
 from .opengraphcontext import OpengraphcontextField, OpengraphcontextFields
 from .orderidattributions import OrderidattributionsField, OrderidattributionsFields
 from .organization import OrganizationField, OrganizationFields
@@ -1908,6 +1987,7 @@ from .page import (
     PageGetVideosParams,
     PageGetVisitorPostsParams,
     PageGetWelcomeMessageFlowsParams,
+    PageUpdateParams,
 )
 from .pageaboutstorycomposedblock import (
     PageaboutstorycomposedblockField,
@@ -1923,7 +2003,11 @@ from .pageaboutstorycomposedblockinlinestyle import (
 )
 from .pageappwithleadsaccess import PageappwithleadsaccessField, PageappwithleadsaccessFields
 from .pagebroadcast import PagebroadcastField, PagebroadcastFields
-from .pagecalltoaction import PagecalltoactionField, PagecalltoactionFields
+from .pagecalltoaction import (
+    PagecalltoactionField,
+    PagecalltoactionFields,
+    PageCallToActionUpdateParams,
+)
 from .pagecategory import PagecategoryField, PagecategoryFields
 from .pagechangeproposal import PagechangeproposalField, PagechangeproposalFields
 from .pagecrmswithleadsaccess import PagecrmswithleadsaccessField, PagecrmswithleadsaccessFields
@@ -1974,6 +2058,7 @@ from .pagepost import (
     PagePostGetCommentsParams,
     PagePostGetInsightsParams,
     PagePostGetReactionsParams,
+    PagePostUpdateParams,
 )
 from .pagepostexperiment import PagepostexperimentField, PagepostexperimentFields
 from .pagepublisher import PagepublisherField, PagepublisherFields
@@ -2040,12 +2125,17 @@ from .post import (
     PostGetCommentsParams,
     PostGetInsightsParams,
     PostGetReactionsParams,
+    PostUpdateParams,
 )
 from .preapprovalreview import PreapprovalreviewField, PreapprovalreviewFields
 from .premiummusicvideo import PremiummusicvideoField, PremiummusicvideoFields
 from .privacy import PrivacyField, PrivacyFields
 from .privacyoption import PrivacyoptionField, PrivacyoptionFields
-from .privateliftstudyinstance import PrivateliftstudyinstanceField, PrivateliftstudyinstanceFields
+from .privateliftstudyinstance import (
+    PrivateliftstudyinstanceField,
+    PrivateliftstudyinstanceFields,
+    PrivateLiftStudyInstanceUpdateParams,
+)
 from .productcatalog import (
     ProductCatalogCreateAgencyParams,
     ProductCatalogCreateAssignedUserParams,
@@ -2095,6 +2185,7 @@ from .productcatalog import (
     ProductCatalogGetProductsParams,
     ProductCatalogGetVehicleOffersParams,
     ProductCatalogGetVehiclesParams,
+    ProductCatalogUpdateParams,
 )
 from .productcatalogcategory import ProductcatalogcategoryField, ProductcatalogcategoryFields
 from .productcatalogcheckmarketplacepartnersellersstatus import (
@@ -2165,8 +2256,13 @@ from .productfeed import (
     ProductFeedGetProductsParams,
     ProductFeedGetVehicleOffersParams,
     ProductFeedGetVehiclesParams,
+    ProductFeedUpdateParams,
 )
-from .productfeedrule import ProductfeedruleField, ProductfeedruleFields
+from .productfeedrule import (
+    ProductfeedruleField,
+    ProductfeedruleFields,
+    ProductFeedRuleUpdateParams,
+)
 from .productfeedrulepreviewsample import (
     ProductfeedrulepreviewsampleField,
     ProductfeedrulepreviewsampleFields,
@@ -2194,9 +2290,19 @@ from .productfeeduploadprogress import (
     ProductfeeduploadprogressField,
     ProductfeeduploadprogressFields,
 )
-from .productgroup import ProductGroupCreateProductParams, ProductgroupField, ProductgroupFields
+from .productgroup import (
+    ProductGroupCreateProductParams,
+    ProductgroupField,
+    ProductgroupFields,
+    ProductGroupUpdateParams,
+)
 from .productimage import ProductimageField, ProductimageFields
-from .productitem import ProductitemField, ProductitemFields, ProductItemGetOverrideDetailsParams
+from .productitem import (
+    ProductitemField,
+    ProductitemFields,
+    ProductItemGetOverrideDetailsParams,
+    ProductItemUpdateParams,
+)
 from .productitemcommerceinsights import (
     ProductitemcommerceinsightsField,
     ProductitemcommerceinsightsFields,
@@ -2235,6 +2341,7 @@ from .productset import (
     ProductSetGetProductsParams,
     ProductSetGetVehicleOffersParams,
     ProductSetGetVehiclesParams,
+    ProductSetUpdateParams,
 )
 from .productsetmetadata import ProductsetmetadataField, ProductsetmetadataFields
 from .productsettaxoncategory import ProductsettaxoncategoryField, ProductsettaxoncategoryFields
@@ -2248,6 +2355,7 @@ from .publisherblocklist import (
     PublisherblocklistField,
     PublisherblocklistFields,
     PublisherBlockListGetPagedWebPublishersParams,
+    PublisherBlockListUpdateParams,
 )
 from .publisherdeliveryreport import PublisherdeliveryreportField, PublisherdeliveryreportFields
 from .publisherwhitelist import PublisherwhitelistField, PublisherwhitelistFields
@@ -2456,7 +2564,7 @@ from .transactableitem import (
 from .transaction import TransactionField, TransactionFields
 from .unifiedthread import UnifiedthreadField, UnifiedthreadFields, UnifiedThreadGetMessagesParams
 from .uniqueadcreative import UniqueadcreativeField, UniqueadcreativeFields
-from .url import UrlField, UrlFields
+from .url import UrlField, UrlFields, URLUpdateParams
 from .user import (
     UserCreateAccessTokenParams,
     UserCreateAccountParams,
@@ -2495,6 +2603,7 @@ from .user import (
     UserGetPostsParams,
     UserGetRichMediaDocumentsParams,
     UserGetVideosParams,
+    UserUpdateParams,
 )
 from .useravailablecatalogs import UseravailablecatalogsField, UseravailablecatalogsFields
 from .usercontext import UsercontextField, UsercontextFields
@@ -2526,13 +2635,18 @@ from .userpaymentmodulesoptions import (
     UserpaymentmodulesoptionsFields,
 )
 from .valuebasedeligiblesource import ValuebasedeligiblesourceField, ValuebasedeligiblesourceFields
-from .vehicle import VehicleField, VehicleFields, VehicleGetOverrideDetailsParams
+from .vehicle import (
+    VehicleField,
+    VehicleFields,
+    VehicleGetOverrideDetailsParams,
+    VehicleUpdateParams,
+)
 from .vehicleoffer import (
     VehicleofferField,
     VehicleofferFields,
     VehicleOfferGetOverrideDetailsParams,
 )
-from .videocopyright import VideocopyrightField, VideocopyrightFields
+from .videocopyright import VideocopyrightField, VideocopyrightFields, VideoCopyrightUpdateParams
 from .videocopyrightcheckstatus import (
     VideocopyrightcheckstatusField,
     VideocopyrightcheckstatusFields,
@@ -2547,7 +2661,7 @@ from .videocopyrightrule import VideocopyrightruleField, VideocopyrightruleField
 from .videocopyrightsegment import VideocopyrightsegmentField, VideocopyrightsegmentFields
 from .videogroup import VideogroupField, VideogroupFields
 from .videolist import VideolistField, VideolistFields
-from .videopoll import VideopollField, VideopollFields
+from .videopoll import VideopollField, VideopollFields, VideoPollUpdateParams
 from .videostats import VideostatsField, VideostatsFields
 from .videostatus import VideostatusField, VideostatusFields
 from .videostatuserror import VideostatuserrorField, VideostatuserrorFields
@@ -2612,6 +2726,7 @@ from .whatsappbusinessaccount import (
     WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams,
     WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams,
     WhatsAppBusinessAccountGetWelcomeMessageSequencesParams,
+    WhatsAppBusinessAccountUpdateParams,
 )
 from .whatsappbusinesshealthstatus import (
     WhatsappbusinesshealthstatusField,
@@ -6356,6 +6471,7 @@ __all__ = [
     "AdGetInsightsParams",
     "AdGetInsightsAsyncParams",
     "AdGetPreviewsParams",
+    "AdUpdateParams",
     "AdAccountCreateAccountControlParams",
     "AdAccountGetActivitiesParams",
     "AdAccountCreateAdPlacePageSetParams",
@@ -6436,14 +6552,19 @@ __all__ = [
     "AdAccountCreateValueRuleSetParams",
     "AdAccountGetVideoAdsParams",
     "AdAccountCreateVideoAdParams",
+    "AdAccountUpdateParams",
     "AdAsyncRequestSetGetRequestsParams",
+    "AdAsyncRequestSetUpdateParams",
     "AdCreativeCreateAdLabelParams",
     "AdCreativeGetPreviewsParams",
+    "AdCreativeUpdateParams",
     "AdgroupFacebookFeedbackGetCommentsParams",
+    "AdLabelUpdateParams",
     "AdMonetizationPropertyGetAdNetworkAnalyticsParams",
     "AdMonetizationPropertyCreateAdNetworkAnalyticParams",
     "AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams",
     "AdRuleGetHistoryParams",
+    "AdRuleUpdateParams",
     "AdSetGetActivitiesParams",
     "AdSetDeleteAdLabelsParams",
     "AdSetCreateAdLabelParams",
@@ -6457,6 +6578,7 @@ __all__ = [
     "AdSetGetInsightsParams",
     "AdSetGetInsightsAsyncParams",
     "AdSetGetMessageDeliveryEstimateParams",
+    "AdSetUpdateParams",
     "AdsPixelGetAdAccountsParams",
     "AdsPixelDeleteAgenciesParams",
     "AdsPixelCreateAgencyParams",
@@ -6470,8 +6592,13 @@ __all__ = [
     "AdsPixelGetSharedAccountsParams",
     "AdsPixelCreateSharedAccountParams",
     "AdsPixelGetStatsParams",
+    "AdsPixelUpdateParams",
     "AdStudyCreateCheckPointParams",
     "AdStudyCreateInstanceParams",
+    "AdStudyUpdateParams",
+    "AdStudyCellUpdateParams",
+    "AdStudyObjectiveUpdateParams",
+    "AdsValueAdjustmentRuleCollectionUpdateParams",
     "AdVideoCreateCapTIOnParams",
     "AdVideoCreateCollaboratorParams",
     "AdVideoGetCommentsParams",
@@ -6481,6 +6608,7 @@ __all__ = [
     "AdVideoCreatePollParams",
     "AdVideoCreateThumbnailParams",
     "AdVideoGetVideoInsightsParams",
+    "AdVideoUpdateParams",
     "AlbumGetCommentsParams",
     "AlbumCreateCommentParams",
     "AlbumCreateLikeParams",
@@ -6527,6 +6655,7 @@ __all__ = [
     "ApplicationCreateUploadParams",
     "ApplicationCreateWhatsAppBusinessSolutionParams",
     "ApplicationGetWhatsAppBusinessSolutionsParams",
+    "ApplicationUpdateParams",
     "AutomotiveModelGetOverrideDetailsParams",
     "AvatarGetModelsParams",
     "BusinessCreateAccessTokenParams",
@@ -6596,6 +6725,8 @@ __all__ = [
     "BusinessCreateSystemUserAccessTokenParams",
     "BusinessCreateSystemUserParams",
     "BusinessCreateVideoParams",
+    "BusinessUpdateParams",
+    "BusinessAgreementUpdateParams",
     "BusinessAssetGroupDeleteAssignedUsersParams",
     "BusinessAssetGroupGetAssignedUsersParams",
     "BusinessAssetGroupCreateAssignedUserParams",
@@ -6613,8 +6744,12 @@ __all__ = [
     "BusinessAssetGroupCreateContainedPixelParams",
     "BusinessAssetGroupDeleteContainedProductCatalogsParams",
     "BusinessAssetGroupCreateContainedProductCatalogParams",
+    "BusinessAssetGroupUpdateParams",
+    "BusinessAssetSharingAgreementUpdateParams",
+    "BusinessRoleRequestUpdateParams",
     "BusinessUserGetAssignedBusinessAssetGroupsParams",
     "BusinessUserGetAssignedPagesParams",
+    "BusinessUserUpdateParams",
     "CampaignCreateAdLabelParams",
     "CampaignGetAdRulesGovernedParams",
     "CampaignGetAdsParams",
@@ -6624,12 +6759,15 @@ __all__ = [
     "CampaignCreateCopyParams",
     "CampaignGetInsightsParams",
     "CampaignGetInsightsAsyncParams",
+    "CampaignUpdateParams",
     "CanvasGetPreViewsParams",
+    "CanvasUpdateParams",
     "CommentGetCommentsParams",
     "CommentCreateCommentParams",
     "CommentDeleteLikesParams",
     "CommentCreateLikeParams",
     "CommentGetReactionsParams",
+    "CommentUpdateParams",
     "CommerceMerchantSettingsCreateAcknowledgeOrderParams",
     "CommerceMerchantSettingsGetCommerceOrdersParams",
     "CommerceMerchantSettingsGetCommercePayoutsParams",
@@ -6645,6 +6783,7 @@ __all__ = [
     "CommerceOrderCreateReturnParams",
     "CommerceOrderCreateShipmentParams",
     "CommerceOrderCreateUpdateShipmentParams",
+    "CPASLsbImageBankUpdateParams",
     "CustomAudienceDeleteAdAccountsParams",
     "CustomAudienceGetAdAccountsParams",
     "CustomAudienceCreateAdAccountParams",
@@ -6656,20 +6795,27 @@ __all__ = [
     "CustomAudienceDeleteUsersParams",
     "CustomAudienceCreateUserParams",
     "CustomAudienceCreateUsersReplaceParams",
+    "CustomAudienceUpdateParams",
     "CustomConversionGetStatsParams",
+    "CustomConversionUpdateParams",
     "DestinationGetOverrideDetailsParams",
     "EventCreateLiveVideoParams",
     "EventSourceGroupCreateSharedAccountParams",
+    "EventSourceGroupUpdateParams",
     "ExtendedCreditCreateExtendedCreditInvoiceGroupParams",
     "ExtendedCreditGetOwningCreditAllocationConfigsParams",
     "ExtendedCreditCreateOwningCreditAllocationConfigParams",
     "ExtendedCreditCreateWhatsAppCreditAttachParams",
     "ExtendedCreditCreateWhatsAppCreditSharingParams",
     "ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams",
+    "ExtendedCreditAllocationConfigUpdateParams",
     "ExtendedCreditInvoiceGroupDeleteAdAccountsParams",
     "ExtendedCreditInvoiceGroupCreateAdAccountParams",
+    "ExtendedCreditInvoiceGroupUpdateParams",
     "FlightGetOverrideDetailsParams",
+    "FlightUpdateParams",
     "FundraiserPersonToCharityCreateExternalDonationParams",
+    "FundraiserPersonToCharityUpdateParams",
     "GroupDeleteAdminsParams",
     "GroupCreateAdminParams",
     "GroupGetFeedParams",
@@ -6683,15 +6829,23 @@ __all__ = [
     "GroupGetPictureParams",
     "GroupGetVideosParams",
     "GroupCreateVideoParams",
+    "GroupUpdateParams",
+    "HighDemandPeriodUpdateParams",
     "HomeListingGetOverrideDetailsParams",
+    "HomeListingUpdateParams",
     "HotelGetOverrideDetailsParams",
+    "HotelUpdateParams",
     "IGCommentCreateReplyParams",
+    "IGCommentUpdateParams",
     "IGMediaCreateBrandedContentPartnerPromoteParams",
     "IGMediaCreateCommentParams",
     "IGMediaGetInsightsParams",
     "IGMediaCreateProductTagParams",
+    "IGMediaUpdateParams",
     "IGMediaForIGOnlyAPICreateCommentParams",
     "IGMediaForIGOnlyAPIGetInsightsParams",
+    "IGMediaForIGOnlyAPIUpdateParams",
+    "IGUpcomingEventUpdateParams",
     "IGUserGetAuthorizedAdAccountsParams",
     "IGUserCreateAuthorizedAdAccountParams",
     "IGUserCreateBrandedContentAdPermissionParams",
@@ -6729,15 +6883,21 @@ __all__ = [
     "IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams",
     "IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams",
     "IGUserForIGOnlyAPICreateWelcomeMessageFlowParams",
+    "ImageCopyrightUpdateParams",
     "InstagramUserGetAuthorizedAdAccountsParams",
     "LeadgenFormCreateTestLeadParams",
+    "LeadgenFormUpdateParams",
     "LinkCreateCommentParams",
     "LiveVideoGetBlockedUsersParams",
     "LiveVideoGetCommentsParams",
     "LiveVideoCreatePollParams",
     "LiveVideoGetReactionsParams",
+    "LiveVideoUpdateParams",
     "LocalServiceBusinessGetOverrideDetailsParams",
+    "MediaFingerprintUpdateParams",
     "MediaTitleGetOverrideDetailsParams",
+    "MediaTitleUpdateParams",
+    "MessengerBusinessTemplateUpdateParams",
     "OfflineConversionDataSetGetAdAccountsParams",
     "OfflineConversionDataSetGetAudiencesParams",
     "OfflineConversionDataSetGetCustomConversionsParams",
@@ -6746,6 +6906,7 @@ __all__ = [
     "OfflineConversionDataSetGetStatsParams",
     "OfflineConversionDataSetGetUploadsParams",
     "OfflineProductItemGetOverrideDetailsParams",
+    "OpenBridgeConfigurationUpdateParams",
     "PageCreateAbTestParams",
     "PageCreateAcknowledgeOrderParams",
     "PageGetAdsPostsParams",
@@ -6834,12 +6995,15 @@ __all__ = [
     "PageDeleteWelcomeMessageFlowsParams",
     "PageGetWelcomeMessageFlowsParams",
     "PageCreateWelcomeMessageFlowParams",
+    "PageUpdateParams",
+    "PageCallToActionUpdateParams",
     "PagePostGetCommentsParams",
     "PagePostCreateCommentParams",
     "PagePostGetInsightsParams",
     "PagePostDeleteLikesParams",
     "PagePostCreateLikeParams",
     "PagePostGetReactionsParams",
+    "PagePostUpdateParams",
     "PageUserMessageThreadLabelDeleteLabelParams",
     "PageUserMessageThreadLabelCreateLabelParams",
     "PaymentEnginePaymentCreateDisputeParams",
@@ -6854,6 +7018,8 @@ __all__ = [
     "PostDeleteLikesParams",
     "PostCreateLikeParams",
     "PostGetReactionsParams",
+    "PostUpdateParams",
+    "PrivateLiftStudyInstanceUpdateParams",
     "ProductCatalogDeleteAgenciesParams",
     "ProductCatalogCreateAgencyParams",
     "ProductCatalogDeleteAssignedUsersParams",
@@ -6900,6 +7066,7 @@ __all__ = [
     "ProductCatalogGetVehiclesParams",
     "ProductCatalogCreateVehicleParams",
     "ProductCatalogCreateVersionItemsBatchParams",
+    "ProductCatalogUpdateParams",
     "ProductFeedGetAutomotiveModelsParams",
     "ProductFeedGetDestinationsParams",
     "ProductFeedGetFlightsParams",
@@ -6913,9 +7080,13 @@ __all__ = [
     "ProductFeedCreateUploadParams",
     "ProductFeedGetVehicleOffersParams",
     "ProductFeedGetVehiclesParams",
+    "ProductFeedUpdateParams",
+    "ProductFeedRuleUpdateParams",
     "ProductFeedUploadGetErrorsParams",
     "ProductGroupCreateProductParams",
+    "ProductGroupUpdateParams",
     "ProductItemGetOverrideDetailsParams",
+    "ProductItemUpdateParams",
     "ProductSetGetAutomotiveModelsParams",
     "ProductSetGetDestinationsParams",
     "ProductSetGetFlightsParams",
@@ -6925,9 +7096,11 @@ __all__ = [
     "ProductSetGetProductsParams",
     "ProductSetGetVehicleOffersParams",
     "ProductSetGetVehiclesParams",
+    "ProductSetUpdateParams",
     "ProfileGetPictureParams",
     "PublisherBlockListCreateAppendPublisherUrlParams",
     "PublisherBlockListGetPagedWebPublishersParams",
+    "PublisherBlockListUpdateParams",
     "RTBDynamicPostGetCommentsParams",
     "ShadowIGHashtagGetRecentMediaParams",
     "ShadowIGHashtagGetTopMediaParams",
@@ -6937,6 +7110,7 @@ __all__ = [
     "SystemUserGetAssignedPagesParams",
     "TransactableItemGetOverrideDetailsParams",
     "UnifiedThreadGetMessagesParams",
+    "URLUpdateParams",
     "UserCreateAccessTokenParams",
     "UserGetAccountsParams",
     "UserCreateAccountParams",
@@ -6972,8 +7146,12 @@ __all__ = [
     "UserCreateStagingResourceParams",
     "UserGetVideosParams",
     "UserCreateVideoParams",
+    "UserUpdateParams",
     "VehicleGetOverrideDetailsParams",
+    "VehicleUpdateParams",
     "VehicleOfferGetOverrideDetailsParams",
+    "VideoCopyrightUpdateParams",
+    "VideoPollUpdateParams",
     "WhatsAppBusinessAccountDeleteAssignedUsersParams",
     "WhatsAppBusinessAccountGetAssignedUsersParams",
     "WhatsAppBusinessAccountCreateAssignedUserParams",
@@ -7004,6 +7182,7 @@ __all__ = [
     "WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams",
     "WhatsAppBusinessAccountCreateUpsertMessageTemplateParams",
     "WhatsAppBusinessAccountGetWelcomeMessageSequencesParams",
+    "WhatsAppBusinessAccountUpdateParams",
     "WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams",
     "WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams",
 ]

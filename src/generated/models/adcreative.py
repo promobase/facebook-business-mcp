@@ -432,6 +432,17 @@ class AdCreativeGetPreviewsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdCreativeUpdateParams(BaseModel):
+    """Parameters for AdCreative.api_update()."""
+
+    account_id: str | None = Field(None, description="account_id parameter")
+    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
+    name: str | None = Field(None, description="name parameter")
+    status: str | None = Field(None, description="status parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

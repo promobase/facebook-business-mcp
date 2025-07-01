@@ -392,6 +392,39 @@ class AdGetPreviewsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdUpdateParams(BaseModel):
+    """Parameters for Ad.api_update()."""
+
+    ad_schedule_end_time: datetime | None = Field(
+        None, description="ad_schedule_end_time parameter"
+    )
+    ad_schedule_start_time: datetime | None = Field(
+        None, description="ad_schedule_start_time parameter"
+    )
+    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
+    adset_spec: AdSetFields | None = Field(None, description="adset_spec parameter")
+    audience_id: str | None = Field(None, description="audience_id parameter")
+    bid_amount: int | None = Field(None, description="bid_amount parameter")
+    conversion_domain: str | None = Field(None, description="conversion_domain parameter")
+    creative: AdCreativeFields | None = Field(None, description="creative parameter")
+    creative_asset_groups_spec: Any | None = Field(
+        None, description="creative_asset_groups_spec parameter"
+    )
+    display_sequence: int | None = Field(None, description="display_sequence parameter")
+    draft_adgroup_id: str | None = Field(None, description="draft_adgroup_id parameter")
+    engagement_audience: bool | None = Field(None, description="engagement_audience parameter")
+    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    include_demolink_hashes: bool | None = Field(
+        None, description="include_demolink_hashes parameter"
+    )
+    name: str | None = Field(None, description="name parameter")
+    priority: int | None = Field(None, description="priority parameter")
+    status: str | None = Field(None, description="status parameter")
+    tracking_specs: Any | None = Field(None, description="tracking_specs parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

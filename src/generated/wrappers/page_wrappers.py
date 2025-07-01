@@ -2,93 +2,32 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.page import Page
+from facebook_business.adobjects.page import Page
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.advideo import (
-    AdVideoField,
-    AdVideoFields,
-)
-from ..models.application import (
-    ApplicationField,
-    ApplicationFields,
-)
-from ..models.assigneduser import (
-    AssignedUserField,
-    AssignedUserFields,
-)
-from ..models.businessproject import (
-    BusinessProjectField,
-    BusinessProjectFields,
-)
-from ..models.canvas import (
-    CanvasField,
-    CanvasFields,
-)
-from ..models.canvasbodyelement import (
-    CanvasBodyElementField,
-    CanvasBodyElementFields,
-)
-from ..models.commerceorder import (
-    CommerceOrderField,
-    CommerceOrderFields,
-)
-from ..models.commerceordertransactiondetail import (
-    CommerceOrderTransactionDetailField,
-    CommerceOrderTransactionDetailFields,
-)
-from ..models.commercepayout import (
-    CommercePayoutField,
-    CommercePayoutFields,
-)
-from ..models.ctxpartnerappwelcomemessageflow import (
-    CTXPartnerAppWelcomeMessageFlowField,
-    CTXPartnerAppWelcomeMessageFlowFields,
-)
-from ..models.customusersettings import (
-    CustomUserSettingsField,
-    CustomUserSettingsFields,
-)
-from ..models.dataset import (
-    DatasetField,
-    DatasetFields,
-)
-from ..models.event import (
-    EventField,
-    EventFields,
-)
-from ..models.imagecopyright import (
-    ImageCopyrightField,
-    ImageCopyrightFields,
-)
-from ..models.insightsresult import (
-    InsightsResultField,
-    InsightsResultFields,
-)
-from ..models.leadgenform import (
-    LeadgenFormField,
-    LeadgenFormFields,
-)
-from ..models.livevideo import (
-    LiveVideoField,
-    LiveVideoFields,
-)
-from ..models.mediafingerprint import (
-    MediaFingerprintField,
-    MediaFingerprintFields,
-)
-from ..models.messengerbusinesstemplate import (
-    MessengerBusinessTemplateField,
-    MessengerBusinessTemplateFields,
-)
-from ..models.messengerprofile import (
-    MessengerProfileField,
-    MessengerProfileFields,
-)
+from ..models.advideo import AdVideoField
+from ..models.application import ApplicationField
+from ..models.assigneduser import AssignedUserField
+from ..models.businessproject import BusinessProjectField
+from ..models.canvas import CanvasField
+from ..models.canvasbodyelement import CanvasBodyElementField
+from ..models.commerceorder import CommerceOrderField
+from ..models.commerceordertransactiondetail import CommerceOrderTransactionDetailField
+from ..models.commercepayout import CommercePayoutField
+from ..models.ctxpartnerappwelcomemessageflow import CTXPartnerAppWelcomeMessageFlowField
+from ..models.customusersettings import CustomUserSettingsField
+from ..models.dataset import DatasetField
+from ..models.event import EventField
+from ..models.imagecopyright import ImageCopyrightField
+from ..models.insightsresult import InsightsResultField
+from ..models.leadgenform import LeadgenFormField
+from ..models.livevideo import LiveVideoField
+from ..models.mediafingerprint import MediaFingerprintField
+from ..models.messengerbusinesstemplate import MessengerBusinessTemplateField
+from ..models.messengerprofile import MessengerProfileField
 from ..models.page import (
     PageCreateAbTestParams,
     PageCreateAcknowledgeOrderParams,
@@ -146,7 +85,6 @@ from ..models.page import (
     PageDeleteMessengerProfileParams,
     PageDeleteWelcomeMessageFlowsParams,
     PageField,
-    PageFields,
     PageGetAdsPostsParams,
     PageGetAssignedUsersParams,
     PageGetBlockedParams,
@@ -181,2058 +119,1329 @@ from ..models.page import (
     PageGetVisitorPostsParams,
     PageGetWelcomeMessageFlowsParams,
 )
-from ..models.pagepost import (
-    PagePostField,
-    PagePostFields,
-)
-from ..models.pagepostexperiment import (
-    PagePostExperimentField,
-    PagePostExperimentFields,
-)
-from ..models.pagethreadowner import (
-    PageThreadOwnerField,
-    PageThreadOwnerFields,
-)
-from ..models.pageusermessagethreadlabel import (
-    PageUserMessageThreadLabelField,
-    PageUserMessageThreadLabelFields,
-)
-from ..models.persona import (
-    PersonaField,
-    PersonaFields,
-)
-from ..models.photo import (
-    PhotoField,
-    PhotoFields,
-)
-from ..models.profile import (
-    ProfileField,
-    ProfileFields,
-)
-from ..models.profilepicturesource import (
-    ProfilePictureSourceField,
-    ProfilePictureSourceFields,
-)
-from ..models.stories import (
-    StoriesField,
-    StoriesFields,
-)
-from ..models.tab import (
-    TabField,
-    TabFields,
-)
-from ..models.unifiedthread import (
-    UnifiedThreadField,
-    UnifiedThreadFields,
-)
-from ..models.user import (
-    UserField,
-    UserFields,
-)
-from ..models.videocopyright import (
-    VideoCopyrightField,
-    VideoCopyrightFields,
-)
-from ..models.videocopyrightmatch import (
-    VideoCopyrightMatchField,
-    VideoCopyrightMatchFields,
-)
-from ..models.videocopyrightrule import (
-    VideoCopyrightRuleField,
-    VideoCopyrightRuleFields,
-)
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class PageWrappers:
-    """Type-safe wrapper functions for Page API methods."""
-
-    @staticmethod
-    def create_ab_test(
-        obj: Page,
-        params: PageCreateAbTestParams,
-    ) -> PagePostExperimentFields:
-        """
-        Type-safe wrapper for Page.create_ab_test().
-
-        Endpoint: POST /ab_tests
-        Returns: PagePostExperimentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ab_test(params=params_dict)
-
-        # Convert result to typed model
-        return PagePostExperimentFields(**result)
-
-    @staticmethod
-    def create_acknowledge_order(
-        obj: Page,
-        params: PageCreateAcknowledgeOrderParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_acknowledge_order().
-
-        Endpoint: POST /acknowledge_orders
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_acknowledge_order(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_ads_posts(
-        obj: Page,
-        params: Optional[PageGetAdsPostsParams] = None,
-        fields: Optional[list[PagePostField]] = None,
-    ) -> TypedCursor[PagePostFields]:
-        """
-        Type-safe wrapper for Page.get_ads_posts().
-
-        Endpoint: GET /ads_posts
-        Returns: TypedCursor[PagePostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_posts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PagePostFields)
-
-    @staticmethod
-    def delete_agencies(
-        obj: Page,
-        params: Optional[PageDeleteAgenciesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_agencies().
-
-        Endpoint: DELETE /agencies
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_agencies(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_agency(
-        obj: Page,
-        params: PageCreateAgencyParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_agency().
-
-        Endpoint: POST /agencies
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_agency(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def delete_assigned_users(
-        obj: Page,
-        params: Optional[PageDeleteAssignedUsersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_assigned_users().
-
-        Endpoint: DELETE /assigned_users
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_assigned_users(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_assigned_users(
-        obj: Page,
-        params: Optional[PageGetAssignedUsersParams] = None,
-        fields: Optional[list[AssignedUserField]] = None,
-    ) -> TypedCursor[AssignedUserFields]:
-        """
-        Type-safe wrapper for Page.get_assigned_users().
-
-        Endpoint: GET /assigned_users
-        Returns: TypedCursor[AssignedUserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_users(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AssignedUserFields)
-
-    @staticmethod
-    def create_assigned_user(
-        obj: Page,
-        params: PageCreateAssignedUserParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_assigned_user().
-
-        Endpoint: POST /assigned_users
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_assigned_user(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def delete_blocked(
-        obj: Page,
-        params: Optional[PageDeleteBlockedParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_blocked().
-
-        Endpoint: DELETE /blocked
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_blocked(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_blocked(
-        obj: Page,
-        params: Optional[PageGetBlockedParams] = None,
-        fields: Optional[list[ProfileField]] = None,
-    ) -> TypedCursor[ProfileFields]:
-        """
-        Type-safe wrapper for Page.get_blocked().
-
-        Endpoint: GET /blocked
-        Returns: TypedCursor[ProfileFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_blocked(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfileFields)
-
-    @staticmethod
-    def create_blocked(
-        obj: Page,
-        params: PageCreateBlockedParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Page.create_blocked().
-
-        Endpoint: POST /blocked
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_blocked(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_business_datum(
-        obj: Page,
-        params: PageCreateBusinessDatumParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Page.create_business_datum().
-
-        Endpoint: POST /business_data
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_business_datum(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_business_projects(
-        obj: Page,
-        params: Optional[PageGetBusinessProjectsParams] = None,
-        fields: Optional[list[BusinessProjectField]] = None,
-    ) -> TypedCursor[BusinessProjectFields]:
-        """
-        Type-safe wrapper for Page.get_business_projects().
-
-        Endpoint: GET /businessprojects
-        Returns: TypedCursor[BusinessProjectFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_business_projects(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessProjectFields)
-
-    @staticmethod
-    def create_call(
-        obj: Page,
-        params: PageCreateCallParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Page.create_call().
-
-        Endpoint: POST /calls
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_call(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_canvas_element(
-        obj: Page,
-        params: PageCreateCanvasElementParams,
-    ) -> CanvasBodyElementFields:
-        """
-        Type-safe wrapper for Page.create_canvas_element().
-
-        Endpoint: POST /canvas_elements
-        Returns: CanvasBodyElementFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_canvas_element(params=params_dict)
-
-        # Convert result to typed model
-        return CanvasBodyElementFields(**result)
-
-    @staticmethod
-    def get_canvases(
-        obj: Page,
-        params: Optional[PageGetCanvasesParams] = None,
-        fields: Optional[list[CanvasField]] = None,
-    ) -> TypedCursor[CanvasFields]:
-        """
-        Type-safe wrapper for Page.get_canvases().
-
-        Endpoint: GET /canvases
-        Returns: TypedCursor[CanvasFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_canvases(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CanvasFields)
-
-    @staticmethod
-    def create_canvase(
-        obj: Page,
-        params: PageCreateCanvaseParams,
-    ) -> CanvasFields:
-        """
-        Type-safe wrapper for Page.create_canvase().
-
-        Endpoint: POST /canvases
-        Returns: CanvasFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_canvase(params=params_dict)
-
-        # Convert result to typed model
-        return CanvasFields(**result)
-
-    @staticmethod
-    def get_commerce_orders(
-        obj: Page,
-        params: Optional[PageGetCommerceOrdersParams] = None,
-        fields: Optional[list[CommerceOrderField]] = None,
-    ) -> TypedCursor[CommerceOrderFields]:
-        """
-        Type-safe wrapper for Page.get_commerce_orders().
-
-        Endpoint: GET /commerce_orders
-        Returns: TypedCursor[CommerceOrderFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_commerce_orders(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommerceOrderFields)
-
-    @staticmethod
-    def get_commerce_payouts(
-        obj: Page,
-        params: Optional[PageGetCommercePayoutsParams] = None,
-        fields: Optional[list[CommercePayoutField]] = None,
-    ) -> TypedCursor[CommercePayoutFields]:
-        """
-        Type-safe wrapper for Page.get_commerce_payouts().
-
-        Endpoint: GET /commerce_payouts
-        Returns: TypedCursor[CommercePayoutFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_commerce_payouts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommercePayoutFields)
-
-    @staticmethod
-    def get_commerce_transactions(
-        obj: Page,
-        params: Optional[PageGetCommerceTransactionsParams] = None,
-        fields: Optional[list[CommerceOrderTransactionDetailField]] = None,
-    ) -> TypedCursor[CommerceOrderTransactionDetailFields]:
-        """
-        Type-safe wrapper for Page.get_commerce_transactions().
-
-        Endpoint: GET /commerce_transactions
-        Returns: TypedCursor[CommerceOrderTransactionDetailFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_commerce_transactions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommerceOrderTransactionDetailFields)
-
-    @staticmethod
-    def get_conversations(
-        obj: Page,
-        params: Optional[PageGetConversationsParams] = None,
-        fields: Optional[list[UnifiedThreadField]] = None,
-    ) -> TypedCursor[UnifiedThreadFields]:
-        """
-        Type-safe wrapper for Page.get_conversations().
-
-        Endpoint: GET /conversations
-        Returns: TypedCursor[UnifiedThreadFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_conversations(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UnifiedThreadFields)
-
-    @staticmethod
-    def create_copyright_manual_claim(
-        obj: Page,
-        params: PageCreateCopyrightManualClaimParams,
-    ) -> VideoCopyrightMatchFields:
-        """
-        Type-safe wrapper for Page.create_copyright_manual_claim().
-
-        Endpoint: POST /copyright_manual_claims
-        Returns: VideoCopyrightMatchFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_copyright_manual_claim(params=params_dict)
-
-        # Convert result to typed model
-        return VideoCopyrightMatchFields(**result)
-
-    @staticmethod
-    def create_custom_label(
-        obj: Page,
-        params: PageCreateCustomLabelParams,
-    ) -> PageUserMessageThreadLabelFields:
-        """
-        Type-safe wrapper for Page.create_custom_label().
-
-        Endpoint: POST /custom_labels
-        Returns: PageUserMessageThreadLabelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_custom_label(params=params_dict)
-
-        # Convert result to typed model
-        return PageUserMessageThreadLabelFields(**result)
-
-    @staticmethod
-    def delete_custom_user_settings(
-        obj: Page,
-        params: Optional[PageDeleteCustomUserSettingsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_custom_user_settings().
-
-        Endpoint: DELETE /custom_user_settings
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_custom_user_settings(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_custom_user_settings(
-        obj: Page,
-        params: Optional[PageGetCustomUserSettingsParams] = None,
-        fields: Optional[list[CustomUserSettingsField]] = None,
-    ) -> TypedCursor[CustomUserSettingsFields]:
-        """
-        Type-safe wrapper for Page.get_custom_user_settings().
-
-        Endpoint: GET /custom_user_settings
-        Returns: TypedCursor[CustomUserSettingsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_custom_user_settings(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomUserSettingsFields)
-
-    @staticmethod
-    def create_custom_user_setting(
-        obj: Page,
-        params: PageCreateCustomUserSettingParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_custom_user_setting().
-
-        Endpoint: POST /custom_user_settings
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_custom_user_setting(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_dataset(
-        obj: Page,
-        params: PageCreateDatasetParams,
-    ) -> DatasetFields:
-        """
-        Type-safe wrapper for Page.create_dataset().
-
-        Endpoint: POST /dataset
-        Returns: DatasetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_dataset(params=params_dict)
-
-        # Convert result to typed model
-        return DatasetFields(**result)
-
-    @staticmethod
-    def get_events(
-        obj: Page,
-        params: Optional[PageGetEventsParams] = None,
-        fields: Optional[list[EventField]] = None,
-    ) -> TypedCursor[EventFields]:
-        """
-        Type-safe wrapper for Page.get_events().
-
-        Endpoint: GET /events
-        Returns: TypedCursor[EventFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_events(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, EventFields)
-
-    @staticmethod
-    def create_extend_thread_control(
-        obj: Page,
-        params: PageCreateExtendThreadControlParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_extend_thread_control().
-
-        Endpoint: POST /extend_thread_control
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_extend_thread_control(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_feed(
-        obj: Page,
-        params: Optional[PageGetFeedParams] = None,
-        fields: Optional[list[PagePostField]] = None,
-    ) -> TypedCursor[PagePostFields]:
-        """
-        Type-safe wrapper for Page.get_feed().
-
-        Endpoint: GET /feed
-        Returns: TypedCursor[PagePostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_feed(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PagePostFields)
-
-    @staticmethod
-    def create_feed(
-        obj: Page,
-        params: PageCreateFeedParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_feed().
-
-        Endpoint: POST /feed
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_feed(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_image_copyright(
-        obj: Page,
-        params: PageCreateImageCopyrightParams,
-    ) -> ImageCopyrightFields:
-        """
-        Type-safe wrapper for Page.create_image_copyright().
-
-        Endpoint: POST /image_copyrights
-        Returns: ImageCopyrightFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_image_copyright(params=params_dict)
-
-        # Convert result to typed model
-        return ImageCopyrightFields(**result)
-
-    @staticmethod
-    def get_insights(
-        obj: Page,
-        params: Optional[PageGetInsightsParams] = None,
-        fields: Optional[list[InsightsResultField]] = None,
-    ) -> TypedCursor[InsightsResultFields]:
-        """
-        Type-safe wrapper for Page.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[InsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InsightsResultFields)
-
-    @staticmethod
-    def create_lead_gen_form(
-        obj: Page,
-        params: PageCreateLeadGenFormParams,
-    ) -> LeadgenFormFields:
-        """
-        Type-safe wrapper for Page.create_lead_gen_form().
-
-        Endpoint: POST /leadgen_forms
-        Returns: LeadgenFormFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_lead_gen_form(params=params_dict)
-
-        # Convert result to typed model
-        return LeadgenFormFields(**result)
-
-    @staticmethod
-    def get_likes(
-        obj: Page,
-        params: Optional[PageGetLikesParams] = None,
-        fields: Optional[list[PageField]] = None,
-    ) -> TypedCursor[PageFields]:
-        """
-        Type-safe wrapper for Page.get_likes().
-
-        Endpoint: GET /likes
-        Returns: TypedCursor[PageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_likes(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageFields)
-
-    @staticmethod
-    def get_live_videos(
-        obj: Page,
-        params: Optional[PageGetLiveVideosParams] = None,
-        fields: Optional[list[LiveVideoField]] = None,
-    ) -> TypedCursor[LiveVideoFields]:
-        """
-        Type-safe wrapper for Page.get_live_videos().
-
-        Endpoint: GET /live_videos
-        Returns: TypedCursor[LiveVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_live_videos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, LiveVideoFields)
-
-    @staticmethod
-    def create_live_video(
-        obj: Page,
-        params: PageCreateLiveVideoParams,
-    ) -> LiveVideoFields:
-        """
-        Type-safe wrapper for Page.create_live_video().
-
-        Endpoint: POST /live_videos
-        Returns: LiveVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_live_video(params=params_dict)
-
-        # Convert result to typed model
-        return LiveVideoFields(**result)
-
-    @staticmethod
-    def delete_locations(
-        obj: Page,
-        params: Optional[PageDeleteLocationsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_locations().
-
-        Endpoint: DELETE /locations
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_locations(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_location(
-        obj: Page,
-        params: PageCreateLocationParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_location().
-
-        Endpoint: POST /locations
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_location(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_media_fingerprints(
-        obj: Page,
-        params: Optional[PageGetMediaFingerprintsParams] = None,
-        fields: Optional[list[MediaFingerprintField]] = None,
-    ) -> TypedCursor[MediaFingerprintFields]:
-        """
-        Type-safe wrapper for Page.get_media_fingerprints().
-
-        Endpoint: GET /media_fingerprints
-        Returns: TypedCursor[MediaFingerprintFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_media_fingerprints(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, MediaFingerprintFields)
-
-    @staticmethod
-    def create_media_fingerprint(
-        obj: Page,
-        params: PageCreateMediaFingerprintParams,
-    ) -> MediaFingerprintFields:
-        """
-        Type-safe wrapper for Page.create_media_fingerprint().
-
-        Endpoint: POST /media_fingerprints
-        Returns: MediaFingerprintFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_media_fingerprint(params=params_dict)
-
-        # Convert result to typed model
-        return MediaFingerprintFields(**result)
-
-    @staticmethod
-    def create_message_attachment(
-        obj: Page,
-        params: PageCreateMessageAttachmentParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Page.create_message_attachment().
-
-        Endpoint: POST /message_attachments
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_message_attachment(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def delete_message_templates(
-        obj: Page,
-        params: Optional[PageDeleteMessageTemplatesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_message_templates().
-
-        Endpoint: DELETE /message_templates
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_message_templates(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_message_templates(
-        obj: Page,
-        params: Optional[PageGetMessageTemplatesParams] = None,
-        fields: Optional[list[MessengerBusinessTemplateField]] = None,
-    ) -> TypedCursor[MessengerBusinessTemplateFields]:
-        """
-        Type-safe wrapper for Page.get_message_templates().
-
-        Endpoint: GET /message_templates
-        Returns: TypedCursor[MessengerBusinessTemplateFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_message_templates(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, MessengerBusinessTemplateFields)
-
-    @staticmethod
-    def create_message_template(
-        obj: Page,
-        params: PageCreateMessageTemplateParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_message_template().
-
-        Endpoint: POST /message_templates
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_message_template(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_message(
-        obj: Page,
-        params: PageCreateMessageParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_message().
-
-        Endpoint: POST /messages
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_message(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_messenger_call_setting(
-        obj: Page,
-        params: PageCreateMessengerCallSettingParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_messenger_call_setting().
-
-        Endpoint: POST /messenger_call_settings
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_messenger_call_setting(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_messenger_lead_form(
-        obj: Page,
-        params: PageCreateMessengerLeadFormParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_messenger_lead_form().
-
-        Endpoint: POST /messenger_lead_forms
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_messenger_lead_form(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def delete_messenger_profile(
-        obj: Page,
-        params: Optional[PageDeleteMessengerProfileParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_messenger_profile().
-
-        Endpoint: DELETE /messenger_profile
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_messenger_profile(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_messenger_profile(
-        obj: Page,
-        params: Optional[PageGetMessengerProfileParams] = None,
-        fields: Optional[list[MessengerProfileField]] = None,
-    ) -> TypedCursor[MessengerProfileFields]:
-        """
-        Type-safe wrapper for Page.get_messenger_profile().
-
-        Endpoint: GET /messenger_profile
-        Returns: TypedCursor[MessengerProfileFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_messenger_profile(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, MessengerProfileFields)
-
-    @staticmethod
-    def create_messenger_profile(
-        obj: Page,
-        params: PageCreateMessengerProfileParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_messenger_profile().
-
-        Endpoint: POST /messenger_profile
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_messenger_profile(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_moderate_conversation(
-        obj: Page,
-        params: PageCreateModerateConversationParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_moderate_conversation().
-
-        Endpoint: POST /moderate_conversations
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_moderate_conversation(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_nlp_config(
-        obj: Page,
-        params: PageCreateNlpConfigParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_nlp_config().
-
-        Endpoint: POST /nlp_configs
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_nlp_config(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_notification_messages_dev_support(
-        obj: Page,
-        params: PageCreateNotificationMessagesDevSupportParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_notification_messages_dev_support().
-
-        Endpoint: POST /notification_messages_dev_support
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_notification_messages_dev_support(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_page_whats_app_number_verification(
-        obj: Page,
-        params: PageCreatePageWhatsAppNumberVerificationParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_page_whats_app_number_verification().
-
-        Endpoint: POST /page_whatsapp_number_verification
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_page_whats_app_number_verification(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_pass_thread_control(
-        obj: Page,
-        params: PageCreatePassThreadControlParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_pass_thread_control().
-
-        Endpoint: POST /pass_thread_control
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_pass_thread_control(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_persona(
-        obj: Page,
-        params: PageCreatePersonaParams,
-    ) -> PersonaFields:
-        """
-        Type-safe wrapper for Page.create_persona().
-
-        Endpoint: POST /personas
-        Returns: PersonaFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_persona(params=params_dict)
-
-        # Convert result to typed model
-        return PersonaFields(**result)
-
-    @staticmethod
-    def create_photo_story(
-        obj: Page,
-        params: PageCreatePhotoStoryParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_photo_story().
-
-        Endpoint: POST /photo_stories
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_photo_story(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_photos(
-        obj: Page,
-        params: Optional[PageGetPhotosParams] = None,
-        fields: Optional[list[PhotoField]] = None,
-    ) -> TypedCursor[PhotoFields]:
-        """
-        Type-safe wrapper for Page.get_photos().
-
-        Endpoint: GET /photos
-        Returns: TypedCursor[PhotoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_photos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PhotoFields)
-
-    @staticmethod
-    def create_photo(
-        obj: Page,
-        params: PageCreatePhotoParams,
-    ) -> PhotoFields:
-        """
-        Type-safe wrapper for Page.create_photo().
-
-        Endpoint: POST /photos
-        Returns: PhotoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_photo(params=params_dict)
-
-        # Convert result to typed model
-        return PhotoFields(**result)
-
-    @staticmethod
-    def get_picture(
-        obj: Page,
-        params: Optional[PageGetPictureParams] = None,
-        fields: Optional[list[ProfilePictureSourceField]] = None,
-    ) -> TypedCursor[ProfilePictureSourceFields]:
-        """
-        Type-safe wrapper for Page.get_picture().
-
-        Endpoint: GET /picture
-        Returns: TypedCursor[ProfilePictureSourceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_picture(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfilePictureSourceFields)
-
-    @staticmethod
-    def create_picture(
-        obj: Page,
-        params: PageCreatePictureParams,
-    ) -> ProfilePictureSourceFields:
-        """
-        Type-safe wrapper for Page.create_picture().
-
-        Endpoint: POST /picture
-        Returns: ProfilePictureSourceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_picture(params=params_dict)
-
-        # Convert result to typed model
-        return ProfilePictureSourceFields(**result)
-
-    @staticmethod
-    def get_posts(
-        obj: Page,
-        params: Optional[PageGetPostsParams] = None,
-        fields: Optional[list[PagePostField]] = None,
-    ) -> TypedCursor[PagePostFields]:
-        """
-        Type-safe wrapper for Page.get_posts().
-
-        Endpoint: GET /posts
-        Returns: TypedCursor[PagePostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_posts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PagePostFields)
-
-    @staticmethod
-    def get_published_posts(
-        obj: Page,
-        params: Optional[PageGetPublishedPostsParams] = None,
-        fields: Optional[list[PagePostField]] = None,
-    ) -> TypedCursor[PagePostFields]:
-        """
-        Type-safe wrapper for Page.get_published_posts().
-
-        Endpoint: GET /published_posts
-        Returns: TypedCursor[PagePostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_published_posts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PagePostFields)
-
-    @staticmethod
-    def create_release_thread_control(
-        obj: Page,
-        params: PageCreateReleaseThreadControlParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_release_thread_control().
-
-        Endpoint: POST /release_thread_control
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_release_thread_control(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def create_request_thread_control(
-        obj: Page,
-        params: PageCreateRequestThreadControlParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_request_thread_control().
-
-        Endpoint: POST /request_thread_control
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_request_thread_control(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_roles(
-        obj: Page,
-        params: Optional[PageGetRolesParams] = None,
-        fields: Optional[list[UserField]] = None,
-    ) -> TypedCursor[UserFields]:
-        """
-        Type-safe wrapper for Page.get_roles().
-
-        Endpoint: GET /roles
-        Returns: TypedCursor[UserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_roles(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UserFields)
-
-    @staticmethod
-    def get_secondary_receivers(
-        obj: Page,
-        params: Optional[PageGetSecondaryReceiversParams] = None,
-        fields: Optional[list[ApplicationField]] = None,
-    ) -> TypedCursor[ApplicationFields]:
-        """
-        Type-safe wrapper for Page.get_secondary_receivers().
-
-        Endpoint: GET /secondary_receivers
-        Returns: TypedCursor[ApplicationFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_secondary_receivers(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ApplicationFields)
-
-    @staticmethod
-    def create_setting(
-        obj: Page,
-        params: PageCreateSettingParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_setting().
-
-        Endpoint: POST /settings
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_setting(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_stories(
-        obj: Page,
-        params: Optional[PageGetStoriesParams] = None,
-        fields: Optional[list[StoriesField]] = None,
-    ) -> TypedCursor[StoriesFields]:
-        """
-        Type-safe wrapper for Page.get_stories().
-
-        Endpoint: GET /stories
-        Returns: TypedCursor[StoriesFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_stories(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, StoriesFields)
-
-    @staticmethod
-    def create_subscribed_app(
-        obj: Page,
-        params: PageCreateSubscribedAppParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_subscribed_app().
-
-        Endpoint: POST /subscribed_apps
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_subscribed_app(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_tabs(
-        obj: Page,
-        params: Optional[PageGetTabsParams] = None,
-        fields: Optional[list[TabField]] = None,
-    ) -> TypedCursor[TabFields]:
-        """
-        Type-safe wrapper for Page.get_tabs().
-
-        Endpoint: GET /tabs
-        Returns: TypedCursor[TabFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_tabs(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, TabFields)
-
-    @staticmethod
-    def create_take_thread_control(
-        obj: Page,
-        params: PageCreateTakeThreadControlParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_take_thread_control().
-
-        Endpoint: POST /take_thread_control
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_take_thread_control(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_thread_owner(
-        obj: Page,
-        params: Optional[PageGetThreadOwnerParams] = None,
-        fields: Optional[list[PageThreadOwnerField]] = None,
-    ) -> TypedCursor[PageThreadOwnerFields]:
-        """
-        Type-safe wrapper for Page.get_thread_owner().
-
-        Endpoint: GET /thread_owner
-        Returns: TypedCursor[PageThreadOwnerFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_thread_owner(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageThreadOwnerFields)
-
-    @staticmethod
-    def get_threads(
-        obj: Page,
-        params: Optional[PageGetThreadsParams] = None,
-        fields: Optional[list[UnifiedThreadField]] = None,
-    ) -> TypedCursor[UnifiedThreadFields]:
-        """
-        Type-safe wrapper for Page.get_threads().
-
-        Endpoint: GET /threads
-        Returns: TypedCursor[UnifiedThreadFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_threads(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UnifiedThreadFields)
-
-    @staticmethod
-    def create_unlink_account(
-        obj: Page,
-        params: PageCreateUnlinkAccountParams,
-    ) -> PageFields:
-        """
-        Type-safe wrapper for Page.create_unlink_account().
-
-        Endpoint: POST /unlink_accounts
-        Returns: PageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_unlink_account(params=params_dict)
-
-        # Convert result to typed model
-        return PageFields(**result)
-
-    @staticmethod
-    def get_video_copyright_rules(
-        obj: Page,
-        params: Optional[PageGetVideoCopyrightRulesParams] = None,
-        fields: Optional[list[VideoCopyrightRuleField]] = None,
-    ) -> TypedCursor[VideoCopyrightRuleFields]:
-        """
-        Type-safe wrapper for Page.get_video_copyright_rules().
-
-        Endpoint: GET /video_copyright_rules
-        Returns: TypedCursor[VideoCopyrightRuleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_video_copyright_rules(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, VideoCopyrightRuleFields)
-
-    @staticmethod
-    def create_video_copyright_rule(
-        obj: Page,
-        params: PageCreateVideoCopyrightRuleParams,
-    ) -> VideoCopyrightRuleFields:
-        """
-        Type-safe wrapper for Page.create_video_copyright_rule().
-
-        Endpoint: POST /video_copyright_rules
-        Returns: VideoCopyrightRuleFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video_copyright_rule(params=params_dict)
-
-        # Convert result to typed model
-        return VideoCopyrightRuleFields(**result)
-
-    @staticmethod
-    def create_video_copyright(
-        obj: Page,
-        params: PageCreateVideoCopyrightParams,
-    ) -> VideoCopyrightFields:
-        """
-        Type-safe wrapper for Page.create_video_copyright().
-
-        Endpoint: POST /video_copyrights
-        Returns: VideoCopyrightFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video_copyright(params=params_dict)
-
-        # Convert result to typed model
-        return VideoCopyrightFields(**result)
-
-    @staticmethod
-    def get_video_reels(
-        obj: Page,
-        params: Optional[PageGetVideoReelsParams] = None,
-        fields: Optional[list[AdVideoField]] = None,
-    ) -> TypedCursor[AdVideoFields]:
-        """
-        Type-safe wrapper for Page.get_video_reels().
-
-        Endpoint: GET /video_reels
-        Returns: TypedCursor[AdVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_video_reels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdVideoFields)
-
-    @staticmethod
-    def create_video_reel(
-        obj: Page,
-        params: PageCreateVideoReelParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for Page.create_video_reel().
-
-        Endpoint: POST /video_reels
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video_reel(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
-
-    @staticmethod
-    def create_video_story(
-        obj: Page,
-        params: PageCreateVideoStoryParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Page.create_video_story().
-
-        Endpoint: POST /video_stories
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video_story(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def get_videos(
-        obj: Page,
-        params: Optional[PageGetVideosParams] = None,
-        fields: Optional[list[AdVideoField]] = None,
-    ) -> TypedCursor[AdVideoFields]:
-        """
-        Type-safe wrapper for Page.get_videos().
-
-        Endpoint: GET /videos
-        Returns: TypedCursor[AdVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_videos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdVideoFields)
-
-    @staticmethod
-    def create_video(
-        obj: Page,
-        params: PageCreateVideoParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for Page.create_video().
-
-        Endpoint: POST /videos
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
-
-    @staticmethod
-    def get_visitor_posts(
-        obj: Page,
-        params: Optional[PageGetVisitorPostsParams] = None,
-        fields: Optional[list[PagePostField]] = None,
-    ) -> TypedCursor[PagePostFields]:
-        """
-        Type-safe wrapper for Page.get_visitor_posts().
-
-        Endpoint: GET /visitor_posts
-        Returns: TypedCursor[PagePostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_visitor_posts(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PagePostFields)
-
-    @staticmethod
-    def delete_welcome_message_flows(
-        obj: Page,
-        params: Optional[PageDeleteWelcomeMessageFlowsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Page.delete_welcome_message_flows().
-
-        Endpoint: DELETE /welcome_message_flows
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_welcome_message_flows(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_welcome_message_flows(
-        obj: Page,
-        params: Optional[PageGetWelcomeMessageFlowsParams] = None,
-        fields: Optional[list[CTXPartnerAppWelcomeMessageFlowField]] = None,
-    ) -> TypedCursor[CTXPartnerAppWelcomeMessageFlowFields]:
-        """
-        Type-safe wrapper for Page.get_welcome_message_flows().
-
-        Endpoint: GET /welcome_message_flows
-        Returns: TypedCursor[CTXPartnerAppWelcomeMessageFlowFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_welcome_message_flows(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CTXPartnerAppWelcomeMessageFlowFields)
-
-    @staticmethod
-    def create_welcome_message_flow(
-        obj: Page,
-        params: PageCreateWelcomeMessageFlowParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for Page.create_welcome_message_flow().
-
-        Endpoint: POST /welcome_message_flows
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_welcome_message_flow(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
+from ..models.pagepost import PagePostField
+from ..models.pagepostexperiment import PagePostExperimentField
+from ..models.pagethreadowner import PageThreadOwnerField
+from ..models.pageusermessagethreadlabel import PageUserMessageThreadLabelField
+from ..models.persona import PersonaField
+from ..models.photo import PhotoField
+from ..models.profile import ProfileField
+from ..models.profilepicturesource import ProfilePictureSourceField
+from ..models.stories import StoriesField
+from ..models.tab import TabField
+from ..models.unifiedthread import UnifiedThreadField
+from ..models.user import UserField
+from ..models.videocopyright import VideoCopyrightField
+from ..models.videocopyrightmatch import VideoCopyrightMatchField
+from ..models.videocopyrightrule import VideoCopyrightRuleField
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def create_ab_test(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateAbTestParams = {},
+) -> Any:
+    """Create Ab Test for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_ab_test(fields=fields, params=params)
+
+
+def create_acknowledge_order(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateAcknowledgeOrderParams = {},
+) -> Any:
+    """Create Acknowledge Order for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_acknowledge_order(fields=fields, params=params)
+
+
+def get_ads_posts(
+    page_id: str,
+    fields: list[PagePostField] = [],
+    params: PageGetAdsPostsParams = {},
+) -> Any:
+    """Get Ads Posts for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_ads_posts(fields=fields, params=params)
+
+
+def delete_agencies(
+    page_id: str,
+    params: PageDeleteAgenciesParams = {},
+) -> Any:
+    """Delete Agencies for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_agencies(params=params)
+
+
+def create_agency(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateAgencyParams = {},
+) -> Any:
+    """Create Agency for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_agency(fields=fields, params=params)
+
+
+def delete_assigned_users(
+    page_id: str,
+    params: PageDeleteAssignedUsersParams = {},
+) -> Any:
+    """Delete Assigned Users for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_assigned_users(params=params)
+
+
+def get_assigned_users(
+    page_id: str,
+    fields: list[AssignedUserField] = [],
+    params: PageGetAssignedUsersParams = {},
+) -> Any:
+    """Get Assigned Users for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_assigned_users(fields=fields, params=params)
+
+
+def create_assigned_user(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateAssignedUserParams = {},
+) -> Any:
+    """Create Assigned User for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_assigned_user(fields=fields, params=params)
+
+
+def delete_blocked(
+    page_id: str,
+    params: PageDeleteBlockedParams = {},
+) -> Any:
+    """Delete Blocked for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_blocked(params=params)
+
+
+def get_blocked(
+    page_id: str,
+    fields: list[ProfileField] = [],
+    params: PageGetBlockedParams = {},
+) -> Any:
+    """Get Blocked for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_blocked(fields=fields, params=params)
+
+
+def create_blocked(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateBlockedParams = {},
+) -> Any:
+    """Create Blocked for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_blocked(fields=fields, params=params)
+
+
+def create_business_datum(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateBusinessDatumParams = {},
+) -> Any:
+    """Create Business Datum for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_business_datum(fields=fields, params=params)
+
+
+def get_business_projects(
+    page_id: str,
+    fields: list[BusinessProjectField] = [],
+    params: PageGetBusinessProjectsParams = {},
+) -> Any:
+    """Get Business Projects for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_business_projects(fields=fields, params=params)
+
+
+def create_call(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateCallParams = {},
+) -> Any:
+    """Create Call for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_call(fields=fields, params=params)
+
+
+def create_canvas_element(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateCanvasElementParams = {},
+) -> Any:
+    """Create Canvas Element for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_canvas_element(fields=fields, params=params)
+
+
+def get_canvases(
+    page_id: str,
+    fields: list[CanvasField] = [],
+    params: PageGetCanvasesParams = {},
+) -> Any:
+    """Get Canvases for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_canvases(fields=fields, params=params)
+
+
+def create_canvase(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateCanvaseParams = {},
+) -> Any:
+    """Create Canvase for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_canvase(fields=fields, params=params)
+
+
+def get_commerce_orders(
+    page_id: str,
+    fields: list[CommerceOrderField] = [],
+    params: PageGetCommerceOrdersParams = {},
+) -> Any:
+    """Get Commerce Orders for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_commerce_orders(fields=fields, params=params)
+
+
+def get_commerce_payouts(
+    page_id: str,
+    fields: list[CommercePayoutField] = [],
+    params: PageGetCommercePayoutsParams = {},
+) -> Any:
+    """Get Commerce Payouts for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_commerce_payouts(fields=fields, params=params)
+
+
+def get_commerce_transactions(
+    page_id: str,
+    fields: list[CommerceOrderTransactionDetailField] = [],
+    params: PageGetCommerceTransactionsParams = {},
+) -> Any:
+    """Get Commerce Transactions for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_commerce_transactions(fields=fields, params=params)
+
+
+def get_conversations(
+    page_id: str,
+    fields: list[UnifiedThreadField] = [],
+    params: PageGetConversationsParams = {},
+) -> Any:
+    """Get Conversations for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_conversations(fields=fields, params=params)
+
+
+def create_copyright_manual_claim(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateCopyrightManualClaimParams = {},
+) -> Any:
+    """Create Copyright Manual Claim for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_copyright_manual_claim(fields=fields, params=params)
+
+
+def create_custom_label(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateCustomLabelParams = {},
+) -> Any:
+    """Create Custom Label for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_custom_label(fields=fields, params=params)
+
+
+def delete_custom_user_settings(
+    page_id: str,
+    params: PageDeleteCustomUserSettingsParams = {},
+) -> Any:
+    """Delete Custom User Settings for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_custom_user_settings(params=params)
+
+
+def get_custom_user_settings(
+    page_id: str,
+    fields: list[CustomUserSettingsField] = [],
+    params: PageGetCustomUserSettingsParams = {},
+) -> Any:
+    """Get Custom User Settings for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_custom_user_settings(fields=fields, params=params)
+
+
+def create_custom_user_setting(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateCustomUserSettingParams = {},
+) -> Any:
+    """Create Custom User Setting for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_custom_user_setting(fields=fields, params=params)
+
+
+def create_dataset(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateDatasetParams = {},
+) -> Any:
+    """Create Dataset for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_dataset(fields=fields, params=params)
+
+
+def get_events(
+    page_id: str,
+    fields: list[EventField] = [],
+    params: PageGetEventsParams = {},
+) -> Any:
+    """Get Events for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_events(fields=fields, params=params)
+
+
+def create_extend_thread_control(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateExtendThreadControlParams = {},
+) -> Any:
+    """Create Extend Thread Control for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_extend_thread_control(fields=fields, params=params)
+
+
+def get_feed(
+    page_id: str,
+    fields: list[PagePostField] = [],
+    params: PageGetFeedParams = {},
+) -> Any:
+    """Get Feed for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_feed(fields=fields, params=params)
+
+
+def create_feed(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateFeedParams = {},
+) -> Any:
+    """Create Feed for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_feed(fields=fields, params=params)
+
+
+def create_image_copyright(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateImageCopyrightParams = {},
+) -> Any:
+    """Create Image Copyright for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_image_copyright(fields=fields, params=params)
+
+
+def get_insights(
+    page_id: str,
+    fields: list[InsightsResultField] = [],
+    params: PageGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_insights(fields=fields, params=params)
+
+
+def create_lead_gen_form(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateLeadGenFormParams = {},
+) -> Any:
+    """Create Lead Gen Form for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_lead_gen_form(fields=fields, params=params)
+
+
+def get_likes(
+    page_id: str,
+    fields: list[PageField] = [],
+    params: PageGetLikesParams = {},
+) -> Any:
+    """Get Likes for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_likes(fields=fields, params=params)
+
+
+def get_live_videos(
+    page_id: str,
+    fields: list[LiveVideoField] = [],
+    params: PageGetLiveVideosParams = {},
+) -> Any:
+    """Get Live Videos for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_live_videos(fields=fields, params=params)
+
+
+def create_live_video(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateLiveVideoParams = {},
+) -> Any:
+    """Create Live Video for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_live_video(fields=fields, params=params)
+
+
+def delete_locations(
+    page_id: str,
+    params: PageDeleteLocationsParams = {},
+) -> Any:
+    """Delete Locations for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_locations(params=params)
+
+
+def create_location(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateLocationParams = {},
+) -> Any:
+    """Create Location for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_location(fields=fields, params=params)
+
+
+def get_media_fingerprints(
+    page_id: str,
+    fields: list[MediaFingerprintField] = [],
+    params: PageGetMediaFingerprintsParams = {},
+) -> Any:
+    """Get Media Fingerprints for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_media_fingerprints(fields=fields, params=params)
+
+
+def create_media_fingerprint(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateMediaFingerprintParams = {},
+) -> Any:
+    """Create Media Fingerprint for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_media_fingerprint(fields=fields, params=params)
+
+
+def create_message_attachment(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateMessageAttachmentParams = {},
+) -> Any:
+    """Create Message Attachment for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_message_attachment(fields=fields, params=params)
+
+
+def delete_message_templates(
+    page_id: str,
+    params: PageDeleteMessageTemplatesParams = {},
+) -> Any:
+    """Delete Message Templates for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_message_templates(params=params)
+
+
+def get_message_templates(
+    page_id: str,
+    fields: list[MessengerBusinessTemplateField] = [],
+    params: PageGetMessageTemplatesParams = {},
+) -> Any:
+    """Get Message Templates for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_message_templates(fields=fields, params=params)
+
+
+def create_message_template(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateMessageTemplateParams = {},
+) -> Any:
+    """Create Message Template for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_message_template(fields=fields, params=params)
+
+
+def create_message(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateMessageParams = {},
+) -> Any:
+    """Create Message for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_message(fields=fields, params=params)
+
+
+def create_messenger_call_setting(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateMessengerCallSettingParams = {},
+) -> Any:
+    """Create Messenger Call Setting for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_messenger_call_setting(fields=fields, params=params)
+
+
+def create_messenger_lead_form(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateMessengerLeadFormParams = {},
+) -> Any:
+    """Create Messenger Lead Form for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_messenger_lead_form(fields=fields, params=params)
+
+
+def delete_messenger_profile(
+    page_id: str,
+    params: PageDeleteMessengerProfileParams = {},
+) -> Any:
+    """Delete Messenger Profile for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_messenger_profile(params=params)
+
+
+def get_messenger_profile(
+    page_id: str,
+    fields: list[MessengerProfileField] = [],
+    params: PageGetMessengerProfileParams = {},
+) -> Any:
+    """Get Messenger Profile for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_messenger_profile(fields=fields, params=params)
+
+
+def create_messenger_profile(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateMessengerProfileParams = {},
+) -> Any:
+    """Create Messenger Profile for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_messenger_profile(fields=fields, params=params)
+
+
+def create_moderate_conversation(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateModerateConversationParams = {},
+) -> Any:
+    """Create Moderate Conversation for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_moderate_conversation(fields=fields, params=params)
+
+
+def create_nlp_config(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateNlpConfigParams = {},
+) -> Any:
+    """Create Nlp Config for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_nlp_config(fields=fields, params=params)
+
+
+def create_notification_messages_dev_support(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateNotificationMessagesDevSupportParams = {},
+) -> Any:
+    """Create Notification Messages Dev Support for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_notification_messages_dev_support(fields=fields, params=params)
+
+
+def create_page_whats_app_number_verification(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreatePageWhatsAppNumberVerificationParams = {},
+) -> Any:
+    """Create Page Whats App Number Verification for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_page_whats_app_number_verification(fields=fields, params=params)
+
+
+def create_pass_thread_control(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreatePassThreadControlParams = {},
+) -> Any:
+    """Create Pass Thread Control for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_pass_thread_control(fields=fields, params=params)
+
+
+def create_persona(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreatePersonaParams = {},
+) -> Any:
+    """Create Persona for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_persona(fields=fields, params=params)
+
+
+def create_photo_story(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreatePhotoStoryParams = {},
+) -> Any:
+    """Create Photo Story for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_photo_story(fields=fields, params=params)
+
+
+def get_photos(
+    page_id: str,
+    fields: list[PhotoField] = [],
+    params: PageGetPhotosParams = {},
+) -> Any:
+    """Get Photos for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_photos(fields=fields, params=params)
+
+
+def create_photo(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreatePhotoParams = {},
+) -> Any:
+    """Create Photo for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_photo(fields=fields, params=params)
+
+
+def get_picture(
+    page_id: str,
+    fields: list[ProfilePictureSourceField] = [],
+    params: PageGetPictureParams = {},
+) -> Any:
+    """Get Picture for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_picture(fields=fields, params=params)
+
+
+def create_picture(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreatePictureParams = {},
+) -> Any:
+    """Create Picture for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_picture(fields=fields, params=params)
+
+
+def get_posts(
+    page_id: str,
+    fields: list[PagePostField] = [],
+    params: PageGetPostsParams = {},
+) -> Any:
+    """Get Posts for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_posts(fields=fields, params=params)
+
+
+def get_published_posts(
+    page_id: str,
+    fields: list[PagePostField] = [],
+    params: PageGetPublishedPostsParams = {},
+) -> Any:
+    """Get Published Posts for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_published_posts(fields=fields, params=params)
+
+
+def create_release_thread_control(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateReleaseThreadControlParams = {},
+) -> Any:
+    """Create Release Thread Control for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_release_thread_control(fields=fields, params=params)
+
+
+def create_request_thread_control(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateRequestThreadControlParams = {},
+) -> Any:
+    """Create Request Thread Control for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_request_thread_control(fields=fields, params=params)
+
+
+def get_roles(
+    page_id: str,
+    fields: list[UserField] = [],
+    params: PageGetRolesParams = {},
+) -> Any:
+    """Get Roles for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_roles(fields=fields, params=params)
+
+
+def get_secondary_receivers(
+    page_id: str,
+    fields: list[ApplicationField] = [],
+    params: PageGetSecondaryReceiversParams = {},
+) -> Any:
+    """Get Secondary Receivers for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_secondary_receivers(fields=fields, params=params)
+
+
+def create_setting(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateSettingParams = {},
+) -> Any:
+    """Create Setting for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_setting(fields=fields, params=params)
+
+
+def get_stories(
+    page_id: str,
+    fields: list[StoriesField] = [],
+    params: PageGetStoriesParams = {},
+) -> Any:
+    """Get Stories for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_stories(fields=fields, params=params)
+
+
+def create_subscribed_app(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateSubscribedAppParams = {},
+) -> Any:
+    """Create Subscribed App for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_subscribed_app(fields=fields, params=params)
+
+
+def get_tabs(
+    page_id: str,
+    fields: list[TabField] = [],
+    params: PageGetTabsParams = {},
+) -> Any:
+    """Get Tabs for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_tabs(fields=fields, params=params)
+
+
+def create_take_thread_control(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateTakeThreadControlParams = {},
+) -> Any:
+    """Create Take Thread Control for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_take_thread_control(fields=fields, params=params)
+
+
+def get_thread_owner(
+    page_id: str,
+    fields: list[PageThreadOwnerField] = [],
+    params: PageGetThreadOwnerParams = {},
+) -> Any:
+    """Get Thread Owner for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_thread_owner(fields=fields, params=params)
+
+
+def get_threads(
+    page_id: str,
+    fields: list[UnifiedThreadField] = [],
+    params: PageGetThreadsParams = {},
+) -> Any:
+    """Get Threads for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_threads(fields=fields, params=params)
+
+
+def create_unlink_account(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateUnlinkAccountParams = {},
+) -> Any:
+    """Create Unlink Account for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_unlink_account(fields=fields, params=params)
+
+
+def get_video_copyright_rules(
+    page_id: str,
+    fields: list[VideoCopyrightRuleField] = [],
+    params: PageGetVideoCopyrightRulesParams = {},
+) -> Any:
+    """Get Video Copyright Rules for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_video_copyright_rules(fields=fields, params=params)
+
+
+def create_video_copyright_rule(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateVideoCopyrightRuleParams = {},
+) -> Any:
+    """Create Video Copyright Rule for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_video_copyright_rule(fields=fields, params=params)
+
+
+def create_video_copyright(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateVideoCopyrightParams = {},
+) -> Any:
+    """Create Video Copyright for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_video_copyright(fields=fields, params=params)
+
+
+def get_video_reels(
+    page_id: str,
+    fields: list[AdVideoField] = [],
+    params: PageGetVideoReelsParams = {},
+) -> Any:
+    """Get Video Reels for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_video_reels(fields=fields, params=params)
+
+
+def create_video_reel(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateVideoReelParams = {},
+) -> Any:
+    """Create Video Reel for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_video_reel(fields=fields, params=params)
+
+
+def create_video_story(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateVideoStoryParams = {},
+) -> Any:
+    """Create Video Story for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_video_story(fields=fields, params=params)
+
+
+def get_videos(
+    page_id: str,
+    fields: list[AdVideoField] = [],
+    params: PageGetVideosParams = {},
+) -> Any:
+    """Get Videos for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_videos(fields=fields, params=params)
+
+
+def create_video(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateVideoParams = {},
+) -> Any:
+    """Create Video for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_video(fields=fields, params=params)
+
+
+def get_visitor_posts(
+    page_id: str,
+    fields: list[PagePostField] = [],
+    params: PageGetVisitorPostsParams = {},
+) -> Any:
+    """Get Visitor Posts for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_visitor_posts(fields=fields, params=params)
+
+
+def delete_welcome_message_flows(
+    page_id: str,
+    params: PageDeleteWelcomeMessageFlowsParams = {},
+) -> Any:
+    """Delete Welcome Message Flows for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        params: Parameters for the operation.
+    """
+    return Page(page_id).delete_welcome_message_flows(params=params)
+
+
+def get_welcome_message_flows(
+    page_id: str,
+    fields: list[CTXPartnerAppWelcomeMessageFlowField] = [],
+    params: PageGetWelcomeMessageFlowsParams = {},
+) -> Any:
+    """Get Welcome Message Flows for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).get_welcome_message_flows(fields=fields, params=params)
+
+
+def create_welcome_message_flow(
+    page_id: str,
+    fields: list[str] = [],
+    params: PageCreateWelcomeMessageFlowParams = {},
+) -> Any:
+    """Create Welcome Message Flow for this Page.
+
+    Args:
+        page_id: The ID of the Page.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Page(page_id).create_welcome_message_flow(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

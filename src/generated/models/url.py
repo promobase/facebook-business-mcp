@@ -35,6 +35,19 @@ class URLFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class URLUpdateParams(BaseModel):
+    """Parameters for URL.api_update()."""
+
+    blacklist: bool | None = Field(None, description="blacklist parameter")
+    denylist: bool | None = Field(None, description="denylist parameter")
+    hmac: str | None = Field(None, description="hmac parameter")
+    locale: list[str] | None = Field(None, description="locale parameter")
+    scopes: list[str] | None = Field(None, description="scopes parameter")
+    ts: datetime | None = Field(None, description="ts parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -2,16 +2,14 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.ad import Ad
+from facebook_business.adobjects.ad import Ad
 
 from ..models.ad import (
     AdCreateAdLabelParams,
     AdCreateCopyParams,
     AdField,
-    AdFields,
     AdGetAdRulesGovernedParams,
     AdGetCopiesParams,
     AdGetInsightsAsyncParams,
@@ -21,206 +19,119 @@ from ..models.ad import (
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adpreview import (
-    AdPreviewField,
-    AdPreviewFields,
-)
-from ..models.adreportrun import (
-    AdReportRunField,
-    AdReportRunFields,
-)
-from ..models.adrule import (
-    AdRuleField,
-    AdRuleFields,
-)
-from ..models.adsinsights import (
-    AdsInsightsField,
-    AdsInsightsFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.adpreview import AdPreviewField
+from ..models.adreportrun import AdReportRunField
+from ..models.adrule import AdRuleField
+from ..models.adsinsights import AdsInsightsField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdWrappers:
-    """Type-safe wrapper functions for Ad API methods."""
+def create_ad_label(
+    ad_id: str,
+    fields: list[str] = [],
+    params: AdCreateAdLabelParams = {},
+) -> Any:
+    """Create Ad Label for this Ad.
 
-    @staticmethod
-    def create_ad_label(
-        obj: Ad,
-        params: AdCreateAdLabelParams,
-    ) -> AdFields:
-        """
-        Type-safe wrapper for Ad.create_ad_label().
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).create_ad_label(fields=fields, params=params)
 
-        Endpoint: POST /adlabels
-        Returns: AdFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_ad_label(params=params_dict)
+def get_ad_rules_governed(
+    ad_id: str,
+    fields: list[AdRuleField] = [],
+    params: AdGetAdRulesGovernedParams = {},
+) -> Any:
+    """Get Ad Rules Governed for this Ad.
 
-        # Convert result to typed model
-        return AdFields(**result)
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_ad_rules_governed(fields=fields, params=params)
 
-    @staticmethod
-    def get_ad_rules_governed(
-        obj: Ad,
-        params: Optional[AdGetAdRulesGovernedParams] = None,
-        fields: Optional[list[AdRuleField]] = None,
-    ) -> TypedCursor[AdRuleFields]:
-        """
-        Type-safe wrapper for Ad.get_ad_rules_governed().
 
-        Endpoint: GET /adrules_governed
-        Returns: TypedCursor[AdRuleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_copies(
+    ad_id: str,
+    fields: list[AdField] = [],
+    params: AdGetCopiesParams = {},
+) -> Any:
+    """Get Copies for this Ad.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_copies(fields=fields, params=params)
 
-        # Call the original method
-        cursor = obj.get_ad_rules_governed(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdRuleFields)
+def create_copy(
+    ad_id: str,
+    fields: list[str] = [],
+    params: AdCreateCopyParams = {},
+) -> Any:
+    """Create Copy for this Ad.
 
-    @staticmethod
-    def get_copies(
-        obj: Ad,
-        params: Optional[AdGetCopiesParams] = None,
-        fields: Optional[list[AdField]] = None,
-    ) -> TypedCursor[AdFields]:
-        """
-        Type-safe wrapper for Ad.get_copies().
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).create_copy(fields=fields, params=params)
 
-        Endpoint: GET /copies
-        Returns: TypedCursor[AdFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_insights(
+    ad_id: str,
+    fields: list[AdsInsightsField] = [],
+    params: AdGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this Ad.
 
-        # Call the original method
-        cursor = obj.get_copies(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_insights(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdFields)
 
-    @staticmethod
-    def create_copy(
-        obj: Ad,
-        params: AdCreateCopyParams,
-    ) -> AdFields:
-        """
-        Type-safe wrapper for Ad.create_copy().
+def get_insights_async(
+    ad_id: str,
+    fields: list[AdReportRunField] = [],
+    params: AdGetInsightsAsyncParams = {},
+) -> Any:
+    """Get Insights Async for this Ad.
 
-        Endpoint: POST /copies
-        Returns: AdFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_insights_async(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_copy(params=params_dict)
 
-        # Convert result to typed model
-        return AdFields(**result)
+def get_previews(
+    ad_id: str,
+    fields: list[AdPreviewField] = [],
+    params: AdGetPreviewsParams = {},
+) -> Any:
+    """Get Previews for this Ad.
 
-    @staticmethod
-    def get_insights(
-        obj: Ad,
-        params: Optional[AdGetInsightsParams] = None,
-        fields: Optional[list[AdsInsightsField]] = None,
-    ) -> TypedCursor[AdsInsightsFields]:
-        """
-        Type-safe wrapper for Ad.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[AdsInsightsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsInsightsFields)
-
-    @staticmethod
-    def get_insights_async(
-        obj: Ad,
-        params: Optional[AdGetInsightsAsyncParams] = None,
-        fields: Optional[list[AdReportRunField]] = None,
-    ) -> AdReportRunFields:
-        """
-        Type-safe wrapper for Ad.get_insights_async().
-
-        Endpoint: POST /insights
-        Returns: AdReportRunFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        result = obj.get_insights_async(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Convert result to typed model
-        return AdReportRunFields(**result)
-
-    @staticmethod
-    def get_previews(
-        obj: Ad,
-        params: Optional[AdGetPreviewsParams] = None,
-        fields: Optional[list[AdPreviewField]] = None,
-    ) -> TypedCursor[AdPreviewFields]:
-        """
-        Type-safe wrapper for Ad.get_previews().
-
-        Endpoint: GET /previews
-        Returns: TypedCursor[AdPreviewFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_previews(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdPreviewFields)
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_previews(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

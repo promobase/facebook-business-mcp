@@ -2,147 +2,87 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.livevideo import LiveVideo
+from facebook_business.adobjects.livevideo import LiveVideo
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
+from ..models.comment import CommentField
 from ..models.livevideo import (
     LiveVideoCreatePollParams,
     LiveVideoField,
-    LiveVideoFields,
     LiveVideoGetBlockedUsersParams,
     LiveVideoGetCommentsParams,
     LiveVideoGetReactionsParams,
 )
-from ..models.profile import (
-    ProfileField,
-    ProfileFields,
-)
-from ..models.user import (
-    UserField,
-    UserFields,
-)
-from ..models.videopoll import (
-    VideoPollField,
-    VideoPollFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.profile import ProfileField
+from ..models.user import UserField
+from ..models.videopoll import VideoPollField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class LiveVideoWrappers:
-    """Type-safe wrapper functions for LiveVideo API methods."""
+def get_blocked_users(
+    livevideo_id: str,
+    fields: list[UserField] = [],
+    params: LiveVideoGetBlockedUsersParams = {},
+) -> Any:
+    """Get Blocked Users for this LiveVideo.
 
-    @staticmethod
-    def get_blocked_users(
-        obj: LiveVideo,
-        params: Optional[LiveVideoGetBlockedUsersParams] = None,
-        fields: Optional[list[UserField]] = None,
-    ) -> TypedCursor[UserFields]:
-        """
-        Type-safe wrapper for LiveVideo.get_blocked_users().
+    Args:
+        livevideo_id: The ID of the LiveVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return LiveVideo(livevideo_id).get_blocked_users(fields=fields, params=params)
 
-        Endpoint: GET /blocked_users
-        Returns: TypedCursor[UserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_comments(
+    livevideo_id: str,
+    fields: list[CommentField] = [],
+    params: LiveVideoGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this LiveVideo.
 
-        # Call the original method
-        cursor = obj.get_blocked_users(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        livevideo_id: The ID of the LiveVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return LiveVideo(livevideo_id).get_comments(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UserFields)
 
-    @staticmethod
-    def get_comments(
-        obj: LiveVideo,
-        params: Optional[LiveVideoGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for LiveVideo.get_comments().
+def create_poll(
+    livevideo_id: str,
+    fields: list[str] = [],
+    params: LiveVideoCreatePollParams = {},
+) -> Any:
+    """Create Poll for this LiveVideo.
 
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        livevideo_id: The ID of the LiveVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return LiveVideo(livevideo_id).create_poll(fields=fields, params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
+def get_reactions(
+    livevideo_id: str,
+    fields: list[ProfileField] = [],
+    params: LiveVideoGetReactionsParams = {},
+) -> Any:
+    """Get Reactions for this LiveVideo.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
-
-    @staticmethod
-    def create_poll(
-        obj: LiveVideo,
-        params: LiveVideoCreatePollParams,
-    ) -> VideoPollFields:
-        """
-        Type-safe wrapper for LiveVideo.create_poll().
-
-        Endpoint: POST /polls
-        Returns: VideoPollFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_poll(params=params_dict)
-
-        # Convert result to typed model
-        return VideoPollFields(**result)
-
-    @staticmethod
-    def get_reactions(
-        obj: LiveVideo,
-        params: Optional[LiveVideoGetReactionsParams] = None,
-        fields: Optional[list[ProfileField]] = None,
-    ) -> TypedCursor[ProfileFields]:
-        """
-        Type-safe wrapper for LiveVideo.get_reactions().
-
-        Endpoint: GET /reactions
-        Returns: TypedCursor[ProfileFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_reactions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfileFields)
+    Args:
+        livevideo_id: The ID of the LiveVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return LiveVideo(livevideo_id).get_reactions(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

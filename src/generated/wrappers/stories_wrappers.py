@@ -2,58 +2,36 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.stories import Stories
+from facebook_business.adobjects.stories import Stories
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.insightsresult import (
-    InsightsResultField,
-    InsightsResultFields,
-)
+from ..models.insightsresult import InsightsResultField
 from ..models.stories import (
     StoriesField,
-    StoriesFields,
     StoriesGetInsightsParams,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class StoriesWrappers:
-    """Type-safe wrapper functions for Stories API methods."""
+def get_insights(
+    stories_id: str,
+    fields: list[InsightsResultField] = [],
+    params: StoriesGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this Stories.
 
-    @staticmethod
-    def get_insights(
-        obj: Stories,
-        params: Optional[StoriesGetInsightsParams] = None,
-        fields: Optional[list[InsightsResultField]] = None,
-    ) -> TypedCursor[InsightsResultFields]:
-        """
-        Type-safe wrapper for Stories.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[InsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InsightsResultFields)
+    Args:
+        stories_id: The ID of the Stories.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Stories(stories_id).get_insights(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

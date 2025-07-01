@@ -2,39 +2,22 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.campaign import Campaign
+from facebook_business.adobjects.campaign import Campaign
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.ad import (
-    AdField,
-    AdFields,
-)
-from ..models.adreportrun import (
-    AdReportRunField,
-    AdReportRunFields,
-)
-from ..models.adrule import (
-    AdRuleField,
-    AdRuleFields,
-)
-from ..models.adset import (
-    AdSetField,
-    AdSetFields,
-)
-from ..models.adsinsights import (
-    AdsInsightsField,
-    AdsInsightsFields,
-)
+from ..models.ad import AdField
+from ..models.adreportrun import AdReportRunField
+from ..models.adrule import AdRuleField
+from ..models.adset import AdSetField
+from ..models.adsinsights import AdsInsightsField
 from ..models.campaign import (
     CampaignCreateAdLabelParams,
     CampaignCreateBudgetScheduleParams,
     CampaignCreateCopyParams,
     CampaignField,
-    CampaignFields,
     CampaignGetAdRulesGovernedParams,
     CampaignGetAdSetsParams,
     CampaignGetAdsParams,
@@ -42,241 +25,146 @@ from ..models.campaign import (
     CampaignGetInsightsAsyncParams,
     CampaignGetInsightsParams,
 )
-from ..models.highdemandperiod import (
-    HighDemandPeriodField,
-    HighDemandPeriodFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.highdemandperiod import HighDemandPeriodField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class CampaignWrappers:
-    """Type-safe wrapper functions for Campaign API methods."""
+def create_ad_label(
+    campaign_id: str,
+    fields: list[str] = [],
+    params: CampaignCreateAdLabelParams = {},
+) -> Any:
+    """Create Ad Label for this Campaign.
 
-    @staticmethod
-    def create_ad_label(
-        obj: Campaign,
-        params: CampaignCreateAdLabelParams,
-    ) -> CampaignFields:
-        """
-        Type-safe wrapper for Campaign.create_ad_label().
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).create_ad_label(fields=fields, params=params)
 
-        Endpoint: POST /adlabels
-        Returns: CampaignFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_ad_label(params=params_dict)
+def get_ad_rules_governed(
+    campaign_id: str,
+    fields: list[AdRuleField] = [],
+    params: CampaignGetAdRulesGovernedParams = {},
+) -> Any:
+    """Get Ad Rules Governed for this Campaign.
 
-        # Convert result to typed model
-        return CampaignFields(**result)
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).get_ad_rules_governed(fields=fields, params=params)
 
-    @staticmethod
-    def get_ad_rules_governed(
-        obj: Campaign,
-        params: Optional[CampaignGetAdRulesGovernedParams] = None,
-        fields: Optional[list[AdRuleField]] = None,
-    ) -> TypedCursor[AdRuleFields]:
-        """
-        Type-safe wrapper for Campaign.get_ad_rules_governed().
 
-        Endpoint: GET /adrules_governed
-        Returns: TypedCursor[AdRuleFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_ads(
+    campaign_id: str,
+    fields: list[AdField] = [],
+    params: CampaignGetAdsParams = {},
+) -> Any:
+    """Get Ads for this Campaign.
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).get_ads(fields=fields, params=params)
 
-        # Call the original method
-        cursor = obj.get_ad_rules_governed(
-            params=params_dict,
-            fields=fields_list,
-        )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdRuleFields)
+def get_ad_sets(
+    campaign_id: str,
+    fields: list[AdSetField] = [],
+    params: CampaignGetAdSetsParams = {},
+) -> Any:
+    """Get Ad Sets for this Campaign.
 
-    @staticmethod
-    def get_ads(
-        obj: Campaign,
-        params: Optional[CampaignGetAdsParams] = None,
-        fields: Optional[list[AdField]] = None,
-    ) -> TypedCursor[AdFields]:
-        """
-        Type-safe wrapper for Campaign.get_ads().
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).get_ad_sets(fields=fields, params=params)
 
-        Endpoint: GET /ads
-        Returns: TypedCursor[AdFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_budget_schedule(
+    campaign_id: str,
+    fields: list[str] = [],
+    params: CampaignCreateBudgetScheduleParams = {},
+) -> Any:
+    """Create Budget Schedule for this Campaign.
 
-        # Call the original method
-        cursor = obj.get_ads(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).create_budget_schedule(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdFields)
 
-    @staticmethod
-    def get_ad_sets(
-        obj: Campaign,
-        params: Optional[CampaignGetAdSetsParams] = None,
-        fields: Optional[list[AdSetField]] = None,
-    ) -> TypedCursor[AdSetFields]:
-        """
-        Type-safe wrapper for Campaign.get_ad_sets().
+def get_copies(
+    campaign_id: str,
+    fields: list[CampaignField] = [],
+    params: CampaignGetCopiesParams = {},
+) -> Any:
+    """Get Copies for this Campaign.
 
-        Endpoint: GET /adsets
-        Returns: TypedCursor[AdSetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).get_copies(fields=fields, params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_ad_sets(
-            params=params_dict,
-            fields=fields_list,
-        )
+def create_copy(
+    campaign_id: str,
+    fields: list[str] = [],
+    params: CampaignCreateCopyParams = {},
+) -> Any:
+    """Create Copy for this Campaign.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdSetFields)
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).create_copy(fields=fields, params=params)
 
-    @staticmethod
-    def create_budget_schedule(
-        obj: Campaign,
-        params: CampaignCreateBudgetScheduleParams,
-    ) -> HighDemandPeriodFields:
-        """
-        Type-safe wrapper for Campaign.create_budget_schedule().
 
-        Endpoint: POST /budget_schedules
-        Returns: HighDemandPeriodFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_insights(
+    campaign_id: str,
+    fields: list[AdsInsightsField] = [],
+    params: CampaignGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this Campaign.
 
-        # Call the original method
-        result = obj.create_budget_schedule(params=params_dict)
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).get_insights(fields=fields, params=params)
 
-        # Convert result to typed model
-        return HighDemandPeriodFields(**result)
 
-    @staticmethod
-    def get_copies(
-        obj: Campaign,
-        params: Optional[CampaignGetCopiesParams] = None,
-        fields: Optional[list[CampaignField]] = None,
-    ) -> TypedCursor[CampaignFields]:
-        """
-        Type-safe wrapper for Campaign.get_copies().
+def get_insights_async(
+    campaign_id: str,
+    fields: list[AdReportRunField] = [],
+    params: CampaignGetInsightsAsyncParams = {},
+) -> Any:
+    """Get Insights Async for this Campaign.
 
-        Endpoint: GET /copies
-        Returns: TypedCursor[CampaignFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_copies(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CampaignFields)
-
-    @staticmethod
-    def create_copy(
-        obj: Campaign,
-        params: CampaignCreateCopyParams,
-    ) -> CampaignFields:
-        """
-        Type-safe wrapper for Campaign.create_copy().
-
-        Endpoint: POST /copies
-        Returns: CampaignFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_copy(params=params_dict)
-
-        # Convert result to typed model
-        return CampaignFields(**result)
-
-    @staticmethod
-    def get_insights(
-        obj: Campaign,
-        params: Optional[CampaignGetInsightsParams] = None,
-        fields: Optional[list[AdsInsightsField]] = None,
-    ) -> TypedCursor[AdsInsightsFields]:
-        """
-        Type-safe wrapper for Campaign.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[AdsInsightsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsInsightsFields)
-
-    @staticmethod
-    def get_insights_async(
-        obj: Campaign,
-        params: Optional[CampaignGetInsightsAsyncParams] = None,
-        fields: Optional[list[AdReportRunField]] = None,
-    ) -> AdReportRunFields:
-        """
-        Type-safe wrapper for Campaign.get_insights_async().
-
-        Endpoint: POST /insights
-        Returns: AdReportRunFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        result = obj.get_insights_async(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Convert result to typed model
-        return AdReportRunFields(**result)
+    Args:
+        campaign_id: The ID of the Campaign.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Campaign(campaign_id).get_insights_async(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

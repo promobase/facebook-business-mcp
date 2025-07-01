@@ -2,86 +2,52 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.shadowighashtag import ShadowIGHashtag
+from facebook_business.adobjects.shadowighashtag import ShadowIGHashtag
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.igmedia import (
-    IGMediaField,
-    IGMediaFields,
-)
+from ..models.igmedia import IGMediaField
 from ..models.shadowighashtag import (
     ShadowIGHashtagField,
-    ShadowIGHashtagFields,
     ShadowIGHashtagGetRecentMediaParams,
     ShadowIGHashtagGetTopMediaParams,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class ShadowIGHashtagWrappers:
-    """Type-safe wrapper functions for ShadowIGHashtag API methods."""
+def get_recent_media(
+    shadowighashtag_id: str,
+    fields: list[IGMediaField] = [],
+    params: ShadowIGHashtagGetRecentMediaParams = {},
+) -> Any:
+    """Get Recent Media for this ShadowIGHashtag.
 
-    @staticmethod
-    def get_recent_media(
-        obj: ShadowIGHashtag,
-        params: Optional[ShadowIGHashtagGetRecentMediaParams] = None,
-        fields: Optional[list[IGMediaField]] = None,
-    ) -> TypedCursor[IGMediaFields]:
-        """
-        Type-safe wrapper for ShadowIGHashtag.get_recent_media().
+    Args:
+        shadowighashtag_id: The ID of the ShadowIGHashtag.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ShadowIGHashtag(shadowighashtag_id).get_recent_media(fields=fields, params=params)
 
-        Endpoint: GET /recent_media
-        Returns: TypedCursor[IGMediaFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_top_media(
+    shadowighashtag_id: str,
+    fields: list[IGMediaField] = [],
+    params: ShadowIGHashtagGetTopMediaParams = {},
+) -> Any:
+    """Get Top Media for this ShadowIGHashtag.
 
-        # Call the original method
-        cursor = obj.get_recent_media(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, IGMediaFields)
-
-    @staticmethod
-    def get_top_media(
-        obj: ShadowIGHashtag,
-        params: Optional[ShadowIGHashtagGetTopMediaParams] = None,
-        fields: Optional[list[IGMediaField]] = None,
-    ) -> TypedCursor[IGMediaFields]:
-        """
-        Type-safe wrapper for ShadowIGHashtag.get_top_media().
-
-        Endpoint: GET /top_media
-        Returns: TypedCursor[IGMediaFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_top_media(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, IGMediaFields)
+    Args:
+        shadowighashtag_id: The ID of the ShadowIGHashtag.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ShadowIGHashtag(shadowighashtag_id).get_top_media(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

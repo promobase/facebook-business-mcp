@@ -2,58 +2,36 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.transactableitem import TransactableItem
+from facebook_business.adobjects.transactableitem import TransactableItem
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.overridedetails import (
-    OverrideDetailsField,
-    OverrideDetailsFields,
-)
+from ..models.overridedetails import OverrideDetailsField
 from ..models.transactableitem import (
     TransactableItemField,
-    TransactableItemFields,
     TransactableItemGetOverrideDetailsParams,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class TransactableItemWrappers:
-    """Type-safe wrapper functions for TransactableItem API methods."""
+def get_override_details(
+    transactableitem_id: str,
+    fields: list[OverrideDetailsField] = [],
+    params: TransactableItemGetOverrideDetailsParams = {},
+) -> Any:
+    """Get Override Details for this TransactableItem.
 
-    @staticmethod
-    def get_override_details(
-        obj: TransactableItem,
-        params: Optional[TransactableItemGetOverrideDetailsParams] = None,
-        fields: Optional[list[OverrideDetailsField]] = None,
-    ) -> TypedCursor[OverrideDetailsFields]:
-        """
-        Type-safe wrapper for TransactableItem.get_override_details().
-
-        Endpoint: GET /override_details
-        Returns: TypedCursor[OverrideDetailsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_override_details(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, OverrideDetailsFields)
+    Args:
+        transactableitem_id: The ID of the TransactableItem.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return TransactableItem(transactableitem_id).get_override_details(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

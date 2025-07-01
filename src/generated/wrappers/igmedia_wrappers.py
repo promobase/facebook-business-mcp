@@ -2,133 +2,87 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.igmedia import IGMedia
+from facebook_business.adobjects.igmedia import IGMedia
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.brandedcontentshadowiguserid import (
-    BrandedContentShadowIGUserIDField,
-    BrandedContentShadowIGUserIDFields,
-)
-from ..models.igcomment import (
-    IGCommentField,
-    IGCommentFields,
-)
+from ..models.brandedcontentshadowiguserid import BrandedContentShadowIGUserIDField
+from ..models.igcomment import IGCommentField
 from ..models.igmedia import (
     IGMediaCreateBrandedContentPartnerPromoteParams,
     IGMediaCreateCommentParams,
     IGMediaCreateProductTagParams,
     IGMediaField,
-    IGMediaFields,
     IGMediaGetInsightsParams,
 )
-from ..models.instagraminsightsresult import (
-    InstagramInsightsResultField,
-    InstagramInsightsResultFields,
-)
-from ..models.shadowigmediaproducttags import (
-    ShadowIGMediaProductTagsField,
-    ShadowIGMediaProductTagsFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.instagraminsightsresult import InstagramInsightsResultField
+from ..models.shadowigmediaproducttags import ShadowIGMediaProductTagsField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class IGMediaWrappers:
-    """Type-safe wrapper functions for IGMedia API methods."""
+def create_branded_content_partner_promote(
+    igmedia_id: str,
+    fields: list[str] = [],
+    params: IGMediaCreateBrandedContentPartnerPromoteParams = {},
+) -> Any:
+    """Create Branded Content Partner Promote for this IGMedia.
 
-    @staticmethod
-    def create_branded_content_partner_promote(
-        obj: IGMedia,
-        params: IGMediaCreateBrandedContentPartnerPromoteParams,
-    ) -> BrandedContentShadowIGUserIDFields:
-        """
-        Type-safe wrapper for IGMedia.create_branded_content_partner_promote().
+    Args:
+        igmedia_id: The ID of the IGMedia.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGMedia(igmedia_id).create_branded_content_partner_promote(fields=fields, params=params)
 
-        Endpoint: POST /branded_content_partner_promote
-        Returns: BrandedContentShadowIGUserIDFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_branded_content_partner_promote(params=params_dict)
+def create_comment(
+    igmedia_id: str,
+    fields: list[str] = [],
+    params: IGMediaCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this IGMedia.
 
-        # Convert result to typed model
-        return BrandedContentShadowIGUserIDFields(**result)
+    Args:
+        igmedia_id: The ID of the IGMedia.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGMedia(igmedia_id).create_comment(fields=fields, params=params)
 
-    @staticmethod
-    def create_comment(
-        obj: IGMedia,
-        params: IGMediaCreateCommentParams,
-    ) -> IGCommentFields:
-        """
-        Type-safe wrapper for IGMedia.create_comment().
 
-        Endpoint: POST /comments
-        Returns: IGCommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_insights(
+    igmedia_id: str,
+    fields: list[InstagramInsightsResultField] = [],
+    params: IGMediaGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this IGMedia.
 
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
+    Args:
+        igmedia_id: The ID of the IGMedia.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGMedia(igmedia_id).get_insights(fields=fields, params=params)
 
-        # Convert result to typed model
-        return IGCommentFields(**result)
 
-    @staticmethod
-    def get_insights(
-        obj: IGMedia,
-        params: Optional[IGMediaGetInsightsParams] = None,
-        fields: Optional[list[InstagramInsightsResultField]] = None,
-    ) -> TypedCursor[InstagramInsightsResultFields]:
-        """
-        Type-safe wrapper for IGMedia.get_insights().
+def create_product_tag(
+    igmedia_id: str,
+    fields: list[str] = [],
+    params: IGMediaCreateProductTagParams = {},
+) -> Any:
+    """Create Product Tag for this IGMedia.
 
-        Endpoint: GET /insights
-        Returns: TypedCursor[InstagramInsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InstagramInsightsResultFields)
-
-    @staticmethod
-    def create_product_tag(
-        obj: IGMedia,
-        params: IGMediaCreateProductTagParams,
-    ) -> ShadowIGMediaProductTagsFields:
-        """
-        Type-safe wrapper for IGMedia.create_product_tag().
-
-        Endpoint: POST /product_tags
-        Returns: ShadowIGMediaProductTagsFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product_tag(params=params_dict)
-
-        # Convert result to typed model
-        return ShadowIGMediaProductTagsFields(**result)
+    Args:
+        igmedia_id: The ID of the IGMedia.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGMedia(igmedia_id).create_product_tag(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

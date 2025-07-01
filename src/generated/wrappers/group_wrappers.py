@@ -2,17 +2,13 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.group import Group
+from facebook_business.adobjects.group import Group
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.advideo import (
-    AdVideoField,
-    AdVideoFields,
-)
+from ..models.advideo import AdVideoField
 from ..models.group import (
     GroupCreateAdminParams,
     GroupCreateFeedParams,
@@ -24,323 +20,210 @@ from ..models.group import (
     GroupDeleteAdminsParams,
     GroupDeleteMembersParams,
     GroupField,
-    GroupFields,
     GroupGetFeedParams,
     GroupGetLiveVideosParams,
     GroupGetPictureParams,
     GroupGetVideosParams,
 )
-from ..models.livevideo import (
-    LiveVideoField,
-    LiveVideoFields,
-)
-from ..models.photo import (
-    PhotoField,
-    PhotoFields,
-)
-from ..models.post import (
-    PostField,
-    PostFields,
-)
-from ..models.profilepicturesource import (
-    ProfilePictureSourceField,
-    ProfilePictureSourceFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.livevideo import LiveVideoField
+from ..models.photo import PhotoField
+from ..models.post import PostField
+from ..models.profilepicturesource import ProfilePictureSourceField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class GroupWrappers:
-    """Type-safe wrapper functions for Group API methods."""
+def delete_admins(
+    group_id: str,
+    params: GroupDeleteAdminsParams = {},
+) -> Any:
+    """Delete Admins for this Group.
 
-    @staticmethod
-    def delete_admins(
-        obj: Group,
-        params: Optional[GroupDeleteAdminsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Group.delete_admins().
+    Args:
+        group_id: The ID of the Group.
+        params: Parameters for the operation.
+    """
+    return Group(group_id).delete_admins(params=params)
 
-        Endpoint: DELETE /admins
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        obj.delete_admins(params=params_dict)
+def create_admin(
+    group_id: str,
+    fields: list[str] = [],
+    params: GroupCreateAdminParams = {},
+) -> Any:
+    """Create Admin for this Group.
 
-        return True  # Delete methods typically don't return anything
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).create_admin(fields=fields, params=params)
 
-    @staticmethod
-    def create_admin(
-        obj: Group,
-        params: GroupCreateAdminParams,
-    ) -> GroupFields:
-        """
-        Type-safe wrapper for Group.create_admin().
 
-        Endpoint: POST /admins
-        Returns: GroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_feed(
+    group_id: str,
+    fields: list[PostField] = [],
+    params: GroupGetFeedParams = {},
+) -> Any:
+    """Get Feed for this Group.
 
-        # Call the original method
-        result = obj.create_admin(params=params_dict)
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).get_feed(fields=fields, params=params)
 
-        # Convert result to typed model
-        return GroupFields(**result)
 
-    @staticmethod
-    def get_feed(
-        obj: Group,
-        params: Optional[GroupGetFeedParams] = None,
-        fields: Optional[list[PostField]] = None,
-    ) -> TypedCursor[PostFields]:
-        """
-        Type-safe wrapper for Group.get_feed().
+def create_feed(
+    group_id: str,
+    fields: list[str] = [],
+    params: GroupCreateFeedParams = {},
+) -> Any:
+    """Create Feed for this Group.
 
-        Endpoint: GET /feed
-        Returns: TypedCursor[PostFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).create_feed(fields=fields, params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_feed(
-            params=params_dict,
-            fields=fields_list,
-        )
+def create_group(
+    group_id: str,
+    fields: list[str] = [],
+    params: GroupCreateGroupParams = {},
+) -> Any:
+    """Create Group for this Group.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PostFields)
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).create_group(fields=fields, params=params)
 
-    @staticmethod
-    def create_feed(
-        obj: Group,
-        params: GroupCreateFeedParams,
-    ) -> PostFields:
-        """
-        Type-safe wrapper for Group.create_feed().
 
-        Endpoint: POST /feed
-        Returns: PostFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_live_videos(
+    group_id: str,
+    fields: list[LiveVideoField] = [],
+    params: GroupGetLiveVideosParams = {},
+) -> Any:
+    """Get Live Videos for this Group.
 
-        # Call the original method
-        result = obj.create_feed(params=params_dict)
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).get_live_videos(fields=fields, params=params)
 
-        # Convert result to typed model
-        return PostFields(**result)
 
-    @staticmethod
-    def create_group(
-        obj: Group,
-        params: GroupCreateGroupParams,
-    ) -> GroupFields:
-        """
-        Type-safe wrapper for Group.create_group().
+def create_live_video(
+    group_id: str,
+    fields: list[str] = [],
+    params: GroupCreateLiveVideoParams = {},
+) -> Any:
+    """Create Live Video for this Group.
 
-        Endpoint: POST /groups
-        Returns: GroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).create_live_video(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_group(params=params_dict)
 
-        # Convert result to typed model
-        return GroupFields(**result)
+def delete_members(
+    group_id: str,
+    params: GroupDeleteMembersParams = {},
+) -> Any:
+    """Delete Members for this Group.
 
-    @staticmethod
-    def get_live_videos(
-        obj: Group,
-        params: Optional[GroupGetLiveVideosParams] = None,
-        fields: Optional[list[LiveVideoField]] = None,
-    ) -> TypedCursor[LiveVideoFields]:
-        """
-        Type-safe wrapper for Group.get_live_videos().
+    Args:
+        group_id: The ID of the Group.
+        params: Parameters for the operation.
+    """
+    return Group(group_id).delete_members(params=params)
 
-        Endpoint: GET /live_videos
-        Returns: TypedCursor[LiveVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_member(
+    group_id: str,
+    fields: list[str] = [],
+    params: GroupCreateMemberParams = {},
+) -> Any:
+    """Create Member for this Group.
 
-        # Call the original method
-        cursor = obj.get_live_videos(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).create_member(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, LiveVideoFields)
 
-    @staticmethod
-    def create_live_video(
-        obj: Group,
-        params: GroupCreateLiveVideoParams,
-    ) -> LiveVideoFields:
-        """
-        Type-safe wrapper for Group.create_live_video().
+def create_photo(
+    group_id: str,
+    fields: list[str] = [],
+    params: GroupCreatePhotoParams = {},
+) -> Any:
+    """Create Photo for this Group.
 
-        Endpoint: POST /live_videos
-        Returns: LiveVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).create_photo(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_live_video(params=params_dict)
 
-        # Convert result to typed model
-        return LiveVideoFields(**result)
+def get_picture(
+    group_id: str,
+    fields: list[ProfilePictureSourceField] = [],
+    params: GroupGetPictureParams = {},
+) -> Any:
+    """Get Picture for this Group.
 
-    @staticmethod
-    def delete_members(
-        obj: Group,
-        params: Optional[GroupDeleteMembersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Group.delete_members().
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).get_picture(fields=fields, params=params)
 
-        Endpoint: DELETE /members
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        obj.delete_members(params=params_dict)
+def get_videos(
+    group_id: str,
+    fields: list[AdVideoField] = [],
+    params: GroupGetVideosParams = {},
+) -> Any:
+    """Get Videos for this Group.
 
-        return True  # Delete methods typically don't return anything
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).get_videos(fields=fields, params=params)
 
-    @staticmethod
-    def create_member(
-        obj: Group,
-        params: GroupCreateMemberParams,
-    ) -> GroupFields:
-        """
-        Type-safe wrapper for Group.create_member().
 
-        Endpoint: POST /members
-        Returns: GroupFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_video(
+    group_id: str,
+    fields: list[str] = [],
+    params: GroupCreateVideoParams = {},
+) -> Any:
+    """Create Video for this Group.
 
-        # Call the original method
-        result = obj.create_member(params=params_dict)
-
-        # Convert result to typed model
-        return GroupFields(**result)
-
-    @staticmethod
-    def create_photo(
-        obj: Group,
-        params: GroupCreatePhotoParams,
-    ) -> PhotoFields:
-        """
-        Type-safe wrapper for Group.create_photo().
-
-        Endpoint: POST /photos
-        Returns: PhotoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_photo(params=params_dict)
-
-        # Convert result to typed model
-        return PhotoFields(**result)
-
-    @staticmethod
-    def get_picture(
-        obj: Group,
-        params: Optional[GroupGetPictureParams] = None,
-        fields: Optional[list[ProfilePictureSourceField]] = None,
-    ) -> TypedCursor[ProfilePictureSourceFields]:
-        """
-        Type-safe wrapper for Group.get_picture().
-
-        Endpoint: GET /picture
-        Returns: TypedCursor[ProfilePictureSourceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_picture(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfilePictureSourceFields)
-
-    @staticmethod
-    def get_videos(
-        obj: Group,
-        params: Optional[GroupGetVideosParams] = None,
-        fields: Optional[list[AdVideoField]] = None,
-    ) -> TypedCursor[AdVideoFields]:
-        """
-        Type-safe wrapper for Group.get_videos().
-
-        Endpoint: GET /videos
-        Returns: TypedCursor[AdVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_videos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdVideoFields)
-
-    @staticmethod
-    def create_video(
-        obj: Group,
-        params: GroupCreateVideoParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for Group.create_video().
-
-        Endpoint: POST /videos
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
+    Args:
+        group_id: The ID of the Group.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Group(group_id).create_video(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

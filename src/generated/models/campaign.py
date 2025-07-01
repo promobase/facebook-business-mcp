@@ -704,6 +704,45 @@ class CampaignGetInsightsAsyncParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class CampaignUpdateParams(BaseModel):
+    """Parameters for Campaign.api_update()."""
+
+    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
+    adset_bid_amounts: dict[str, Any] | None = Field(
+        None, description="adset_bid_amounts parameter"
+    )
+    adset_budgets: list[dict[str, Any]] | None = Field(None, description="adset_budgets parameter")
+    bid_strategy: str | None = Field(None, description="bid_strategy parameter")
+    budget_rebalance_flag: bool | None = Field(None, description="budget_rebalance_flag parameter")
+    daily_budget: int | None = Field(None, description="daily_budget parameter")
+    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    is_skadnetwork_attribution: bool | None = Field(
+        None, description="is_skadnetwork_attribution parameter"
+    )
+    iterative_split_test_configs: list[Any] | None = Field(
+        None, description="iterative_split_test_configs parameter"
+    )
+    lifetime_budget: int | None = Field(None, description="lifetime_budget parameter")
+    name: str | None = Field(None, description="name parameter")
+    objective: str | None = Field(None, description="objective parameter")
+    pacing_type: list[str] | None = Field(None, description="pacing_type parameter")
+    promoted_object: Any | None = Field(None, description="promoted_object parameter")
+    smart_promotion_type: str | None = Field(None, description="smart_promotion_type parameter")
+    special_ad_categories: list[str] | None = Field(
+        None, description="special_ad_categories parameter"
+    )
+    special_ad_category: str | None = Field(None, description="special_ad_category parameter")
+    special_ad_category_country: list[str] | None = Field(
+        None, description="special_ad_category_country parameter"
+    )
+    spend_cap: int | None = Field(None, description="spend_cap parameter")
+    start_time: datetime | None = Field(None, description="start_time parameter")
+    status: str | None = Field(None, description="status parameter")
+    stop_time: datetime | None = Field(None, description="stop_time parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

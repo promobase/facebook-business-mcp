@@ -40,6 +40,15 @@ class EventSourceGroupCreateSharedAccountParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class EventSourceGroupUpdateParams(BaseModel):
+    """Parameters for EventSourceGroup.api_update()."""
+
+    event_sources: list[str] | None = Field(None, description="event_sources parameter")
+    name: str | None = Field(None, description="name parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

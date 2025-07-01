@@ -2,17 +2,13 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.adaccount import AdAccount
+from facebook_business.adobjects.adaccount import AdAccount
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.ad import (
-    AdField,
-    AdFields,
-)
+from ..models.ad import AdField
 from ..models.adaccount import (
     AdAccountCreateAccountControlParams,
     AdAccountCreateAdCreativeParams,
@@ -53,7 +49,6 @@ from ..models.adaccount import (
     AdAccountDeleteSubscribedAppsParams,
     AdAccountDeleteUsersOfAnyAudienceParams,
     AdAccountField,
-    AdAccountFields,
     AdAccountGetActivitiesParams,
     AdAccountGetAdCreativesByLabelsParams,
     AdAccountGetAdImagesParams,
@@ -97,2070 +92,1244 @@ from ..models.adaccount import (
     AdAccountGetValueRuleSetParams,
     AdAccountGetVideoAdsParams,
 )
-from ..models.adaccountadruleshistory import (
-    AdAccountAdRulesHistoryField,
-    AdAccountAdRulesHistoryFields,
-)
-from ..models.adaccountadvolume import (
-    AdAccountAdVolumeField,
-    AdAccountAdVolumeFields,
-)
-from ..models.adaccountbusinessconstraints import (
-    AdAccountBusinessConstraintsField,
-    AdAccountBusinessConstraintsFields,
-)
-from ..models.adaccountdeliveryestimate import (
-    AdAccountDeliveryEstimateField,
-    AdAccountDeliveryEstimateFields,
-)
-from ..models.adaccountiosfourteencampaignlimits import (
-    AdAccountIosFourteenCampaignLimitsField,
-    AdAccountIosFourteenCampaignLimitsFields,
-)
+from ..models.adaccountadruleshistory import AdAccountAdRulesHistoryField
+from ..models.adaccountadvolume import AdAccountAdVolumeField
+from ..models.adaccountbusinessconstraints import AdAccountBusinessConstraintsField
+from ..models.adaccountdeliveryestimate import AdAccountDeliveryEstimateField
+from ..models.adaccountiosfourteencampaignlimits import AdAccountIosFourteenCampaignLimitsField
 from ..models.adaccountmatchedsearchapplicationsedgedata import (
     AdAccountMatchedSearchApplicationsEdgeDataField,
-    AdAccountMatchedSearchApplicationsEdgeDataFields,
 )
-from ..models.adaccountreachestimate import (
-    AdAccountReachEstimateField,
-    AdAccountReachEstimateFields,
-)
-from ..models.adaccountrecommendations import (
-    AdAccountRecommendationsField,
-    AdAccountRecommendationsFields,
-)
-from ..models.adaccountsubscribedapps import (
-    AdAccountSubscribedAppsField,
-    AdAccountSubscribedAppsFields,
-)
-from ..models.adaccounttargetingunified import (
-    AdAccountTargetingUnifiedField,
-    AdAccountTargetingUnifiedFields,
-)
-from ..models.adactivity import (
-    AdActivityField,
-    AdActivityFields,
-)
-from ..models.adasyncrequestset import (
-    AdAsyncRequestSetField,
-    AdAsyncRequestSetFields,
-)
-from ..models.adcreative import (
-    AdCreativeField,
-    AdCreativeFields,
-)
-from ..models.adimage import (
-    AdImageField,
-    AdImageFields,
-)
-from ..models.adlabel import (
-    AdLabelField,
-    AdLabelFields,
-)
-from ..models.adplacepageset import (
-    AdPlacePageSetField,
-    AdPlacePageSetFields,
-)
-from ..models.adpreview import (
-    AdPreviewField,
-    AdPreviewFields,
-)
-from ..models.adreportrun import (
-    AdReportRunField,
-    AdReportRunFields,
-)
-from ..models.adrule import (
-    AdRuleField,
-    AdRuleFields,
-)
-from ..models.adsavedkeywords import (
-    AdSavedKeywordsField,
-    AdSavedKeywordsFields,
-)
-from ..models.adset import (
-    AdSetField,
-    AdSetFields,
-)
-from ..models.adsinsights import (
-    AdsInsightsField,
-    AdsInsightsFields,
-)
-from ..models.adspixel import (
-    AdsPixelField,
-    AdsPixelFields,
-)
-from ..models.adsreportbuildermmmreport import (
-    AdsReportBuilderMMMReportField,
-    AdsReportBuilderMMMReportFields,
-)
-from ..models.adsvalueadjustmentrulecollection import (
-    AdsValueAdjustmentRuleCollectionField,
-    AdsValueAdjustmentRuleCollectionFields,
-)
-from ..models.advideo import (
-    AdVideoField,
-    AdVideoFields,
-)
-from ..models.application import (
-    ApplicationField,
-    ApplicationFields,
-)
-from ..models.assigneduser import (
-    AssignedUserField,
-    AssignedUserFields,
-)
-from ..models.asyncrequest import (
-    AsyncRequestField,
-    AsyncRequestFields,
-)
-from ..models.broadtargetingcategories import (
-    BroadTargetingCategoriesField,
-    BroadTargetingCategoriesFields,
-)
-from ..models.businessownedobjectonbehalfofrequest import (
-    BusinessOwnedObjectOnBehalfOfRequestField,
-    BusinessOwnedObjectOnBehalfOfRequestFields,
-)
-from ..models.businessproject import (
-    BusinessProjectField,
-    BusinessProjectFields,
-)
-from ..models.campaign import (
-    CampaignField,
-    CampaignFields,
-)
-from ..models.customaudience import (
-    CustomAudienceField,
-    CustomAudienceFields,
-)
-from ..models.customconversion import (
-    CustomConversionField,
-    CustomConversionFields,
-)
-from ..models.iguser import (
-    IGUserField,
-    IGUserFields,
-)
-from ..models.minimumbudget import (
-    MinimumBudgetField,
-    MinimumBudgetFields,
-)
-from ..models.playablecontent import (
-    PlayableContentField,
-    PlayableContentFields,
-)
-from ..models.publisherblocklist import (
-    PublisherBlockListField,
-    PublisherBlockListFields,
-)
-from ..models.reachfrequencyprediction import (
-    ReachFrequencyPredictionField,
-    ReachFrequencyPredictionFields,
-)
-from ..models.savedaudience import (
-    SavedAudienceField,
-    SavedAudienceFields,
-)
-from ..models.targetingsentenceline import (
-    TargetingSentenceLineField,
-    TargetingSentenceLineFields,
-)
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class AdAccountWrappers:
-    """Type-safe wrapper functions for AdAccount API methods."""
-
-    @staticmethod
-    def create_account_control(
-        obj: AdAccount,
-        params: AdAccountCreateAccountControlParams,
-    ) -> AdAccountBusinessConstraintsFields:
-        """
-        Type-safe wrapper for AdAccount.create_account_control().
-
-        Endpoint: POST /account_controls
-        Returns: AdAccountBusinessConstraintsFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_account_control(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountBusinessConstraintsFields(**result)
-
-    @staticmethod
-    def get_activities(
-        obj: AdAccount,
-        params: Optional[AdAccountGetActivitiesParams] = None,
-        fields: Optional[list[AdActivityField]] = None,
-    ) -> TypedCursor[AdActivityFields]:
-        """
-        Type-safe wrapper for AdAccount.get_activities().
-
-        Endpoint: GET /activities
-        Returns: TypedCursor[AdActivityFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_activities(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdActivityFields)
-
-    @staticmethod
-    def create_ad_place_page_set(
-        obj: AdAccount,
-        params: AdAccountCreateAdPlacePageSetParams,
-    ) -> AdPlacePageSetFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_place_page_set().
-
-        Endpoint: POST /ad_place_page_sets
-        Returns: AdPlacePageSetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_place_page_set(params=params_dict)
-
-        # Convert result to typed model
-        return AdPlacePageSetFields(**result)
-
-    @staticmethod
-    def create_ad_place_page_sets_async(
-        obj: AdAccount,
-        params: AdAccountCreateAdPlacePageSetsAsyncParams,
-    ) -> AdPlacePageSetFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_place_page_sets_async().
-
-        Endpoint: POST /ad_place_page_sets_async
-        Returns: AdPlacePageSetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_place_page_sets_async(params=params_dict)
-
-        # Convert result to typed model
-        return AdPlacePageSetFields(**result)
-
-    @staticmethod
-    def get_ad_saved_keywords(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdSavedKeywordsParams] = None,
-        fields: Optional[list[AdSavedKeywordsField]] = None,
-    ) -> TypedCursor[AdSavedKeywordsFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ad_saved_keywords().
-
-        Endpoint: GET /ad_saved_keywords
-        Returns: TypedCursor[AdSavedKeywordsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_saved_keywords(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdSavedKeywordsFields)
-
-    @staticmethod
-    def create_ad_creative(
-        obj: AdAccount,
-        params: AdAccountCreateAdCreativeParams,
-    ) -> AdCreativeFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_creative().
-
-        Endpoint: POST /adcreatives
-        Returns: AdCreativeFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_creative(params=params_dict)
-
-        # Convert result to typed model
-        return AdCreativeFields(**result)
-
-    @staticmethod
-    def get_ad_creatives_by_labels(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdCreativesByLabelsParams] = None,
-        fields: Optional[list[AdCreativeField]] = None,
-    ) -> TypedCursor[AdCreativeFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ad_creatives_by_labels().
-
-        Endpoint: GET /adcreativesbylabels
-        Returns: TypedCursor[AdCreativeFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_creatives_by_labels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdCreativeFields)
-
-    @staticmethod
-    def delete_ad_images(
-        obj: AdAccount,
-        params: Optional[AdAccountDeleteAdImagesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdAccount.delete_ad_images().
-
-        Endpoint: DELETE /adimages
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_ad_images(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_ad_images(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdImagesParams] = None,
-        fields: Optional[list[AdImageField]] = None,
-    ) -> TypedCursor[AdImageFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ad_images().
-
-        Endpoint: GET /adimages
-        Returns: TypedCursor[AdImageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_images(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdImageFields)
-
-    @staticmethod
-    def create_ad_image(
-        obj: AdAccount,
-        params: AdAccountCreateAdImageParams,
-    ) -> AdImageFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_image().
-
-        Endpoint: POST /adimages
-        Returns: AdImageFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_image(params=params_dict)
-
-        # Convert result to typed model
-        return AdImageFields(**result)
-
-    @staticmethod
-    def create_ad_label(
-        obj: AdAccount,
-        params: AdAccountCreateAdLabelParams,
-    ) -> AdLabelFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_label().
-
-        Endpoint: POST /adlabels
-        Returns: AdLabelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_label(params=params_dict)
-
-        # Convert result to typed model
-        return AdLabelFields(**result)
-
-    @staticmethod
-    def create_ad_playable(
-        obj: AdAccount,
-        params: AdAccountCreateAdPlayableParams,
-    ) -> PlayableContentFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_playable().
-
-        Endpoint: POST /adplayables
-        Returns: PlayableContentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_playable(params=params_dict)
-
-        # Convert result to typed model
-        return PlayableContentFields(**result)
-
-    @staticmethod
-    def get_ad_rules_history(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdRulesHistoryParams] = None,
-        fields: Optional[list[AdAccountAdRulesHistoryField]] = None,
-    ) -> TypedCursor[AdAccountAdRulesHistoryFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ad_rules_history().
-
-        Endpoint: GET /adrules_history
-        Returns: TypedCursor[AdAccountAdRulesHistoryFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_rules_history(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountAdRulesHistoryFields)
-
-    @staticmethod
-    def create_ad_rules_library(
-        obj: AdAccount,
-        params: AdAccountCreateAdRulesLibraryParams,
-    ) -> AdRuleFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_rules_library().
-
-        Endpoint: POST /adrules_library
-        Returns: AdRuleFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_rules_library(params=params_dict)
-
-        # Convert result to typed model
-        return AdRuleFields(**result)
-
-    @staticmethod
-    def get_ads(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdsParams] = None,
-        fields: Optional[list[AdField]] = None,
-    ) -> TypedCursor[AdFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ads().
-
-        Endpoint: GET /ads
-        Returns: TypedCursor[AdFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdFields)
-
-    @staticmethod
-    def create_ad(
-        obj: AdAccount,
-        params: AdAccountCreateAdParams,
-    ) -> AdFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad().
-
-        Endpoint: POST /ads
-        Returns: AdFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad(params=params_dict)
-
-        # Convert result to typed model
-        return AdFields(**result)
-
-    @staticmethod
-    def get_ads_reporting_mmm_reports(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdsReportingMmmReportsParams] = None,
-        fields: Optional[list[AdsReportBuilderMMMReportField]] = None,
-    ) -> TypedCursor[AdsReportBuilderMMMReportFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ads_reporting_mmm_reports().
-
-        Endpoint: GET /ads_reporting_mmm_reports
-        Returns: TypedCursor[AdsReportBuilderMMMReportFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_reporting_mmm_reports(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsReportBuilderMMMReportFields)
-
-    @staticmethod
-    def get_ads_volume(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdsVolumeParams] = None,
-        fields: Optional[list[AdAccountAdVolumeField]] = None,
-    ) -> TypedCursor[AdAccountAdVolumeFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ads_volume().
-
-        Endpoint: GET /ads_volume
-        Returns: TypedCursor[AdAccountAdVolumeFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_volume(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountAdVolumeFields)
-
-    @staticmethod
-    def get_ads_by_labels(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdsByLabelsParams] = None,
-        fields: Optional[list[AdField]] = None,
-    ) -> TypedCursor[AdFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ads_by_labels().
-
-        Endpoint: GET /adsbylabels
-        Returns: TypedCursor[AdFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_by_labels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdFields)
-
-    @staticmethod
-    def get_ad_sets(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdSetsParams] = None,
-        fields: Optional[list[AdSetField]] = None,
-    ) -> TypedCursor[AdSetFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ad_sets().
-
-        Endpoint: GET /adsets
-        Returns: TypedCursor[AdSetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_sets(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdSetFields)
-
-    @staticmethod
-    def create_ad_set(
-        obj: AdAccount,
-        params: AdAccountCreateAdSetParams,
-    ) -> AdSetFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_set().
-
-        Endpoint: POST /adsets
-        Returns: AdSetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_set(params=params_dict)
-
-        # Convert result to typed model
-        return AdSetFields(**result)
-
-    @staticmethod
-    def get_ad_sets_by_labels(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdSetsByLabelsParams] = None,
-        fields: Optional[list[AdSetField]] = None,
-    ) -> TypedCursor[AdSetFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ad_sets_by_labels().
-
-        Endpoint: GET /adsetsbylabels
-        Returns: TypedCursor[AdSetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_sets_by_labels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdSetFields)
-
-    @staticmethod
-    def get_ads_pixels(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdsPixelsParams] = None,
-        fields: Optional[list[AdsPixelField]] = None,
-    ) -> TypedCursor[AdsPixelFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ads_pixels().
-
-        Endpoint: GET /adspixels
-        Returns: TypedCursor[AdsPixelFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ads_pixels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsPixelFields)
-
-    @staticmethod
-    def create_ads_pixel(
-        obj: AdAccount,
-        params: AdAccountCreateAdsPixelParams,
-    ) -> AdsPixelFields:
-        """
-        Type-safe wrapper for AdAccount.create_ads_pixel().
-
-        Endpoint: POST /adspixels
-        Returns: AdsPixelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ads_pixel(params=params_dict)
-
-        # Convert result to typed model
-        return AdsPixelFields(**result)
-
-    @staticmethod
-    def get_advertisable_applications(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdvertisableApplicationsParams] = None,
-        fields: Optional[list[ApplicationField]] = None,
-    ) -> TypedCursor[ApplicationFields]:
-        """
-        Type-safe wrapper for AdAccount.get_advertisable_applications().
-
-        Endpoint: GET /advertisable_applications
-        Returns: TypedCursor[ApplicationFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_advertisable_applications(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ApplicationFields)
-
-    @staticmethod
-    def delete_ad_videos(
-        obj: AdAccount,
-        params: Optional[AdAccountDeleteAdVideosParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdAccount.delete_ad_videos().
-
-        Endpoint: DELETE /advideos
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_ad_videos(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_ad_videos(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAdVideosParams] = None,
-        fields: Optional[list[AdVideoField]] = None,
-    ) -> TypedCursor[AdVideoFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ad_videos().
-
-        Endpoint: GET /advideos
-        Returns: TypedCursor[AdVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ad_videos(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdVideoFields)
-
-    @staticmethod
-    def create_ad_video(
-        obj: AdAccount,
-        params: AdAccountCreateAdVideoParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for AdAccount.create_ad_video().
-
-        Endpoint: POST /advideos
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_video(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
-
-    @staticmethod
-    def delete_agencies(
-        obj: AdAccount,
-        params: Optional[AdAccountDeleteAgenciesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdAccount.delete_agencies().
-
-        Endpoint: DELETE /agencies
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_agencies(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_agency(
-        obj: AdAccount,
-        params: AdAccountCreateAgencyParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for AdAccount.create_agency().
-
-        Endpoint: POST /agencies
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_agency(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
-
-    @staticmethod
-    def delete_assigned_users(
-        obj: AdAccount,
-        params: Optional[AdAccountDeleteAssignedUsersParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdAccount.delete_assigned_users().
-
-        Endpoint: DELETE /assigned_users
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_assigned_users(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_assigned_users(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAssignedUsersParams] = None,
-        fields: Optional[list[AssignedUserField]] = None,
-    ) -> TypedCursor[AssignedUserFields]:
-        """
-        Type-safe wrapper for AdAccount.get_assigned_users().
-
-        Endpoint: GET /assigned_users
-        Returns: TypedCursor[AssignedUserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_users(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AssignedUserFields)
-
-    @staticmethod
-    def create_assigned_user(
-        obj: AdAccount,
-        params: AdAccountCreateAssignedUserParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for AdAccount.create_assigned_user().
-
-        Endpoint: POST /assigned_users
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_assigned_user(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
-
-    @staticmethod
-    def create_async_batch_request(
-        obj: AdAccount,
-        params: AdAccountCreateAsyncBatchRequestParams,
-    ) -> CampaignFields:
-        """
-        Type-safe wrapper for AdAccount.create_async_batch_request().
-
-        Endpoint: POST /async_batch_requests
-        Returns: CampaignFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_async_batch_request(params=params_dict)
-
-        # Convert result to typed model
-        return CampaignFields(**result)
-
-    @staticmethod
-    def get_async_requests(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAsyncRequestsParams] = None,
-        fields: Optional[list[AsyncRequestField]] = None,
-    ) -> TypedCursor[AsyncRequestFields]:
-        """
-        Type-safe wrapper for AdAccount.get_async_requests().
-
-        Endpoint: GET /async_requests
-        Returns: TypedCursor[AsyncRequestFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_async_requests(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AsyncRequestFields)
-
-    @staticmethod
-    def get_async_ad_creatives(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAsyncAdCreativesParams] = None,
-        fields: Optional[list[AdAsyncRequestSetField]] = None,
-    ) -> TypedCursor[AdAsyncRequestSetFields]:
-        """
-        Type-safe wrapper for AdAccount.get_async_ad_creatives().
-
-        Endpoint: GET /asyncadcreatives
-        Returns: TypedCursor[AdAsyncRequestSetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_async_ad_creatives(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAsyncRequestSetFields)
-
-    @staticmethod
-    def create_async_ad_creative(
-        obj: AdAccount,
-        params: AdAccountCreateAsyncAdCreativeParams,
-    ) -> AdAsyncRequestSetFields:
-        """
-        Type-safe wrapper for AdAccount.create_async_ad_creative().
-
-        Endpoint: POST /asyncadcreatives
-        Returns: AdAsyncRequestSetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_async_ad_creative(params=params_dict)
-
-        # Convert result to typed model
-        return AdAsyncRequestSetFields(**result)
-
-    @staticmethod
-    def get_async_ad_request_sets(
-        obj: AdAccount,
-        params: Optional[AdAccountGetAsyncAdRequestSetsParams] = None,
-        fields: Optional[list[AdAsyncRequestSetField]] = None,
-    ) -> TypedCursor[AdAsyncRequestSetFields]:
-        """
-        Type-safe wrapper for AdAccount.get_async_ad_request_sets().
-
-        Endpoint: GET /asyncadrequestsets
-        Returns: TypedCursor[AdAsyncRequestSetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_async_ad_request_sets(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAsyncRequestSetFields)
-
-    @staticmethod
-    def create_async_ad_request_set(
-        obj: AdAccount,
-        params: AdAccountCreateAsyncAdRequestSetParams,
-    ) -> AdAsyncRequestSetFields:
-        """
-        Type-safe wrapper for AdAccount.create_async_ad_request_set().
-
-        Endpoint: POST /asyncadrequestsets
-        Returns: AdAsyncRequestSetFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_async_ad_request_set(params=params_dict)
-
-        # Convert result to typed model
-        return AdAsyncRequestSetFields(**result)
-
-    @staticmethod
-    def create_block_list_draft(
-        obj: AdAccount,
-        params: AdAccountCreateBlockListDraftParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for AdAccount.create_block_list_draft().
-
-        Endpoint: POST /block_list_drafts
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_block_list_draft(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
-
-    @staticmethod
-    def create_brand_safety_content_filter_level(
-        obj: AdAccount,
-        params: AdAccountCreateBrandSafetyContentFilterLevelParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for AdAccount.create_brand_safety_content_filter_level().
-
-        Endpoint: POST /brand_safety_content_filter_levels
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_brand_safety_content_filter_level(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
-
-    @staticmethod
-    def get_broad_targeting_categories(
-        obj: AdAccount,
-        params: Optional[AdAccountGetBroadTargetingCategoriesParams] = None,
-        fields: Optional[list[BroadTargetingCategoriesField]] = None,
-    ) -> TypedCursor[BroadTargetingCategoriesFields]:
-        """
-        Type-safe wrapper for AdAccount.get_broad_targeting_categories().
-
-        Endpoint: GET /broadtargetingcategories
-        Returns: TypedCursor[BroadTargetingCategoriesFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_broad_targeting_categories(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BroadTargetingCategoriesFields)
-
-    @staticmethod
-    def get_business_projects(
-        obj: AdAccount,
-        params: Optional[AdAccountGetBusinessProjectsParams] = None,
-        fields: Optional[list[BusinessProjectField]] = None,
-    ) -> TypedCursor[BusinessProjectFields]:
-        """
-        Type-safe wrapper for AdAccount.get_business_projects().
-
-        Endpoint: GET /businessprojects
-        Returns: TypedCursor[BusinessProjectFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_business_projects(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessProjectFields)
-
-    @staticmethod
-    def delete_campaigns(
-        obj: AdAccount,
-        params: Optional[AdAccountDeleteCampaignsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdAccount.delete_campaigns().
-
-        Endpoint: DELETE /campaigns
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_campaigns(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_campaigns(
-        obj: AdAccount,
-        params: Optional[AdAccountGetCampaignsParams] = None,
-        fields: Optional[list[CampaignField]] = None,
-    ) -> TypedCursor[CampaignFields]:
-        """
-        Type-safe wrapper for AdAccount.get_campaigns().
-
-        Endpoint: GET /campaigns
-        Returns: TypedCursor[CampaignFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_campaigns(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CampaignFields)
-
-    @staticmethod
-    def create_campaign(
-        obj: AdAccount,
-        params: AdAccountCreateCampaignParams,
-    ) -> CampaignFields:
-        """
-        Type-safe wrapper for AdAccount.create_campaign().
-
-        Endpoint: POST /campaigns
-        Returns: CampaignFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_campaign(params=params_dict)
-
-        # Convert result to typed model
-        return CampaignFields(**result)
-
-    @staticmethod
-    def get_campaigns_by_labels(
-        obj: AdAccount,
-        params: Optional[AdAccountGetCampaignsByLabelsParams] = None,
-        fields: Optional[list[CampaignField]] = None,
-    ) -> TypedCursor[CampaignFields]:
-        """
-        Type-safe wrapper for AdAccount.get_campaigns_by_labels().
-
-        Endpoint: GET /campaignsbylabels
-        Returns: TypedCursor[CampaignFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_campaigns_by_labels(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CampaignFields)
-
-    @staticmethod
-    def get_connected_instagram_accounts_with_iabp(
-        obj: AdAccount,
-        params: Optional[AdAccountGetConnectedInstagramAccountsWithIabpParams] = None,
-        fields: Optional[list[IGUserField]] = None,
-    ) -> TypedCursor[IGUserFields]:
-        """
-        Type-safe wrapper for AdAccount.get_connected_instagram_accounts_with_iabp().
-
-        Endpoint: GET /connected_instagram_accounts_with_iabp
-        Returns: TypedCursor[IGUserFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_connected_instagram_accounts_with_iabp(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, IGUserFields)
-
-    @staticmethod
-    def get_custom_audiences(
-        obj: AdAccount,
-        params: Optional[AdAccountGetCustomAudiencesParams] = None,
-        fields: Optional[list[CustomAudienceField]] = None,
-    ) -> TypedCursor[CustomAudienceFields]:
-        """
-        Type-safe wrapper for AdAccount.get_custom_audiences().
-
-        Endpoint: GET /customaudiences
-        Returns: TypedCursor[CustomAudienceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_custom_audiences(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomAudienceFields)
-
-    @staticmethod
-    def create_custom_audience(
-        obj: AdAccount,
-        params: AdAccountCreateCustomAudienceParams,
-    ) -> CustomAudienceFields:
-        """
-        Type-safe wrapper for AdAccount.create_custom_audience().
-
-        Endpoint: POST /customaudiences
-        Returns: CustomAudienceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_custom_audience(params=params_dict)
-
-        # Convert result to typed model
-        return CustomAudienceFields(**result)
-
-    @staticmethod
-    def create_custom_audiences_to(
-        obj: AdAccount,
-        params: AdAccountCreateCustomAudiencesToParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for AdAccount.create_custom_audiences_to().
-
-        Endpoint: POST /customaudiencestos
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_custom_audiences_to(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
-
-    @staticmethod
-    def create_custom_conversion(
-        obj: AdAccount,
-        params: AdAccountCreateCustomConversionParams,
-    ) -> CustomConversionFields:
-        """
-        Type-safe wrapper for AdAccount.create_custom_conversion().
-
-        Endpoint: POST /customconversions
-        Returns: CustomConversionFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_custom_conversion(params=params_dict)
-
-        # Convert result to typed model
-        return CustomConversionFields(**result)
-
-    @staticmethod
-    def get_delivery_estimate(
-        obj: AdAccount,
-        params: Optional[AdAccountGetDeliveryEstimateParams] = None,
-        fields: Optional[list[AdAccountDeliveryEstimateField]] = None,
-    ) -> TypedCursor[AdAccountDeliveryEstimateFields]:
-        """
-        Type-safe wrapper for AdAccount.get_delivery_estimate().
-
-        Endpoint: GET /delivery_estimate
-        Returns: TypedCursor[AdAccountDeliveryEstimateFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_delivery_estimate(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountDeliveryEstimateFields)
-
-    @staticmethod
-    def get_deprecated_targeting_ad_sets(
-        obj: AdAccount,
-        params: Optional[AdAccountGetDeprecatedTargetingAdSetsParams] = None,
-        fields: Optional[list[AdSetField]] = None,
-    ) -> TypedCursor[AdSetFields]:
-        """
-        Type-safe wrapper for AdAccount.get_deprecated_targeting_ad_sets().
-
-        Endpoint: GET /deprecatedtargetingadsets
-        Returns: TypedCursor[AdSetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_deprecated_targeting_ad_sets(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdSetFields)
-
-    @staticmethod
-    def get_generate_previews(
-        obj: AdAccount,
-        params: Optional[AdAccountGetGeneratePreviewsParams] = None,
-        fields: Optional[list[AdPreviewField]] = None,
-    ) -> TypedCursor[AdPreviewFields]:
-        """
-        Type-safe wrapper for AdAccount.get_generate_previews().
-
-        Endpoint: GET /generatepreviews
-        Returns: TypedCursor[AdPreviewFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_generate_previews(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdPreviewFields)
-
-    @staticmethod
-    def get_insights(
-        obj: AdAccount,
-        params: Optional[AdAccountGetInsightsParams] = None,
-        fields: Optional[list[AdsInsightsField]] = None,
-    ) -> TypedCursor[AdsInsightsFields]:
-        """
-        Type-safe wrapper for AdAccount.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[AdsInsightsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsInsightsFields)
-
-    @staticmethod
-    def get_insights_async(
-        obj: AdAccount,
-        params: Optional[AdAccountGetInsightsAsyncParams] = None,
-        fields: Optional[list[AdReportRunField]] = None,
-    ) -> AdReportRunFields:
-        """
-        Type-safe wrapper for AdAccount.get_insights_async().
-
-        Endpoint: POST /insights
-        Returns: AdReportRunFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        result = obj.get_insights_async(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Convert result to typed model
-        return AdReportRunFields(**result)
-
-    @staticmethod
-    def get_ios_fourteen_campaign_limits(
-        obj: AdAccount,
-        params: Optional[AdAccountGetIosFourteenCampaignLimitsParams] = None,
-        fields: Optional[list[AdAccountIosFourteenCampaignLimitsField]] = None,
-    ) -> TypedCursor[AdAccountIosFourteenCampaignLimitsFields]:
-        """
-        Type-safe wrapper for AdAccount.get_ios_fourteen_campaign_limits().
-
-        Endpoint: GET /ios_fourteen_campaign_limits
-        Returns: TypedCursor[AdAccountIosFourteenCampaignLimitsFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_ios_fourteen_campaign_limits(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountIosFourteenCampaignLimitsFields)
-
-    @staticmethod
-    def get_matched_search_applications(
-        obj: AdAccount,
-        params: Optional[AdAccountGetMatchedSearchApplicationsParams] = None,
-        fields: Optional[list[AdAccountMatchedSearchApplicationsEdgeDataField]] = None,
-    ) -> TypedCursor[AdAccountMatchedSearchApplicationsEdgeDataFields]:
-        """
-        Type-safe wrapper for AdAccount.get_matched_search_applications().
-
-        Endpoint: GET /matched_search_applications
-        Returns: TypedCursor[AdAccountMatchedSearchApplicationsEdgeDataFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_matched_search_applications(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountMatchedSearchApplicationsEdgeDataFields)
-
-    @staticmethod
-    def get_minimum_budgets(
-        obj: AdAccount,
-        params: Optional[AdAccountGetMinimumBudgetsParams] = None,
-        fields: Optional[list[MinimumBudgetField]] = None,
-    ) -> TypedCursor[MinimumBudgetFields]:
-        """
-        Type-safe wrapper for AdAccount.get_minimum_budgets().
-
-        Endpoint: GET /minimum_budgets
-        Returns: TypedCursor[MinimumBudgetFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_minimum_budgets(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, MinimumBudgetFields)
-
-    @staticmethod
-    def get_on_behalf_requests(
-        obj: AdAccount,
-        params: Optional[AdAccountGetOnBehalfRequestsParams] = None,
-        fields: Optional[list[BusinessOwnedObjectOnBehalfOfRequestField]] = None,
-    ) -> TypedCursor[BusinessOwnedObjectOnBehalfOfRequestFields]:
-        """
-        Type-safe wrapper for AdAccount.get_on_behalf_requests().
-
-        Endpoint: GET /onbehalf_requests
-        Returns: TypedCursor[BusinessOwnedObjectOnBehalfOfRequestFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_on_behalf_requests(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessOwnedObjectOnBehalfOfRequestFields)
-
-    @staticmethod
-    def create_product_audience(
-        obj: AdAccount,
-        params: AdAccountCreateProductAudienceParams,
-    ) -> CustomAudienceFields:
-        """
-        Type-safe wrapper for AdAccount.create_product_audience().
-
-        Endpoint: POST /product_audiences
-        Returns: CustomAudienceFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_product_audience(params=params_dict)
-
-        # Convert result to typed model
-        return CustomAudienceFields(**result)
-
-    @staticmethod
-    def create_publisher_block_list(
-        obj: AdAccount,
-        params: AdAccountCreatePublisherBlockListParams,
-    ) -> PublisherBlockListFields:
-        """
-        Type-safe wrapper for AdAccount.create_publisher_block_list().
-
-        Endpoint: POST /publisher_block_lists
-        Returns: PublisherBlockListFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_publisher_block_list(params=params_dict)
-
-        # Convert result to typed model
-        return PublisherBlockListFields(**result)
-
-    @staticmethod
-    def get_reach_estimate(
-        obj: AdAccount,
-        params: Optional[AdAccountGetReachEstimateParams] = None,
-        fields: Optional[list[AdAccountReachEstimateField]] = None,
-    ) -> TypedCursor[AdAccountReachEstimateFields]:
-        """
-        Type-safe wrapper for AdAccount.get_reach_estimate().
-
-        Endpoint: GET /reachestimate
-        Returns: TypedCursor[AdAccountReachEstimateFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_reach_estimate(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountReachEstimateFields)
-
-    @staticmethod
-    def create_reach_frequency_prediction(
-        obj: AdAccount,
-        params: AdAccountCreateReachFrequencyPredictionParams,
-    ) -> ReachFrequencyPredictionFields:
-        """
-        Type-safe wrapper for AdAccount.create_reach_frequency_prediction().
-
-        Endpoint: POST /reachfrequencypredictions
-        Returns: ReachFrequencyPredictionFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_reach_frequency_prediction(params=params_dict)
-
-        # Convert result to typed model
-        return ReachFrequencyPredictionFields(**result)
-
-    @staticmethod
-    def create_recommendation(
-        obj: AdAccount,
-        params: AdAccountCreateRecommendationParams,
-    ) -> AdAccountRecommendationsFields:
-        """
-        Type-safe wrapper for AdAccount.create_recommendation().
-
-        Endpoint: POST /recommendations
-        Returns: AdAccountRecommendationsFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_recommendation(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountRecommendationsFields(**result)
-
-    @staticmethod
-    def get_saved_audiences(
-        obj: AdAccount,
-        params: Optional[AdAccountGetSavedAudiencesParams] = None,
-        fields: Optional[list[SavedAudienceField]] = None,
-    ) -> TypedCursor[SavedAudienceFields]:
-        """
-        Type-safe wrapper for AdAccount.get_saved_audiences().
-
-        Endpoint: GET /saved_audiences
-        Returns: TypedCursor[SavedAudienceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_saved_audiences(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, SavedAudienceFields)
-
-    @staticmethod
-    def delete_subscribed_apps(
-        obj: AdAccount,
-        params: Optional[AdAccountDeleteSubscribedAppsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdAccount.delete_subscribed_apps().
-
-        Endpoint: DELETE /subscribed_apps
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_subscribed_apps(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_subscribed_app(
-        obj: AdAccount,
-        params: AdAccountCreateSubscribedAppParams,
-    ) -> AdAccountSubscribedAppsFields:
-        """
-        Type-safe wrapper for AdAccount.create_subscribed_app().
-
-        Endpoint: POST /subscribed_apps
-        Returns: AdAccountSubscribedAppsFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_subscribed_app(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountSubscribedAppsFields(**result)
-
-    @staticmethod
-    def get_targeting_browse(
-        obj: AdAccount,
-        params: Optional[AdAccountGetTargetingBrowseParams] = None,
-        fields: Optional[list[AdAccountTargetingUnifiedField]] = None,
-    ) -> TypedCursor[AdAccountTargetingUnifiedFields]:
-        """
-        Type-safe wrapper for AdAccount.get_targeting_browse().
-
-        Endpoint: GET /targetingbrowse
-        Returns: TypedCursor[AdAccountTargetingUnifiedFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_targeting_browse(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountTargetingUnifiedFields)
-
-    @staticmethod
-    def get_targeting_search(
-        obj: AdAccount,
-        params: Optional[AdAccountGetTargetingSearchParams] = None,
-        fields: Optional[list[AdAccountTargetingUnifiedField]] = None,
-    ) -> TypedCursor[AdAccountTargetingUnifiedFields]:
-        """
-        Type-safe wrapper for AdAccount.get_targeting_search().
-
-        Endpoint: GET /targetingsearch
-        Returns: TypedCursor[AdAccountTargetingUnifiedFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_targeting_search(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountTargetingUnifiedFields)
-
-    @staticmethod
-    def get_targeting_sentence_lines(
-        obj: AdAccount,
-        params: Optional[AdAccountGetTargetingSentenceLinesParams] = None,
-        fields: Optional[list[TargetingSentenceLineField]] = None,
-    ) -> TypedCursor[TargetingSentenceLineFields]:
-        """
-        Type-safe wrapper for AdAccount.get_targeting_sentence_lines().
-
-        Endpoint: GET /targetingsentencelines
-        Returns: TypedCursor[TargetingSentenceLineFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_targeting_sentence_lines(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, TargetingSentenceLineFields)
-
-    @staticmethod
-    def get_targeting_suggestions(
-        obj: AdAccount,
-        params: Optional[AdAccountGetTargetingSuggestionsParams] = None,
-        fields: Optional[list[AdAccountTargetingUnifiedField]] = None,
-    ) -> TypedCursor[AdAccountTargetingUnifiedFields]:
-        """
-        Type-safe wrapper for AdAccount.get_targeting_suggestions().
-
-        Endpoint: GET /targetingsuggestions
-        Returns: TypedCursor[AdAccountTargetingUnifiedFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_targeting_suggestions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountTargetingUnifiedFields)
-
-    @staticmethod
-    def get_targeting_valid_a_t_i_on(
-        obj: AdAccount,
-        params: Optional[AdAccountGetTargetingValidATIOnParams] = None,
-        fields: Optional[list[AdAccountTargetingUnifiedField]] = None,
-    ) -> TypedCursor[AdAccountTargetingUnifiedFields]:
-        """
-        Type-safe wrapper for AdAccount.get_targeting_valid_a_t_i_on().
-
-        Endpoint: GET /targetingvalidation
-        Returns: TypedCursor[AdAccountTargetingUnifiedFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_targeting_valid_a_t_i_on(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAccountTargetingUnifiedFields)
-
-    @staticmethod
-    def create_tracking(
-        obj: AdAccount,
-        params: AdAccountCreateTrackingParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for AdAccount.create_tracking().
-
-        Endpoint: POST /tracking
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_tracking(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
-
-    @staticmethod
-    def delete_users_of_any_audience(
-        obj: AdAccount,
-        params: Optional[AdAccountDeleteUsersOfAnyAudienceParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for AdAccount.delete_users_of_any_audience().
-
-        Endpoint: DELETE /usersofanyaudience
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_users_of_any_audience(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_value_rule_set(
-        obj: AdAccount,
-        params: Optional[AdAccountGetValueRuleSetParams] = None,
-        fields: Optional[list[AdsValueAdjustmentRuleCollectionField]] = None,
-    ) -> TypedCursor[AdsValueAdjustmentRuleCollectionFields]:
-        """
-        Type-safe wrapper for AdAccount.get_value_rule_set().
-
-        Endpoint: GET /value_rule_set
-        Returns: TypedCursor[AdsValueAdjustmentRuleCollectionFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_value_rule_set(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdsValueAdjustmentRuleCollectionFields)
-
-    @staticmethod
-    def create_value_rule_set(
-        obj: AdAccount,
-        params: AdAccountCreateValueRuleSetParams,
-    ) -> AdsValueAdjustmentRuleCollectionFields:
-        """
-        Type-safe wrapper for AdAccount.create_value_rule_set().
-
-        Endpoint: POST /value_rule_set
-        Returns: AdsValueAdjustmentRuleCollectionFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_value_rule_set(params=params_dict)
-
-        # Convert result to typed model
-        return AdsValueAdjustmentRuleCollectionFields(**result)
-
-    @staticmethod
-    def get_video_ads(
-        obj: AdAccount,
-        params: Optional[AdAccountGetVideoAdsParams] = None,
-        fields: Optional[list[AdVideoField]] = None,
-    ) -> TypedCursor[AdVideoFields]:
-        """
-        Type-safe wrapper for AdAccount.get_video_ads().
-
-        Endpoint: GET /video_ads
-        Returns: TypedCursor[AdVideoFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_video_ads(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdVideoFields)
-
-    @staticmethod
-    def create_video_ad(
-        obj: AdAccount,
-        params: AdAccountCreateVideoAdParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for AdAccount.create_video_ad().
-
-        Endpoint: POST /video_ads
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_video_ad(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
+from ..models.adaccountreachestimate import AdAccountReachEstimateField
+from ..models.adaccountrecommendations import AdAccountRecommendationsField
+from ..models.adaccountsubscribedapps import AdAccountSubscribedAppsField
+from ..models.adaccounttargetingunified import AdAccountTargetingUnifiedField
+from ..models.adactivity import AdActivityField
+from ..models.adasyncrequestset import AdAsyncRequestSetField
+from ..models.adcreative import AdCreativeField
+from ..models.adimage import AdImageField
+from ..models.adlabel import AdLabelField
+from ..models.adplacepageset import AdPlacePageSetField
+from ..models.adpreview import AdPreviewField
+from ..models.adreportrun import AdReportRunField
+from ..models.adrule import AdRuleField
+from ..models.adsavedkeywords import AdSavedKeywordsField
+from ..models.adset import AdSetField
+from ..models.adsinsights import AdsInsightsField
+from ..models.adspixel import AdsPixelField
+from ..models.adsreportbuildermmmreport import AdsReportBuilderMMMReportField
+from ..models.adsvalueadjustmentrulecollection import AdsValueAdjustmentRuleCollectionField
+from ..models.advideo import AdVideoField
+from ..models.application import ApplicationField
+from ..models.assigneduser import AssignedUserField
+from ..models.asyncrequest import AsyncRequestField
+from ..models.broadtargetingcategories import BroadTargetingCategoriesField
+from ..models.businessownedobjectonbehalfofrequest import BusinessOwnedObjectOnBehalfOfRequestField
+from ..models.businessproject import BusinessProjectField
+from ..models.campaign import CampaignField
+from ..models.customaudience import CustomAudienceField
+from ..models.customconversion import CustomConversionField
+from ..models.iguser import IGUserField
+from ..models.minimumbudget import MinimumBudgetField
+from ..models.playablecontent import PlayableContentField
+from ..models.publisherblocklist import PublisherBlockListField
+from ..models.reachfrequencyprediction import ReachFrequencyPredictionField
+from ..models.savedaudience import SavedAudienceField
+from ..models.targetingsentenceline import TargetingSentenceLineField
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def create_account_control(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAccountControlParams = {},
+) -> Any:
+    """Create Account Control for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_account_control(fields=fields, params=params)
+
+
+def get_activities(
+    adaccount_id: str,
+    fields: list[AdActivityField] = [],
+    params: AdAccountGetActivitiesParams = {},
+) -> Any:
+    """Get Activities for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_activities(fields=fields, params=params)
+
+
+def create_ad_place_page_set(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdPlacePageSetParams = {},
+) -> Any:
+    """Create Ad Place Page Set for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_place_page_set(fields=fields, params=params)
+
+
+def create_ad_place_page_sets_async(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdPlacePageSetsAsyncParams = {},
+) -> Any:
+    """Create Ad Place Page Sets Async for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_place_page_sets_async(fields=fields, params=params)
+
+
+def get_ad_saved_keywords(
+    adaccount_id: str,
+    fields: list[AdSavedKeywordsField] = [],
+    params: AdAccountGetAdSavedKeywordsParams = {},
+) -> Any:
+    """Get Ad Saved Keywords for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ad_saved_keywords(fields=fields, params=params)
+
+
+def create_ad_creative(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdCreativeParams = {},
+) -> Any:
+    """Create Ad Creative for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_creative(fields=fields, params=params)
+
+
+def get_ad_creatives_by_labels(
+    adaccount_id: str,
+    fields: list[AdCreativeField] = [],
+    params: AdAccountGetAdCreativesByLabelsParams = {},
+) -> Any:
+    """Get Ad Creatives By Labels for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ad_creatives_by_labels(fields=fields, params=params)
+
+
+def delete_ad_images(
+    adaccount_id: str,
+    params: AdAccountDeleteAdImagesParams = {},
+) -> Any:
+    """Delete Ad Images for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        params: Parameters for the operation.
+    """
+    return AdAccount(adaccount_id).delete_ad_images(params=params)
+
+
+def get_ad_images(
+    adaccount_id: str,
+    fields: list[AdImageField] = [],
+    params: AdAccountGetAdImagesParams = {},
+) -> Any:
+    """Get Ad Images for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ad_images(fields=fields, params=params)
+
+
+def create_ad_image(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdImageParams = {},
+) -> Any:
+    """Create Ad Image for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_image(fields=fields, params=params)
+
+
+def create_ad_label(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdLabelParams = {},
+) -> Any:
+    """Create Ad Label for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_label(fields=fields, params=params)
+
+
+def create_ad_playable(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdPlayableParams = {},
+) -> Any:
+    """Create Ad Playable for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_playable(fields=fields, params=params)
+
+
+def get_ad_rules_history(
+    adaccount_id: str,
+    fields: list[AdAccountAdRulesHistoryField] = [],
+    params: AdAccountGetAdRulesHistoryParams = {},
+) -> Any:
+    """Get Ad Rules History for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ad_rules_history(fields=fields, params=params)
+
+
+def create_ad_rules_library(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdRulesLibraryParams = {},
+) -> Any:
+    """Create Ad Rules Library for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_rules_library(fields=fields, params=params)
+
+
+def get_ads(
+    adaccount_id: str,
+    fields: list[AdField] = [],
+    params: AdAccountGetAdsParams = {},
+) -> Any:
+    """Get Ads for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ads(fields=fields, params=params)
+
+
+def create_ad(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdParams = {},
+) -> Any:
+    """Create Ad for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad(fields=fields, params=params)
+
+
+def get_ads_reporting_mmm_reports(
+    adaccount_id: str,
+    fields: list[AdsReportBuilderMMMReportField] = [],
+    params: AdAccountGetAdsReportingMmmReportsParams = {},
+) -> Any:
+    """Get Ads Reporting Mmm Reports for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ads_reporting_mmm_reports(fields=fields, params=params)
+
+
+def get_ads_volume(
+    adaccount_id: str,
+    fields: list[AdAccountAdVolumeField] = [],
+    params: AdAccountGetAdsVolumeParams = {},
+) -> Any:
+    """Get Ads Volume for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ads_volume(fields=fields, params=params)
+
+
+def get_ads_by_labels(
+    adaccount_id: str,
+    fields: list[AdField] = [],
+    params: AdAccountGetAdsByLabelsParams = {},
+) -> Any:
+    """Get Ads By Labels for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ads_by_labels(fields=fields, params=params)
+
+
+def get_ad_sets(
+    adaccount_id: str,
+    fields: list[AdSetField] = [],
+    params: AdAccountGetAdSetsParams = {},
+) -> Any:
+    """Get Ad Sets for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ad_sets(fields=fields, params=params)
+
+
+def create_ad_set(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdSetParams = {},
+) -> Any:
+    """Create Ad Set for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_set(fields=fields, params=params)
+
+
+def get_ad_sets_by_labels(
+    adaccount_id: str,
+    fields: list[AdSetField] = [],
+    params: AdAccountGetAdSetsByLabelsParams = {},
+) -> Any:
+    """Get Ad Sets By Labels for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ad_sets_by_labels(fields=fields, params=params)
+
+
+def get_ads_pixels(
+    adaccount_id: str,
+    fields: list[AdsPixelField] = [],
+    params: AdAccountGetAdsPixelsParams = {},
+) -> Any:
+    """Get Ads Pixels for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ads_pixels(fields=fields, params=params)
+
+
+def create_ads_pixel(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdsPixelParams = {},
+) -> Any:
+    """Create Ads Pixel for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ads_pixel(fields=fields, params=params)
+
+
+def get_advertisable_applications(
+    adaccount_id: str,
+    fields: list[ApplicationField] = [],
+    params: AdAccountGetAdvertisableApplicationsParams = {},
+) -> Any:
+    """Get Advertisable Applications for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_advertisable_applications(fields=fields, params=params)
+
+
+def delete_ad_videos(
+    adaccount_id: str,
+    params: AdAccountDeleteAdVideosParams = {},
+) -> Any:
+    """Delete Ad Videos for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        params: Parameters for the operation.
+    """
+    return AdAccount(adaccount_id).delete_ad_videos(params=params)
+
+
+def get_ad_videos(
+    adaccount_id: str,
+    fields: list[AdVideoField] = [],
+    params: AdAccountGetAdVideosParams = {},
+) -> Any:
+    """Get Ad Videos for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ad_videos(fields=fields, params=params)
+
+
+def create_ad_video(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAdVideoParams = {},
+) -> Any:
+    """Create Ad Video for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_ad_video(fields=fields, params=params)
+
+
+def delete_agencies(
+    adaccount_id: str,
+    params: AdAccountDeleteAgenciesParams = {},
+) -> Any:
+    """Delete Agencies for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        params: Parameters for the operation.
+    """
+    return AdAccount(adaccount_id).delete_agencies(params=params)
+
+
+def create_agency(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAgencyParams = {},
+) -> Any:
+    """Create Agency for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_agency(fields=fields, params=params)
+
+
+def delete_assigned_users(
+    adaccount_id: str,
+    params: AdAccountDeleteAssignedUsersParams = {},
+) -> Any:
+    """Delete Assigned Users for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        params: Parameters for the operation.
+    """
+    return AdAccount(adaccount_id).delete_assigned_users(params=params)
+
+
+def get_assigned_users(
+    adaccount_id: str,
+    fields: list[AssignedUserField] = [],
+    params: AdAccountGetAssignedUsersParams = {},
+) -> Any:
+    """Get Assigned Users for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_assigned_users(fields=fields, params=params)
+
+
+def create_assigned_user(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAssignedUserParams = {},
+) -> Any:
+    """Create Assigned User for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_assigned_user(fields=fields, params=params)
+
+
+def create_async_batch_request(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAsyncBatchRequestParams = {},
+) -> Any:
+    """Create Async Batch Request for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_async_batch_request(fields=fields, params=params)
+
+
+def get_async_requests(
+    adaccount_id: str,
+    fields: list[AsyncRequestField] = [],
+    params: AdAccountGetAsyncRequestsParams = {},
+) -> Any:
+    """Get Async Requests for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_async_requests(fields=fields, params=params)
+
+
+def get_async_ad_creatives(
+    adaccount_id: str,
+    fields: list[AdAsyncRequestSetField] = [],
+    params: AdAccountGetAsyncAdCreativesParams = {},
+) -> Any:
+    """Get Async Ad Creatives for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_async_ad_creatives(fields=fields, params=params)
+
+
+def create_async_ad_creative(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAsyncAdCreativeParams = {},
+) -> Any:
+    """Create Async Ad Creative for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_async_ad_creative(fields=fields, params=params)
+
+
+def get_async_ad_request_sets(
+    adaccount_id: str,
+    fields: list[AdAsyncRequestSetField] = [],
+    params: AdAccountGetAsyncAdRequestSetsParams = {},
+) -> Any:
+    """Get Async Ad Request Sets for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_async_ad_request_sets(fields=fields, params=params)
+
+
+def create_async_ad_request_set(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateAsyncAdRequestSetParams = {},
+) -> Any:
+    """Create Async Ad Request Set for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_async_ad_request_set(fields=fields, params=params)
+
+
+def create_block_list_draft(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateBlockListDraftParams = {},
+) -> Any:
+    """Create Block List Draft for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_block_list_draft(fields=fields, params=params)
+
+
+def create_brand_safety_content_filter_level(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateBrandSafetyContentFilterLevelParams = {},
+) -> Any:
+    """Create Brand Safety Content Filter Level for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_brand_safety_content_filter_level(
+        fields=fields, params=params
+    )
+
+
+def get_broad_targeting_categories(
+    adaccount_id: str,
+    fields: list[BroadTargetingCategoriesField] = [],
+    params: AdAccountGetBroadTargetingCategoriesParams = {},
+) -> Any:
+    """Get Broad Targeting Categories for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_broad_targeting_categories(fields=fields, params=params)
+
+
+def get_business_projects(
+    adaccount_id: str,
+    fields: list[BusinessProjectField] = [],
+    params: AdAccountGetBusinessProjectsParams = {},
+) -> Any:
+    """Get Business Projects for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_business_projects(fields=fields, params=params)
+
+
+def delete_campaigns(
+    adaccount_id: str,
+    params: AdAccountDeleteCampaignsParams = {},
+) -> Any:
+    """Delete Campaigns for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        params: Parameters for the operation.
+    """
+    return AdAccount(adaccount_id).delete_campaigns(params=params)
+
+
+def get_campaigns(
+    adaccount_id: str,
+    fields: list[CampaignField] = [],
+    params: AdAccountGetCampaignsParams = {},
+) -> Any:
+    """Get Campaigns for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_campaigns(fields=fields, params=params)
+
+
+def create_campaign(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateCampaignParams = {},
+) -> Any:
+    """Create Campaign for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_campaign(fields=fields, params=params)
+
+
+def get_campaigns_by_labels(
+    adaccount_id: str,
+    fields: list[CampaignField] = [],
+    params: AdAccountGetCampaignsByLabelsParams = {},
+) -> Any:
+    """Get Campaigns By Labels for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_campaigns_by_labels(fields=fields, params=params)
+
+
+def get_connected_instagram_accounts_with_iabp(
+    adaccount_id: str,
+    fields: list[IGUserField] = [],
+    params: AdAccountGetConnectedInstagramAccountsWithIabpParams = {},
+) -> Any:
+    """Get Connected Instagram Accounts With Iabp for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_connected_instagram_accounts_with_iabp(
+        fields=fields, params=params
+    )
+
+
+def get_custom_audiences(
+    adaccount_id: str,
+    fields: list[CustomAudienceField] = [],
+    params: AdAccountGetCustomAudiencesParams = {},
+) -> Any:
+    """Get Custom Audiences for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_custom_audiences(fields=fields, params=params)
+
+
+def create_custom_audience(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateCustomAudienceParams = {},
+) -> Any:
+    """Create Custom Audience for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_custom_audience(fields=fields, params=params)
+
+
+def create_custom_audiences_to(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateCustomAudiencesToParams = {},
+) -> Any:
+    """Create Custom Audiences To for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_custom_audiences_to(fields=fields, params=params)
+
+
+def create_custom_conversion(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateCustomConversionParams = {},
+) -> Any:
+    """Create Custom Conversion for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_custom_conversion(fields=fields, params=params)
+
+
+def get_delivery_estimate(
+    adaccount_id: str,
+    fields: list[AdAccountDeliveryEstimateField] = [],
+    params: AdAccountGetDeliveryEstimateParams = {},
+) -> Any:
+    """Get Delivery Estimate for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_delivery_estimate(fields=fields, params=params)
+
+
+def get_deprecated_targeting_ad_sets(
+    adaccount_id: str,
+    fields: list[AdSetField] = [],
+    params: AdAccountGetDeprecatedTargetingAdSetsParams = {},
+) -> Any:
+    """Get Deprecated Targeting Ad Sets for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_deprecated_targeting_ad_sets(fields=fields, params=params)
+
+
+def get_generate_previews(
+    adaccount_id: str,
+    fields: list[AdPreviewField] = [],
+    params: AdAccountGetGeneratePreviewsParams = {},
+) -> Any:
+    """Get Generate Previews for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_generate_previews(fields=fields, params=params)
+
+
+def get_insights(
+    adaccount_id: str,
+    fields: list[AdsInsightsField] = [],
+    params: AdAccountGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_insights(fields=fields, params=params)
+
+
+def get_insights_async(
+    adaccount_id: str,
+    fields: list[AdReportRunField] = [],
+    params: AdAccountGetInsightsAsyncParams = {},
+) -> Any:
+    """Get Insights Async for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_insights_async(fields=fields, params=params)
+
+
+def get_ios_fourteen_campaign_limits(
+    adaccount_id: str,
+    fields: list[AdAccountIosFourteenCampaignLimitsField] = [],
+    params: AdAccountGetIosFourteenCampaignLimitsParams = {},
+) -> Any:
+    """Get Ios Fourteen Campaign Limits for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_ios_fourteen_campaign_limits(fields=fields, params=params)
+
+
+def get_matched_search_applications(
+    adaccount_id: str,
+    fields: list[AdAccountMatchedSearchApplicationsEdgeDataField] = [],
+    params: AdAccountGetMatchedSearchApplicationsParams = {},
+) -> Any:
+    """Get Matched Search Applications for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_matched_search_applications(fields=fields, params=params)
+
+
+def get_minimum_budgets(
+    adaccount_id: str,
+    fields: list[MinimumBudgetField] = [],
+    params: AdAccountGetMinimumBudgetsParams = {},
+) -> Any:
+    """Get Minimum Budgets for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_minimum_budgets(fields=fields, params=params)
+
+
+def get_on_behalf_requests(
+    adaccount_id: str,
+    fields: list[BusinessOwnedObjectOnBehalfOfRequestField] = [],
+    params: AdAccountGetOnBehalfRequestsParams = {},
+) -> Any:
+    """Get On Behalf Requests for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_on_behalf_requests(fields=fields, params=params)
+
+
+def create_product_audience(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateProductAudienceParams = {},
+) -> Any:
+    """Create Product Audience for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_product_audience(fields=fields, params=params)
+
+
+def create_publisher_block_list(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreatePublisherBlockListParams = {},
+) -> Any:
+    """Create Publisher Block List for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_publisher_block_list(fields=fields, params=params)
+
+
+def get_reach_estimate(
+    adaccount_id: str,
+    fields: list[AdAccountReachEstimateField] = [],
+    params: AdAccountGetReachEstimateParams = {},
+) -> Any:
+    """Get Reach Estimate for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_reach_estimate(fields=fields, params=params)
+
+
+def create_reach_frequency_prediction(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateReachFrequencyPredictionParams = {},
+) -> Any:
+    """Create Reach Frequency Prediction for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_reach_frequency_prediction(fields=fields, params=params)
+
+
+def create_recommendation(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateRecommendationParams = {},
+) -> Any:
+    """Create Recommendation for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_recommendation(fields=fields, params=params)
+
+
+def get_saved_audiences(
+    adaccount_id: str,
+    fields: list[SavedAudienceField] = [],
+    params: AdAccountGetSavedAudiencesParams = {},
+) -> Any:
+    """Get Saved Audiences for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_saved_audiences(fields=fields, params=params)
+
+
+def delete_subscribed_apps(
+    adaccount_id: str,
+    params: AdAccountDeleteSubscribedAppsParams = {},
+) -> Any:
+    """Delete Subscribed Apps for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        params: Parameters for the operation.
+    """
+    return AdAccount(adaccount_id).delete_subscribed_apps(params=params)
+
+
+def create_subscribed_app(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateSubscribedAppParams = {},
+) -> Any:
+    """Create Subscribed App for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_subscribed_app(fields=fields, params=params)
+
+
+def get_targeting_browse(
+    adaccount_id: str,
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingBrowseParams = {},
+) -> Any:
+    """Get Targeting Browse for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_targeting_browse(fields=fields, params=params)
+
+
+def get_targeting_search(
+    adaccount_id: str,
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingSearchParams = {},
+) -> Any:
+    """Get Targeting Search for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_targeting_search(fields=fields, params=params)
+
+
+def get_targeting_sentence_lines(
+    adaccount_id: str,
+    fields: list[TargetingSentenceLineField] = [],
+    params: AdAccountGetTargetingSentenceLinesParams = {},
+) -> Any:
+    """Get Targeting Sentence Lines for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_targeting_sentence_lines(fields=fields, params=params)
+
+
+def get_targeting_suggestions(
+    adaccount_id: str,
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingSuggestionsParams = {},
+) -> Any:
+    """Get Targeting Suggestions for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_targeting_suggestions(fields=fields, params=params)
+
+
+def get_targeting_valid_a_t_i_on(
+    adaccount_id: str,
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingValidATIOnParams = {},
+) -> Any:
+    """Get Targeting Valid A T I On for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_targeting_valid_a_t_i_on(fields=fields, params=params)
+
+
+def create_tracking(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateTrackingParams = {},
+) -> Any:
+    """Create Tracking for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_tracking(fields=fields, params=params)
+
+
+def delete_users_of_any_audience(
+    adaccount_id: str,
+    params: AdAccountDeleteUsersOfAnyAudienceParams = {},
+) -> Any:
+    """Delete Users Of Any Audience for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        params: Parameters for the operation.
+    """
+    return AdAccount(adaccount_id).delete_users_of_any_audience(params=params)
+
+
+def get_value_rule_set(
+    adaccount_id: str,
+    fields: list[AdsValueAdjustmentRuleCollectionField] = [],
+    params: AdAccountGetValueRuleSetParams = {},
+) -> Any:
+    """Get Value Rule Set for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_value_rule_set(fields=fields, params=params)
+
+
+def create_value_rule_set(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateValueRuleSetParams = {},
+) -> Any:
+    """Create Value Rule Set for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_value_rule_set(fields=fields, params=params)
+
+
+def get_video_ads(
+    adaccount_id: str,
+    fields: list[AdVideoField] = [],
+    params: AdAccountGetVideoAdsParams = {},
+) -> Any:
+    """Get Video Ads for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_video_ads(fields=fields, params=params)
+
+
+def create_video_ad(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: AdAccountCreateVideoAdParams = {},
+) -> Any:
+    """Create Video Ad for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).create_video_ad(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

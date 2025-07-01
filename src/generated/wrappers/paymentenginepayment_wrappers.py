@@ -2,71 +2,55 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.paymentenginepayment import PaymentEnginePayment
+from facebook_business.adobjects.paymentenginepayment import PaymentEnginePayment
 
 from ..models.paymentenginepayment import (
     PaymentEnginePaymentCreateDisputeParams,
     PaymentEnginePaymentCreateRefundParams,
     PaymentEnginePaymentField,
-    PaymentEnginePaymentFields,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class PaymentEnginePaymentWrappers:
-    """Type-safe wrapper functions for PaymentEnginePayment API methods."""
+def create_dispute(
+    paymentenginepayment_id: str,
+    fields: list[str] = [],
+    params: PaymentEnginePaymentCreateDisputeParams = {},
+) -> Any:
+    """Create Dispute for this PaymentEnginePayment.
 
-    @staticmethod
-    def create_dispute(
-        obj: PaymentEnginePayment,
-        params: PaymentEnginePaymentCreateDisputeParams,
-    ) -> PaymentEnginePaymentFields:
-        """
-        Type-safe wrapper for PaymentEnginePayment.create_dispute().
+    Args:
+        paymentenginepayment_id: The ID of the PaymentEnginePayment.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return PaymentEnginePayment(paymentenginepayment_id).create_dispute(
+        fields=fields, params=params
+    )
 
-        Endpoint: POST /dispute
-        Returns: PaymentEnginePaymentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_dispute(params=params_dict)
+def create_refund(
+    paymentenginepayment_id: str,
+    fields: list[str] = [],
+    params: PaymentEnginePaymentCreateRefundParams = {},
+) -> Any:
+    """Create Refund for this PaymentEnginePayment.
 
-        # Convert result to typed model
-        return PaymentEnginePaymentFields(**result)
-
-    @staticmethod
-    def create_refund(
-        obj: PaymentEnginePayment,
-        params: PaymentEnginePaymentCreateRefundParams,
-    ) -> PaymentEnginePaymentFields:
-        """
-        Type-safe wrapper for PaymentEnginePayment.create_refund().
-
-        Endpoint: POST /refunds
-        Returns: PaymentEnginePaymentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_refund(params=params_dict)
-
-        # Convert result to typed model
-        return PaymentEnginePaymentFields(**result)
+    Args:
+        paymentenginepayment_id: The ID of the PaymentEnginePayment.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return PaymentEnginePayment(paymentenginepayment_id).create_refund(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

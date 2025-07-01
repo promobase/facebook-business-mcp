@@ -299,6 +299,27 @@ class AdsPixelGetStatsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdsPixelUpdateParams(BaseModel):
+    """Parameters for AdsPixel.api_update()."""
+
+    automatic_matching_fields: list[str] | None = Field(
+        None, description="automatic_matching_fields parameter"
+    )
+    data_use_setting: str | None = Field(None, description="data_use_setting parameter")
+    enable_automatic_matching: bool | None = Field(
+        None, description="enable_automatic_matching parameter"
+    )
+    first_party_cookie_status: str | None = Field(
+        None, description="first_party_cookie_status parameter"
+    )
+    name: str | None = Field(None, description="name parameter")
+    server_events_business_ids: list[str] | None = Field(
+        None, description="server_events_business_ids parameter"
+    )
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

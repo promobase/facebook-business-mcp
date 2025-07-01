@@ -38,6 +38,15 @@ class BusinessAgreementFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class BusinessAgreementUpdateParams(BaseModel):
+    """Parameters for BusinessAgreement.api_update()."""
+
+    asset_id: int | None = Field(None, description="asset_id parameter")
+    request_status: str | None = Field(None, description="request_status parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

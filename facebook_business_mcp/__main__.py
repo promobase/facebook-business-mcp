@@ -1,4 +1,5 @@
 """Entry point for facebook-business-mcp when run as a module."""
+
 import asyncio
 import sys
 from pathlib import Path

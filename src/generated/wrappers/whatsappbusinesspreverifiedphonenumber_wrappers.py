@@ -2,73 +2,59 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.whatsappbusinesspreverifiedphonenumber import (
-        WhatsAppBusinessPreVerifiedPhoneNumber,
-    )
+from facebook_business.adobjects.whatsappbusinesspreverifiedphonenumber import (
+    WhatsAppBusinessPreVerifiedPhoneNumber,
+)
 
 from ..models.whatsappbusinesspreverifiedphonenumber import (
     WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams,
     WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams,
     WhatsAppBusinessPreVerifiedPhoneNumberField,
-    WhatsAppBusinessPreVerifiedPhoneNumberFields,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class WhatsAppBusinessPreVerifiedPhoneNumberWrappers:
-    """Type-safe wrapper functions for WhatsAppBusinessPreVerifiedPhoneNumber API methods."""
+def create_request_code(
+    whatsappbusinesspreverifiedphonenumber_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams = {},
+) -> Any:
+    """Create Request Code for this WhatsAppBusinessPreVerifiedPhoneNumber.
 
-    @staticmethod
-    def create_request_code(
-        obj: WhatsAppBusinessPreVerifiedPhoneNumber,
-        params: WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for WhatsAppBusinessPreVerifiedPhoneNumber.create_request_code().
+    Args:
+        whatsappbusinesspreverifiedphonenumber_id: The ID of the WhatsAppBusinessPreVerifiedPhoneNumber.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessPreVerifiedPhoneNumber(
+        whatsappbusinesspreverifiedphonenumber_id
+    ).create_request_code(fields=fields, params=params)
 
-        Endpoint: POST /request_code
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_request_code(params=params_dict)
+def create_verify_code(
+    whatsappbusinesspreverifiedphonenumber_id: str,
+    fields: list[str] = [],
+    params: WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams = {},
+) -> Any:
+    """Create Verify Code for this WhatsAppBusinessPreVerifiedPhoneNumber.
 
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_verify_code(
-        obj: WhatsAppBusinessPreVerifiedPhoneNumber,
-        params: WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for WhatsAppBusinessPreVerifiedPhoneNumber.create_verify_code().
-
-        Endpoint: POST /verify_code
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_verify_code(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
+    Args:
+        whatsappbusinesspreverifiedphonenumber_id: The ID of the WhatsAppBusinessPreVerifiedPhoneNumber.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return WhatsAppBusinessPreVerifiedPhoneNumber(
+        whatsappbusinesspreverifiedphonenumber_id
+    ).create_verify_code(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

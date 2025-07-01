@@ -103,6 +103,25 @@ class AdStudyCreateInstanceParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class AdStudyUpdateParams(BaseModel):
+    """Parameters for AdStudy.api_update()."""
+
+    cells: list[Any] | None = Field(None, description="cells parameter")
+    client_business: str | None = Field(None, description="client_business parameter")
+    confidence_level: float | None = Field(None, description="confidence_level parameter")
+    cooldown_start_time: int | None = Field(None, description="cooldown_start_time parameter")
+    description: str | None = Field(None, description="description parameter")
+    end_time: int | None = Field(None, description="end_time parameter")
+    name: str | None = Field(None, description="name parameter")
+    objectives: list[Any] | None = Field(None, description="objectives parameter")
+    observation_end_time: int | None = Field(None, description="observation_end_time parameter")
+    start_time: int | None = Field(None, description="start_time parameter")
+    type: str | None = Field(None, description="type parameter")
+    viewers: list[int] | None = Field(None, description="viewers parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

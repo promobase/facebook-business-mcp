@@ -139,6 +139,14 @@ class LeadgenFormCreateTestLeadParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class LeadgenFormUpdateParams(BaseModel):
+    """Parameters for LeadgenForm.api_update()."""
+
+    status: str | None = Field(None, description="status parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

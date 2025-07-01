@@ -2,59 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.customconversion import CustomConversion
+from facebook_business.adobjects.customconversion import CustomConversion
 
 from ..models.customconversion import (
     CustomConversionField,
-    CustomConversionFields,
     CustomConversionGetStatsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.customconversionstatsresult import (
-    CustomConversionStatsResultField,
-    CustomConversionStatsResultFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.customconversionstatsresult import CustomConversionStatsResultField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class CustomConversionWrappers:
-    """Type-safe wrapper functions for CustomConversion API methods."""
+def get_stats(
+    customconversion_id: str,
+    fields: list[CustomConversionStatsResultField] = [],
+    params: CustomConversionGetStatsParams = {},
+) -> Any:
+    """Get Stats for this CustomConversion.
 
-    @staticmethod
-    def get_stats(
-        obj: CustomConversion,
-        params: Optional[CustomConversionGetStatsParams] = None,
-        fields: Optional[list[CustomConversionStatsResultField]] = None,
-    ) -> TypedCursor[CustomConversionStatsResultFields]:
-        """
-        Type-safe wrapper for CustomConversion.get_stats().
-
-        Endpoint: GET /stats
-        Returns: TypedCursor[CustomConversionStatsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_stats(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CustomConversionStatsResultFields)
+    Args:
+        customconversion_id: The ID of the CustomConversion.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return CustomConversion(customconversion_id).get_stats(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

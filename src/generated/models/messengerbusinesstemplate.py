@@ -67,6 +67,14 @@ class MessengerBusinessTemplateFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class MessengerBusinessTemplateUpdateParams(BaseModel):
+    """Parameters for MessengerBusinessTemplate.api_update()."""
+
+    components: list[dict[str, Any]] | None = Field(None, description="components parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

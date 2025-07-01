@@ -1049,6 +1049,104 @@ class ProductItemGetOverrideDetailsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ProductItemUpdateParams(BaseModel):
+    """Parameters for ProductItem.api_update()."""
+
+    additional_image_urls: list[str] | None = Field(
+        None, description="additional_image_urls parameter"
+    )
+    additional_variant_attributes: dict[str, Any] | None = Field(
+        None, description="additional_variant_attributes parameter"
+    )
+    age_group: str | None = Field(None, description="age_group parameter")
+    android_app_name: str | None = Field(None, description="android_app_name parameter")
+    android_class: str | None = Field(None, description="android_class parameter")
+    android_package: str | None = Field(None, description="android_package parameter")
+    android_url: str | None = Field(None, description="android_url parameter")
+    availability: str | None = Field(None, description="availability parameter")
+    brand: str | None = Field(None, description="brand parameter")
+    category: str | None = Field(None, description="category parameter")
+    category_specific_fields: dict[str, Any] | None = Field(
+        None, description="category_specific_fields parameter"
+    )
+    checkout_url: str | None = Field(None, description="checkout_url parameter")
+    color: str | None = Field(None, description="color parameter")
+    commerce_tax_category: str | None = Field(None, description="commerce_tax_category parameter")
+    condition: str | None = Field(None, description="condition parameter")
+    currency: str | None = Field(None, description="currency parameter")
+    custom_data: dict[str, Any] | None = Field(None, description="custom_data parameter")
+    custom_label_0: str | None = Field(None, description="custom_label_0 parameter")
+    custom_label_1: str | None = Field(None, description="custom_label_1 parameter")
+    custom_label_2: str | None = Field(None, description="custom_label_2 parameter")
+    custom_label_3: str | None = Field(None, description="custom_label_3 parameter")
+    custom_label_4: str | None = Field(None, description="custom_label_4 parameter")
+    custom_number_0: int | None = Field(None, description="custom_number_0 parameter")
+    custom_number_1: int | None = Field(None, description="custom_number_1 parameter")
+    custom_number_2: int | None = Field(None, description="custom_number_2 parameter")
+    custom_number_3: int | None = Field(None, description="custom_number_3 parameter")
+    custom_number_4: int | None = Field(None, description="custom_number_4 parameter")
+    description: str | None = Field(None, description="description parameter")
+    expiration_date: str | None = Field(None, description="expiration_date parameter")
+    fb_product_category: str | None = Field(None, description="fb_product_category parameter")
+    gender: str | None = Field(None, description="gender parameter")
+    gtin: str | None = Field(None, description="gtin parameter")
+    image_url: str | None = Field(None, description="image_url parameter")
+    importer_address: dict[str, Any] | None = Field(None, description="importer_address parameter")
+    importer_name: str | None = Field(None, description="importer_name parameter")
+    inventory: int | None = Field(None, description="inventory parameter")
+    ios_app_name: str | None = Field(None, description="ios_app_name parameter")
+    ios_app_store_id: int | None = Field(None, description="ios_app_store_id parameter")
+    ios_url: str | None = Field(None, description="ios_url parameter")
+    ipad_app_name: str | None = Field(None, description="ipad_app_name parameter")
+    ipad_app_store_id: int | None = Field(None, description="ipad_app_store_id parameter")
+    ipad_url: str | None = Field(None, description="ipad_url parameter")
+    iphone_app_name: str | None = Field(None, description="iphone_app_name parameter")
+    iphone_app_store_id: int | None = Field(None, description="iphone_app_store_id parameter")
+    iphone_url: str | None = Field(None, description="iphone_url parameter")
+    launch_date: str | None = Field(None, description="launch_date parameter")
+    manufacturer_info: str | None = Field(None, description="manufacturer_info parameter")
+    manufacturer_part_number: str | None = Field(
+        None, description="manufacturer_part_number parameter"
+    )
+    marked_for_product_launch: str | None = Field(
+        None, description="marked_for_product_launch parameter"
+    )
+    material: str | None = Field(None, description="material parameter")
+    mobile_link: str | None = Field(None, description="mobile_link parameter")
+    name: str | None = Field(None, description="name parameter")
+    ordering_index: int | None = Field(None, description="ordering_index parameter")
+    origin_country: str | None = Field(None, description="origin_country parameter")
+    pattern: str | None = Field(None, description="pattern parameter")
+    price: int | None = Field(None, description="price parameter")
+    product_priority_0: float | None = Field(None, description="product_priority_0 parameter")
+    product_priority_1: float | None = Field(None, description="product_priority_1 parameter")
+    product_priority_2: float | None = Field(None, description="product_priority_2 parameter")
+    product_priority_3: float | None = Field(None, description="product_priority_3 parameter")
+    product_priority_4: float | None = Field(None, description="product_priority_4 parameter")
+    product_type: str | None = Field(None, description="product_type parameter")
+    quantity_to_sell_on_facebook: int | None = Field(
+        None, description="quantity_to_sell_on_facebook parameter"
+    )
+    retailer_id: str | None = Field(None, description="retailer_id parameter")
+    return_policy_days: int | None = Field(None, description="return_policy_days parameter")
+    sale_price: int | None = Field(None, description="sale_price parameter")
+    sale_price_end_date: datetime | None = Field(None, description="sale_price_end_date parameter")
+    sale_price_start_date: datetime | None = Field(
+        None, description="sale_price_start_date parameter"
+    )
+    short_description: str | None = Field(None, description="short_description parameter")
+    size: str | None = Field(None, description="size parameter")
+    start_date: str | None = Field(None, description="start_date parameter")
+    url: str | None = Field(None, description="url parameter")
+    visibility: str | None = Field(None, description="visibility parameter")
+    wa_compliance_category: str | None = Field(None, description="wa_compliance_category parameter")
+    windows_phone_app_id: str | None = Field(None, description="windows_phone_app_id parameter")
+    windows_phone_app_name: str | None = Field(None, description="windows_phone_app_name parameter")
+    windows_phone_url: str | None = Field(None, description="windows_phone_url parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -2,70 +2,53 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.pageusermessagethreadlabel import PageUserMessageThreadLabel
+from facebook_business.adobjects.pageusermessagethreadlabel import PageUserMessageThreadLabel
 
 from ..models.pageusermessagethreadlabel import (
     PageUserMessageThreadLabelCreateLabelParams,
     PageUserMessageThreadLabelDeleteLabelParams,
     PageUserMessageThreadLabelField,
-    PageUserMessageThreadLabelFields,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class PageUserMessageThreadLabelWrappers:
-    """Type-safe wrapper functions for PageUserMessageThreadLabel API methods."""
+def delete_label(
+    pageusermessagethreadlabel_id: str,
+    params: PageUserMessageThreadLabelDeleteLabelParams = {},
+) -> Any:
+    """Delete Label for this PageUserMessageThreadLabel.
 
-    @staticmethod
-    def delete_label(
-        obj: PageUserMessageThreadLabel,
-        params: Optional[PageUserMessageThreadLabelDeleteLabelParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for PageUserMessageThreadLabel.delete_label().
+    Args:
+        pageusermessagethreadlabel_id: The ID of the PageUserMessageThreadLabel.
+        params: Parameters for the operation.
+    """
+    return PageUserMessageThreadLabel(pageusermessagethreadlabel_id).delete_label(params=params)
 
-        Endpoint: DELETE /label
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        obj.delete_label(params=params_dict)
+def create_label(
+    pageusermessagethreadlabel_id: str,
+    fields: list[str] = [],
+    params: PageUserMessageThreadLabelCreateLabelParams = {},
+) -> Any:
+    """Create Label for this PageUserMessageThreadLabel.
 
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_label(
-        obj: PageUserMessageThreadLabel,
-        params: PageUserMessageThreadLabelCreateLabelParams,
-    ) -> PageUserMessageThreadLabelFields:
-        """
-        Type-safe wrapper for PageUserMessageThreadLabel.create_label().
-
-        Endpoint: POST /label
-        Returns: PageUserMessageThreadLabelFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_label(params=params_dict)
-
-        # Convert result to typed model
-        return PageUserMessageThreadLabelFields(**result)
+    Args:
+        pageusermessagethreadlabel_id: The ID of the PageUserMessageThreadLabel.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return PageUserMessageThreadLabel(pageusermessagethreadlabel_id).create_label(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

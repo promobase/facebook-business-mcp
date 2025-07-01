@@ -2,80 +2,53 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.adcreative import AdCreative
+from facebook_business.adobjects.adcreative import AdCreative
 
 from ..models.adcreative import (
     AdCreativeCreateAdLabelParams,
     AdCreativeField,
-    AdCreativeFields,
     AdCreativeGetPreviewsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adpreview import (
-    AdPreviewField,
-    AdPreviewFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.adpreview import AdPreviewField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdCreativeWrappers:
-    """Type-safe wrapper functions for AdCreative API methods."""
+def create_ad_label(
+    adcreative_id: str,
+    fields: list[str] = [],
+    params: AdCreativeCreateAdLabelParams = {},
+) -> Any:
+    """Create Ad Label for this AdCreative.
 
-    @staticmethod
-    def create_ad_label(
-        obj: AdCreative,
-        params: AdCreativeCreateAdLabelParams,
-    ) -> AdCreativeFields:
-        """
-        Type-safe wrapper for AdCreative.create_ad_label().
+    Args:
+        adcreative_id: The ID of the AdCreative.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdCreative(adcreative_id).create_ad_label(fields=fields, params=params)
 
-        Endpoint: POST /adlabels
-        Returns: AdCreativeFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_ad_label(params=params_dict)
+def get_previews(
+    adcreative_id: str,
+    fields: list[AdPreviewField] = [],
+    params: AdCreativeGetPreviewsParams = {},
+) -> Any:
+    """Get Previews for this AdCreative.
 
-        # Convert result to typed model
-        return AdCreativeFields(**result)
-
-    @staticmethod
-    def get_previews(
-        obj: AdCreative,
-        params: Optional[AdCreativeGetPreviewsParams] = None,
-        fields: Optional[list[AdPreviewField]] = None,
-    ) -> TypedCursor[AdPreviewFields]:
-        """
-        Type-safe wrapper for AdCreative.get_previews().
-
-        Endpoint: GET /previews
-        Returns: TypedCursor[AdPreviewFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_previews(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdPreviewFields)
+    Args:
+        adcreative_id: The ID of the AdCreative.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdCreative(adcreative_id).get_previews(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

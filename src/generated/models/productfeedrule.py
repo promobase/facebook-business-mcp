@@ -37,6 +37,14 @@ class ProductFeedRuleFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class ProductFeedRuleUpdateParams(BaseModel):
+    """Parameters for ProductFeedRule.api_update()."""
+
+    params: dict[str, Any] | None = Field(None, description="params parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

@@ -96,6 +96,15 @@ class BusinessRoleRequestFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class BusinessRoleRequestUpdateParams(BaseModel):
+    """Parameters for BusinessRoleRequest.api_update()."""
+
+    role: str | None = Field(None, description="role parameter")
+    tasks: list[str] | None = Field(None, description="tasks parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

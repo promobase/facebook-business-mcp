@@ -2,59 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.profile import Profile
+from facebook_business.adobjects.profile import Profile
 
 from ..models.profile import (
     ProfileField,
-    ProfileFields,
     ProfileGetPictureParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.profilepicturesource import (
-    ProfilePictureSourceField,
-    ProfilePictureSourceFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.profilepicturesource import ProfilePictureSourceField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class ProfileWrappers:
-    """Type-safe wrapper functions for Profile API methods."""
+def get_picture(
+    profile_id: str,
+    fields: list[ProfilePictureSourceField] = [],
+    params: ProfileGetPictureParams = {},
+) -> Any:
+    """Get Picture for this Profile.
 
-    @staticmethod
-    def get_picture(
-        obj: Profile,
-        params: Optional[ProfileGetPictureParams] = None,
-        fields: Optional[list[ProfilePictureSourceField]] = None,
-    ) -> TypedCursor[ProfilePictureSourceFields]:
-        """
-        Type-safe wrapper for Profile.get_picture().
-
-        Endpoint: GET /picture
-        Returns: TypedCursor[ProfilePictureSourceFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_picture(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfilePictureSourceFields)
+    Args:
+        profile_id: The ID of the Profile.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Profile(profile_id).get_picture(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

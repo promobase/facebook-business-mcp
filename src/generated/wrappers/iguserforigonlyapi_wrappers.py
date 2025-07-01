@@ -2,21 +2,14 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.iguserforigonlyapi import IGUserForIGOnlyAPI
+from facebook_business.adobjects.iguserforigonlyapi import IGUserForIGOnlyAPI
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.contentpublishinglimitresponse import (
-    ContentPublishingLimitResponseField,
-    ContentPublishingLimitResponseFields,
-)
-from ..models.ctxpartnerappwelcomemessageflow import (
-    CTXPartnerAppWelcomeMessageFlowField,
-    CTXPartnerAppWelcomeMessageFlowFields,
-)
+from ..models.contentpublishinglimitresponse import ContentPublishingLimitResponseField
+from ..models.ctxpartnerappwelcomemessageflow import CTXPartnerAppWelcomeMessageFlowField
 from ..models.iguserforigonlyapi import (
     IGUserForIGOnlyAPICreateMediaParams,
     IGUserForIGOnlyAPICreateMediaPublishParams,
@@ -29,7 +22,6 @@ from ..models.iguserforigonlyapi import (
     IGUserForIGOnlyAPIDeleteMessengerProfileParams,
     IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams,
     IGUserForIGOnlyAPIField,
-    IGUserForIGOnlyAPIFields,
     IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams,
     IGUserForIGOnlyAPIGetContentPublishingLimitParams,
     IGUserForIGOnlyAPIGetConversationsParams,
@@ -37,383 +29,264 @@ from ..models.iguserforigonlyapi import (
     IGUserForIGOnlyAPIGetMediaParams,
     IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams,
 )
-from ..models.insightsresult import (
-    InsightsResultField,
-    InsightsResultFields,
-)
-from ..models.unifiedthread import (
-    UnifiedThreadField,
-    UnifiedThreadFields,
-)
-from .cursor_utils import TypedCursor
-
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
-
-
-class IGUserForIGOnlyAPIWrappers:
-    """Type-safe wrapper functions for IGUserForIGOnlyAPI API methods."""
-
-    @staticmethod
-    def get_business_messaging_feature_status(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.get_business_messaging_feature_status().
-
-        Endpoint: GET /business_messaging_feature_status
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_business_messaging_feature_status(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def get_content_publishing_limit(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIGetContentPublishingLimitParams] = None,
-        fields: Optional[list[ContentPublishingLimitResponseField]] = None,
-    ) -> TypedCursor[ContentPublishingLimitResponseFields]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.get_content_publishing_limit().
-
-        Endpoint: GET /content_publishing_limit
-        Returns: TypedCursor[ContentPublishingLimitResponseFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_content_publishing_limit(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ContentPublishingLimitResponseFields)
-
-    @staticmethod
-    def get_conversations(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIGetConversationsParams] = None,
-        fields: Optional[list[UnifiedThreadField]] = None,
-    ) -> TypedCursor[UnifiedThreadFields]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.get_conversations().
-
-        Endpoint: GET /conversations
-        Returns: TypedCursor[UnifiedThreadFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_conversations(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, UnifiedThreadFields)
-
-    @staticmethod
-    def get_insights(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIGetInsightsParams] = None,
-        fields: Optional[list[InsightsResultField]] = None,
-    ) -> TypedCursor[InsightsResultFields]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.get_insights().
-
-        Endpoint: GET /insights
-        Returns: TypedCursor[InsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InsightsResultFields)
-
-    @staticmethod
-    def get_media(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIGetMediaParams] = None,
-        fields: Optional[list[str]] = None,
-    ) -> list[dict[str, Any]]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.get_media().
-
-        Endpoint: GET /media
-        Returns: list[dict[str, Any]]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_media(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Return raw cursor data for abstract base class
-        return [item.export_all_data() for item in cursor]
-
-    @staticmethod
-    def create_media(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateMediaParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_media().
-
-        Endpoint: POST /media
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_media(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_media_publish(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateMediaPublishParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_media_publish().
-
-        Endpoint: POST /mediapublish
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_media_publish(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_mention(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateMentionParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_mention().
-
-        Endpoint: POST /mentions
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_mention(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_message_attachment(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateMessageAttachmentParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_message_attachment().
-
-        Endpoint: POST /messageattachments
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_message_attachment(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_message(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateMessageParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_message().
-
-        Endpoint: POST /messages
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_message(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def delete_messenger_profile(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIDeleteMessengerProfileParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.delete_messenger_profile().
-
-        Endpoint: DELETE /messenger_profile
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_messenger_profile(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_messenger_profile(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateMessengerProfileParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_messenger_profile().
-
-        Endpoint: POST /messenger_profile
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_messenger_profile(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def create_subscribed_app(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateSubscribedAppParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_subscribed_app().
-
-        Endpoint: POST /subscribed_apps
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_subscribed_app(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
-
-    @staticmethod
-    def delete_welcome_message_flows(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.delete_welcome_message_flows().
-
-        Endpoint: DELETE /welcome_message_flows
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        obj.delete_welcome_message_flows(params=params_dict)
-
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def get_welcome_message_flows(
-        obj: IGUserForIGOnlyAPI,
-        params: Optional[IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams] = None,
-        fields: Optional[list[CTXPartnerAppWelcomeMessageFlowField]] = None,
-    ) -> TypedCursor[CTXPartnerAppWelcomeMessageFlowFields]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.get_welcome_message_flows().
-
-        Endpoint: GET /welcome_message_flows
-        Returns: TypedCursor[CTXPartnerAppWelcomeMessageFlowFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_welcome_message_flows(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CTXPartnerAppWelcomeMessageFlowFields)
-
-    @staticmethod
-    def create_welcome_message_flow(
-        obj: IGUserForIGOnlyAPI,
-        params: IGUserForIGOnlyAPICreateWelcomeMessageFlowParams,
-    ) -> dict[str, Any]:
-        """
-        Type-safe wrapper for IGUserForIGOnlyAPI.create_welcome_message_flow().
-
-        Endpoint: POST /welcome_message_flows
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_welcome_message_flow(params=params_dict)
-
-        # Return raw data for abstract base class
-        return result.export_all_data() if hasattr(result, "export_all_data") else result
+from ..models.insightsresult import InsightsResultField
+from ..models.unifiedthread import UnifiedThreadField
+
+# ---- BEGIN MANUAL SECTION: pre_functions ----
+
+# ---- END MANUAL SECTION: pre_functions ----
+
+
+def get_business_messaging_feature_status(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams = {},
+) -> Any:
+    """Get Business Messaging Feature Status for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_business_messaging_feature_status(
+        fields=fields, params=params
+    )
+
+
+def get_content_publishing_limit(
+    iguserforigonlyapi_id: str,
+    fields: list[ContentPublishingLimitResponseField] = [],
+    params: IGUserForIGOnlyAPIGetContentPublishingLimitParams = {},
+) -> Any:
+    """Get Content Publishing Limit for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_content_publishing_limit(
+        fields=fields, params=params
+    )
+
+
+def get_conversations(
+    iguserforigonlyapi_id: str,
+    fields: list[UnifiedThreadField] = [],
+    params: IGUserForIGOnlyAPIGetConversationsParams = {},
+) -> Any:
+    """Get Conversations for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_conversations(fields=fields, params=params)
+
+
+def get_insights(
+    iguserforigonlyapi_id: str,
+    fields: list[InsightsResultField] = [],
+    params: IGUserForIGOnlyAPIGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_insights(fields=fields, params=params)
+
+
+def get_media(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPIGetMediaParams = {},
+) -> Any:
+    """Get Media for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_media(fields=fields, params=params)
+
+
+def create_media(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateMediaParams = {},
+) -> Any:
+    """Create Media for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_media(fields=fields, params=params)
+
+
+def create_media_publish(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateMediaPublishParams = {},
+) -> Any:
+    """Create Media Publish for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_media_publish(
+        fields=fields, params=params
+    )
+
+
+def create_mention(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateMentionParams = {},
+) -> Any:
+    """Create Mention for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_mention(fields=fields, params=params)
+
+
+def create_message_attachment(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateMessageAttachmentParams = {},
+) -> Any:
+    """Create Message Attachment for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_message_attachment(
+        fields=fields, params=params
+    )
+
+
+def create_message(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateMessageParams = {},
+) -> Any:
+    """Create Message for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_message(fields=fields, params=params)
+
+
+def delete_messenger_profile(
+    iguserforigonlyapi_id: str,
+    params: IGUserForIGOnlyAPIDeleteMessengerProfileParams = {},
+) -> Any:
+    """Delete Messenger Profile for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        params: Parameters for the operation.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).delete_messenger_profile(params=params)
+
+
+def create_messenger_profile(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateMessengerProfileParams = {},
+) -> Any:
+    """Create Messenger Profile for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_messenger_profile(
+        fields=fields, params=params
+    )
+
+
+def create_subscribed_app(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateSubscribedAppParams = {},
+) -> Any:
+    """Create Subscribed App for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_subscribed_app(
+        fields=fields, params=params
+    )
+
+
+def delete_welcome_message_flows(
+    iguserforigonlyapi_id: str,
+    params: IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams = {},
+) -> Any:
+    """Delete Welcome Message Flows for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        params: Parameters for the operation.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).delete_welcome_message_flows(params=params)
+
+
+def get_welcome_message_flows(
+    iguserforigonlyapi_id: str,
+    fields: list[CTXPartnerAppWelcomeMessageFlowField] = [],
+    params: IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams = {},
+) -> Any:
+    """Get Welcome Message Flows for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_welcome_message_flows(
+        fields=fields, params=params
+    )
+
+
+def create_welcome_message_flow(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: IGUserForIGOnlyAPICreateWelcomeMessageFlowParams = {},
+) -> Any:
+    """Create Welcome Message Flow for this IGUserForIGOnlyAPI.
+
+    Args:
+        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_welcome_message_flow(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

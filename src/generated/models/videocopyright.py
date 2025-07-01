@@ -86,6 +86,32 @@ class VideoCopyrightFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class VideoCopyrightUpdateParams(BaseModel):
+    """Parameters for VideoCopyright.api_update()."""
+
+    append_excluded_ownership_segments: bool | None = Field(
+        None, description="append_excluded_ownership_segments parameter"
+    )
+    attribution_id: str | None = Field(None, description="attribution_id parameter")
+    content_category: str | None = Field(None, description="content_category parameter")
+    excluded_ownership_countries: list[str] | None = Field(
+        None, description="excluded_ownership_countries parameter"
+    )
+    excluded_ownership_segments: list[Any] | None = Field(
+        None, description="excluded_ownership_segments parameter"
+    )
+    is_reference_disabled: bool | None = Field(None, description="is_reference_disabled parameter")
+    monitoring_type: str | None = Field(None, description="monitoring_type parameter")
+    ownership_countries: list[str] | None = Field(None, description="ownership_countries parameter")
+    rule_id: str | None = Field(None, description="rule_id parameter")
+    whitelisted_ids: list[str] | None = Field(None, description="whitelisted_ids parameter")
+    whitelisted_ig_user_ids: list[str] | None = Field(
+        None, description="whitelisted_ig_user_ids parameter"
+    )
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

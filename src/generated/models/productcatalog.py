@@ -892,6 +892,32 @@ class ProductCatalogCreateVersionItemsBatchParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ProductCatalogUpdateParams(BaseModel):
+    """Parameters for ProductCatalog.api_update()."""
+
+    additional_vertical_option: str | None = Field(
+        None, description="additional_vertical_option parameter"
+    )
+    da_display_settings: Any | None = Field(None, description="da_display_settings parameter")
+    default_image_url: str | None = Field(None, description="default_image_url parameter")
+    destination_catalog_settings: dict[str, Any] | None = Field(
+        None, description="destination_catalog_settings parameter"
+    )
+    fallback_image_url: str | None = Field(None, description="fallback_image_url parameter")
+    flight_catalog_settings: dict[str, Any] | None = Field(
+        None, description="flight_catalog_settings parameter"
+    )
+    name: str | None = Field(None, description="name parameter")
+    partner_integration: dict[str, Any] | None = Field(
+        None, description="partner_integration parameter"
+    )
+    store_catalog_settings: dict[str, Any] | None = Field(
+        None, description="store_catalog_settings parameter"
+    )
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

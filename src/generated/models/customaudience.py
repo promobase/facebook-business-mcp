@@ -369,6 +369,37 @@ class CustomAudienceCreateUsersReplaceParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class CustomAudienceUpdateParams(BaseModel):
+    """Parameters for CustomAudience.api_update()."""
+
+    allowed_domains: list[str] | None = Field(None, description="allowed_domains parameter")
+    claim_objective: str | None = Field(None, description="claim_objective parameter")
+    content_type: str | None = Field(None, description="content_type parameter")
+    countries: str | None = Field(None, description="countries parameter")
+    customer_file_source: str | None = Field(None, description="customer_file_source parameter")
+    description: str | None = Field(None, description="description parameter")
+    enable_fetch_or_create: bool | None = Field(
+        None, description="enable_fetch_or_create parameter"
+    )
+    event_source_group: str | None = Field(None, description="event_source_group parameter")
+    event_sources: list[dict[str, Any]] | None = Field(None, description="event_sources parameter")
+    exclusions: list[Any] | None = Field(None, description="exclusions parameter")
+    inclusions: list[Any] | None = Field(None, description="inclusions parameter")
+    lookalike_spec: str | None = Field(None, description="lookalike_spec parameter")
+    name: str | None = Field(None, description="name parameter")
+    opt_out_link: str | None = Field(None, description="opt_out_link parameter")
+    parent_audience_id: int | None = Field(None, description="parent_audience_id parameter")
+    product_set_id: str | None = Field(None, description="product_set_id parameter")
+    retention_days: int | None = Field(None, description="retention_days parameter")
+    rev_share_policy_id: int | None = Field(None, description="rev_share_policy_id parameter")
+    rule: str | None = Field(None, description="rule parameter")
+    rule_aggregation: str | None = Field(None, description="rule_aggregation parameter")
+    tags: list[str] | None = Field(None, description="tags parameter")
+    use_in_campaigns: bool | None = Field(None, description="use_in_campaigns parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

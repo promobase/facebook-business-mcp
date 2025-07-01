@@ -140,6 +140,25 @@ class HotelGetOverrideDetailsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class HotelUpdateParams(BaseModel):
+    """Parameters for Hotel.api_update()."""
+
+    address: Any | None = Field(None, description="address parameter")
+    applinks: Any | None = Field(None, description="applinks parameter")
+    base_price: int | None = Field(None, description="base_price parameter")
+    brand: str | None = Field(None, description="brand parameter")
+    currency: str | None = Field(None, description="currency parameter")
+    description: str | None = Field(None, description="description parameter")
+    guest_ratings: list[Any] | None = Field(None, description="guest_ratings parameter")
+    images: list[Any] | None = Field(None, description="images parameter")
+    name: str | None = Field(None, description="name parameter")
+    phone: str | None = Field(None, description="phone parameter")
+    star_rating: float | None = Field(None, description="star_rating parameter")
+    url: str | None = Field(None, description="url parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

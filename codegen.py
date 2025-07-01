@@ -58,6 +58,7 @@ def main():
     scripts = [
         ("scripts/generate_models.py", "Generate Pydantic models from Facebook SDK"),
         ("scripts/generate_wrappers.py", "Generate type-safe wrapper functions"),
+        ("scripts/generate_mcp_tools.py", "Generate MCP tool servers"),
     ]
 
     all_success = True
@@ -83,6 +84,7 @@ def main():
         generated_dirs = [
             project_root / "src/generated/models",
             project_root / "src/generated/wrappers",
+            project_root / "src/generated/servers",
         ]
 
         # Run ruff format
@@ -111,6 +113,7 @@ def main():
         print("\nGenerated files:")
         print("  - src/generated/models/*.py - Pydantic models for all AdObjects")
         print("  - src/generated/wrappers/*.py - Type-safe wrapper functions")
+        print("  - src/generated/servers/*.py - MCP tool servers for important AdObjects")
     else:
         print("✗ Some code generation steps failed. Please check the errors above.")
         sys.exit(1)

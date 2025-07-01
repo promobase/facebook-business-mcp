@@ -2,58 +2,36 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.adasyncrequestset import AdAsyncRequestSet
+from facebook_business.adobjects.adasyncrequestset import AdAsyncRequestSet
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adasyncrequest import (
-    AdAsyncRequestField,
-    AdAsyncRequestFields,
-)
+from ..models.adasyncrequest import AdAsyncRequestField
 from ..models.adasyncrequestset import (
     AdAsyncRequestSetField,
-    AdAsyncRequestSetFields,
     AdAsyncRequestSetGetRequestsParams,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdAsyncRequestSetWrappers:
-    """Type-safe wrapper functions for AdAsyncRequestSet API methods."""
+def get_requests(
+    adasyncrequestset_id: str,
+    fields: list[AdAsyncRequestField] = [],
+    params: AdAsyncRequestSetGetRequestsParams = {},
+) -> Any:
+    """Get Requests for this AdAsyncRequestSet.
 
-    @staticmethod
-    def get_requests(
-        obj: AdAsyncRequestSet,
-        params: Optional[AdAsyncRequestSetGetRequestsParams] = None,
-        fields: Optional[list[AdAsyncRequestField]] = None,
-    ) -> TypedCursor[AdAsyncRequestFields]:
-        """
-        Type-safe wrapper for AdAsyncRequestSet.get_requests().
-
-        Endpoint: GET /requests
-        Returns: TypedCursor[AdAsyncRequestFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_requests(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AdAsyncRequestFields)
+    Args:
+        adasyncrequestset_id: The ID of the AdAsyncRequestSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAsyncRequestSet(adasyncrequestset_id).get_requests(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

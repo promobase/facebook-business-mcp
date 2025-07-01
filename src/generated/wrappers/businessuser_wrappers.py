@@ -2,90 +2,55 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.businessuser import BusinessUser
+from facebook_business.adobjects.businessuser import BusinessUser
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.businessassetgroup import (
-    BusinessAssetGroupField,
-    BusinessAssetGroupFields,
-)
+from ..models.businessassetgroup import BusinessAssetGroupField
 from ..models.businessuser import (
     BusinessUserField,
-    BusinessUserFields,
     BusinessUserGetAssignedBusinessAssetGroupsParams,
     BusinessUserGetAssignedPagesParams,
 )
-from ..models.page import (
-    PageField,
-    PageFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.page import PageField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class BusinessUserWrappers:
-    """Type-safe wrapper functions for BusinessUser API methods."""
+def get_assigned_business_asset_groups(
+    businessuser_id: str,
+    fields: list[BusinessAssetGroupField] = [],
+    params: BusinessUserGetAssignedBusinessAssetGroupsParams = {},
+) -> Any:
+    """Get Assigned Business Asset Groups for this BusinessUser.
 
-    @staticmethod
-    def get_assigned_business_asset_groups(
-        obj: BusinessUser,
-        params: Optional[BusinessUserGetAssignedBusinessAssetGroupsParams] = None,
-        fields: Optional[list[BusinessAssetGroupField]] = None,
-    ) -> TypedCursor[BusinessAssetGroupFields]:
-        """
-        Type-safe wrapper for BusinessUser.get_assigned_business_asset_groups().
+    Args:
+        businessuser_id: The ID of the BusinessUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessUser(businessuser_id).get_assigned_business_asset_groups(
+        fields=fields, params=params
+    )
 
-        Endpoint: GET /assigned_business_asset_groups
-        Returns: TypedCursor[BusinessAssetGroupFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def get_assigned_pages(
+    businessuser_id: str,
+    fields: list[PageField] = [],
+    params: BusinessUserGetAssignedPagesParams = {},
+) -> Any:
+    """Get Assigned Pages for this BusinessUser.
 
-        # Call the original method
-        cursor = obj.get_assigned_business_asset_groups(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, BusinessAssetGroupFields)
-
-    @staticmethod
-    def get_assigned_pages(
-        obj: BusinessUser,
-        params: Optional[BusinessUserGetAssignedPagesParams] = None,
-        fields: Optional[list[PageField]] = None,
-    ) -> TypedCursor[PageFields]:
-        """
-        Type-safe wrapper for BusinessUser.get_assigned_pages().
-
-        Endpoint: GET /assigned_pages
-        Returns: TypedCursor[PageFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_assigned_pages(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, PageFields)
+    Args:
+        businessuser_id: The ID of the BusinessUser.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return BusinessUser(businessuser_id).get_assigned_pages(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

@@ -2,50 +2,37 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.status import Status
+from facebook_business.adobjects.status import Status
 
 from ..models.status import (
     StatusCreateLikeParams,
     StatusField,
-    StatusFields,
 )
-from .cursor_utils import TypedCursor
 
 # ---- BEGIN MANUAL SECTION: imports ----
 
 # ---- END MANUAL SECTION: imports ----
 
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
-
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class StatusWrappers:
-    """Type-safe wrapper functions for Status API methods."""
+def create_like(
+    status_id: str,
+    fields: list[str] = [],
+    params: StatusCreateLikeParams = {},
+) -> Any:
+    """Create Like for this Status.
 
-    @staticmethod
-    def create_like(
-        obj: Status,
-        params: StatusCreateLikeParams,
-    ) -> StatusFields:
-        """
-        Type-safe wrapper for Status.create_like().
-
-        Endpoint: POST /likes
-        Returns: StatusFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_like(params=params_dict)
-
-        # Convert result to typed model
-        return StatusFields(**result)
+    Args:
+        status_id: The ID of the Status.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Status(status_id).create_like(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

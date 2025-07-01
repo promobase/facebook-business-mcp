@@ -32,6 +32,14 @@ class AdLabelFields(BaseModel):
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
+class AdLabelUpdateParams(BaseModel):
+    """Parameters for AdLabel.api_update()."""
+
+    name: str | None = Field(None, description="name parameter")
+
+    model_config = ConfigDict(extra="forbid")
+
+
 # ---- BEGIN MANUAL SECTION: end ----
 
 # ---- END MANUAL SECTION: end ----

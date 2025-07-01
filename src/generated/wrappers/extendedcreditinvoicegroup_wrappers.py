@@ -2,71 +2,54 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.extendedcreditinvoicegroup import ExtendedCreditInvoiceGroup
+from facebook_business.adobjects.extendedcreditinvoicegroup import ExtendedCreditInvoiceGroup
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.adaccount import (
-    AdAccountField,
-    AdAccountFields,
-)
+from ..models.adaccount import AdAccountField
 from ..models.extendedcreditinvoicegroup import (
     ExtendedCreditInvoiceGroupCreateAdAccountParams,
     ExtendedCreditInvoiceGroupDeleteAdAccountsParams,
     ExtendedCreditInvoiceGroupField,
-    ExtendedCreditInvoiceGroupFields,
 )
-from .cursor_utils import TypedCursor
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class ExtendedCreditInvoiceGroupWrappers:
-    """Type-safe wrapper functions for ExtendedCreditInvoiceGroup API methods."""
+def delete_ad_accounts(
+    extendedcreditinvoicegroup_id: str,
+    params: ExtendedCreditInvoiceGroupDeleteAdAccountsParams = {},
+) -> Any:
+    """Delete Ad Accounts for this ExtendedCreditInvoiceGroup.
 
-    @staticmethod
-    def delete_ad_accounts(
-        obj: ExtendedCreditInvoiceGroup,
-        params: Optional[ExtendedCreditInvoiceGroupDeleteAdAccountsParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for ExtendedCreditInvoiceGroup.delete_ad_accounts().
+    Args:
+        extendedcreditinvoicegroup_id: The ID of the ExtendedCreditInvoiceGroup.
+        params: Parameters for the operation.
+    """
+    return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).delete_ad_accounts(
+        params=params
+    )
 
-        Endpoint: DELETE /ad_accounts
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        obj.delete_ad_accounts(params=params_dict)
+def create_ad_account(
+    extendedcreditinvoicegroup_id: str,
+    fields: list[str] = [],
+    params: ExtendedCreditInvoiceGroupCreateAdAccountParams = {},
+) -> Any:
+    """Create Ad Account for this ExtendedCreditInvoiceGroup.
 
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_ad_account(
-        obj: ExtendedCreditInvoiceGroup,
-        params: ExtendedCreditInvoiceGroupCreateAdAccountParams,
-    ) -> AdAccountFields:
-        """
-        Type-safe wrapper for ExtendedCreditInvoiceGroup.create_ad_account().
-
-        Endpoint: POST /ad_accounts
-        Returns: AdAccountFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_ad_account(params=params_dict)
-
-        # Convert result to typed model
-        return AdAccountFields(**result)
+    Args:
+        extendedcreditinvoicegroup_id: The ID of the ExtendedCreditInvoiceGroup.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).create_ad_account(
+        fields=fields, params=params
+    )
 
 
 # ---- BEGIN MANUAL SECTION: end ----

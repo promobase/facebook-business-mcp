@@ -2,149 +2,99 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.comment import Comment
+from facebook_business.adobjects.comment import Comment
 
 from ..models.comment import (
     CommentCreateCommentParams,
     CommentCreateLikeParams,
     CommentDeleteLikesParams,
     CommentField,
-    CommentFields,
     CommentGetCommentsParams,
     CommentGetReactionsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.profile import (
-    ProfileField,
-    ProfileFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.profile import ProfileField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class CommentWrappers:
-    """Type-safe wrapper functions for Comment API methods."""
+def get_comments(
+    comment_id: str,
+    fields: list[CommentField] = [],
+    params: CommentGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this Comment.
 
-    @staticmethod
-    def get_comments(
-        obj: Comment,
-        params: Optional[CommentGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for Comment.get_comments().
+    Args:
+        comment_id: The ID of the Comment.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Comment(comment_id).get_comments(fields=fields, params=params)
 
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
+def create_comment(
+    comment_id: str,
+    fields: list[str] = [],
+    params: CommentCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this Comment.
 
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
+    Args:
+        comment_id: The ID of the Comment.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Comment(comment_id).create_comment(fields=fields, params=params)
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
 
-    @staticmethod
-    def create_comment(
-        obj: Comment,
-        params: CommentCreateCommentParams,
-    ) -> CommentFields:
-        """
-        Type-safe wrapper for Comment.create_comment().
+def delete_likes(
+    comment_id: str,
+    params: CommentDeleteLikesParams = {},
+) -> Any:
+    """Delete Likes for this Comment.
 
-        Endpoint: POST /comments
-        Returns: CommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        comment_id: The ID of the Comment.
+        params: Parameters for the operation.
+    """
+    return Comment(comment_id).delete_likes(params=params)
 
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
 
-        # Convert result to typed model
-        return CommentFields(**result)
+def create_like(
+    comment_id: str,
+    fields: list[str] = [],
+    params: CommentCreateLikeParams = {},
+) -> Any:
+    """Create Like for this Comment.
 
-    @staticmethod
-    def delete_likes(
-        obj: Comment,
-        params: Optional[CommentDeleteLikesParams] = None,
-    ) -> bool:
-        """
-        Type-safe wrapper for Comment.delete_likes().
+    Args:
+        comment_id: The ID of the Comment.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Comment(comment_id).create_like(fields=fields, params=params)
 
-        Endpoint: DELETE /likes
-        Returns: dict[str, Any]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        obj.delete_likes(params=params_dict)
+def get_reactions(
+    comment_id: str,
+    fields: list[ProfileField] = [],
+    params: CommentGetReactionsParams = {},
+) -> Any:
+    """Get Reactions for this Comment.
 
-        return True  # Delete methods typically don't return anything
-
-    @staticmethod
-    def create_like(
-        obj: Comment,
-        params: CommentCreateLikeParams,
-    ) -> CommentFields:
-        """
-        Type-safe wrapper for Comment.create_like().
-
-        Endpoint: POST /likes
-        Returns: CommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_like(params=params_dict)
-
-        # Convert result to typed model
-        return CommentFields(**result)
-
-    @staticmethod
-    def get_reactions(
-        obj: Comment,
-        params: Optional[CommentGetReactionsParams] = None,
-        fields: Optional[list[ProfileField]] = None,
-    ) -> TypedCursor[ProfileFields]:
-        """
-        Type-safe wrapper for Comment.get_reactions().
-
-        Endpoint: GET /reactions
-        Returns: TypedCursor[ProfileFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_reactions(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, ProfileFields)
+    Args:
+        comment_id: The ID of the Comment.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Comment(comment_id).get_reactions(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----

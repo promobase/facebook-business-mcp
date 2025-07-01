@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import Any
 
-if TYPE_CHECKING:
-    from facebook_business.adobjects.advideo import AdVideo
+from facebook_business.adobjects.advideo import AdVideo
 
 from ..models.advideo import (
     AdVideoCreateCapTIOnParams,
@@ -16,228 +15,154 @@ from ..models.advideo import (
     AdVideoCreatePollParams,
     AdVideoCreateThumbnailParams,
     AdVideoField,
-    AdVideoFields,
     AdVideoGetCommentsParams,
     AdVideoGetVideoInsightsParams,
 )
 
 # ---- BEGIN MANUAL SECTION: imports ----
 # ---- END MANUAL SECTION: imports ----
-from ..models.comment import (
-    CommentField,
-    CommentFields,
-)
-from ..models.insightsresult import (
-    InsightsResultField,
-    InsightsResultFields,
-)
-from ..models.videopoll import (
-    VideoPollField,
-    VideoPollFields,
-)
-from .cursor_utils import TypedCursor
+from ..models.comment import CommentField
+from ..models.insightsresult import InsightsResultField
+from ..models.videopoll import VideoPollField
 
-# ---- BEGIN MANUAL SECTION: pre_class ----
+# ---- BEGIN MANUAL SECTION: pre_functions ----
 
-# ---- END MANUAL SECTION: pre_class ----
+# ---- END MANUAL SECTION: pre_functions ----
 
 
-class AdVideoWrappers:
-    """Type-safe wrapper functions for AdVideo API methods."""
+def create_cap_t_i_on(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateCapTIOnParams = {},
+) -> Any:
+    """Create Cap T I On for this AdVideo.
 
-    @staticmethod
-    def create_cap_t_i_on(
-        obj: AdVideo,
-        params: AdVideoCreateCapTIOnParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for AdVideo.create_cap_t_i_on().
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_cap_t_i_on(fields=fields, params=params)
 
-        Endpoint: POST /captions
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_cap_t_i_on(params=params_dict)
+def create_collaborator(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateCollaboratorParams = {},
+) -> Any:
+    """Create Collaborator for this AdVideo.
 
-        # Convert result to typed model
-        return AdVideoFields(**result)
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_collaborator(fields=fields, params=params)
 
-    @staticmethod
-    def create_collaborator(
-        obj: AdVideo,
-        params: AdVideoCreateCollaboratorParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for AdVideo.create_collaborator().
 
-        Endpoint: POST /collaborators
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def get_comments(
+    advideo_id: str,
+    fields: list[CommentField] = [],
+    params: AdVideoGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this AdVideo.
 
-        # Call the original method
-        result = obj.create_collaborator(params=params_dict)
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).get_comments(fields=fields, params=params)
 
-        # Convert result to typed model
-        return AdVideoFields(**result)
 
-    @staticmethod
-    def get_comments(
-        obj: AdVideo,
-        params: Optional[AdVideoGetCommentsParams] = None,
-        fields: Optional[list[CommentField]] = None,
-    ) -> TypedCursor[CommentFields]:
-        """
-        Type-safe wrapper for AdVideo.get_comments().
+def create_comment(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this AdVideo.
 
-        Endpoint: GET /comments
-        Returns: TypedCursor[CommentFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_comment(fields=fields, params=params)
 
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
 
-        # Call the original method
-        cursor = obj.get_comments(
-            params=params_dict,
-            fields=fields_list,
-        )
+def create_gaming_clip_create(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateGamingClipCreateParams = {},
+) -> Any:
+    """Create Gaming Clip Create for this AdVideo.
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, CommentFields)
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_gaming_clip_create(fields=fields, params=params)
 
-    @staticmethod
-    def create_comment(
-        obj: AdVideo,
-        params: AdVideoCreateCommentParams,
-    ) -> CommentFields:
-        """
-        Type-safe wrapper for AdVideo.create_comment().
 
-        Endpoint: POST /comments
-        Returns: CommentFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+def create_like(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateLikeParams = {},
+) -> Any:
+    """Create Like for this AdVideo.
 
-        # Call the original method
-        result = obj.create_comment(params=params_dict)
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_like(fields=fields, params=params)
 
-        # Convert result to typed model
-        return CommentFields(**result)
 
-    @staticmethod
-    def create_gaming_clip_create(
-        obj: AdVideo,
-        params: AdVideoCreateGamingClipCreateParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for AdVideo.create_gaming_clip_create().
+def create_poll(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreatePollParams = {},
+) -> Any:
+    """Create Poll for this AdVideo.
 
-        Endpoint: POST /gaming_clip_create
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_poll(fields=fields, params=params)
 
-        # Call the original method
-        result = obj.create_gaming_clip_create(params=params_dict)
 
-        # Convert result to typed model
-        return AdVideoFields(**result)
+def create_thumbnail(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateThumbnailParams = {},
+) -> Any:
+    """Create Thumbnail for this AdVideo.
 
-    @staticmethod
-    def create_like(
-        obj: AdVideo,
-        params: AdVideoCreateLikeParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for AdVideo.create_like().
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_thumbnail(fields=fields, params=params)
 
-        Endpoint: POST /likes
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
 
-        # Call the original method
-        result = obj.create_like(params=params_dict)
+def get_video_insights(
+    advideo_id: str,
+    fields: list[InsightsResultField] = [],
+    params: AdVideoGetVideoInsightsParams = {},
+) -> Any:
+    """Get Video Insights for this AdVideo.
 
-        # Convert result to typed model
-        return AdVideoFields(**result)
-
-    @staticmethod
-    def create_poll(
-        obj: AdVideo,
-        params: AdVideoCreatePollParams,
-    ) -> VideoPollFields:
-        """
-        Type-safe wrapper for AdVideo.create_poll().
-
-        Endpoint: POST /polls
-        Returns: VideoPollFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_poll(params=params_dict)
-
-        # Convert result to typed model
-        return VideoPollFields(**result)
-
-    @staticmethod
-    def create_thumbnail(
-        obj: AdVideo,
-        params: AdVideoCreateThumbnailParams,
-    ) -> AdVideoFields:
-        """
-        Type-safe wrapper for AdVideo.create_thumbnail().
-
-        Endpoint: POST /thumbnails
-        Returns: AdVideoFields
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Call the original method
-        result = obj.create_thumbnail(params=params_dict)
-
-        # Convert result to typed model
-        return AdVideoFields(**result)
-
-    @staticmethod
-    def get_video_insights(
-        obj: AdVideo,
-        params: Optional[AdVideoGetVideoInsightsParams] = None,
-        fields: Optional[list[InsightsResultField]] = None,
-    ) -> TypedCursor[InsightsResultFields]:
-        """
-        Type-safe wrapper for AdVideo.get_video_insights().
-
-        Endpoint: GET /video_insights
-        Returns: TypedCursor[InsightsResultFields]
-        """
-        # Convert params to dict if provided
-        params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
-
-        # Convert fields to list of strings
-        fields_list = list(fields) if fields else None
-
-        # Call the original method
-        cursor = obj.get_video_insights(
-            params=params_dict,
-            fields=fields_list,
-        )
-
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, InsightsResultFields)
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).get_video_insights(fields=fields, params=params)
 
 
 # ---- BEGIN MANUAL SECTION: end ----
