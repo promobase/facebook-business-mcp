@@ -908,17 +908,13 @@ def main():
     wrappers_dir = Path("src/generated/wrappers")
     wrappers_dir.mkdir(parents=True, exist_ok=True)
 
-    # Clean up existing files first
-    print("Cleaning up existing generated files...")
+    # Clean up only old-style _models.py files
+    print("Cleaning up old-style generated files...")
     # Remove old _models.py files
     for old_file in models_dir.glob("*_models.py"):
         old_file.unlink()
         print(f"  Removed {old_file}")
-    # Remove new .py files (excluding special files)
-    for old_file in models_dir.glob("*.py"):
-        if not old_file.stem.startswith("__") and old_file.stem not in ["fb_types"]:
-            old_file.unlink()
-            print(f"  Removed {old_file}")
+    # Note: We no longer delete existing .py files to preserve manual sections
 
     # Process all AdObject files
     adobject_files = parser.find_adobject_files()

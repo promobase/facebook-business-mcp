@@ -301,13 +301,12 @@ def main():
     output_dir = Path("src/generated/wrappers")
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Clean up existing files
-    print("Cleaning up existing wrapper files...")
-    for old_file in output_dir.glob("*.py"):
-        # Don't delete __init__.py or cursor_utils.py
-        if not old_file.stem.startswith("__") and old_file.stem != "cursor_utils":
-            old_file.unlink()
-            print(f"  Removed {old_file}")
+    # Note: We no longer delete existing wrapper files to preserve manual sections
+    print("Checking for old wrapper files...")
+    # Only clean up if this is the first run (no existing files)
+    existing_wrappers = list(output_dir.glob("*_wrappers.py"))
+    if not existing_wrappers:
+        print("  No existing wrapper files found, starting fresh")
 
     # Process all AdObject files
     adobject_files = parser.find_adobject_files()
