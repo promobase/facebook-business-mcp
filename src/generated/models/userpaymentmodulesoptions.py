@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 UserPaymentModulesOptionsField = Literal[
     "account_id", "available_payment_options", "country", "currency"
@@ -21,6 +23,4 @@ class UserPaymentModulesOptionsFields(BaseModel):
     country: str | None = Field(None, alias="country")
     currency: str | None = Field(None, alias="currency")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

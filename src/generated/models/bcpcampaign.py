@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 BCPCampaignField = Literal[
     "ads_permission_required",
@@ -50,6 +52,4 @@ class BCPCampaignFields(BaseModel):
     payment_amount_for_content: int | None = Field(None, alias="payment_amount_for_content")
     payment_description: str | None = Field(None, alias="payment_description")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

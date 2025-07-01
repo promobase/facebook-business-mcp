@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .copyrightreferencecontainer import CopyrightReferenceContainerFields
@@ -48,6 +49,4 @@ class MusicVideoCopyrightFields(BaseModel):
     whitelisted_fb_users: list[dict[str, Any]] | None = Field(None, alias="whitelisted_fb_users")
     whitelisted_ig_users: list[str] | None = Field(None, alias="whitelisted_ig_users")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

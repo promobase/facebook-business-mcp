@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.fundraiserpersontocharity import FundraiserPersonToCharity
 
-
 from ..models.fundraiserpersontocharity import (
     FundraiserPersonToCharityCreateExternalDonationParams,
+    FundraiserPersonToCharityField,
+    FundraiserPersonToCharityFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class FundraiserPersonToCharityWrappers:

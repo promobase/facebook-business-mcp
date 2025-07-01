@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ReachFrequencySpecField = Literal[
     "countries",
@@ -34,6 +36,4 @@ class ReachFrequencySpecFields(BaseModel):
     min_campaign_duration: dict[str, Any] | None = Field(None, alias="min_campaign_duration")
     min_reach_limits: dict[str, Any] | None = Field(None, alias="min_reach_limits")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

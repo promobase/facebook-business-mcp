@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .externaleventsource import ExternalEventSourceFields
@@ -22,9 +24,7 @@ class EventSourceGroupFields(BaseModel):
     name: str | None = Field(None, alias="name")
     owner_business: dict[str, Any] | None = Field(None, alias="owner_business")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class EventSourceGroupCreateSharedAccountParams(BaseModel):
@@ -32,5 +32,4 @@ class EventSourceGroupCreateSharedAccountParams(BaseModel):
 
     accounts: list[str] | None = Field(None, description="accounts parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

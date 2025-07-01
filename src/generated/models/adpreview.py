@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class AdPreviewAdFormat(str, Enum):
@@ -104,6 +105,4 @@ class AdPreviewFields(BaseModel):
     body: str | None = Field(None, alias="body")
     transformation_spec: dict[str, Any] | None = Field(None, alias="transformation_spec")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

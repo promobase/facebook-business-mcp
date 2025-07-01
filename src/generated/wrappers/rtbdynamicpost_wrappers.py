@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.rtbdynamicpost import RTBDynamicPost
@@ -12,6 +12,8 @@ from ..models.comment import (
     CommentFields,
 )
 from ..models.rtbdynamicpost import (
+    RTBDynamicPostField,
+    RTBDynamicPostFields,
     RTBDynamicPostGetCommentsParams,
 )
 from .cursor_utils import TypedCursor

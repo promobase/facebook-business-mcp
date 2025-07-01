@@ -26,6 +26,8 @@ from ..models.iguserforigonlyapi import (
     IGUserForIGOnlyAPICreateWelcomeMessageFlowParams,
     IGUserForIGOnlyAPIDeleteMessengerProfileParams,
     IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams,
+    IGUserForIGOnlyAPIField,
+    IGUserForIGOnlyAPIFields,
     IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams,
     IGUserForIGOnlyAPIGetContentPublishingLimitParams,
     IGUserForIGOnlyAPIGetConversationsParams,

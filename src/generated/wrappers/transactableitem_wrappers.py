@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.transactableitem import TransactableItem
@@ -12,6 +12,8 @@ from ..models.overridedetails import (
     OverrideDetailsFields,
 )
 from ..models.transactableitem import (
+    TransactableItemField,
+    TransactableItemFields,
     TransactableItemGetOverrideDetailsParams,
 )
 from .cursor_utils import TypedCursor

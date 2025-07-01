@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .productcatalogimagesettingsoperation import ProductCatalogImageSettingsOperationFields
@@ -22,6 +24,4 @@ class ProductCatalogImageSettingsInternalFields(BaseModel):
     shops_pdp: ProductCatalogImageSettingsOperationFields | None = Field(None, alias="shops_pdp")
     single_ad: ProductCatalogImageSettingsOperationFields | None = Field(None, alias="single_ad")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

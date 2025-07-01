@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ShadowIGUserPartnershipAdsMediaErrorsField = Literal[
     "ad_code", "error_codes", "errors", "permalink"
@@ -19,6 +21,4 @@ class ShadowIGUserPartnershipAdsMediaErrorsFields(BaseModel):
     errors: list[str] | None = Field(None, alias="errors")
     permalink: str | None = Field(None, alias="permalink")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

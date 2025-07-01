@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .commercemerchantsettings import CommerceMerchantSettingsFields
@@ -34,6 +36,4 @@ class ShopFields(BaseModel):
     shop_status: str | None = Field(None, alias="shop_status")
     workspace: dict[str, Any] | None = Field(None, alias="workspace")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

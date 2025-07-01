@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 IGShoppingProductAppealField = Literal[
     "eligible_for_appeal",
@@ -24,6 +26,4 @@ class IGShoppingProductAppealFields(BaseModel):
     rejection_reasons: list[str] | None = Field(None, alias="rejection_reasons")
     review_status: str | None = Field(None, alias="review_status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

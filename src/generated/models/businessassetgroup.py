@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class BusinessAssetGroupAdaccountTasks(str, Enum):
@@ -79,9 +80,7 @@ class BusinessAssetGroupFields(BaseModel):
     name: str | None = Field(None, alias="name")
     owner_business: dict[str, Any] | None = Field(None, alias="owner_business")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class BusinessAssetGroupDeleteAssignedUsersParams(BaseModel):
@@ -89,8 +88,7 @@ class BusinessAssetGroupDeleteAssignedUsersParams(BaseModel):
 
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupGetAssignedUsersParams(BaseModel):
@@ -98,8 +96,7 @@ class BusinessAssetGroupGetAssignedUsersParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateAssignedUserParams(BaseModel):
@@ -119,8 +116,7 @@ class BusinessAssetGroupCreateAssignedUserParams(BaseModel):
     )
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupDeleteContainedAdAccountsParams(BaseModel):
@@ -128,8 +124,7 @@ class BusinessAssetGroupDeleteContainedAdAccountsParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateContainedAdAccountParams(BaseModel):
@@ -137,8 +132,7 @@ class BusinessAssetGroupCreateContainedAdAccountParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupDeleteContainedApplicationsParams(BaseModel):
@@ -146,8 +140,7 @@ class BusinessAssetGroupDeleteContainedApplicationsParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateContainedApplicationParams(BaseModel):
@@ -155,8 +148,7 @@ class BusinessAssetGroupCreateContainedApplicationParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupDeleteContainedCustomConversionsParams(BaseModel):
@@ -164,8 +156,7 @@ class BusinessAssetGroupDeleteContainedCustomConversionsParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateContainedCustomConversionParams(BaseModel):
@@ -173,8 +164,7 @@ class BusinessAssetGroupCreateContainedCustomConversionParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupDeleteContainedInstagramAccountsParams(BaseModel):
@@ -182,8 +172,7 @@ class BusinessAssetGroupDeleteContainedInstagramAccountsParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateContainedInstagramAccountParams(BaseModel):
@@ -191,8 +180,7 @@ class BusinessAssetGroupCreateContainedInstagramAccountParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupDeleteContainedPagesParams(BaseModel):
@@ -200,8 +188,7 @@ class BusinessAssetGroupDeleteContainedPagesParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateContainedPageParams(BaseModel):
@@ -209,8 +196,7 @@ class BusinessAssetGroupCreateContainedPageParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupDeleteContainedPixelsParams(BaseModel):
@@ -218,8 +204,7 @@ class BusinessAssetGroupDeleteContainedPixelsParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateContainedPixelParams(BaseModel):
@@ -227,8 +212,7 @@ class BusinessAssetGroupCreateContainedPixelParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupDeleteContainedProductCatalogsParams(BaseModel):
@@ -236,8 +220,7 @@ class BusinessAssetGroupDeleteContainedProductCatalogsParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessAssetGroupCreateContainedProductCatalogParams(BaseModel):
@@ -245,5 +228,4 @@ class BusinessAssetGroupCreateContainedProductCatalogParams(BaseModel):
 
     asset_id: str | None = Field(None, description="asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

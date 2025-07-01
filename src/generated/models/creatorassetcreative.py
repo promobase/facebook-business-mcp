@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class CreatorAssetCreativeModerationStatus(str, Enum):
@@ -42,6 +43,4 @@ class CreatorAssetCreativeFields(BaseModel):
     retailer_id: str | None = Field(None, alias="retailer_id")
     video_url: str | None = Field(None, alias="video_url")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

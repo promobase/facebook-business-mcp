@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCampaignLearningStageInfoField = Literal[
     "attribution_windows", "conversions", "last_sig_edit_ts", "status"
@@ -19,6 +21,4 @@ class AdCampaignLearningStageInfoFields(BaseModel):
     last_sig_edit_ts: int | None = Field(None, alias="last_sig_edit_ts")
     status: str | None = Field(None, alias="status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

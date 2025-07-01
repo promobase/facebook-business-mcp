@@ -3,25 +3,22 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .instagraminsightsresult import (
+    InstagramInsightsResultBreakdown,
+    InstagramInsightsResultMetric,
     InstagramInsightsResultMetricType,
+    InstagramInsightsResultPeriod,
     InstagramInsightsResultTimeframe,
 )
 
 if TYPE_CHECKING:
     from .igcomment import IGCommentFields
     from .igmedia import IGMediaFields
-    from .instagraminsightsresult import (
-        InstagramInsightsResultBreakdown,
-        InstagramInsightsResultMetric,
-        InstagramInsightsResultMetricType,
-        InstagramInsightsResultPeriod,
-        InstagramInsightsResultTimeframe,
-    )
 
 
 IGUserField = Literal[
@@ -72,9 +69,7 @@ class IGUserFields(BaseModel):
     username: str | None = Field(None, alias="username")
     website: str | None = Field(None, alias="website")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class IGUserGetAuthorizedAdAccountsParams(BaseModel):
@@ -82,8 +77,7 @@ class IGUserGetAuthorizedAdAccountsParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateAuthorizedAdAccountParams(BaseModel):
@@ -92,8 +86,7 @@ class IGUserCreateAuthorizedAdAccountParams(BaseModel):
     account_id: str | None = Field(None, description="account_id parameter")
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateBrandedContentAdPermissionParams(BaseModel):
@@ -107,8 +100,7 @@ class IGUserCreateBrandedContentAdPermissionParams(BaseModel):
     )
     revoke: bool | None = Field(None, description="revoke parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetBrandedContentAdvertisableMediasParams(BaseModel):
@@ -124,8 +116,7 @@ class IGUserGetBrandedContentAdvertisableMediasParams(BaseModel):
     )
     permalinks: list[str] | None = Field(None, description="permalinks parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserDeleteBrandedContentTagApprovalParams(BaseModel):
@@ -133,8 +124,7 @@ class IGUserDeleteBrandedContentTagApprovalParams(BaseModel):
 
     user_ids: list[int] | None = Field(None, description="user_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetBrandedContentTagApprovalParams(BaseModel):
@@ -142,8 +132,7 @@ class IGUserGetBrandedContentTagApprovalParams(BaseModel):
 
     user_ids: list[int] | None = Field(None, description="user_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateBrandedContentTagApprovalParams(BaseModel):
@@ -151,8 +140,7 @@ class IGUserCreateBrandedContentTagApprovalParams(BaseModel):
 
     user_ids: list[int] | None = Field(None, description="user_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetCatalogProductSearchParams(BaseModel):
@@ -161,8 +149,7 @@ class IGUserGetCatalogProductSearchParams(BaseModel):
     catalog_id: str | None = Field(None, description="catalog_id parameter")
     q: str | None = Field(None, description="q parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetContentPublishingLimitParams(BaseModel):
@@ -170,8 +157,7 @@ class IGUserGetContentPublishingLimitParams(BaseModel):
 
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateDatasetParams(BaseModel):
@@ -179,8 +165,7 @@ class IGUserCreateDatasetParams(BaseModel):
 
     dataset_name: str | None = Field(None, description="dataset_name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetInsightsParams(BaseModel):
@@ -200,8 +185,7 @@ class IGUserGetInsightsParams(BaseModel):
     )
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetLiveMediaParams(BaseModel):
@@ -210,8 +194,7 @@ class IGUserGetLiveMediaParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetMediaParams(BaseModel):
@@ -220,8 +203,7 @@ class IGUserGetMediaParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateMediaParams(BaseModel):
@@ -244,8 +226,7 @@ class IGUserCreateMediaParams(BaseModel):
     user_tags: list[dict[str, Any]] | None = Field(None, description="user_tags parameter")
     video_url: str | None = Field(None, description="video_url parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateMediaPublishParams(BaseModel):
@@ -253,8 +234,7 @@ class IGUserCreateMediaPublishParams(BaseModel):
 
     creation_id: int | None = Field(None, description="creation_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateMentionParams(BaseModel):
@@ -264,8 +244,7 @@ class IGUserCreateMentionParams(BaseModel):
     media_id: str | None = Field(None, description="media_id parameter")
     message: str | None = Field(None, description="message parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetProductAppealParams(BaseModel):
@@ -273,8 +252,7 @@ class IGUserGetProductAppealParams(BaseModel):
 
     product_id: str | None = Field(None, description="product_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateProductAppealParams(BaseModel):
@@ -283,8 +261,7 @@ class IGUserCreateProductAppealParams(BaseModel):
     appeal_reason: str | None = Field(None, description="appeal_reason parameter")
     product_id: str | None = Field(None, description="product_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserCreateUpcomingEventParams(BaseModel):
@@ -297,8 +274,7 @@ class IGUserCreateUpcomingEventParams(BaseModel):
     start_time: datetime | None = Field(None, description="start_time parameter")
     title: str | None = Field(None, description="title parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserGetWelcomeMessageFlowsParams(BaseModel):
@@ -307,5 +283,4 @@ class IGUserGetWelcomeMessageFlowsParams(BaseModel):
     app_id: str | None = Field(None, description="app_id parameter")
     flow_id: str | None = Field(None, description="flow_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

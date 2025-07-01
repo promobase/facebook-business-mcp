@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCampaignGroupIncrementalConversionOptimizationConfigField = Literal[
     "action_type",
@@ -35,6 +36,4 @@ class AdCampaignGroupIncrementalConversionOptimizationConfigFields(BaseModel):
     ico_type: str | None = Field(None, alias="ico_type")
     objectives: list[dict[str, Any]] | None = Field(None, alias="objectives")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

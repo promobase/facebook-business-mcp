@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .status import StatusFields
@@ -70,6 +70,4 @@ class AdImageFields(BaseModel):
     copy_from: dict[str, Any] | None = Field(None, alias="copy_from")
     filename: dict[str, Any] | None = Field(None, alias="filename")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

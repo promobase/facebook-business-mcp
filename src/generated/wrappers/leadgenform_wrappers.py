@@ -2,18 +2,21 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.leadgenform import LeadgenForm
 
-
 from ..models.lead import (
+    LeadField,
     LeadFields,
 )
 from ..models.leadgenform import (
     LeadgenFormCreateTestLeadParams,
+    LeadgenFormField,
+    LeadgenFormFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class LeadgenFormWrappers:

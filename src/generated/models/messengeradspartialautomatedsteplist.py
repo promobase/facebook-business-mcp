@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .leadgenform import LeadgenFormFields
@@ -33,6 +35,4 @@ class MessengerAdsPartialAutomatedStepListFields(BaseModel):
     reminder_text: str | None = Field(None, alias="reminder_text")
     stop_question_message: str | None = Field(None, alias="stop_question_message")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

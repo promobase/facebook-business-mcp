@@ -4,9 +4,9 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus(str, Enum):
@@ -37,9 +37,7 @@ class WhatsAppBusinessPreVerifiedPhoneNumberFields(BaseModel):
     phone_number: str | None = Field(None, alias="phone_number")
     verification_expiry_time: datetime | None = Field(None, alias="verification_expiry_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams(BaseModel):
@@ -48,8 +46,7 @@ class WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams(BaseModel):
     code_method: str | None = Field(None, description="code_method parameter")
     language: str | None = Field(None, description="language parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams(BaseModel):
@@ -57,5 +54,4 @@ class WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams(BaseModel):
 
     code: str | None = Field(None, description="code parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

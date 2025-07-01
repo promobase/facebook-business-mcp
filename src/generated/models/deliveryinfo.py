@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 DeliveryInfoField = Literal[
     "active_accelerated_campaign_count",
@@ -111,6 +112,4 @@ class DeliveryInfoFields(BaseModel):
     status: str | None = Field(None, alias="status")
     text_penalty_level: str | None = Field(None, alias="text_penalty_level")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

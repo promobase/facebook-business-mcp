@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CanvasAdSettingsField = Literal[
     "is_canvas_collection_eligible",
@@ -28,6 +30,4 @@ class CanvasAdSettingsFields(BaseModel):
     product_set_id: str | None = Field(None, alias="product_set_id")
     use_retailer_item_ids: bool | None = Field(None, alias="use_retailer_item_ids")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

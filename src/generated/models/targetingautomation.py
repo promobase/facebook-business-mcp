@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 TargetingAutomationField = Literal[
     "advantage_audience", "individual_setting", "shared_audiences", "value_expression"
@@ -19,6 +21,4 @@ class TargetingAutomationFields(BaseModel):
     shared_audiences: int | None = Field(None, alias="shared_audiences")
     value_expression: int | None = Field(None, alias="value_expression")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

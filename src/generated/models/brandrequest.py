@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 BrandRequestField = Literal[
     "ad_countries",
@@ -57,6 +58,4 @@ class BrandRequestFields(BaseModel):
     submit_date: datetime | None = Field(None, alias="submit_date")
     total_budget: int | None = Field(None, alias="total_budget")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

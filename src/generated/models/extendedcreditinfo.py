@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ExtendedCreditInfoField = Literal["credit_left", "credit_revoked", "credit_used", "using_biz_ec"]
 
@@ -17,6 +19,4 @@ class ExtendedCreditInfoFields(BaseModel):
     credit_used: str | None = Field(None, alias="credit_used")
     using_biz_ec: str | None = Field(None, alias="using_biz_ec")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

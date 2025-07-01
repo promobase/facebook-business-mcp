@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 BrandSafetyBlockListUsageField = Literal[
     "current_usage", "new_usage", "platform", "position", "threshold"
@@ -20,6 +22,4 @@ class BrandSafetyBlockListUsageFields(BaseModel):
     position: str | None = Field(None, alias="position")
     threshold: int | None = Field(None, alias="threshold")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

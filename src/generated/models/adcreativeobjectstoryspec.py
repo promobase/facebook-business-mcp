@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adcreativelinkdata import AdCreativeLinkDataFields
@@ -38,6 +40,4 @@ class AdCreativeObjectStorySpecFields(BaseModel):
     text_data: AdCreativeTextDataFields | None = Field(None, alias="text_data")
     video_data: AdCreativeVideoDataFields | None = Field(None, alias="video_data")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

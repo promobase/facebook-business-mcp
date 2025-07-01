@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
@@ -249,6 +249,4 @@ class AdAccountUserSettingsFields(BaseModel):
     text_variations_opt_in_type: str | None = Field(None, alias="text_variations_opt_in_type")
     user: UserFields | None = Field(None, alias="user")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

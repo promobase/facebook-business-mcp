@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 VideoCopyrightSegmentField = Literal["duration_in_sec", "media_type", "start_time_in_sec"]
 
@@ -16,6 +18,4 @@ class VideoCopyrightSegmentFields(BaseModel):
     media_type: str | None = Field(None, alias="media_type")
     start_time_in_sec: float | None = Field(None, alias="start_time_in_sec")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.productset import ProductSet
@@ -36,6 +36,8 @@ from ..models.productitem import (
     ProductItemFields,
 )
 from ..models.productset import (
+    ProductSetField,
+    ProductSetFields,
     ProductSetGetAutomotiveModelsParams,
     ProductSetGetDestinationsParams,
     ProductSetGetFlightsParams,

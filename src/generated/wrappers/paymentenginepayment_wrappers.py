@@ -2,17 +2,18 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.paymentenginepayment import PaymentEnginePayment
 
-
 from ..models.paymentenginepayment import (
     PaymentEnginePaymentCreateDisputeParams,
     PaymentEnginePaymentCreateRefundParams,
+    PaymentEnginePaymentField,
     PaymentEnginePaymentFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class PaymentEnginePaymentWrappers:

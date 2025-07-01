@@ -2,18 +2,20 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.whatsappbusinesspreverifiedphonenumber import (
         WhatsAppBusinessPreVerifiedPhoneNumber,
     )
 
-
 from ..models.whatsappbusinesspreverifiedphonenumber import (
     WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams,
     WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams,
+    WhatsAppBusinessPreVerifiedPhoneNumberField,
+    WhatsAppBusinessPreVerifiedPhoneNumberFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class WhatsAppBusinessPreVerifiedPhoneNumberWrappers:

@@ -2,20 +2,22 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.adstudy import AdStudy
 
-
 from ..models.adstudy import (
     AdStudyCreateCheckPointParams,
     AdStudyCreateInstanceParams,
+    AdStudyField,
     AdStudyFields,
 )
 from ..models.privateliftstudyinstance import (
+    PrivateLiftStudyInstanceField,
     PrivateLiftStudyInstanceFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class AdStudyWrappers:

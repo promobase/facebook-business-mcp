@@ -392,7 +392,7 @@ class PydanticModelGenerator:
         self.imports.add("from enum import Enum")
         self.imports.add("from typing import Any, Literal, TYPE_CHECKING")
         # Third party imports
-        self.imports.add("from pydantic import BaseModel, Field")
+        self.imports.add("from pydantic import BaseModel, ConfigDict, Field")
 
         model_parts = []
 
@@ -443,10 +443,34 @@ class PydanticModelGenerator:
 
         # Add TYPE_CHECKING imports if any
         if self.type_checking_imports:
-            type_checking_section = ["", "if TYPE_CHECKING:"]
+            # Filter out any TYPE_CHECKING imports that are already in regular imports
+            all_regular_imports = "\n".join(imports_sections)
+            filtered_type_checking = []
             for imp in sorted(self.type_checking_imports):
-                type_checking_section.append(f"    {imp}")
-            imports_sections.append("\n".join(type_checking_section))
+                # Extract the import content after "from .module import "
+                import_parts = imp.split(" import ")
+                if len(import_parts) == 2:
+                    module_part, items_part = import_parts
+                    # Check if these specific items are already imported from the same module
+                    if f"{module_part} import" not in all_regular_imports:
+                        filtered_type_checking.append(imp)
+                    else:
+                        # Check each individual item
+                        items = [item.strip() for item in items_part.split(",")]
+                        missing_items = []
+                        for item in items:
+                            if item not in all_regular_imports:
+                                missing_items.append(item)
+                        if missing_items:
+                            filtered_type_checking.append(
+                                f"{module_part} import {', '.join(missing_items)}"
+                            )
+
+            if filtered_type_checking:
+                type_checking_section = ["", "if TYPE_CHECKING:"]
+                for imp in filtered_type_checking:
+                    type_checking_section.append(f"    {imp}")
+                imports_sections.append("\n".join(type_checking_section))
 
         imports_str = "\n\n".join(imports_sections)
         models_str = "\n\n".join(model_parts)
@@ -515,9 +539,10 @@ class PydanticModelGenerator:
                 lines.append(field_def)
 
         lines.append("")
-        lines.append("    class Config:")
-        lines.append("        populate_by_name = True")
-        lines.append("        extra = 'forbid'")
+        lines.append("    model_config = ConfigDict(")
+        lines.append("        populate_by_alias=True,")
+        lines.append("        extra='forbid'")
+        lines.append("    )")
 
         return "\n".join(lines)
 
@@ -535,8 +560,8 @@ class PydanticModelGenerator:
             # Check if it's a self-reference
             if module_name != self.current_module:
                 self.type_checking_imports.add(f"from .{module_name} import {fields_model}")
-            # Always use string annotation for forward references
-            return f'"{fields_model}"'
+            # Don't use string annotation since we have from __future__ import annotations
+            return fields_model
 
         # Handle list types
         if field_type.startswith("list<") and field_type.endswith(">"):
@@ -638,8 +663,7 @@ class PydanticModelGenerator:
             lines.append(field_def)
 
         lines.append("")
-        lines.append("    class Config:")
-        lines.append("        extra = 'forbid'")
+        lines.append("    model_config = ConfigDict(extra='forbid')")
 
         # Add the enum imports to the general imports (not TYPE_CHECKING)
         for module_name, enum_name in local_enum_imports:
@@ -661,13 +685,11 @@ class PydanticModelGenerator:
                     module_name = class_name.lower()
                     if class_name in self.parser._adobject_types:
                         module_name = self.parser._adobject_types[class_name]
-                    # Add to type checking imports for forward references
+                    # Add to regular imports (not TYPE_CHECKING) since enums are runtime values
                     if module_name != self.current_module:
-                        self.type_checking_imports.add(
-                            f"from .{module_name} import {class_name}{enum_name}"
-                        )
+                        self.imports.add(f"from .{module_name} import {class_name}{enum_name}")
                     # Return the properly typed enum reference
-                    return f'"{class_name}{enum_name}"'  # Use string annotation for forward ref
+                    return f"{class_name}{enum_name}"  # No string annotation needed with __future__ annotations
             return "str"
 
         # Check if this is an adobject type
@@ -678,8 +700,8 @@ class PydanticModelGenerator:
             # Check if it's a self-reference
             if module_name != self.current_module:
                 self.type_checking_imports.add(f"from .{module_name} import {fields_model}")
-            # Always use string annotation for forward references
-            return f'"{fields_model}"'
+            # Don't use string annotation since we have from __future__ import annotations
+            return fields_model
 
         # Handle list types
         if param_type.startswith("list<") and param_type.endswith(">"):

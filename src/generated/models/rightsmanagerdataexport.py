@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 RightsManagerDataExportField = Literal[
     "download_uri",
@@ -29,6 +30,4 @@ class RightsManagerDataExportFields(BaseModel):
     time_range_end: datetime | None = Field(None, alias="time_range_end")
     time_range_start: datetime | None = Field(None, alias="time_range_start")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adspixel import AdsPixelFields
@@ -254,9 +254,7 @@ class CustomAudienceFields(BaseModel):
         None, alias="whats_app_business_phone_number_id"
     )
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class CustomAudienceDeleteAdAccountsParams(BaseModel):
@@ -264,8 +262,7 @@ class CustomAudienceDeleteAdAccountsParams(BaseModel):
 
     adaccounts: list[str] | None = Field(None, description="adaccounts parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceGetAdAccountsParams(BaseModel):
@@ -273,8 +270,7 @@ class CustomAudienceGetAdAccountsParams(BaseModel):
 
     permissions: str | None = Field(None, description="permissions parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceCreateAdAccountParams(BaseModel):
@@ -285,8 +281,7 @@ class CustomAudienceCreateAdAccountParams(BaseModel):
     relationship_type: list[str] | None = Field(None, description="relationship_type parameter")
     replace: bool | None = Field(None, description="replace parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceGetAdsParams(BaseModel):
@@ -295,8 +290,7 @@ class CustomAudienceGetAdsParams(BaseModel):
     effective_status: list[str] | None = Field(None, description="effective_status parameter")
     status: list[str] | None = Field(None, description="status parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceGetHealthParams(BaseModel):
@@ -311,8 +305,7 @@ class CustomAudienceGetHealthParams(BaseModel):
     value_currency: str | None = Field(None, description="value_currency parameter")
     value_version: int | None = Field(None, description="value_version parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceGetSaltsParams(BaseModel):
@@ -320,8 +313,7 @@ class CustomAudienceGetSaltsParams(BaseModel):
 
     params: list[str] | None = Field(None, description="params parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceCreateSaltParams(BaseModel):
@@ -331,8 +323,7 @@ class CustomAudienceCreateSaltParams(BaseModel):
     valid_from: datetime | None = Field(None, description="valid_from parameter")
     valid_to: datetime | None = Field(None, description="valid_to parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceGetSessionsParams(BaseModel):
@@ -340,8 +331,7 @@ class CustomAudienceGetSessionsParams(BaseModel):
 
     session_id: int | None = Field(None, description="session_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceDeleteUsersParams(BaseModel):
@@ -351,8 +341,7 @@ class CustomAudienceDeleteUsersParams(BaseModel):
     payload: Any | None = Field(None, description="payload parameter")
     session: Any | None = Field(None, description="session parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceCreateUserParams(BaseModel):
@@ -362,8 +351,7 @@ class CustomAudienceCreateUserParams(BaseModel):
     payload: Any | None = Field(None, description="payload parameter")
     session: Any | None = Field(None, description="session parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CustomAudienceCreateUsersReplaceParams(BaseModel):
@@ -373,5 +361,4 @@ class CustomAudienceCreateUsersReplaceParams(BaseModel):
     payload: Any | None = Field(None, description="payload parameter")
     session: Any | None = Field(None, description="session parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

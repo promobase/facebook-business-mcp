@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.igcomment import IGComment
 
-
 from ..models.igcomment import (
     IGCommentCreateReplyParams,
+    IGCommentField,
     IGCommentFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class IGCommentWrappers:

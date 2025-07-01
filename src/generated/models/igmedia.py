@@ -3,20 +3,22 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
+
+from .instagraminsightsresult import (
+    InstagramInsightsResultBreakdown,
+    InstagramInsightsResultMetric,
+    InstagramInsightsResultPeriod,
+)
 
 if TYPE_CHECKING:
     from .igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfoFields
     from .iguser import IGUserFields
     from .igvideocopyrightcheckmatchesinformation import (
         IGVideoCopyrightCheckMatchesInformationFields,
-    )
-    from .instagraminsightsresult import (
-        InstagramInsightsResultBreakdown,
-        InstagramInsightsResultMetric,
-        InstagramInsightsResultPeriod,
     )
 
 
@@ -74,9 +76,7 @@ class IGMediaFields(BaseModel):
     username: str | None = Field(None, alias="username")
     view_count: int | None = Field(None, alias="view_count")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class IGMediaCreateBrandedContentPartnerPromoteParams(BaseModel):
@@ -85,8 +85,7 @@ class IGMediaCreateBrandedContentPartnerPromoteParams(BaseModel):
     permission: bool | None = Field(None, description="permission parameter")
     sponsor_id: int | None = Field(None, description="sponsor_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGMediaCreateCommentParams(BaseModel):
@@ -95,8 +94,7 @@ class IGMediaCreateCommentParams(BaseModel):
     ad_id: str | None = Field(None, description="ad_id parameter")
     message: str | None = Field(None, description="message parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGMediaGetInsightsParams(BaseModel):
@@ -108,8 +106,7 @@ class IGMediaGetInsightsParams(BaseModel):
     metric: list[InstagramInsightsResultMetric] | None = Field(None, description="metric parameter")
     period: list[InstagramInsightsResultPeriod] | None = Field(None, description="period parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGMediaCreateProductTagParams(BaseModel):
@@ -118,5 +115,4 @@ class IGMediaCreateProductTagParams(BaseModel):
     child_index: int | None = Field(None, description="child_index parameter")
     updated_tags: list[dict[str, Any]] | None = Field(None, description="updated_tags parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

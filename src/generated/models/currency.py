@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CurrencyField = Literal["currency_offset", "usd_exchange", "usd_exchange_inverse", "user_currency"]
 
@@ -17,6 +19,4 @@ class CurrencyFields(BaseModel):
     usd_exchange_inverse: float | None = Field(None, alias="usd_exchange_inverse")
     user_currency: str | None = Field(None, alias="user_currency")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

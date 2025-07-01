@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCreativePromotionMetadataSpecField = Literal[
     "end_date",
@@ -28,6 +30,4 @@ class AdCreativePromotionMetadataSpecFields(BaseModel):
     required_code: str | None = Field(None, alias="required_code")
     start_date: int | None = Field(None, alias="start_date")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

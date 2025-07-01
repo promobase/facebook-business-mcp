@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdAccountPromotionProgressBarField = Literal[
     "adaccount_permission",
@@ -31,6 +32,4 @@ class AdAccountPromotionProgressBarFields(BaseModel):
     spend_requirement_in_cent: int | None = Field(None, alias="spend_requirement_in_cent")
     spend_since_enrollment: int | None = Field(None, alias="spend_since_enrollment")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

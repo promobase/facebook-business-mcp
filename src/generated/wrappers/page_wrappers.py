@@ -28,6 +28,7 @@ from ..models.canvas import (
     CanvasFields,
 )
 from ..models.canvasbodyelement import (
+    CanvasBodyElementField,
     CanvasBodyElementFields,
 )
 from ..models.commerceorder import (
@@ -51,6 +52,7 @@ from ..models.customusersettings import (
     CustomUserSettingsFields,
 )
 from ..models.dataset import (
+    DatasetField,
     DatasetFields,
 )
 from ..models.event import (
@@ -58,6 +60,7 @@ from ..models.event import (
     EventFields,
 )
 from ..models.imagecopyright import (
+    ImageCopyrightField,
     ImageCopyrightFields,
 )
 from ..models.insightsresult import (
@@ -65,6 +68,7 @@ from ..models.insightsresult import (
     InsightsResultFields,
 )
 from ..models.leadgenform import (
+    LeadgenFormField,
     LeadgenFormFields,
 )
 from ..models.livevideo import (
@@ -180,6 +184,7 @@ from ..models.pagepost import (
     PagePostFields,
 )
 from ..models.pagepostexperiment import (
+    PagePostExperimentField,
     PagePostExperimentFields,
 )
 from ..models.pagethreadowner import (
@@ -187,9 +192,11 @@ from ..models.pagethreadowner import (
     PageThreadOwnerFields,
 )
 from ..models.pageusermessagethreadlabel import (
+    PageUserMessageThreadLabelField,
     PageUserMessageThreadLabelFields,
 )
 from ..models.persona import (
+    PersonaField,
     PersonaFields,
 )
 from ..models.photo import (
@@ -221,9 +228,11 @@ from ..models.user import (
     UserFields,
 )
 from ..models.videocopyright import (
+    VideoCopyrightField,
     VideoCopyrightFields,
 )
 from ..models.videocopyrightmatch import (
+    VideoCopyrightMatchField,
     VideoCopyrightMatchFields,
 )
 from ..models.videocopyrightrule import (

@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ProfilePictureSourceType(str, Enum):
@@ -34,6 +35,4 @@ class ProfilePictureSourceFields(BaseModel):
     url: str | None = Field(None, alias="url")
     width: int | None = Field(None, alias="width")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

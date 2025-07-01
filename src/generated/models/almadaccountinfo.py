@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ALMAdAccountInfoField = Literal[
     "ad_account_id",
@@ -32,6 +34,4 @@ class ALMAdAccountInfoFields(BaseModel):
     user_ids: list[str] | None = Field(None, alias="user_ids")
     vertical: str | None = Field(None, alias="vertical")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

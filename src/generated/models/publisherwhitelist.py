@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PublisherWhiteListField = Literal[
     "business_owner_id", "id", "last_updated_time", "last_updated_user", "name", "placement_type"
@@ -22,6 +23,4 @@ class PublisherWhiteListFields(BaseModel):
     name: str | None = Field(None, alias="name")
     placement_type: str | None = Field(None, alias="placement_type")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

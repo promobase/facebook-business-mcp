@@ -6,10 +6,12 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adnetworkanalyticssyncqueryresult import (
     AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+    AdNetworkAnalyticsSyncQueryResultBreakdowns,
+    AdNetworkAnalyticsSyncQueryResultMetrics,
     AdNetworkAnalyticsSyncQueryResultOrderingColumn,
     AdNetworkAnalyticsSyncQueryResultOrderingType,
 )
@@ -24,9 +26,11 @@ from .advideo import (
     AdVideoSwapMode,
     AdVideoUnpublishedContentType,
     AdVideoUploadPhase,
+    AdVideoValidationAdPlacements,
 )
 from .businessassetsharingagreement import BusinessAssetSharingAgreementRequestStatus
-from .businessuser import BusinessUserRole
+from .businessimage import BusinessImageValidationAdPlacements
+from .businessuser import BusinessUserInvitedUserType, BusinessUserRole, BusinessUserTasks
 from .cpascollaborationrequest import CPASCollaborationRequestRequesterAgencyOrBrand
 from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
 from .managedpartnerbusiness import (
@@ -44,49 +48,11 @@ from .whatsappbusinesspreverifiedphonenumber import (
 )
 
 if TYPE_CHECKING:
-    from .adnetworkanalyticssyncqueryresult import (
-        AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
-        AdNetworkAnalyticsSyncQueryResultBreakdowns,
-        AdNetworkAnalyticsSyncQueryResultMetrics,
-        AdNetworkAnalyticsSyncQueryResultOrderingColumn,
-        AdNetworkAnalyticsSyncQueryResultOrderingType,
-    )
-    from .adsdataset import AdsDatasetSortBy
-    from .adspixel import AdsPixelSortBy
-    from .adstudy import AdStudyType
-    from .advideo import (
-        AdVideoContainerType,
-        AdVideoContentCategory,
-        AdVideoFormatting,
-        AdVideoOriginalProjectionType,
-        AdVideoSwapMode,
-        AdVideoUnpublishedContentType,
-        AdVideoUploadPhase,
-        AdVideoValidationAdPlacements,
-    )
-    from .businessassetsharingagreement import BusinessAssetSharingAgreementRequestStatus
-    from .businessimage import BusinessImageValidationAdPlacements
     from .businessmanagedpartnereligibility import BusinessManagedPartnerEligibilityFields
     from .businesspartnerpremiumoptions import BusinessPartnerPremiumOptionsFields
-    from .businessuser import BusinessUserInvitedUserType, BusinessUserRole, BusinessUserTasks
-    from .cpascollaborationrequest import CPASCollaborationRequestRequesterAgencyOrBrand
-    from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
-    from .managedpartnerbusiness import (
-        ManagedPartnerBusinessFields,
-        ManagedPartnerBusinessPartitionType,
-        ManagedPartnerBusinessSurveyBusinessType,
-        ManagedPartnerBusinessTimezoneId,
-        ManagedPartnerBusinessVertical,
-    )
-    from .omegacustomertrx import OmegaCustomerTrxType
+    from .managedpartnerbusiness import ManagedPartnerBusinessFields
     from .page import PageFields
     from .permission import PermissionFields
-    from .productcatalog import ProductCatalogAdditionalVerticalOption, ProductCatalogVertical
-    from .profilepicturesource import ProfilePictureSourceType
-    from .systemuser import SystemUserRole
-    from .whatsappbusinesspreverifiedphonenumber import (
-        WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus,
-    )
 
 
 class BusinessVerificationStatus(str, Enum):
@@ -1006,9 +972,7 @@ class BusinessFields(BaseModel):
     vertical: str | None = Field(None, alias="vertical")
     vertical_id: int | None = Field(None, alias="vertical_id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class BusinessCreateAccessTokenParams(BaseModel):
@@ -1021,8 +985,7 @@ class BusinessCreateAccessTokenParams(BaseModel):
     scope: list[PermissionFields] | None = Field(None, description="scope parameter")
     system_user_name: str | None = Field(None, description="system_user_name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetAdAccountInfosParams(BaseModel):
@@ -1032,8 +995,7 @@ class BusinessGetAdAccountInfosParams(BaseModel):
     parent_advertiser_id: str | None = Field(None, description="parent_advertiser_id parameter")
     user_id: str | None = Field(None, description="user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteAdAccountsParams(BaseModel):
@@ -1041,8 +1003,7 @@ class BusinessDeleteAdAccountsParams(BaseModel):
 
     adaccount_id: str | None = Field(None, description="adaccount_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAdReviewRequestParams(BaseModel):
@@ -1050,8 +1011,7 @@ class BusinessCreateAdReviewRequestParams(BaseModel):
 
     ad_account_ids: list[str] | None = Field(None, description="ad_account_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAdStudyParams(BaseModel):
@@ -1070,8 +1030,7 @@ class BusinessCreateAdStudyParams(BaseModel):
     type: AdStudyType | None = Field(None, description="type parameter")
     viewers: list[int] | None = Field(None, description="viewers parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAdAccountParams(BaseModel):
@@ -1093,8 +1052,7 @@ class BusinessCreateAdAccountParams(BaseModel):
     po_number: str | None = Field(None, description="po_number parameter")
     timezone_id: int | None = Field(None, description="timezone_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAddPhoneNumberParams(BaseModel):
@@ -1102,8 +1060,7 @@ class BusinessCreateAddPhoneNumberParams(BaseModel):
 
     phone_number: str | None = Field(None, description="phone_number parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAdNetworkApplicationParams(BaseModel):
@@ -1111,8 +1068,7 @@ class BusinessCreateAdNetworkApplicationParams(BaseModel):
 
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetAdNetworkAnalyticsParams(BaseModel):
@@ -1139,8 +1095,7 @@ class BusinessGetAdNetworkAnalyticsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAdNetworkAnalyticParams(BaseModel):
@@ -1166,8 +1121,7 @@ class BusinessCreateAdNetworkAnalyticParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetAdNetworkAnalyticsResultsParams(BaseModel):
@@ -1175,8 +1129,7 @@ class BusinessGetAdNetworkAnalyticsResultsParams(BaseModel):
 
     query_ids: list[str] | None = Field(None, description="query_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetAdsDatasetParams(BaseModel):
@@ -1186,8 +1139,7 @@ class BusinessGetAdsDatasetParams(BaseModel):
     name_filter: str | None = Field(None, description="name_filter parameter")
     sort_by: AdsDatasetSortBy | None = Field(None, description="sort_by parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAdsDataSetParams(BaseModel):
@@ -1198,8 +1150,7 @@ class BusinessCreateAdsDataSetParams(BaseModel):
     is_crm: bool | None = Field(None, description="is_crm parameter")
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetAdsReportingMmmReportsParams(BaseModel):
@@ -1207,8 +1158,7 @@ class BusinessGetAdsReportingMmmReportsParams(BaseModel):
 
     filtering: list[dict[str, Any]] | None = Field(None, description="filtering parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetAdsPixelsParams(BaseModel):
@@ -1218,8 +1168,7 @@ class BusinessGetAdsPixelsParams(BaseModel):
     name_filter: str | None = Field(None, description="name_filter parameter")
     sort_by: AdsPixelSortBy | None = Field(None, description="sort_by parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateAdsPixelParams(BaseModel):
@@ -1228,8 +1177,7 @@ class BusinessCreateAdsPixelParams(BaseModel):
     is_crm: bool | None = Field(None, description="is_crm parameter")
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteAgenciesParams(BaseModel):
@@ -1237,8 +1185,7 @@ class BusinessDeleteAgenciesParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateBlockListDraftParams(BaseModel):
@@ -1246,8 +1193,7 @@ class BusinessCreateBlockListDraftParams(BaseModel):
 
     publisher_urls_file: Any | None = Field(None, description="publisher_urls_file parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateBmReviewRequestParams(BaseModel):
@@ -1257,8 +1203,7 @@ class BusinessCreateBmReviewRequestParams(BaseModel):
         None, description="business_manager_ids parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetBusinessInvoicesParams(BaseModel):
@@ -1272,8 +1217,7 @@ class BusinessGetBusinessInvoicesParams(BaseModel):
     start_date: str | None = Field(None, description="start_date parameter")
     type: OmegaCustomerTrxType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateBusinessUserParams(BaseModel):
@@ -1286,8 +1230,7 @@ class BusinessCreateBusinessUserParams(BaseModel):
     role: BusinessUserRole | None = Field(None, description="role parameter")
     tasks: list[BusinessUserTasks] | None = Field(None, description="tasks parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateClaimCustomConversionParams(BaseModel):
@@ -1295,8 +1238,7 @@ class BusinessCreateClaimCustomConversionParams(BaseModel):
 
     custom_conversion_id: str | None = Field(None, description="custom_conversion_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetClientAdAccountsParams(BaseModel):
@@ -1304,8 +1246,7 @@ class BusinessGetClientAdAccountsParams(BaseModel):
 
     search_query: str | None = Field(None, description="search_query parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateClientAppParams(BaseModel):
@@ -1313,8 +1254,7 @@ class BusinessCreateClientAppParams(BaseModel):
 
     app_id: Any | None = Field(None, description="app_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateClientPageParams(BaseModel):
@@ -1325,8 +1265,7 @@ class BusinessCreateClientPageParams(BaseModel):
         None, description="permitted_tasks parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteClientsParams(BaseModel):
@@ -1334,8 +1273,7 @@ class BusinessDeleteClientsParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetCollaborativeAdsCollaborationRequestsParams(BaseModel):
@@ -1343,8 +1281,7 @@ class BusinessGetCollaborativeAdsCollaborationRequestsParams(BaseModel):
 
     status: str | None = Field(None, description="status parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateCollaborativeAdsCollaborationRequestParams(BaseModel):
@@ -1361,8 +1298,7 @@ class BusinessCreateCollaborativeAdsCollaborationRequestParams(BaseModel):
     )
     sender_client_business: str | None = Field(None, description="sender_client_business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateCpasBusinessSetupConfigParams(BaseModel):
@@ -1379,8 +1315,7 @@ class BusinessCreateCpasBusinessSetupConfigParams(BaseModel):
         None, description="capabilities_compliance_status parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateCreativeFolderParams(BaseModel):
@@ -1390,8 +1325,7 @@ class BusinessCreateCreativeFolderParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     parent_folder_id: str | None = Field(None, description="parent_folder_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateCustomConversionParams(BaseModel):
@@ -1412,8 +1346,7 @@ class BusinessCreateCustomConversionParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     rule: str | None = Field(None, description="rule parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateEventSourceGroupParams(BaseModel):
@@ -1422,8 +1355,7 @@ class BusinessCreateEventSourceGroupParams(BaseModel):
     event_sources: list[str] | None = Field(None, description="event_sources parameter")
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetExtendedCreditApplicationsParams(BaseModel):
@@ -1431,8 +1363,7 @@ class BusinessGetExtendedCreditApplicationsParams(BaseModel):
 
     only_show_pending: bool | None = Field(None, description="only_show_pending parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetExtendedCreditsParams(BaseModel):
@@ -1442,8 +1373,7 @@ class BusinessGetExtendedCreditsParams(BaseModel):
         None, description="order_by_is_owned_credential parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateImageParams(BaseModel):
@@ -1459,8 +1389,7 @@ class BusinessCreateImageParams(BaseModel):
         None, description="validation_ad_placements parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetInitiatedAudienceSharingRequestsParams(BaseModel):
@@ -1471,8 +1400,7 @@ class BusinessGetInitiatedAudienceSharingRequestsParams(BaseModel):
         None, description="request_status parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteInstagramAccountsParams(BaseModel):
@@ -1480,8 +1408,7 @@ class BusinessDeleteInstagramAccountsParams(BaseModel):
 
     instagram_account: str | None = Field(None, description="instagram_account parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteManagedBusinessesParams(BaseModel):
@@ -1491,8 +1418,7 @@ class BusinessDeleteManagedBusinessesParams(BaseModel):
         None, description="existing_client_business_id parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateManagedBusinessParams(BaseModel):
@@ -1514,8 +1440,7 @@ class BusinessCreateManagedBusinessParams(BaseModel):
     timezone_id: BusinessTimezoneId | None = Field(None, description="timezone_id parameter")
     vertical: BusinessVertical | None = Field(None, description="vertical parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetManagedPartnerAdsFundingSourceDetailsParams(BaseModel):
@@ -1523,8 +1448,7 @@ class BusinessGetManagedPartnerAdsFundingSourceDetailsParams(BaseModel):
 
     year_quarter: str | None = Field(None, description="year_quarter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateManagedPartnerBusinessSetupParams(BaseModel):
@@ -1544,8 +1468,7 @@ class BusinessCreateManagedPartnerBusinessSetupParams(BaseModel):
     )
     template: list[dict[str, Any]] | None = Field(None, description="template parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteManagedPartnerBusinessesParams(BaseModel):
@@ -1556,8 +1479,7 @@ class BusinessDeleteManagedPartnerBusinessesParams(BaseModel):
     )
     child_business_id: str | None = Field(None, description="child_business_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateManagedPartnerBusinessParams(BaseModel):
@@ -1603,8 +1525,7 @@ class BusinessCreateManagedPartnerBusinessParams(BaseModel):
     )
     vertical: ManagedPartnerBusinessVertical | None = Field(None, description="vertical parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateOnboardPartnersToMmLiteParams(BaseModel):
@@ -1612,8 +1533,7 @@ class BusinessCreateOnboardPartnersToMmLiteParams(BaseModel):
 
     solution_id: str | None = Field(None, description="solution_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateOpenBridgeConfigurationParams(BaseModel):
@@ -1639,8 +1559,7 @@ class BusinessCreateOpenBridgeConfigurationParams(BaseModel):
     sgw_instance_url: str | None = Field(None, description="sgw_instance_url parameter")
     sgw_pixel_id: int | None = Field(None, description="sgw_pixel_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetOwnedAdAccountsParams(BaseModel):
@@ -1648,8 +1567,7 @@ class BusinessGetOwnedAdAccountsParams(BaseModel):
 
     search_query: str | None = Field(None, description="search_query parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateOwnedAdAccountParams(BaseModel):
@@ -1657,8 +1575,7 @@ class BusinessCreateOwnedAdAccountParams(BaseModel):
 
     adaccount_id: str | None = Field(None, description="adaccount_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateOwnedAppParams(BaseModel):
@@ -1666,8 +1583,7 @@ class BusinessCreateOwnedAppParams(BaseModel):
 
     app_id: Any | None = Field(None, description="app_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteOwnedBusinessesParams(BaseModel):
@@ -1675,8 +1591,7 @@ class BusinessDeleteOwnedBusinessesParams(BaseModel):
 
     client_id: str | None = Field(None, description="client_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetOwnedBusinessesParams(BaseModel):
@@ -1687,8 +1602,7 @@ class BusinessGetOwnedBusinessesParams(BaseModel):
     )
     client_user_id: int | None = Field(None, description="client_user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateOwnedBusinessParams(BaseModel):
@@ -1712,8 +1626,7 @@ class BusinessCreateOwnedBusinessParams(BaseModel):
     timezone_id: BusinessTimezoneId | None = Field(None, description="timezone_id parameter")
     vertical: BusinessVertical | None = Field(None, description="vertical parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateOwnedPageParams(BaseModel):
@@ -1723,8 +1636,7 @@ class BusinessCreateOwnedPageParams(BaseModel):
     entry_point: str | None = Field(None, description="entry_point parameter")
     page_id: int | None = Field(None, description="page_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateOwnedProductCatalogParams(BaseModel):
@@ -1757,8 +1669,7 @@ class BusinessCreateOwnedProductCatalogParams(BaseModel):
     )
     vertical: ProductCatalogVertical | None = Field(None, description="vertical parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeletePagesParams(BaseModel):
@@ -1766,8 +1677,7 @@ class BusinessDeletePagesParams(BaseModel):
 
     page_id: int | None = Field(None, description="page_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreatePartnerPremiumOptionParams(BaseModel):
@@ -1784,8 +1694,7 @@ class BusinessCreatePartnerPremiumOptionParams(BaseModel):
     )
     vendor_id: str | None = Field(None, description="vendor_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetPendingUsersParams(BaseModel):
@@ -1793,8 +1702,7 @@ class BusinessGetPendingUsersParams(BaseModel):
 
     email: str | None = Field(None, description="email parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetPictureParams(BaseModel):
@@ -1805,8 +1713,7 @@ class BusinessGetPictureParams(BaseModel):
     type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetPreVerifiedNumbersParams(BaseModel):
@@ -1817,8 +1724,7 @@ class BusinessGetPreVerifiedNumbersParams(BaseModel):
     ) = Field(None, description="code_verification_status parameter")
     phone_number: str | None = Field(None, description="phone_number parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetReceivedAudienceSharingRequestsParams(BaseModel):
@@ -1829,8 +1735,7 @@ class BusinessGetReceivedAudienceSharingRequestsParams(BaseModel):
         None, description="request_status parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams(BaseModel):
@@ -1838,8 +1743,7 @@ class BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams(BaseModel):
 
     end_business_id: str | None = Field(None, description="end_business_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateSelfCertifyWhatsAppBusinessParams(BaseModel):
@@ -1867,8 +1771,7 @@ class BusinessCreateSelfCertifyWhatsAppBusinessParams(BaseModel):
         None, description="num_billing_cycles_with_partner parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateSetupManagedPartnerAdAccountParams(BaseModel):
@@ -1884,8 +1787,7 @@ class BusinessCreateSetupManagedPartnerAdAccountParams(BaseModel):
     vendor_id: str | None = Field(None, description="vendor_id parameter")
     vertical_v2: BusinessVerticalV2 | None = Field(None, description="vertical_v2 parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessDeleteSharePreVerifiedNumbersParams(BaseModel):
@@ -1894,8 +1796,7 @@ class BusinessDeleteSharePreVerifiedNumbersParams(BaseModel):
     partner_business_id: str | None = Field(None, description="partner_business_id parameter")
     preverified_id: str | None = Field(None, description="preverified_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateSharePreVerifiedNumberParams(BaseModel):
@@ -1904,8 +1805,7 @@ class BusinessCreateSharePreVerifiedNumberParams(BaseModel):
     partner_business_id: str | None = Field(None, description="partner_business_id parameter")
     preverified_id: str | None = Field(None, description="preverified_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateSystemUserAccessTokenParams(BaseModel):
@@ -1919,8 +1819,7 @@ class BusinessCreateSystemUserAccessTokenParams(BaseModel):
     )
     system_user_id: int | None = Field(None, description="system_user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateSystemUserParams(BaseModel):
@@ -1930,8 +1829,7 @@ class BusinessCreateSystemUserParams(BaseModel):
     role: SystemUserRole | None = Field(None, description="role parameter")
     system_user_id: int | None = Field(None, description="system_user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessCreateVideoParams(BaseModel):
@@ -2041,5 +1939,4 @@ class BusinessCreateVideoParams(BaseModel):
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

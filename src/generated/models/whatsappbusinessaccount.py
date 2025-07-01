@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .commercemerchantsettings import CommerceMerchantSettingsFields
@@ -151,9 +151,7 @@ class WhatsAppBusinessAccountFields(BaseModel):
     status: str | None = Field(None, alias="status")
     timezone_id: str | None = Field(None, alias="timezone_id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class WhatsAppBusinessAccountDeleteAssignedUsersParams(BaseModel):
@@ -161,8 +159,7 @@ class WhatsAppBusinessAccountDeleteAssignedUsersParams(BaseModel):
 
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetAssignedUsersParams(BaseModel):
@@ -170,8 +167,7 @@ class WhatsAppBusinessAccountGetAssignedUsersParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateAssignedUserParams(BaseModel):
@@ -180,8 +176,7 @@ class WhatsAppBusinessAccountCreateAssignedUserParams(BaseModel):
     tasks: list[WhatsAppBusinessAccountTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetCallAnalyticsParams(BaseModel):
@@ -196,8 +191,7 @@ class WhatsAppBusinessAccountGetCallAnalyticsParams(BaseModel):
     phone_numbers: list[str] | None = Field(None, description="phone_numbers parameter")
     start: int | None = Field(None, description="start parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetConversationAnalyticsParams(BaseModel):
@@ -218,8 +212,7 @@ class WhatsAppBusinessAccountGetConversationAnalyticsParams(BaseModel):
     phone_numbers: list[str] | None = Field(None, description="phone_numbers parameter")
     start: int | None = Field(None, description="start parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateDatasetParams(BaseModel):
@@ -227,8 +220,7 @@ class WhatsAppBusinessAccountCreateDatasetParams(BaseModel):
 
     dataset_name: str | None = Field(None, description="dataset_name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateFlowParams(BaseModel):
@@ -241,8 +233,7 @@ class WhatsAppBusinessAccountCreateFlowParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     publish: bool | None = Field(None, description="publish parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams(BaseModel):
@@ -251,8 +242,7 @@ class WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams(B
     configuration_name: str | None = Field(None, description="configuration_name parameter")
     redirect_url: str | None = Field(None, description="redirect_url parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetMessageTemplatePreviewsParams(BaseModel):
@@ -268,8 +258,7 @@ class WhatsAppBusinessAccountGetMessageTemplatePreviewsParams(BaseModel):
     )
     languages: list[str] | None = Field(None, description="languages parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountDeleteMessageTemplatesParams(BaseModel):
@@ -278,8 +267,7 @@ class WhatsAppBusinessAccountDeleteMessageTemplatesParams(BaseModel):
     hsm_id: str | None = Field(None, description="hsm_id parameter")
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetMessageTemplatesParams(BaseModel):
@@ -295,8 +283,7 @@ class WhatsAppBusinessAccountGetMessageTemplatesParams(BaseModel):
     quality_score: list[str] | None = Field(None, description="quality_score parameter")
     status: list[str] | None = Field(None, description="status parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateMessageTemplateParams(BaseModel):
@@ -333,8 +320,7 @@ class WhatsAppBusinessAccountCreateMessageTemplateParams(BaseModel):
         None, description="sub_category parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateMigrateFlowParams(BaseModel):
@@ -343,8 +329,7 @@ class WhatsAppBusinessAccountCreateMigrateFlowParams(BaseModel):
     source_flow_names: list[str] | None = Field(None, description="source_flow_names parameter")
     source_waba_id: str | None = Field(None, description="source_waba_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateMigrateMessageTemplateParams(BaseModel):
@@ -353,8 +338,7 @@ class WhatsAppBusinessAccountCreateMigrateMessageTemplateParams(BaseModel):
     page_number: int | None = Field(None, description="page_number parameter")
     source_waba_id: str | None = Field(None, description="source_waba_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountDeletePaymentConfigurationParams(BaseModel):
@@ -362,8 +346,7 @@ class WhatsAppBusinessAccountDeletePaymentConfigurationParams(BaseModel):
 
     configuration_name: str | None = Field(None, description="configuration_name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetPaymentConfigurationParams(BaseModel):
@@ -371,8 +354,7 @@ class WhatsAppBusinessAccountGetPaymentConfigurationParams(BaseModel):
 
     configuration_name: str | None = Field(None, description="configuration_name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreatePaymentConfigurationParams(BaseModel):
@@ -388,8 +370,7 @@ class WhatsAppBusinessAccountCreatePaymentConfigurationParams(BaseModel):
     purpose_code: str | None = Field(None, description="purpose_code parameter")
     redirect_url: str | None = Field(None, description="redirect_url parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreatePhoneNumberParams(BaseModel):
@@ -401,8 +382,7 @@ class WhatsAppBusinessAccountCreatePhoneNumberParams(BaseModel):
     preverified_id: str | None = Field(None, description="preverified_id parameter")
     verified_name: str | None = Field(None, description="verified_name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetPricingAnalyticsParams(BaseModel):
@@ -419,8 +399,7 @@ class WhatsAppBusinessAccountGetPricingAnalyticsParams(BaseModel):
     start: int | None = Field(None, description="start parameter")
     tiers: list[str] | None = Field(None, description="tiers parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountDeleteProductCatalogsParams(BaseModel):
@@ -428,8 +407,7 @@ class WhatsAppBusinessAccountDeleteProductCatalogsParams(BaseModel):
 
     catalog_id: str | None = Field(None, description="catalog_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateProductCatalogParams(BaseModel):
@@ -437,8 +415,7 @@ class WhatsAppBusinessAccountCreateProductCatalogParams(BaseModel):
 
     catalog_id: str | None = Field(None, description="catalog_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateSetOboMobilityIntentParams(BaseModel):
@@ -446,8 +423,7 @@ class WhatsAppBusinessAccountCreateSetOboMobilityIntentParams(BaseModel):
 
     solution_id: str | None = Field(None, description="solution_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams(BaseModel):
@@ -456,8 +432,7 @@ class WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams(BaseModel):
     app_id: str | None = Field(None, description="app_id parameter")
     solution_id: str | None = Field(None, description="solution_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateSubscribedAppParams(BaseModel):
@@ -466,8 +441,7 @@ class WhatsAppBusinessAccountCreateSubscribedAppParams(BaseModel):
     override_callback_uri: str | None = Field(None, description="override_callback_uri parameter")
     verify_token: str | None = Field(None, description="verify_token parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetTemplateAnalyticsParams(BaseModel):
@@ -480,8 +454,7 @@ class WhatsAppBusinessAccountGetTemplateAnalyticsParams(BaseModel):
     start: datetime | None = Field(None, description="start parameter")
     template_ids: list[str] | None = Field(None, description="template_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams(BaseModel):
@@ -493,8 +466,7 @@ class WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams(BaseModel):
     start: datetime | None = Field(None, description="start parameter")
     template_group_ids: list[str] | None = Field(None, description="template_group_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateTemplateGroupParams(BaseModel):
@@ -506,8 +478,7 @@ class WhatsAppBusinessAccountCreateTemplateGroupParams(BaseModel):
         None, description="whatsapp_business_templates parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams(BaseModel):
@@ -516,8 +487,7 @@ class WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     template_id: str | None = Field(None, description="template_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountCreateUpsertMessageTemplateParams(BaseModel):
@@ -531,8 +501,7 @@ class WhatsAppBusinessAccountCreateUpsertMessageTemplateParams(BaseModel):
     )
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class WhatsAppBusinessAccountGetWelcomeMessageSequencesParams(BaseModel):
@@ -541,5 +510,4 @@ class WhatsAppBusinessAccountGetWelcomeMessageSequencesParams(BaseModel):
     app_id: str | None = Field(None, description="app_id parameter")
     sequence_id: str | None = Field(None, description="sequence_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

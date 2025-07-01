@@ -6,14 +6,13 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adrulehistory import AdRuleHistoryAction
 
 if TYPE_CHECKING:
     from .adruleevaluationspec import AdRuleEvaluationSpecFields
     from .adruleexecutionspec import AdRuleExecutionSpecFields
-    from .adrulehistory import AdRuleHistoryAction
     from .adruleschedulespec import AdRuleScheduleSpecFields
     from .user import UserFields
 
@@ -94,9 +93,7 @@ class AdRuleFields(BaseModel):
     updated_time: datetime | None = Field(None, alias="updated_time")
     ui_creation_source: dict[str, Any] | None = Field(None, alias="ui_creation_source")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdRuleGetHistoryParams(BaseModel):
@@ -106,5 +103,4 @@ class AdRuleGetHistoryParams(BaseModel):
     hide_no_changes: bool | None = Field(None, description="hide_no_changes parameter")
     object_id: str | None = Field(None, description="object_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

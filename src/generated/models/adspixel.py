@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adspixelstatsresult import AdsPixelStatsResultAggregation
 from .dacheck import DACheckConnectionMethod
@@ -17,12 +17,6 @@ from .offlineconversiondatasetupload import (
 
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
-    from .adspixelstatsresult import AdsPixelStatsResultAggregation
-    from .dacheck import DACheckConnectionMethod
-    from .offlineconversiondatasetupload import (
-        OfflineConversionDataSetUploadOrder,
-        OfflineConversionDataSetUploadSortBy,
-    )
     from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
     from .user import UserFields
 
@@ -163,9 +157,7 @@ class AdsPixelFields(BaseModel):
     user_access_expire_time: datetime | None = Field(None, alias="user_access_expire_time")
     valid_entries: int | None = Field(None, alias="valid_entries")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdsPixelGetAdAccountsParams(BaseModel):
@@ -173,8 +165,7 @@ class AdsPixelGetAdAccountsParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelDeleteAgenciesParams(BaseModel):
@@ -182,8 +173,7 @@ class AdsPixelDeleteAgenciesParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelCreateAgencyParams(BaseModel):
@@ -194,8 +184,7 @@ class AdsPixelCreateAgencyParams(BaseModel):
         None, description="permitted_tasks parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelCreateAhpConfigParams(BaseModel):
@@ -203,8 +192,7 @@ class AdsPixelCreateAhpConfigParams(BaseModel):
 
     applink_autosetup: bool | None = Field(None, description="applink_autosetup parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelGetAssignedUsersParams(BaseModel):
@@ -212,8 +200,7 @@ class AdsPixelGetAssignedUsersParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelCreateAssignedUserParams(BaseModel):
@@ -222,8 +209,7 @@ class AdsPixelCreateAssignedUserParams(BaseModel):
     tasks: list[AdsPixelTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelGetDaChecksParams(BaseModel):
@@ -234,8 +220,7 @@ class AdsPixelGetDaChecksParams(BaseModel):
         None, description="connection_method parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelCreateEventParams(BaseModel):
@@ -252,8 +237,7 @@ class AdsPixelCreateEventParams(BaseModel):
     upload_source: str | None = Field(None, description="upload_source parameter")
     upload_tag: str | None = Field(None, description="upload_tag parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelGetOfflineEventUploadsParams(BaseModel):
@@ -267,8 +251,7 @@ class AdsPixelGetOfflineEventUploadsParams(BaseModel):
     start_time: datetime | None = Field(None, description="start_time parameter")
     upload_tag: str | None = Field(None, description="upload_tag parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelDeleteSharedAccountsParams(BaseModel):
@@ -277,8 +260,7 @@ class AdsPixelDeleteSharedAccountsParams(BaseModel):
     account_id: str | None = Field(None, description="account_id parameter")
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelGetSharedAccountsParams(BaseModel):
@@ -286,8 +268,7 @@ class AdsPixelGetSharedAccountsParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelCreateSharedAccountParams(BaseModel):
@@ -296,8 +277,7 @@ class AdsPixelCreateSharedAccountParams(BaseModel):
     account_id: str | None = Field(None, description="account_id parameter")
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdsPixelGetStatsParams(BaseModel):
@@ -311,5 +291,4 @@ class AdsPixelGetStatsParams(BaseModel):
     event_source: str | None = Field(None, description="event_source parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

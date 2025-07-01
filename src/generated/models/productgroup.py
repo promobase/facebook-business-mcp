@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .productitem import (
     ProductItemAgeGroup,
@@ -19,15 +20,6 @@ from .productitem import (
 
 if TYPE_CHECKING:
     from .productcatalog import ProductCatalogFields
-    from .productitem import (
-        ProductItemAgeGroup,
-        ProductItemAvailability,
-        ProductItemCommerceTaxCategory,
-        ProductItemCondition,
-        ProductItemGender,
-        ProductItemMarkedForProductLaunch,
-        ProductItemVisibility,
-    )
     from .productvariant import ProductVariantFields
 
 
@@ -42,9 +34,7 @@ class ProductGroupFields(BaseModel):
     retailer_id: str | None = Field(None, alias="retailer_id")
     variants: list[ProductVariantFields] | None = Field(None, alias="variants")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ProductGroupCreateProductParams(BaseModel):
@@ -136,5 +126,4 @@ class ProductGroupCreateProductParams(BaseModel):
     windows_phone_app_name: str | None = Field(None, description="windows_phone_app_name parameter")
     windows_phone_url: str | None = Field(None, description="windows_phone_url parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

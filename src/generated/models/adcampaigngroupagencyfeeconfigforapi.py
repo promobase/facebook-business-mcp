@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCampaignGroupAgencyFeeConfigForApiField = Literal[
     "agency_fee_pct", "is_agency_fee_disabled", "is_default_agency_fee"
@@ -18,6 +20,4 @@ class AdCampaignGroupAgencyFeeConfigForApiFields(BaseModel):
     is_agency_fee_disabled: bool | None = Field(None, alias="is_agency_fee_disabled")
     is_default_agency_fee: bool | None = Field(None, alias="is_default_agency_fee")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

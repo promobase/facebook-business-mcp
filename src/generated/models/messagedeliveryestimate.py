@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class MessageDeliveryEstimateOptimizationGoal(str, Enum):
@@ -80,6 +81,4 @@ class MessageDeliveryEstimateFields(BaseModel):
     estimate_delivery_upper_bound: int | None = Field(None, alias="estimate_delivery_upper_bound")
     estimate_status: str | None = Field(None, alias="estimate_status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

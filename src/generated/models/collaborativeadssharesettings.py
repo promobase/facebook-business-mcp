@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CollaborativeAdsShareSettingsField = Literal[
     "agency_business", "id", "product_catalog_proxy_id", "utm_campaign", "utm_medium", "utm_source"
@@ -21,6 +23,4 @@ class CollaborativeAdsShareSettingsFields(BaseModel):
     utm_medium: str | None = Field(None, alias="utm_medium")
     utm_source: str | None = Field(None, alias="utm_source")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

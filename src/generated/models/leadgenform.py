@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .keyvalue import KeyValueFields
@@ -120,9 +120,7 @@ class LeadgenFormFields(BaseModel):
     thank_you_page: LeadGenThankYouPageFields | None = Field(None, alias="thank_you_page")
     tracking_parameters: list[KeyValueFields] | None = Field(None, alias="tracking_parameters")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class LeadgenFormCreateTestLeadParams(BaseModel):
@@ -133,5 +131,4 @@ class LeadgenFormCreateTestLeadParams(BaseModel):
     )
     field_data: list[Any] | None = Field(None, description="field_data parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

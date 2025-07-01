@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.productcatalog import ProductCatalog
@@ -20,6 +20,7 @@ from ..models.checkbatchrequeststatus import (
     CheckBatchRequestStatusFields,
 )
 from ..models.cpaslsbimagebank import (
+    CPASLsbImageBankField,
     CPASLsbImageBankFields,
 )
 from ..models.creatorassetcreative import (
@@ -69,6 +70,7 @@ from ..models.productcatalog import (
     ProductCatalogDeleteAgenciesParams,
     ProductCatalogDeleteAssignedUsersParams,
     ProductCatalogDeleteExternalEventSourcesParams,
+    ProductCatalogField,
     ProductCatalogFields,
     ProductCatalogGetAssignedUsersParams,
     ProductCatalogGetAutomotiveModelsParams,
@@ -124,9 +126,11 @@ from ..models.producteventstat import (
     ProductEventStatFields,
 )
 from ..models.productfeed import (
+    ProductFeedField,
     ProductFeedFields,
 )
 from ..models.productgroup import (
+    ProductGroupField,
     ProductGroupFields,
 )
 from ..models.productitem import (
@@ -138,6 +142,7 @@ from ..models.productset import (
     ProductSetFields,
 )
 from ..models.storecatalogsettings import (
+    StoreCatalogSettingsField,
     StoreCatalogSettingsFields,
 )
 from ..models.vehicle import (

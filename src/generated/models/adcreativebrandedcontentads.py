@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adcreativebrandedcontentadspartners import AdCreativeBrandedContentAdsPartnersFields
@@ -54,6 +56,4 @@ class AdCreativeBrandedContentAdsFields(BaseModel):
     testimonial_locale: str | None = Field(None, alias="testimonial_locale")
     ui_version: int | None = Field(None, alias="ui_version")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

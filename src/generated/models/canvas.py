@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .advideo import AdVideoFields
@@ -81,9 +83,7 @@ class CanvasFields(BaseModel):
     update_time: int | None = Field(None, alias="update_time")
     use_retailer_item_ids: bool | None = Field(None, alias="use_retailer_item_ids")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class CanvasGetPreViewsParams(BaseModel):
@@ -91,5 +91,4 @@ class CanvasGetPreViewsParams(BaseModel):
 
     user_ids: list[int] | None = Field(None, description="user_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

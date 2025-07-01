@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CPASMerchantConfigField = Literal[
     "accepted_tos",
@@ -32,6 +34,4 @@ class CPASMerchantConfigFields(BaseModel):
     )
     qualified_to_onboard: bool | None = Field(None, alias="qualified_to_onboard")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

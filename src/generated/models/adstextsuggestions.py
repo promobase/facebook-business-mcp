@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsTextSuggestionsField = Literal[
     "ad_account_id", "bodies", "descriptions", "inactive_session_tally", "long", "short", "titles"
@@ -22,6 +24,4 @@ class AdsTextSuggestionsFields(BaseModel):
     short: list[dict[str, Any]] | None = Field(None, alias="short")
     titles: list[dict[str, Any]] | None = Field(None, alias="titles")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

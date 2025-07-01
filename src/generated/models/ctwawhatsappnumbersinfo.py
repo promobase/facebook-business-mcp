@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CTWAWhatsAppNumbersInfoField = Literal[
     "can_manage_wa_flows",
@@ -32,6 +34,4 @@ class CTWAWhatsAppNumbersInfoFields(BaseModel):
     whatsapp_number: str | None = Field(None, alias="whatsapp_number")
     whatsapp_smb_device: str | None = Field(None, alias="whatsapp_smb_device")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

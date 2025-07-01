@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AnalyticsSegmentField = Literal[
     "custom_audience_ineligiblity_reasons",
@@ -50,6 +52,4 @@ class AnalyticsSegmentFields(BaseModel):
     user_property_rules: list[dict[str, Any]] | None = Field(None, alias="user_property_rules")
     web_param_rules: list[dict[str, Any]] | None = Field(None, alias="web_param_rules")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

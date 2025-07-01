@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class OfflineConversionDataSetUploadOrder(str, Enum):
@@ -63,6 +64,4 @@ class OfflineConversionDataSetUploadFields(BaseModel):
     upload_tag: str | None = Field(None, alias="upload_tag")
     valid_entries: int | None = Field(None, alias="valid_entries")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

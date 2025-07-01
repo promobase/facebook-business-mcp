@@ -7,7 +7,6 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.commerceorder import CommerceOrder
 
-
 from ..models.commerceorder import (
     CommerceOrderCreateAcknowledgeOrderParams,
     CommerceOrderCreateCancellationParams,
@@ -16,9 +15,11 @@ from ..models.commerceorder import (
     CommerceOrderCreateReturnParams,
     CommerceOrderCreateShipmentParams,
     CommerceOrderCreateUpdateShipmentParams,
+    CommerceOrderField,
     CommerceOrderFields,
     CommerceOrderGetReturnsParams,
 )
+from .cursor_utils import TypedCursor
 
 
 class CommerceOrderWrappers:

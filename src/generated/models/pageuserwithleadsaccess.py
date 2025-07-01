@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PageUserWithLeadsAccessField = Literal[
     "active_on_business", "business_role", "can_access_leads", "page_role"
@@ -19,6 +21,4 @@ class PageUserWithLeadsAccessFields(BaseModel):
     can_access_leads: bool | None = Field(None, alias="can_access_leads")
     page_role: str | None = Field(None, alias="page_role")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

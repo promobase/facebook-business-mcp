@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .profilepicturesource import ProfilePictureSourceType
 
 if TYPE_CHECKING:
-    from .profilepicturesource import ProfilePictureSourceFields, ProfilePictureSourceType
+    from .profilepicturesource import ProfilePictureSourceFields
 
 
 class ProfileProfileType(str, Enum):
@@ -70,9 +71,7 @@ class ProfileFields(BaseModel):
     profile_type: dict[str, Any] | None = Field(None, alias="profile_type")
     username: str | None = Field(None, alias="username")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ProfileGetPictureParams(BaseModel):
@@ -83,5 +82,4 @@ class ProfileGetPictureParams(BaseModel):
     type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

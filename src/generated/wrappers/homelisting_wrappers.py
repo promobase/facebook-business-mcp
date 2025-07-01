@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.homelisting import HomeListing
 
 from ..models.homelisting import (
+    HomeListingField,
+    HomeListingFields,
     HomeListingGetOverrideDetailsParams,
 )
 from ..models.overridedetails import (

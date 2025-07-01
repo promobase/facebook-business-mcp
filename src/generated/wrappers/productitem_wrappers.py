@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.productitem import ProductItem
@@ -12,6 +12,8 @@ from ..models.overridedetails import (
     OverrideDetailsFields,
 )
 from ..models.productitem import (
+    ProductItemField,
+    ProductItemFields,
     ProductItemGetOverrideDetailsParams,
 )
 from .cursor_utils import TypedCursor

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCreativePostClickConfigurationField = Literal[
     "post_click_item_description", "post_click_item_headline"
@@ -17,6 +19,4 @@ class AdCreativePostClickConfigurationFields(BaseModel):
     post_click_item_description: str | None = Field(None, alias="post_click_item_description")
     post_click_item_headline: str | None = Field(None, alias="post_click_item_headline")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

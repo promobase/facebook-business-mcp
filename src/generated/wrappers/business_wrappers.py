@@ -32,9 +32,11 @@ from ..models.adsreportbuildermmmreport import (
     AdsReportBuilderMMMReportFields,
 )
 from ..models.adstudy import (
+    AdStudyField,
     AdStudyFields,
 )
 from ..models.advideo import (
+    AdVideoField,
     AdVideoFields,
 )
 from ..models.almadaccountinfo import (
@@ -42,6 +44,7 @@ from ..models.almadaccountinfo import (
     ALMAdAccountInfoFields,
 )
 from ..models.application import (
+    ApplicationField,
     ApplicationFields,
 )
 from ..models.business import (
@@ -120,9 +123,11 @@ from ..models.businessassetsharingagreement import (
     BusinessAssetSharingAgreementFields,
 )
 from ..models.businesscreativefolder import (
+    BusinessCreativeFolderField,
     BusinessCreativeFolderFields,
 )
 from ..models.businessimage import (
+    BusinessImageField,
     BusinessImageFields,
 )
 from ..models.businessrolerequest import (
@@ -130,9 +135,11 @@ from ..models.businessrolerequest import (
     BusinessRoleRequestFields,
 )
 from ..models.businessuser import (
+    BusinessUserField,
     BusinessUserFields,
 )
 from ..models.cpasbusinesssetupconfig import (
+    CPASBusinessSetupConfigField,
     CPASBusinessSetupConfigFields,
 )
 from ..models.cpascollaborationrequest import (
@@ -140,9 +147,11 @@ from ..models.cpascollaborationrequest import (
     CPASCollaborationRequestFields,
 )
 from ..models.customconversion import (
+    CustomConversionField,
     CustomConversionFields,
 )
 from ..models.eventsourcegroup import (
+    EventSourceGroupField,
     EventSourceGroupFields,
 )
 from ..models.extendedcredit import (
@@ -158,6 +167,7 @@ from ..models.fundingsourcedetailscoupon import (
     FundingSourceDetailsCouponFields,
 )
 from ..models.managedpartnerbusiness import (
+    ManagedPartnerBusinessField,
     ManagedPartnerBusinessFields,
 )
 from ..models.omegacustomertrx import (
@@ -165,9 +175,11 @@ from ..models.omegacustomertrx import (
     OmegaCustomerTrxFields,
 )
 from ..models.openbridgeconfiguration import (
+    OpenBridgeConfigurationField,
     OpenBridgeConfigurationFields,
 )
 from ..models.productcatalog import (
+    ProductCatalogField,
     ProductCatalogFields,
 )
 from ..models.profilepicturesource import (
@@ -175,6 +187,7 @@ from ..models.profilepicturesource import (
     ProfilePictureSourceFields,
 )
 from ..models.systemuser import (
+    SystemUserField,
     SystemUserFields,
 )
 from ..models.whatsappbusinesspartnerclientverificationsubmission import (

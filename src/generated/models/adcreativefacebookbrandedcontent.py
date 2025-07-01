@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCreativeFacebookBrandedContentField = Literal[
     "shared_to_sponsor_status", "sponsor_page_id", "sponsor_relationship"
@@ -18,6 +20,4 @@ class AdCreativeFacebookBrandedContentFields(BaseModel):
     sponsor_page_id: str | None = Field(None, alias="sponsor_page_id")
     sponsor_relationship: str | None = Field(None, alias="sponsor_relationship")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .homelisting import HomeListingFields
@@ -66,6 +67,4 @@ class LeadFields(BaseModel):
     retailer_item_id: str | None = Field(None, alias="retailer_item_id")
     vehicle: VehicleFields | None = Field(None, alias="vehicle")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

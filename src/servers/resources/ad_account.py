@@ -70,7 +70,10 @@ def update_ad_account(
 # ---- Resource Management (4) ----
 from src.generated.wrappers.adaccount_wrappers import AdAccountGetCampaignsParams
 
+AdAccountGetCampaignsParams.model_rebuild()
 
+
+@ad_account_server.tool()
 @wrapped_fn_tool
 def get_campaigns(
     ad_account_id: str,
@@ -268,7 +271,7 @@ def run_any_ad_account_fn(
 # ---- Register tools ----
 # ad_account_server.tool(get_ad_account)
 # ad_account_server.tool(update_ad_account)
-ad_account_server.tool(get_campaigns)
+# ad_account_server.tool(get_campaigns)
 # ad_account_server.tool(create_campaign)
 # ad_account_server.tool(get_ad_sets)
 # ad_account_server.tool(create_ad_set)

@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
 from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
@@ -14,12 +14,10 @@ from .profile import ProfileType
 
 if TYPE_CHECKING:
     from .application import ApplicationFields
-    from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
     from .event import EventFields
-    from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
     from .place import PlaceFields
     from .privacy import PrivacyFields
-    from .profile import ProfileFields, ProfileType
+    from .profile import ProfileFields
 
 
 class PostBackdatedTimeGranularity(str, Enum):
@@ -232,9 +230,7 @@ class PostFields(BaseModel):
     video_buying_eligibility: list[str] | None = Field(None, alias="video_buying_eligibility")
     width: int | None = Field(None, alias="width")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class PostGetCommentsParams(BaseModel):
@@ -245,8 +241,7 @@ class PostGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PostCreateCommentParams(BaseModel):
@@ -266,8 +261,7 @@ class PostCreateCommentParams(BaseModel):
     post_id: str | None = Field(None, description="post_id parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PostGetInsightsParams(BaseModel):
@@ -279,8 +273,7 @@ class PostGetInsightsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PostDeleteLikesParams(BaseModel):
@@ -289,8 +282,7 @@ class PostDeleteLikesParams(BaseModel):
     nectar_module: str | None = Field(None, description="nectar_module parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PostCreateLikeParams(BaseModel):
@@ -300,8 +292,7 @@ class PostCreateLikeParams(BaseModel):
     nectar_module: str | None = Field(None, description="nectar_module parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PostGetReactionsParams(BaseModel):
@@ -309,5 +300,4 @@ class PostGetReactionsParams(BaseModel):
 
     type: ProfileType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

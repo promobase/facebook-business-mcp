@@ -6,10 +6,18 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
-from .adsinsights import AdsInsightsActionReportTime, AdsInsightsDatePreset, AdsInsightsLevel
+from .adsinsights import (
+    AdsInsightsActionAttributionWindows,
+    AdsInsightsActionBreakdowns,
+    AdsInsightsActionReportTime,
+    AdsInsightsBreakdowns,
+    AdsInsightsDatePreset,
+    AdsInsightsLevel,
+    AdsInsightsSummaryActionBreakdowns,
+)
 
 if TYPE_CHECKING:
     from .adcreative import AdCreativeFields
@@ -17,18 +25,8 @@ if TYPE_CHECKING:
     from .adgroupissuesinfo import AdgroupIssuesInfoFields
     from .adgroupreviewfeedback import AdgroupReviewFeedbackFields
     from .adlabel import AdLabelFields
-    from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
     from .adrecommendation import AdRecommendationFields
     from .adset import AdSetFields
-    from .adsinsights import (
-        AdsInsightsActionAttributionWindows,
-        AdsInsightsActionBreakdowns,
-        AdsInsightsActionReportTime,
-        AdsInsightsBreakdowns,
-        AdsInsightsDatePreset,
-        AdsInsightsLevel,
-        AdsInsightsSummaryActionBreakdowns,
-    )
     from .campaign import CampaignFields
     from .conversionactionquery import ConversionActionQueryFields
     from .placement import PlacementFields
@@ -238,9 +236,7 @@ class AdFields(BaseModel):
     include_demolink_hashes: bool | None = Field(None, alias="include_demolink_hashes")
     filename: dict[str, Any] | None = Field(None, alias="filename")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdCreateAdLabelParams(BaseModel):
@@ -251,8 +247,7 @@ class AdCreateAdLabelParams(BaseModel):
         None, description="execution_options parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdGetAdRulesGovernedParams(BaseModel):
@@ -260,8 +255,7 @@ class AdGetAdRulesGovernedParams(BaseModel):
 
     pass_evaluation: bool | None = Field(None, description="pass_evaluation parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdGetCopiesParams(BaseModel):
@@ -272,8 +266,7 @@ class AdGetCopiesParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdCreateCopyParams(BaseModel):
@@ -286,8 +279,7 @@ class AdCreateCopyParams(BaseModel):
     rename_options: Any | None = Field(None, description="rename_options parameter")
     status_option: AdStatusOption | None = Field(None, description="status_option parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdGetInsightsParams(BaseModel):
@@ -328,8 +320,7 @@ class AdGetInsightsParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdGetInsightsAsyncParams(BaseModel):
@@ -370,8 +361,7 @@ class AdGetInsightsAsyncParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdGetPreviewsParams(BaseModel):
@@ -394,5 +384,4 @@ class AdGetPreviewsParams(BaseModel):
     start_date: datetime | None = Field(None, description="start_date parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

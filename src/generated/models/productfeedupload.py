@@ -6,12 +6,11 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .productfeeduploaderror import ProductFeedUploadErrorErrorPriority
 
 if TYPE_CHECKING:
-    from .productfeeduploaderror import ProductFeedUploadErrorErrorPriority
     from .productfeeduploaderrorreport import ProductFeedUploadErrorReportFields
 
 
@@ -59,9 +58,7 @@ class ProductFeedUploadFields(BaseModel):
     url: str | None = Field(None, alias="url")
     warning_count: int | None = Field(None, alias="warning_count")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ProductFeedUploadGetErrorsParams(BaseModel):
@@ -71,5 +68,4 @@ class ProductFeedUploadGetErrorsParams(BaseModel):
         None, description="error_priority parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

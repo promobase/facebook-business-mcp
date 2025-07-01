@@ -36,6 +36,7 @@ from ..models.productfeed import (
     ProductFeedCreateSupplementaryFeedAssocParams,
     ProductFeedCreateUploadParams,
     ProductFeedCreateUploadScheduleParams,
+    ProductFeedField,
     ProductFeedFields,
     ProductFeedGetAutomotiveModelsParams,
     ProductFeedGetDestinationsParams,
@@ -48,9 +49,11 @@ from ..models.productfeed import (
     ProductFeedGetVehiclesParams,
 )
 from ..models.productfeedrule import (
+    ProductFeedRuleField,
     ProductFeedRuleFields,
 )
 from ..models.productfeedupload import (
+    ProductFeedUploadField,
     ProductFeedUploadFields,
 )
 from ..models.productitem import (

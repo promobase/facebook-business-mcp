@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 SavedMessageResponseField = Literal["id", "image", "is_enabled", "message", "title"]
 
@@ -18,6 +20,4 @@ class SavedMessageResponseFields(BaseModel):
     message: str | None = Field(None, alias="message")
     title: str | None = Field(None, alias="title")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

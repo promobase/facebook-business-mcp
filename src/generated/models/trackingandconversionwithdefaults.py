@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 TrackingAndConversionWithDefaultsField = Literal[
     "custom_conversion", "custom_tracking", "default_conversion", "default_tracking"
@@ -19,6 +21,4 @@ class TrackingAndConversionWithDefaultsFields(BaseModel):
     default_conversion: list[dict[str, Any]] | None = Field(None, alias="default_conversion")
     default_tracking: list[dict[str, Any]] | None = Field(None, alias="default_tracking")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ProductItemShippingField = Literal[
     "shipping_country",
@@ -24,6 +26,4 @@ class ProductItemShippingFields(BaseModel):
     shipping_region: str | None = Field(None, alias="shipping_region")
     shipping_service: str | None = Field(None, alias="shipping_service")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

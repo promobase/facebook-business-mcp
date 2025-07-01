@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .businessrolerequest import BusinessRoleRequestFields
@@ -100,9 +101,7 @@ class BusinessUserFields(BaseModel):
     two_fac_status: str | None = Field(None, alias="two_fac_status")
     invited_user_type: list[dict[str, Any]] | None = Field(None, alias="invited_user_type")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class BusinessUserGetAssignedBusinessAssetGroupsParams(BaseModel):
@@ -110,8 +109,7 @@ class BusinessUserGetAssignedBusinessAssetGroupsParams(BaseModel):
 
     contained_asset_id: str | None = Field(None, description="contained_asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class BusinessUserGetAssignedPagesParams(BaseModel):
@@ -119,5 +117,4 @@ class BusinessUserGetAssignedPagesParams(BaseModel):
 
     pages: list[int] | None = Field(None, description="pages parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

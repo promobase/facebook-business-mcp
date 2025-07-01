@@ -6,12 +6,21 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .ad import AdDatePreset
 from .adactivity import AdActivityCategory
+from .adasyncrequest import AdAsyncRequestStatuses
 from .adcampaigndeliveryestimate import AdCampaignDeliveryEstimateOptimizationGoal
-from .adsinsights import AdsInsightsActionReportTime, AdsInsightsDatePreset, AdsInsightsLevel
+from .adsinsights import (
+    AdsInsightsActionAttributionWindows,
+    AdsInsightsActionBreakdowns,
+    AdsInsightsActionReportTime,
+    AdsInsightsBreakdowns,
+    AdsInsightsDatePreset,
+    AdsInsightsLevel,
+    AdsInsightsSummaryActionBreakdowns,
+)
 from .highdemandperiod import HighDemandPeriodBudgetValueType
 from .messagedeliveryestimate import (
     MessageDeliveryEstimateOptimizationGoal,
@@ -19,35 +28,17 @@ from .messagedeliveryestimate import (
 )
 
 if TYPE_CHECKING:
-    from .ad import AdDatePreset
-    from .adactivity import AdActivityCategory
-    from .adasyncrequest import AdAsyncRequestStatuses
     from .adbidadjustments import AdBidAdjustmentsFields
     from .adcampaignbidconstraint import AdCampaignBidConstraintFields
-    from .adcampaigndeliveryestimate import AdCampaignDeliveryEstimateOptimizationGoal
     from .adcampaignfrequencycontrolspecs import AdCampaignFrequencyControlSpecsFields
     from .adcampaignissuesinfo import AdCampaignIssuesInfoFields
     from .adcampaignlearningstageinfo import AdCampaignLearningStageInfoFields
     from .adlabel import AdLabelFields
     from .adpromotedobject import AdPromotedObjectFields
     from .adrecommendation import AdRecommendationFields
-    from .adsinsights import (
-        AdsInsightsActionAttributionWindows,
-        AdsInsightsActionBreakdowns,
-        AdsInsightsActionReportTime,
-        AdsInsightsBreakdowns,
-        AdsInsightsDatePreset,
-        AdsInsightsLevel,
-        AdsInsightsSummaryActionBreakdowns,
-    )
     from .brandsafetycampaignconfig import BrandSafetyCampaignConfigFields
     from .campaign import CampaignFields
     from .daypart import DayPartFields
-    from .highdemandperiod import HighDemandPeriodBudgetValueType
-    from .messagedeliveryestimate import (
-        MessageDeliveryEstimateOptimizationGoal,
-        MessageDeliveryEstimatePacingType,
-    )
     from .regionalregulationidentities import RegionalRegulationIdentitiesFields
     from .status import StatusFields
     from .targeting import TargetingFields
@@ -480,9 +471,7 @@ class AdSetFields(BaseModel):
     topline_id: str | None = Field(None, alias="topline_id")
     tune_for_category: dict[str, Any] | None = Field(None, alias="tune_for_category")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdSetGetActivitiesParams(BaseModel):
@@ -496,8 +485,7 @@ class AdSetGetActivitiesParams(BaseModel):
     uid: int | None = Field(None, description="uid parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetDeleteAdLabelsParams(BaseModel):
@@ -508,8 +496,7 @@ class AdSetDeleteAdLabelsParams(BaseModel):
         None, description="execution_options parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetCreateAdLabelParams(BaseModel):
@@ -520,8 +507,7 @@ class AdSetCreateAdLabelParams(BaseModel):
         None, description="execution_options parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetAdRulesGovernedParams(BaseModel):
@@ -529,8 +515,7 @@ class AdSetGetAdRulesGovernedParams(BaseModel):
 
     pass_evaluation: bool | None = Field(None, description="pass_evaluation parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetAdsParams(BaseModel):
@@ -541,8 +526,7 @@ class AdSetGetAdsParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetAsyncAdRequestsParams(BaseModel):
@@ -550,8 +534,7 @@ class AdSetGetAsyncAdRequestsParams(BaseModel):
 
     statuses: list[AdAsyncRequestStatuses] | None = Field(None, description="statuses parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetCreateBudgetScheduleParams(BaseModel):
@@ -564,8 +547,7 @@ class AdSetCreateBudgetScheduleParams(BaseModel):
     time_end: int | None = Field(None, description="time_end parameter")
     time_start: int | None = Field(None, description="time_start parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetCopiesParams(BaseModel):
@@ -578,8 +560,7 @@ class AdSetGetCopiesParams(BaseModel):
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetCreateCopyParams(BaseModel):
@@ -593,8 +574,7 @@ class AdSetCreateCopyParams(BaseModel):
     start_time: datetime | None = Field(None, description="start_time parameter")
     status_option: AdSetStatusOption | None = Field(None, description="status_option parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetDeliveryEstimateParams(BaseModel):
@@ -606,8 +586,7 @@ class AdSetGetDeliveryEstimateParams(BaseModel):
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
     targeting_spec: TargetingFields | None = Field(None, description="targeting_spec parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetInsightsParams(BaseModel):
@@ -648,8 +627,7 @@ class AdSetGetInsightsParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetInsightsAsyncParams(BaseModel):
@@ -690,8 +668,7 @@ class AdSetGetInsightsAsyncParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdSetGetMessageDeliveryEstimateParams(BaseModel):
@@ -713,5 +690,4 @@ class AdSetGetMessageDeliveryEstimateParams(BaseModel):
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
     targeting_spec: TargetingFields | None = Field(None, description="targeting_spec parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

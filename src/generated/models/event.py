@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .livevideo import (
     LiveVideoProjection,
@@ -22,13 +22,6 @@ if TYPE_CHECKING:
     from .eventregistrationsetting import EventRegistrationSettingFields
     from .eventticketsetting import EventTicketSettingFields
     from .group import GroupFields
-    from .livevideo import (
-        LiveVideoProjection,
-        LiveVideoSpatialAudioFormat,
-        LiveVideoStatus,
-        LiveVideoStereoscopicMode,
-        LiveVideoStreamType,
-    )
     from .place import PlaceFields
 
 
@@ -185,9 +178,7 @@ class EventFields(BaseModel):
     type: dict[str, Any] | None = Field(None, alias="type")
     updated_time: datetime | None = Field(None, alias="updated_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class EventCreateLiveVideoParams(BaseModel):
@@ -220,5 +211,4 @@ class EventCreateLiveVideoParams(BaseModel):
     stream_type: LiveVideoStreamType | None = Field(None, description="stream_type parameter")
     title: str | None = Field(None, description="title parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

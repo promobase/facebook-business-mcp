@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.post import Post
@@ -19,6 +19,7 @@ from ..models.post import (
     PostCreateCommentParams,
     PostCreateLikeParams,
     PostDeleteLikesParams,
+    PostField,
     PostFields,
     PostGetCommentsParams,
     PostGetInsightsParams,

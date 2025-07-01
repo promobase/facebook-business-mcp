@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AppEventConfigField = Literal[
     "breakdowns_config",
@@ -89,6 +90,4 @@ class AppEventConfigFields(BaseModel):
     track_android_app_uninstall: bool | None = Field(None, alias="track_android_app_uninstall")
     track_ios_app_uninstall: bool | None = Field(None, alias="track_ios_app_uninstall")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

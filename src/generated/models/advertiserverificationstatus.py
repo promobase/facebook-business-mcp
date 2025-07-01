@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdvertiserVerificationStatusField = Literal[
     "banner_type", "grace_period_ends_at", "ufac_redirect_uri", "verification_status"
@@ -20,6 +21,4 @@ class AdvertiserVerificationStatusFields(BaseModel):
     ufac_redirect_uri: str | None = Field(None, alias="ufac_redirect_uri")
     verification_status: str | None = Field(None, alias="verification_status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

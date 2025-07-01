@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsReportBuilderMMMReportSchedulerField = Literal[
     "ad_account_ids", "filtering", "id", "report_name", "schedule_frequency"
@@ -20,6 +22,4 @@ class AdsReportBuilderMMMReportSchedulerFields(BaseModel):
     report_name: str | None = Field(None, alias="report_name")
     schedule_frequency: str | None = Field(None, alias="schedule_frequency")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

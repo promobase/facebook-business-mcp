@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .imagecopyright import ImageCopyrightFields
@@ -64,6 +65,4 @@ class ImageReferenceMatchFields(BaseModel):
     resolution_reason: str | None = Field(None, alias="resolution_reason")
     update_time: datetime | None = Field(None, alias="update_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

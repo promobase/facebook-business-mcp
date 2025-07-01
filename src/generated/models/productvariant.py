@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ProductVariantField = Literal["label", "options", "product_field"]
 
@@ -16,6 +18,4 @@ class ProductVariantFields(BaseModel):
     options: list[str] | None = Field(None, alias="options")
     product_field: str | None = Field(None, alias="product_field")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

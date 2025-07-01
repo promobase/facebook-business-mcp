@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AvatarField = Literal["id"]
 
@@ -14,9 +16,7 @@ class AvatarFields(BaseModel):
 
     id: str | None = Field(None, alias="id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AvatarGetModelsParams(BaseModel):
@@ -30,5 +30,4 @@ class AvatarGetModelsParams(BaseModel):
     profile: str | None = Field(None, description="profile parameter")
     sdk_version: str | None = Field(None, description="sdk_version parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

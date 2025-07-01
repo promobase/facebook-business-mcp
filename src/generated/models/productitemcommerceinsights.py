@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ProductItemCommerceInsightsField = Literal[
     "message_sends", "organic_impressions", "paid_impressions"
@@ -18,6 +20,4 @@ class ProductItemCommerceInsightsFields(BaseModel):
     organic_impressions: int | None = Field(None, alias="organic_impressions")
     paid_impressions: int | None = Field(None, alias="paid_impressions")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
+
+from .commerceorder import CommerceOrderFilters, CommerceOrderState
 
 if TYPE_CHECKING:
-    from .commerceorder import CommerceOrderFilters, CommerceOrderState
     from .profile import ProfileFields
 
 
@@ -56,9 +58,7 @@ class CommerceMerchantSettingsFields(BaseModel):
     review_rejection_reasons: list[str] | None = Field(None, alias="review_rejection_reasons")
     terms: str | None = Field(None, alias="terms")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class CommerceMerchantSettingsCreateAcknowledgeOrderParams(BaseModel):
@@ -67,8 +67,7 @@ class CommerceMerchantSettingsCreateAcknowledgeOrderParams(BaseModel):
     idempotency_key: str | None = Field(None, description="idempotency_key parameter")
     orders: list[dict[str, Any]] | None = Field(None, description="orders parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceMerchantSettingsGetCommerceOrdersParams(BaseModel):
@@ -79,8 +78,7 @@ class CommerceMerchantSettingsGetCommerceOrdersParams(BaseModel):
     updated_after: datetime | None = Field(None, description="updated_after parameter")
     updated_before: datetime | None = Field(None, description="updated_before parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceMerchantSettingsGetCommercePayoutsParams(BaseModel):
@@ -89,8 +87,7 @@ class CommerceMerchantSettingsGetCommercePayoutsParams(BaseModel):
     end_time: datetime | None = Field(None, description="end_time parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceMerchantSettingsGetCommerceTransactionsParams(BaseModel):
@@ -100,8 +97,7 @@ class CommerceMerchantSettingsGetCommerceTransactionsParams(BaseModel):
     payout_reference_id: str | None = Field(None, description="payout_reference_id parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceMerchantSettingsGetReturnsParams(BaseModel):
@@ -112,8 +108,7 @@ class CommerceMerchantSettingsGetReturnsParams(BaseModel):
     start_time_created: datetime | None = Field(None, description="start_time_created parameter")
     statuses: list[str] | None = Field(None, description="statuses parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceMerchantSettingsGetShippingProfilesParams(BaseModel):
@@ -121,8 +116,7 @@ class CommerceMerchantSettingsGetShippingProfilesParams(BaseModel):
 
     reference_id: str | None = Field(None, description="reference_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceMerchantSettingsCreateShippingProfileParams(BaseModel):
@@ -139,5 +133,4 @@ class CommerceMerchantSettingsCreateShippingProfileParams(BaseModel):
         None, description="shipping_destinations parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

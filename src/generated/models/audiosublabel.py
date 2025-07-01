@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AudioSubLabelField = Literal[
     "expiration_timestamp",
@@ -29,6 +30,4 @@ class AudioSubLabelFields(BaseModel):
     num_audio_tracks: int | None = Field(None, alias="num_audio_tracks")
     state: str | None = Field(None, alias="state")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

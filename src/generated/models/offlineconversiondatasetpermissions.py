@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 OfflineConversionDataSetPermissionsField = Literal[
     "can_edit", "can_edit_or_upload", "can_upload", "should_block_vanilla_business_employee_access"
@@ -21,6 +23,4 @@ class OfflineConversionDataSetPermissionsFields(BaseModel):
         None, alias="should_block_vanilla_business_employee_access"
     )
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

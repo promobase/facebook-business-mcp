@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class CommerceOrderFilters(str, Enum):
@@ -84,9 +85,7 @@ class CommerceOrderFields(BaseModel):
     ship_by_date: str | None = Field(None, alias="ship_by_date")
     shipping_address: dict[str, Any] | None = Field(None, alias="shipping_address")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class CommerceOrderCreateAcknowledgeOrderParams(BaseModel):
@@ -97,8 +96,7 @@ class CommerceOrderCreateAcknowledgeOrderParams(BaseModel):
         None, description="merchant_order_reference parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceOrderCreateCancellationParams(BaseModel):
@@ -109,8 +107,7 @@ class CommerceOrderCreateCancellationParams(BaseModel):
     items: list[dict[str, Any]] | None = Field(None, description="items parameter")
     restock_items: bool | None = Field(None, description="restock_items parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceOrderCreateItemUpdateParams(BaseModel):
@@ -121,8 +118,7 @@ class CommerceOrderCreateItemUpdateParams(BaseModel):
         None, description="merchant_order_reference parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceOrderCreateRefundParams(BaseModel):
@@ -139,8 +135,7 @@ class CommerceOrderCreateRefundParams(BaseModel):
     return_id: str | None = Field(None, description="return_id parameter")
     shipping: dict[str, Any] | None = Field(None, description="shipping parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceOrderGetReturnsParams(BaseModel):
@@ -149,8 +144,7 @@ class CommerceOrderGetReturnsParams(BaseModel):
     merchant_return_id: str | None = Field(None, description="merchant_return_id parameter")
     statuses: list[str] | None = Field(None, description="statuses parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceOrderCreateReturnParams(BaseModel):
@@ -161,8 +155,7 @@ class CommerceOrderCreateReturnParams(BaseModel):
     return_message: str | None = Field(None, description="return_message parameter")
     update: dict[str, Any] | None = Field(None, description="update parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceOrderCreateShipmentParams(BaseModel):
@@ -189,8 +182,7 @@ class CommerceOrderCreateShipmentParams(BaseModel):
     )
     tracking_info: dict[str, Any] | None = Field(None, description="tracking_info parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommerceOrderCreateUpdateShipmentParams(BaseModel):
@@ -202,5 +194,4 @@ class CommerceOrderCreateUpdateShipmentParams(BaseModel):
     shipment_id: str | None = Field(None, description="shipment_id parameter")
     tracking_info: dict[str, Any] | None = Field(None, description="tracking_info parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .businessassetgroup import BusinessAssetGroupFields
@@ -48,6 +50,4 @@ class BusinessFranchiseConfigFields(BaseModel):
     shared_creative_folder_count: int | None = Field(None, alias="shared_creative_folder_count")
     shared_custom_audience_count: int | None = Field(None, alias="shared_custom_audience_count")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

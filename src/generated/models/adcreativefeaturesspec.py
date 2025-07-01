@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adcreativefeaturedetails import AdCreativeFeatureDetailsFields
@@ -176,6 +178,4 @@ class AdCreativeFeaturesSpecFields(BaseModel):
     video_to_image: AdCreativeFeatureDetailsFields | None = Field(None, alias="video_to_image")
     video_uncrop: AdCreativeFeatureDetailsFields | None = Field(None, alias="video_uncrop")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

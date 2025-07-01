@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .videocopyrightcheckstatus import VideoCopyrightCheckStatusFields
@@ -39,6 +41,4 @@ class VideoStatusFields(BaseModel):
     uploading_phase: VideoStatusUploadingPhaseFields | None = Field(None, alias="uploading_phase")
     video_status: str | None = Field(None, alias="video_status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

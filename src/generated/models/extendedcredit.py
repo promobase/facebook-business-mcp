@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .extendedcreditallocationconfig import (
     ExtendedCreditAllocationConfigLiabilityType,
@@ -14,12 +16,7 @@ from .extendedcreditallocationconfig import (
 
 if TYPE_CHECKING:
     from .currencyamount import CurrencyAmountFields
-    from .extendedcreditallocationconfig import (
-        ExtendedCreditAllocationConfigFields,
-        ExtendedCreditAllocationConfigLiabilityType,
-        ExtendedCreditAllocationConfigPartitionType,
-        ExtendedCreditAllocationConfigSendBillTo,
-    )
+    from .extendedcreditallocationconfig import ExtendedCreditAllocationConfigFields
 
 
 ExtendedCreditField = Literal[
@@ -70,9 +67,7 @@ class ExtendedCreditFields(BaseModel):
     send_bill_to_biz_name: str | None = Field(None, alias="send_bill_to_biz_name")
     sold_to_address: dict[str, Any] | None = Field(None, alias="sold_to_address")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ExtendedCreditCreateExtendedCreditInvoiceGroupParams(BaseModel):
@@ -81,8 +76,7 @@ class ExtendedCreditCreateExtendedCreditInvoiceGroupParams(BaseModel):
     emails: list[str] | None = Field(None, description="emails parameter")
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ExtendedCreditGetOwningCreditAllocationConfigsParams(BaseModel):
@@ -90,8 +84,7 @@ class ExtendedCreditGetOwningCreditAllocationConfigsParams(BaseModel):
 
     receiving_business_id: str | None = Field(None, description="receiving_business_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ExtendedCreditCreateOwningCreditAllocationConfigParams(BaseModel):
@@ -109,8 +102,7 @@ class ExtendedCreditCreateOwningCreditAllocationConfigParams(BaseModel):
         None, description="send_bill_to parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ExtendedCreditCreateWhatsAppCreditAttachParams(BaseModel):
@@ -119,8 +111,7 @@ class ExtendedCreditCreateWhatsAppCreditAttachParams(BaseModel):
     waba_currency: str | None = Field(None, description="waba_currency parameter")
     waba_id: str | None = Field(None, description="waba_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ExtendedCreditCreateWhatsAppCreditSharingParams(BaseModel):
@@ -128,8 +119,7 @@ class ExtendedCreditCreateWhatsAppCreditSharingParams(BaseModel):
 
     receiving_business_id: str | None = Field(None, description="receiving_business_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams(BaseModel):
@@ -138,5 +128,4 @@ class ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams(BaseModel):
     waba_currency: str | None = Field(None, description="waba_currency parameter")
     waba_id: str | None = Field(None, description="waba_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

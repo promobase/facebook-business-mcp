@@ -9,6 +9,8 @@ if TYPE_CHECKING:
 
 from ..models.publisherblocklist import (
     PublisherBlockListCreateAppendPublisherUrlParams,
+    PublisherBlockListField,
+    PublisherBlockListFields,
     PublisherBlockListGetPagedWebPublishersParams,
 )
 from ..models.webpublisher import (

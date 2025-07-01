@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsImageCropsField = Literal[
     "100x100", "100x72", "191x100", "400x150", "400x500", "600x360", "90x160"
@@ -22,6 +24,4 @@ class AdsImageCropsFields(BaseModel):
     field_600x360: list[dict[str, Any]] | None = Field(None, alias="600x360")
     field_90x160: list[dict[str, Any]] | None = Field(None, alias="90x160")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

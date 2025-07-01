@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 InstagramRelatedProductTagsField = Literal[
     "checkout_setting", "id", "image_uri", "name", "price_label", "sale_price_label"
@@ -21,6 +23,4 @@ class InstagramRelatedProductTagsFields(BaseModel):
     price_label: str | None = Field(None, alias="price_label")
     sale_price_label: str | None = Field(None, alias="sale_price_label")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

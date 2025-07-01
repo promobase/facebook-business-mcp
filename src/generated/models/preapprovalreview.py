@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PreapprovalReviewField = Literal[
     "comp_type", "crow_component_id", "is_human_reviewed", "is_reviewed", "policy_info"
@@ -20,6 +22,4 @@ class PreapprovalReviewFields(BaseModel):
     is_reviewed: bool | None = Field(None, alias="is_reviewed")
     policy_info: list[dict[str, dict[str, Any]]] | None = Field(None, alias="policy_info")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -6,13 +6,12 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .customconversionstatsresult import CustomConversionStatsResultAggregation
 
 if TYPE_CHECKING:
     from .adspixel import AdsPixelFields
-    from .customconversionstatsresult import CustomConversionStatsResultAggregation
     from .externaleventsource import ExternalEventSourceFields
     from .offlineconversiondataset import OfflineConversionDataSetFields
 
@@ -112,9 +111,7 @@ class CustomConversionFields(BaseModel):
     event_source_id: str | None = Field(None, alias="event_source_id")
     custom_conversion_id: str | None = Field(None, alias="custom_conversion_id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class CustomConversionGetStatsParams(BaseModel):
@@ -126,5 +123,4 @@ class CustomConversionGetStatsParams(BaseModel):
     end_time: datetime | None = Field(None, description="end_time parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

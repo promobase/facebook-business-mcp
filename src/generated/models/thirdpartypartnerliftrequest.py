@@ -4,9 +4,9 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import TYPE_CHECKING, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .status import StatusFields
@@ -64,6 +64,4 @@ class ThirdPartyPartnerLiftRequestFields(BaseModel):
     study_end_time: datetime | None = Field(None, alias="study_end_time")
     study_start_time: datetime | None = Field(None, alias="study_start_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

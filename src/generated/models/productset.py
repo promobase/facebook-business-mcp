@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .productitem import ProductItemErrorPriority, ProductItemErrorType
 
 if TYPE_CHECKING:
     from .productcatalog import ProductCatalogFields
-    from .productitem import ProductItemErrorPriority, ProductItemErrorType
     from .productsetmetadata import ProductSetMetadataFields
 
 
@@ -46,9 +47,7 @@ class ProductSetFields(BaseModel):
     metadata: dict[str, Any] | None = Field(None, alias="metadata")
     publish_to_shops: list[dict[str, Any]] | None = Field(None, alias="publish_to_shops")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ProductSetGetAutomotiveModelsParams(BaseModel):
@@ -57,8 +56,7 @@ class ProductSetGetAutomotiveModelsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetDestinationsParams(BaseModel):
@@ -67,8 +65,7 @@ class ProductSetGetDestinationsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetFlightsParams(BaseModel):
@@ -77,8 +74,7 @@ class ProductSetGetFlightsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetHomeListingsParams(BaseModel):
@@ -87,8 +83,7 @@ class ProductSetGetHomeListingsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetHotelsParams(BaseModel):
@@ -97,8 +92,7 @@ class ProductSetGetHotelsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetMediaTitlesParams(BaseModel):
@@ -107,8 +101,7 @@ class ProductSetGetMediaTitlesParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetProductsParams(BaseModel):
@@ -121,8 +114,7 @@ class ProductSetGetProductsParams(BaseModel):
     error_type: ProductItemErrorType | None = Field(None, description="error_type parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetVehicleOffersParams(BaseModel):
@@ -131,8 +123,7 @@ class ProductSetGetVehicleOffersParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductSetGetVehiclesParams(BaseModel):
@@ -141,5 +132,4 @@ class ProductSetGetVehiclesParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

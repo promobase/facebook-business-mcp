@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
+
+from .insightsresult import InsightsResultBreakdown, InsightsResultMetric, InsightsResultPeriod
 
 if TYPE_CHECKING:
-    from .insightsresult import InsightsResultBreakdown, InsightsResultMetric, InsightsResultPeriod
     from .user import UserFields
 
 
@@ -52,9 +54,7 @@ class IGMediaForIGOnlyAPIFields(BaseModel):
     timestamp: datetime | None = Field(None, alias="timestamp")
     username: str | None = Field(None, alias="username")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class IGMediaForIGOnlyAPICreateCommentParams(BaseModel):
@@ -62,8 +62,7 @@ class IGMediaForIGOnlyAPICreateCommentParams(BaseModel):
 
     message: str | None = Field(None, description="message parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGMediaForIGOnlyAPIGetInsightsParams(BaseModel):
@@ -73,5 +72,4 @@ class IGMediaForIGOnlyAPIGetInsightsParams(BaseModel):
     metric: list[InsightsResultMetric] | None = Field(None, description="metric parameter")
     period: list[InsightsResultPeriod] | None = Field(None, description="period parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

@@ -6,24 +6,18 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adnetworkanalyticssyncqueryresult import (
     AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+    AdNetworkAnalyticsSyncQueryResultBreakdowns,
+    AdNetworkAnalyticsSyncQueryResultMetrics,
     AdNetworkAnalyticsSyncQueryResultOrderingColumn,
     AdNetworkAnalyticsSyncQueryResultOrderingType,
 )
 from .dacheck import DACheckConnectionMethod
 
 if TYPE_CHECKING:
-    from .adnetworkanalyticssyncqueryresult import (
-        AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
-        AdNetworkAnalyticsSyncQueryResultBreakdowns,
-        AdNetworkAnalyticsSyncQueryResultMetrics,
-        AdNetworkAnalyticsSyncQueryResultOrderingColumn,
-        AdNetworkAnalyticsSyncQueryResultOrderingType,
-    )
-    from .dacheck import DACheckConnectionMethod
     from .permission import PermissionFields
 
 
@@ -360,9 +354,7 @@ class ApplicationFields(BaseModel):
     website_url: str | None = Field(None, alias="website_url")
     weekly_active_users: str | None = Field(None, alias="weekly_active_users")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ApplicationDeleteAccountsParams(BaseModel):
@@ -371,8 +363,7 @@ class ApplicationDeleteAccountsParams(BaseModel):
     type: str | None = Field(None, description="type parameter")
     uid: int | None = Field(None, description="uid parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAccountsParams(BaseModel):
@@ -380,8 +371,7 @@ class ApplicationGetAccountsParams(BaseModel):
 
     type: str | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAccountParams(BaseModel):
@@ -395,8 +385,7 @@ class ApplicationCreateAccountParams(BaseModel):
     type: str | None = Field(None, description="type parameter")
     uid: int | None = Field(None, description="uid parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateActivityParams(BaseModel):
@@ -465,8 +454,7 @@ class ApplicationCreateActivityParams(BaseModel):
     vendor_id: str | None = Field(None, description="vendor_id parameter")
     windows_attribution_id: str | None = Field(None, description="windows_attribution_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAdNetworkPlacementsParams(BaseModel):
@@ -474,8 +462,7 @@ class ApplicationGetAdNetworkPlacementsParams(BaseModel):
 
     request_id: str | None = Field(None, description="request_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAdNetworkAnalyticsParams(BaseModel):
@@ -502,8 +489,7 @@ class ApplicationGetAdNetworkAnalyticsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAdNetworkAnalyticParams(BaseModel):
@@ -529,8 +515,7 @@ class ApplicationCreateAdNetworkAnalyticParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAdNetworkAnalyticsResultsParams(BaseModel):
@@ -538,8 +523,7 @@ class ApplicationGetAdNetworkAnalyticsResultsParams(BaseModel):
 
     query_ids: list[str] | None = Field(None, description="query_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAemAttributionParams(BaseModel):
@@ -548,8 +532,7 @@ class ApplicationGetAemAttributionParams(BaseModel):
     advertiser_ids: list[str] | None = Field(None, description="advertiser_ids parameter")
     fb_content_data: str | None = Field(None, description="fb_content_data parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAemConversionConfigsParams(BaseModel):
@@ -557,8 +540,7 @@ class ApplicationGetAemConversionConfigsParams(BaseModel):
 
     advertiser_ids: list[str] | None = Field(None, description="advertiser_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAemConversionFilterParams(BaseModel):
@@ -567,8 +549,7 @@ class ApplicationGetAemConversionFilterParams(BaseModel):
     catalog_id: str | None = Field(None, description="catalog_id parameter")
     fb_content_ids: str | None = Field(None, description="fb_content_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAemConversionParams(BaseModel):
@@ -578,8 +559,7 @@ class ApplicationCreateAemConversionParams(BaseModel):
         None, description="aem_conversions parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAemSkanReadinessParams(BaseModel):
@@ -594,8 +574,7 @@ class ApplicationCreateAemSkanReadinessParams(BaseModel):
     is_skan_ready: bool | None = Field(None, description="is_skan_ready parameter")
     message: str | None = Field(None, description="message parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAggregateRevenueParams(BaseModel):
@@ -606,8 +585,7 @@ class ApplicationCreateAggregateRevenueParams(BaseModel):
     request_id: str | None = Field(None, description="request_id parameter")
     sync_api: bool | None = Field(None, description="sync_api parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAppIndexingParams(BaseModel):
@@ -620,8 +598,7 @@ class ApplicationCreateAppIndexingParams(BaseModel):
     request_type: ApplicationRequestType | None = Field(None, description="request_type parameter")
     tree: dict[str, Any] | None = Field(None, description="tree parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAppIndexingSessionParams(BaseModel):
@@ -630,8 +607,7 @@ class ApplicationCreateAppIndexingSessionParams(BaseModel):
     device_session_id: str | None = Field(None, description="device_session_id parameter")
     extinfo: str | None = Field(None, description="extinfo parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAppInstalledGroupsParams(BaseModel):
@@ -639,8 +615,7 @@ class ApplicationGetAppInstalledGroupsParams(BaseModel):
 
     group_id: str | None = Field(None, description="group_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAppPushDeviceTokenParams(BaseModel):
@@ -650,8 +625,7 @@ class ApplicationCreateAppPushDeviceTokenParams(BaseModel):
     device_token: str | None = Field(None, description="device_token parameter")
     platform: ApplicationPlatform | None = Field(None, description="platform parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateAssetParams(BaseModel):
@@ -661,8 +635,7 @@ class ApplicationCreateAssetParams(BaseModel):
     comment: str | None = Field(None, description="comment parameter")
     type: str | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetAuthorizedAdAccountsParams(BaseModel):
@@ -670,8 +643,7 @@ class ApplicationGetAuthorizedAdAccountsParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetButtonAutoDetectionDeviceSelectionParams(BaseModel):
@@ -679,8 +651,7 @@ class ApplicationGetButtonAutoDetectionDeviceSelectionParams(BaseModel):
 
     device_id: str | None = Field(None, description="device_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateCodelessEventMappingParams(BaseModel):
@@ -693,8 +664,7 @@ class ApplicationCreateCodelessEventMappingParams(BaseModel):
     platform: ApplicationPlatform | None = Field(None, description="platform parameter")
     post_method: ApplicationPostMethod | None = Field(None, description="post_method parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetDaChecksParams(BaseModel):
@@ -705,8 +675,7 @@ class ApplicationGetDaChecksParams(BaseModel):
         None, description="connection_method parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateDomainReportParams(BaseModel):
@@ -714,8 +683,7 @@ class ApplicationCreateDomainReportParams(BaseModel):
 
     tracking_domains: list[str] | None = Field(None, description="tracking_domains parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetIapPurchasesParams(BaseModel):
@@ -723,8 +691,7 @@ class ApplicationGetIapPurchasesParams(BaseModel):
 
     order_id: str | None = Field(None, description="order_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetMessageTemplatesParams(BaseModel):
@@ -732,8 +699,7 @@ class ApplicationGetMessageTemplatesParams(BaseModel):
 
     template_id: str | None = Field(None, description="template_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateMmpAuditingParams(BaseModel):
@@ -769,8 +735,7 @@ class ApplicationCreateMmpAuditingParams(BaseModel):
     used_install_referrer: bool | None = Field(None, description="used_install_referrer parameter")
     view_attr_window: int | None = Field(None, description="view_attr_window parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetMobileSdkGkParams(BaseModel):
@@ -782,8 +747,7 @@ class ApplicationGetMobileSdkGkParams(BaseModel):
     platform: str | None = Field(None, description="platform parameter")
     sdk_version: str | None = Field(None, description="sdk_version parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateMonetizedDigitalStoreObjectParams(BaseModel):
@@ -792,8 +756,7 @@ class ApplicationCreateMonetizedDigitalStoreObjectParams(BaseModel):
     content_id: str | None = Field(None, description="content_id parameter")
     store: str | None = Field(None, description="store parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateOccludesPopupParams(BaseModel):
@@ -802,8 +765,7 @@ class ApplicationCreateOccludesPopupParams(BaseModel):
     flash: bool | None = Field(None, description="flash parameter")
     unity: bool | None = Field(None, description="unity parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetPermissionsParams(BaseModel):
@@ -815,8 +777,7 @@ class ApplicationGetPermissionsParams(BaseModel):
     proxied_app_id: int | None = Field(None, description="proxied_app_id parameter")
     status: list[str] | None = Field(None, description="status parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetProductsParams(BaseModel):
@@ -824,8 +785,7 @@ class ApplicationGetProductsParams(BaseModel):
 
     product_ids: list[str] | None = Field(None, description="product_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetSgwDatasetStatusParams(BaseModel):
@@ -833,8 +793,7 @@ class ApplicationGetSgwDatasetStatusParams(BaseModel):
 
     dataset_id: int | None = Field(None, description="dataset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetSgwInstallDeferralLinkParams(BaseModel):
@@ -843,8 +802,7 @@ class ApplicationGetSgwInstallDeferralLinkParams(BaseModel):
     client_ip: str | None = Field(None, description="client_ip parameter")
     dataset_id: int | None = Field(None, description="dataset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateSubscribedDomainParams(BaseModel):
@@ -853,8 +811,7 @@ class ApplicationCreateSubscribedDomainParams(BaseModel):
     subscribe: list[str] | None = Field(None, description="subscribe parameter")
     unsubscribe: list[str] | None = Field(None, description="unsubscribe parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateSubscribedDomainsPhishingParams(BaseModel):
@@ -863,8 +820,7 @@ class ApplicationCreateSubscribedDomainsPhishingParams(BaseModel):
     subscribe: list[str] | None = Field(None, description="subscribe parameter")
     unsubscribe: list[str] | None = Field(None, description="unsubscribe parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationDeleteSubscriptionsParams(BaseModel):
@@ -873,8 +829,7 @@ class ApplicationDeleteSubscriptionsParams(BaseModel):
     fields: list[str] | None = Field(None, description="fields parameter")
     object: str | None = Field(None, description="object parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateSubscriptionParams(BaseModel):
@@ -886,8 +841,7 @@ class ApplicationCreateSubscriptionParams(BaseModel):
     object: str | None = Field(None, description="object parameter")
     verify_token: str | None = Field(None, description="verify_token parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateUploadParams(BaseModel):
@@ -898,8 +852,7 @@ class ApplicationCreateUploadParams(BaseModel):
     file_type: Any | None = Field(None, description="file_type parameter")
     session_type: str | None = Field(None, description="session_type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationCreateWhatsAppBusinessSolutionParams(BaseModel):
@@ -914,8 +867,7 @@ class ApplicationCreateWhatsAppBusinessSolutionParams(BaseModel):
     )
     solution_name: str | None = Field(None, description="solution_name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ApplicationGetWhatsAppBusinessSolutionsParams(BaseModel):
@@ -923,5 +875,4 @@ class ApplicationGetWhatsAppBusinessSolutionsParams(BaseModel):
 
     role: str | None = Field(None, description="role parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

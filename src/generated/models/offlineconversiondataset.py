@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adaccount import AdAccountActionSource
 from .business import BusinessActionSource
@@ -16,13 +17,7 @@ from .offlineconversiondatasetupload import (
 )
 
 if TYPE_CHECKING:
-    from .adaccount import AdAccountActionSource, AdAccountFields
-    from .business import BusinessActionSource
-    from .customaudience import CustomAudienceActionSource
-    from .offlineconversiondatasetupload import (
-        OfflineConversionDataSetUploadOrder,
-        OfflineConversionDataSetUploadSortBy,
-    )
+    from .adaccount import AdAccountFields
     from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
     from .user import UserFields
 
@@ -101,9 +96,7 @@ class OfflineConversionDataSetFields(BaseModel):
     usage: OfflineConversionDataSetUsageFields | None = Field(None, alias="usage")
     valid_entries: int | None = Field(None, alias="valid_entries")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class OfflineConversionDataSetGetAdAccountsParams(BaseModel):
@@ -111,8 +104,7 @@ class OfflineConversionDataSetGetAdAccountsParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class OfflineConversionDataSetGetAudiencesParams(BaseModel):
@@ -123,8 +115,7 @@ class OfflineConversionDataSetGetAudiencesParams(BaseModel):
     )
     ad_account: str | None = Field(None, description="ad_account parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class OfflineConversionDataSetGetCustomConversionsParams(BaseModel):
@@ -132,8 +123,7 @@ class OfflineConversionDataSetGetCustomConversionsParams(BaseModel):
 
     ad_account: str | None = Field(None, description="ad_account parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class OfflineConversionDataSetGetSharedAccountsParams(BaseModel):
@@ -142,8 +132,7 @@ class OfflineConversionDataSetGetSharedAccountsParams(BaseModel):
     action_source: AdAccountActionSource | None = Field(None, description="action_source parameter")
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class OfflineConversionDataSetGetSharedAgenciesParams(BaseModel):
@@ -151,8 +140,7 @@ class OfflineConversionDataSetGetSharedAgenciesParams(BaseModel):
 
     action_source: BusinessActionSource | None = Field(None, description="action_source parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class OfflineConversionDataSetGetStatsParams(BaseModel):
@@ -165,8 +153,7 @@ class OfflineConversionDataSetGetStatsParams(BaseModel):
     start: int | None = Field(None, description="start parameter")
     user_timezone_id: int | None = Field(None, description="user_timezone_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class OfflineConversionDataSetGetUploadsParams(BaseModel):
@@ -180,5 +167,4 @@ class OfflineConversionDataSetGetUploadsParams(BaseModel):
     start_time: datetime | None = Field(None, description="start_time parameter")
     upload_tag: str | None = Field(None, description="upload_tag parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CPASLsbImageBankField = Literal[
     "ad_group_id", "catalog_segment_proxy_id", "id", "agency_business_id", "backup_image_urls"
@@ -20,6 +22,4 @@ class CPASLsbImageBankFields(BaseModel):
     agency_business_id: int | None = Field(None, alias="agency_business_id")
     backup_image_urls: list[str] | None = Field(None, alias="backup_image_urls")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

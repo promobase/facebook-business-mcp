@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCampaignConversionValueExpressionSpecField = Literal[
     "adjustment_sign", "adjustment_weight", "destination_type"
@@ -18,6 +20,4 @@ class AdCampaignConversionValueExpressionSpecFields(BaseModel):
     adjustment_weight: int | None = Field(None, alias="adjustment_weight")
     destination_type: str | None = Field(None, alias="destination_type")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

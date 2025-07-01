@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdLimitsEnforcementDataField = Literal[
     "ad_limit_on_page",
@@ -26,6 +28,4 @@ class AdLimitsEnforcementDataFields(BaseModel):
     is_admin: bool | None = Field(None, alias="is_admin")
     page_name: str | None = Field(None, alias="page_name")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

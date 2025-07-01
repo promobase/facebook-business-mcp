@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
@@ -44,6 +46,4 @@ class AdCreativeLinkDataChildAttachmentFields(BaseModel):
     static_card: bool | None = Field(None, alias="static_card")
     video_id: str | None = Field(None, alias="video_id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

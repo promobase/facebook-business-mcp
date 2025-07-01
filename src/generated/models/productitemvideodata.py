@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ProductItemVideoDataField = Literal["tags", "url"]
 
@@ -15,6 +17,4 @@ class ProductItemVideoDataFields(BaseModel):
     tags: list[str] | None = Field(None, alias="tags")
     url: str | None = Field(None, alias="url")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

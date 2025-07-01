@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 StoreLocationField = Literal[
     "full_address",
@@ -30,6 +32,4 @@ class StoreLocationFields(BaseModel):
     store_code: str | None = Field(None, alias="store_code")
     zip_code: str | None = Field(None, alias="zip_code")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

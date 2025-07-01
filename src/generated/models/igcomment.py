@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .igcommentfromuser import IGCommentFromUserFields
@@ -43,9 +44,7 @@ class IGCommentFields(BaseModel):
     user: IGUserFields | None = Field(None, alias="user")
     username: str | None = Field(None, alias="username")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class IGCommentCreateReplyParams(BaseModel):
@@ -53,5 +52,4 @@ class IGCommentCreateReplyParams(BaseModel):
 
     message: str | None = Field(None, description="message parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

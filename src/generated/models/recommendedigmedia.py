@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 RecommendedIGMediaField = Literal["intent_score"]
 
@@ -14,6 +16,4 @@ class RecommendedIGMediaFields(BaseModel):
 
     intent_score: float | None = Field(None, alias="intent_score")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

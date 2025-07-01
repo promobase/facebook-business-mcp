@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ShadowIGUserCTXPartnerAppWelcomeMessageFlowField = Literal[
     "compatible_platforms",
@@ -31,6 +32,4 @@ class ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields(BaseModel):
     name: str | None = Field(None, alias="name")
     welcome_message_flow: str | None = Field(None, alias="welcome_message_flow")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

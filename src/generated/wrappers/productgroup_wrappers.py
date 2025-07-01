@@ -2,18 +2,21 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.productgroup import ProductGroup
 
-
 from ..models.productgroup import (
     ProductGroupCreateProductParams,
+    ProductGroupField,
+    ProductGroupFields,
 )
 from ..models.productitem import (
+    ProductItemField,
     ProductItemFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class ProductGroupWrappers:

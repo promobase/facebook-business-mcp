@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AudioIsrcField = Literal[
     "all_kg_featured_artists",
@@ -34,6 +36,4 @@ class AudioIsrcFields(BaseModel):
         None, alias="top_searchable_artist_profile_pic_url"
     )
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

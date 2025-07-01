@@ -6,12 +6,20 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .checkbatchrequeststatus import CheckBatchRequestStatusErrorPriority
 from .creatorassetcreative import CreatorAssetCreativeModerationStatus
 from .productcatalogcategory import ProductCatalogCategoryCategorizationCriteria
 from .productcatalogdatasource import ProductCatalogDataSourceIngestionSourceType
+from .productcatalogdiagnosticgroup import (
+    ProductCatalogDiagnosticGroupAffectedChannels,
+    ProductCatalogDiagnosticGroupAffectedEntities,
+    ProductCatalogDiagnosticGroupAffectedFeatures,
+    ProductCatalogDiagnosticGroupSeverities,
+    ProductCatalogDiagnosticGroupTypes,
+)
+from .producteventstat import ProductEventStatBreakdowns
 from .productfeed import (
     ProductFeedDelimiter,
     ProductFeedEncoding,
@@ -46,55 +54,11 @@ from .vehicle import (
 )
 
 if TYPE_CHECKING:
-    from .checkbatchrequeststatus import CheckBatchRequestStatusErrorPriority
     from .collaborativeadssharesettings import CollaborativeAdsShareSettingsFields
     from .commercemerchantsettings import CommerceMerchantSettingsFields
-    from .creatorassetcreative import CreatorAssetCreativeModerationStatus
-    from .productcatalogcategory import ProductCatalogCategoryCategorizationCriteria
-    from .productcatalogdatasource import ProductCatalogDataSourceIngestionSourceType
-    from .productcatalogdiagnosticgroup import (
-        ProductCatalogDiagnosticGroupAffectedChannels,
-        ProductCatalogDiagnosticGroupAffectedEntities,
-        ProductCatalogDiagnosticGroupAffectedFeatures,
-        ProductCatalogDiagnosticGroupSeverities,
-        ProductCatalogDiagnosticGroupTypes,
-    )
     from .productcatalogimagesettings import ProductCatalogImageSettingsFields
-    from .producteventstat import ProductEventStatBreakdowns
-    from .productfeed import (
-        ProductFeedDelimiter,
-        ProductFeedEncoding,
-        ProductFeedFeedType,
-        ProductFeedIngestionSourceType,
-        ProductFeedItemSubType,
-        ProductFeedOverrideType,
-        ProductFeedQuotedFieldsMode,
-    )
-    from .productitem import (
-        ProductItemAgeGroup,
-        ProductItemAvailability,
-        ProductItemCommerceTaxCategory,
-        ProductItemCondition,
-        ProductItemErrorPriority,
-        ProductItemErrorType,
-        ProductItemGender,
-        ProductItemMarkedForProductLaunch,
-        ProductItemOriginCountry,
-        ProductItemVisibility,
-        ProductItemWaComplianceCategory,
-    )
     from .storecatalogsettings import StoreCatalogSettingsFields
     from .user import UserFields
-    from .vehicle import (
-        VehicleAvailability,
-        VehicleBodyStyle,
-        VehicleCondition,
-        VehicleDrivetrain,
-        VehicleFuelType,
-        VehicleStateOfVehicle,
-        VehicleTransmission,
-        VehicleVehicleType,
-    )
 
 
 class ProductCatalogAdditionalVerticalOption(str, Enum):
@@ -268,9 +232,7 @@ class ProductCatalogFields(BaseModel):
     parent_catalog_id: str | None = Field(None, alias="parent_catalog_id")
     partner_integration: dict[str, Any] | None = Field(None, alias="partner_integration")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ProductCatalogDeleteAgenciesParams(BaseModel):
@@ -278,8 +240,7 @@ class ProductCatalogDeleteAgenciesParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateAgencyParams(BaseModel):
@@ -295,8 +256,7 @@ class ProductCatalogCreateAgencyParams(BaseModel):
     skip_defaults: bool | None = Field(None, description="skip_defaults parameter")
     utm_settings: dict[str, Any] | None = Field(None, description="utm_settings parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogDeleteAssignedUsersParams(BaseModel):
@@ -304,8 +264,7 @@ class ProductCatalogDeleteAssignedUsersParams(BaseModel):
 
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetAssignedUsersParams(BaseModel):
@@ -313,8 +272,7 @@ class ProductCatalogGetAssignedUsersParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateAssignedUserParams(BaseModel):
@@ -323,8 +281,7 @@ class ProductCatalogCreateAssignedUserParams(BaseModel):
     tasks: list[ProductCatalogTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetAutomotiveModelsParams(BaseModel):
@@ -333,8 +290,7 @@ class ProductCatalogGetAutomotiveModelsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateBatchParams(BaseModel):
@@ -347,8 +303,7 @@ class ProductCatalogCreateBatchParams(BaseModel):
     requests: list[dict[str, Any]] | None = Field(None, description="requests parameter")
     version: int | None = Field(None, description="version parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateCatalogStoreParams(BaseModel):
@@ -356,8 +311,7 @@ class ProductCatalogCreateCatalogStoreParams(BaseModel):
 
     page: str | None = Field(None, description="page parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetCategoriesParams(BaseModel):
@@ -368,8 +322,7 @@ class ProductCatalogGetCategoriesParams(BaseModel):
     )
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateCategoryParams(BaseModel):
@@ -377,8 +330,7 @@ class ProductCatalogCreateCategoryParams(BaseModel):
 
     data: list[dict[str, Any]] | None = Field(None, description="data parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetCheckBatchRequestStatusParams(BaseModel):
@@ -392,8 +344,7 @@ class ProductCatalogGetCheckBatchRequestStatusParams(BaseModel):
         None, description="load_ids_of_invalid_requests parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetCheckMarketplacePartnerSellersStatusParams(BaseModel):
@@ -401,8 +352,7 @@ class ProductCatalogGetCheckMarketplacePartnerSellersStatusParams(BaseModel):
 
     session_id: str | None = Field(None, description="session_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateCpasLsbImageBankParams(BaseModel):
@@ -412,8 +362,7 @@ class ProductCatalogCreateCpasLsbImageBankParams(BaseModel):
     agency_business_id: int | None = Field(None, description="agency_business_id parameter")
     backup_image_urls: list[str] | None = Field(None, description="backup_image_urls parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetCreatorAssetCreativesParams(BaseModel):
@@ -423,8 +372,7 @@ class ProductCatalogGetCreatorAssetCreativesParams(BaseModel):
         None, description="moderation_status parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetDataSourcesParams(BaseModel):
@@ -434,8 +382,7 @@ class ProductCatalogGetDataSourcesParams(BaseModel):
         None, description="ingestion_source_type parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetDestinationsParams(BaseModel):
@@ -444,8 +391,7 @@ class ProductCatalogGetDestinationsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetDiagnosticsParams(BaseModel):
@@ -467,8 +413,7 @@ class ProductCatalogGetDiagnosticsParams(BaseModel):
         None, description="types parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetEventStatsParams(BaseModel):
@@ -478,8 +423,7 @@ class ProductCatalogGetEventStatsParams(BaseModel):
         None, description="breakdowns parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogDeleteExternalEventSourcesParams(BaseModel):
@@ -487,8 +431,7 @@ class ProductCatalogDeleteExternalEventSourcesParams(BaseModel):
 
     external_event_sources: Any | None = Field(None, description="external_event_sources parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateExternalEventSourceParams(BaseModel):
@@ -496,8 +439,7 @@ class ProductCatalogCreateExternalEventSourceParams(BaseModel):
 
     external_event_sources: Any | None = Field(None, description="external_event_sources parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetFlightsParams(BaseModel):
@@ -506,8 +448,7 @@ class ProductCatalogGetFlightsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateGeolocatedItemsBatchParams(BaseModel):
@@ -517,8 +458,7 @@ class ProductCatalogCreateGeolocatedItemsBatchParams(BaseModel):
     item_type: str | None = Field(None, description="item_type parameter")
     requests: dict[str, Any] | None = Field(None, description="requests parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetHomeListingsParams(BaseModel):
@@ -527,8 +467,7 @@ class ProductCatalogGetHomeListingsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateHomeListingParams(BaseModel):
@@ -550,8 +489,7 @@ class ProductCatalogCreateHomeListingParams(BaseModel):
     url: str | None = Field(None, description="url parameter")
     year_built: int | None = Field(None, description="year_built parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetHotelRoomsBatchParams(BaseModel):
@@ -559,8 +497,7 @@ class ProductCatalogGetHotelRoomsBatchParams(BaseModel):
 
     handle: str | None = Field(None, description="handle parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateHotelRoomsBatchParams(BaseModel):
@@ -573,8 +510,7 @@ class ProductCatalogCreateHotelRoomsBatchParams(BaseModel):
     url: str | None = Field(None, description="url parameter")
     username: str | None = Field(None, description="username parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetHotelsParams(BaseModel):
@@ -583,8 +519,7 @@ class ProductCatalogGetHotelsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateHotelParams(BaseModel):
@@ -604,8 +539,7 @@ class ProductCatalogCreateHotelParams(BaseModel):
     star_rating: float | None = Field(None, description="star_rating parameter")
     url: str | None = Field(None, description="url parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateItemsBatchParams(BaseModel):
@@ -619,8 +553,7 @@ class ProductCatalogCreateItemsBatchParams(BaseModel):
     requests: dict[str, Any] | None = Field(None, description="requests parameter")
     version: int | None = Field(None, description="version parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateLocalizedItemsBatchParams(BaseModel):
@@ -631,8 +564,7 @@ class ProductCatalogCreateLocalizedItemsBatchParams(BaseModel):
     requests: dict[str, Any] | None = Field(None, description="requests parameter")
     version: int | None = Field(None, description="version parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateMarketPlacePartnerSellersDetailParams(BaseModel):
@@ -640,8 +572,7 @@ class ProductCatalogCreateMarketPlacePartnerSellersDetailParams(BaseModel):
 
     requests: dict[str, Any] | None = Field(None, description="requests parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateMarketPlacePartnerSignalParams(BaseModel):
@@ -653,8 +584,7 @@ class ProductCatalogCreateMarketPlacePartnerSignalParams(BaseModel):
     order_data: dict[str, Any] | None = Field(None, description="order_data parameter")
     user_data: dict[str, Any] | None = Field(None, description="user_data parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetPricingVariablesBatchParams(BaseModel):
@@ -662,8 +592,7 @@ class ProductCatalogGetPricingVariablesBatchParams(BaseModel):
 
     handle: str | None = Field(None, description="handle parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreatePricingVariablesBatchParams(BaseModel):
@@ -676,8 +605,7 @@ class ProductCatalogCreatePricingVariablesBatchParams(BaseModel):
     url: str | None = Field(None, description="url parameter")
     username: str | None = Field(None, description="username parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateProductFeedParams(BaseModel):
@@ -713,8 +641,7 @@ class ProductCatalogCreateProductFeedParams(BaseModel):
     )
     update_schedule: str | None = Field(None, description="update_schedule parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateProductGroupParams(BaseModel):
@@ -723,8 +650,7 @@ class ProductCatalogCreateProductGroupParams(BaseModel):
     retailer_id: str | None = Field(None, description="retailer_id parameter")
     variants: list[Any] | None = Field(None, description="variants parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetProductSetsParams(BaseModel):
@@ -735,8 +661,7 @@ class ProductCatalogGetProductSetsParams(BaseModel):
     parent_id: str | None = Field(None, description="parent_id parameter")
     retailer_id: str | None = Field(None, description="retailer_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateProductSetParams(BaseModel):
@@ -751,8 +676,7 @@ class ProductCatalogCreateProductSetParams(BaseModel):
     )
     retailer_id: str | None = Field(None, description="retailer_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetProductSetsBatchParams(BaseModel):
@@ -760,8 +684,7 @@ class ProductCatalogGetProductSetsBatchParams(BaseModel):
 
     handle: str | None = Field(None, description="handle parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetProductsParams(BaseModel):
@@ -777,8 +700,7 @@ class ProductCatalogGetProductsParams(BaseModel):
         None, description="return_only_approved_products parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateProductParams(BaseModel):
@@ -885,8 +807,7 @@ class ProductCatalogCreateProductParams(BaseModel):
     windows_phone_app_name: str | None = Field(None, description="windows_phone_app_name parameter")
     windows_phone_url: str | None = Field(None, description="windows_phone_url parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateUpdateGeneratedImageConfigParams(BaseModel):
@@ -894,8 +815,7 @@ class ProductCatalogCreateUpdateGeneratedImageConfigParams(BaseModel):
 
     data: list[Any] | None = Field(None, description="data parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetVehicleOffersParams(BaseModel):
@@ -904,8 +824,7 @@ class ProductCatalogGetVehicleOffersParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogGetVehiclesParams(BaseModel):
@@ -914,8 +833,7 @@ class ProductCatalogGetVehiclesParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateVehicleParams(BaseModel):
@@ -954,8 +872,7 @@ class ProductCatalogCreateVehicleParams(BaseModel):
     vin: str | None = Field(None, description="vin parameter")
     year: int | None = Field(None, description="year parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductCatalogCreateVersionItemsBatchParams(BaseModel):
@@ -967,5 +884,4 @@ class ProductCatalogCreateVersionItemsBatchParams(BaseModel):
     requests: dict[str, Any] | None = Field(None, description="requests parameter")
     version: int | None = Field(None, description="version parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

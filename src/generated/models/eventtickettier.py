@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 EventTicketTierField = Literal[
     "currency",
@@ -51,6 +52,4 @@ class EventTicketTierFields(BaseModel):
     status: str | None = Field(None, alias="status")
     total_quantity: int | None = Field(None, alias="total_quantity")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

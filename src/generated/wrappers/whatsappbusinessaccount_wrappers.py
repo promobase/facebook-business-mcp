@@ -16,9 +16,11 @@ from ..models.ctxpartnerappwelcomemessageflow import (
     CTXPartnerAppWelcomeMessageFlowFields,
 )
 from ..models.dataset import (
+    DatasetField,
     DatasetFields,
 )
 from ..models.productcatalog import (
+    ProductCatalogField,
     ProductCatalogFields,
 )
 from ..models.whatsappbusinessaccount import (
@@ -41,6 +43,7 @@ from ..models.whatsappbusinessaccount import (
     WhatsAppBusinessAccountDeleteMessageTemplatesParams,
     WhatsAppBusinessAccountDeletePaymentConfigurationParams,
     WhatsAppBusinessAccountDeleteProductCatalogsParams,
+    WhatsAppBusinessAccountField,
     WhatsAppBusinessAccountFields,
     WhatsAppBusinessAccountGetAssignedUsersParams,
     WhatsAppBusinessAccountGetCallAnalyticsParams,

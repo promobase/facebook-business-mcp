@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCampaignGroupAdvantageStateField = Literal[
     "advantage_audience_state",
@@ -22,6 +24,4 @@ class AdCampaignGroupAdvantageStateFields(BaseModel):
     advantage_placement_state: str | None = Field(None, alias="advantage_placement_state")
     advantage_state: str | None = Field(None, alias="advantage_state")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

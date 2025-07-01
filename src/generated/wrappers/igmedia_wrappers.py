@@ -2,21 +2,25 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.igmedia import IGMedia
 
 from ..models.brandedcontentshadowiguserid import (
+    BrandedContentShadowIGUserIDField,
     BrandedContentShadowIGUserIDFields,
 )
 from ..models.igcomment import (
+    IGCommentField,
     IGCommentFields,
 )
 from ..models.igmedia import (
     IGMediaCreateBrandedContentPartnerPromoteParams,
     IGMediaCreateCommentParams,
     IGMediaCreateProductTagParams,
+    IGMediaField,
+    IGMediaFields,
     IGMediaGetInsightsParams,
 )
 from ..models.instagraminsightsresult import (
@@ -24,6 +28,7 @@ from ..models.instagraminsightsresult import (
     InstagramInsightsResultFields,
 )
 from ..models.shadowigmediaproducttags import (
+    ShadowIGMediaProductTagsField,
     ShadowIGMediaProductTagsFields,
 )
 from .cursor_utils import TypedCursor

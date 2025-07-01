@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.systemuser import SystemUser
@@ -16,6 +16,8 @@ from ..models.page import (
     PageFields,
 )
 from ..models.systemuser import (
+    SystemUserField,
+    SystemUserFields,
     SystemUserGetAssignedBusinessAssetGroupsParams,
     SystemUserGetAssignedPagesParams,
 )

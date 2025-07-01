@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 LiveVideoRecommendedEncoderSettingsField = Literal[
     "audio_codec_settings", "streaming_protocol", "video_codec_settings"
@@ -18,6 +20,4 @@ class LiveVideoRecommendedEncoderSettingsFields(BaseModel):
     streaming_protocol: str | None = Field(None, alias="streaming_protocol")
     video_codec_settings: dict[str, Any] | None = Field(None, alias="video_codec_settings")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

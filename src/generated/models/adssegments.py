@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsSegmentsField = Literal[
     "daily_audience_size",
@@ -32,6 +34,4 @@ class AdsSegmentsFields(BaseModel):
     projected_cpm: int | None = Field(None, alias="projected_cpm")
     projected_daily_revenue: int | None = Field(None, alias="projected_daily_revenue")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

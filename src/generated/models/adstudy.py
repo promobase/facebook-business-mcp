@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .user import UserFields
@@ -74,9 +74,7 @@ class AdStudyFields(BaseModel):
     objectives: list[dict[str, Any]] | None = Field(None, alias="objectives")
     viewers: list[int] | None = Field(None, alias="viewers")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdStudyCreateCheckPointParams(BaseModel):
@@ -88,8 +86,7 @@ class AdStudyCreateCheckPointParams(BaseModel):
     instance_id: str | None = Field(None, description="instance_id parameter")
     run_id: str | None = Field(None, description="run_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdStudyCreateInstanceParams(BaseModel):
@@ -98,5 +95,4 @@ class AdStudyCreateInstanceParams(BaseModel):
     breakdown_key: dict[str, Any] | None = Field(None, description="breakdown_key parameter")
     run_id: str | None = Field(None, description="run_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

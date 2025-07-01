@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ReachFrequencyEstimatesPlacementBreakdownField = Literal[
     "android",
@@ -46,6 +48,4 @@ class ReachFrequencyEstimatesPlacementBreakdownFields(BaseModel):
     msite: list[float] | None = Field(None, alias="msite")
     suggested_videos: list[float] | None = Field(None, alias="suggested_videos")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCreativeLinkDataCallToActionValueField = Literal[
     "app_destination",
@@ -38,6 +40,4 @@ class AdCreativeLinkDataCallToActionValueFields(BaseModel):
     product_link: str | None = Field(None, alias="product_link")
     whatsapp_number: str | None = Field(None, alias="whatsapp_number")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

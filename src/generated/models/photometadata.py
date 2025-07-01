@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PhotoMetadataField = Literal[
     "camera_make",
@@ -39,6 +40,4 @@ class PhotoMetadataFields(BaseModel):
     original_height: str | None = Field(None, alias="original_height")
     original_width: str | None = Field(None, alias="original_width")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

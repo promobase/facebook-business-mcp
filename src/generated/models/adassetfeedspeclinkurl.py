@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adassetfeedspecassetlabel import AdAssetFeedSpecAssetLabelFields
@@ -32,6 +34,4 @@ class AdAssetFeedSpecLinkURLFields(BaseModel):
     url_tags: str | None = Field(None, alias="url_tags")
     website_url: str | None = Field(None, alias="website_url")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

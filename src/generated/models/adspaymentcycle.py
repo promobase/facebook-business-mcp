@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsPaymentCycleField = Literal[
     "account_id",
@@ -27,6 +28,4 @@ class AdsPaymentCycleFields(BaseModel):
     threshold_amount: int | None = Field(None, alias="threshold_amount")
     updated_time: datetime | None = Field(None, alias="updated_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

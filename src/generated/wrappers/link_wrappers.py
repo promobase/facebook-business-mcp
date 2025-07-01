@@ -2,18 +2,21 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.link import Link
 
-
 from ..models.comment import (
+    CommentField,
     CommentFields,
 )
 from ..models.link import (
     LinkCreateCommentParams,
+    LinkField,
+    LinkFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class LinkWrappers:

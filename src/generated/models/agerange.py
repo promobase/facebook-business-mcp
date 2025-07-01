@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AgeRangeField = Literal["max", "min"]
 
@@ -15,6 +17,4 @@ class AgeRangeFields(BaseModel):
     max: int | None = Field(None, alias="max")
     min: int | None = Field(None, alias="min")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PrivacyOptionField = Literal[
     "description", "icon_src", "id", "is_currently_selected", "type", "user_id"
@@ -21,6 +23,4 @@ class PrivacyOptionFields(BaseModel):
     type: str | None = Field(None, alias="type")
     user_id: str | None = Field(None, alias="user_id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

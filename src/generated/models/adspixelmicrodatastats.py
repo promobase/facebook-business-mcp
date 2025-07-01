@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsPixelMicrodataStatsField = Literal[
     "allowed_domains",
@@ -28,6 +30,4 @@ class AdsPixelMicrodataStatsFields(BaseModel):
     )
     suggested_trusted_domains: list[str] | None = Field(None, alias="suggested_trusted_domains")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

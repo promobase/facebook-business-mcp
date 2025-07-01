@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.campaign import Campaign
@@ -41,6 +41,7 @@ from ..models.campaign import (
     CampaignGetInsightsParams,
 )
 from ..models.highdemandperiod import (
+    HighDemandPeriodField,
     HighDemandPeriodFields,
 )
 from .cursor_utils import TypedCursor

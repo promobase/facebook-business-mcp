@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 IGUserMessengerProfileField = Literal["ice_breakers", "persistent_menu"]
 
@@ -15,6 +17,4 @@ class IGUserMessengerProfileFields(BaseModel):
     ice_breakers: list[dict[str, Any]] | None = Field(None, alias="ice_breakers")
     persistent_menu: list[dict[str, Any]] | None = Field(None, alias="persistent_menu")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 MessengerDestinationPageWelcomeMessageField = Literal[
     "id",
@@ -27,6 +28,4 @@ class MessengerDestinationPageWelcomeMessageFields(BaseModel):
     time_created: datetime | None = Field(None, alias="time_created")
     time_last_used: datetime | None = Field(None, alias="time_last_used")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

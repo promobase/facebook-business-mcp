@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 UserCoverPhotoField = Literal["offset_x", "offset_y", "source"]
 
@@ -16,6 +18,4 @@ class UserCoverPhotoFields(BaseModel):
     offset_y: float | None = Field(None, alias="offset_y")
     source: str | None = Field(None, alias="source")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 FBPageAndInstagramAccountField = Literal[
     "ad_permissions", "bc_permission_status", "bc_permissions", "is_managed", "matched_by"
@@ -20,6 +22,4 @@ class FBPageAndInstagramAccountFields(BaseModel):
     is_managed: bool | None = Field(None, alias="is_managed")
     matched_by: str | None = Field(None, alias="matched_by")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -24,9 +24,11 @@ from ..models.contentpublishinglimitresponse import (
     ContentPublishingLimitResponseFields,
 )
 from ..models.dataset import (
+    DatasetField,
     DatasetFields,
 )
 from ..models.igbcadspermission import (
+    IGBCAdsPermissionField,
     IGBCAdsPermissionFields,
 )
 from ..models.igmedia import (
@@ -48,6 +50,7 @@ from ..models.iguser import (
     IGUserCreateProductAppealParams,
     IGUserCreateUpcomingEventParams,
     IGUserDeleteBrandedContentTagApprovalParams,
+    IGUserField,
     IGUserFields,
     IGUserGetAuthorizedAdAccountsParams,
     IGUserGetBrandedContentAdvertisableMediasParams,

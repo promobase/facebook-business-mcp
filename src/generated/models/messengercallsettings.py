@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 MessengerCallSettingsField = Literal["audio_enabled", "call_hours", "call_routing", "icon_enabled"]
 
@@ -17,6 +19,4 @@ class MessengerCallSettingsFields(BaseModel):
     call_routing: str | None = Field(None, alias="call_routing")
     icon_enabled: bool | None = Field(None, alias="icon_enabled")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

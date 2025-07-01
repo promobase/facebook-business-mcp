@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PageGetStartedNullstateField = Literal["cta_title", "processed_greeting", "responsiveness"]
 
@@ -16,6 +18,4 @@ class PageGetStartedNullstateFields(BaseModel):
     processed_greeting: str | None = Field(None, alias="processed_greeting")
     responsiveness: str | None = Field(None, alias="responsiveness")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

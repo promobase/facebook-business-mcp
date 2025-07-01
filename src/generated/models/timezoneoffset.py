@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 TimezoneOffsetField = Literal["abbr", "isdst", "offset", "time", "ts"]
 
@@ -18,6 +20,4 @@ class TimezoneOffsetFields(BaseModel):
     time: str | None = Field(None, alias="time")
     ts: int | None = Field(None, alias="ts")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

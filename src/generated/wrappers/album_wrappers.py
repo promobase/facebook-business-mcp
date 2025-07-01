@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.album import Album
@@ -11,6 +11,7 @@ from ..models.album import (
     AlbumCreateCommentParams,
     AlbumCreateLikeParams,
     AlbumCreatePhotoParams,
+    AlbumField,
     AlbumFields,
     AlbumGetCommentsParams,
     AlbumGetPictureParams,
@@ -20,6 +21,7 @@ from ..models.comment import (
     CommentFields,
 )
 from ..models.photo import (
+    PhotoField,
     PhotoFields,
 )
 from ..models.profilepicturesource import (

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .idname import IDNameFields
@@ -74,6 +76,4 @@ class FlexibleTargetingFields(BaseModel):
     work_employers: list[IDNameFields] | None = Field(None, alias="work_employers")
     work_positions: list[IDNameFields] | None = Field(None, alias="work_positions")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

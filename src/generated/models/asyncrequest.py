@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class AsyncRequestStatus(str, Enum):
@@ -36,6 +37,4 @@ class AsyncRequestFields(BaseModel):
     status: int | None = Field(None, alias="status")
     type: int | None = Field(None, alias="type")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

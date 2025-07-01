@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PersonalAdsPersonaField = Literal["email", "first_name", "id", "last_name", "pending_email"]
 
@@ -18,6 +20,4 @@ class PersonalAdsPersonaFields(BaseModel):
     last_name: str | None = Field(None, alias="last_name")
     pending_email: str | None = Field(None, alias="pending_email")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCampaignMetricsMetadataField = Literal[
     "boosted_component_optimization",
@@ -32,6 +34,4 @@ class AdCampaignMetricsMetadataFields(BaseModel):
     duplication_flow_tips: list[str] | None = Field(None, alias="duplication_flow_tips")
     edit_flow_tips: list[str] | None = Field(None, alias="edit_flow_tips")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

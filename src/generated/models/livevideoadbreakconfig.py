@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 LiveVideoAdBreakConfigField = Literal[
     "default_ad_break_duration",
@@ -36,6 +38,4 @@ class LiveVideoAdBreakConfigFields(BaseModel):
     time_between_ad_breaks_secs: int | None = Field(None, alias="time_between_ad_breaks_secs")
     viewer_count_threshold: int | None = Field(None, alias="viewer_count_threshold")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

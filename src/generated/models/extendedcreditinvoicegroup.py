@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .extendedcreditemail import ExtendedCreditEmailFields
@@ -36,9 +38,7 @@ class ExtendedCreditInvoiceGroupFields(BaseModel):
     name: str | None = Field(None, alias="name")
     sold_to_address: dict[str, Any] | None = Field(None, alias="sold_to_address")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ExtendedCreditInvoiceGroupDeleteAdAccountsParams(BaseModel):
@@ -46,8 +46,7 @@ class ExtendedCreditInvoiceGroupDeleteAdAccountsParams(BaseModel):
 
     ad_account_id: str | None = Field(None, description="ad_account_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ExtendedCreditInvoiceGroupCreateAdAccountParams(BaseModel):
@@ -55,5 +54,4 @@ class ExtendedCreditInvoiceGroupCreateAdAccountParams(BaseModel):
 
     ad_account_id: str | None = Field(None, description="ad_account_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

@@ -3,23 +3,19 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
-from .insightsresult import InsightsResultMetricType, InsightsResultTimeframe
+from .insightsresult import (
+    InsightsResultBreakdown,
+    InsightsResultMetric,
+    InsightsResultMetricType,
+    InsightsResultPeriod,
+    InsightsResultTimeframe,
+)
 from .unifiedthread import UnifiedThreadPlatform
-
-if TYPE_CHECKING:
-    from .insightsresult import (
-        InsightsResultBreakdown,
-        InsightsResultMetric,
-        InsightsResultMetricType,
-        InsightsResultPeriod,
-        InsightsResultTimeframe,
-    )
-    from .unifiedthread import UnifiedThreadPlatform
-
 
 IGUserForIGOnlyAPIField = Literal[
     "account_type",
@@ -51,9 +47,7 @@ class IGUserForIGOnlyAPIFields(BaseModel):
     username: str | None = Field(None, alias="username")
     website: str | None = Field(None, alias="website")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams(BaseModel):
@@ -61,8 +55,7 @@ class IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams(BaseModel):
 
     feature: str | None = Field(None, description="feature parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPIGetContentPublishingLimitParams(BaseModel):
@@ -70,8 +63,7 @@ class IGUserForIGOnlyAPIGetContentPublishingLimitParams(BaseModel):
 
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPIGetConversationsParams(BaseModel):
@@ -82,8 +74,7 @@ class IGUserForIGOnlyAPIGetConversationsParams(BaseModel):
     tags: list[str] | None = Field(None, description="tags parameter")
     user_id: str | None = Field(None, description="user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPIGetInsightsParams(BaseModel):
@@ -97,8 +88,7 @@ class IGUserForIGOnlyAPIGetInsightsParams(BaseModel):
     timeframe: InsightsResultTimeframe | None = Field(None, description="timeframe parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPIGetMediaParams(BaseModel):
@@ -107,8 +97,7 @@ class IGUserForIGOnlyAPIGetMediaParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateMediaParams(BaseModel):
@@ -131,8 +120,7 @@ class IGUserForIGOnlyAPICreateMediaParams(BaseModel):
     user_tags: list[dict[str, Any]] | None = Field(None, description="user_tags parameter")
     video_url: str | None = Field(None, description="video_url parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateMediaPublishParams(BaseModel):
@@ -140,8 +128,7 @@ class IGUserForIGOnlyAPICreateMediaPublishParams(BaseModel):
 
     creation_id: int | None = Field(None, description="creation_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateMentionParams(BaseModel):
@@ -151,8 +138,7 @@ class IGUserForIGOnlyAPICreateMentionParams(BaseModel):
     media_id: str | None = Field(None, description="media_id parameter")
     message: str | None = Field(None, description="message parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateMessageAttachmentParams(BaseModel):
@@ -160,8 +146,7 @@ class IGUserForIGOnlyAPICreateMessageAttachmentParams(BaseModel):
 
     message: Any | None = Field(None, description="message parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateMessageParams(BaseModel):
@@ -175,8 +160,7 @@ class IGUserForIGOnlyAPICreateMessageParams(BaseModel):
     tag: Any | None = Field(None, description="tag parameter")
     thread_control: Any | None = Field(None, description="thread_control parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPIDeleteMessengerProfileParams(BaseModel):
@@ -184,8 +168,7 @@ class IGUserForIGOnlyAPIDeleteMessengerProfileParams(BaseModel):
 
     fields: list[str] | None = Field(None, description="fields parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateMessengerProfileParams(BaseModel):
@@ -194,8 +177,7 @@ class IGUserForIGOnlyAPICreateMessengerProfileParams(BaseModel):
     ice_breakers: list[dict[str, Any]] | None = Field(None, description="ice_breakers parameter")
     persistent_menu: list[Any] | None = Field(None, description="persistent_menu parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateSubscribedAppParams(BaseModel):
@@ -203,8 +185,7 @@ class IGUserForIGOnlyAPICreateSubscribedAppParams(BaseModel):
 
     subscribed_fields: list[str] | None = Field(None, description="subscribed_fields parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams(BaseModel):
@@ -212,8 +193,7 @@ class IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams(BaseModel):
 
     flow_id: str | None = Field(None, description="flow_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams(BaseModel):
@@ -222,8 +202,7 @@ class IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams(BaseModel):
     app_id: str | None = Field(None, description="app_id parameter")
     flow_id: str | None = Field(None, description="flow_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class IGUserForIGOnlyAPICreateWelcomeMessageFlowParams(BaseModel):
@@ -236,5 +215,4 @@ class IGUserForIGOnlyAPICreateWelcomeMessageFlowParams(BaseModel):
         None, description="welcome_message_flow parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

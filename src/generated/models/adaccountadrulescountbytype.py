@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdAccountAdRulesCountByTypeField = Literal["count", "evaluation_type"]
 
@@ -15,6 +17,4 @@ class AdAccountAdRulesCountByTypeFields(BaseModel):
     count: int | None = Field(None, alias="count")
     evaluation_type: str | None = Field(None, alias="evaluation_type")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

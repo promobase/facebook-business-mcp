@@ -19,6 +19,7 @@ from ..models.adspixel import (
     AdsPixelCreateSharedAccountParams,
     AdsPixelDeleteAgenciesParams,
     AdsPixelDeleteSharedAccountsParams,
+    AdsPixelField,
     AdsPixelFields,
     AdsPixelGetAdAccountsParams,
     AdsPixelGetAssignedUsersParams,

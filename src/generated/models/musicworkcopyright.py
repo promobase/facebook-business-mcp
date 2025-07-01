@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .videocopyrightrule import VideoCopyrightRuleFields
@@ -47,6 +48,4 @@ class MusicWorkCopyrightFields(BaseModel):
     tags: list[str] | None = Field(None, alias="tags")
     update_time: datetime | None = Field(None, alias="update_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

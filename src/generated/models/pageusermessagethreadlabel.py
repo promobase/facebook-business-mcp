@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PageUserMessageThreadLabelField = Literal["id", "page_label_name"]
 
@@ -15,9 +17,7 @@ class PageUserMessageThreadLabelFields(BaseModel):
     id: str | None = Field(None, alias="id")
     page_label_name: str | None = Field(None, alias="page_label_name")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class PageUserMessageThreadLabelDeleteLabelParams(BaseModel):
@@ -25,8 +25,7 @@ class PageUserMessageThreadLabelDeleteLabelParams(BaseModel):
 
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PageUserMessageThreadLabelCreateLabelParams(BaseModel):
@@ -34,5 +33,4 @@ class PageUserMessageThreadLabelCreateLabelParams(BaseModel):
 
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

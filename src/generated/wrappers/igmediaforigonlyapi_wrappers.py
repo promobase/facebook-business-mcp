@@ -9,6 +9,8 @@ if TYPE_CHECKING:
 
 from ..models.igmediaforigonlyapi import (
     IGMediaForIGOnlyAPICreateCommentParams,
+    IGMediaForIGOnlyAPIField,
+    IGMediaForIGOnlyAPIFields,
     IGMediaForIGOnlyAPIGetInsightsParams,
 )
 from ..models.insightsresult import (

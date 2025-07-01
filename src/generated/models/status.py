@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .event import EventFields
@@ -25,9 +26,7 @@ class StatusFields(BaseModel):
     place: PlaceFields | None = Field(None, alias="place")
     updated_time: datetime | None = Field(None, alias="updated_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class StatusCreateLikeParams(BaseModel):
@@ -38,5 +37,4 @@ class StatusCreateLikeParams(BaseModel):
     notify: bool | None = Field(None, description="notify parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

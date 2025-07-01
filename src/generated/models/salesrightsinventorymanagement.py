@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 SalesRightsInventoryManagementField = Literal[
     "available_impressions",
@@ -28,6 +30,4 @@ class SalesRightsInventoryManagementFields(BaseModel):
     unavailable_impressions: int | None = Field(None, alias="unavailable_impressions")
     warning_messages: list[str] | None = Field(None, alias="warning_messages")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

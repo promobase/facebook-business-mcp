@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .productitemlocalinfolatlongshape import ProductItemLocalInfoLatLongShapeFields
@@ -44,6 +46,4 @@ class ProductItemLocalInfoFields(BaseModel):
     )
     inferred_circle_radius: float | None = Field(None, alias="inferred_circle_radius")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

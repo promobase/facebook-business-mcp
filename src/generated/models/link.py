@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentCommentPrivacyValue
 
 if TYPE_CHECKING:
-    from .comment import CommentCommentPrivacyValue
     from .privacy import PrivacyFields
 
 
@@ -46,9 +46,7 @@ class LinkFields(BaseModel):
     privacy: PrivacyFields | None = Field(None, alias="privacy")
     via: dict[str, Any] | None = Field(None, alias="via")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class LinkCreateCommentParams(BaseModel):
@@ -72,5 +70,4 @@ class LinkCreateCommentParams(BaseModel):
     text: str | None = Field(None, description="text parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

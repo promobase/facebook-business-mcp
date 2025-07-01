@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .advideo import (
     AdVideoContainerType,
@@ -19,6 +19,7 @@ from .advideo import (
     AdVideoUploadPhase,
 )
 from .livevideo import (
+    LiveVideoBroadcastStatus,
     LiveVideoProjection,
     LiveVideoSource,
     LiveVideoSpatialAudioFormat,
@@ -32,44 +33,15 @@ from .post import (
     PostFormatting,
     PostPlaceAttachmentSetting,
     PostPostingToRedspace,
+    PostPostSurfacesBlacklist,
     PostTargetSurface,
     PostUnpublishedContentType,
 )
 from .profilepicturesource import ProfilePictureSourceType
 
 if TYPE_CHECKING:
-    from .advideo import (
-        AdVideoContainerType,
-        AdVideoContentCategory,
-        AdVideoFormatting,
-        AdVideoOriginalProjectionType,
-        AdVideoSwapMode,
-        AdVideoType,
-        AdVideoUnpublishedContentType,
-        AdVideoUploadPhase,
-    )
     from .coverphoto import CoverPhotoFields
-    from .livevideo import (
-        LiveVideoBroadcastStatus,
-        LiveVideoProjection,
-        LiveVideoSource,
-        LiveVideoSpatialAudioFormat,
-        LiveVideoStatus,
-        LiveVideoStereoscopicMode,
-        LiveVideoStreamType,
-    )
     from .location import LocationFields
-    from .photo import PhotoBackdatedTimeGranularity, PhotoUnpublishedContentType
-    from .post import (
-        PostBackdatedTimeGranularity,
-        PostFormatting,
-        PostPlaceAttachmentSetting,
-        PostPostingToRedspace,
-        PostPostSurfacesBlacklist,
-        PostTargetSurface,
-        PostUnpublishedContentType,
-    )
-    from .profilepicturesource import ProfilePictureSourceType
 
 
 class GroupJoinSetting(str, Enum):
@@ -200,9 +172,7 @@ class GroupFields(BaseModel):
     updated_time: datetime | None = Field(None, alias="updated_time")
     venue: LocationFields | None = Field(None, alias="venue")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class GroupDeleteAdminsParams(BaseModel):
@@ -210,8 +180,7 @@ class GroupDeleteAdminsParams(BaseModel):
 
     uid: int | None = Field(None, description="uid parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupCreateAdminParams(BaseModel):
@@ -219,8 +188,7 @@ class GroupCreateAdminParams(BaseModel):
 
     uid: int | None = Field(None, description="uid parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupGetFeedParams(BaseModel):
@@ -233,8 +201,7 @@ class GroupGetFeedParams(BaseModel):
     until: datetime | None = Field(None, description="until parameter")
     field_with: str | None = Field(None, alias="with", description="with parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupCreateFeedParams(BaseModel):
@@ -378,8 +345,7 @@ class GroupCreateFeedParams(BaseModel):
     viewer_coordinates: Any | None = Field(None, description="viewer_coordinates parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupCreateGroupParams(BaseModel):
@@ -401,8 +367,7 @@ class GroupCreateGroupParams(BaseModel):
     privacy: str | None = Field(None, description="privacy parameter")
     ref: str | None = Field(None, description="ref parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupGetLiveVideosParams(BaseModel):
@@ -413,8 +378,7 @@ class GroupGetLiveVideosParams(BaseModel):
     )
     source: LiveVideoSource | None = Field(None, description="source parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupCreateLiveVideoParams(BaseModel):
@@ -447,8 +411,7 @@ class GroupCreateLiveVideoParams(BaseModel):
     stream_type: LiveVideoStreamType | None = Field(None, description="stream_type parameter")
     title: str | None = Field(None, description="title parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupDeleteMembersParams(BaseModel):
@@ -457,8 +420,7 @@ class GroupDeleteMembersParams(BaseModel):
     email: str | None = Field(None, description="email parameter")
     member: int | None = Field(None, description="member parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupCreateMemberParams(BaseModel):
@@ -470,8 +432,7 @@ class GroupCreateMemberParams(BaseModel):
     rate: int | None = Field(None, description="rate parameter")
     source: str | None = Field(None, description="source parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupCreatePhotoParams(BaseModel):
@@ -547,8 +508,7 @@ class GroupCreatePhotoParams(BaseModel):
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
     vault_image_id: str | None = Field(None, description="vault_image_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupGetPictureParams(BaseModel):
@@ -559,8 +519,7 @@ class GroupGetPictureParams(BaseModel):
     type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupGetVideosParams(BaseModel):
@@ -568,8 +527,7 @@ class GroupGetVideosParams(BaseModel):
 
     type: AdVideoType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class GroupCreateVideoParams(BaseModel):
@@ -675,5 +633,4 @@ class GroupCreateVideoParams(BaseModel):
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

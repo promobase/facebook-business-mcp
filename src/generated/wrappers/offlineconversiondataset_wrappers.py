@@ -24,6 +24,8 @@ from ..models.customconversion import (
     CustomConversionFields,
 )
 from ..models.offlineconversiondataset import (
+    OfflineConversionDataSetField,
+    OfflineConversionDataSetFields,
     OfflineConversionDataSetGetAdAccountsParams,
     OfflineConversionDataSetGetAudiencesParams,
     OfflineConversionDataSetGetCustomConversionsParams,

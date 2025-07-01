@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 LeadGenClientValidationRulesField = Literal[
     "exclude_emoji_and_special_chars_enabled", "max_length_value", "min_length_value"
@@ -20,6 +22,4 @@ class LeadGenClientValidationRulesFields(BaseModel):
     max_length_value: int | None = Field(None, alias="max_length_value")
     min_length_value: int | None = Field(None, alias="min_length_value")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

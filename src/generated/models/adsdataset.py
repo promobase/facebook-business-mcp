@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
@@ -152,6 +152,4 @@ class AdsDatasetFields(BaseModel):
     usage: OfflineConversionDataSetUsageFields | None = Field(None, alias="usage")
     valid_entries: int | None = Field(None, alias="valid_entries")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

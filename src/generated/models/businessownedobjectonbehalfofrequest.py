@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class BusinessOwnedObjectOnBehalfOfRequestStatus(str, Enum):
@@ -35,6 +36,4 @@ class BusinessOwnedObjectOnBehalfOfRequestFields(BaseModel):
     requesting_business: dict[str, Any] | None = Field(None, alias="requesting_business")
     status: str | None = Field(None, alias="status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

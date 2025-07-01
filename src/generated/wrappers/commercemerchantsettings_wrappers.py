@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 from ..models.commercemerchantsettings import (
     CommerceMerchantSettingsCreateAcknowledgeOrderParams,
     CommerceMerchantSettingsCreateShippingProfileParams,
+    CommerceMerchantSettingsField,
     CommerceMerchantSettingsFields,
     CommerceMerchantSettingsGetCommerceOrdersParams,
     CommerceMerchantSettingsGetCommercePayoutsParams,

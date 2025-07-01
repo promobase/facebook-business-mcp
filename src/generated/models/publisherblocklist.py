@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .apppublisher import AppPublisherFields
@@ -40,9 +41,7 @@ class PublisherBlockListFields(BaseModel):
     owner_ad_account_id: str | None = Field(None, alias="owner_ad_account_id")
     web_publishers: list[WebPublisherFields] | None = Field(None, alias="web_publishers")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class PublisherBlockListCreateAppendPublisherUrlParams(BaseModel):
@@ -50,8 +49,7 @@ class PublisherBlockListCreateAppendPublisherUrlParams(BaseModel):
 
     publisher_urls: list[str] | None = Field(None, description="publisher_urls parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PublisherBlockListGetPagedWebPublishersParams(BaseModel):
@@ -59,5 +57,4 @@ class PublisherBlockListGetPagedWebPublishersParams(BaseModel):
 
     draft_id: str | None = Field(None, description="draft_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

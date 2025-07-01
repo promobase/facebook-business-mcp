@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adstudy import AdStudyType
 from .advideo import (
@@ -23,6 +23,7 @@ from .business import BusinessSurveyBusinessType, BusinessTimezoneId, BusinessVe
 from .event import EventType
 from .fundraiserpersontocharity import FundraiserPersonToCharityFundraiserType
 from .livevideo import (
+    LiveVideoBroadcastStatus,
     LiveVideoProjection,
     LiveVideoSource,
     LiveVideoSpatialAudioFormat,
@@ -37,6 +38,7 @@ from .post import (
     PostFormatting,
     PostPlaceAttachmentSetting,
     PostPostingToRedspace,
+    PostPostSurfacesBlacklist,
     PostTargetSurface,
     PostUnpublishedContentType,
 )
@@ -44,50 +46,14 @@ from .profilepicturesource import ProfilePictureSourceType
 from .unifiedthread import UnifiedThreadPlatform
 
 if TYPE_CHECKING:
-    from .adstudy import AdStudyType
-    from .advideo import (
-        AdVideoContainerType,
-        AdVideoContentCategory,
-        AdVideoFormatting,
-        AdVideoOriginalProjectionType,
-        AdVideoSwapMode,
-        AdVideoType,
-        AdVideoUnpublishedContentType,
-        AdVideoUploadPhase,
-    )
     from .agerange import AgeRangeFields
     from .avatarprofilepicture import AvatarProfilePictureFields
-    from .business import BusinessSurveyBusinessType, BusinessTimezoneId, BusinessVertical
     from .currency import CurrencyFields
     from .educationexperience import EducationExperienceFields
-    from .event import EventType
     from .experience import ExperienceFields
-    from .fundraiserpersontocharity import FundraiserPersonToCharityFundraiserType
     from .group import GroupFields
-    from .livevideo import (
-        LiveVideoBroadcastStatus,
-        LiveVideoProjection,
-        LiveVideoSource,
-        LiveVideoSpatialAudioFormat,
-        LiveVideoStatus,
-        LiveVideoStereoscopicMode,
-        LiveVideoStreamType,
-    )
     from .page import PageFields
     from .paymentpricepoints import PaymentPricepointsFields
-    from .permission import PermissionStatus
-    from .photo import PhotoBackdatedTimeGranularity, PhotoType, PhotoUnpublishedContentType
-    from .post import (
-        PostBackdatedTimeGranularity,
-        PostFormatting,
-        PostPlaceAttachmentSetting,
-        PostPostingToRedspace,
-        PostPostSurfacesBlacklist,
-        PostTargetSurface,
-        PostUnpublishedContentType,
-    )
-    from .profilepicturesource import ProfilePictureSourceType
-    from .unifiedthread import UnifiedThreadPlatform
     from .usercoverphoto import UserCoverPhotoFields
     from .videouploadlimits import VideoUploadLimitsFields
 
@@ -241,9 +207,7 @@ class UserFields(BaseModel):
     video_upload_limits: VideoUploadLimitsFields | None = Field(None, alias="video_upload_limits")
     website: str | None = Field(None, alias="website")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class UserCreateAccessTokenParams(BaseModel):
@@ -256,8 +220,7 @@ class UserCreateAccessTokenParams(BaseModel):
         None, description="set_token_expires_in_60_days parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetAccountsParams(BaseModel):
@@ -267,8 +230,7 @@ class UserGetAccountsParams(BaseModel):
     is_place: bool | None = Field(None, description="is_place parameter")
     is_promotable: bool | None = Field(None, description="is_promotable parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateAccountParams(BaseModel):
@@ -293,8 +255,7 @@ class UserCreateAccountParams(BaseModel):
     website: str | None = Field(None, description="website parameter")
     zip: str | None = Field(None, description="zip parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateAdStudyParams(BaseModel):
@@ -313,8 +274,7 @@ class UserCreateAdStudyParams(BaseModel):
     type: AdStudyType | None = Field(None, description="type parameter")
     viewers: list[int] | None = Field(None, description="viewers parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateApplicationParams(BaseModel):
@@ -322,8 +282,7 @@ class UserCreateApplicationParams(BaseModel):
 
     business_app: int | None = Field(None, description="business_app parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetAssignedBusinessAssetGroupsParams(BaseModel):
@@ -331,8 +290,7 @@ class UserGetAssignedBusinessAssetGroupsParams(BaseModel):
 
     contained_asset_id: str | None = Field(None, description="contained_asset_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetAssignedPagesParams(BaseModel):
@@ -340,8 +298,7 @@ class UserGetAssignedPagesParams(BaseModel):
 
     pages: list[int] | None = Field(None, description="pages parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserDeleteBusinessesParams(BaseModel):
@@ -349,8 +306,7 @@ class UserDeleteBusinessesParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateBusinessParams(BaseModel):
@@ -371,8 +327,7 @@ class UserCreateBusinessParams(BaseModel):
     timezone_id: BusinessTimezoneId | None = Field(None, description="timezone_id parameter")
     vertical: BusinessVertical | None = Field(None, description="vertical parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetConversationsParams(BaseModel):
@@ -383,8 +338,7 @@ class UserGetConversationsParams(BaseModel):
     tags: list[str] | None = Field(None, description="tags parameter")
     user_id: str | None = Field(None, description="user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetEventsParams(BaseModel):
@@ -393,8 +347,7 @@ class UserGetEventsParams(BaseModel):
     include_canceled: bool | None = Field(None, description="include_canceled parameter")
     type: EventType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetFeedParams(BaseModel):
@@ -407,8 +360,7 @@ class UserGetFeedParams(BaseModel):
     until: datetime | None = Field(None, description="until parameter")
     field_with: str | None = Field(None, alias="with", description="with parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateFeedParams(BaseModel):
@@ -552,8 +504,7 @@ class UserCreateFeedParams(BaseModel):
     viewer_coordinates: Any | None = Field(None, description="viewer_coordinates parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetFriendsParams(BaseModel):
@@ -561,8 +512,7 @@ class UserGetFriendsParams(BaseModel):
 
     uid: int | None = Field(None, description="uid parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateFundraiserParams(BaseModel):
@@ -589,8 +539,7 @@ class UserCreateFundraiserParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     page_id: str | None = Field(None, description="page_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetGroupsParams(BaseModel):
@@ -599,8 +548,7 @@ class UserGetGroupsParams(BaseModel):
     admin_only: bool | None = Field(None, description="admin_only parameter")
     parent: str | None = Field(None, description="parent parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetIdsForAppsParams(BaseModel):
@@ -608,8 +556,7 @@ class UserGetIdsForAppsParams(BaseModel):
 
     app: int | None = Field(None, description="app parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetIdsForBusinessParams(BaseModel):
@@ -617,8 +564,7 @@ class UserGetIdsForBusinessParams(BaseModel):
 
     app: int | None = Field(None, description="app parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetIdsForPagesParams(BaseModel):
@@ -626,8 +572,7 @@ class UserGetIdsForPagesParams(BaseModel):
 
     page: int | None = Field(None, description="page parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetLikesParams(BaseModel):
@@ -635,8 +580,7 @@ class UserGetLikesParams(BaseModel):
 
     target_id: str | None = Field(None, description="target_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetLiveVideosParams(BaseModel):
@@ -647,8 +591,7 @@ class UserGetLiveVideosParams(BaseModel):
     )
     source: LiveVideoSource | None = Field(None, description="source parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateLiveVideoParams(BaseModel):
@@ -681,8 +624,7 @@ class UserCreateLiveVideoParams(BaseModel):
     stream_type: LiveVideoStreamType | None = Field(None, description="stream_type parameter")
     title: str | None = Field(None, description="title parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateMessengerKidsAccountsUnreadBadgeParams(BaseModel):
@@ -690,8 +632,7 @@ class UserCreateMessengerKidsAccountsUnreadBadgeParams(BaseModel):
 
     proxied_app_id: int | None = Field(None, description="proxied_app_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetMusicParams(BaseModel):
@@ -699,8 +640,7 @@ class UserGetMusicParams(BaseModel):
 
     target_id: str | None = Field(None, description="target_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateNotificationParams(BaseModel):
@@ -722,8 +662,7 @@ class UserCreateNotificationParams(BaseModel):
     template: Any | None = Field(None, description="template parameter")
     type: UserType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserDeletePermissionsParams(BaseModel):
@@ -731,8 +670,7 @@ class UserDeletePermissionsParams(BaseModel):
 
     permission: str | None = Field(None, description="permission parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetPermissionsParams(BaseModel):
@@ -741,8 +679,7 @@ class UserGetPermissionsParams(BaseModel):
     permission: str | None = Field(None, description="permission parameter")
     status: PermissionStatus | None = Field(None, description="status parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetPhotosParams(BaseModel):
@@ -750,8 +687,7 @@ class UserGetPhotosParams(BaseModel):
 
     type: PhotoType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreatePhotoParams(BaseModel):
@@ -828,8 +764,7 @@ class UserCreatePhotoParams(BaseModel):
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
     vault_image_id: str | None = Field(None, description="vault_image_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetPictureParams(BaseModel):
@@ -840,8 +775,7 @@ class UserGetPictureParams(BaseModel):
     type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetPostsParams(BaseModel):
@@ -854,8 +788,7 @@ class UserGetPostsParams(BaseModel):
     until: datetime | None = Field(None, description="until parameter")
     field_with: str | None = Field(None, alias="with", description="with parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetRichMediaDocumentsParams(BaseModel):
@@ -863,8 +796,7 @@ class UserGetRichMediaDocumentsParams(BaseModel):
 
     query: str | None = Field(None, description="query parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateStagingResourceParams(BaseModel):
@@ -872,8 +804,7 @@ class UserCreateStagingResourceParams(BaseModel):
 
     file: Any | None = Field(None, description="file parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserGetVideosParams(BaseModel):
@@ -881,8 +812,7 @@ class UserGetVideosParams(BaseModel):
 
     type: AdVideoType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class UserCreateVideoParams(BaseModel):
@@ -990,5 +920,4 @@ class UserCreateVideoParams(BaseModel):
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

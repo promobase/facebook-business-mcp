@@ -6,9 +6,9 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
-from .ad import AdDatePreset, AdOperator, AdStatus
+from .ad import AdDatePreset, AdExecutionOptions, AdOperator, AdStatus
 from .adaccountadruleshistory import (
     AdAccountAdRulesHistoryAction,
     AdAccountAdRulesHistoryEvaluationType,
@@ -23,6 +23,9 @@ from .adaccounttargetingunified import (
     AdAccountTargetingUnifiedLimitType,
     AdAccountTargetingUnifiedMode,
     AdAccountTargetingUnifiedObjective,
+    AdAccountTargetingUnifiedRegulatedCategories,
+    AdAccountTargetingUnifiedRegulatedCountries,
+    AdAccountTargetingUnifiedWhitelistedTypes,
 )
 from .adactivity import AdActivityCategory, AdActivityDataSource
 from .adasyncrequestset import AdAsyncRequestSetNotificationMode
@@ -34,7 +37,7 @@ from .adcreative import (
     AdCreativeDynamicAdVoice,
     AdCreativeOperator,
 )
-from .adplacepageset import AdPlacePageSetTargetedAreaType
+from .adplacepageset import AdPlacePageSetLocationTypes, AdPlacePageSetTargetedAreaType
 from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
 from .adrule import AdRuleStatus, AdRuleUiCreationSource
 from .adset import (
@@ -44,15 +47,26 @@ from .adset import (
     AdSetCreativeSequenceRepetitionPattern,
     AdSetDatePreset,
     AdSetDestinationType,
+    AdSetEffectiveStatus,
+    AdSetExecutionOptions,
     AdSetFullFunnelExplorationMode,
     AdSetMultiOptimizationGoalWeight,
     AdSetOperator,
     AdSetOptimizationGoal,
     AdSetOptimizationSubEvent,
+    AdSetRegionalRegulatedCategories,
     AdSetStatus,
     AdSetTuneForCategory,
 )
-from .adsinsights import AdsInsightsActionReportTime, AdsInsightsDatePreset, AdsInsightsLevel
+from .adsinsights import (
+    AdsInsightsActionAttributionWindows,
+    AdsInsightsActionBreakdowns,
+    AdsInsightsActionReportTime,
+    AdsInsightsBreakdowns,
+    AdsInsightsDatePreset,
+    AdsInsightsLevel,
+    AdsInsightsSummaryActionBreakdowns,
+)
 from .adspixel import AdsPixelSortBy
 from .adsvalueadjustmentrulecollection import (
     AdsValueAdjustmentRuleCollectionProductType,
@@ -73,131 +87,36 @@ from .businessownedobjectonbehalfofrequest import BusinessOwnedObjectOnBehalfOfR
 from .campaign import (
     CampaignBidStrategy,
     CampaignDatePreset,
+    CampaignEffectiveStatus,
+    CampaignExecutionOptions,
     CampaignObjective,
     CampaignOperator,
     CampaignSmartPromotionType,
+    CampaignSpecialAdCategories,
+    CampaignSpecialAdCategoryCountry,
     CampaignStatus,
 )
 from .customaudience import (
     CustomAudienceClaimObjective,
     CustomAudienceContentType,
     CustomAudienceCustomerFileSource,
+    CustomAudienceSubscriptionInfo,
     CustomAudienceSubtype,
+    CustomAudienceUseForProducts,
 )
 from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
 from .reachfrequencyprediction import (
     ReachFrequencyPredictionAction,
     ReachFrequencyPredictionBuyingType,
+    ReachFrequencyPredictionInstreamPackages,
 )
 
 if TYPE_CHECKING:
-    from .ad import AdDatePreset, AdExecutionOptions, AdOperator, AdStatus
-    from .adaccountadruleshistory import (
-        AdAccountAdRulesHistoryAction,
-        AdAccountAdRulesHistoryEvaluationType,
-    )
-    from .adaccountadvolume import AdAccountAdVolumeRecommendationType
-    from .adaccountdeliveryestimate import AdAccountDeliveryEstimateOptimizationGoal
-    from .adaccountmatchedsearchapplicationsedgedata import (
-        AdAccountMatchedSearchApplicationsEdgeDataAppStore,
-    )
     from .adaccountpromotableobjects import AdAccountPromotableObjectsFields
-    from .adaccounttargetingunified import (
-        AdAccountTargetingUnifiedAppStore,
-        AdAccountTargetingUnifiedLimitType,
-        AdAccountTargetingUnifiedMode,
-        AdAccountTargetingUnifiedObjective,
-        AdAccountTargetingUnifiedRegulatedCategories,
-        AdAccountTargetingUnifiedRegulatedCountries,
-        AdAccountTargetingUnifiedWhitelistedTypes,
-    )
-    from .adactivity import AdActivityCategory, AdActivityDataSource
-    from .adasyncrequestset import AdAsyncRequestSetNotificationMode
-    from .adcreative import (
-        AdCreativeApplinkTreatment,
-        AdCreativeAuthorizationCategory,
-        AdCreativeCategorizationCriteria,
-        AdCreativeCategoryMediaSource,
-        AdCreativeDynamicAdVoice,
-        AdCreativeFields,
-        AdCreativeOperator,
-    )
+    from .adcreative import AdCreativeFields
     from .adcreativeobjectstoryspec import AdCreativeObjectStorySpecFields
-    from .adplacepageset import AdPlacePageSetLocationTypes, AdPlacePageSetTargetedAreaType
-    from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
-    from .adrule import AdRuleStatus, AdRuleUiCreationSource
-    from .adset import (
-        AdSetBidStrategy,
-        AdSetBillingEvent,
-        AdSetBudgetSource,
-        AdSetCreativeSequenceRepetitionPattern,
-        AdSetDatePreset,
-        AdSetDestinationType,
-        AdSetEffectiveStatus,
-        AdSetExecutionOptions,
-        AdSetFields,
-        AdSetFullFunnelExplorationMode,
-        AdSetMultiOptimizationGoalWeight,
-        AdSetOperator,
-        AdSetOptimizationGoal,
-        AdSetOptimizationSubEvent,
-        AdSetRegionalRegulatedCategories,
-        AdSetStatus,
-        AdSetTuneForCategory,
-    )
-    from .adsinsights import (
-        AdsInsightsActionAttributionWindows,
-        AdsInsightsActionBreakdowns,
-        AdsInsightsActionReportTime,
-        AdsInsightsBreakdowns,
-        AdsInsightsDatePreset,
-        AdsInsightsLevel,
-        AdsInsightsSummaryActionBreakdowns,
-    )
-    from .adspixel import AdsPixelSortBy
-    from .adsvalueadjustmentrulecollection import (
-        AdsValueAdjustmentRuleCollectionProductType,
-        AdsValueAdjustmentRuleCollectionStatus,
-    )
-    from .advideo import (
-        AdVideoContainerType,
-        AdVideoContentCategory,
-        AdVideoFormatting,
-        AdVideoOriginalProjectionType,
-        AdVideoSwapMode,
-        AdVideoUnpublishedContentType,
-        AdVideoUploadPhase,
-        AdVideoVideoState,
-    )
-    from .asyncrequest import AsyncRequestStatus, AsyncRequestType
-    from .businessownedobjectonbehalfofrequest import BusinessOwnedObjectOnBehalfOfRequestStatus
-    from .campaign import (
-        CampaignBidStrategy,
-        CampaignDatePreset,
-        CampaignEffectiveStatus,
-        CampaignExecutionOptions,
-        CampaignObjective,
-        CampaignOperator,
-        CampaignSmartPromotionType,
-        CampaignSpecialAdCategories,
-        CampaignSpecialAdCategoryCountry,
-        CampaignStatus,
-    )
-    from .customaudience import (
-        CustomAudienceClaimObjective,
-        CustomAudienceContentType,
-        CustomAudienceCustomerFileSource,
-        CustomAudienceSubscriptionInfo,
-        CustomAudienceSubtype,
-        CustomAudienceUseForProducts,
-    )
+    from .adset import AdSetFields
     from .customaudiencegroup import CustomAudienceGroupFields
-    from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
-    from .reachfrequencyprediction import (
-        ReachFrequencyPredictionAction,
-        ReachFrequencyPredictionBuyingType,
-        ReachFrequencyPredictionInstreamPackages,
-    )
     from .targeting import TargetingFields
 
 
@@ -531,9 +450,7 @@ class AdAccountFields(BaseModel):
     user_tos_accepted: dict[str, int] | None = Field(None, alias="user_tos_accepted")
     viewable_business: dict[str, Any] | None = Field(None, alias="viewable_business")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdAccountCreateAccountControlParams(BaseModel):
@@ -542,8 +459,7 @@ class AdAccountCreateAccountControlParams(BaseModel):
     audience_controls: Any | None = Field(None, description="audience_controls parameter")
     placement_controls: Any | None = Field(None, description="placement_controls parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetActivitiesParams(BaseModel):
@@ -561,8 +477,7 @@ class AdAccountGetActivitiesParams(BaseModel):
     uid: int | None = Field(None, description="uid parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdPlacePageSetParams(BaseModel):
@@ -577,8 +492,7 @@ class AdAccountCreateAdPlacePageSetParams(BaseModel):
         None, description="targeted_area_type parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdPlacePageSetsAsyncParams(BaseModel):
@@ -593,8 +507,7 @@ class AdAccountCreateAdPlacePageSetsAsyncParams(BaseModel):
         None, description="targeted_area_type parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdSavedKeywordsParams(BaseModel):
@@ -602,8 +515,7 @@ class AdAccountGetAdSavedKeywordsParams(BaseModel):
 
     fields: list[str] | None = Field(None, description="fields parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdCreativeParams(BaseModel):
@@ -709,8 +621,7 @@ class AdAccountCreateAdCreativeParams(BaseModel):
         None, description="use_page_actor_override parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdCreativesByLabelsParams(BaseModel):
@@ -719,8 +630,7 @@ class AdAccountGetAdCreativesByLabelsParams(BaseModel):
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
     operator: AdCreativeOperator | None = Field(None, description="operator parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountDeleteAdImagesParams(BaseModel):
@@ -728,8 +638,7 @@ class AdAccountDeleteAdImagesParams(BaseModel):
 
     hash: str | None = Field(None, description="hash parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdImagesParams(BaseModel):
@@ -743,8 +652,7 @@ class AdAccountGetAdImagesParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     selected_hashes: list[str] | None = Field(None, description="selected_hashes parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdImageParams(BaseModel):
@@ -753,8 +661,7 @@ class AdAccountCreateAdImageParams(BaseModel):
     bytes: str | None = Field(None, description="bytes parameter")
     copy_from: Any | None = Field(None, description="copy_from parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdLabelParams(BaseModel):
@@ -762,8 +669,7 @@ class AdAccountCreateAdLabelParams(BaseModel):
 
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdPlayableParams(BaseModel):
@@ -776,8 +682,7 @@ class AdAccountCreateAdPlayableParams(BaseModel):
     source_url: str | None = Field(None, description="source_url parameter")
     source_zip: Any | None = Field(None, description="source_zip parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdRulesHistoryParams(BaseModel):
@@ -790,8 +695,7 @@ class AdAccountGetAdRulesHistoryParams(BaseModel):
     hide_no_changes: bool | None = Field(None, description="hide_no_changes parameter")
     object_id: str | None = Field(None, description="object_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdRulesLibraryParams(BaseModel):
@@ -807,8 +711,7 @@ class AdAccountCreateAdRulesLibraryParams(BaseModel):
         None, description="ui_creation_source parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdsParams(BaseModel):
@@ -819,8 +722,7 @@ class AdAccountGetAdsParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdParams(BaseModel):
@@ -858,8 +760,7 @@ class AdAccountCreateAdParams(BaseModel):
     status: AdStatus | None = Field(None, description="status parameter")
     tracking_specs: Any | None = Field(None, description="tracking_specs parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdsReportingMmmReportsParams(BaseModel):
@@ -867,8 +768,7 @@ class AdAccountGetAdsReportingMmmReportsParams(BaseModel):
 
     filtering: list[dict[str, Any]] | None = Field(None, description="filtering parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdsVolumeParams(BaseModel):
@@ -882,8 +782,7 @@ class AdAccountGetAdsVolumeParams(BaseModel):
         None, description="show_breakdown_by_actor parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdsByLabelsParams(BaseModel):
@@ -892,8 +791,7 @@ class AdAccountGetAdsByLabelsParams(BaseModel):
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
     operator: AdOperator | None = Field(None, description="operator parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdSetsParams(BaseModel):
@@ -907,8 +805,7 @@ class AdAccountGetAdSetsParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdSetParams(BaseModel):
@@ -1016,8 +913,7 @@ class AdAccountCreateAdSetParams(BaseModel):
         None, description="tune_for_category parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdSetsByLabelsParams(BaseModel):
@@ -1026,8 +922,7 @@ class AdAccountGetAdSetsByLabelsParams(BaseModel):
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
     operator: AdSetOperator | None = Field(None, description="operator parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdsPixelsParams(BaseModel):
@@ -1035,8 +930,7 @@ class AdAccountGetAdsPixelsParams(BaseModel):
 
     sort_by: AdsPixelSortBy | None = Field(None, description="sort_by parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdsPixelParams(BaseModel):
@@ -1044,8 +938,7 @@ class AdAccountCreateAdsPixelParams(BaseModel):
 
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdvertisableApplicationsParams(BaseModel):
@@ -1054,8 +947,7 @@ class AdAccountGetAdvertisableApplicationsParams(BaseModel):
     app_id: str | None = Field(None, description="app_id parameter")
     business_id: str | None = Field(None, description="business_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountDeleteAdVideosParams(BaseModel):
@@ -1063,8 +955,7 @@ class AdAccountDeleteAdVideosParams(BaseModel):
 
     video_id: str | None = Field(None, description="video_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAdVideosParams(BaseModel):
@@ -1080,8 +971,7 @@ class AdAccountGetAdVideosParams(BaseModel):
     minwidth: int | None = Field(None, description="minwidth parameter")
     title: str | None = Field(None, description="title parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAdVideoParams(BaseModel):
@@ -1185,8 +1075,7 @@ class AdAccountCreateAdVideoParams(BaseModel):
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountDeleteAgenciesParams(BaseModel):
@@ -1194,8 +1083,7 @@ class AdAccountDeleteAgenciesParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAgencyParams(BaseModel):
@@ -1206,8 +1094,7 @@ class AdAccountCreateAgencyParams(BaseModel):
         None, description="permitted_tasks parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountDeleteAssignedUsersParams(BaseModel):
@@ -1215,8 +1102,7 @@ class AdAccountDeleteAssignedUsersParams(BaseModel):
 
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAssignedUsersParams(BaseModel):
@@ -1224,8 +1110,7 @@ class AdAccountGetAssignedUsersParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAssignedUserParams(BaseModel):
@@ -1234,8 +1119,7 @@ class AdAccountCreateAssignedUserParams(BaseModel):
     tasks: list[AdAccountTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAsyncBatchRequestParams(BaseModel):
@@ -1244,8 +1128,7 @@ class AdAccountCreateAsyncBatchRequestParams(BaseModel):
     adbatch: list[Any] | None = Field(None, description="adbatch parameter")
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAsyncRequestsParams(BaseModel):
@@ -1254,8 +1137,7 @@ class AdAccountGetAsyncRequestsParams(BaseModel):
     status: AsyncRequestStatus | None = Field(None, description="status parameter")
     type: AsyncRequestType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAsyncAdCreativesParams(BaseModel):
@@ -1263,8 +1145,7 @@ class AdAccountGetAsyncAdCreativesParams(BaseModel):
 
     is_completed: bool | None = Field(None, description="is_completed parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAsyncAdCreativeParams(BaseModel):
@@ -1277,8 +1158,7 @@ class AdAccountCreateAsyncAdCreativeParams(BaseModel):
     )
     notification_uri: str | None = Field(None, description="notification_uri parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetAsyncAdRequestSetsParams(BaseModel):
@@ -1286,8 +1166,7 @@ class AdAccountGetAsyncAdRequestSetsParams(BaseModel):
 
     is_completed: bool | None = Field(None, description="is_completed parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateAsyncAdRequestSetParams(BaseModel):
@@ -1300,8 +1179,7 @@ class AdAccountCreateAsyncAdRequestSetParams(BaseModel):
     )
     notification_uri: str | None = Field(None, description="notification_uri parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateBlockListDraftParams(BaseModel):
@@ -1309,8 +1187,7 @@ class AdAccountCreateBlockListDraftParams(BaseModel):
 
     publisher_urls_file: Any | None = Field(None, description="publisher_urls_file parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateBrandSafetyContentFilterLevelParams(BaseModel):
@@ -1321,8 +1198,7 @@ class AdAccountCreateBrandSafetyContentFilterLevelParams(BaseModel):
     )
     business_id: str | None = Field(None, description="business_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetBroadTargetingCategoriesParams(BaseModel):
@@ -1332,8 +1208,7 @@ class AdAccountGetBroadTargetingCategoriesParams(BaseModel):
         None, description="custom_categories_only parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetBusinessProjectsParams(BaseModel):
@@ -1341,8 +1216,7 @@ class AdAccountGetBusinessProjectsParams(BaseModel):
 
     business: str | None = Field(None, description="business parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountDeleteCampaignsParams(BaseModel):
@@ -1353,8 +1227,7 @@ class AdAccountDeleteCampaignsParams(BaseModel):
     delete_strategy: str | None = Field(None, description="delete_strategy parameter")
     object_count: int | None = Field(None, description="object_count parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetCampaignsParams(BaseModel):
@@ -1367,8 +1240,7 @@ class AdAccountGetCampaignsParams(BaseModel):
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateCampaignParams(BaseModel):
@@ -1408,8 +1280,7 @@ class AdAccountCreateCampaignParams(BaseModel):
     stop_time: datetime | None = Field(None, description="stop_time parameter")
     topline_id: str | None = Field(None, description="topline_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetCampaignsByLabelsParams(BaseModel):
@@ -1418,8 +1289,7 @@ class AdAccountGetCampaignsByLabelsParams(BaseModel):
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
     operator: CampaignOperator | None = Field(None, description="operator parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetConnectedInstagramAccountsWithIabpParams(BaseModel):
@@ -1427,8 +1297,7 @@ class AdAccountGetConnectedInstagramAccountsWithIabpParams(BaseModel):
 
     business_id: str | None = Field(None, description="business_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetCustomAudiencesParams(BaseModel):
@@ -1442,8 +1311,7 @@ class AdAccountGetCustomAudiencesParams(BaseModel):
     filtering: list[Any] | None = Field(None, description="filtering parameter")
     pixel_id: str | None = Field(None, description="pixel_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateCustomAudienceParams(BaseModel):
@@ -1507,8 +1375,7 @@ class AdAccountCreateCustomAudienceParams(BaseModel):
         None, description="whats_app_business_phone_number_id parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateCustomAudiencesToParams(BaseModel):
@@ -1517,8 +1384,7 @@ class AdAccountCreateCustomAudiencesToParams(BaseModel):
     business_id: str | None = Field(None, description="business_id parameter")
     tos_id: str | None = Field(None, description="tos_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateCustomConversionParams(BaseModel):
@@ -1539,8 +1405,7 @@ class AdAccountCreateCustomConversionParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     rule: str | None = Field(None, description="rule parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetDeliveryEstimateParams(BaseModel):
@@ -1552,8 +1417,7 @@ class AdAccountGetDeliveryEstimateParams(BaseModel):
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
     targeting_spec: TargetingFields | None = Field(None, description="targeting_spec parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetDeprecatedTargetingAdSetsParams(BaseModel):
@@ -1561,8 +1425,7 @@ class AdAccountGetDeprecatedTargetingAdSetsParams(BaseModel):
 
     type: str | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetGeneratePreviewsParams(BaseModel):
@@ -1586,8 +1449,7 @@ class AdAccountGetGeneratePreviewsParams(BaseModel):
     start_date: datetime | None = Field(None, description="start_date parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetInsightsParams(BaseModel):
@@ -1628,8 +1490,7 @@ class AdAccountGetInsightsParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetInsightsAsyncParams(BaseModel):
@@ -1670,8 +1531,7 @@ class AdAccountGetInsightsAsyncParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetIosFourteenCampaignLimitsParams(BaseModel):
@@ -1679,8 +1539,7 @@ class AdAccountGetIosFourteenCampaignLimitsParams(BaseModel):
 
     app_id: str | None = Field(None, description="app_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetMatchedSearchApplicationsParams(BaseModel):
@@ -1698,8 +1557,7 @@ class AdAccountGetMatchedSearchApplicationsParams(BaseModel):
     )
     query_term: str | None = Field(None, description="query_term parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetMinimumBudgetsParams(BaseModel):
@@ -1707,8 +1565,7 @@ class AdAccountGetMinimumBudgetsParams(BaseModel):
 
     bid_amount: int | None = Field(None, description="bid_amount parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetOnBehalfRequestsParams(BaseModel):
@@ -1718,8 +1575,7 @@ class AdAccountGetOnBehalfRequestsParams(BaseModel):
         None, description="status parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateProductAudienceParams(BaseModel):
@@ -1749,8 +1605,7 @@ class AdAccountCreateProductAudienceParams(BaseModel):
     rev_share_policy_id: int | None = Field(None, description="rev_share_policy_id parameter")
     subtype: AdAccountSubtype | None = Field(None, description="subtype parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreatePublisherBlockListParams(BaseModel):
@@ -1758,8 +1613,7 @@ class AdAccountCreatePublisherBlockListParams(BaseModel):
 
     name: str | None = Field(None, description="name parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetReachEstimateParams(BaseModel):
@@ -1773,8 +1627,7 @@ class AdAccountGetReachEstimateParams(BaseModel):
     object_store_url: str | None = Field(None, description="object_store_url parameter")
     targeting_spec: TargetingFields | None = Field(None, description="targeting_spec parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateReachFrequencyPredictionParams(BaseModel):
@@ -1845,8 +1698,7 @@ class AdAccountCreateReachFrequencyPredictionParams(BaseModel):
         None, description="video_view_length_constraint parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateRecommendationParams(BaseModel):
@@ -1869,8 +1721,7 @@ class AdAccountCreateRecommendationParams(BaseModel):
         None, description="scale_good_campaign_parameters parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetSavedAudiencesParams(BaseModel):
@@ -1880,8 +1731,7 @@ class AdAccountGetSavedAudiencesParams(BaseModel):
     fields: list[str] | None = Field(None, description="fields parameter")
     filtering: list[Any] | None = Field(None, description="filtering parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountDeleteSubscribedAppsParams(BaseModel):
@@ -1889,8 +1739,7 @@ class AdAccountDeleteSubscribedAppsParams(BaseModel):
 
     app_id: str | None = Field(None, description="app_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateSubscribedAppParams(BaseModel):
@@ -1898,8 +1747,7 @@ class AdAccountCreateSubscribedAppParams(BaseModel):
 
     app_id: str | None = Field(None, description="app_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetTargetingBrowseParams(BaseModel):
@@ -1921,8 +1769,7 @@ class AdAccountGetTargetingBrowseParams(BaseModel):
         None, description="whitelisted_types parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetTargetingSearchParams(BaseModel):
@@ -1962,8 +1809,7 @@ class AdAccountGetTargetingSearchParams(BaseModel):
         None, description="whitelisted_types parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetTargetingSentenceLinesParams(BaseModel):
@@ -1976,8 +1822,7 @@ class AdAccountGetTargetingSentenceLinesParams(BaseModel):
     )
     targeting_spec: TargetingFields | None = Field(None, description="targeting_spec parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetTargetingSuggestionsParams(BaseModel):
@@ -2007,8 +1852,7 @@ class AdAccountGetTargetingSuggestionsParams(BaseModel):
         None, description="whitelisted_types parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetTargetingValidATIOnParams(BaseModel):
@@ -2019,8 +1863,7 @@ class AdAccountGetTargetingValidATIOnParams(BaseModel):
     name_list: list[str] | None = Field(None, description="name_list parameter")
     targeting_list: list[Any] | None = Field(None, description="targeting_list parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateTrackingParams(BaseModel):
@@ -2028,8 +1871,7 @@ class AdAccountCreateTrackingParams(BaseModel):
 
     tracking_specs: Any | None = Field(None, description="tracking_specs parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountDeleteUsersOfAnyAudienceParams(BaseModel):
@@ -2039,8 +1881,7 @@ class AdAccountDeleteUsersOfAnyAudienceParams(BaseModel):
     payload: Any | None = Field(None, description="payload parameter")
     session: Any | None = Field(None, description="session parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetValueRuleSetParams(BaseModel):
@@ -2053,8 +1894,7 @@ class AdAccountGetValueRuleSetParams(BaseModel):
         None, description="status parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateValueRuleSetParams(BaseModel):
@@ -2066,8 +1906,7 @@ class AdAccountCreateValueRuleSetParams(BaseModel):
     )
     rules: list[dict[str, Any]] | None = Field(None, description="rules parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountGetVideoAdsParams(BaseModel):
@@ -2076,8 +1915,7 @@ class AdAccountGetVideoAdsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdAccountCreateVideoAdParams(BaseModel):
@@ -2090,5 +1928,4 @@ class AdAccountCreateVideoAdParams(BaseModel):
     video_id: str | None = Field(None, description="video_id parameter")
     video_state: AdVideoVideoState | None = Field(None, description="video_state parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

@@ -46,6 +46,7 @@ from ..models.application import (
     ApplicationCreateWhatsAppBusinessSolutionParams,
     ApplicationDeleteAccountsParams,
     ApplicationDeleteSubscriptionsParams,
+    ApplicationField,
     ApplicationFields,
     ApplicationGetAccountsParams,
     ApplicationGetAdNetworkAnalyticsParams,

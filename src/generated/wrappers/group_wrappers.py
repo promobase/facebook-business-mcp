@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.group import Group
@@ -21,6 +21,7 @@ from ..models.group import (
     GroupCreateVideoParams,
     GroupDeleteAdminsParams,
     GroupDeleteMembersParams,
+    GroupField,
     GroupFields,
     GroupGetFeedParams,
     GroupGetLiveVideosParams,
@@ -32,6 +33,7 @@ from ..models.livevideo import (
     LiveVideoFields,
 )
 from ..models.photo import (
+    PhotoField,
     PhotoFields,
 )
 from ..models.post import (

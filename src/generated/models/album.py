@@ -3,20 +3,19 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
 from .photo import PhotoBackdatedTimeGranularity, PhotoUnpublishedContentType
 from .profilepicturesource import ProfilePictureSourceType
 
 if TYPE_CHECKING:
-    from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
     from .event import EventFields
-    from .photo import PhotoBackdatedTimeGranularity, PhotoFields, PhotoUnpublishedContentType
+    from .photo import PhotoFields
     from .place import PlaceFields
-    from .profilepicturesource import ProfilePictureSourceType
 
 
 AlbumField = Literal[
@@ -73,9 +72,7 @@ class AlbumFields(BaseModel):
     updated_time: datetime | None = Field(None, alias="updated_time")
     video_count: int | None = Field(None, alias="video_count")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AlbumGetCommentsParams(BaseModel):
@@ -86,8 +83,7 @@ class AlbumGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AlbumCreateCommentParams(BaseModel):
@@ -111,8 +107,7 @@ class AlbumCreateCommentParams(BaseModel):
     text: str | None = Field(None, description="text parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AlbumCreateLikeParams(BaseModel):
@@ -123,8 +118,7 @@ class AlbumCreateLikeParams(BaseModel):
     notify: bool | None = Field(None, description="notify parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AlbumCreatePhotoParams(BaseModel):
@@ -200,8 +194,7 @@ class AlbumCreatePhotoParams(BaseModel):
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
     vault_image_id: str | None = Field(None, description="vault_image_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AlbumGetPictureParams(BaseModel):
@@ -210,5 +203,4 @@ class AlbumGetPictureParams(BaseModel):
     redirect: bool | None = Field(None, description="redirect parameter")
     type: ProfilePictureSourceType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

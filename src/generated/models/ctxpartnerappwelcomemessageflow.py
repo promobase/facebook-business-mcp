@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CTXPartnerAppWelcomeMessageFlowField = Literal[
     "compatible_platforms",
@@ -33,6 +34,4 @@ class CTXPartnerAppWelcomeMessageFlowFields(BaseModel):
     welcome_message_flow: str | None = Field(None, alias="welcome_message_flow")
     welcome_message_sequence: str | None = Field(None, alias="welcome_message_sequence")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

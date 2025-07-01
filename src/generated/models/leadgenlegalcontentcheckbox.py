@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 LeadGenLegalContentCheckboxField = Literal[
     "id", "is_checked_by_default", "is_required", "key", "text"
@@ -20,6 +22,4 @@ class LeadGenLegalContentCheckboxFields(BaseModel):
     key: str | None = Field(None, alias="key")
     text: str | None = Field(None, alias="text")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

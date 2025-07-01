@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 PaymentRequestDetailsField = Literal[
     "amount",
@@ -32,6 +34,4 @@ class PaymentRequestDetailsFields(BaseModel):
     status: str | None = Field(None, alias="status")
     transaction_time: int | None = Field(None, alias="transaction_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

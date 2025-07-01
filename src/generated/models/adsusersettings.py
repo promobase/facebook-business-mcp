@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
@@ -245,6 +246,4 @@ class AdsUserSettingsFields(BaseModel):
     use_stepper_primary_entry: bool | None = Field(None, alias="use_stepper_primary_entry")
     user: UserFields | None = Field(None, alias="user")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

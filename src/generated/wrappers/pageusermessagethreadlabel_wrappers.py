@@ -2,17 +2,18 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.pageusermessagethreadlabel import PageUserMessageThreadLabel
 
-
 from ..models.pageusermessagethreadlabel import (
     PageUserMessageThreadLabelCreateLabelParams,
     PageUserMessageThreadLabelDeleteLabelParams,
+    PageUserMessageThreadLabelField,
     PageUserMessageThreadLabelFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class PageUserMessageThreadLabelWrappers:

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdAccountLiveVideoAdvertiserField = Literal[
     "is_lva_toggle_on",
@@ -24,6 +26,4 @@ class AdAccountLiveVideoAdvertiserFields(BaseModel):
     should_default_scheduled_live: bool | None = Field(None, alias="should_default_scheduled_live")
     should_show_lva_toggle: bool | None = Field(None, alias="should_show_lva_toggle")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

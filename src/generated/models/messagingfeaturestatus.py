@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 MessagingFeatureStatusField = Literal["hop_v2", "ig_multi_app", "msgr_multi_app"]
 
@@ -16,6 +18,4 @@ class MessagingFeatureStatusFields(BaseModel):
     ig_multi_app: bool | None = Field(None, alias="ig_multi_app")
     msgr_multi_app: bool | None = Field(None, alias="msgr_multi_app")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

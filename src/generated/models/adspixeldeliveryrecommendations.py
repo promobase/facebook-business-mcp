@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsPixelDeliveryRecommendationsField = Literal["custom_event_type", "optimization_goal"]
 
@@ -15,6 +17,4 @@ class AdsPixelDeliveryRecommendationsFields(BaseModel):
     custom_event_type: str | None = Field(None, alias="custom_event_type")
     optimization_goal: str | None = Field(None, alias="optimization_goal")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

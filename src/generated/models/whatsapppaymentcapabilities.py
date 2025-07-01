@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 WhatsAppPaymentCapabilitiesField = Literal["is_enabled", "payment_capability_details"]
 
@@ -17,6 +19,4 @@ class WhatsAppPaymentCapabilitiesFields(BaseModel):
         None, alias="payment_capability_details"
     )
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

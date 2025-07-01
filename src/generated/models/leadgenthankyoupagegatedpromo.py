@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 LeadGenThankYouPageGatedPromoField = Literal["id", "online_offer_url", "online_promo_code"]
 
@@ -16,6 +18,4 @@ class LeadGenThankYouPageGatedPromoFields(BaseModel):
     online_offer_url: str | None = Field(None, alias="online_offer_url")
     online_promo_code: str | None = Field(None, alias="online_promo_code")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

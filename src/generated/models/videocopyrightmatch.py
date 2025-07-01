@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .user import UserFields
@@ -67,6 +67,4 @@ class VideoCopyrightMatchFields(BaseModel):
     permalink: str | None = Field(None, alias="permalink")
     ugc_content_format: str | None = Field(None, alias="ugc_content_format")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

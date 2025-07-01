@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ResellerGuidanceField = Literal[
     "ad_account_first_spend_date",
@@ -43,6 +44,4 @@ class ResellerGuidanceFields(BaseModel):
     revenue_l30d: float | None = Field(None, alias="revenue_l30d")
     ultimate_advertiser_name: str | None = Field(None, alias="ultimate_advertiser_name")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

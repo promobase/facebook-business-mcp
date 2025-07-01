@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 LeadGenPostSubmissionCheckResultField = Literal[
     "api_call_result", "api_error_message", "shown_thank_you_page"
@@ -18,6 +20,4 @@ class LeadGenPostSubmissionCheckResultFields(BaseModel):
     api_error_message: str | None = Field(None, alias="api_error_message")
     shown_thank_you_page: str | None = Field(None, alias="shown_thank_you_page")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

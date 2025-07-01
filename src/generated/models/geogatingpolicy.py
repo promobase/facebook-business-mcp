@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 GeoGatingPolicyField = Literal[
     "after_schedule",
@@ -29,6 +30,4 @@ class GeoGatingPolicyFields(BaseModel):
     valid_from: datetime | None = Field(None, alias="valid_from")
     valid_until: datetime | None = Field(None, alias="valid_until")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

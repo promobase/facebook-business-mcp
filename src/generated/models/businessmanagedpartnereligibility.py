@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 BusinessManagedPartnerEligibilityField = Literal["is_eligible", "reason_code", "reason_description"]
 
@@ -16,6 +18,4 @@ class BusinessManagedPartnerEligibilityFields(BaseModel):
     reason_code: str | None = Field(None, alias="reason_code")
     reason_description: str | None = Field(None, alias="reason_description")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -6,16 +6,14 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
 from .insightsresult import InsightsResultPeriod
 
 if TYPE_CHECKING:
     from .audioisrc import AudioIsrcFields
-    from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
     from .event import EventFields
-    from .insightsresult import InsightsResultPeriod
     from .musicvideocopyright import MusicVideoCopyrightFields
     from .place import PlaceFields
     from .privacy import PrivacyFields
@@ -542,9 +540,7 @@ class AdVideoFields(BaseModel):
     )
     filename: dict[str, Any] | None = Field(None, alias="filename")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdVideoCreateCapTIOnParams(BaseModel):
@@ -554,8 +550,7 @@ class AdVideoCreateCapTIOnParams(BaseModel):
     default_locale: str | None = Field(None, description="default_locale parameter")
     locales_to_delete: list[str] | None = Field(None, description="locales_to_delete parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoCreateCollaboratorParams(BaseModel):
@@ -563,8 +558,7 @@ class AdVideoCreateCollaboratorParams(BaseModel):
 
     target_id: str | None = Field(None, description="target_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoGetCommentsParams(BaseModel):
@@ -575,8 +569,7 @@ class AdVideoGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoCreateCommentParams(BaseModel):
@@ -600,8 +593,7 @@ class AdVideoCreateCommentParams(BaseModel):
     text: str | None = Field(None, description="text parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoCreateGamingClipCreateParams(BaseModel):
@@ -609,8 +601,7 @@ class AdVideoCreateGamingClipCreateParams(BaseModel):
 
     duration_seconds: float | None = Field(None, description="duration_seconds parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoCreateLikeParams(BaseModel):
@@ -621,8 +612,7 @@ class AdVideoCreateLikeParams(BaseModel):
     notify: bool | None = Field(None, description="notify parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoCreatePollParams(BaseModel):
@@ -636,8 +626,7 @@ class AdVideoCreatePollParams(BaseModel):
     show_gradient: bool | None = Field(None, description="show_gradient parameter")
     show_results: bool | None = Field(None, description="show_results parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoCreateThumbnailParams(BaseModel):
@@ -646,8 +635,7 @@ class AdVideoCreateThumbnailParams(BaseModel):
     is_preferred: bool | None = Field(None, description="is_preferred parameter")
     source: Any | None = Field(None, description="source parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdVideoGetVideoInsightsParams(BaseModel):
@@ -658,5 +646,4 @@ class AdVideoGetVideoInsightsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

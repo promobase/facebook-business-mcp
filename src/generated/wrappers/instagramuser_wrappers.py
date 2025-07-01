@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.instagramuser import InstagramUser
@@ -12,6 +12,8 @@ from ..models.adaccount import (
     AdAccountFields,
 )
 from ..models.instagramuser import (
+    InstagramUserField,
+    InstagramUserFields,
     InstagramUserGetAuthorizedAdAccountsParams,
 )
 from .cursor_utils import TypedCursor

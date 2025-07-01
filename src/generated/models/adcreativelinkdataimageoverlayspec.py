@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class AdCreativeLinkDataImageOverlaySpecCustomTextType(str, Enum):
@@ -108,6 +109,4 @@ class AdCreativeLinkDataImageOverlaySpecFields(BaseModel):
     text_type: dict[str, Any] | None = Field(None, alias="text_type")
     theme_color: dict[str, Any] | None = Field(None, alias="theme_color")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

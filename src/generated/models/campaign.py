@@ -6,32 +6,28 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .ad import AdDatePreset
-from .adset import AdSetDatePreset
-from .adsinsights import AdsInsightsActionReportTime, AdsInsightsDatePreset, AdsInsightsLevel
+from .adset import AdSetDatePreset, AdSetEffectiveStatus
+from .adsinsights import (
+    AdsInsightsActionAttributionWindows,
+    AdsInsightsActionBreakdowns,
+    AdsInsightsActionReportTime,
+    AdsInsightsBreakdowns,
+    AdsInsightsDatePreset,
+    AdsInsightsLevel,
+    AdsInsightsSummaryActionBreakdowns,
+)
 from .highdemandperiod import HighDemandPeriodBudgetValueType
 
 if TYPE_CHECKING:
-    from .ad import AdDatePreset
     from .adcampaigngroupadvantagestate import AdCampaignGroupAdvantageStateFields
     from .adcampaignissuesinfo import AdCampaignIssuesInfoFields
     from .adlabel import AdLabelFields
     from .adpromotedobject import AdPromotedObjectFields
     from .adrecommendation import AdRecommendationFields
-    from .adset import AdSetDatePreset, AdSetEffectiveStatus
-    from .adsinsights import (
-        AdsInsightsActionAttributionWindows,
-        AdsInsightsActionBreakdowns,
-        AdsInsightsActionReportTime,
-        AdsInsightsBreakdowns,
-        AdsInsightsDatePreset,
-        AdsInsightsLevel,
-        AdsInsightsSummaryActionBreakdowns,
-    )
     from .adstudy import AdStudyFields
-    from .highdemandperiod import HighDemandPeriodBudgetValueType
     from .status import StatusFields
 
 
@@ -537,9 +533,7 @@ class CampaignFields(BaseModel):
         None, alias="iterative_split_test_configs"
     )
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class CampaignCreateAdLabelParams(BaseModel):
@@ -550,8 +544,7 @@ class CampaignCreateAdLabelParams(BaseModel):
         None, description="execution_options parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignGetAdRulesGovernedParams(BaseModel):
@@ -559,8 +552,7 @@ class CampaignGetAdRulesGovernedParams(BaseModel):
 
     pass_evaluation: bool | None = Field(None, description="pass_evaluation parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignGetAdsParams(BaseModel):
@@ -571,8 +563,7 @@ class CampaignGetAdsParams(BaseModel):
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignGetAdSetsParams(BaseModel):
@@ -585,8 +576,7 @@ class CampaignGetAdSetsParams(BaseModel):
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignCreateBudgetScheduleParams(BaseModel):
@@ -599,8 +589,7 @@ class CampaignCreateBudgetScheduleParams(BaseModel):
     time_end: int | None = Field(None, description="time_end parameter")
     time_start: int | None = Field(None, description="time_start parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignGetCopiesParams(BaseModel):
@@ -613,8 +602,7 @@ class CampaignGetCopiesParams(BaseModel):
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignCreateCopyParams(BaseModel):
@@ -626,8 +614,7 @@ class CampaignCreateCopyParams(BaseModel):
     start_time: datetime | None = Field(None, description="start_time parameter")
     status_option: CampaignStatusOption | None = Field(None, description="status_option parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignGetInsightsParams(BaseModel):
@@ -668,8 +655,7 @@ class CampaignGetInsightsParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CampaignGetInsightsAsyncParams(BaseModel):
@@ -710,5 +696,4 @@ class CampaignGetInsightsAsyncParams(BaseModel):
         None, description="use_unified_attribution_setting parameter"
     )
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

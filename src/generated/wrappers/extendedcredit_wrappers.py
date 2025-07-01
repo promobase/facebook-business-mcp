@@ -13,6 +13,8 @@ from ..models.extendedcredit import (
     ExtendedCreditCreateWhatsAppCreditAttachParams,
     ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams,
     ExtendedCreditCreateWhatsAppCreditSharingParams,
+    ExtendedCreditField,
+    ExtendedCreditFields,
     ExtendedCreditGetOwningCreditAllocationConfigsParams,
 )
 from ..models.extendedcreditallocationconfig import (
@@ -20,6 +22,7 @@ from ..models.extendedcreditallocationconfig import (
     ExtendedCreditAllocationConfigFields,
 )
 from ..models.extendedcreditinvoicegroup import (
+    ExtendedCreditInvoiceGroupField,
     ExtendedCreditInvoiceGroupFields,
 )
 from .cursor_utils import TypedCursor

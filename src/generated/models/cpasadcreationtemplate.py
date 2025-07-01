@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CPASAdCreationTemplateField = Literal[
     "description",
@@ -28,6 +30,4 @@ class CPASAdCreationTemplateFields(BaseModel):
     targeting_type: str | None = Field(None, alias="targeting_type")
     template_type: str | None = Field(None, alias="template_type")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 IGUserExportForCAMField = Literal[
     "age_bucket",
@@ -40,9 +42,7 @@ class IGUserExportForCAMFields(BaseModel):
     portfolio_url: str | None = Field(None, alias="portfolio_url")
     username: str | None = Field(None, alias="username")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class IGUserExportForCAMGetInsightsParams(BaseModel):
@@ -53,5 +53,4 @@ class IGUserExportForCAMGetInsightsParams(BaseModel):
     period: str | None = Field(None, description="period parameter")
     time_range: str | None = Field(None, description="time_range parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

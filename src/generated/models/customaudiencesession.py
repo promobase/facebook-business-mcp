@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CustomAudienceSessionField = Literal[
     "end_time",
@@ -30,6 +32,4 @@ class CustomAudienceSessionFields(BaseModel):
     stage: str | None = Field(None, alias="stage")
     start_time: str | None = Field(None, alias="start_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

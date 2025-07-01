@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.adaccount import AdAccount
@@ -50,6 +50,7 @@ from ..models.adaccount import (
     AdAccountDeleteCampaignsParams,
     AdAccountDeleteSubscribedAppsParams,
     AdAccountDeleteUsersOfAnyAudienceParams,
+    AdAccountField,
     AdAccountFields,
     AdAccountGetActivitiesParams,
     AdAccountGetAdCreativesByLabelsParams,
@@ -103,6 +104,7 @@ from ..models.adaccountadvolume import (
     AdAccountAdVolumeFields,
 )
 from ..models.adaccountbusinessconstraints import (
+    AdAccountBusinessConstraintsField,
     AdAccountBusinessConstraintsFields,
 )
 from ..models.adaccountdeliveryestimate import (
@@ -122,9 +124,11 @@ from ..models.adaccountreachestimate import (
     AdAccountReachEstimateFields,
 )
 from ..models.adaccountrecommendations import (
+    AdAccountRecommendationsField,
     AdAccountRecommendationsFields,
 )
 from ..models.adaccountsubscribedapps import (
+    AdAccountSubscribedAppsField,
     AdAccountSubscribedAppsFields,
 )
 from ..models.adaccounttargetingunified import (
@@ -148,9 +152,11 @@ from ..models.adimage import (
     AdImageFields,
 )
 from ..models.adlabel import (
+    AdLabelField,
     AdLabelFields,
 )
 from ..models.adplacepageset import (
+    AdPlacePageSetField,
     AdPlacePageSetFields,
 )
 from ..models.adpreview import (
@@ -162,6 +168,7 @@ from ..models.adreportrun import (
     AdReportRunFields,
 )
 from ..models.adrule import (
+    AdRuleField,
     AdRuleFields,
 )
 from ..models.adsavedkeywords import (
@@ -225,6 +232,7 @@ from ..models.customaudience import (
     CustomAudienceFields,
 )
 from ..models.customconversion import (
+    CustomConversionField,
     CustomConversionFields,
 )
 from ..models.iguser import (
@@ -236,12 +244,15 @@ from ..models.minimumbudget import (
     MinimumBudgetFields,
 )
 from ..models.playablecontent import (
+    PlayableContentField,
     PlayableContentFields,
 )
 from ..models.publisherblocklist import (
+    PublisherBlockListField,
     PublisherBlockListFields,
 )
 from ..models.reachfrequencyprediction import (
+    ReachFrequencyPredictionField,
     ReachFrequencyPredictionFields,
 )
 from ..models.savedaudience import (

@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.hotel import Hotel
 
 from ..models.hotel import (
+    HotelField,
+    HotelFields,
     HotelGetOverrideDetailsParams,
 )
 from ..models.overridedetails import (

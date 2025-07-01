@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ShadowIGHashtagField = Literal["id", "name"]
 
@@ -15,9 +17,7 @@ class ShadowIGHashtagFields(BaseModel):
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ShadowIGHashtagGetRecentMediaParams(BaseModel):
@@ -25,8 +25,7 @@ class ShadowIGHashtagGetRecentMediaParams(BaseModel):
 
     user_id: str | None = Field(None, description="user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ShadowIGHashtagGetTopMediaParams(BaseModel):
@@ -34,5 +33,4 @@ class ShadowIGHashtagGetTopMediaParams(BaseModel):
 
     user_id: str | None = Field(None, description="user_id parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

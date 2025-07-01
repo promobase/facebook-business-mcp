@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.shadowighashtag import ShadowIGHashtag
@@ -12,6 +12,8 @@ from ..models.igmedia import (
     IGMediaFields,
 )
 from ..models.shadowighashtag import (
+    ShadowIGHashtagField,
+    ShadowIGHashtagFields,
     ShadowIGHashtagGetRecentMediaParams,
     ShadowIGHashtagGetTopMediaParams,
 )

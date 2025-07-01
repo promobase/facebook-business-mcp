@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.adset import AdSet
@@ -53,6 +53,7 @@ from ..models.adsinsights import (
     AdsInsightsFields,
 )
 from ..models.highdemandperiod import (
+    HighDemandPeriodField,
     HighDemandPeriodFields,
 )
 from ..models.messagedeliveryestimate import (

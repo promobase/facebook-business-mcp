@@ -6,19 +6,17 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentFilter, CommentLiveFilter, CommentOrder
 from .profile import ProfileType
 
 if TYPE_CHECKING:
     from .advideo import AdVideoFields
-    from .comment import CommentFilter, CommentLiveFilter, CommentOrder
     from .livevideoadbreakconfig import LiveVideoAdBreakConfigFields
     from .livevideoinputstream import LiveVideoInputStreamFields
     from .livevideorecommendedencodersettings import LiveVideoRecommendedEncoderSettingsFields
     from .livevideotargeting import LiveVideoTargetingFields
-    from .profile import ProfileType
     from .videocopyright import VideoCopyrightFields
 
 
@@ -169,9 +167,7 @@ class LiveVideoFields(BaseModel):
     total_views: str | None = Field(None, alias="total_views")
     video: AdVideoFields | None = Field(None, alias="video")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class LiveVideoGetBlockedUsersParams(BaseModel):
@@ -179,8 +175,7 @@ class LiveVideoGetBlockedUsersParams(BaseModel):
 
     uid: str | None = Field(None, description="uid parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class LiveVideoGetCommentsParams(BaseModel):
@@ -191,8 +186,7 @@ class LiveVideoGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class LiveVideoCreatePollParams(BaseModel):
@@ -206,8 +200,7 @@ class LiveVideoCreatePollParams(BaseModel):
     show_gradient: bool | None = Field(None, description="show_gradient parameter")
     show_results: bool | None = Field(None, description="show_results parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class LiveVideoGetReactionsParams(BaseModel):
@@ -215,5 +208,4 @@ class LiveVideoGetReactionsParams(BaseModel):
 
     type: ProfileType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

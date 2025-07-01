@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 ReachFrequencyCurveUpperConfidenceRangeField = Literal[
     "impression_upper",
@@ -26,6 +28,4 @@ class ReachFrequencyCurveUpperConfidenceRangeFields(BaseModel):
     uniq_video_views_2s_upper: list[int] | None = Field(None, alias="uniq_video_views_2s_upper")
     video_views_2s_upper: list[int] | None = Field(None, alias="video_views_2s_upper")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

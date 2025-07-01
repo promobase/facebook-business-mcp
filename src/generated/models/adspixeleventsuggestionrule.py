@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsPixelEventSuggestionRuleField = Literal[
     "7d_volume", "dismissed", "end_time", "event_type", "rank", "rule", "sample_urls", "start_time"
@@ -24,6 +25,4 @@ class AdsPixelEventSuggestionRuleFields(BaseModel):
     sample_urls: list[str] | None = Field(None, alias="sample_urls")
     start_time: datetime | None = Field(None, alias="start_time")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

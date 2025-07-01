@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.status import Status
 
-
 from ..models.status import (
     StatusCreateLikeParams,
+    StatusField,
     StatusFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class StatusWrappers:

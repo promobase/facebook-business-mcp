@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .advideo import AdVideoFields
@@ -45,6 +47,4 @@ class EventTourFields(BaseModel):
     ticketing_uri: str | None = Field(None, alias="ticketing_uri")
     video: AdVideoFields | None = Field(None, alias="video")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

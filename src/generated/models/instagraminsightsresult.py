@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .instagraminsightsvalue import InstagramInsightsValueFields
@@ -90,6 +91,4 @@ class InstagramInsightsResultFields(BaseModel):
     total_value: dict[str, Any] | None = Field(None, alias="total_value")
     values: list[InstagramInsightsValueFields] | None = Field(None, alias="values")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

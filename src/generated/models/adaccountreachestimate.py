@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdAccountReachEstimateField = Literal["estimate_ready", "users_lower_bound", "users_upper_bound"]
 
@@ -16,6 +18,4 @@ class AdAccountReachEstimateFields(BaseModel):
     users_lower_bound: int | None = Field(None, alias="users_lower_bound")
     users_upper_bound: int | None = Field(None, alias="users_upper_bound")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

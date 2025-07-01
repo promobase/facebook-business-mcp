@@ -6,16 +6,14 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .productfeedrule import ProductFeedRuleRuleType
 from .productitem import ProductItemErrorPriority, ProductItemErrorType
 
 if TYPE_CHECKING:
-    from .productfeedrule import ProductFeedRuleRuleType
     from .productfeedschedule import ProductFeedScheduleFields
     from .productfeedupload import ProductFeedUploadFields
-    from .productitem import ProductItemErrorPriority, ProductItemErrorType
 
 
 class ProductFeedDelimiter(str, Enum):
@@ -178,9 +176,7 @@ class ProductFeedFields(BaseModel):
     rules: list[str] | None = Field(None, alias="rules")
     selected_override_fields: list[str] | None = Field(None, alias="selected_override_fields")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class ProductFeedGetAutomotiveModelsParams(BaseModel):
@@ -189,8 +185,7 @@ class ProductFeedGetAutomotiveModelsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetDestinationsParams(BaseModel):
@@ -199,8 +194,7 @@ class ProductFeedGetDestinationsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetFlightsParams(BaseModel):
@@ -209,8 +203,7 @@ class ProductFeedGetFlightsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetHomeListingsParams(BaseModel):
@@ -219,8 +212,7 @@ class ProductFeedGetHomeListingsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetHotelsParams(BaseModel):
@@ -229,8 +221,7 @@ class ProductFeedGetHotelsParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetMediaTitlesParams(BaseModel):
@@ -239,8 +230,7 @@ class ProductFeedGetMediaTitlesParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetProductsParams(BaseModel):
@@ -253,8 +243,7 @@ class ProductFeedGetProductsParams(BaseModel):
     error_type: ProductItemErrorType | None = Field(None, description="error_type parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedCreateRuleParams(BaseModel):
@@ -264,8 +253,7 @@ class ProductFeedCreateRuleParams(BaseModel):
     params: dict[str, Any] | None = Field(None, description="params parameter")
     rule_type: ProductFeedRuleRuleType | None = Field(None, description="rule_type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedCreateSupplementaryFeedAssocParams(BaseModel):
@@ -273,8 +261,7 @@ class ProductFeedCreateSupplementaryFeedAssocParams(BaseModel):
 
     assoc_data: list[dict[str, Any]] | None = Field(None, description="assoc_data parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedCreateUploadScheduleParams(BaseModel):
@@ -282,8 +269,7 @@ class ProductFeedCreateUploadScheduleParams(BaseModel):
 
     upload_schedule: str | None = Field(None, description="upload_schedule parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedCreateUploadParams(BaseModel):
@@ -298,8 +284,7 @@ class ProductFeedCreateUploadParams(BaseModel):
     url: str | None = Field(None, description="url parameter")
     username: str | None = Field(None, description="username parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetVehicleOffersParams(BaseModel):
@@ -308,8 +293,7 @@ class ProductFeedGetVehicleOffersParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class ProductFeedGetVehiclesParams(BaseModel):
@@ -318,5 +302,4 @@ class ProductFeedGetVehiclesParams(BaseModel):
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

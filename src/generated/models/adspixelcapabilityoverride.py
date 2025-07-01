@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdsPixelCapabilityOverrideField = Literal["capability", "id", "override_value", "reason"]
 
@@ -17,6 +19,4 @@ class AdsPixelCapabilityOverrideFields(BaseModel):
     override_value: str | None = Field(None, alias="override_value")
     reason: str | None = Field(None, alias="reason")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

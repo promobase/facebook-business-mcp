@@ -6,17 +6,15 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
 from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
 
 if TYPE_CHECKING:
     from .album import AlbumFields
-    from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
     from .entityattextrange import EntityAtTextRangeFields
     from .event import EventFields
-    from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
     from .place import PlaceFields
     from .platformimagesource import PlatformImageSourceFields
     from .profile import ProfileFields
@@ -115,9 +113,7 @@ class PhotoFields(BaseModel):
     webp_images: list[PlatformImageSourceFields] | None = Field(None, alias="webp_images")
     width: int | None = Field(None, alias="width")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class PhotoGetCommentsParams(BaseModel):
@@ -128,8 +124,7 @@ class PhotoGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PhotoCreateCommentParams(BaseModel):
@@ -153,8 +148,7 @@ class PhotoCreateCommentParams(BaseModel):
     text: str | None = Field(None, description="text parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PhotoGetInsightsParams(BaseModel):
@@ -166,8 +160,7 @@ class PhotoGetInsightsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class PhotoCreateLikeParams(BaseModel):
@@ -178,5 +171,4 @@ class PhotoCreateLikeParams(BaseModel):
     notify: bool | None = Field(None, description="notify parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

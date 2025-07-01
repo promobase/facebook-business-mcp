@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.advideo import AdVideo
@@ -15,6 +15,7 @@ from ..models.advideo import (
     AdVideoCreateLikeParams,
     AdVideoCreatePollParams,
     AdVideoCreateThumbnailParams,
+    AdVideoField,
     AdVideoFields,
     AdVideoGetCommentsParams,
     AdVideoGetVideoInsightsParams,
@@ -28,6 +29,7 @@ from ..models.insightsresult import (
     InsightsResultFields,
 )
 from ..models.videopoll import (
+    VideoPollField,
     VideoPollFields,
 )
 from .cursor_utils import TypedCursor

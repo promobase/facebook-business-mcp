@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdjacentContentDeliveryReportField = Literal["ad_id", "content", "impression_id"]
 
@@ -16,6 +18,4 @@ class AdjacentContentDeliveryReportFields(BaseModel):
     content: list[dict[str, Any]] | None = Field(None, alias="content")
     impression_id: str | None = Field(None, alias="impression_id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

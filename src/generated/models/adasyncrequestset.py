@@ -6,10 +6,11 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
+
+from .adasyncrequest import AdAsyncRequestStatuses
 
 if TYPE_CHECKING:
-    from .adasyncrequest import AdAsyncRequestStatuses
     from .adasyncrequestsetnotificationresult import AdAsyncRequestSetNotificationResultFields
     from .adcreative import AdCreativeFields
 
@@ -67,9 +68,7 @@ class AdAsyncRequestSetFields(BaseModel):
     creative_spec: AdCreativeFields | None = Field(None, alias="creative_spec")
     ad_specs: list[dict[str, Any]] | None = Field(None, alias="ad_specs")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdAsyncRequestSetGetRequestsParams(BaseModel):
@@ -77,5 +76,4 @@ class AdAsyncRequestSetGetRequestsParams(BaseModel):
 
     statuses: list[AdAsyncRequestStatuses] | None = Field(None, description="statuses parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

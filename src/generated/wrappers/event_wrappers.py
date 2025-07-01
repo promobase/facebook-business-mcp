@@ -2,18 +2,21 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.event import Event
 
-
 from ..models.event import (
     EventCreateLiveVideoParams,
+    EventField,
+    EventFields,
 )
 from ..models.livevideo import (
+    LiveVideoField,
     LiveVideoFields,
 )
+from .cursor_utils import TypedCursor
 
 
 class EventWrappers:

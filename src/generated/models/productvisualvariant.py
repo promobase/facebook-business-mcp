@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .productitem import ProductItemFields
@@ -19,6 +21,4 @@ class ProductVisualVariantFields(BaseModel):
     items: list[ProductItemFields] | None = Field(None, alias="items")
     unique_key: str | None = Field(None, alias="unique_key")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

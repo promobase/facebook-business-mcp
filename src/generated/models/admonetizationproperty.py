@@ -3,25 +3,18 @@
 from __future__ import annotations
 
 from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adnetworkanalyticssyncqueryresult import (
     AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+    AdNetworkAnalyticsSyncQueryResultBreakdowns,
+    AdNetworkAnalyticsSyncQueryResultMetrics,
     AdNetworkAnalyticsSyncQueryResultOrderingColumn,
     AdNetworkAnalyticsSyncQueryResultOrderingType,
 )
-
-if TYPE_CHECKING:
-    from .adnetworkanalyticssyncqueryresult import (
-        AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
-        AdNetworkAnalyticsSyncQueryResultBreakdowns,
-        AdNetworkAnalyticsSyncQueryResultMetrics,
-        AdNetworkAnalyticsSyncQueryResultOrderingColumn,
-        AdNetworkAnalyticsSyncQueryResultOrderingType,
-    )
-
 
 AdMonetizationPropertyField = Literal["owner_business", "id"]
 
@@ -32,9 +25,7 @@ class AdMonetizationPropertyFields(BaseModel):
     owner_business: dict[str, Any] | None = Field(None, alias="owner_business")
     id: str | None = Field(None, alias="id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdMonetizationPropertyGetAdNetworkAnalyticsParams(BaseModel):
@@ -61,8 +52,7 @@ class AdMonetizationPropertyGetAdNetworkAnalyticsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdMonetizationPropertyCreateAdNetworkAnalyticParams(BaseModel):
@@ -88,8 +78,7 @@ class AdMonetizationPropertyCreateAdNetworkAnalyticParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams(BaseModel):
@@ -97,5 +86,4 @@ class AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams(BaseModel):
 
     query_ids: list[str] | None = Field(None, description="query_ids parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Literal
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentFilter, CommentLiveFilter, CommentOrder
 
 if TYPE_CHECKING:
-    from .comment import CommentFilter, CommentLiveFilter, CommentOrder
     from .dynamicpostchildattachment import DynamicPostChildAttachmentFields
 
 
@@ -46,9 +46,7 @@ class RTBDynamicPostFields(BaseModel):
     product_id: str | None = Field(None, alias="product_id")
     title: str | None = Field(None, alias="title")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class RTBDynamicPostGetCommentsParams(BaseModel):
@@ -59,5 +57,4 @@ class RTBDynamicPostGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

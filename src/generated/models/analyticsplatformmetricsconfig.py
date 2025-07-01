@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AnalyticsPlatformMetricsConfigField = Literal[
     "has_a2u",
@@ -32,6 +34,4 @@ class AnalyticsPlatformMetricsConfigFields(BaseModel):
     has_stories: bool | None = Field(None, alias="has_stories")
     has_structured_requests: bool | None = Field(None, alias="has_structured_requests")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

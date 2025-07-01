@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class MediaFingerprintFingerprintContentType(str, Enum):
@@ -40,6 +41,4 @@ class MediaFingerprintFields(BaseModel):
     title: str | None = Field(None, alias="title")
     universal_content_id: str | None = Field(None, alias="universal_content_id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

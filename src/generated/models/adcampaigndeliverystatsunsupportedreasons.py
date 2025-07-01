@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCampaignDeliveryStatsUnsupportedReasonsField = Literal["reason_data", "reason_type"]
 
@@ -15,6 +17,4 @@ class AdCampaignDeliveryStatsUnsupportedReasonsFields(BaseModel):
     reason_data: list[dict[str, str]] | None = Field(None, alias="reason_data")
     reason_type: str | None = Field(None, alias="reason_type")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

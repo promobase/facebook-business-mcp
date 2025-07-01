@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.customaudience import CustomAudience
@@ -22,6 +22,7 @@ from ..models.customaudience import (
     CustomAudienceCreateUsersReplaceParams,
     CustomAudienceDeleteAdAccountsParams,
     CustomAudienceDeleteUsersParams,
+    CustomAudienceField,
     CustomAudienceFields,
     CustomAudienceGetAdAccountsParams,
     CustomAudienceGetAdsParams,

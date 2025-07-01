@@ -8,6 +8,7 @@ if TYPE_CHECKING:
     from facebook_business.adobjects.user import User
 
 from ..models.adstudy import (
+    AdStudyField,
     AdStudyFields,
 )
 from ..models.advideo import (
@@ -15,6 +16,7 @@ from ..models.advideo import (
     AdVideoFields,
 )
 from ..models.business import (
+    BusinessField,
     BusinessFields,
 )
 from ..models.businessassetgroup import (
@@ -30,6 +32,7 @@ from ..models.event import (
     EventFields,
 )
 from ..models.fundraiserpersontocharity import (
+    FundraiserPersonToCharityField,
     FundraiserPersonToCharityFields,
 )
 from ..models.group import (

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AudiencePermissionForActionsField = Literal[
     "can_edit",
@@ -24,6 +26,4 @@ class AudiencePermissionForActionsFields(BaseModel):
     subtype_supports_lookalike: bool | None = Field(None, alias="subtype_supports_lookalike")
     supports_recipient_lookalike: bool | None = Field(None, alias="supports_recipient_lookalike")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

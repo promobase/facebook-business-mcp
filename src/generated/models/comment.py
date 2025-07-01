@@ -6,14 +6,13 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .profile import ProfileType
 
 if TYPE_CHECKING:
     from .application import ApplicationFields
     from .entityattextrange import EntityAtTextRangeFields
-    from .profile import ProfileType
     from .user import UserFields
 
 
@@ -110,9 +109,7 @@ class CommentFields(BaseModel):
     )
     user_likes: bool | None = Field(None, alias="user_likes")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class CommentGetCommentsParams(BaseModel):
@@ -123,8 +120,7 @@ class CommentGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommentCreateCommentParams(BaseModel):
@@ -148,8 +144,7 @@ class CommentCreateCommentParams(BaseModel):
     text: str | None = Field(None, description="text parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommentDeleteLikesParams(BaseModel):
@@ -159,8 +154,7 @@ class CommentDeleteLikesParams(BaseModel):
     nectar_module: str | None = Field(None, description="nectar_module parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommentCreateLikeParams(BaseModel):
@@ -170,8 +164,7 @@ class CommentCreateLikeParams(BaseModel):
     nectar_module: str | None = Field(None, description="nectar_module parameter")
     tracking: str | None = Field(None, description="tracking parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class CommentGetReactionsParams(BaseModel):
@@ -179,5 +172,4 @@ class CommentGetReactionsParams(BaseModel):
 
     type: ProfileType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

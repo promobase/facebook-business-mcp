@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 SiteLinkField = Literal["id", "link_image_hash", "link_title", "link_type", "link_url"]
 
@@ -18,6 +20,4 @@ class SiteLinkFields(BaseModel):
     link_type: str | None = Field(None, alias="link_type")
     link_url: str | None = Field(None, alias="link_url")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

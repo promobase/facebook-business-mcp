@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .igvideocopyrightcheckstatus import IGVideoCopyrightCheckStatusFields
@@ -19,6 +21,4 @@ class IGVideoCopyrightCheckMatchesInformationFields(BaseModel):
     copyright_matches: list[dict[str, Any]] | None = Field(None, alias="copyright_matches")
     status: IGVideoCopyrightCheckStatusFields | None = Field(None, alias="status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

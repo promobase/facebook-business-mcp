@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 CPASParentCatalogSettingsField = Literal[
     "attribution_windows", "default_currency", "disable_use_as_parent_catalog", "id"
@@ -19,6 +21,4 @@ class CPASParentCatalogSettingsFields(BaseModel):
     disable_use_as_parent_catalog: bool | None = Field(None, alias="disable_use_as_parent_catalog")
     id: str | None = Field(None, alias="id")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

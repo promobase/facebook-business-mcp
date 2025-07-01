@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
 
@@ -30,7 +30,6 @@ if TYPE_CHECKING:
     from .adcreativesourcingspec import AdCreativeSourcingSpecFields
     from .adcreativetemplateurlspec import AdCreativeTemplateURLSpecFields
     from .adlabel import AdLabelFields
-    from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
     from .adsimagecrops import AdsImageCropsFields
     from .status import StatusFields
 
@@ -394,9 +393,7 @@ class AdCreativeFields(BaseModel):
     image_file: str | None = Field(None, alias="image_file")
     is_dco_internal: bool | None = Field(None, alias="is_dco_internal")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdCreativeCreateAdLabelParams(BaseModel):
@@ -404,8 +401,7 @@ class AdCreativeCreateAdLabelParams(BaseModel):
 
     adlabels: list[Any] | None = Field(None, description="adlabels parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")
 
 
 class AdCreativeGetPreviewsParams(BaseModel):
@@ -428,5 +424,4 @@ class AdCreativeGetPreviewsParams(BaseModel):
     start_date: datetime | None = Field(None, description="start_date parameter")
     width: int | None = Field(None, description="width parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

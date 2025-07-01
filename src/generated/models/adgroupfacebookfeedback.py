@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentOrder
-
-if TYPE_CHECKING:
-    from .comment import CommentOrder
-
 
 AdgroupFacebookFeedbackField = Literal["id", "preview"]
 
@@ -21,9 +19,7 @@ class AdgroupFacebookFeedbackFields(BaseModel):
     id: str | None = Field(None, alias="id")
     preview: str | None = Field(None, alias="preview")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class AdgroupFacebookFeedbackGetCommentsParams(BaseModel):
@@ -31,5 +27,4 @@ class AdgroupFacebookFeedbackGetCommentsParams(BaseModel):
 
     order: CommentOrder | None = Field(None, description="order parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

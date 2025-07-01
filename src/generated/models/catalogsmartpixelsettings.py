@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .adspixel import AdsPixelFields
@@ -53,6 +55,4 @@ class CatalogSmartPixelSettingsFields(BaseModel):
     property_filter: list[str] | None = Field(None, alias="property_filter")
     trusted_domains: list[str] | None = Field(None, alias="trusted_domains")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

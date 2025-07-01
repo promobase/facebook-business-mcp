@@ -2,17 +2,17 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from .overridedetails import OverrideDetailsType
 
 if TYPE_CHECKING:
     from .catalogitemapplinks import CatalogItemAppLinksFields
     from .catalogsubverticallist import CatalogSubVerticalListFields
-    from .overridedetails import OverrideDetailsType
 
 
 class HotelImageFetchStatus(str, Enum):
@@ -123,9 +123,7 @@ class HotelFields(BaseModel):
     visibility: dict[str, Any] | None = Field(None, alias="visibility")
     base_price: int | None = Field(None, alias="base_price")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 
 
 class HotelGetOverrideDetailsParams(BaseModel):
@@ -134,5 +132,4 @@ class HotelGetOverrideDetailsParams(BaseModel):
     keys: list[str] | None = Field(None, description="keys parameter")
     type: OverrideDetailsType | None = Field(None, description="type parameter")
 
-    class Config:
-        extra = "forbid"
+    model_config = ConfigDict(extra="forbid")

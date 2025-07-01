@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 AdCreativeOmnichannelLinkSpecField = Literal["app", "web"]
 
@@ -15,6 +17,4 @@ class AdCreativeOmnichannelLinkSpecFields(BaseModel):
     app: dict[str, Any] | None = Field(None, alias="app")
     web: dict[str, Any] | None = Field(None, alias="web")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")

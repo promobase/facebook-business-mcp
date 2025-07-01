@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from datetime import datetime
+from enum import Enum
+from typing import TYPE_CHECKING, Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 VideoTextQuestionField = Literal["id", "question_target_id", "question_text", "status"]
 
@@ -17,6 +19,4 @@ class VideoTextQuestionFields(BaseModel):
     question_text: str | None = Field(None, alias="question_text")
     status: str | None = Field(None, alias="status")
 
-    class Config:
-        populate_by_name = True
-        extra = "forbid"
+    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
