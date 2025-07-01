@@ -6,8 +6,8 @@ from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 from pydantic import Field
 
-import src.generated.models
-from src.generated.models.adaccount import AdAccountField, AdAccountUpdateParams
+import src.generated.models as models
+from src.generated.models.adaccount import AdAccountGetCampaignsParams
 from src.generated.models.campaign import CampaignField
 from src.utils import wrapped_fn_tool
 
@@ -32,7 +32,7 @@ ad_account_server = FastMCP(
 @wrapped_fn_tool
 def get_ad_account(
     ad_account_id: str,
-    fields: list[AdAccountField] = [],
+    fields: list[models.adaccount.AdAccountField] = [],
 ) -> str:
     """Get an AdAccount object by ID.
 
@@ -55,8 +55,8 @@ def get_ad_account(
 @wrapped_fn_tool
 def update_ad_account(
     ad_account_id: str,
-    fields: list[AdAccountField] = [],
-    params: AdAccountUpdateParams = {},
+    fields: list[models.adaccount.AdAccountField] = [],
+    params: models.adaccount.AdAccountUpdateParams = {},
 ) -> str:
     """Update an AdAccount object.
 
@@ -87,7 +87,24 @@ def update_ad_account(
 
 
 # ---- Resource Management (4) ----
-import src.generated.wrappers.adaccount_wrappers as AdAccountWrappers
+
+
+@ad_account_server.tool
+@wrapped_fn_tool
+def get_campaigns(
+    adaccount_id: str,
+    fields: list[CampaignField] = [],
+    params: AdAccountGetCampaignsParams = {},
+) -> Any:
+    """Get Campaigns for this AdAccount.
+
+    Args:
+        adaccount_id: The ID of the AdAccount.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdAccount(adaccount_id).get_campaigns(fields=fields, params=params)
+
 
 # @ad_account_server.tool()
 # @wrapped_fn_tool
@@ -111,7 +128,7 @@ import src.generated.wrappers.adaccount_wrappers as AdAccountWrappers
 @wrapped_fn_tool
 def create_campaign(
     ad_account_id: str,
-    fields: list[CampaignField] = [],
+    fields: list[models.campaign.CampaignField] = [],
     params: dict[str, Any] = {},
 ) -> str:
     """Create a new campaign in this ad account.
@@ -254,45 +271,5 @@ def create_custom_audience(
     return AdAccount(ad_account_id).create_custom_audience(fields=fields, params=params)
 
 
-# ---- Dynamic Fallback (1) ----
-@wrapped_fn_tool
-def run_any_ad_account_fn(
-    account_id: str,
-    fn: str,
-    args: list[str] = [],
-    kwargs: dict[str, Any] = {},
-) -> str:
-    """Dynamically call any method on the AdAccount object.
-
-    Use this for operations not covered by the core tools above.
-    Example: run_any_ad_account_fn('act_123', 'get_targeting_browse', [], {'limit': 10})
-
-    Args:
-        account_id: The ID of the Ad Account (must start with 'act_').
-        fn: Method name to call on AdAccount object.
-        args: Positional arguments for the method.
-        kwargs: Keyword arguments for the method.
-    """
-    account = AdAccount(account_id)
-    if not hasattr(account, fn):
-        return (
-            f"AdAccount does not have method '{fn}'. Check the Facebook Business SDK documentation."
-        )
-    f = getattr(account, fn)
-    if not callable(f):
-        return f"{fn} is not a callable method on AdAccount."
-    return str(f(*args, **kwargs))
-
-
 # ---- Register tools ----
-ad_account_server.tool(get_ad_account)
-ad_account_server.tool(update_ad_account)
-ad_account_server.tool(AdAccountWrappers.get_campaigns)
-ad_account_server.tool(create_campaign)
-ad_account_server.tool(get_ad_sets)
-ad_account_server.tool(create_ad_set)
-ad_account_server.tool(get_insights)
-ad_account_server.tool(get_insights_async)
-ad_account_server.tool(get_custom_audiences)
-ad_account_server.tool(create_custom_audience)
-ad_account_server.tool(run_any_ad_account_fn)
+ad_account_server.tool(get_campaigns)

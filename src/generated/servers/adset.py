@@ -1,4 +1,4 @@
-"""Streamlined AdSet MCP Server - Core Operations Only."""
+"""AdSet MCP Server with typed wrappers."""
 
 from __future__ import annotations
 
@@ -7,7 +7,31 @@ from typing import Any
 from facebook_business.adobjects.adset import AdSet
 from fastmcp import FastMCP
 
-from src.generated.models.adset import AdSetField, AdSetUpdateParams
+from src.generated.models.ad import AdField
+from src.generated.models.adactivity import AdActivityField
+from src.generated.models.adasyncrequest import AdAsyncRequestField
+from src.generated.models.adcampaigndeliveryestimate import AdCampaignDeliveryEstimateField
+from src.generated.models.adreportrun import AdReportRunField
+from src.generated.models.adrule import AdRuleField
+from src.generated.models.adset import (
+    AdSetCreateAdLabelParams,
+    AdSetCreateBudgetScheduleParams,
+    AdSetCreateCopyParams,
+    AdSetDeleteAdLabelsParams,
+    AdSetField,
+    AdSetGetActivitiesParams,
+    AdSetGetAdRulesGovernedParams,
+    AdSetGetAdsParams,
+    AdSetGetAsyncAdRequestsParams,
+    AdSetGetCopiesParams,
+    AdSetGetDeliveryEstimateParams,
+    AdSetGetInsightsAsyncParams,
+    AdSetGetInsightsParams,
+    AdSetGetMessageDeliveryEstimateParams,
+    AdSetUpdateParams,
+)
+from src.generated.models.adsinsights import AdsInsightsField
+from src.generated.models.messagedeliveryestimate import MessageDeliveryEstimateField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -40,6 +64,9 @@ def get_adset(
     return obj.api_get(fields=fields)
 
 
+adset_server.tool(get_adset)
+
+
 @wrapped_fn_tool
 def update_adset(
     adset_id: str,
@@ -56,6 +83,9 @@ def update_adset(
     return AdSet(adset_id).api_update(fields=fields, params=params)
 
 
+adset_server.tool(update_adset)
+
+
 @wrapped_fn_tool
 def delete_adset(
     adset_id: str,
@@ -68,41 +98,250 @@ def delete_adset(
     return AdSet(adset_id).api_delete()
 
 
-# ---- Edge Methods (13) ----
-# Import and register wrapper functions from generated wrappers
-from src.generated.wrappers.adset_wrappers import (
-    create_ad_label,
-    create_budget_schedule,
-    create_copy,
-    delete_ad_labels,
-    get_activities,
-    get_ad_rules_governed,
-    get_ads,
-    get_async_ad_requests,
-    get_copies,
-    get_delivery_estimate,
-    get_insights,
-    get_insights_async,
-    get_message_delivery_estimate,
-)
-
-# ---- Register tools ----
-# Register CRUD operations
-adset_server.tool(get_adset)
-adset_server.tool(update_adset)
 adset_server.tool(delete_adset)
 
-# Register edge methods from wrappers
+
+# ---- Edge Methods (13) ----
+@wrapped_fn_tool
+def get_activities(
+    adset_id: str,
+    fields: list[AdActivityField] = [],
+    params: AdSetGetActivitiesParams = {},
+) -> Any:
+    """Get Activities for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_activities(fields=fields, params=params)
+
+
 adset_server.tool(get_activities)
+
+
+@wrapped_fn_tool
+def delete_ad_labels(
+    adset_id: str,
+    params: AdSetDeleteAdLabelsParams = {},
+) -> Any:
+    """Delete Ad Labels for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).delete_ad_labels(params=params)
+
+
 adset_server.tool(delete_ad_labels)
+
+
+@wrapped_fn_tool
+def create_ad_label(
+    adset_id: str,
+    fields: list[str] = [],
+    params: AdSetCreateAdLabelParams = {},
+) -> Any:
+    """Create Ad Label for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).create_ad_label(fields=fields, params=params)
+
+
 adset_server.tool(create_ad_label)
+
+
+@wrapped_fn_tool
+def get_ad_rules_governed(
+    adset_id: str,
+    fields: list[AdRuleField] = [],
+    params: AdSetGetAdRulesGovernedParams = {},
+) -> Any:
+    """Get Ad Rules Governed for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_ad_rules_governed(fields=fields, params=params)
+
+
 adset_server.tool(get_ad_rules_governed)
+
+
+@wrapped_fn_tool
+def get_ads(
+    adset_id: str,
+    fields: list[AdField] = [],
+    params: AdSetGetAdsParams = {},
+) -> Any:
+    """Get Ads for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_ads(fields=fields, params=params)
+
+
 adset_server.tool(get_ads)
+
+
+@wrapped_fn_tool
+def get_async_ad_requests(
+    adset_id: str,
+    fields: list[AdAsyncRequestField] = [],
+    params: AdSetGetAsyncAdRequestsParams = {},
+) -> Any:
+    """Get Async Ad Requests for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_async_ad_requests(fields=fields, params=params)
+
+
 adset_server.tool(get_async_ad_requests)
+
+
+@wrapped_fn_tool
+def create_budget_schedule(
+    adset_id: str,
+    fields: list[str] = [],
+    params: AdSetCreateBudgetScheduleParams = {},
+) -> Any:
+    """Create Budget Schedule for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).create_budget_schedule(fields=fields, params=params)
+
+
 adset_server.tool(create_budget_schedule)
+
+
+@wrapped_fn_tool
+def get_copies(
+    adset_id: str,
+    fields: list[AdSetField] = [],
+    params: AdSetGetCopiesParams = {},
+) -> Any:
+    """Get Copies for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_copies(fields=fields, params=params)
+
+
 adset_server.tool(get_copies)
+
+
+@wrapped_fn_tool
+def create_copy(
+    adset_id: str,
+    fields: list[str] = [],
+    params: AdSetCreateCopyParams = {},
+) -> Any:
+    """Create Copy for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).create_copy(fields=fields, params=params)
+
+
 adset_server.tool(create_copy)
+
+
+@wrapped_fn_tool
+def get_delivery_estimate(
+    adset_id: str,
+    fields: list[AdCampaignDeliveryEstimateField] = [],
+    params: AdSetGetDeliveryEstimateParams = {},
+) -> Any:
+    """Get Delivery Estimate for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_delivery_estimate(fields=fields, params=params)
+
+
 adset_server.tool(get_delivery_estimate)
+
+
+@wrapped_fn_tool
+def get_insights(
+    adset_id: str,
+    fields: list[AdsInsightsField] = [],
+    params: AdSetGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_insights(fields=fields, params=params)
+
+
 adset_server.tool(get_insights)
+
+
+@wrapped_fn_tool
+def get_insights_async(
+    adset_id: str,
+    fields: list[AdReportRunField] = [],
+    params: AdSetGetInsightsAsyncParams = {},
+) -> Any:
+    """Get Insights Async for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_insights_async(fields=fields, params=params)
+
+
 adset_server.tool(get_insights_async)
+
+
+@wrapped_fn_tool
+def get_message_delivery_estimate(
+    adset_id: str,
+    fields: list[MessageDeliveryEstimateField] = [],
+    params: AdSetGetMessageDeliveryEstimateParams = {},
+) -> Any:
+    """Get Message Delivery Estimate for this AdSet.
+
+    Args:
+        adset_id: The ID of the AdSet.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdSet(adset_id).get_message_delivery_estimate(fields=fields, params=params)
+
+
 adset_server.tool(get_message_delivery_estimate)

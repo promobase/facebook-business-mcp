@@ -1,4 +1,4 @@
-"""Streamlined AdVideo MCP Server - Core Operations Only."""
+"""AdVideo MCP Server with typed wrappers."""
 
 from __future__ import annotations
 
@@ -7,7 +7,21 @@ from typing import Any
 from facebook_business.adobjects.advideo import AdVideo
 from fastmcp import FastMCP
 
-from src.generated.models.advideo import AdVideoField, AdVideoUpdateParams
+from src.generated.models.advideo import (
+    AdVideoCreateCapTIOnParams,
+    AdVideoCreateCollaboratorParams,
+    AdVideoCreateCommentParams,
+    AdVideoCreateGamingClipCreateParams,
+    AdVideoCreateLikeParams,
+    AdVideoCreatePollParams,
+    AdVideoCreateThumbnailParams,
+    AdVideoField,
+    AdVideoGetCommentsParams,
+    AdVideoGetVideoInsightsParams,
+    AdVideoUpdateParams,
+)
+from src.generated.models.comment import CommentField
+from src.generated.models.insightsresult import InsightsResultField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -40,6 +54,9 @@ def get_advideo(
     return obj.api_get(fields=fields)
 
 
+advideo_server.tool(get_advideo)
+
+
 @wrapped_fn_tool
 def update_advideo(
     advideo_id: str,
@@ -56,6 +73,9 @@ def update_advideo(
     return AdVideo(advideo_id).api_update(fields=fields, params=params)
 
 
+advideo_server.tool(update_advideo)
+
+
 @wrapped_fn_tool
 def delete_advideo(
     advideo_id: str,
@@ -68,33 +88,176 @@ def delete_advideo(
     return AdVideo(advideo_id).api_delete()
 
 
-# ---- Edge Methods (9) ----
-# Import and register wrapper functions from generated wrappers
-from src.generated.wrappers.advideo_wrappers import (
-    create_cap_t_i_on,
-    create_collaborator,
-    create_comment,
-    create_gaming_clip_create,
-    create_like,
-    create_poll,
-    create_thumbnail,
-    get_comments,
-    get_video_insights,
-)
-
-# ---- Register tools ----
-# Register CRUD operations
-advideo_server.tool(get_advideo)
-advideo_server.tool(update_advideo)
 advideo_server.tool(delete_advideo)
 
-# Register edge methods from wrappers
+
+# ---- Edge Methods (9) ----
+@wrapped_fn_tool
+def create_cap_t_i_on(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateCapTIOnParams = {},
+) -> Any:
+    """Create Cap T I On for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_cap_t_i_on(fields=fields, params=params)
+
+
 advideo_server.tool(create_cap_t_i_on)
+
+
+@wrapped_fn_tool
+def create_collaborator(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateCollaboratorParams = {},
+) -> Any:
+    """Create Collaborator for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_collaborator(fields=fields, params=params)
+
+
 advideo_server.tool(create_collaborator)
+
+
+@wrapped_fn_tool
+def get_comments(
+    advideo_id: str,
+    fields: list[CommentField] = [],
+    params: AdVideoGetCommentsParams = {},
+) -> Any:
+    """Get Comments for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).get_comments(fields=fields, params=params)
+
+
 advideo_server.tool(get_comments)
+
+
+@wrapped_fn_tool
+def create_comment(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateCommentParams = {},
+) -> Any:
+    """Create Comment for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_comment(fields=fields, params=params)
+
+
 advideo_server.tool(create_comment)
+
+
+@wrapped_fn_tool
+def create_gaming_clip_create(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateGamingClipCreateParams = {},
+) -> Any:
+    """Create Gaming Clip Create for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_gaming_clip_create(fields=fields, params=params)
+
+
 advideo_server.tool(create_gaming_clip_create)
+
+
+@wrapped_fn_tool
+def create_like(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateLikeParams = {},
+) -> Any:
+    """Create Like for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_like(fields=fields, params=params)
+
+
 advideo_server.tool(create_like)
+
+
+@wrapped_fn_tool
+def create_poll(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreatePollParams = {},
+) -> Any:
+    """Create Poll for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_poll(fields=fields, params=params)
+
+
 advideo_server.tool(create_poll)
+
+
+@wrapped_fn_tool
+def create_thumbnail(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: AdVideoCreateThumbnailParams = {},
+) -> Any:
+    """Create Thumbnail for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).create_thumbnail(fields=fields, params=params)
+
+
 advideo_server.tool(create_thumbnail)
+
+
+@wrapped_fn_tool
+def get_video_insights(
+    advideo_id: str,
+    fields: list[InsightsResultField] = [],
+    params: AdVideoGetVideoInsightsParams = {},
+) -> Any:
+    """Get Video Insights for this AdVideo.
+
+    Args:
+        advideo_id: The ID of the AdVideo.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdVideo(advideo_id).get_video_insights(fields=fields, params=params)
+
+
 advideo_server.tool(get_video_insights)

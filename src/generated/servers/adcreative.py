@@ -1,4 +1,4 @@
-"""Streamlined AdCreative MCP Server - Core Operations Only."""
+"""AdCreative MCP Server with typed wrappers."""
 
 from __future__ import annotations
 
@@ -7,7 +7,13 @@ from typing import Any
 from facebook_business.adobjects.adcreative import AdCreative
 from fastmcp import FastMCP
 
-from src.generated.models.adcreative import AdCreativeField, AdCreativeUpdateParams
+from src.generated.models.adcreative import (
+    AdCreativeCreateAdLabelParams,
+    AdCreativeField,
+    AdCreativeGetPreviewsParams,
+    AdCreativeUpdateParams,
+)
+from src.generated.models.adpreview import AdPreviewField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -40,6 +46,9 @@ def get_adcreative(
     return obj.api_get(fields=fields)
 
 
+adcreative_server.tool(get_adcreative)
+
+
 @wrapped_fn_tool
 def update_adcreative(
     adcreative_id: str,
@@ -56,6 +65,9 @@ def update_adcreative(
     return AdCreative(adcreative_id).api_update(fields=fields, params=params)
 
 
+adcreative_server.tool(update_adcreative)
+
+
 @wrapped_fn_tool
 def delete_adcreative(
     adcreative_id: str,
@@ -68,16 +80,43 @@ def delete_adcreative(
     return AdCreative(adcreative_id).api_delete()
 
 
-# ---- Edge Methods (2) ----
-# Import and register wrapper functions from generated wrappers
-from src.generated.wrappers.adcreative_wrappers import create_ad_label, get_previews
-
-# ---- Register tools ----
-# Register CRUD operations
-adcreative_server.tool(get_adcreative)
-adcreative_server.tool(update_adcreative)
 adcreative_server.tool(delete_adcreative)
 
-# Register edge methods from wrappers
+
+# ---- Edge Methods (2) ----
+@wrapped_fn_tool
+def create_ad_label(
+    adcreative_id: str,
+    fields: list[str] = [],
+    params: AdCreativeCreateAdLabelParams = {},
+) -> Any:
+    """Create Ad Label for this AdCreative.
+
+    Args:
+        adcreative_id: The ID of the AdCreative.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdCreative(adcreative_id).create_ad_label(fields=fields, params=params)
+
+
 adcreative_server.tool(create_ad_label)
+
+
+@wrapped_fn_tool
+def get_previews(
+    adcreative_id: str,
+    fields: list[AdPreviewField] = [],
+    params: AdCreativeGetPreviewsParams = {},
+) -> Any:
+    """Get Previews for this AdCreative.
+
+    Args:
+        adcreative_id: The ID of the AdCreative.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return AdCreative(adcreative_id).get_previews(fields=fields, params=params)
+
+
 adcreative_server.tool(get_previews)

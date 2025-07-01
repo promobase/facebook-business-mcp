@@ -1,4 +1,4 @@
-"""Streamlined AdImage MCP Server - Core Operations Only."""
+"""AdImage MCP Server with typed wrappers."""
 
 from __future__ import annotations
 
@@ -40,6 +40,4 @@ def get_adimage(
     return obj.api_get(fields=fields)
 
 
-# ---- Register tools ----
-# Register CRUD operations
 adimage_server.tool(get_adimage)

@@ -1,4 +1,4 @@
-"""Streamlined Ad MCP Server - Core Operations Only."""
+"""Ad MCP Server with typed wrappers."""
 
 from __future__ import annotations
 
@@ -7,7 +7,21 @@ from typing import Any
 from facebook_business.adobjects.ad import Ad
 from fastmcp import FastMCP
 
-from src.generated.models.ad import AdField, AdUpdateParams
+from src.generated.models.ad import (
+    AdCreateAdLabelParams,
+    AdCreateCopyParams,
+    AdField,
+    AdGetAdRulesGovernedParams,
+    AdGetCopiesParams,
+    AdGetInsightsAsyncParams,
+    AdGetInsightsParams,
+    AdGetPreviewsParams,
+    AdUpdateParams,
+)
+from src.generated.models.adpreview import AdPreviewField
+from src.generated.models.adreportrun import AdReportRunField
+from src.generated.models.adrule import AdRuleField
+from src.generated.models.adsinsights import AdsInsightsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -40,6 +54,9 @@ def get_ad(
     return obj.api_get(fields=fields)
 
 
+ad_server.tool(get_ad)
+
+
 @wrapped_fn_tool
 def update_ad(
     ad_id: str,
@@ -56,6 +73,9 @@ def update_ad(
     return Ad(ad_id).api_update(fields=fields, params=params)
 
 
+ad_server.tool(update_ad)
+
+
 @wrapped_fn_tool
 def delete_ad(
     ad_id: str,
@@ -68,29 +88,138 @@ def delete_ad(
     return Ad(ad_id).api_delete()
 
 
-# ---- Edge Methods (7) ----
-# Import and register wrapper functions from generated wrappers
-from src.generated.wrappers.ad_wrappers import (
-    create_ad_label,
-    create_copy,
-    get_ad_rules_governed,
-    get_copies,
-    get_insights,
-    get_insights_async,
-    get_previews,
-)
-
-# ---- Register tools ----
-# Register CRUD operations
-ad_server.tool(get_ad)
-ad_server.tool(update_ad)
 ad_server.tool(delete_ad)
 
-# Register edge methods from wrappers
+
+# ---- Edge Methods (7) ----
+@wrapped_fn_tool
+def create_ad_label(
+    ad_id: str,
+    fields: list[str] = [],
+    params: AdCreateAdLabelParams = {},
+) -> Any:
+    """Create Ad Label for this Ad.
+
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).create_ad_label(fields=fields, params=params)
+
+
 ad_server.tool(create_ad_label)
+
+
+@wrapped_fn_tool
+def get_ad_rules_governed(
+    ad_id: str,
+    fields: list[AdRuleField] = [],
+    params: AdGetAdRulesGovernedParams = {},
+) -> Any:
+    """Get Ad Rules Governed for this Ad.
+
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_ad_rules_governed(fields=fields, params=params)
+
+
 ad_server.tool(get_ad_rules_governed)
+
+
+@wrapped_fn_tool
+def get_copies(
+    ad_id: str,
+    fields: list[AdField] = [],
+    params: AdGetCopiesParams = {},
+) -> Any:
+    """Get Copies for this Ad.
+
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_copies(fields=fields, params=params)
+
+
 ad_server.tool(get_copies)
+
+
+@wrapped_fn_tool
+def create_copy(
+    ad_id: str,
+    fields: list[str] = [],
+    params: AdCreateCopyParams = {},
+) -> Any:
+    """Create Copy for this Ad.
+
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).create_copy(fields=fields, params=params)
+
+
 ad_server.tool(create_copy)
+
+
+@wrapped_fn_tool
+def get_insights(
+    ad_id: str,
+    fields: list[AdsInsightsField] = [],
+    params: AdGetInsightsParams = {},
+) -> Any:
+    """Get Insights for this Ad.
+
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_insights(fields=fields, params=params)
+
+
 ad_server.tool(get_insights)
+
+
+@wrapped_fn_tool
+def get_insights_async(
+    ad_id: str,
+    fields: list[AdReportRunField] = [],
+    params: AdGetInsightsAsyncParams = {},
+) -> Any:
+    """Get Insights Async for this Ad.
+
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_insights_async(fields=fields, params=params)
+
+
 ad_server.tool(get_insights_async)
+
+
+@wrapped_fn_tool
+def get_previews(
+    ad_id: str,
+    fields: list[AdPreviewField] = [],
+    params: AdGetPreviewsParams = {},
+) -> Any:
+    """Get Previews for this Ad.
+
+    Args:
+        ad_id: The ID of the Ad.
+        fields: Fields to retrieve.
+        params: Query parameters.
+    """
+    return Ad(ad_id).get_previews(fields=fields, params=params)
+
+
 ad_server.tool(get_previews)
