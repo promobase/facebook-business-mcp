@@ -8,7 +8,7 @@ from functools import wraps
 from pathlib import Path
 from typing import Any
 
-from facebook_business.exceptions import FacebookError
+from facebook_business.exceptions import FacebookError, FacebookRequestError
 
 
 def get_logger(name: str | None = None) -> logging.Logger:
@@ -65,13 +65,15 @@ def handle_facebook_errors(fn: Callable) -> Callable:
     """hof for err handling"""
 
     @wraps(fn)
-    def wrapper(*args, **kwargs) -> dict[str, Any]:
+    def wrapper(*args, **kwargs) -> Any:
         try:
             return fn(*args, **kwargs)
         except FacebookError as e:
-            return {"error": f"Facebook API error: {str(e)}"}
+            return str(e)
+        except FacebookRequestError as e:
+            return str(e)
         except Exception as e:
-            return {"error": f"Error: {str(e)}"}
+            return str(e)
 
     return wrapper
 
