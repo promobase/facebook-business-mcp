@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .application import ApplicationFields
-from .page import PageFields
+if TYPE_CHECKING:
+    from .application import ApplicationFields
+    from .page import PageFields
 
 
 class PageCallToActionAndroidDestinationType(str, Enum):
@@ -153,28 +154,4 @@ class PageCallToActionFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class PageCallToActionApiUpdateParams(BaseModel):
-    """Parameters for PageCallToAction.api_update()."""
-
-    android_app_id: int | None = Field(None, description="android_app_id parameter")
-    android_destination_type: str | None = Field(
-        None, description="android_destination_type parameter"
-    )
-    android_package_name: str | None = Field(None, description="android_package_name parameter")
-    android_url: str | None = Field(None, description="android_url parameter")
-    email_address: str | None = Field(None, description="email_address parameter")
-    intl_number_with_plus: str | None = Field(None, description="intl_number_with_plus parameter")
-    iphone_app_id: int | None = Field(None, description="iphone_app_id parameter")
-    iphone_destination_type: str | None = Field(
-        None, description="iphone_destination_type parameter"
-    )
-    iphone_url: str | None = Field(None, description="iphone_url parameter")
-    type: str | None = Field(None, description="type parameter")
-    web_destination_type: str | None = Field(None, description="web_destination_type parameter")
-    web_url: str | None = Field(None, description="web_url parameter")
-
-    class Config:
         extra = "forbid"

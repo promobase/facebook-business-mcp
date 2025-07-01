@@ -4,18 +4,19 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .reachfrequencyactivity import ReachFrequencyActivityFields
-from .reachfrequencyadformat import ReachFrequencyAdFormatFields
-from .reachfrequencydaypart import ReachFrequencyDayPartFields
-from .reachfrequencyestimatescurve import ReachFrequencyEstimatesCurveFields
-from .reachfrequencyestimatesplacementbreakdown import (
-    ReachFrequencyEstimatesPlacementBreakdownFields,
-)
-from .targeting import TargetingFields
+if TYPE_CHECKING:
+    from .reachfrequencyactivity import ReachFrequencyActivityFields
+    from .reachfrequencyadformat import ReachFrequencyAdFormatFields
+    from .reachfrequencydaypart import ReachFrequencyDayPartFields
+    from .reachfrequencyestimatescurve import ReachFrequencyEstimatesCurveFields
+    from .reachfrequencyestimatesplacementbreakdown import (
+        ReachFrequencyEstimatesPlacementBreakdownFields,
+    )
+    from .targeting import TargetingFields
 
 
 class ReachFrequencyPredictionAction(str, Enum):

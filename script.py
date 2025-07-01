@@ -369,17 +369,19 @@ class PydanticModelGenerator:
 
     def __init__(self, parser: FacebookSDKParser):
         self.imports: set[str] = set()
+        self.type_checking_imports: set[str] = set()
         self.parser = parser
 
     def generate_model(self, adobject_info: AdObjectInfo) -> str:
         """Generate a Pydantic model for an AdObject."""
         self.imports.clear()
+        self.type_checking_imports.clear()
         self.current_module = adobject_info.module_path
         # Standard library imports first
         self.imports.add("from __future__ import annotations")
         self.imports.add("from datetime import datetime")
         self.imports.add("from enum import Enum")
-        self.imports.add("from typing import Any, Literal")
+        self.imports.add("from typing import Any, Literal, TYPE_CHECKING")
         # Third party imports
         self.imports.add("from pydantic import BaseModel, Field")
 
@@ -404,6 +406,7 @@ class PydanticModelGenerator:
         future_imports = []
         stdlib_imports = []
         third_party_imports = []
+        local_imports = []
 
         for imp in self.imports:
             if "from __future__" in imp:
@@ -413,6 +416,8 @@ class PydanticModelGenerator:
                 for lib in ["datetime", "enum", "typing"]
             ):
                 stdlib_imports.append(imp)
+            elif imp.startswith("from ."):
+                local_imports.append(imp)
             else:
                 third_party_imports.append(imp)
 
@@ -424,6 +429,15 @@ class PydanticModelGenerator:
             imports_sections.append("\n".join(sorted(stdlib_imports)))
         if third_party_imports:
             imports_sections.append("\n".join(sorted(third_party_imports)))
+        if local_imports:
+            imports_sections.append("\n".join(sorted(local_imports)))
+
+        # Add TYPE_CHECKING imports if any
+        if self.type_checking_imports:
+            type_checking_section = ["", "if TYPE_CHECKING:"]
+            for imp in sorted(self.type_checking_imports):
+                type_checking_section.append(f"    {imp}")
+            imports_sections.append("\n".join(type_checking_section))
 
         imports_str = "\n\n".join(imports_sections)
         models_str = "\n\n".join(model_parts)
@@ -511,11 +525,9 @@ class PydanticModelGenerator:
             fields_model = f"{field_type}Fields"
             # Check if it's a self-reference
             if module_name != self.current_module:
-                self.imports.add(f"from .{module_name} import {fields_model}")
-            # For self-references, use string annotation
-            else:
-                fields_model = f'"{fields_model}"'
-            return fields_model
+                self.type_checking_imports.add(f"from .{module_name} import {fields_model}")
+            # Always use string annotation for forward references
+            return f'"{fields_model}"'
 
         # Handle list types
         if field_type.startswith("list<") and field_type.endswith(">"):
@@ -534,9 +546,9 @@ class PydanticModelGenerator:
         # Default to Any for unknown types
         return "dict[str, Any]"
 
-    def _generate_param_model(self, class_name: str, method_info: dict) -> Optional[str]:
+    def _generate_param_model(self, class_name: str, method_info: ApiMethodInfo) -> Optional[str]:
         """Generate a Pydantic model for API method parameters."""
-        if not method_info["param_types"]:
+        if not method_info.param_types:
             return None
 
         # Python reserved keywords
@@ -579,7 +591,7 @@ class PydanticModelGenerator:
         }
 
         lines = []
-        method_name = method_info["name"]
+        method_name = method_info.name
         # Convert method name to PascalCase for the model name
         model_name = (
             f"{class_name}{''.join(word.capitalize() for word in method_name.split('_'))}Params"
@@ -590,8 +602,8 @@ class PydanticModelGenerator:
         lines.append("")
 
         # Generate fields for each parameter
-        for param_name, param_type in method_info["param_types"].items():
-            python_type = self._map_param_type(param_type, method_info["enums"])
+        for param_name, param_type in method_info.param_types.items():
+            python_type = self._map_param_type(param_type, method_info.enums)
             # Make all params optional by default
             field_name = param_name
             if param_name in RESERVED_KEYWORDS:
@@ -628,11 +640,9 @@ class PydanticModelGenerator:
             fields_model = f"{param_type}Fields"
             # Check if it's a self-reference
             if module_name != self.current_module:
-                self.imports.add(f"from .{module_name} import {fields_model}")
-            # For self-references, use string annotation
-            else:
-                fields_model = f'"{fields_model}"'
-            return fields_model
+                self.type_checking_imports.add(f"from .{module_name} import {fields_model}")
+            # Always use string annotation for forward references
+            return f'"{fields_model}"'
 
         # Handle list types
         if param_type.startswith("list<") and param_type.endswith(">"):

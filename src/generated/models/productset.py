@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .productcatalog import ProductCatalogFields
-from .productsetmetadata import ProductSetMetadataFields
+if TYPE_CHECKING:
+    from .productcatalog import ProductCatalogFields
+    from .productsetmetadata import ProductSetMetadataFields
+
 
 ProductSetField = Literal[
     "auto_creation_url",
@@ -43,33 +45,6 @@ class ProductSetFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ProductSetApiDeleteParams(BaseModel):
-    """Parameters for ProductSet.api_delete()."""
-
-    allow_live_product_set_deletion: bool | None = Field(
-        None, description="allow_live_product_set_deletion parameter"
-    )
-
-    class Config:
-        extra = "forbid"
-
-
-class ProductSetApiUpdateParams(BaseModel):
-    """Parameters for ProductSet.api_update()."""
-
-    filter: Any | None = Field(None, description="filter parameter")
-    metadata: dict[str, Any] | None = Field(None, description="metadata parameter")
-    name: str | None = Field(None, description="name parameter")
-    ordering_info: list[int] | None = Field(None, description="ordering_info parameter")
-    publish_to_shops: list[dict[str, Any]] | None = Field(
-        None, description="publish_to_shops parameter"
-    )
-    retailer_id: str | None = Field(None, description="retailer_id parameter")
-
-    class Config:
         extra = "forbid"
 
 

@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .profile import ProfileFields
+if TYPE_CHECKING:
+    from .profile import ProfileFields
+
 
 PlayableContentField = Literal[
     "id", "name", "owner", "app_id", "session_id", "source", "source_url", "source_zip"

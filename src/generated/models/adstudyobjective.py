@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -41,34 +41,4 @@ class AdStudyObjectiveFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdStudyObjectiveApiGetParams(BaseModel):
-    """Parameters for AdStudyObjective.api_get()."""
-
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
-    ds: str | None = Field(None, description="ds parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class AdStudyObjectiveApiUpdateParams(BaseModel):
-    """Parameters for AdStudyObjective.api_update()."""
-
-    adspixels: list[Any] | None = Field(None, description="adspixels parameter")
-    applications: list[Any] | None = Field(None, description="applications parameter")
-    customconversions: list[Any] | None = Field(None, description="customconversions parameter")
-    is_primary: bool | None = Field(None, description="is_primary parameter")
-    name: str | None = Field(None, description="name parameter")
-    offline_conversion_data_sets: list[Any] | None = Field(
-        None, description="offline_conversion_data_sets parameter"
-    )
-    offsite_datasets: list[Any] | None = Field(None, description="offsite_datasets parameter")
-    product_catalogs: list[Any] | None = Field(None, description="product_catalogs parameter")
-    product_sets: list[Any] | None = Field(None, description="product_sets parameter")
-    type: str | None = Field(None, description="type parameter")
-
-    class Config:
         extra = "forbid"

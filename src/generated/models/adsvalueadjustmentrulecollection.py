@@ -41,14 +41,3 @@ class AdsValueAdjustmentRuleCollectionFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class AdsValueAdjustmentRuleCollectionApiUpdateParams(BaseModel):
-    """Parameters for AdsValueAdjustmentRuleCollection.api_update()."""
-
-    is_default_setting: bool | None = Field(None, description="is_default_setting parameter")
-    name: str | None = Field(None, description="name parameter")
-    rules: list[dict[str, Any]] | None = Field(None, description="rules parameter")
-
-    class Config:
-        extra = "forbid"

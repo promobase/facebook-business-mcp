@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .idname import IDNameFields
+if TYPE_CHECKING:
+    from .idname import IDNameFields
+
 
 TargetingMarketingMessageChannelsField = Literal["whatsapp"]
 

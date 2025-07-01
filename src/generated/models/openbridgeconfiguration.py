@@ -53,29 +53,3 @@ class OpenBridgeConfigurationFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class OpenBridgeConfigurationApiUpdateParams(BaseModel):
-    """Parameters for OpenBridgeConfiguration.api_update()."""
-
-    active: bool | None = Field(None, description="active parameter")
-    cloud_provider: str | None = Field(None, description="cloud_provider parameter")
-    cloud_region: str | None = Field(None, description="cloud_region parameter")
-    destination_id: str | None = Field(None, description="destination_id parameter")
-    endpoint: str | None = Field(None, description="endpoint parameter")
-    fallback_domain: str | None = Field(None, description="fallback_domain parameter")
-    first_party_domain: str | None = Field(None, description="first_party_domain parameter")
-    host_business_id: int | None = Field(None, description="host_business_id parameter")
-    instance_id: str | None = Field(None, description="instance_id parameter")
-    instance_version: str | None = Field(None, description="instance_version parameter")
-    is_sgw_instance: bool | None = Field(None, description="is_sgw_instance parameter")
-    is_sgw_pixel_from_meta_pixel: bool | None = Field(
-        None, description="is_sgw_pixel_from_meta_pixel parameter"
-    )
-    partner_name: str | None = Field(None, description="partner_name parameter")
-    sgw_account_id: str | None = Field(None, description="sgw_account_id parameter")
-    sgw_instance_url: str | None = Field(None, description="sgw_instance_url parameter")
-    sgw_pixel_id: int | None = Field(None, description="sgw_pixel_id parameter")
-
-    class Config:
-        extra = "forbid"

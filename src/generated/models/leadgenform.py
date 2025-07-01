@@ -4,17 +4,18 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .keyvalue import KeyValueFields
-from .leadgencontextcard import LeadGenContextCardFields
-from .leadgenlegalcontent import LeadGenLegalContentFields
-from .leadgenquestion import LeadGenQuestionFields
-from .leadgenthankyoupage import LeadGenThankYouPageFields
-from .page import PageFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .keyvalue import KeyValueFields
+    from .leadgencontextcard import LeadGenContextCardFields
+    from .leadgenlegalcontent import LeadGenLegalContentFields
+    from .leadgenquestion import LeadGenQuestionFields
+    from .leadgenthankyoupage import LeadGenThankYouPageFields
+    from .page import PageFields
+    from .user import UserFields
 
 
 class LeadgenFormStatus(str, Enum):
@@ -121,15 +122,6 @@ class LeadgenFormFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class LeadgenFormApiUpdateParams(BaseModel):
-    """Parameters for LeadgenForm.api_update()."""
-
-    status: str | None = Field(None, description="status parameter")
-
-    class Config:
         extra = "forbid"
 
 

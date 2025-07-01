@@ -92,13 +92,3 @@ class BusinessRoleRequestFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class BusinessRoleRequestApiUpdateParams(BaseModel):
-    """Parameters for BusinessRoleRequest.api_update()."""
-
-    role: str | None = Field(None, description="role parameter")
-    tasks: list[str] | None = Field(None, description="tasks parameter")
-
-    class Config:
-        extra = "forbid"

@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .copyrightreferencecontainer import CopyrightReferenceContainerFields
-from .videocopyrightrule import VideoCopyrightRuleFields
+if TYPE_CHECKING:
+    from .copyrightreferencecontainer import CopyrightReferenceContainerFields
+    from .videocopyrightrule import VideoCopyrightRuleFields
+
 
 MusicVideoCopyrightField = Literal[
     "creation_time",

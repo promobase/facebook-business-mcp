@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .pageupcomingchange import PageUpcomingChangeFields
+if TYPE_CHECKING:
+    from .pageupcomingchange import PageUpcomingChangeFields
+
 
 PageChangeProposalField = Literal["acceptance_status", "category", "id", "upcoming_change_info"]
 

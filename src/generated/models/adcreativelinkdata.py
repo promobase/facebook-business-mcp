@@ -3,20 +3,21 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativecollectionthumbnailinfo import AdCreativeCollectionThumbnailInfoFields
-from .adcreativelinkdataapplinkspec import AdCreativeLinkDataAppLinkSpecFields
-from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
-from .adcreativelinkdatachildattachment import AdCreativeLinkDataChildAttachmentFields
-from .adcreativelinkdataimagelayerspec import AdCreativeLinkDataImageLayerSpecFields
-from .adcreativelinkdataimageoverlayspec import AdCreativeLinkDataImageOverlaySpecFields
-from .adcreativepostclickconfiguration import AdCreativePostClickConfigurationFields
-from .adcreativestaticfallbackspec import AdCreativeStaticFallbackSpecFields
-from .adcustomizationrulespec import AdCustomizationRuleSpecFields
-from .adsimagecrops import AdsImageCropsFields
+if TYPE_CHECKING:
+    from .adcreativecollectionthumbnailinfo import AdCreativeCollectionThumbnailInfoFields
+    from .adcreativelinkdataapplinkspec import AdCreativeLinkDataAppLinkSpecFields
+    from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
+    from .adcreativelinkdatachildattachment import AdCreativeLinkDataChildAttachmentFields
+    from .adcreativelinkdataimagelayerspec import AdCreativeLinkDataImageLayerSpecFields
+    from .adcreativelinkdataimageoverlayspec import AdCreativeLinkDataImageOverlaySpecFields
+    from .adcreativepostclickconfiguration import AdCreativePostClickConfigurationFields
+    from .adcreativestaticfallbackspec import AdCreativeStaticFallbackSpecFields
+    from .adcustomizationrulespec import AdCustomizationRuleSpecFields
+    from .adsimagecrops import AdsImageCropsFields
 
 
 class AdCreativeLinkDataFormatOption(str, Enum):

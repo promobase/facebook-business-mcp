@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adspixelstats import AdsPixelStatsFields
+if TYPE_CHECKING:
+    from .adspixelstats import AdsPixelStatsFields
 
 
 class AdsPixelStatsResultAggregation(str, Enum):

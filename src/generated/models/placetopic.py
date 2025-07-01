@@ -33,12 +33,3 @@ class PlaceTopicFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class PlaceTopicApiGetParams(BaseModel):
-    """Parameters for PlaceTopic.api_get()."""
-
-    icon_size: str | None = Field(None, description="icon_size parameter")
-
-    class Config:
-        extra = "forbid"

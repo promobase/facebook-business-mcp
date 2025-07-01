@@ -63,12 +63,3 @@ class MessengerBusinessTemplateFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class MessengerBusinessTemplateApiUpdateParams(BaseModel):
-    """Parameters for MessengerBusinessTemplate.api_update()."""
-
-    components: list[dict[str, Any]] | None = Field(None, description="components parameter")
-
-    class Config:
-        extra = "forbid"

@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .user import UserFields
+if TYPE_CHECKING:
+    from .user import UserFields
+
 
 IGMediaForIGOnlyAPIField = Literal[
     "alt_text",
@@ -51,15 +53,6 @@ class IGMediaForIGOnlyAPIFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class IGMediaForIGOnlyAPIApiUpdateParams(BaseModel):
-    """Parameters for IGMediaForIGOnlyAPI.api_update()."""
-
-    comment_enabled: bool | None = Field(None, description="comment_enabled parameter")
-
-    class Config:
         extra = "forbid"
 
 

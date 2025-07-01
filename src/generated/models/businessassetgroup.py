@@ -84,15 +84,6 @@ class BusinessAssetGroupFields(BaseModel):
         extra = "forbid"
 
 
-class BusinessAssetGroupApiUpdateParams(BaseModel):
-    """Parameters for BusinessAssetGroup.api_update()."""
-
-    name: str | None = Field(None, description="name parameter")
-
-    class Config:
-        extra = "forbid"
-
-
 class BusinessAssetGroupDeleteAssignedUsersParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_assigned_users()."""
 

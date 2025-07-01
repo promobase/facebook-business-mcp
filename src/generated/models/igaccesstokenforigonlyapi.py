@@ -20,14 +20,3 @@ class IGAccessTokenForIGOnlyAPIFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class IGAccessTokenForIGOnlyAPIApiGetParams(BaseModel):
-    """Parameters for IGAccessTokenForIGOnlyAPI.api_get()."""
-
-    access_token: str | None = Field(None, description="access_token parameter")
-    client_secret: str | None = Field(None, description="client_secret parameter")
-    grant_type: str | None = Field(None, description="grant_type parameter")
-
-    class Config:
-        extra = "forbid"

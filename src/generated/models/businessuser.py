@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .businessrolerequest import BusinessRoleRequestFields
+if TYPE_CHECKING:
+    from .businessrolerequest import BusinessRoleRequestFields
 
 
 class BusinessUserInvitedUserType(str, Enum):
@@ -101,25 +102,6 @@ class BusinessUserFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class BusinessUserApiUpdateParams(BaseModel):
-    """Parameters for BusinessUser.api_update()."""
-
-    clear_pending_email: bool | None = Field(None, description="clear_pending_email parameter")
-    email: str | None = Field(None, description="email parameter")
-    first_name: str | None = Field(None, description="first_name parameter")
-    last_name: str | None = Field(None, description="last_name parameter")
-    pending_email: str | None = Field(None, description="pending_email parameter")
-    role: str | None = Field(None, description="role parameter")
-    skip_verification_email: bool | None = Field(
-        None, description="skip_verification_email parameter"
-    )
-    tasks: list[str] | None = Field(None, description="tasks parameter")
-    title: str | None = Field(None, description="title parameter")
-
-    class Config:
         extra = "forbid"
 
 

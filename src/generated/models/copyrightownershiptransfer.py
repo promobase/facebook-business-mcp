@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .profile import ProfileFields
+if TYPE_CHECKING:
+    from .profile import ProfileFields
+
 
 CopyrightOwnershipTransferField = Literal[
     "id",

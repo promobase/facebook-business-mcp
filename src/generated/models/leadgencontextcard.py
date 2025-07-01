@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .photo import PhotoFields
+if TYPE_CHECKING:
+    from .photo import PhotoFields
+
 
 LeadGenContextCardField = Literal["button_text", "content", "cover_photo", "id", "style", "title"]
 

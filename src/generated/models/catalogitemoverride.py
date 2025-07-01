@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .productitemlocalinfo import ProductItemLocalInfoFields
+if TYPE_CHECKING:
+    from .productitemlocalinfo import ProductItemLocalInfoFields
+
 
 CatalogItemOverrideField = Literal["id", "local_info", "override_type", "override_value"]
 

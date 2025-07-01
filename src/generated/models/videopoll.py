@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .status import StatusFields
+if TYPE_CHECKING:
+    from .status import StatusFields
 
 
 class VideoPollStatus(str, Enum):
@@ -52,17 +53,4 @@ class VideoPollFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class VideoPollApiUpdateParams(BaseModel):
-    """Parameters for VideoPoll.api_update()."""
-
-    action: str | None = Field(None, description="action parameter")
-    close_after_voting: bool | None = Field(None, description="close_after_voting parameter")
-    default_open: bool | None = Field(None, description="default_open parameter")
-    show_gradient: bool | None = Field(None, description="show_gradient parameter")
-    show_results: bool | None = Field(None, description="show_results parameter")
-
-    class Config:
         extra = "forbid"

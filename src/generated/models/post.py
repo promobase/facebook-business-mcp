@@ -4,15 +4,16 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .application import ApplicationFields
-from .event import EventFields
-from .place import PlaceFields
-from .privacy import PrivacyFields
-from .profile import ProfileFields
+if TYPE_CHECKING:
+    from .application import ApplicationFields
+    from .event import EventFields
+    from .place import PlaceFields
+    from .privacy import PrivacyFields
+    from .profile import ProfileFields
 
 
 class PostBackdatedTimeGranularity(str, Enum):
@@ -227,65 +228,6 @@ class PostFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class PostApiGetParams(BaseModel):
-    """Parameters for Post.api_get()."""
-
-    primary_fb_page_id: str | None = Field(None, description="primary_fb_page_id parameter")
-    primary_ig_user_id: str | None = Field(None, description="primary_ig_user_id parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class PostApiUpdateParams(BaseModel):
-    """Parameters for Post.api_update()."""
-
-    attached_media: list[Any] | None = Field(None, description="attached_media parameter")
-    backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(
-        None, description="backdated_time_granularity parameter"
-    )
-    composer_session_id: str | None = Field(None, description="composer_session_id parameter")
-    direct_share_status: int | None = Field(None, description="direct_share_status parameter")
-    explicitly_added_mentionee_ids: list[int] | None = Field(
-        None, description="explicitly_added_mentionee_ids parameter"
-    )
-    feed_story_visibility: str | None = Field(None, description="feed_story_visibility parameter")
-    is_explicit_location: bool | None = Field(None, description="is_explicit_location parameter")
-    is_hidden: bool | None = Field(None, description="is_hidden parameter")
-    is_pinned: bool | None = Field(None, description="is_pinned parameter")
-    is_published: bool | None = Field(None, description="is_published parameter")
-    message: str | None = Field(None, description="message parameter")
-    og_action_type_id: str | None = Field(None, description="og_action_type_id parameter")
-    og_hide_object_attachment: bool | None = Field(
-        None, description="og_hide_object_attachment parameter"
-    )
-    og_icon_id: str | None = Field(None, description="og_icon_id parameter")
-    og_object_id: str | None = Field(None, description="og_object_id parameter")
-    og_phrase: str | None = Field(None, description="og_phrase parameter")
-    og_set_profile_badge: bool | None = Field(None, description="og_set_profile_badge parameter")
-    og_suggestion_mechanism: str | None = Field(
-        None, description="og_suggestion_mechanism parameter"
-    )
-    place: Any | None = Field(None, description="place parameter")
-    privacy: str | None = Field(None, description="privacy parameter")
-    product_item: Any | None = Field(None, description="product_item parameter")
-    scheduled_publish_time: int | None = Field(None, description="scheduled_publish_time parameter")
-    should_sync_product_edit: bool | None = Field(
-        None, description="should_sync_product_edit parameter"
-    )
-    source_type: str | None = Field(None, description="source_type parameter")
-    sponsor_id: str | None = Field(None, description="sponsor_id parameter")
-    sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
-    tags: list[int] | None = Field(None, description="tags parameter")
-    text_format_preset_id: str | None = Field(None, description="text_format_preset_id parameter")
-    timeline_visibility: str | None = Field(None, description="timeline_visibility parameter")
-    tracking: str | None = Field(None, description="tracking parameter")
-
-    class Config:
         extra = "forbid"
 
 

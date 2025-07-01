@@ -2,18 +2,20 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .advideo import AdVideoFields
-from .canvascollectionthumbnail import CanvasCollectionThumbnailFields
-from .canvasdynamicsetting import CanvasDynamicSettingFields
-from .canvastemplate import CanvasTemplateFields
-from .page import PageFields
-from .photo import PhotoFields
-from .richmediaelement import RichMediaElementFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .advideo import AdVideoFields
+    from .canvascollectionthumbnail import CanvasCollectionThumbnailFields
+    from .canvasdynamicsetting import CanvasDynamicSettingFields
+    from .canvastemplate import CanvasTemplateFields
+    from .page import PageFields
+    from .photo import PhotoFields
+    from .richmediaelement import RichMediaElementFields
+    from .user import UserFields
+
 
 CanvasField = Literal[
     "background_color",
@@ -81,21 +83,6 @@ class CanvasFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class CanvasApiUpdateParams(BaseModel):
-    """Parameters for Canvas.api_update()."""
-
-    background_color: str | None = Field(None, description="background_color parameter")
-    body_element_ids: list[str] | None = Field(None, description="body_element_ids parameter")
-    enable_swipe_to_open: bool | None = Field(None, description="enable_swipe_to_open parameter")
-    is_hidden: bool | None = Field(None, description="is_hidden parameter")
-    is_published: bool | None = Field(None, description="is_published parameter")
-    name: str | None = Field(None, description="name parameter")
-    source_template_id: str | None = Field(None, description="source_template_id parameter")
-
-    class Config:
         extra = "forbid"
 
 

@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .post import PostFields
+if TYPE_CHECKING:
+    from .post import PostFields
+
 
 EntWithSponsorField = Literal[
     "id", "owner_linked_instagram_user_v1_id", "owner_picture", "post_id", "post_info"

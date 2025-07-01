@@ -3,21 +3,22 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .catalogbasedtargeting import CatalogBasedTargetingFields
-from .connectionstargeting import ConnectionsTargetingFields
-from .flexibletargeting import FlexibleTargetingFields
-from .idname import IDNameFields
-from .rawcustomaudience import RawCustomAudienceFields
-from .targetingautomation import TargetingAutomationFields
-from .targetingdynamicrule import TargetingDynamicRuleFields
-from .targetinggeolocation import TargetingGeoLocationFields
-from .targetingproductaudiencespec import TargetingProductAudienceSpecFields
-from .targetingprospectingaudience import TargetingProspectingAudienceFields
-from .targetingrelaxation import TargetingRelaxationFields
+if TYPE_CHECKING:
+    from .catalogbasedtargeting import CatalogBasedTargetingFields
+    from .connectionstargeting import ConnectionsTargetingFields
+    from .flexibletargeting import FlexibleTargetingFields
+    from .idname import IDNameFields
+    from .rawcustomaudience import RawCustomAudienceFields
+    from .targetingautomation import TargetingAutomationFields
+    from .targetingdynamicrule import TargetingDynamicRuleFields
+    from .targetinggeolocation import TargetingGeoLocationFields
+    from .targetingproductaudiencespec import TargetingProductAudienceSpecFields
+    from .targetingprospectingaudience import TargetingProspectingAudienceFields
+    from .targetingrelaxation import TargetingRelaxationFields
 
 
 class TargetingDevicePlatforms(str, Enum):

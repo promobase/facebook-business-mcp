@@ -4,17 +4,18 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcampaigngroupadvantagestate import AdCampaignGroupAdvantageStateFields
-from .adcampaignissuesinfo import AdCampaignIssuesInfoFields
-from .adlabel import AdLabelFields
-from .adpromotedobject import AdPromotedObjectFields
-from .adrecommendation import AdRecommendationFields
-from .adstudy import AdStudyFields
-from .status import StatusFields
+if TYPE_CHECKING:
+    from .adcampaigngroupadvantagestate import AdCampaignGroupAdvantageStateFields
+    from .adcampaignissuesinfo import AdCampaignIssuesInfoFields
+    from .adlabel import AdLabelFields
+    from .adpromotedobject import AdPromotedObjectFields
+    from .adrecommendation import AdRecommendationFields
+    from .adstudy import AdStudyFields
+    from .status import StatusFields
 
 
 class CampaignBidStrategy(str, Enum):
@@ -521,58 +522,6 @@ class CampaignFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class CampaignApiGetParams(BaseModel):
-    """Parameters for Campaign.api_get()."""
-
-    am_call_tags: dict[str, Any] | None = Field(None, description="am_call_tags parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
-    from_adtable: bool | None = Field(None, description="from_adtable parameter")
-    time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class CampaignApiUpdateParams(BaseModel):
-    """Parameters for Campaign.api_update()."""
-
-    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    adset_bid_amounts: dict[str, Any] | None = Field(
-        None, description="adset_bid_amounts parameter"
-    )
-    adset_budgets: list[dict[str, Any]] | None = Field(None, description="adset_budgets parameter")
-    bid_strategy: str | None = Field(None, description="bid_strategy parameter")
-    budget_rebalance_flag: bool | None = Field(None, description="budget_rebalance_flag parameter")
-    daily_budget: int | None = Field(None, description="daily_budget parameter")
-    execution_options: list[str] | None = Field(None, description="execution_options parameter")
-    is_skadnetwork_attribution: bool | None = Field(
-        None, description="is_skadnetwork_attribution parameter"
-    )
-    iterative_split_test_configs: list[Any] | None = Field(
-        None, description="iterative_split_test_configs parameter"
-    )
-    lifetime_budget: int | None = Field(None, description="lifetime_budget parameter")
-    name: str | None = Field(None, description="name parameter")
-    objective: str | None = Field(None, description="objective parameter")
-    pacing_type: list[str] | None = Field(None, description="pacing_type parameter")
-    promoted_object: Any | None = Field(None, description="promoted_object parameter")
-    smart_promotion_type: str | None = Field(None, description="smart_promotion_type parameter")
-    special_ad_categories: list[str] | None = Field(
-        None, description="special_ad_categories parameter"
-    )
-    special_ad_category: str | None = Field(None, description="special_ad_category parameter")
-    special_ad_category_country: list[str] | None = Field(
-        None, description="special_ad_category_country parameter"
-    )
-    spend_cap: int | None = Field(None, description="spend_cap parameter")
-    start_time: datetime | None = Field(None, description="start_time parameter")
-    status: str | None = Field(None, description="status parameter")
-    stop_time: datetime | None = Field(None, description="stop_time parameter")
-
-    class Config:
         extra = "forbid"
 
 

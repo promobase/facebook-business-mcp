@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativefeaturecustomizations import AdCreativeFeatureCustomizationsFields
+if TYPE_CHECKING:
+    from .adcreativefeaturecustomizations import AdCreativeFeatureCustomizationsFields
+
 
 AdCreativeFeatureDetailsField = Literal["customizations", "enroll_status"]
 

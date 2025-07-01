@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativelinkdata import AdCreativeLinkDataFields
-from .adcreativephotodata import AdCreativePhotoDataFields
-from .adcreativeproductdata import AdCreativeProductDataFields
-from .adcreativetextdata import AdCreativeTextDataFields
-from .adcreativevideodata import AdCreativeVideoDataFields
+if TYPE_CHECKING:
+    from .adcreativelinkdata import AdCreativeLinkDataFields
+    from .adcreativephotodata import AdCreativePhotoDataFields
+    from .adcreativeproductdata import AdCreativeProductDataFields
+    from .adcreativetextdata import AdCreativeTextDataFields
+    from .adcreativevideodata import AdCreativeVideoDataFields
+
 
 AdCreativeObjectStorySpecField = Literal[
     "instagram_user_id",

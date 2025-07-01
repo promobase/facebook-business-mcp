@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
+    from .user import UserFields
 
 
 class AdsPixelSortBy(str, Enum):
@@ -151,28 +152,6 @@ class AdsPixelFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdsPixelApiUpdateParams(BaseModel):
-    """Parameters for AdsPixel.api_update()."""
-
-    automatic_matching_fields: list[str] | None = Field(
-        None, description="automatic_matching_fields parameter"
-    )
-    data_use_setting: str | None = Field(None, description="data_use_setting parameter")
-    enable_automatic_matching: bool | None = Field(
-        None, description="enable_automatic_matching parameter"
-    )
-    first_party_cookie_status: str | None = Field(
-        None, description="first_party_cookie_status parameter"
-    )
-    name: str | None = Field(None, description="name parameter")
-    server_events_business_ids: list[str] | None = Field(
-        None, description="server_events_business_ids parameter"
-    )
-
-    class Config:
         extra = "forbid"
 
 

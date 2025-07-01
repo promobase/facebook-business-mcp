@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .page import PageFields
-from .profile import ProfileFields
+if TYPE_CHECKING:
+    from .page import PageFields
+    from .profile import ProfileFields
+
 
 MediaCopyrightAttributionField = Literal[
     "attribution_ig_target_id",

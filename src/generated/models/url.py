@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from datetime import datetime
 from enum import Enum
 from typing import Any, Literal
 
@@ -30,18 +29,4 @@ class URLFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class URLApiUpdateParams(BaseModel):
-    """Parameters for URL.api_update()."""
-
-    blacklist: bool | None = Field(None, description="blacklist parameter")
-    denylist: bool | None = Field(None, description="denylist parameter")
-    hmac: str | None = Field(None, description="hmac parameter")
-    locale: list[str] | None = Field(None, description="locale parameter")
-    scopes: list[str] | None = Field(None, description="scopes parameter")
-    ts: datetime | None = Field(None, description="ts parameter")
-
-    class Config:
         extra = "forbid"

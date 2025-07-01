@@ -4,16 +4,17 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .childevent import ChildEventFields
-from .coverphoto import CoverPhotoFields
-from .eventregistrationsetting import EventRegistrationSettingFields
-from .eventticketsetting import EventTicketSettingFields
-from .group import GroupFields
-from .place import PlaceFields
+if TYPE_CHECKING:
+    from .childevent import ChildEventFields
+    from .coverphoto import CoverPhotoFields
+    from .eventregistrationsetting import EventRegistrationSettingFields
+    from .eventticketsetting import EventTicketSettingFields
+    from .group import GroupFields
+    from .place import PlaceFields
 
 
 class EventCategory(str, Enum):

@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .page import PageFields
+if TYPE_CHECKING:
+    from .page import PageFields
+
 
 LifeEventField = Literal[
     "description", "end_time", "from", "id", "is_hidden", "start_time", "title", "updated_time"

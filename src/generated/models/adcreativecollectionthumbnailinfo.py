@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adsimagecrops import AdsImageCropsFields
+if TYPE_CHECKING:
+    from .adsimagecrops import AdsImageCropsFields
+
 
 AdCreativeCollectionThumbnailInfoField = Literal[
     "element_child_index", "element_crops", "element_id"

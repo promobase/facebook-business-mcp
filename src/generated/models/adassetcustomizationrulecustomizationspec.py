@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .targetinggeolocation import TargetingGeoLocationFields
+if TYPE_CHECKING:
+    from .targetinggeolocation import TargetingGeoLocationFields
 
 
 class AdAssetCustomizationRuleCustomizationSpecDevicePlatforms(str, Enum):

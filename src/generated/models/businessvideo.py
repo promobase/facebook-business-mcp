@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .advideo import AdVideoFields
+if TYPE_CHECKING:
+    from .advideo import AdVideoFields
+
 
 BusinessVideoField = Literal["business", "id", "media_library_url", "name", "video"]
 

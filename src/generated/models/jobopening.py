@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .page import PageFields
-from .photo import PhotoFields
-from .post import PostFields
+if TYPE_CHECKING:
+    from .page import PageFields
+    from .photo import PhotoFields
+    from .post import PostFields
 
 
 class JobOpeningJobStatus(str, Enum):

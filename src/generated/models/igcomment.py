@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .igcommentfromuser import IGCommentFromUserFields
-from .igmedia import IGMediaFields
-from .iguser import IGUserFields
+if TYPE_CHECKING:
+    from .igcommentfromuser import IGCommentFromUserFields
+    from .igmedia import IGMediaFields
+    from .iguser import IGUserFields
+
 
 IGCommentField = Literal[
     "from",
@@ -43,25 +45,6 @@ class IGCommentFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class IGCommentApiDeleteParams(BaseModel):
-    """Parameters for IGComment.api_delete()."""
-
-    ad_id: str | None = Field(None, description="ad_id parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class IGCommentApiUpdateParams(BaseModel):
-    """Parameters for IGComment.api_update()."""
-
-    ad_id: str | None = Field(None, description="ad_id parameter")
-    hide: bool | None = Field(None, description="hide parameter")
-
-    class Config:
         extra = "forbid"
 
 

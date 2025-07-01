@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adspixel import AdsPixelFields
-from .productcatalog import ProductCatalogFields
+if TYPE_CHECKING:
+    from .adspixel import AdsPixelFields
+    from .productcatalog import ProductCatalogFields
+
 
 CatalogSmartPixelSettingsField = Literal[
     "allowed_domains",

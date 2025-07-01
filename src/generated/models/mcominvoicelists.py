@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .mcominvoicedetails import McomInvoiceDetailsFields
+if TYPE_CHECKING:
+    from .mcominvoicedetails import McomInvoiceDetailsFields
+
 
 McomInvoiceListsField = Literal["invoice_details", "invoice_ids", "page_id"]
 

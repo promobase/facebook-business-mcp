@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .managedpartnerextendedcredit import ManagedPartnerExtendedCreditFields
-from .page import PageFields
-from .productcatalog import ProductCatalogFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .managedpartnerextendedcredit import ManagedPartnerExtendedCreditFields
+    from .page import PageFields
+    from .productcatalog import ProductCatalogFields
 
 
 class ManagedPartnerBusinessPartitionType(str, Enum):

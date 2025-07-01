@@ -4,15 +4,16 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .businessmanagedpartnereligibility import BusinessManagedPartnerEligibilityFields
-from .businesspartnerpremiumoptions import BusinessPartnerPremiumOptionsFields
-from .managedpartnerbusiness import ManagedPartnerBusinessFields
-from .page import PageFields
-from .permission import PermissionFields
+if TYPE_CHECKING:
+    from .businessmanagedpartnereligibility import BusinessManagedPartnerEligibilityFields
+    from .businesspartnerpremiumoptions import BusinessPartnerPremiumOptionsFields
+    from .managedpartnerbusiness import ManagedPartnerBusinessFields
+    from .page import PageFields
+    from .permission import PermissionFields
 
 
 class BusinessVerificationStatus(str, Enum):
@@ -934,20 +935,6 @@ class BusinessFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class BusinessApiUpdateParams(BaseModel):
-    """Parameters for Business.api_update()."""
-
-    entry_point: str | None = Field(None, description="entry_point parameter")
-    name: str | None = Field(None, description="name parameter")
-    primary_page: str | None = Field(None, description="primary_page parameter")
-    timezone_id: int | None = Field(None, description="timezone_id parameter")
-    two_factor_type: str | None = Field(None, description="two_factor_type parameter")
-    vertical: str | None = Field(None, description="vertical parameter")
-
-    class Config:
         extra = "forbid"
 
 

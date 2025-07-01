@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adplacepageset import AdPlacePageSetFields
-from .productset import ProductSetFields
+if TYPE_CHECKING:
+    from .adplacepageset import AdPlacePageSetFields
+    from .productset import ProductSetFields
 
 
 class AdPromotedObjectCustomEventType(str, Enum):

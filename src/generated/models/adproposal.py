@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .user import UserFields
+
 
 AdProposalField = Literal[
     "ad_proposal_type_name",

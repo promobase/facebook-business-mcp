@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .user import UserFields
+if TYPE_CHECKING:
+    from .user import UserFields
+
 
 MediaCopyrightUpdateRecordField = Literal[
     "action_types",

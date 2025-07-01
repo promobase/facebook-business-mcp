@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .productcatalog import ProductCatalogFields
-from .productset import ProductSetFields
+if TYPE_CHECKING:
+    from .productcatalog import ProductCatalogFields
+    from .productset import ProductSetFields
+
 
 DynamicItemDisplayBundleFolderField = Literal[
     "categorization_criteria", "id", "name", "product_catalog", "product_set", "valid_labels"

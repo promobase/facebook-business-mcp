@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .androidapplink import AndroidAppLinkFields
-from .iosapplink import IosAppLinkFields
-from .webapplink import WebAppLinkFields
-from .windowsapplink import WindowsAppLinkFields
-from .windowsphoneapplink import WindowsPhoneAppLinkFields
+if TYPE_CHECKING:
+    from .androidapplink import AndroidAppLinkFields
+    from .iosapplink import IosAppLinkFields
+    from .webapplink import WebAppLinkFields
+    from .windowsapplink import WindowsAppLinkFields
+    from .windowsphoneapplink import WindowsPhoneAppLinkFields
+
 
 AppLinksField = Literal[
     "android", "id", "ios", "ipad", "iphone", "web", "windows", "windows_phone", "windows_universal"

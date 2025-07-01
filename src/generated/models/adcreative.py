@@ -4,31 +4,32 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adassetfeedspec import AdAssetFeedSpecFields
-from .adcreativeaddisclaimer import AdCreativeAdDisclaimerFields
-from .adcreativebrandedcontentads import AdCreativeBrandedContentAdsFields
-from .adcreativecontextualmultiads import AdCreativeContextualMultiAdsFields
-from .adcreativedegreesoffreedomspec import AdCreativeDegreesOfFreedomSpecFields
-from .adcreativefacebookbrandedcontent import AdCreativeFacebookBrandedContentFields
-from .adcreativeinstagrambrandedcontent import AdCreativeInstagramBrandedContentFields
-from .adcreativeinteractivecomponentsspec import AdCreativeInteractiveComponentsSpecFields
-from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
-from .adcreativeobjectstoryspec import AdCreativeObjectStorySpecFields
-from .adcreativeomnichannellinkspec import AdCreativeOmnichannelLinkSpecFields
-from .adcreativeplatformcustomization import AdCreativePlatformCustomizationFields
-from .adcreativeportraitcustomizations import AdCreativePortraitCustomizationsFields
-from .adcreativeproductdata import AdCreativeProductDataFields
-from .adcreativerecommendersettings import AdCreativeRecommenderSettingsFields
-from .adcreativeregionalregulationdisclaimer import AdCreativeRegionalRegulationDisclaimerFields
-from .adcreativesourcingspec import AdCreativeSourcingSpecFields
-from .adcreativetemplateurlspec import AdCreativeTemplateURLSpecFields
-from .adlabel import AdLabelFields
-from .adsimagecrops import AdsImageCropsFields
-from .status import StatusFields
+if TYPE_CHECKING:
+    from .adassetfeedspec import AdAssetFeedSpecFields
+    from .adcreativeaddisclaimer import AdCreativeAdDisclaimerFields
+    from .adcreativebrandedcontentads import AdCreativeBrandedContentAdsFields
+    from .adcreativecontextualmultiads import AdCreativeContextualMultiAdsFields
+    from .adcreativedegreesoffreedomspec import AdCreativeDegreesOfFreedomSpecFields
+    from .adcreativefacebookbrandedcontent import AdCreativeFacebookBrandedContentFields
+    from .adcreativeinstagrambrandedcontent import AdCreativeInstagramBrandedContentFields
+    from .adcreativeinteractivecomponentsspec import AdCreativeInteractiveComponentsSpecFields
+    from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
+    from .adcreativeobjectstoryspec import AdCreativeObjectStorySpecFields
+    from .adcreativeomnichannellinkspec import AdCreativeOmnichannelLinkSpecFields
+    from .adcreativeplatformcustomization import AdCreativePlatformCustomizationFields
+    from .adcreativeportraitcustomizations import AdCreativePortraitCustomizationsFields
+    from .adcreativeproductdata import AdCreativeProductDataFields
+    from .adcreativerecommendersettings import AdCreativeRecommenderSettingsFields
+    from .adcreativeregionalregulationdisclaimer import AdCreativeRegionalRegulationDisclaimerFields
+    from .adcreativesourcingspec import AdCreativeSourcingSpecFields
+    from .adcreativetemplateurlspec import AdCreativeTemplateURLSpecFields
+    from .adlabel import AdLabelFields
+    from .adsimagecrops import AdsImageCropsFields
+    from .status import StatusFields
 
 
 class AdCreativeCallToActionType(str, Enum):
@@ -392,40 +393,6 @@ class AdCreativeFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdCreativeApiDeleteParams(BaseModel):
-    """Parameters for AdCreative.api_delete()."""
-
-    account_id: str | None = Field(None, description="account_id parameter")
-    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    name: str | None = Field(None, description="name parameter")
-    status: str | None = Field(None, description="status parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class AdCreativeApiGetParams(BaseModel):
-    """Parameters for AdCreative.api_get()."""
-
-    thumbnail_height: int | None = Field(None, description="thumbnail_height parameter")
-    thumbnail_width: int | None = Field(None, description="thumbnail_width parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class AdCreativeApiUpdateParams(BaseModel):
-    """Parameters for AdCreative.api_update()."""
-
-    account_id: str | None = Field(None, description="account_id parameter")
-    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    name: str | None = Field(None, description="name parameter")
-    status: str | None = Field(None, description="status parameter")
-
-    class Config:
         extra = "forbid"
 
 

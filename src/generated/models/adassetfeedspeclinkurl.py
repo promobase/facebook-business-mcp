@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adassetfeedspecassetlabel import AdAssetFeedSpecAssetLabelFields
+if TYPE_CHECKING:
+    from .adassetfeedspecassetlabel import AdAssetFeedSpecAssetLabelFields
+
 
 AdAssetFeedSpecLinkURLField = Literal[
     "adlabels",

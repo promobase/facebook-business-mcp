@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .highdemandperiodtimesuggestionweeklysegment import (
-    HighDemandPeriodTimeSuggestionWeeklySegmentFields,
-)
+if TYPE_CHECKING:
+    from .highdemandperiodtimesuggestionweeklysegment import (
+        HighDemandPeriodTimeSuggestionWeeklySegmentFields,
+    )
 
 
 class HighDemandPeriodBudgetValueType(str, Enum):
@@ -48,16 +49,4 @@ class HighDemandPeriodFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class HighDemandPeriodApiUpdateParams(BaseModel):
-    """Parameters for HighDemandPeriod.api_update()."""
-
-    budget_value: int | None = Field(None, description="budget_value parameter")
-    budget_value_type: str | None = Field(None, description="budget_value_type parameter")
-    time_end: int | None = Field(None, description="time_end parameter")
-    time_start: int | None = Field(None, description="time_start parameter")
-
-    class Config:
         extra = "forbid"

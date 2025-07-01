@@ -53,14 +53,3 @@ class AnalyticsSegmentFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class AnalyticsSegmentApiGetParams(BaseModel):
-    """Parameters for AnalyticsSegment.api_get()."""
-
-    async_task_id: str | None = Field(None, description="async_task_id parameter")
-    end_date: int | None = Field(None, description="end_date parameter")
-    start_date: int | None = Field(None, description="start_date parameter")
-
-    class Config:
-        extra = "forbid"

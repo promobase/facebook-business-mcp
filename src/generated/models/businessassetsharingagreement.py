@@ -39,12 +39,3 @@ class BusinessAssetSharingAgreementFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class BusinessAssetSharingAgreementApiUpdateParams(BaseModel):
-    """Parameters for BusinessAssetSharingAgreement.api_update()."""
-
-    request_response: str | None = Field(None, description="request_response parameter")
-
-    class Config:
-        extra = "forbid"

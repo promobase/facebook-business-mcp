@@ -23,12 +23,3 @@ class OffsitePixelFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class OffsitePixelApiGetParams(BaseModel):
-    """Parameters for OffsitePixel.api_get()."""
-
-    value: int | None = Field(None, description="value parameter")
-
-    class Config:
-        extra = "forbid"

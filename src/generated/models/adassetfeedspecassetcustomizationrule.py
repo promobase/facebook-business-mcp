@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adassetcustomizationrulecustomizationspec import (
-    AdAssetCustomizationRuleCustomizationSpecFields,
-)
-from .adassetfeedspecassetlabel import AdAssetFeedSpecAssetLabelFields
+if TYPE_CHECKING:
+    from .adassetcustomizationrulecustomizationspec import (
+        AdAssetCustomizationRuleCustomizationSpecFields,
+    )
+    from .adassetfeedspecassetlabel import AdAssetFeedSpecAssetLabelFields
+
 
 AdAssetFeedSpecAssetCustomizationRuleField = Literal[
     "body_label",

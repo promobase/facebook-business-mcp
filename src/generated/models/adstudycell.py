@@ -48,17 +48,3 @@ class AdStudyCellFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class AdStudyCellApiUpdateParams(BaseModel):
-    """Parameters for AdStudyCell.api_update()."""
-
-    adaccounts: list[int] | None = Field(None, description="adaccounts parameter")
-    adsets: list[str] | None = Field(None, description="adsets parameter")
-    campaigns: list[str] | None = Field(None, description="campaigns parameter")
-    creation_template: str | None = Field(None, description="creation_template parameter")
-    description: str | None = Field(None, description="description parameter")
-    name: str | None = Field(None, description="name parameter")
-
-    class Config:
-        extra = "forbid"

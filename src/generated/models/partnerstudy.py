@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adstudy import AdStudyFields
+if TYPE_CHECKING:
+    from .adstudy import AdStudyFields
+
 
 PartnerStudyField = Literal[
     "additional_info",

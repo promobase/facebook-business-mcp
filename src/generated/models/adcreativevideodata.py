@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativecollectionthumbnailinfo import AdCreativeCollectionThumbnailInfoFields
-from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
-from .adcreativepostclickconfiguration import AdCreativePostClickConfigurationFields
-from .adcustomizationrulespec import AdCustomizationRuleSpecFields
-from .targeting import TargetingFields
+if TYPE_CHECKING:
+    from .adcreativecollectionthumbnailinfo import AdCreativeCollectionThumbnailInfoFields
+    from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
+    from .adcreativepostclickconfiguration import AdCreativePostClickConfigurationFields
+    from .adcustomizationrulespec import AdCustomizationRuleSpecFields
+    from .targeting import TargetingFields
+
 
 AdCreativeVideoDataField = Literal[
     "additional_image_index",

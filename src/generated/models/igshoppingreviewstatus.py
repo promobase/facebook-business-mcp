@@ -2,14 +2,18 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .igshoppingreviewstatusonsiteeligibility import IGShoppingReviewStatusOnsiteEligibilityFields
-from .igshoppingreviewstatusreasonwithhelpmessage import (
-    IGShoppingReviewStatusReasonWithHelpMessageFields,
-)
+if TYPE_CHECKING:
+    from .igshoppingreviewstatusonsiteeligibility import (
+        IGShoppingReviewStatusOnsiteEligibilityFields,
+    )
+    from .igshoppingreviewstatusreasonwithhelpmessage import (
+        IGShoppingReviewStatusReasonWithHelpMessageFields,
+    )
+
 
 IGShoppingReviewStatusField = Literal["onsite_eligibility", "reasons", "status"]
 

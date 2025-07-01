@@ -4,14 +4,15 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adruleevaluationspec import AdRuleEvaluationSpecFields
-from .adruleexecutionspec import AdRuleExecutionSpecFields
-from .adrulehistoryresult import AdRuleHistoryResultFields
-from .adruleschedulespec import AdRuleScheduleSpecFields
+if TYPE_CHECKING:
+    from .adruleevaluationspec import AdRuleEvaluationSpecFields
+    from .adruleexecutionspec import AdRuleExecutionSpecFields
+    from .adrulehistoryresult import AdRuleHistoryResultFields
+    from .adruleschedulespec import AdRuleScheduleSpecFields
 
 
 class AdAccountAdRulesHistoryAction(str, Enum):

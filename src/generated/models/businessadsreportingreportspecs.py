@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .businessassetgroup import BusinessAssetGroupFields
-from .profile import ProfileFields
+if TYPE_CHECKING:
+    from .businessassetgroup import BusinessAssetGroupFields
+    from .profile import ProfileFields
+
 
 BusinessAdsReportingReportSpecsField = Literal[
     "action_report_time",

@@ -5,7 +5,7 @@ from typing import Any
 from facebook_business.adobjects.adset import AdSet
 from fastmcp import FastMCP
 
-from src.generated.models.adset_models import AdSetApiUpdateParams, AdSetField
+from src.generated.models.adset import AdSetField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -54,7 +54,7 @@ def get_adset(
 def update_adset(
     adset_id: str,
     fields: list[AdSetField] = [],
-    params: AdSetApiUpdateParams = {},
+    params: dict[str, Any] = {},
 ) -> str:
     """Update an AdSet object.
 
@@ -70,8 +70,7 @@ def update_adset(
             - end_time: Extend or set end date
             Note: optimization_goal and billing_event cannot be changed.
     """
-    if isinstance(params, AdSetApiUpdateParams):
-        params = params.model_dump(exclude_none=True)
+    # params should already be a dict
     return AdSet(adset_id).api_update(fields=fields, params=params)
 
 

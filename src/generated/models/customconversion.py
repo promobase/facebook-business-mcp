@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adspixel import AdsPixelFields
-from .externaleventsource import ExternalEventSourceFields
-from .offlineconversiondataset import OfflineConversionDataSetFields
+if TYPE_CHECKING:
+    from .adspixel import AdsPixelFields
+    from .externaleventsource import ExternalEventSourceFields
+    from .offlineconversiondataset import OfflineConversionDataSetFields
 
 
 class CustomConversionCustomEventType(str, Enum):
@@ -110,19 +111,6 @@ class CustomConversionFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class CustomConversionApiUpdateParams(BaseModel):
-    """Parameters for CustomConversion.api_update()."""
-
-    default_conversion_value: float | None = Field(
-        None, description="default_conversion_value parameter"
-    )
-    description: str | None = Field(None, description="description parameter")
-    name: str | None = Field(None, description="name parameter")
-
-    class Config:
         extra = "forbid"
 
 

@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .productfeeduploaderrorreport import ProductFeedUploadErrorReportFields
+if TYPE_CHECKING:
+    from .productfeeduploaderrorreport import ProductFeedUploadErrorReportFields
 
 
 class ProductFeedUploadInputMethod(str, Enum):

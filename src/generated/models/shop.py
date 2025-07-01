@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .commercemerchantsettings import CommerceMerchantSettingsFields
+if TYPE_CHECKING:
+    from .commercemerchantsettings import CommerceMerchantSettingsFields
+
 
 ShopField = Literal[
     "commerce_merchant_settings",

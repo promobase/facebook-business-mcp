@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adgroupplacementspecificreviewfeedback import AdgroupPlacementSpecificReviewFeedbackFields
+if TYPE_CHECKING:
+    from .adgroupplacementspecificreviewfeedback import AdgroupPlacementSpecificReviewFeedbackFields
+
 
 AdgroupReviewFeedbackField = Literal["global", "placement_specific"]
 

@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .group import GroupFields
+if TYPE_CHECKING:
+    from .group import GroupFields
 
 
 class UnifiedThreadPlatform(str, Enum):

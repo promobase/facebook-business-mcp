@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .catalogitemapplinks import CatalogItemAppLinksFields
-from .catalogsubverticallist import CatalogSubVerticalListFields
-from .page import PageFields
+if TYPE_CHECKING:
+    from .catalogitemapplinks import CatalogItemAppLinksFields
+    from .catalogsubverticallist import CatalogSubVerticalListFields
+    from .page import PageFields
 
 
 class MediaTitleImageFetchStatus(str, Enum):
@@ -92,26 +93,6 @@ class MediaTitleFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class MediaTitleApiUpdateParams(BaseModel):
-    """Parameters for MediaTitle.api_update()."""
-
-    applinks: Any | None = Field(None, description="applinks parameter")
-    content_category: str | None = Field(None, description="content_category parameter")
-    currency: str | None = Field(None, description="currency parameter")
-    description: str | None = Field(None, description="description parameter")
-    fb_page_id: str | None = Field(None, description="fb_page_id parameter")
-    genres: list[str] | None = Field(None, description="genres parameter")
-    images: list[Any] | None = Field(None, description="images parameter")
-    kg_fb_id: str | None = Field(None, description="kg_fb_id parameter")
-    price: int | None = Field(None, description="price parameter")
-    title: str | None = Field(None, description="title parameter")
-    title_display_name: str | None = Field(None, description="title_display_name parameter")
-    url: str | None = Field(None, description="url parameter")
-
-    class Config:
         extra = "forbid"
 
 

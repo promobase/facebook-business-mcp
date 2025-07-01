@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .application import ApplicationFields
-from .currencyamount import CurrencyAmountFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .application import ApplicationFields
+    from .currencyamount import CurrencyAmountFields
+    from .user import UserFields
 
 
 class PaymentEnginePaymentReason(str, Enum):

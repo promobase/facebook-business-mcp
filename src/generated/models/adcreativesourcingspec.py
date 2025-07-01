@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativepromotionmetadataspec import AdCreativePromotionMetadataSpecFields
-from .adcreativesitelinksspec import AdCreativeSiteLinksSpecFields
+if TYPE_CHECKING:
+    from .adcreativepromotionmetadataspec import AdCreativePromotionMetadataSpecFields
+    from .adcreativesitelinksspec import AdCreativeSiteLinksSpecFields
+
 
 AdCreativeSourcingSpecField = Literal[
     "associated_product_set_id",

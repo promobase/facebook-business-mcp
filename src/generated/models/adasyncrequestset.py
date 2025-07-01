@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adasyncrequestsetnotificationresult import AdAsyncRequestSetNotificationResultFields
-from .adcreative import AdCreativeFields
+if TYPE_CHECKING:
+    from .adasyncrequestsetnotificationresult import AdAsyncRequestSetNotificationResultFields
+    from .adcreative import AdCreativeFields
 
 
 class AdAsyncRequestSetNotificationMode(str, Enum):
@@ -67,17 +68,6 @@ class AdAsyncRequestSetFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdAsyncRequestSetApiUpdateParams(BaseModel):
-    """Parameters for AdAsyncRequestSet.api_update()."""
-
-    name: str | None = Field(None, description="name parameter")
-    notification_mode: str | None = Field(None, description="notification_mode parameter")
-    notification_uri: str | None = Field(None, description="notification_uri parameter")
-
-    class Config:
         extra = "forbid"
 
 

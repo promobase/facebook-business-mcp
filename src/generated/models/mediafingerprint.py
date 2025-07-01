@@ -43,15 +43,3 @@ class MediaFingerprintFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class MediaFingerprintApiUpdateParams(BaseModel):
-    """Parameters for MediaFingerprint.api_update()."""
-
-    metadata: Any | None = Field(None, description="metadata parameter")
-    source: Any | None = Field(None, description="source parameter")
-    title: str | None = Field(None, description="title parameter")
-    universal_content_id: str | None = Field(None, description="universal_content_id parameter")
-
-    class Config:
-        extra = "forbid"

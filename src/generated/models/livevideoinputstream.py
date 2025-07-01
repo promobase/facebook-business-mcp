@@ -33,12 +33,3 @@ class LiveVideoInputStreamFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class LiveVideoInputStreamApiGetParams(BaseModel):
-    """Parameters for LiveVideoInputStream.api_get()."""
-
-    target_token: str | None = Field(None, description="target_token parameter")
-
-    class Config:
-        extra = "forbid"

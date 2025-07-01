@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adrulehistoryresultaction import AdRuleHistoryResultActionFields
+if TYPE_CHECKING:
+    from .adrulehistoryresultaction import AdRuleHistoryResultActionFields
 
 
 class AdRuleHistoryResultObjectType(str, Enum):

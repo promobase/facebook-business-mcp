@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
+if TYPE_CHECKING:
+    from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
+
 
 AdCreativeStaticFallbackSpecField = Literal[
     "call_to_action", "description", "image_hash", "link", "message", "name"

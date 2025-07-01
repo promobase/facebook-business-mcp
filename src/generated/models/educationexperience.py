@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .experience import ExperienceFields
-from .page import PageFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .experience import ExperienceFields
+    from .page import PageFields
+    from .user import UserFields
+
 
 EducationExperienceField = Literal[
     "classes", "concentration", "degree", "id", "school", "type", "with", "year"

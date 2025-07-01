@@ -4,16 +4,17 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .album import AlbumFields
-from .entityattextrange import EntityAtTextRangeFields
-from .event import EventFields
-from .place import PlaceFields
-from .platformimagesource import PlatformImageSourceFields
-from .profile import ProfileFields
+if TYPE_CHECKING:
+    from .album import AlbumFields
+    from .entityattextrange import EntityAtTextRangeFields
+    from .event import EventFields
+    from .place import PlaceFields
+    from .platformimagesource import PlatformImageSourceFields
+    from .profile import ProfileFields
 
 
 class PhotoBackdatedTimeGranularity(str, Enum):

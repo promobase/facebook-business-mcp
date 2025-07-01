@@ -3,15 +3,16 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .copyrightreferencecontainer import CopyrightReferenceContainerFields
-from .user import UserFields
-from .videocopyrightgeogate import VideoCopyrightGeoGateFields
-from .videocopyrightrule import VideoCopyrightRuleFields
-from .videocopyrightsegment import VideoCopyrightSegmentFields
+if TYPE_CHECKING:
+    from .copyrightreferencecontainer import CopyrightReferenceContainerFields
+    from .user import UserFields
+    from .videocopyrightgeogate import VideoCopyrightGeoGateFields
+    from .videocopyrightrule import VideoCopyrightRuleFields
+    from .videocopyrightsegment import VideoCopyrightSegmentFields
 
 
 class VideoCopyrightContentCategory(str, Enum):
@@ -78,31 +79,4 @@ class VideoCopyrightFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class VideoCopyrightApiUpdateParams(BaseModel):
-    """Parameters for VideoCopyright.api_update()."""
-
-    append_excluded_ownership_segments: bool | None = Field(
-        None, description="append_excluded_ownership_segments parameter"
-    )
-    attribution_id: str | None = Field(None, description="attribution_id parameter")
-    content_category: str | None = Field(None, description="content_category parameter")
-    excluded_ownership_countries: list[str] | None = Field(
-        None, description="excluded_ownership_countries parameter"
-    )
-    excluded_ownership_segments: list[Any] | None = Field(
-        None, description="excluded_ownership_segments parameter"
-    )
-    is_reference_disabled: bool | None = Field(None, description="is_reference_disabled parameter")
-    monitoring_type: str | None = Field(None, description="monitoring_type parameter")
-    ownership_countries: list[str] | None = Field(None, description="ownership_countries parameter")
-    rule_id: str | None = Field(None, description="rule_id parameter")
-    whitelisted_ids: list[str] | None = Field(None, description="whitelisted_ids parameter")
-    whitelisted_ig_user_ids: list[str] | None = Field(
-        None, description="whitelisted_ig_user_ids parameter"
-    )
-
-    class Config:
         extra = "forbid"

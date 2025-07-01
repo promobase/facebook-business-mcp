@@ -4,20 +4,21 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .agerange import AgeRangeFields
-from .avatarprofilepicture import AvatarProfilePictureFields
-from .currency import CurrencyFields
-from .educationexperience import EducationExperienceFields
-from .experience import ExperienceFields
-from .group import GroupFields
-from .page import PageFields
-from .paymentpricepoints import PaymentPricepointsFields
-from .usercoverphoto import UserCoverPhotoFields
-from .videouploadlimits import VideoUploadLimitsFields
+if TYPE_CHECKING:
+    from .agerange import AgeRangeFields
+    from .avatarprofilepicture import AvatarProfilePictureFields
+    from .currency import CurrencyFields
+    from .educationexperience import EducationExperienceFields
+    from .experience import ExperienceFields
+    from .group import GroupFields
+    from .page import PageFields
+    from .paymentpricepoints import PaymentPricepointsFields
+    from .usercoverphoto import UserCoverPhotoFields
+    from .videouploadlimits import VideoUploadLimitsFields
 
 
 class UserLocalNewsMegaphoneDismissStatus(str, Enum):
@@ -171,25 +172,6 @@ class UserFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class UserApiUpdateParams(BaseModel):
-    """Parameters for User.api_update()."""
-
-    emoji_color_pref: int | None = Field(None, description="emoji_color_pref parameter")
-    firstname: str | None = Field(None, description="firstname parameter")
-    lastname: str | None = Field(None, description="lastname parameter")
-    local_news_megaphone_dismiss_status: str | None = Field(
-        None, description="local_news_megaphone_dismiss_status parameter"
-    )
-    local_news_subscription_status: str | None = Field(
-        None, description="local_news_subscription_status parameter"
-    )
-    name: str | None = Field(None, description="name parameter")
-    password: str | None = Field(None, description="password parameter")
-
-    class Config:
         extra = "forbid"
 
 

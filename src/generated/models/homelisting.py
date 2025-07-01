@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .catalogitemapplinks import CatalogItemAppLinksFields
-from .catalogsubverticallist import CatalogSubVerticalListFields
-from .page import PageFields
+if TYPE_CHECKING:
+    from .catalogitemapplinks import CatalogItemAppLinksFields
+    from .catalogsubverticallist import CatalogSubVerticalListFields
+    from .page import PageFields
 
 
 class HomeListingImageFetchStatus(str, Enum):
@@ -160,28 +161,6 @@ class HomeListingFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class HomeListingApiUpdateParams(BaseModel):
-    """Parameters for HomeListing.api_update()."""
-
-    address: Any | None = Field(None, description="address parameter")
-    availability: str | None = Field(None, description="availability parameter")
-    currency: str | None = Field(None, description="currency parameter")
-    description: str | None = Field(None, description="description parameter")
-    images: list[Any] | None = Field(None, description="images parameter")
-    listing_type: str | None = Field(None, description="listing_type parameter")
-    name: str | None = Field(None, description="name parameter")
-    num_baths: float | None = Field(None, description="num_baths parameter")
-    num_beds: float | None = Field(None, description="num_beds parameter")
-    num_units: float | None = Field(None, description="num_units parameter")
-    price: float | None = Field(None, description="price parameter")
-    property_type: str | None = Field(None, description="property_type parameter")
-    url: str | None = Field(None, description="url parameter")
-    year_built: int | None = Field(None, description="year_built parameter")
-
-    class Config:
         extra = "forbid"
 
 

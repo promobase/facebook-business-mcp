@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .leadgendraftquestion import LeadGenDraftQuestionFields
-from .page import PageFields
+if TYPE_CHECKING:
+    from .leadgendraftquestion import LeadGenDraftQuestionFields
+    from .page import PageFields
+
 
 LeadGenDataDraftField = Literal[
     "block_display_for_non_targeted_viewer",

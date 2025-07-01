@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .page import PageFields
-from .pagechangeproposal import PageChangeProposalFields
+if TYPE_CHECKING:
+    from .page import PageFields
+    from .pagechangeproposal import PageChangeProposalFields
+
 
 PageUpcomingChangeField = Literal[
     "change_type", "effective_time", "id", "page", "proposal", "timer_status"

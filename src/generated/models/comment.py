@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .application import ApplicationFields
-from .entityattextrange import EntityAtTextRangeFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .application import ApplicationFields
+    from .entityattextrange import EntityAtTextRangeFields
+    from .user import UserFields
 
 
 class CommentOrder(str, Enum):
@@ -108,19 +109,6 @@ class CommentFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class CommentApiUpdateParams(BaseModel):
-    """Parameters for Comment.api_update()."""
-
-    attachment_id: str | None = Field(None, description="attachment_id parameter")
-    attachment_share_url: str | None = Field(None, description="attachment_share_url parameter")
-    attachment_url: str | None = Field(None, description="attachment_url parameter")
-    is_hidden: bool | None = Field(None, description="is_hidden parameter")
-    message: str | None = Field(None, description="message parameter")
-
-    class Config:
         extra = "forbid"
 
 

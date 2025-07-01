@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .canvas import CanvasFields
+if TYPE_CHECKING:
+    from .canvas import CanvasFields
+
 
 CanvasDynamicSettingField = Literal["child_documents", "product_set_id", "id"]
 

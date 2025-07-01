@@ -3,25 +3,26 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adassetfeedadditionaldata import AdAssetFeedAdditionalDataFields
-from .adassetfeedspecassetcustomizationrule import AdAssetFeedSpecAssetCustomizationRuleFields
-from .adassetfeedspecbody import AdAssetFeedSpecBodyFields
-from .adassetfeedspeccalltoaction import AdAssetFeedSpecCallToActionFields
-from .adassetfeedspeccaption import AdAssetFeedSpecCaptionFields
-from .adassetfeedspeccarousel import AdAssetFeedSpecCarouselFields
-from .adassetfeedspecdescription import AdAssetFeedSpecDescriptionFields
-from .adassetfeedspecevents import AdAssetFeedSpecEventsFields
-from .adassetfeedspecgrouprule import AdAssetFeedSpecGroupRuleFields
-from .adassetfeedspecimage import AdAssetFeedSpecImageFields
-from .adassetfeedspeclinkurl import AdAssetFeedSpecLinkURLFields
-from .adassetfeedspectitle import AdAssetFeedSpecTitleFields
-from .adassetfeedspecvideo import AdAssetFeedSpecVideoFields
-from .adassetmessageextensions import AdAssetMessageExtensionsFields
-from .adassetonsitedestinations import AdAssetOnsiteDestinationsFields
+if TYPE_CHECKING:
+    from .adassetfeedadditionaldata import AdAssetFeedAdditionalDataFields
+    from .adassetfeedspecassetcustomizationrule import AdAssetFeedSpecAssetCustomizationRuleFields
+    from .adassetfeedspecbody import AdAssetFeedSpecBodyFields
+    from .adassetfeedspeccalltoaction import AdAssetFeedSpecCallToActionFields
+    from .adassetfeedspeccaption import AdAssetFeedSpecCaptionFields
+    from .adassetfeedspeccarousel import AdAssetFeedSpecCarouselFields
+    from .adassetfeedspecdescription import AdAssetFeedSpecDescriptionFields
+    from .adassetfeedspecevents import AdAssetFeedSpecEventsFields
+    from .adassetfeedspecgrouprule import AdAssetFeedSpecGroupRuleFields
+    from .adassetfeedspecimage import AdAssetFeedSpecImageFields
+    from .adassetfeedspeclinkurl import AdAssetFeedSpecLinkURLFields
+    from .adassetfeedspectitle import AdAssetFeedSpecTitleFields
+    from .adassetfeedspecvideo import AdAssetFeedSpecVideoFields
+    from .adassetmessageextensions import AdAssetMessageExtensionsFields
+    from .adassetonsitedestinations import AdAssetOnsiteDestinationsFields
 
 
 class AdAssetFeedSpecCallToActionTypes(str, Enum):

@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .outcomepredictionpoint import OutcomePredictionPointFields
+if TYPE_CHECKING:
+    from .outcomepredictionpoint import OutcomePredictionPointFields
 
 
 class AdCampaignDeliveryEstimateOptimizationGoal(str, Enum):

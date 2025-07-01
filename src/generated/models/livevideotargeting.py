@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .targetinggeolocation import TargetingGeoLocationFields
+if TYPE_CHECKING:
+    from .targetinggeolocation import TargetingGeoLocationFields
+
 
 LiveVideoTargetingField = Literal["age_max", "age_min", "excluded_countries", "geo_locations"]
 

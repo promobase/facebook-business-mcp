@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adspixel import AdsPixelFields
+if TYPE_CHECKING:
+    from .adspixel import AdsPixelFields
+
 
 AdsSignalDiagnosticIssueField = Literal[
     "data_source_id",

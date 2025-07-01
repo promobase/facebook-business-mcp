@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativetemplateurlspec import AdCreativeTemplateURLSpecFields
+if TYPE_CHECKING:
+    from .adcreativetemplateurlspec import AdCreativeTemplateURLSpecFields
+
 
 AdCustomizationRuleSpecField = Literal[
     "caption",

@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .iguser import IGUserFields
-from .page import PageFields
+if TYPE_CHECKING:
+    from .iguser import IGUserFields
+    from .page import PageFields
+
 
 BrandedContentEligibleSponsorIDsField = Literal["fb_page", "ig_account_v2", "ig_approval_needed"]
 

@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+
 
 AdAccountBillingDatePreferenceField = Literal[
     "ad_account", "day_of_month", "id", "next_bill_date", "time_created", "time_effective"

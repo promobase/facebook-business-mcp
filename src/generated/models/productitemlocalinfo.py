@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .productitemlocalinfolatlongshape import ProductItemLocalInfoLatLongShapeFields
+if TYPE_CHECKING:
+    from .productitemlocalinfolatlongshape import ProductItemLocalInfoLatLongShapeFields
+
 
 ProductItemLocalInfoField = Literal[
     "availability_circle_origin",

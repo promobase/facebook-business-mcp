@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .event import EventFields
-from .photo import PhotoFields
-from .place import PlaceFields
+if TYPE_CHECKING:
+    from .event import EventFields
+    from .photo import PhotoFields
+    from .place import PlaceFields
+
 
 AlbumField = Literal[
     "backdated_time",

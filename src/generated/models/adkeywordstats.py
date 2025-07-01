@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adsactionstats import AdsActionStatsFields
+if TYPE_CHECKING:
+    from .adsactionstats import AdsActionStatsFields
+
 
 AdKeywordStatsField = Literal[
     "actions",

@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adassetfeedspecassetlabel import AdAssetFeedSpecAssetLabelFields
-from .adassetfeedspeccarouselchildattachment import AdAssetFeedSpecCarouselChildAttachmentFields
+if TYPE_CHECKING:
+    from .adassetfeedspecassetlabel import AdAssetFeedSpecAssetLabelFields
+    from .adassetfeedspeccarouselchildattachment import AdAssetFeedSpecCarouselChildAttachmentFields
+
 
 AdAssetFeedSpecCarouselField = Literal[
     "adlabels", "child_attachments", "multi_share_end_card", "multi_share_optimized"

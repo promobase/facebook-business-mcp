@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .videocopyrightcheckstatus import VideoCopyrightCheckStatusFields
-from .videostatusprocessingphase import VideoStatusProcessingPhaseFields
-from .videostatuspublishingphase import VideoStatusPublishingPhaseFields
-from .videostatusuploadingphase import VideoStatusUploadingPhaseFields
+if TYPE_CHECKING:
+    from .videocopyrightcheckstatus import VideoCopyrightCheckStatusFields
+    from .videostatusprocessingphase import VideoStatusProcessingPhaseFields
+    from .videostatuspublishingphase import VideoStatusPublishingPhaseFields
+    from .videostatusuploadingphase import VideoStatusUploadingPhaseFields
+
 
 VideoStatusField = Literal[
     "copyright_check_status",

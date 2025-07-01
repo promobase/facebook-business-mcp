@@ -4,15 +4,16 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .collaborativeadssharesettings import CollaborativeAdsShareSettingsFields
-from .commercemerchantsettings import CommerceMerchantSettingsFields
-from .productcatalogimagesettings import ProductCatalogImageSettingsFields
-from .storecatalogsettings import StoreCatalogSettingsFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .collaborativeadssharesettings import CollaborativeAdsShareSettingsFields
+    from .commercemerchantsettings import CommerceMerchantSettingsFields
+    from .productcatalogimagesettings import ProductCatalogImageSettingsFields
+    from .storecatalogsettings import StoreCatalogSettingsFields
+    from .user import UserFields
 
 
 class ProductCatalogAdditionalVerticalOption(str, Enum):
@@ -188,53 +189,6 @@ class ProductCatalogFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ProductCatalogApiDeleteParams(BaseModel):
-    """Parameters for ProductCatalog.api_delete()."""
-
-    allow_delete_catalog_with_live_product_set: bool | None = Field(
-        None, description="allow_delete_catalog_with_live_product_set parameter"
-    )
-
-    class Config:
-        extra = "forbid"
-
-
-class ProductCatalogApiGetParams(BaseModel):
-    """Parameters for ProductCatalog.api_get()."""
-
-    segment_use_cases: list[str] | None = Field(None, description="segment_use_cases parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class ProductCatalogApiUpdateParams(BaseModel):
-    """Parameters for ProductCatalog.api_update()."""
-
-    additional_vertical_option: str | None = Field(
-        None, description="additional_vertical_option parameter"
-    )
-    da_display_settings: Any | None = Field(None, description="da_display_settings parameter")
-    default_image_url: str | None = Field(None, description="default_image_url parameter")
-    destination_catalog_settings: dict[str, Any] | None = Field(
-        None, description="destination_catalog_settings parameter"
-    )
-    fallback_image_url: str | None = Field(None, description="fallback_image_url parameter")
-    flight_catalog_settings: dict[str, Any] | None = Field(
-        None, description="flight_catalog_settings parameter"
-    )
-    name: str | None = Field(None, description="name parameter")
-    partner_integration: dict[str, Any] | None = Field(
-        None, description="partner_integration parameter"
-    )
-    store_catalog_settings: dict[str, Any] | None = Field(
-        None, description="store_catalog_settings parameter"
-    )
-
-    class Config:
         extra = "forbid"
 
 

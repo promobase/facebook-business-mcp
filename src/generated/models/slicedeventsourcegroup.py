@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .eventsourcegroup import EventSourceGroupFields
+if TYPE_CHECKING:
+    from .eventsourcegroup import EventSourceGroupFields
+
 
 SlicedEventSourceGroupField = Literal["event_source_group", "filter", "id", "name"]
 

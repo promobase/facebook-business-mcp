@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+
 
 AdLabelField = Literal["account", "created_time", "id", "name", "updated_time"]
 
@@ -23,13 +25,4 @@ class AdLabelFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdLabelApiUpdateParams(BaseModel):
-    """Parameters for AdLabel.api_update()."""
-
-    name: str | None = Field(None, description="name parameter")
-
-    class Config:
         extra = "forbid"

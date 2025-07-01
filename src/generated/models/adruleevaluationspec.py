@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adrulefilters import AdRuleFiltersFields
-from .adruletrigger import AdRuleTriggerFields
+if TYPE_CHECKING:
+    from .adrulefilters import AdRuleFiltersFields
+    from .adruletrigger import AdRuleTriggerFields
 
 
 class AdRuleEvaluationSpecEvaluationType(str, Enum):

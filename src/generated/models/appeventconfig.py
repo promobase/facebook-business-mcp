@@ -92,12 +92,3 @@ class AppEventConfigFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class AppEventConfigApiGetParams(BaseModel):
-    """Parameters for AppEventConfig.api_get()."""
-
-    event_name: str | None = Field(None, description="event_name parameter")
-
-    class Config:
-        extra = "forbid"

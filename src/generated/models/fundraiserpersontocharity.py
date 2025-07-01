@@ -72,27 +72,6 @@ class FundraiserPersonToCharityFields(BaseModel):
         extra = "forbid"
 
 
-class FundraiserPersonToCharityApiUpdateParams(BaseModel):
-    """Parameters for FundraiserPersonToCharity.api_update()."""
-
-    description: str | None = Field(None, description="description parameter")
-    end_time: datetime | None = Field(None, description="end_time parameter")
-    external_event_name: str | None = Field(None, description="external_event_name parameter")
-    external_event_start_time: datetime | None = Field(
-        None, description="external_event_start_time parameter"
-    )
-    external_event_uri: str | None = Field(None, description="external_event_uri parameter")
-    external_fundraiser_uri: str | None = Field(
-        None, description="external_fundraiser_uri parameter"
-    )
-    external_id: str | None = Field(None, description="external_id parameter")
-    goal_amount: int | None = Field(None, description="goal_amount parameter")
-    name: str | None = Field(None, description="name parameter")
-
-    class Config:
-        extra = "forbid"
-
-
 class FundraiserPersonToCharityCreateExternalDonationParams(BaseModel):
     """Parameters for FundraiserPersonToCharity.create_external_donation()."""
 

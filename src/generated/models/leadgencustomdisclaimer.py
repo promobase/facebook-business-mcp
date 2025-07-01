@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .leadgencustomdisclaimerbody import LeadGenCustomDisclaimerBodyFields
-from .leadgenlegalcontentcheckbox import LeadGenLegalContentCheckboxFields
+if TYPE_CHECKING:
+    from .leadgencustomdisclaimerbody import LeadGenCustomDisclaimerBodyFields
+    from .leadgenlegalcontentcheckbox import LeadGenLegalContentCheckboxFields
+
 
 LeadGenCustomDisclaimerField = Literal["body", "checkboxes", "title"]
 

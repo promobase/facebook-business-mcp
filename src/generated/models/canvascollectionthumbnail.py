@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .photo import PhotoFields
+if TYPE_CHECKING:
+    from .photo import PhotoFields
+
 
 CanvasCollectionThumbnailField = Literal["element_child_index", "element_id", "photo"]
 

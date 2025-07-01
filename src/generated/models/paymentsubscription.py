@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .application import ApplicationFields
-from .paymentenginepayment import PaymentEnginePaymentFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .application import ApplicationFields
+    from .paymentenginepayment import PaymentEnginePaymentFields
+    from .user import UserFields
+
 
 PaymentSubscriptionField = Literal[
     "amount",

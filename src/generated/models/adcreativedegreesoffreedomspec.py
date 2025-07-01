@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativefeaturesspec import AdCreativeFeaturesSpecFields
+if TYPE_CHECKING:
+    from .adcreativefeaturesspec import AdCreativeFeaturesSpecFields
+
 
 AdCreativeDegreesOfFreedomSpecField = Literal[
     "ad_handle_type",

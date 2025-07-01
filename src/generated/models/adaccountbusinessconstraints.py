@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .status import StatusFields
+if TYPE_CHECKING:
+    from .status import StatusFields
 
 
 class AdAccountBusinessConstraintsStatus(str, Enum):

@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcampaigndeliverystatsunsupportedreasons import (
-    AdCampaignDeliveryStatsUnsupportedReasonsFields,
-)
-from .adcampaignlearningstageinfo import AdCampaignLearningStageInfoFields
+if TYPE_CHECKING:
+    from .adcampaigndeliverystatsunsupportedreasons import (
+        AdCampaignDeliveryStatsUnsupportedReasonsFields,
+    )
+    from .adcampaignlearningstageinfo import AdCampaignLearningStageInfoFields
+
 
 AdCampaignDeliveryStatsField = Literal[
     "bid_recommendation",

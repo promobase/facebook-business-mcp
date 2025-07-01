@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .apppublisher import AppPublisherFields
-from .webpublisher import WebPublisherFields
+if TYPE_CHECKING:
+    from .apppublisher import AppPublisherFields
+    from .webpublisher import WebPublisherFields
+
 
 PublisherBlockListField = Literal[
     "app_publishers",
@@ -40,26 +42,6 @@ class PublisherBlockListFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class PublisherBlockListApiGetParams(BaseModel):
-    """Parameters for PublisherBlockList.api_get()."""
-
-    account_id: int | None = Field(None, description="account_id parameter")
-    business_id: str | None = Field(None, description="business_id parameter")
-    draft_id: str | None = Field(None, description="draft_id parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class PublisherBlockListApiUpdateParams(BaseModel):
-    """Parameters for PublisherBlockList.api_update()."""
-
-    spec: Any | None = Field(None, description="spec parameter")
-
-    class Config:
         extra = "forbid"
 
 

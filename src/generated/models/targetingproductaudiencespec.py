@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .targetingproductaudiencesubspec import TargetingProductAudienceSubSpecFields
+if TYPE_CHECKING:
+    from .targetingproductaudiencesubspec import TargetingProductAudienceSubSpecFields
+
 
 TargetingProductAudienceSpecField = Literal["exclusions", "inclusions", "product_set_id"]
 

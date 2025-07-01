@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .fundingsourcedetailscoupontiering import FundingSourceDetailsCouponTieringFields
+if TYPE_CHECKING:
+    from .fundingsourcedetailscoupontiering import FundingSourceDetailsCouponTieringFields
+
 
 FundingSourceDetailsCouponField = Literal[
     "amount",

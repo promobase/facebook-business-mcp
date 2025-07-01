@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adspixel import AdsPixelFields
-from .application import ApplicationFields
-from .offlineconversiondataset import OfflineConversionDataSetFields
-from .page import PageFields
-from .productcatalog import ProductCatalogFields
+if TYPE_CHECKING:
+    from .adspixel import AdsPixelFields
+    from .application import ApplicationFields
+    from .offlineconversiondataset import OfflineConversionDataSetFields
+    from .page import PageFields
+    from .productcatalog import ProductCatalogFields
+
 
 PartnerIntegrationLinkedField = Literal[
     "ads_pixel",

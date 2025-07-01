@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .videostatuserror import VideoStatusErrorFields
+if TYPE_CHECKING:
+    from .videostatuserror import VideoStatusErrorFields
+
 
 VideoStatusPublishingPhaseField = Literal["errors", "publish_status", "publish_time", "status"]
 

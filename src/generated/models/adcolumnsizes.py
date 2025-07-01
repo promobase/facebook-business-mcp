@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .user import UserFields
+
 
 AdColumnSizesField = Literal[
     "admarket_account", "app_id", "columns", "id", "owner", "page", "report", "tab", "view"

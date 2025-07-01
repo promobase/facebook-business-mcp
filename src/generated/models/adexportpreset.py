@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .user import UserFields
+if TYPE_CHECKING:
+    from .user import UserFields
+
 
 AdExportPresetField = Literal["created_time", "fields", "id", "name", "owner", "updated_time"]
 

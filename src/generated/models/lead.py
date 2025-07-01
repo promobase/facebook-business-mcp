@@ -3,16 +3,18 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .homelisting import HomeListingFields
-from .leadgenpostsubmissioncheckresult import LeadGenPostSubmissionCheckResultFields
-from .link import LinkFields
-from .userleadgendisclaimerresponse import UserLeadGenDisclaimerResponseFields
-from .userleadgenfielddata import UserLeadGenFieldDataFields
-from .vehicle import VehicleFields
+if TYPE_CHECKING:
+    from .homelisting import HomeListingFields
+    from .leadgenpostsubmissioncheckresult import LeadGenPostSubmissionCheckResultFields
+    from .link import LinkFields
+    from .userleadgendisclaimerresponse import UserLeadGenDisclaimerResponseFields
+    from .userleadgenfielddata import UserLeadGenFieldDataFields
+    from .vehicle import VehicleFields
+
 
 LeadField = Literal[
     "ad_id",

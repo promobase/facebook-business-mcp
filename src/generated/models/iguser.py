@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .igcomment import IGCommentFields
-from .igmedia import IGMediaFields
+if TYPE_CHECKING:
+    from .igcomment import IGCommentFields
+    from .igmedia import IGMediaFields
+
 
 IGUserField = Literal[
     "biography",
@@ -60,15 +62,6 @@ class IGUserFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class IGUserApiGetParams(BaseModel):
-    """Parameters for IGUser.api_get()."""
-
-    adgroup_id: str | None = Field(None, description="adgroup_id parameter")
-
-    class Config:
         extra = "forbid"
 
 

@@ -3,14 +3,16 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .audiencepermissionforactions import AudiencePermissionForActionsFields
-from .customaudiencestatus import CustomAudienceStatusFields
-from .targeting import TargetingFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .audiencepermissionforactions import AudiencePermissionForActionsFields
+    from .customaudiencestatus import CustomAudienceStatusFields
+    from .targeting import TargetingFields
+
 
 SavedAudienceField = Literal[
     "account",

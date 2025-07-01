@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .dynamicpostchildattachment import DynamicPostChildAttachmentFields
+if TYPE_CHECKING:
+    from .dynamicpostchildattachment import DynamicPostChildAttachmentFields
+
 
 RTBDynamicPostField = Literal[
     "child_attachments",

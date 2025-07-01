@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .user import UserFields
+if TYPE_CHECKING:
+    from .user import UserFields
 
 
 class AdStudyType(str, Enum):
@@ -75,26 +76,6 @@ class AdStudyFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdStudyApiUpdateParams(BaseModel):
-    """Parameters for AdStudy.api_update()."""
-
-    cells: list[Any] | None = Field(None, description="cells parameter")
-    client_business: str | None = Field(None, description="client_business parameter")
-    confidence_level: float | None = Field(None, description="confidence_level parameter")
-    cooldown_start_time: int | None = Field(None, description="cooldown_start_time parameter")
-    description: str | None = Field(None, description="description parameter")
-    end_time: int | None = Field(None, description="end_time parameter")
-    name: str | None = Field(None, description="name parameter")
-    objectives: list[Any] | None = Field(None, description="objectives parameter")
-    observation_end_time: int | None = Field(None, description="observation_end_time parameter")
-    start_time: int | None = Field(None, description="start_time parameter")
-    type: str | None = Field(None, description="type parameter")
-    viewers: list[int] | None = Field(None, description="viewers parameter")
-
-    class Config:
         extra = "forbid"
 
 

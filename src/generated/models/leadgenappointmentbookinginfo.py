@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .leadgenappointmentslotsbyday import LeadGenAppointmentSlotsByDayFields
+if TYPE_CHECKING:
+    from .leadgenappointmentslotsbyday import LeadGenAppointmentSlotsByDayFields
+
 
 LeadGenAppointmentBookingInfoField = Literal[
     "advertiser_timezone_offset", "appointment_durations", "appointment_slots_by_day"

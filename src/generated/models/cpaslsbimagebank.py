@@ -23,12 +23,3 @@ class CPASLsbImageBankFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class CPASLsbImageBankApiUpdateParams(BaseModel):
-    """Parameters for CPASLsbImageBank.api_update()."""
-
-    backup_image_urls: list[str] | None = Field(None, description="backup_image_urls parameter")
-
-    class Config:
-        extra = "forbid"

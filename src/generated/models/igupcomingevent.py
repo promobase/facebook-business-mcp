@@ -52,20 +52,3 @@ class IGUpcomingEventFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class IGUpcomingEventApiUpdateParams(BaseModel):
-    """Parameters for IGUpcomingEvent.api_update()."""
-
-    end_time: datetime | None = Field(None, description="end_time parameter")
-    notification_subtypes: list[str] | None = Field(
-        None, description="notification_subtypes parameter"
-    )
-    notification_target_time: str | None = Field(
-        None, description="notification_target_time parameter"
-    )
-    start_time: datetime | None = Field(None, description="start_time parameter")
-    title: str | None = Field(None, description="title parameter")
-
-    class Config:
-        extra = "forbid"

@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .photo import PhotoFields
-from .videocopyrightgeogate import VideoCopyrightGeoGateFields
+if TYPE_CHECKING:
+    from .photo import PhotoFields
+    from .videocopyrightgeogate import VideoCopyrightGeoGateFields
 
 
 class ImageCopyrightGeoOwnership(str, Enum):
@@ -313,21 +314,4 @@ class ImageCopyrightFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ImageCopyrightApiUpdateParams(BaseModel):
-    """Parameters for ImageCopyright.api_update()."""
-
-    artist: str | None = Field(None, description="artist parameter")
-    creator: str | None = Field(None, description="creator parameter")
-    custom_id: str | None = Field(None, description="custom_id parameter")
-    description: str | None = Field(None, description="description parameter")
-    geo_ownership: list[str] | None = Field(None, description="geo_ownership parameter")
-    original_content_creation_date: int | None = Field(
-        None, description="original_content_creation_date parameter"
-    )
-    title: str | None = Field(None, description="title parameter")
-
-    class Config:
         extra = "forbid"

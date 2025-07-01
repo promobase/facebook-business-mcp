@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .application import ApplicationFields
+if TYPE_CHECKING:
+    from .application import ApplicationFields
+
 
 AppRequestField = Literal[
     "action_type", "application", "created_time", "data", "from", "id", "message", "object", "to"
@@ -29,13 +31,4 @@ class AppRequestFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AppRequestApiDeleteParams(BaseModel):
-    """Parameters for AppRequest.api_delete()."""
-
-    ids: list[str] | None = Field(None, description="ids parameter")
-
-    class Config:
         extra = "forbid"

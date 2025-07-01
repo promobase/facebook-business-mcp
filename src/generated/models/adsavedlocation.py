@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .targetinggeolocationcity import TargetingGeoLocationCityFields
-from .targetinggeolocationcustomlocation import TargetingGeoLocationCustomLocationFields
-from .targetinggeolocationmarket import TargetingGeoLocationMarketFields
-from .targetinggeolocationregion import TargetingGeoLocationRegionFields
-from .targetinggeolocationzip import TargetingGeoLocationZipFields
+if TYPE_CHECKING:
+    from .targetinggeolocationcity import TargetingGeoLocationCityFields
+    from .targetinggeolocationcustomlocation import TargetingGeoLocationCustomLocationFields
+    from .targetinggeolocationmarket import TargetingGeoLocationMarketFields
+    from .targetinggeolocationregion import TargetingGeoLocationRegionFields
+    from .targetinggeolocationzip import TargetingGeoLocationZipFields
+
 
 AdSavedLocationField = Literal[
     "cities",

@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .productitem import ProductItemFields
+if TYPE_CHECKING:
+    from .productitem import ProductItemFields
+
 
 ProductVisualVariantField = Literal["items", "unique_key"]
 

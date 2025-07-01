@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .externaleventsource import ExternalEventSourceFields
+if TYPE_CHECKING:
+    from .externaleventsource import ExternalEventSourceFields
+
 
 EventSourceGroupField = Literal["business", "event_sources", "id", "name", "owner_business"]
 
@@ -22,16 +24,6 @@ class EventSourceGroupFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class EventSourceGroupApiUpdateParams(BaseModel):
-    """Parameters for EventSourceGroup.api_update()."""
-
-    event_sources: list[str] | None = Field(None, description="event_sources parameter")
-    name: str | None = Field(None, description="name parameter")
-
-    class Config:
         extra = "forbid"
 
 

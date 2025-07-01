@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .instagraminsightsvalue import InstagramInsightsValueFields
+if TYPE_CHECKING:
+    from .instagraminsightsvalue import InstagramInsightsValueFields
 
 
 class InstagramInsightsResultBreakdown(str, Enum):

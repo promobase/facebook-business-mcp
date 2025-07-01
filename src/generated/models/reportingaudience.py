@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .rawcustomaudience import RawCustomAudienceFields
+if TYPE_CHECKING:
+    from .rawcustomaudience import RawCustomAudienceFields
+
 
 ReportingAudienceField = Literal[
     "custom_audiences", "custom_audiences_url_param_name", "custom_audiences_url_param_type"

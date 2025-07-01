@@ -2,12 +2,16 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .pageaboutstorycomposedblockentityranges import PageAboutStoryComposedBlockEntityRangesFields
-from .pageaboutstorycomposedblockinlinestyle import PageAboutStoryComposedBlockInlineStyleFields
+if TYPE_CHECKING:
+    from .pageaboutstorycomposedblockentityranges import (
+        PageAboutStoryComposedBlockEntityRangesFields,
+    )
+    from .pageaboutstorycomposedblockinlinestyle import PageAboutStoryComposedBlockInlineStyleFields
+
 
 PageAboutStoryComposedBlockField = Literal[
     "depth", "entity_ranges", "inline_style_ranges", "text", "type"

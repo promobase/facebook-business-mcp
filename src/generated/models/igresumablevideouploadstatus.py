@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .videostatusprocessingphase import VideoStatusProcessingPhaseFields
-from .videostatusuploadingphase import VideoStatusUploadingPhaseFields
+if TYPE_CHECKING:
+    from .videostatusprocessingphase import VideoStatusProcessingPhaseFields
+    from .videostatusuploadingphase import VideoStatusUploadingPhaseFields
+
 
 IGResumableVideoUploadStatusField = Literal["processing_phase", "uploading_phase"]
 

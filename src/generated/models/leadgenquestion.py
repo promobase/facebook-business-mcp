@@ -2,15 +2,19 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .leadgenconditionalquestionsgroupchoices import LeadGenConditionalQuestionsGroupChoicesFields
-from .leadgenconditionalquestionsgroupquestions import (
-    LeadGenConditionalQuestionsGroupQuestionsFields,
-)
-from .leadgenquestionoption import LeadGenQuestionOptionFields
+if TYPE_CHECKING:
+    from .leadgenconditionalquestionsgroupchoices import (
+        LeadGenConditionalQuestionsGroupChoicesFields,
+    )
+    from .leadgenconditionalquestionsgroupquestions import (
+        LeadGenConditionalQuestionsGroupQuestionsFields,
+    )
+    from .leadgenquestionoption import LeadGenQuestionOptionFields
+
 
 LeadGenQuestionField = Literal[
     "conditional_questions_choices",

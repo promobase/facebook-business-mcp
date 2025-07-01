@@ -129,7 +129,11 @@ ignore = [
     "COM819", # https://docs.astral.sh/ruff/rules/prohibited-trailing-comma/
     "ISC002", # https://docs.astral.sh/ruff/rules/multi-line-implicit-string-concatenation/
     "B006",
+    "B007",
+    "F841",   # unused variable
     "UP045",
+    "E722",   # bare excepts
+    "UP007",  # union
 ]
 
 [tool.basedpyright]

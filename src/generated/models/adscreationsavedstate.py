@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+
 
 AdsCreationSavedStateField = Literal[
     "ad_account", "id", "serialized_store_data", "time_updated", "user"

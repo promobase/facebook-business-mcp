@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .page import PageFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .page import PageFields
+    from .user import UserFields
+
 
 AdsUserSettingsField = Literal[
     "a_plus_c_survey_seen",

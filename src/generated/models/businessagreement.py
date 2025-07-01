@@ -33,13 +33,3 @@ class BusinessAgreementFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class BusinessAgreementApiUpdateParams(BaseModel):
-    """Parameters for BusinessAgreement.api_update()."""
-
-    asset_id: int | None = Field(None, description="asset_id parameter")
-    request_status: str | None = Field(None, description="request_status parameter")
-
-    class Config:
-        extra = "forbid"

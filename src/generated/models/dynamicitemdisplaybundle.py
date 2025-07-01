@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .productset import ProductSetFields
+if TYPE_CHECKING:
+    from .productset import ProductSetFields
+
 
 DynamicItemDisplayBundleField = Literal[
     "additional_urls", "description", "id", "name", "product_set", "text_tokens", "url"

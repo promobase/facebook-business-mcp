@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .igresumablevideouploadstatus import IGResumableVideoUploadStatusFields
-from .igvideocopyrightcheckstatus import IGVideoCopyrightCheckStatusFields
+if TYPE_CHECKING:
+    from .igresumablevideouploadstatus import IGResumableVideoUploadStatusFields
+    from .igvideocopyrightcheckstatus import IGVideoCopyrightCheckStatusFields
+
 
 ShadowIGMediaBuilderField = Literal[
     "copyright_check_status", "id", "status", "status_code", "video_status"

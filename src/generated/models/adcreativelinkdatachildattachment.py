@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
-from .adcreativeplacedata import AdCreativePlaceDataFields
-from .adsimagecrops import AdsImageCropsFields
+if TYPE_CHECKING:
+    from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
+    from .adcreativeplacedata import AdCreativePlaceDataFields
+    from .adsimagecrops import AdsImageCropsFields
+
 
 AdCreativeLinkDataChildAttachmentField = Literal[
     "call_to_action",

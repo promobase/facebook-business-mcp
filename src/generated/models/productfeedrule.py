@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -31,13 +31,4 @@ class ProductFeedRuleFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ProductFeedRuleApiUpdateParams(BaseModel):
-    """Parameters for ProductFeedRule.api_update()."""
-
-    params: dict[str, Any] | None = Field(None, description="params parameter")
-
-    class Config:
         extra = "forbid"

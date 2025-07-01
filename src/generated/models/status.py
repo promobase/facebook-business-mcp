@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .event import EventFields
-from .place import PlaceFields
+if TYPE_CHECKING:
+    from .event import EventFields
+    from .place import PlaceFields
+
 
 StatusField = Literal["event", "from", "id", "message", "place", "updated_time"]
 

@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .extendedcreditemail import ExtendedCreditEmailFields
+if TYPE_CHECKING:
+    from .extendedcreditemail import ExtendedCreditEmailFields
+
 
 ExtendedCreditInvoiceGroupField = Literal[
     "auto_enroll",
@@ -36,16 +38,6 @@ class ExtendedCreditInvoiceGroupFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ExtendedCreditInvoiceGroupApiUpdateParams(BaseModel):
-    """Parameters for ExtendedCreditInvoiceGroup.api_update()."""
-
-    emails: list[str] | None = Field(None, description="emails parameter")
-    name: str | None = Field(None, description="name parameter")
-
-    class Config:
         extra = "forbid"
 
 

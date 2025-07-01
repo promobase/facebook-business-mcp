@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adasyncrequestset import AdAsyncRequestSetFields
+if TYPE_CHECKING:
+    from .adasyncrequestset import AdAsyncRequestSetFields
+
 
 AdDraftField = Literal[
     "account_id",

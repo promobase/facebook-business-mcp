@@ -4,14 +4,15 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .commercemerchantsettings import CommerceMerchantSettingsFields
-from .whatsappbusinesshealthstatusformessagesend import (
-    WhatsAppBusinessHealthStatusForMessageSendFields,
-)
+if TYPE_CHECKING:
+    from .commercemerchantsettings import CommerceMerchantSettingsFields
+    from .whatsappbusinesshealthstatusformessagesend import (
+        WhatsAppBusinessHealthStatusForMessageSendFields,
+    )
 
 
 class WhatsAppBusinessAccountBusinessVerificationStatus(str, Enum):
@@ -152,17 +153,6 @@ class WhatsAppBusinessAccountFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class WhatsAppBusinessAccountApiUpdateParams(BaseModel):
-    """Parameters for WhatsAppBusinessAccount.api_update()."""
-
-    is_enabled_for_insights: bool | None = Field(
-        None, description="is_enabled_for_insights parameter"
-    )
-
-    class Config:
         extra = "forbid"
 
 

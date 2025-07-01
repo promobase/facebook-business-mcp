@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .application import ApplicationFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .application import ApplicationFields
+
 
 PartnerAccountLinkingField = Literal[
     "adaccount",

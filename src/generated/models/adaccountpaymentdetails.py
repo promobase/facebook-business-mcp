@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .currencyamount import CurrencyAmountFields
+if TYPE_CHECKING:
+    from .currencyamount import CurrencyAmountFields
+
 
 AdAccountPaymentDetailsField = Literal[
     "amount", "create_date", "id", "last_action_status", "metadata", "payment_details_id"

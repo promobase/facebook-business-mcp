@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .profile import ProfileFields
-from .videocopyrightgeogate import VideoCopyrightGeoGateFields
+if TYPE_CHECKING:
+    from .profile import ProfileFields
+    from .videocopyrightgeogate import VideoCopyrightGeoGateFields
+
 
 FBImageCopyrightMatchField = Literal[
     "added_to_dashboard_time",

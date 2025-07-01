@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .customaudience import CustomAudienceFields
+if TYPE_CHECKING:
+    from .customaudience import CustomAudienceFields
+
 
 AudiencePermissionField = Literal["audience", "share_account_id", "share_account_name"]
 

@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .currencyamount import CurrencyAmountFields
-from .extendedcredit import ExtendedCreditFields
+if TYPE_CHECKING:
+    from .currencyamount import CurrencyAmountFields
+    from .extendedcredit import ExtendedCreditFields
 
 
 class ExtendedCreditAllocationConfigLiabilityType(str, Enum):
@@ -64,13 +65,4 @@ class ExtendedCreditAllocationConfigFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ExtendedCreditAllocationConfigApiUpdateParams(BaseModel):
-    """Parameters for ExtendedCreditAllocationConfig.api_update()."""
-
-    amount: Any | None = Field(None, description="amount parameter")
-
-    class Config:
         extra = "forbid"

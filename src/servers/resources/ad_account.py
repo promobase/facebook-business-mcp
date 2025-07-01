@@ -5,8 +5,8 @@ from typing import Any
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 
-from src.generated.models.adaccount_models import AdAccountField
-from src.generated.models.campaign_models import CampaignField
+from src.generated.models.adaccount import AdAccountField
+from src.generated.models.campaign import CampaignField
 from src.utils import wrapped_fn_tool
 
 # Server setup

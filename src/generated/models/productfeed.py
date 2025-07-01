@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .productfeedschedule import ProductFeedScheduleFields
-from .productfeedupload import ProductFeedUploadFields
+if TYPE_CHECKING:
+    from .productfeedschedule import ProductFeedScheduleFields
+    from .productfeedupload import ProductFeedUploadFields
 
 
 class ProductFeedDelimiter(str, Enum):
@@ -174,23 +175,6 @@ class ProductFeedFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ProductFeedApiUpdateParams(BaseModel):
-    """Parameters for ProductFeed.api_update()."""
-
-    default_currency: str | None = Field(None, description="default_currency parameter")
-    deletion_enabled: bool | None = Field(None, description="deletion_enabled parameter")
-    delimiter: str | None = Field(None, description="delimiter parameter")
-    encoding: str | None = Field(None, description="encoding parameter")
-    migrated_from_feed_id: str | None = Field(None, description="migrated_from_feed_id parameter")
-    name: str | None = Field(None, description="name parameter")
-    quoted_fields_mode: str | None = Field(None, description="quoted_fields_mode parameter")
-    schedule: str | None = Field(None, description="schedule parameter")
-    update_schedule: str | None = Field(None, description="update_schedule parameter")
-
-    class Config:
         extra = "forbid"
 
 

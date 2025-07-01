@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .shop import ShopFields
+if TYPE_CHECKING:
+    from .shop import ShopFields
+
 
 InstagramUserField = Literal[
     "follow_count",
@@ -42,15 +44,6 @@ class InstagramUserFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class InstagramUserApiGetParams(BaseModel):
-    """Parameters for InstagramUser.api_get()."""
-
-    adgroup_id: str | None = Field(None, description="adgroup_id parameter")
-
-    class Config:
         extra = "forbid"
 
 

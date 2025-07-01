@@ -3,13 +3,17 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfoFields
-from .iguser import IGUserFields
-from .igvideocopyrightcheckmatchesinformation import IGVideoCopyrightCheckMatchesInformationFields
+if TYPE_CHECKING:
+    from .igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfoFields
+    from .iguser import IGUserFields
+    from .igvideocopyrightcheckmatchesinformation import (
+        IGVideoCopyrightCheckMatchesInformationFields,
+    )
+
 
 IGMediaField = Literal[
     "alt_text",
@@ -67,32 +71,6 @@ class IGMediaFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class IGMediaApiGetParams(BaseModel):
-    """Parameters for IGMedia.api_get()."""
-
-    ad_account_id: int | None = Field(None, description="ad_account_id parameter")
-    boostable_media_callsite: str | None = Field(
-        None, description="boostable_media_callsite parameter"
-    )
-    business_id: str | None = Field(None, description="business_id parameter")
-    primary_fb_page_id: str | None = Field(None, description="primary_fb_page_id parameter")
-    primary_ig_user_id: str | None = Field(None, description="primary_ig_user_id parameter")
-    secondary_fb_page_id: str | None = Field(None, description="secondary_fb_page_id parameter")
-    secondary_ig_user_id: str | None = Field(None, description="secondary_ig_user_id parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class IGMediaApiUpdateParams(BaseModel):
-    """Parameters for IGMedia.api_update()."""
-
-    comment_enabled: bool | None = Field(None, description="comment_enabled parameter")
-
-    class Config:
         extra = "forbid"
 
 

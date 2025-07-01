@@ -4,14 +4,15 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adruleevaluationspec import AdRuleEvaluationSpecFields
-from .adruleexecutionspec import AdRuleExecutionSpecFields
-from .adruleschedulespec import AdRuleScheduleSpecFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .adruleevaluationspec import AdRuleEvaluationSpecFields
+    from .adruleexecutionspec import AdRuleExecutionSpecFields
+    from .adruleschedulespec import AdRuleScheduleSpecFields
+    from .user import UserFields
 
 
 class AdRuleStatus(str, Enum):
@@ -92,19 +93,6 @@ class AdRuleFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdRuleApiUpdateParams(BaseModel):
-    """Parameters for AdRule.api_update()."""
-
-    evaluation_spec: Any | None = Field(None, description="evaluation_spec parameter")
-    execution_spec: Any | None = Field(None, description="execution_spec parameter")
-    name: str | None = Field(None, description="name parameter")
-    schedule_spec: Any | None = Field(None, description="schedule_spec parameter")
-    status: str | None = Field(None, description="status parameter")
-
-    class Config:
         extra = "forbid"
 
 

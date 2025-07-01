@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .catalogitemapplinks import CatalogItemAppLinksFields
+if TYPE_CHECKING:
+    from .catalogitemapplinks import CatalogItemAppLinksFields
+
 
 HotelRoomField = Literal[
     "applinks",

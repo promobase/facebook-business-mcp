@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .catalogitemapplinks import CatalogItemAppLinksFields
-from .catalogsubverticallist import CatalogSubVerticalListFields
+if TYPE_CHECKING:
+    from .catalogitemapplinks import CatalogItemAppLinksFields
+    from .catalogsubverticallist import CatalogSubVerticalListFields
 
 
 class FlightImageFetchStatus(str, Enum):
@@ -111,23 +112,6 @@ class FlightFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class FlightApiUpdateParams(BaseModel):
-    """Parameters for Flight.api_update()."""
-
-    currency: str | None = Field(None, description="currency parameter")
-    description: str | None = Field(None, description="description parameter")
-    destination_airport: str | None = Field(None, description="destination_airport parameter")
-    destination_city: str | None = Field(None, description="destination_city parameter")
-    images: list[Any] | None = Field(None, description="images parameter")
-    origin_airport: str | None = Field(None, description="origin_airport parameter")
-    origin_city: str | None = Field(None, description="origin_city parameter")
-    price: int | None = Field(None, description="price parameter")
-    url: str | None = Field(None, description="url parameter")
-
-    class Config:
         extra = "forbid"
 
 

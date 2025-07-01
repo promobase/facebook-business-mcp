@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .videostatuserror import VideoStatusErrorFields
+if TYPE_CHECKING:
+    from .videostatuserror import VideoStatusErrorFields
+
 
 VideoStatusUploadingPhaseField = Literal[
     "bytes_transferred", "errors", "source_file_size", "status"

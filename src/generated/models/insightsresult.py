@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .insightsvalue import InsightsValueFields
+if TYPE_CHECKING:
+    from .insightsvalue import InsightsValueFields
 
 
 class InsightsResultBreakdown(str, Enum):

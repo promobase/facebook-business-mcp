@@ -4,29 +4,30 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adset import AdSetFields
-from .advideo import AdVideoFields
-from .coverphoto import CoverPhotoFields
-from .engagement import EngagementFields
-from .hasleadaccess import HasLeadAccessFields
-from .iguser import IGUserFields
-from .location import LocationFields
-from .mailingaddress import MailingAddressFields
-from .messagingfeaturestatus import MessagingFeatureStatusFields
-from .pagecategory import PageCategoryFields
-from .pageparking import PageParkingFields
-from .pagepaymentoptions import PagePaymentOptionsFields
-from .pagerestaurantservices import PageRestaurantServicesFields
-from .pagerestaurantspecialties import PageRestaurantSpecialtiesFields
-from .pagestartinfo import PageStartInfoFields
-from .shop import ShopFields
-from .targeting import TargetingFields
-from .user import UserFields
-from .voipinfo import VoipInfoFields
+if TYPE_CHECKING:
+    from .adset import AdSetFields
+    from .advideo import AdVideoFields
+    from .coverphoto import CoverPhotoFields
+    from .engagement import EngagementFields
+    from .hasleadaccess import HasLeadAccessFields
+    from .iguser import IGUserFields
+    from .location import LocationFields
+    from .mailingaddress import MailingAddressFields
+    from .messagingfeaturestatus import MessagingFeatureStatusFields
+    from .pagecategory import PageCategoryFields
+    from .pageparking import PageParkingFields
+    from .pagepaymentoptions import PagePaymentOptionsFields
+    from .pagerestaurantservices import PageRestaurantServicesFields
+    from .pagerestaurantspecialties import PageRestaurantSpecialtiesFields
+    from .pagestartinfo import PageStartInfoFields
+    from .shop import ShopFields
+    from .targeting import TargetingFields
+    from .user import UserFields
+    from .voipinfo import VoipInfoFields
 
 
 class PageAttire(str, Enum):
@@ -794,101 +795,6 @@ class PageFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class PageApiGetParams(BaseModel):
-    """Parameters for Page.api_get()."""
-
-    account_linking_token: str | None = Field(None, description="account_linking_token parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class PageApiUpdateParams(BaseModel):
-    """Parameters for Page.api_update()."""
-
-    about: str | None = Field(None, description="about parameter")
-    accept_crossposting_handshake: list[dict[str, Any]] | None = Field(
-        None, description="accept_crossposting_handshake parameter"
-    )
-    allow_spherical_photo: bool | None = Field(None, description="allow_spherical_photo parameter")
-    attire: str | None = Field(None, description="attire parameter")
-    begin_crossposting_handshake: list[dict[str, Any]] | None = Field(
-        None, description="begin_crossposting_handshake parameter"
-    )
-    bio: str | None = Field(None, description="bio parameter")
-    category_list: list[str] | None = Field(None, description="category_list parameter")
-    company_overview: str | None = Field(None, description="company_overview parameter")
-    contact_address: Any | None = Field(None, description="contact_address parameter")
-    cover: str | None = Field(None, description="cover parameter")
-    culinary_team: str | None = Field(None, description="culinary_team parameter")
-    delivery_and_pickup_option_info: list[str] | None = Field(
-        None, description="delivery_and_pickup_option_info parameter"
-    )
-    description: str | None = Field(None, description="description parameter")
-    differently_open_offerings: dict[str, Any] | None = Field(
-        None, description="differently_open_offerings parameter"
-    )
-    directed_by: str | None = Field(None, description="directed_by parameter")
-    displayed_message_response_time: str | None = Field(
-        None, description="displayed_message_response_time parameter"
-    )
-    emails: list[str] | None = Field(None, description="emails parameter")
-    focus_x: float | None = Field(None, description="focus_x parameter")
-    focus_y: float | None = Field(None, description="focus_y parameter")
-    food_styles: list[str] | None = Field(None, description="food_styles parameter")
-    gen_ai_provenance_type: str | None = Field(None, description="gen_ai_provenance_type parameter")
-    general_info: str | None = Field(None, description="general_info parameter")
-    general_manager: str | None = Field(None, description="general_manager parameter")
-    genre: str | None = Field(None, description="genre parameter")
-    hours: dict[str, Any] | None = Field(None, description="hours parameter")
-    ignore_coordinate_warnings: bool | None = Field(
-        None, description="ignore_coordinate_warnings parameter"
-    )
-    impressum: str | None = Field(None, description="impressum parameter")
-    is_always_open: bool | None = Field(None, description="is_always_open parameter")
-    is_permanently_closed: bool | None = Field(None, description="is_permanently_closed parameter")
-    is_published: bool | None = Field(None, description="is_published parameter")
-    is_webhooks_subscribed: bool | None = Field(
-        None, description="is_webhooks_subscribed parameter"
-    )
-    location: Any | None = Field(None, description="location parameter")
-    menu: str | None = Field(None, description="menu parameter")
-    mission: str | None = Field(None, description="mission parameter")
-    no_feed_story: bool | None = Field(None, description="no_feed_story parameter")
-    no_notification: bool | None = Field(None, description="no_notification parameter")
-    offset_x: int | None = Field(None, description="offset_x parameter")
-    offset_y: int | None = Field(None, description="offset_y parameter")
-    parking: dict[str, Any] | None = Field(None, description="parking parameter")
-    payment_options: dict[str, Any] | None = Field(None, description="payment_options parameter")
-    phone: str | None = Field(None, description="phone parameter")
-    pickup_options: list[str] | None = Field(None, description="pickup_options parameter")
-    plot_outline: str | None = Field(None, description="plot_outline parameter")
-    price_range: str | None = Field(None, description="price_range parameter")
-    public_transit: str | None = Field(None, description="public_transit parameter")
-    restaurant_services: dict[str, Any] | None = Field(
-        None, description="restaurant_services parameter"
-    )
-    restaurant_specialties: dict[str, Any] | None = Field(
-        None, description="restaurant_specialties parameter"
-    )
-    scrape: bool | None = Field(None, description="scrape parameter")
-    service_details: str | None = Field(None, description="service_details parameter")
-    spherical_metadata: dict[str, Any] | None = Field(
-        None, description="spherical_metadata parameter"
-    )
-    start_info: Any | None = Field(None, description="start_info parameter")
-    store_location_descriptor: str | None = Field(
-        None, description="store_location_descriptor parameter"
-    )
-    temporary_status: str | None = Field(None, description="temporary_status parameter")
-    website: str | None = Field(None, description="website parameter")
-    zoom_scale_x: float | None = Field(None, description="zoom_scale_x parameter")
-    zoom_scale_y: float | None = Field(None, description="zoom_scale_y parameter")
-
-    class Config:
         extra = "forbid"
 
 

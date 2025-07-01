@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .productcatalog import ProductCatalogFields
-from .productvariant import ProductVariantFields
+if TYPE_CHECKING:
+    from .productcatalog import ProductCatalogFields
+    from .productvariant import ProductVariantFields
+
 
 ProductGroupField = Literal["id", "product_catalog", "retailer_id", "variants"]
 
@@ -23,25 +25,6 @@ class ProductGroupFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class ProductGroupApiDeleteParams(BaseModel):
-    """Parameters for ProductGroup.api_delete()."""
-
-    deletion_method: str | None = Field(None, description="deletion_method parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class ProductGroupApiUpdateParams(BaseModel):
-    """Parameters for ProductGroup.api_update()."""
-
-    default_product_id: str | None = Field(None, description="default_product_id parameter")
-    variants: list[Any] | None = Field(None, description="variants parameter")
-
-    class Config:
         extra = "forbid"
 
 

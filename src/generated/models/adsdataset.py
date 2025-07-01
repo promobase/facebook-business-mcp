@@ -4,14 +4,15 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adaccount import AdAccountFields
-from .offlineconversiondatasetpermissions import OfflineConversionDataSetPermissionsFields
-from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .adaccount import AdAccountFields
+    from .offlineconversiondatasetpermissions import OfflineConversionDataSetPermissionsFields
+    from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
+    from .user import UserFields
 
 
 class AdsDatasetSortBy(str, Enum):

@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .fundingsourcedetailscoupon import FundingSourceDetailsCouponFields
+if TYPE_CHECKING:
+    from .fundingsourcedetailscoupon import FundingSourceDetailsCouponFields
+
 
 FundingSourceDetailsField = Literal["coupon", "coupons", "display_string", "id", "type"]
 

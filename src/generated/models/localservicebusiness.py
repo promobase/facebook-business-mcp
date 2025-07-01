@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .catalogitemapplinks import CatalogItemAppLinksFields
-from .catalogsubverticallist import CatalogSubVerticalListFields
-from .productitemlocalinfo import ProductItemLocalInfoFields
+if TYPE_CHECKING:
+    from .catalogitemapplinks import CatalogItemAppLinksFields
+    from .catalogsubverticallist import CatalogSubVerticalListFields
+    from .productitemlocalinfo import ProductItemLocalInfoFields
 
 
 class LocalServiceBusinessAvailability(str, Enum):

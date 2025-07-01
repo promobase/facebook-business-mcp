@@ -4,23 +4,24 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .adcreative import AdCreativeFields
-from .adcreativeassetgroupsspec import AdCreativeAssetGroupsSpecFields
-from .adgroupissuesinfo import AdgroupIssuesInfoFields
-from .adgroupreviewfeedback import AdgroupReviewFeedbackFields
-from .adlabel import AdLabelFields
-from .adrecommendation import AdRecommendationFields
-from .adset import AdSetFields
-from .campaign import CampaignFields
-from .conversionactionquery import ConversionActionQueryFields
-from .placement import PlacementFields
-from .status import StatusFields
-from .targeting import TargetingFields
-from .trackingandconversionwithdefaults import TrackingAndConversionWithDefaultsFields
+if TYPE_CHECKING:
+    from .adcreative import AdCreativeFields
+    from .adcreativeassetgroupsspec import AdCreativeAssetGroupsSpecFields
+    from .adgroupissuesinfo import AdgroupIssuesInfoFields
+    from .adgroupreviewfeedback import AdgroupReviewFeedbackFields
+    from .adlabel import AdLabelFields
+    from .adrecommendation import AdRecommendationFields
+    from .adset import AdSetFields
+    from .campaign import CampaignFields
+    from .conversionactionquery import ConversionActionQueryFields
+    from .placement import PlacementFields
+    from .status import StatusFields
+    from .targeting import TargetingFields
+    from .trackingandconversionwithdefaults import TrackingAndConversionWithDefaultsFields
 
 
 class AdBidType(str, Enum):
@@ -226,55 +227,6 @@ class AdFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class AdApiGetParams(BaseModel):
-    """Parameters for Ad.api_get()."""
-
-    am_call_tags: dict[str, Any] | None = Field(None, description="am_call_tags parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
-    from_adtable: bool | None = Field(None, description="from_adtable parameter")
-    review_feedback_breakdown: bool | None = Field(
-        None, description="review_feedback_breakdown parameter"
-    )
-    time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class AdApiUpdateParams(BaseModel):
-    """Parameters for Ad.api_update()."""
-
-    ad_schedule_end_time: datetime | None = Field(
-        None, description="ad_schedule_end_time parameter"
-    )
-    ad_schedule_start_time: datetime | None = Field(
-        None, description="ad_schedule_start_time parameter"
-    )
-    adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    adset_spec: AdSetFields | None = Field(None, description="adset_spec parameter")
-    audience_id: str | None = Field(None, description="audience_id parameter")
-    bid_amount: int | None = Field(None, description="bid_amount parameter")
-    conversion_domain: str | None = Field(None, description="conversion_domain parameter")
-    creative: AdCreativeFields | None = Field(None, description="creative parameter")
-    creative_asset_groups_spec: Any | None = Field(
-        None, description="creative_asset_groups_spec parameter"
-    )
-    display_sequence: int | None = Field(None, description="display_sequence parameter")
-    draft_adgroup_id: str | None = Field(None, description="draft_adgroup_id parameter")
-    engagement_audience: bool | None = Field(None, description="engagement_audience parameter")
-    execution_options: list[str] | None = Field(None, description="execution_options parameter")
-    include_demolink_hashes: bool | None = Field(
-        None, description="include_demolink_hashes parameter"
-    )
-    name: str | None = Field(None, description="name parameter")
-    priority: int | None = Field(None, description="priority parameter")
-    status: str | None = Field(None, description="status parameter")
-    tracking_specs: Any | None = Field(None, description="tracking_specs parameter")
-
-    class Config:
         extra = "forbid"
 
 

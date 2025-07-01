@@ -53,13 +53,3 @@ class PrivateLiftStudyInstanceFields(BaseModel):
     class Config:
         populate_by_name = True
         extra = "forbid"
-
-
-class PrivateLiftStudyInstanceApiUpdateParams(BaseModel):
-    """Parameters for PrivateLiftStudyInstance.api_update()."""
-
-    operation: str | None = Field(None, description="operation parameter")
-    run_id: str | None = Field(None, description="run_id parameter")
-
-    class Config:
-        extra = "forbid"

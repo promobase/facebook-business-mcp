@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .leadgenurlentityatranges import LeadGenURLEntityAtRangesFields
+if TYPE_CHECKING:
+    from .leadgenurlentityatranges import LeadGenURLEntityAtRangesFields
+
 
 LeadGenCustomDisclaimerBodyField = Literal["text", "url_entities"]
 

@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .fbpageandinstagramaccount import FBPageAndInstagramAccountFields
-from .igmedia import IGMediaFields
+if TYPE_CHECKING:
+    from .fbpageandinstagramaccount import FBPageAndInstagramAccountFields
+    from .igmedia import IGMediaFields
+
 
 PartnershipAdContentSearchMediaField = Literal[
     "ig_ad_code_sponsor_count",

@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .businessassetgroup import BusinessAssetGroupFields
-from .customaudience import CustomAudienceFields
+if TYPE_CHECKING:
+    from .businessassetgroup import BusinessAssetGroupFields
+    from .customaudience import CustomAudienceFields
+
 
 FranchiseProgramField = Literal[
     "business_asset_group",

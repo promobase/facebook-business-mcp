@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .event import EventFields
-from .externaleventsource import ExternalEventSourceFields
+if TYPE_CHECKING:
+    from .event import EventFields
+    from .externaleventsource import ExternalEventSourceFields
 
 
 class ProductEventStatDeviceType(str, Enum):

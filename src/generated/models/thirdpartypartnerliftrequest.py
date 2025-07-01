@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .status import StatusFields
+if TYPE_CHECKING:
+    from .status import StatusFields
 
 
 class ThirdPartyPartnerLiftRequestStatus(str, Enum):

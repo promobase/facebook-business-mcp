@@ -4,16 +4,17 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
-from .advideo import AdVideoFields
-from .livevideoadbreakconfig import LiveVideoAdBreakConfigFields
-from .livevideoinputstream import LiveVideoInputStreamFields
-from .livevideorecommendedencodersettings import LiveVideoRecommendedEncoderSettingsFields
-from .livevideotargeting import LiveVideoTargetingFields
-from .videocopyright import VideoCopyrightFields
+if TYPE_CHECKING:
+    from .advideo import AdVideoFields
+    from .livevideoadbreakconfig import LiveVideoAdBreakConfigFields
+    from .livevideoinputstream import LiveVideoInputStreamFields
+    from .livevideorecommendedencodersettings import LiveVideoRecommendedEncoderSettingsFields
+    from .livevideotargeting import LiveVideoTargetingFields
+    from .videocopyright import VideoCopyrightFields
 
 
 class LiveVideoProjection(str, Enum):
@@ -165,67 +166,6 @@ class LiveVideoFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = "forbid"
-
-
-class LiveVideoApiGetParams(BaseModel):
-    """Parameters for LiveVideo.api_get()."""
-
-    target_token: str | None = Field(None, description="target_token parameter")
-
-    class Config:
-        extra = "forbid"
-
-
-class LiveVideoApiUpdateParams(BaseModel):
-    """Parameters for LiveVideo.api_update()."""
-
-    allow_bm_crossposting: bool | None = Field(None, description="allow_bm_crossposting parameter")
-    content_tags: list[str] | None = Field(None, description="content_tags parameter")
-    cross_share_to_group_ids: list[str] | None = Field(
-        None, description="cross_share_to_group_ids parameter"
-    )
-    crossposting_actions: list[dict[str, Any]] | None = Field(
-        None, description="crossposting_actions parameter"
-    )
-    custom_labels: list[str] | None = Field(None, description="custom_labels parameter")
-    description: str | None = Field(None, description="description parameter")
-    direct_share_status: int | None = Field(None, description="direct_share_status parameter")
-    embeddable: bool | None = Field(None, description="embeddable parameter")
-    end_live_video: bool | None = Field(None, description="end_live_video parameter")
-    event_params: Any | None = Field(None, description="event_params parameter")
-    is_audio_only: bool | None = Field(None, description="is_audio_only parameter")
-    is_manual_mode: bool | None = Field(None, description="is_manual_mode parameter")
-    live_comment_moderation_setting: list[str] | None = Field(
-        None, description="live_comment_moderation_setting parameter"
-    )
-    master_ingest_stream_id: str | None = Field(
-        None, description="master_ingest_stream_id parameter"
-    )
-    og_icon_id: str | None = Field(None, description="og_icon_id parameter")
-    og_phrase: str | None = Field(None, description="og_phrase parameter")
-    persistent_stream_key_status: str | None = Field(
-        None, description="persistent_stream_key_status parameter"
-    )
-    place: Any | None = Field(None, description="place parameter")
-    planned_start_time: datetime | None = Field(None, description="planned_start_time parameter")
-    privacy: str | None = Field(None, description="privacy parameter")
-    published: bool | None = Field(None, description="published parameter")
-    schedule_custom_profile_image: Any | None = Field(
-        None, description="schedule_custom_profile_image parameter"
-    )
-    schedule_feed_background_image: Any | None = Field(
-        None, description="schedule_feed_background_image parameter"
-    )
-    sponsor_id: str | None = Field(None, description="sponsor_id parameter")
-    sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
-    status: str | None = Field(None, description="status parameter")
-    stream_type: str | None = Field(None, description="stream_type parameter")
-    tags: list[int] | None = Field(None, description="tags parameter")
-    targeting: Any | None = Field(None, description="targeting parameter")
-    title: str | None = Field(None, description="title parameter")
-
-    class Config:
         extra = "forbid"
 
 

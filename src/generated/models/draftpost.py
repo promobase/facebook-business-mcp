@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .place import PlaceFields
-from .targeting import TargetingFields
-from .user import UserFields
+if TYPE_CHECKING:
+    from .place import PlaceFields
+    from .targeting import TargetingFields
+    from .user import UserFields
+
 
 DraftPostField = Literal[
     "admin_creator",

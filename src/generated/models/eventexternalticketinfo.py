@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
-from .currencyamount import CurrencyAmountFields
+if TYPE_CHECKING:
+    from .currencyamount import CurrencyAmountFields
+
 
 EventExternalTicketInfoField = Literal["id", "max_sales_price", "min_sales_price", "sales_status"]
 
