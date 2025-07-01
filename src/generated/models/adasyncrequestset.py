@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .adasyncrequest import AdAsyncRequestStatuses
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adasyncrequestsetnotificationresult import AdAsyncRequestSetNotificationResultFields
     from .adcreative import AdCreativeFields
@@ -77,3 +82,8 @@ class AdAsyncRequestSetGetRequestsParams(BaseModel):
     statuses: list[AdAsyncRequestStatuses] | None = Field(None, description="statuses parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

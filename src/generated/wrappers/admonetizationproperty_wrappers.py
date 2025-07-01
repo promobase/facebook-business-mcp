@@ -14,6 +14,9 @@ from ..models.admonetizationproperty import (
     AdMonetizationPropertyGetAdNetworkAnalyticsParams,
     AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adnetworkanalyticsasyncqueryresult import (
     AdNetworkAnalyticsAsyncQueryResultField,
     AdNetworkAnalyticsAsyncQueryResultFields,
@@ -23,6 +26,10 @@ from ..models.adnetworkanalyticssyncqueryresult import (
     AdNetworkAnalyticsSyncQueryResultFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdMonetizationPropertyWrappers:
@@ -101,3 +108,8 @@ class AdMonetizationPropertyWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, AdNetworkAnalyticsAsyncQueryResultFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

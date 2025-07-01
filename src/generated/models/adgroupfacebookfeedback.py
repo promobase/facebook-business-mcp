@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentOrder
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdgroupFacebookFeedbackField = Literal["id", "preview"]
 
 
@@ -28,3 +33,8 @@ class AdgroupFacebookFeedbackGetCommentsParams(BaseModel):
     order: CommentOrder | None = Field(None, description="order parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

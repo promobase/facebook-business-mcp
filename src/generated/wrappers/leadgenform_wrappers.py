@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.leadgenform import LeadgenForm
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.lead import (
     LeadField,
     LeadFields,
@@ -17,6 +19,10 @@ from ..models.leadgenform import (
     LeadgenFormFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class LeadgenFormWrappers:
@@ -41,3 +47,8 @@ class LeadgenFormWrappers:
 
         # Convert result to typed model
         return LeadFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

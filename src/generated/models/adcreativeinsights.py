@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeInsightsField = Literal["aesthetics"]
 
 
@@ -17,3 +22,8 @@ class AdCreativeInsightsFields(BaseModel):
     aesthetics: list[dict[str, str]] | None = Field(None, alias="aesthetics")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

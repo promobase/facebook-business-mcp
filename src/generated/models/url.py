@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class URLScopes(str, Enum):
     """Enum for URL.Scopes."""
@@ -29,3 +33,8 @@ class URLFields(BaseModel):
     scopes: dict[str, Any] | None = Field(None, alias="scopes")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

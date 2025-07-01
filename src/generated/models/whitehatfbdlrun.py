@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 WhitehatFBDLRunField = Literal[
     "creation_time", "id", "is_pinned", "note", "result", "run_code", "status", "user_type"
 ]
@@ -26,3 +31,8 @@ class WhitehatFBDLRunFields(BaseModel):
     user_type: str | None = Field(None, alias="user_type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

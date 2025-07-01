@@ -12,11 +12,18 @@ from ..models.canvas import (
     CanvasFields,
     CanvasGetPreViewsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.textwithentities import (
     TextWithEntitiesField,
     TextWithEntitiesFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class CanvasWrappers:
@@ -48,3 +55,8 @@ class CanvasWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, TextWithEntitiesFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

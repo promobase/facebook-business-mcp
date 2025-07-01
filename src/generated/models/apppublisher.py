@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AppPublisherField = Literal[
     "content_id", "icon_url", "id", "name", "platform", "store_name", "store_url"
 ]
@@ -25,3 +30,8 @@ class AppPublisherFields(BaseModel):
     store_url: str | None = Field(None, alias="store_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -15,6 +15,11 @@ from .offlineconversiondatasetupload import (
     OfflineConversionDataSetUploadSortBy,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
     from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
@@ -292,3 +297,8 @@ class AdsPixelGetStatsParams(BaseModel):
     start_time: datetime | None = Field(None, description="start_time parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

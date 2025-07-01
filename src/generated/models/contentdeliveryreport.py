@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ContentDeliveryReportField = Literal[
     "content_id",
     "content_name",
@@ -31,3 +36,8 @@ class ContentDeliveryReportFields(BaseModel):
     estimated_impressions: int | None = Field(None, alias="estimated_impressions")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

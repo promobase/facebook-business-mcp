@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CommercePayoutField = Literal[
     "amount", "payout_date", "payout_reference_id", "status", "transfer_id"
 ]
@@ -23,3 +28,8 @@ class CommercePayoutFields(BaseModel):
     transfer_id: str | None = Field(None, alias="transfer_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

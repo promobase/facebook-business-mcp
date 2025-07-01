@@ -14,6 +14,15 @@ from ..models.status import (
 )
 from .cursor_utils import TypedCursor
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
+
 
 class StatusWrappers:
     """Type-safe wrapper functions for Status API methods."""
@@ -37,3 +46,8 @@ class StatusWrappers:
 
         # Convert result to typed model
         return StatusFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

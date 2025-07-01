@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountPromotionProgressBarField = Literal[
     "adaccount_permission",
     "coupon_currency",
@@ -33,3 +38,8 @@ class AdAccountPromotionProgressBarFields(BaseModel):
     spend_since_enrollment: int | None = Field(None, alias="spend_since_enrollment")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

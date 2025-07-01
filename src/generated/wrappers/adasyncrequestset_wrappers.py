@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.adasyncrequestset import AdAsyncRequestSet
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adasyncrequest import (
     AdAsyncRequestField,
     AdAsyncRequestFields,
@@ -17,6 +19,10 @@ from ..models.adasyncrequestset import (
     AdAsyncRequestSetGetRequestsParams,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdAsyncRequestSetWrappers:
@@ -48,3 +54,8 @@ class AdAsyncRequestSetWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, AdAsyncRequestFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

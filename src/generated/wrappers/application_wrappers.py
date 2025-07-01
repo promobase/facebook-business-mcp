@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.application import Application
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -77,6 +79,10 @@ from ..models.group import (
     GroupFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class ApplicationWrappers:
@@ -1032,3 +1038,8 @@ class ApplicationWrappers:
 
         # Return raw cursor data for abstract base class
         return [item.export_all_data() for item in cursor]
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

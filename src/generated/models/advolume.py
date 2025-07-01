@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdVolumeField = Literal[
     "ad_volume_break_down",
     "ads_running_or_in_review_count",
@@ -41,3 +46,8 @@ class AdVolumeFields(BaseModel):
     user_role: str | None = Field(None, alias="user_role")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

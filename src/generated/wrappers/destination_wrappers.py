@@ -12,11 +12,18 @@ from ..models.destination import (
     DestinationFields,
     DestinationGetOverrideDetailsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.overridedetails import (
     OverrideDetailsField,
     OverrideDetailsFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class DestinationWrappers:
@@ -48,3 +55,8 @@ class DestinationWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, OverrideDetailsFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

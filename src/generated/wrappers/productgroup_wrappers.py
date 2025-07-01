@@ -12,11 +12,18 @@ from ..models.productgroup import (
     ProductGroupField,
     ProductGroupFields,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.productitem import (
     ProductItemField,
     ProductItemFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class ProductGroupWrappers:
@@ -41,3 +48,8 @@ class ProductGroupWrappers:
 
         # Convert result to typed model
         return ProductItemFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

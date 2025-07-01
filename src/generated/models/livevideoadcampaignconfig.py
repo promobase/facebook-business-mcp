@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LiveVideoAdCampaignConfigField = Literal["id", "live_video_ad_type"]
 
 
@@ -18,3 +23,8 @@ class LiveVideoAdCampaignConfigFields(BaseModel):
     live_video_ad_type: str | None = Field(None, alias="live_video_ad_type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

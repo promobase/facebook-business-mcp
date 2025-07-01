@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdLimitsEnforcementDataField = Literal[
     "ad_limit_on_page",
     "ad_limit_on_scope",
@@ -29,3 +34,8 @@ class AdLimitsEnforcementDataFields(BaseModel):
     page_name: str | None = Field(None, alias="page_name")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

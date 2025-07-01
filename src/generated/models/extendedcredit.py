@@ -14,6 +14,11 @@ from .extendedcreditallocationconfig import (
     ExtendedCreditAllocationConfigSendBillTo,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .currencyamount import CurrencyAmountFields
     from .extendedcreditallocationconfig import ExtendedCreditAllocationConfigFields
@@ -129,3 +134,8 @@ class ExtendedCreditCreateWhatsAppCreditSharingAndAttachParams(BaseModel):
     waba_id: str | None = Field(None, description="waba_id parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

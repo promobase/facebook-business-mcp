@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.iguser import IGUser
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -76,6 +78,10 @@ from ..models.shadowiguserctxpartnerappwelcomemessageflow import (
     ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class IGUserWrappers:
@@ -549,3 +555,8 @@ class IGUserWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

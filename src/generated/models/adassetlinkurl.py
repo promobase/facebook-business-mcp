@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAssetLinkURLField = Literal[
     "android_deeplink_url",
     "carousel_see_more_url",
@@ -35,3 +40,8 @@ class AdAssetLinkURLFields(BaseModel):
     website_url: str | None = Field(None, alias="website_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

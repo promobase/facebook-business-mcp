@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CRMAddressField = Literal[
     "city",
     "cnpj_tax_id",
@@ -45,3 +50,8 @@ class CRMAddressFields(BaseModel):
     vat_tax_id: str | None = Field(None, alias="vat_tax_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

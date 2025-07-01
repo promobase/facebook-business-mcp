@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsImageCropsField = Literal[
     "100x100", "100x72", "191x100", "400x150", "400x500", "600x360", "90x160"
 ]
@@ -25,3 +30,8 @@ class AdsImageCropsFields(BaseModel):
     field_90x160: list[dict[str, Any]] | None = Field(None, alias="90x160")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeRewardInfoField = Literal["reward_offer_id", "reward_program_id"]
 
 
@@ -18,3 +23,8 @@ class AdCreativeRewardInfoFields(BaseModel):
     reward_program_id: str | None = Field(None, alias="reward_program_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

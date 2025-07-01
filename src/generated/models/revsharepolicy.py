@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 RevSharePolicyField = Literal["policy_id", "policy_name"]
 
 
@@ -18,3 +23,8 @@ class RevSharePolicyFields(BaseModel):
     policy_name: str | None = Field(None, alias="policy_name")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

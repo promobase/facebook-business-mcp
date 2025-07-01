@@ -15,6 +15,15 @@ from ..models.paymentenginepayment import (
 )
 from .cursor_utils import TypedCursor
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
+
 
 class PaymentEnginePaymentWrappers:
     """Type-safe wrapper functions for PaymentEnginePayment API methods."""
@@ -58,3 +67,8 @@ class PaymentEnginePaymentWrappers:
 
         # Convert result to typed model
         return PaymentEnginePaymentFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

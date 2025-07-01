@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 McomInvoiceStatusField = Literal[
     "bank_account_number",
     "bank_code",
@@ -41,3 +46,8 @@ class McomInvoiceStatusFields(BaseModel):
     transfer_slip: str | None = Field(None, alias="transfer_slip")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

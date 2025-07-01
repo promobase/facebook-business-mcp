@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.link import Link
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.comment import (
     CommentField,
     CommentFields,
@@ -17,6 +19,10 @@ from ..models.link import (
     LinkFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class LinkWrappers:
@@ -41,3 +47,8 @@ class LinkWrappers:
 
         # Convert result to typed model
         return CommentFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

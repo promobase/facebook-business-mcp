@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LeadGenURLEntityAtRangesField = Literal["length", "offset", "url"]
 
 
@@ -19,3 +24,8 @@ class LeadGenURLEntityAtRangesFields(BaseModel):
     url: str | None = Field(None, alias="url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

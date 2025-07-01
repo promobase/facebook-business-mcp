@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.instagramuser import InstagramUser
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -17,6 +19,10 @@ from ..models.instagramuser import (
     InstagramUserGetAuthorizedAdAccountsParams,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class InstagramUserWrappers:
@@ -48,3 +54,8 @@ class InstagramUserWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, AdAccountFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

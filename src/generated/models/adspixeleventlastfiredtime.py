@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsPixelEventLastFiredTimeField = Literal["event", "last_fired_time"]
 
 
@@ -18,3 +23,8 @@ class AdsPixelEventLastFiredTimeFields(BaseModel):
     last_fired_time: int | None = Field(None, alias="last_fired_time")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

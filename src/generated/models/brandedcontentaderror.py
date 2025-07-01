@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BrandedContentAdErrorField = Literal[
     "blame_field_spec",
     "error_code",
@@ -31,3 +36,8 @@ class BrandedContentAdErrorFields(BaseModel):
     help_center_id: int | None = Field(None, alias="help_center_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsPixelSignalsIWLFeedbackNuxField = Literal["should_ask_to_rate"]
 
 
@@ -17,3 +22,8 @@ class AdsPixelSignalsIWLFeedbackNuxFields(BaseModel):
     should_ask_to_rate: bool | None = Field(None, alias="should_ask_to_rate")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

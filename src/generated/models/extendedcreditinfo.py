@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ExtendedCreditInfoField = Literal["credit_left", "credit_revoked", "credit_used", "using_biz_ec"]
 
 
@@ -20,3 +25,8 @@ class ExtendedCreditInfoFields(BaseModel):
     using_biz_ec: str | None = Field(None, alias="using_biz_ec")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

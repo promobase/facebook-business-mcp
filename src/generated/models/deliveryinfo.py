@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 DeliveryInfoField = Literal[
     "active_accelerated_campaign_count",
     "active_day_parted_campaign_count",
@@ -113,3 +118,8 @@ class DeliveryInfoFields(BaseModel):
     text_penalty_level: str | None = Field(None, alias="text_penalty_level")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

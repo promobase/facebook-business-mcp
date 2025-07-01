@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ProductSetMetadataField = Literal[
     "cover_image_url", "description", "external_url", "integrity_review_status"
 ]
@@ -22,3 +27,8 @@ class ProductSetMetadataFields(BaseModel):
     integrity_review_status: str | None = Field(None, alias="integrity_review_status")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

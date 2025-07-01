@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeImageDataMediaElementsField = Literal["element_id", "element_type", "x", "y"]
 
 
@@ -20,3 +25,8 @@ class AdCreativeImageDataMediaElementsFields(BaseModel):
     y: float | None = Field(None, alias="y")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class AdsNamingTemplateLevel(str, Enum):
     """Enum for AdsNamingTemplate.Level."""
@@ -52,3 +56,8 @@ class AdsNamingTemplateFields(BaseModel):
     value_separator: str | None = Field(None, alias="value_separator")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

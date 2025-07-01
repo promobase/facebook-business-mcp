@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 TargetingDynamicRuleField = Literal[
     "action.type",
     "ad_group_id",
@@ -33,3 +38,8 @@ class TargetingDynamicRuleFields(BaseModel):
     retention_seconds: str | None = Field(None, alias="retention_seconds")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

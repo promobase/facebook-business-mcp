@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .videostatusprocessingphase import VideoStatusProcessingPhaseFields
     from .videostatusuploadingphase import VideoStatusUploadingPhaseFields
@@ -25,3 +30,8 @@ class IGResumableVideoUploadStatusFields(BaseModel):
     uploading_phase: VideoStatusUploadingPhaseFields | None = Field(None, alias="uploading_phase")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -12,11 +12,18 @@ from ..models.event import (
     EventField,
     EventFields,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.livevideo import (
     LiveVideoField,
     LiveVideoFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class EventWrappers:
@@ -41,3 +48,8 @@ class EventWrappers:
 
         # Convert result to typed model
         return LiveVideoFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

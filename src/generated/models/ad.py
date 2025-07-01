@@ -19,6 +19,11 @@ from .adsinsights import (
     AdsInsightsSummaryActionBreakdowns,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adcreative import AdCreativeFields
     from .adcreativeassetgroupsspec import AdCreativeAssetGroupsSpecFields
@@ -385,3 +390,8 @@ class AdGetPreviewsParams(BaseModel):
     width: int | None = Field(None, description="width parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

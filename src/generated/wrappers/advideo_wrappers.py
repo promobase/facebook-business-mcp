@@ -20,6 +20,9 @@ from ..models.advideo import (
     AdVideoGetCommentsParams,
     AdVideoGetVideoInsightsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.comment import (
     CommentField,
     CommentFields,
@@ -33,6 +36,10 @@ from ..models.videopoll import (
     VideoPollFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdVideoWrappers:
@@ -231,3 +238,8 @@ class AdVideoWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, InsightsResultFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

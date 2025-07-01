@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdgroupPlacementSpecificReviewFeedbackField = Literal[
     "account_admin",
     "ad",
@@ -95,3 +100,8 @@ class AdgroupPlacementSpecificReviewFeedbackFields(BaseModel):
     whatsapp: dict[str, str] | None = Field(None, alias="whatsapp")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.iguserforigonlyapi import IGUserForIGOnlyAPI
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.contentpublishinglimitresponse import (
     ContentPublishingLimitResponseField,
     ContentPublishingLimitResponseFields,
@@ -44,6 +46,10 @@ from ..models.unifiedthread import (
     UnifiedThreadFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class IGUserForIGOnlyAPIWrappers:
@@ -408,3 +414,8 @@ class IGUserForIGOnlyAPIWrappers:
 
         # Return raw data for abstract base class
         return result.export_all_data() if hasattr(result, "export_all_data") else result
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

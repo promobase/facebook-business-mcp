@@ -14,6 +14,15 @@ from ..models.eventsourcegroup import (
 )
 from .cursor_utils import TypedCursor
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
+
 
 class EventSourceGroupWrappers:
     """Type-safe wrapper functions for EventSourceGroup API methods."""
@@ -37,3 +46,8 @@ class EventSourceGroupWrappers:
 
         # Convert result to typed model
         return EventSourceGroupFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

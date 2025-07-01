@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ReachFrequencyActivityField = Literal[
     "account_id",
     "campaign_active",
@@ -29,3 +34,8 @@ class ReachFrequencyActivityFields(BaseModel):
     sf_link: str | None = Field(None, alias="sf_link")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

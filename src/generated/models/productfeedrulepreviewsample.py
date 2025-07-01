@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ProductFeedRulePreviewSampleField = Literal["properties_after", "properties_before"]
 
 
@@ -18,3 +23,8 @@ class ProductFeedRulePreviewSampleFields(BaseModel):
     properties_before: list[dict[str, str]] | None = Field(None, alias="properties_before")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

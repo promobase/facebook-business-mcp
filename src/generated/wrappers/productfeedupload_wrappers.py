@@ -12,11 +12,18 @@ from ..models.productfeedupload import (
     ProductFeedUploadFields,
     ProductFeedUploadGetErrorsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.productfeeduploaderror import (
     ProductFeedUploadErrorField,
     ProductFeedUploadErrorFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class ProductFeedUploadWrappers:
@@ -48,3 +55,8 @@ class ProductFeedUploadWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, ProductFeedUploadErrorFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

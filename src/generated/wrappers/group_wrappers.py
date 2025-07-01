@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.group import Group
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.advideo import (
     AdVideoField,
     AdVideoFields,
@@ -45,6 +47,10 @@ from ..models.profilepicturesource import (
     ProfilePictureSourceFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class GroupWrappers:
@@ -335,3 +341,8 @@ class GroupWrappers:
 
         # Convert result to typed model
         return AdVideoFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

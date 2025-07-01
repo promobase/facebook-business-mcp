@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountAAACompatibleAdObjectsField = Literal["adgroup_ids", "campaign_group_ids", "campaign_ids"]
 
 
@@ -19,3 +24,8 @@ class AdAccountAAACompatibleAdObjectsFields(BaseModel):
     campaign_ids: list[str] | None = Field(None, alias="campaign_ids")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -17,6 +17,9 @@ from ..models.extendedcredit import (
     ExtendedCreditFields,
     ExtendedCreditGetOwningCreditAllocationConfigsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.extendedcreditallocationconfig import (
     ExtendedCreditAllocationConfigField,
     ExtendedCreditAllocationConfigFields,
@@ -26,6 +29,10 @@ from ..models.extendedcreditinvoicegroup import (
     ExtendedCreditInvoiceGroupFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class ExtendedCreditWrappers:
@@ -157,3 +164,8 @@ class ExtendedCreditWrappers:
 
         # Convert result to typed model
         return ExtendedCreditAllocationConfigFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

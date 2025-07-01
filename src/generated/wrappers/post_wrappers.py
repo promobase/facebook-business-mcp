@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.post import Post
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.comment import (
     CommentField,
     CommentFields,
@@ -30,6 +32,10 @@ from ..models.profile import (
     ProfileFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class PostWrappers:
@@ -174,3 +180,8 @@ class PostWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, ProfileFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

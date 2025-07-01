@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .insightsresult import InsightsResultBreakdown, InsightsResultMetric, InsightsResultPeriod
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .user import UserFields
 
@@ -73,3 +78,8 @@ class IGMediaForIGOnlyAPIGetInsightsParams(BaseModel):
     period: list[InsightsResultPeriod] | None = Field(None, description="period parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

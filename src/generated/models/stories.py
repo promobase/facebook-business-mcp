@@ -10,6 +10,10 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .insightsresult import InsightsResultMetric
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class StoriesStatus(str, Enum):
     """Enum for Stories.Status."""
@@ -41,3 +45,8 @@ class StoriesGetInsightsParams(BaseModel):
     metric: list[InsightsResultMetric] | None = Field(None, description="metric parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

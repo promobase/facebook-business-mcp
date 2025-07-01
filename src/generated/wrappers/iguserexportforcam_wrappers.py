@@ -14,6 +14,15 @@ from ..models.iguserexportforcam import (
 )
 from .cursor_utils import TypedCursor
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
+
 
 class IGUserExportForCAMWrappers:
     """Type-safe wrapper functions for IGUserExportForCAM API methods."""
@@ -44,3 +53,8 @@ class IGUserExportForCAMWrappers:
 
         # Return raw cursor data for abstract base class
         return [item.export_all_data() for item in cursor]
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

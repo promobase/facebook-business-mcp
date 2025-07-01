@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ProductSetTaxonCategoryField = Literal["category_id", "category_name", "image_url"]
 
 
@@ -19,3 +24,8 @@ class ProductSetTaxonCategoryFields(BaseModel):
     image_url: str | None = Field(None, alias="image_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

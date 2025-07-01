@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdPlacePageSetMetadataField = Literal["audience", "custom", "extra_data", "fixed_radius"]
 
 
@@ -20,3 +25,8 @@ class AdPlacePageSetMetadataFields(BaseModel):
     fixed_radius: dict[str, Any] | None = Field(None, alias="fixed_radius")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

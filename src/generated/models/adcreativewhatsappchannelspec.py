@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeWhatsAppChannelSpecField = Literal["channel_id", "channel_url"]
 
 
@@ -18,3 +23,8 @@ class AdCreativeWhatsAppChannelSpecFields(BaseModel):
     channel_url: str | None = Field(None, alias="channel_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

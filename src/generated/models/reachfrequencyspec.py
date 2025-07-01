@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ReachFrequencySpecField = Literal[
     "countries",
     "default_creation_data",
@@ -37,3 +42,8 @@ class ReachFrequencySpecFields(BaseModel):
     min_reach_limits: dict[str, Any] | None = Field(None, alias="min_reach_limits")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

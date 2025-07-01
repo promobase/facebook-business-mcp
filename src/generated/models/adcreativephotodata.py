@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativePhotoDataField = Literal[
     "branded_content_shared_to_sponsor_status",
     "branded_content_sponsor_page_id",
@@ -33,3 +38,8 @@ class AdCreativePhotoDataFields(BaseModel):
     url: str | None = Field(None, alias="url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

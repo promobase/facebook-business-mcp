@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountLiveVideoAdvertiserField = Literal[
     "is_lva_toggle_on",
     "lva_default_budget",
@@ -27,3 +32,8 @@ class AdAccountLiveVideoAdvertiserFields(BaseModel):
     should_show_lva_toggle: bool | None = Field(None, alias="should_show_lva_toggle")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

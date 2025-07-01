@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CPASMerchantConfigField = Literal[
     "accepted_tos",
     "beta_features",
@@ -35,3 +40,8 @@ class CPASMerchantConfigFields(BaseModel):
     qualified_to_onboard: bool | None = Field(None, alias="qualified_to_onboard")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

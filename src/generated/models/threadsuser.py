@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ThreadsUserField = Literal["threads_user_id", "threads_user_profile_pic"]
 
 
@@ -18,3 +23,8 @@ class ThreadsUserFields(BaseModel):
     threads_user_profile_pic: str | None = Field(None, alias="threads_user_profile_pic")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

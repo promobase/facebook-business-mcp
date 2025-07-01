@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 FundingSourceDetailsCouponTieringField = Literal[
     "coupon_tiering_new", "coupon_tiering_reactivation"
 ]
@@ -22,3 +27,8 @@ class FundingSourceDetailsCouponTieringFields(BaseModel):
     )
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

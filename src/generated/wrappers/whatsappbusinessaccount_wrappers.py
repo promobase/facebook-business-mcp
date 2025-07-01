@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.whatsappbusinessaccount import WhatsAppBusinessAccount
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.assigneduser import (
     AssignedUserField,
     AssignedUserFields,
@@ -58,6 +60,10 @@ from ..models.whatsappbusinessaccount import (
     WhatsAppBusinessAccountGetWelcomeMessageSequencesParams,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class WhatsAppBusinessAccountWrappers:
@@ -735,3 +741,8 @@ class WhatsAppBusinessAccountWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, CTXPartnerAppWelcomeMessageFlowFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

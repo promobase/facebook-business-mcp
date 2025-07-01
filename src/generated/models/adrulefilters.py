@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class AdRuleFiltersOperator(str, Enum):
     """Enum for AdRuleFilters.Operator."""
@@ -38,3 +42,8 @@ class AdRuleFiltersFields(BaseModel):
     value: dict[str, Any] | None = Field(None, alias="value")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

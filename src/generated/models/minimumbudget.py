@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 MinimumBudgetField = Literal[
     "currency",
     "min_daily_budget_high_freq",
@@ -27,3 +32,8 @@ class MinimumBudgetFields(BaseModel):
     min_daily_budget_video_views: int | None = Field(None, alias="min_daily_budget_video_views")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

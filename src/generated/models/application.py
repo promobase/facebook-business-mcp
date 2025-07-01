@@ -17,6 +17,11 @@ from .adnetworkanalyticssyncqueryresult import (
 )
 from .dacheck import DACheckConnectionMethod
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .permission import PermissionFields
 
@@ -876,3 +881,8 @@ class ApplicationGetWhatsAppBusinessSolutionsParams(BaseModel):
     role: str | None = Field(None, description="role parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

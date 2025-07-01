@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 OffsitePixelField = Literal["creator", "id", "js_pixel", "last_firing_time", "name", "tag"]
 
 
@@ -22,3 +27,8 @@ class OffsitePixelFields(BaseModel):
     tag: str | None = Field(None, alias="tag")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

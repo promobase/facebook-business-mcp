@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .businessassetgroup import BusinessAssetGroupFields
 
@@ -51,3 +56,8 @@ class BusinessFranchiseConfigFields(BaseModel):
     shared_custom_audience_count: int | None = Field(None, alias="shared_custom_audience_count")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CPASLsbImageBankField = Literal[
     "ad_group_id", "catalog_segment_proxy_id", "id", "agency_business_id", "backup_image_urls"
 ]
@@ -23,3 +28,8 @@ class CPASLsbImageBankFields(BaseModel):
     backup_image_urls: list[str] | None = Field(None, alias="backup_image_urls")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

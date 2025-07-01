@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BidScheduleField = Literal[
     "ad_object_id",
     "bid_recurrence_type",
@@ -33,3 +38,8 @@ class BidScheduleFields(BaseModel):
     time_start: datetime | None = Field(None, alias="time_start")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 PremiumMusicVideoField = Literal[
     "creation_time",
     "cross_post_videos",
@@ -39,3 +44,8 @@ class PremiumMusicVideoFields(BaseModel):
     title: str | None = Field(None, alias="title")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

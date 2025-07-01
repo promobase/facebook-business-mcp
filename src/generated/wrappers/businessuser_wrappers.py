@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.businessuser import BusinessUser
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.businessassetgroup import (
     BusinessAssetGroupField,
     BusinessAssetGroupFields,
@@ -22,6 +24,10 @@ from ..models.page import (
     PageFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class BusinessUserWrappers:
@@ -80,3 +86,8 @@ class BusinessUserWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, PageFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

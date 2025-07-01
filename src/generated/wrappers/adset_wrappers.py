@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.adset import AdSet
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.ad import (
     AdField,
     AdFields,
@@ -61,6 +63,10 @@ from ..models.messagedeliveryestimate import (
     MessageDeliveryEstimateFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdSetWrappers:
@@ -387,3 +393,8 @@ class AdSetWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, MessageDeliveryEstimateFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

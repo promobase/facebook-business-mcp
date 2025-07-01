@@ -16,6 +16,9 @@ from ..models.album import (
     AlbumGetCommentsParams,
     AlbumGetPictureParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.comment import (
     CommentField,
     CommentFields,
@@ -29,6 +32,10 @@ from ..models.profilepicturesource import (
     ProfilePictureSourceFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AlbumWrappers:
@@ -147,3 +154,8 @@ class AlbumWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, ProfilePictureSourceFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

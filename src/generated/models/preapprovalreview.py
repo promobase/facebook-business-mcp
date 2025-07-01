@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 PreapprovalReviewField = Literal[
     "comp_type", "crow_component_id", "is_human_reviewed", "is_reviewed", "policy_info"
 ]
@@ -23,3 +28,8 @@ class PreapprovalReviewFields(BaseModel):
     policy_info: list[dict[str, dict[str, Any]]] | None = Field(None, alias="policy_info")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

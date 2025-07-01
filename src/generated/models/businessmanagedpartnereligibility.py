@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BusinessManagedPartnerEligibilityField = Literal["is_eligible", "reason_code", "reason_description"]
 
 
@@ -19,3 +24,8 @@ class BusinessManagedPartnerEligibilityFields(BaseModel):
     reason_description: str | None = Field(None, alias="reason_description")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

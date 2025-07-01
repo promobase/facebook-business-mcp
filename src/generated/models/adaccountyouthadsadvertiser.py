@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountYouthAdsAdvertiserField = Literal["is_youth_ads_advertiser"]
 
 
@@ -17,3 +22,8 @@ class AdAccountYouthAdsAdvertiserFields(BaseModel):
     is_youth_ads_advertiser: bool | None = Field(None, alias="is_youth_ads_advertiser")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

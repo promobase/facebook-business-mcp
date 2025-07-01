@@ -13,11 +13,18 @@ from ..models.publisherblocklist import (
     PublisherBlockListFields,
     PublisherBlockListGetPagedWebPublishersParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.webpublisher import (
     WebPublisherField,
     WebPublisherFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class PublisherBlockListWrappers:
@@ -69,3 +76,8 @@ class PublisherBlockListWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, WebPublisherFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

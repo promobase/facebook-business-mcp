@@ -14,6 +14,11 @@ from .instagraminsightsresult import (
     InstagramInsightsResultPeriod,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfoFields
     from .iguser import IGUserFields
@@ -116,3 +121,8 @@ class IGMediaCreateProductTagParams(BaseModel):
     updated_tags: list[dict[str, Any]] | None = Field(None, description="updated_tags parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

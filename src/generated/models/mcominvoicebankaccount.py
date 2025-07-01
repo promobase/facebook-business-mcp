@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 McomInvoiceBankAccountField = Literal[
     "num_pending_verification_accounts",
     "num_verified_accounts",
@@ -29,3 +34,8 @@ class McomInvoiceBankAccountFields(BaseModel):
     verified_accounts: list[dict[str, Any]] | None = Field(None, alias="verified_accounts")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

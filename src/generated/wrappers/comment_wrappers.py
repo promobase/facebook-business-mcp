@@ -16,11 +16,18 @@ from ..models.comment import (
     CommentGetCommentsParams,
     CommentGetReactionsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.profile import (
     ProfileField,
     ProfileFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class CommentWrappers:
@@ -138,3 +145,8 @@ class CommentWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, ProfileFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

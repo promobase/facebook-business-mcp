@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LeadGenThankYouPageGatedPromoField = Literal["id", "online_offer_url", "online_promo_code"]
 
 
@@ -19,3 +24,8 @@ class LeadGenThankYouPageGatedPromoFields(BaseModel):
     online_promo_code: str | None = Field(None, alias="online_promo_code")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

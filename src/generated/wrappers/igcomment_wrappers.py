@@ -14,6 +14,15 @@ from ..models.igcomment import (
 )
 from .cursor_utils import TypedCursor
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
+
 
 class IGCommentWrappers:
     """Type-safe wrapper functions for IGComment API methods."""
@@ -37,3 +46,8 @@ class IGCommentWrappers:
 
         # Convert result to typed model
         return IGCommentFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

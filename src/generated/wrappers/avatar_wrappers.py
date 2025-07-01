@@ -14,6 +14,15 @@ from ..models.avatar import (
 )
 from .cursor_utils import TypedCursor
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
+
 
 class AvatarWrappers:
     """Type-safe wrapper functions for Avatar API methods."""
@@ -44,3 +53,8 @@ class AvatarWrappers:
 
         # Return raw cursor data for abstract base class
         return [item.export_all_data() for item in cursor]
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

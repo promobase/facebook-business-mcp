@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .productfeeduploaderror import ProductFeedUploadErrorErrorPriority
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .productfeeduploaderrorreport import ProductFeedUploadErrorReportFields
 
@@ -69,3 +74,8 @@ class ProductFeedUploadGetErrorsParams(BaseModel):
     )
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

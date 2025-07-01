@@ -11,6 +11,11 @@ from pydantic import BaseModel, ConfigDict, Field
 from .productfeedrule import ProductFeedRuleRuleType
 from .productitem import ProductItemErrorPriority, ProductItemErrorType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .productfeedschedule import ProductFeedScheduleFields
     from .productfeedupload import ProductFeedUploadFields
@@ -303,3 +308,8 @@ class ProductFeedGetVehiclesParams(BaseModel):
     filter: Any | None = Field(None, description="filter parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

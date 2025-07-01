@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LeadGenClientValidationRulesField = Literal[
     "exclude_emoji_and_special_chars_enabled", "max_length_value", "min_length_value"
 ]
@@ -23,3 +28,8 @@ class LeadGenClientValidationRulesFields(BaseModel):
     min_length_value: int | None = Field(None, alias="min_length_value")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CanvasAdSettingsField = Literal[
     "is_canvas_collection_eligible",
     "lead_form_created_time",
@@ -31,3 +36,8 @@ class CanvasAdSettingsFields(BaseModel):
     use_retailer_item_ids: bool | None = Field(None, alias="use_retailer_item_ids")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

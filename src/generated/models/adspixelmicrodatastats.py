@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsPixelMicrodataStatsField = Literal[
     "allowed_domains",
     "errors_stats_for_time_ranges",
@@ -31,3 +36,8 @@ class AdsPixelMicrodataStatsFields(BaseModel):
     suggested_trusted_domains: list[str] | None = Field(None, alias="suggested_trusted_domains")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

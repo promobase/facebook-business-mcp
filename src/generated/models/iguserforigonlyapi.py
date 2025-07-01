@@ -17,6 +17,11 @@ from .insightsresult import (
 )
 from .unifiedthread import UnifiedThreadPlatform
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 IGUserForIGOnlyAPIField = Literal[
     "account_type",
     "biography",
@@ -216,3 +221,8 @@ class IGUserForIGOnlyAPICreateWelcomeMessageFlowParams(BaseModel):
     )
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

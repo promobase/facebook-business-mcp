@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 SingleOwnerAdditionalProfileField = Literal["id", "name", "user_name"]
 
 
@@ -19,3 +24,8 @@ class SingleOwnerAdditionalProfileFields(BaseModel):
     user_name: str | None = Field(None, alias="user_name")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

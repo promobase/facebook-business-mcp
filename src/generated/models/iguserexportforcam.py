@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 IGUserExportForCAMField = Literal[
     "age_bucket",
     "biography",
@@ -54,3 +59,8 @@ class IGUserExportForCAMGetInsightsParams(BaseModel):
     time_range: str | None = Field(None, description="time_range parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

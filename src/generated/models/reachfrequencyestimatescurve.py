@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ReachFrequencyEstimatesCurveField = Literal[
     "budget",
     "conversion",
@@ -33,3 +38,8 @@ class ReachFrequencyEstimatesCurveFields(BaseModel):
     reach: list[int] | None = Field(None, alias="reach")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

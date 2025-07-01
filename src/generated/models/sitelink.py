@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 SiteLinkField = Literal["id", "link_image_hash", "link_title", "link_type", "link_url"]
 
 
@@ -21,3 +26,8 @@ class SiteLinkFields(BaseModel):
     link_url: str | None = Field(None, alias="link_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

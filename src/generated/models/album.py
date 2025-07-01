@@ -12,6 +12,11 @@ from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilte
 from .photo import PhotoBackdatedTimeGranularity, PhotoUnpublishedContentType
 from .profilepicturesource import ProfilePictureSourceType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .event import EventFields
     from .photo import PhotoFields
@@ -204,3 +209,8 @@ class AlbumGetPictureParams(BaseModel):
     type: ProfilePictureSourceType | None = Field(None, description="type parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

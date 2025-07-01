@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .productitem import ProductItemErrorPriority, ProductItemErrorType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .productcatalog import ProductCatalogFields
     from .productsetmetadata import ProductSetMetadataFields
@@ -133,3 +138,8 @@ class ProductSetGetVehiclesParams(BaseModel):
     filter: Any | None = Field(None, description="filter parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

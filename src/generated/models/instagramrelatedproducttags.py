@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 InstagramRelatedProductTagsField = Literal[
     "checkout_setting", "id", "image_uri", "name", "price_label", "sale_price_label"
 ]
@@ -24,3 +29,8 @@ class InstagramRelatedProductTagsFields(BaseModel):
     sale_price_label: str | None = Field(None, alias="sale_price_label")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

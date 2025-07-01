@@ -12,11 +12,18 @@ from ..models.customconversion import (
     CustomConversionFields,
     CustomConversionGetStatsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.customconversionstatsresult import (
     CustomConversionStatsResultField,
     CustomConversionStatsResultFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class CustomConversionWrappers:
@@ -48,3 +55,8 @@ class CustomConversionWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, CustomConversionStatsResultFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 MerchantComplianceField = Literal[
     "active_campaigns",
     "compliance_status",
@@ -27,3 +32,8 @@ class MerchantComplianceFields(BaseModel):
     purchase_conversion_value: float | None = Field(None, alias="purchase_conversion_value")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

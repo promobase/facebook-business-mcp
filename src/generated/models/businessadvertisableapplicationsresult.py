@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BusinessAdvertisableApplicationsResultField = Literal[
     "are_app_events_unavailable", "business", "has_insight_permission", "id", "name", "photo_url"
 ]
@@ -24,3 +29,8 @@ class BusinessAdvertisableApplicationsResultFields(BaseModel):
     photo_url: str | None = Field(None, alias="photo_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

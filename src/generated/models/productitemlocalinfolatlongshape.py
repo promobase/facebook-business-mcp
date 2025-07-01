@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ProductItemLocalInfoLatLongShapeField = Literal["latitude", "longitude"]
 
 
@@ -18,3 +23,8 @@ class ProductItemLocalInfoLatLongShapeFields(BaseModel):
     longitude: float | None = Field(None, alias="longitude")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

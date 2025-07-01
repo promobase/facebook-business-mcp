@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 EventRegistrationSettingField = Literal["id", "questions", "target_type", "ticket_tier_ids"]
 
 
@@ -20,3 +25,8 @@ class EventRegistrationSettingFields(BaseModel):
     ticket_tier_ids: list[str] | None = Field(None, alias="ticket_tier_ids")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

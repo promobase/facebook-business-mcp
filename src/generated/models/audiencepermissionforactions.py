@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AudiencePermissionForActionsField = Literal[
     "can_edit",
     "can_see_insight",
@@ -27,3 +32,8 @@ class AudiencePermissionForActionsFields(BaseModel):
     supports_recipient_lookalike: bool | None = Field(None, alias="supports_recipient_lookalike")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

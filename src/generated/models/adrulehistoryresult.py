@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adrulehistoryresultaction import AdRuleHistoryResultActionFields
 
@@ -31,3 +36,8 @@ class AdRuleHistoryResultFields(BaseModel):
     object_type: dict[str, Any] | None = Field(None, alias="object_type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

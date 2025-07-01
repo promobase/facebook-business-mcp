@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BAPIDomainField = Literal["domain", "in_cool_down_until", "is_eligible_for_vo", "is_in_cool_down"]
 
 
@@ -20,3 +25,8 @@ class BAPIDomainFields(BaseModel):
     is_in_cool_down: bool | None = Field(None, alias="is_in_cool_down")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

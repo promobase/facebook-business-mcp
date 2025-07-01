@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeTemplateURLSpecField = Literal[
     "android", "config", "ios", "ipad", "iphone", "web", "windows_phone"
 ]
@@ -25,3 +30,8 @@ class AdCreativeTemplateURLSpecFields(BaseModel):
     windows_phone: dict[str, Any] | None = Field(None, alias="windows_phone")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

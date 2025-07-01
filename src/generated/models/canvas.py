@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .advideo import AdVideoFields
     from .canvascollectionthumbnail import CanvasCollectionThumbnailFields
@@ -92,3 +97,8 @@ class CanvasGetPreViewsParams(BaseModel):
     user_ids: list[int] | None = Field(None, description="user_ids parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountCustomAudienceLimitsField = Literal[
     "audience_update_quota_in_total",
     "audience_update_quota_left",
@@ -29,3 +34,8 @@ class AdAccountCustomAudienceLimitsFields(BaseModel):
     rate_limit_reset_time: str | None = Field(None, alias="rate_limit_reset_time")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

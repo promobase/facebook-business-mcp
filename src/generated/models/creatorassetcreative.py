@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class CreatorAssetCreativeModerationStatus(str, Enum):
     """Enum for CreatorAssetCreative.ModerationStatus."""
@@ -44,3 +48,8 @@ class CreatorAssetCreativeFields(BaseModel):
     video_url: str | None = Field(None, alias="video_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

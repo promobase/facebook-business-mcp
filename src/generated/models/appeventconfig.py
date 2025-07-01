@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AppEventConfigField = Literal[
     "breakdowns_config",
     "builtin_fields_config",
@@ -91,3 +96,8 @@ class AppEventConfigFields(BaseModel):
     track_ios_app_uninstall: bool | None = Field(None, alias="track_ios_app_uninstall")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

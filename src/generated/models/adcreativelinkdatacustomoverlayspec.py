@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class AdCreativeLinkDataCustomOverlaySpecBackgroundColor(str, Enum):
     """Enum for AdCreativeLinkDataCustomOverlaySpec.BackgroundColor."""
@@ -105,3 +109,8 @@ class AdCreativeLinkDataCustomOverlaySpecFields(BaseModel):
     text_color: dict[str, Any] | None = Field(None, alias="text_color")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

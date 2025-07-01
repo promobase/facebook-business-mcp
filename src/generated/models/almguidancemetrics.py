@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ALMGuidanceMetricsField = Literal[
     "ad_account_id",
     "adopted_objects",
@@ -61,3 +66,8 @@ class ALMGuidanceMetricsFields(BaseModel):
     report_ds: str | None = Field(None, alias="report_ds")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

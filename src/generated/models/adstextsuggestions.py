@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsTextSuggestionsField = Literal[
     "ad_account_id", "bodies", "descriptions", "inactive_session_tally", "long", "short", "titles"
 ]
@@ -25,3 +30,8 @@ class AdsTextSuggestionsFields(BaseModel):
     titles: list[dict[str, Any]] | None = Field(None, alias="titles")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

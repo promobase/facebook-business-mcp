@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ALMGuidanceField = Literal[
     "ad_account_id",
     "guidances",
@@ -27,3 +32,8 @@ class ALMGuidanceFields(BaseModel):
     parent_advertiser_name: str | None = Field(None, alias="parent_advertiser_name")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

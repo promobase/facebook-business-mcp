@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 MessengerDestinationPageWelcomeMessageField = Literal[
     "id",
     "page_welcome_message_body",
@@ -29,3 +34,8 @@ class MessengerDestinationPageWelcomeMessageFields(BaseModel):
     time_last_used: datetime | None = Field(None, alias="time_last_used")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

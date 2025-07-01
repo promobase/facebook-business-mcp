@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCampaignGroupMetricsMetadataField = Literal["budget_optimization", "duplication_flow_tips"]
 
 
@@ -18,3 +23,8 @@ class AdCampaignGroupMetricsMetadataFields(BaseModel):
     duplication_flow_tips: list[str] | None = Field(None, alias="duplication_flow_tips")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

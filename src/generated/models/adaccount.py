@@ -111,6 +111,11 @@ from .reachfrequencyprediction import (
     ReachFrequencyPredictionInstreamPackages,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adaccountpromotableobjects import AdAccountPromotableObjectsFields
     from .adcreative import AdCreativeFields
@@ -1929,3 +1934,8 @@ class AdAccountCreateVideoAdParams(BaseModel):
     video_state: AdVideoVideoState | None = Field(None, description="video_state parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

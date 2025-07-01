@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .customconversionstatsresult import CustomConversionStatsResultAggregation
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adspixel import AdsPixelFields
     from .externaleventsource import ExternalEventSourceFields
@@ -124,3 +129,8 @@ class CustomConversionGetStatsParams(BaseModel):
     start_time: datetime | None = Field(None, description="start_time parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

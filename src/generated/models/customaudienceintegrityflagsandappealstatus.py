@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CustomAudienceIntegrityFlagsAndAppealStatusField = Literal[
     "closeout_time",
     "flagged_fields",
@@ -27,3 +32,8 @@ class CustomAudienceIntegrityFlagsAndAppealStatusFields(BaseModel):
     restriction_status: str | None = Field(None, alias="restriction_status")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

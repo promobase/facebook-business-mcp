@@ -45,6 +45,11 @@ from .post import (
 from .profilepicturesource import ProfilePictureSourceType
 from .unifiedthread import UnifiedThreadPlatform
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .agerange import AgeRangeFields
     from .avatarprofilepicture import AvatarProfilePictureFields
@@ -921,3 +926,8 @@ class UserCreateVideoParams(BaseModel):
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

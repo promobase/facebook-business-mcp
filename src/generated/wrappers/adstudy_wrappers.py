@@ -13,11 +13,18 @@ from ..models.adstudy import (
     AdStudyField,
     AdStudyFields,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.privateliftstudyinstance import (
     PrivateLiftStudyInstanceField,
     PrivateLiftStudyInstanceFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdStudyWrappers:
@@ -62,3 +69,8 @@ class AdStudyWrappers:
 
         # Convert result to typed model
         return PrivateLiftStudyInstanceFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

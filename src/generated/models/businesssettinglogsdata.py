@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BusinessSettingLogsDataField = Literal[
     "actor", "event_object", "event_time", "event_type", "extra_data"
 ]
@@ -23,3 +28,8 @@ class BusinessSettingLogsDataFields(BaseModel):
     extra_data: dict[str, Any] | None = Field(None, alias="extra_data")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -11,6 +11,11 @@ from pydantic import BaseModel, ConfigDict, Field
 from .comment import CommentFilter, CommentLiveFilter, CommentOrder
 from .profile import ProfileType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .advideo import AdVideoFields
     from .livevideoadbreakconfig import LiveVideoAdBreakConfigFields
@@ -209,3 +214,8 @@ class LiveVideoGetReactionsParams(BaseModel):
     type: ProfileType | None = Field(None, description="type parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 FBPageAndInstagramAccountField = Literal[
     "ad_permissions", "bc_permission_status", "bc_permissions", "is_managed", "matched_by"
 ]
@@ -23,3 +28,8 @@ class FBPageAndInstagramAccountFields(BaseModel):
     matched_by: str | None = Field(None, alias="matched_by")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

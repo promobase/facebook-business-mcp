@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCampaignMetricsMetadataField = Literal[
     "boosted_component_optimization",
     "creation_flow_tips",
@@ -35,3 +40,8 @@ class AdCampaignMetricsMetadataFields(BaseModel):
     edit_flow_tips: list[str] | None = Field(None, alias="edit_flow_tips")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

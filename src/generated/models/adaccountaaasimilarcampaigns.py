@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountAAASimilarCampaignsField = Literal[
     "similar_campaign_limit", "similar_campaigns_info", "used_campaign_slots"
 ]
@@ -23,3 +28,8 @@ class AdAccountAAASimilarCampaignsFields(BaseModel):
     used_campaign_slots: int | None = Field(None, alias="used_campaign_slots")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

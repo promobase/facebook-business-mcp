@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adcreativelinkdatacalltoaction import AdCreativeLinkDataCallToActionFields
     from .adcreativeplacedata import AdCreativePlaceDataFields
@@ -47,3 +52,8 @@ class AdCreativeLinkDataChildAttachmentFields(BaseModel):
     video_id: str | None = Field(None, alias="video_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.igmedia import IGMedia
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.brandedcontentshadowiguserid import (
     BrandedContentShadowIGUserIDField,
     BrandedContentShadowIGUserIDFields,
@@ -32,6 +34,10 @@ from ..models.shadowigmediaproducttags import (
     ShadowIGMediaProductTagsFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class IGMediaWrappers:
@@ -123,3 +129,8 @@ class IGMediaWrappers:
 
         # Convert result to typed model
         return ShadowIGMediaProductTagsFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

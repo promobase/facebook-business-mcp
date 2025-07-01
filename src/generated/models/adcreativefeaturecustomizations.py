@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeFeatureCustomizationsField = Literal[
     "background_color",
     "catalog_feed_tag_name",
@@ -33,3 +38,8 @@ class AdCreativeFeatureCustomizationsFields(BaseModel):
     text_style: str | None = Field(None, alias="text_style")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

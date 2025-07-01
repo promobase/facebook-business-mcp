@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 PageCTSTopicField = Literal["app_id", "frequency", "image_hash", "image_url", "subscriber", "title"]
 
 
@@ -22,3 +27,8 @@ class PageCTSTopicFields(BaseModel):
     title: str | None = Field(None, alias="title")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

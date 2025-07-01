@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .overridedetails import OverrideDetailsType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .catalogitemapplinks import CatalogItemAppLinksFields
     from .catalogsubverticallist import CatalogSubVerticalListFields
@@ -85,3 +90,8 @@ class OfflineProductItemGetOverrideDetailsParams(BaseModel):
     type: OverrideDetailsType | None = Field(None, description="type parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

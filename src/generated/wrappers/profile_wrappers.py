@@ -12,11 +12,18 @@ from ..models.profile import (
     ProfileFields,
     ProfileGetPictureParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.profilepicturesource import (
     ProfilePictureSourceField,
     ProfilePictureSourceFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class ProfileWrappers:
@@ -48,3 +55,8 @@ class ProfileWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, ProfilePictureSourceFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ProductItemShippingField = Literal[
     "shipping_country",
     "shipping_price_currency",
@@ -27,3 +32,8 @@ class ProductItemShippingFields(BaseModel):
     shipping_service: str | None = Field(None, alias="shipping_service")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

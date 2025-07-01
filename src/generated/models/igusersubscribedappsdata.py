@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 IGUserSubscribedAppsDataField = Literal["app_id", "subscribed_fields"]
 
 
@@ -18,3 +23,8 @@ class IGUserSubscribedAppsDataFields(BaseModel):
     subscribed_fields: list[str] | None = Field(None, alias="subscribed_fields")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

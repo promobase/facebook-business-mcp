@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BusinessObjectTransferOwnershipAgreementField = Literal[
     "id", "receiving_business", "requesting_business", "status"
 ]
@@ -22,3 +27,8 @@ class BusinessObjectTransferOwnershipAgreementFields(BaseModel):
     status: str | None = Field(None, alias="status")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

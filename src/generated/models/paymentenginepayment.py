@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .application import ApplicationFields
     from .currencyamount import CurrencyAmountFields
@@ -89,3 +94,8 @@ class PaymentEnginePaymentCreateRefundParams(BaseModel):
     reason: PaymentEnginePaymentReason | None = Field(None, description="reason parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

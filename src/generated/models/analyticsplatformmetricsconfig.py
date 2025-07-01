@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AnalyticsPlatformMetricsConfigField = Literal[
     "has_a2u",
     "has_api_calls",
@@ -35,3 +40,8 @@ class AnalyticsPlatformMetricsConfigFields(BaseModel):
     has_structured_requests: bool | None = Field(None, alias="has_structured_requests")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

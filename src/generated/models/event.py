@@ -16,6 +16,11 @@ from .livevideo import (
     LiveVideoStreamType,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .childevent import ChildEventFields
     from .coverphoto import CoverPhotoFields
@@ -212,3 +217,8 @@ class EventCreateLiveVideoParams(BaseModel):
     title: str | None = Field(None, description="title parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

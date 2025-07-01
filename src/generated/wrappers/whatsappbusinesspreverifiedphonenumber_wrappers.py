@@ -17,6 +17,15 @@ from ..models.whatsappbusinesspreverifiedphonenumber import (
 )
 from .cursor_utils import TypedCursor
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
+
 
 class WhatsAppBusinessPreVerifiedPhoneNumberWrappers:
     """Type-safe wrapper functions for WhatsAppBusinessPreVerifiedPhoneNumber API methods."""
@@ -60,3 +69,8 @@ class WhatsAppBusinessPreVerifiedPhoneNumberWrappers:
 
         # Return raw data for abstract base class
         return result.export_all_data() if hasattr(result, "export_all_data") else result
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

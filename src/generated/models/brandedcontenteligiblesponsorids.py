@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .iguser import IGUserFields
     from .page import PageFields
@@ -24,3 +29,8 @@ class BrandedContentEligibleSponsorIDsFields(BaseModel):
     ig_approval_needed: bool | None = Field(None, alias="ig_approval_needed")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

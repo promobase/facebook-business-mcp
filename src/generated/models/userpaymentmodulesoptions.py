@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 UserPaymentModulesOptionsField = Literal[
     "account_id", "available_payment_options", "country", "currency"
 ]
@@ -24,3 +29,8 @@ class UserPaymentModulesOptionsFields(BaseModel):
     currency: str | None = Field(None, alias="currency")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

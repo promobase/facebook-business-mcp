@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CustomAudienceSessionField = Literal[
     "end_time",
     "num_invalid_entries",
@@ -33,3 +38,8 @@ class CustomAudienceSessionFields(BaseModel):
     start_time: str | None = Field(None, alias="start_time")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

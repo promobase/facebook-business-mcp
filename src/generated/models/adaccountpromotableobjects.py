@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountPromotableObjectsField = Literal[
     "promotable_app_ids", "promotable_page_ids", "promotable_urls"
 ]
@@ -21,3 +26,8 @@ class AdAccountPromotableObjectsFields(BaseModel):
     promotable_urls: list[str] | None = Field(None, alias="promotable_urls")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

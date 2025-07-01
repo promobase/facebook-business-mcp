@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ReachFrequencyCurveLowerConfidenceRangeField = Literal[
     "impression_lower",
     "num_points",
@@ -29,3 +34,8 @@ class ReachFrequencyCurveLowerConfidenceRangeFields(BaseModel):
     video_views_2s_lower: list[int] | None = Field(None, alias="video_views_2s_lower")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

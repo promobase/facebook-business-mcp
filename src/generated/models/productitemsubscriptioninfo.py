@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ProductItemSubscriptionInfoField = Literal[
     "is_subscribable", "subscription_billing_period", "subscription_billing_type"
 ]
@@ -21,3 +26,8 @@ class ProductItemSubscriptionInfoFields(BaseModel):
     subscription_billing_type: str | None = Field(None, alias="subscription_billing_type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

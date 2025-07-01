@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adcreativelinkdata import AdCreativeLinkDataFields
     from .adcreativephotodata import AdCreativePhotoDataFields
@@ -41,3 +46,8 @@ class AdCreativeObjectStorySpecFields(BaseModel):
     video_data: AdCreativeVideoDataFields | None = Field(None, alias="video_data")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

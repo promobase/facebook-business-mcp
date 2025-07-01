@@ -18,6 +18,11 @@ from .productitem import (
     ProductItemVisibility,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .productcatalog import ProductCatalogFields
     from .productvariant import ProductVariantFields
@@ -127,3 +132,8 @@ class ProductGroupCreateProductParams(BaseModel):
     windows_phone_url: str | None = Field(None, description="windows_phone_url parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

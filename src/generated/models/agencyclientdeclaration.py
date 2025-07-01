@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AgencyClientDeclarationField = Literal[
     "agency_representing_client",
     "client_based_in_france",
@@ -43,3 +48,8 @@ class AgencyClientDeclarationFields(BaseModel):
     is_client_paying_invoices: int | None = Field(None, alias="is_client_paying_invoices")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

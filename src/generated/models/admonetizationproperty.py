@@ -16,6 +16,11 @@ from .adnetworkanalyticssyncqueryresult import (
     AdNetworkAnalyticsSyncQueryResultOrderingType,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdMonetizationPropertyField = Literal["owner_business", "id"]
 
 
@@ -87,3 +92,8 @@ class AdMonetizationPropertyGetAdNetworkAnalyticsResultsParams(BaseModel):
     query_ids: list[str] | None = Field(None, description="query_ids parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

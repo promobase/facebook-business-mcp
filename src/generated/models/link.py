@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentCommentPrivacyValue
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .privacy import PrivacyFields
 
@@ -71,3 +76,8 @@ class LinkCreateCommentParams(BaseModel):
     tracking: str | None = Field(None, description="tracking parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

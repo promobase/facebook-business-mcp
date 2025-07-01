@@ -13,11 +13,18 @@ from ..models.adcreative import (
     AdCreativeFields,
     AdCreativeGetPreviewsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adpreview import (
     AdPreviewField,
     AdPreviewFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdCreativeWrappers:
@@ -69,3 +76,8 @@ class AdCreativeWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, AdPreviewFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

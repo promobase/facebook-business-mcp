@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 UserLeadGenDisclaimerResponseField = Literal["checkbox_key", "is_checked"]
 
 
@@ -18,3 +23,8 @@ class UserLeadGenDisclaimerResponseFields(BaseModel):
     is_checked: str | None = Field(None, alias="is_checked")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

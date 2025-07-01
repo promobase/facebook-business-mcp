@@ -16,6 +16,11 @@ from .offlineconversiondatasetupload import (
     OfflineConversionDataSetUploadSortBy,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
     from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
@@ -168,3 +173,8 @@ class OfflineConversionDataSetGetUploadsParams(BaseModel):
     upload_tag: str | None = Field(None, description="upload_tag parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

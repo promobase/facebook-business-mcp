@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class CommerceOrderFilters(str, Enum):
     """Enum for CommerceOrder.Filters."""
@@ -195,3 +199,8 @@ class CommerceOrderCreateUpdateShipmentParams(BaseModel):
     tracking_info: dict[str, Any] | None = Field(None, description="tracking_info parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

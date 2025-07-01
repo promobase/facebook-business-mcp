@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .commercemerchantsettings import CommerceMerchantSettingsFields
     from .whatsappbusinesshealthstatusformessagesend import (
@@ -511,3 +516,8 @@ class WhatsAppBusinessAccountGetWelcomeMessageSequencesParams(BaseModel):
     sequence_id: str | None = Field(None, description="sequence_id parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 DynamicARMetadataField = Literal[
     "anchor_point",
     "container_effect_enum",
@@ -41,3 +46,8 @@ class DynamicARMetadataFields(BaseModel):
     variant_picker_url: str | None = Field(None, alias="variant_picker_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

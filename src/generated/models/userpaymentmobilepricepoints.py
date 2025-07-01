@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 UserPaymentMobilePricepointsField = Literal[
     "mobile_country", "phone_number_last4", "pricepoints", "user_currency"
 ]
@@ -22,3 +27,8 @@ class UserPaymentMobilePricepointsFields(BaseModel):
     user_currency: str | None = Field(None, alias="user_currency")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 MCExperienceConfigForApiField = Literal["is_campaign_enabled", "is_terms_signed", "merchant_type"]
 
 
@@ -19,3 +24,8 @@ class MCExperienceConfigForApiFields(BaseModel):
     merchant_type: str | None = Field(None, alias="merchant_type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

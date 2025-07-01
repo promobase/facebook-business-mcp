@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 RegionalRegulationIdentitiesField = Literal[
     "australia_finserv_beneficiary",
     "australia_finserv_payer",
@@ -39,3 +44,8 @@ class RegionalRegulationIdentitiesFields(BaseModel):
     taiwan_universal_payer: str | None = Field(None, alias="taiwan_universal_payer")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

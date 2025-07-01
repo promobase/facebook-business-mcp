@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdvertiserVerificationStatusField = Literal[
     "banner_type", "grace_period_ends_at", "ufac_redirect_uri", "verification_status"
 ]
@@ -22,3 +27,8 @@ class AdvertiserVerificationStatusFields(BaseModel):
     verification_status: str | None = Field(None, alias="verification_status")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

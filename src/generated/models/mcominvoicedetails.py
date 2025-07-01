@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 McomInvoiceDetailsField = Literal[
     "additional_amounts",
     "buyer_notes",
@@ -55,3 +60,8 @@ class McomInvoiceDetailsFields(BaseModel):
     tracking_info: dict[str, Any] | None = Field(None, alias="tracking_info")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

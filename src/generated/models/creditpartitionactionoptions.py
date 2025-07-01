@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CreditPartitionActionOptionsField = Literal["liability_type", "partition_type", "send_bill_to"]
 
 
@@ -19,3 +24,8 @@ class CreditPartitionActionOptionsFields(BaseModel):
     send_bill_to: dict[str, Any] | None = Field(None, alias="send_bill_to")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

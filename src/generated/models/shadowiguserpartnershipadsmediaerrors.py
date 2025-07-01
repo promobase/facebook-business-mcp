@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ShadowIGUserPartnershipAdsMediaErrorsField = Literal[
     "ad_code", "error_codes", "errors", "permalink"
 ]
@@ -22,3 +27,8 @@ class ShadowIGUserPartnershipAdsMediaErrorsFields(BaseModel):
     permalink: str | None = Field(None, alias="permalink")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

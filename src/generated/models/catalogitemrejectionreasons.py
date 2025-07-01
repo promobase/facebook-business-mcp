@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CatalogItemRejectionReasonsField = Literal["capability", "rejection_information"]
 
 
@@ -18,3 +23,8 @@ class CatalogItemRejectionReasonsFields(BaseModel):
     rejection_information: list[dict[str, Any]] | None = Field(None, alias="rejection_information")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

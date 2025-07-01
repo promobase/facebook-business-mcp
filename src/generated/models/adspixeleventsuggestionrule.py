@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsPixelEventSuggestionRuleField = Literal[
     "7d_volume", "dismissed", "end_time", "event_type", "rank", "rule", "sample_urls", "start_time"
 ]
@@ -26,3 +31,8 @@ class AdsPixelEventSuggestionRuleFields(BaseModel):
     start_time: datetime | None = Field(None, alias="start_time")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

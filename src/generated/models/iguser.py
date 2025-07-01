@@ -16,6 +16,11 @@ from .instagraminsightsresult import (
     InstagramInsightsResultTimeframe,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .igcomment import IGCommentFields
     from .igmedia import IGMediaFields
@@ -284,3 +289,8 @@ class IGUserGetWelcomeMessageFlowsParams(BaseModel):
     flow_id: str | None = Field(None, description="flow_id parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

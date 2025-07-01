@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdRuleHistoryResultActionField = Literal["action", "field", "new_value", "old_value"]
 
 
@@ -20,3 +25,8 @@ class AdRuleHistoryResultActionFields(BaseModel):
     old_value: str | None = Field(None, alias="old_value")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -39,6 +39,11 @@ from .post import (
 )
 from .profilepicturesource import ProfilePictureSourceType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .coverphoto import CoverPhotoFields
     from .location import LocationFields
@@ -634,3 +639,8 @@ class GroupCreateVideoParams(BaseModel):
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

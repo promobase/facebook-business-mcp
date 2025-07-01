@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsPixelStatsField = Literal["count", "diagnostics_hourly_last_timestamp", "event", "value"]
 
 
@@ -22,3 +27,8 @@ class AdsPixelStatsFields(BaseModel):
     value: str | None = Field(None, alias="value")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

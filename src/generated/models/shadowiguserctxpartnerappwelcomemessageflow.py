@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ShadowIGUserCTXPartnerAppWelcomeMessageFlowField = Literal[
     "compatible_platforms",
     "eligible_platforms",
@@ -33,3 +38,8 @@ class ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields(BaseModel):
     welcome_message_flow: str | None = Field(None, alias="welcome_message_flow")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

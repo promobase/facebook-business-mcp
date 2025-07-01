@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AREffectField = Literal["creation_time", "id", "last_modified_time", "name", "status", "surfaces"]
 
 
@@ -22,3 +27,8 @@ class AREffectFields(BaseModel):
     surfaces: list[str] | None = Field(None, alias="surfaces")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

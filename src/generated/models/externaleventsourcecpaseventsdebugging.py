@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ExternalEventSourceCPASEventsDebuggingField = Literal[
     "actual_event_time",
     "app_version",
@@ -35,3 +40,8 @@ class ExternalEventSourceCPASEventsDebuggingFields(BaseModel):
     severity: str | None = Field(None, alias="severity")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CurrencyAmountField = Literal["amount", "amount_in_hundredths", "currency", "offsetted_amount"]
 
 
@@ -20,3 +25,8 @@ class CurrencyAmountFields(BaseModel):
     offsetted_amount: str | None = Field(None, alias="offsetted_amount")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

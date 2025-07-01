@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .videocopyrightrule import VideoCopyrightRuleFields
 
@@ -51,3 +56,8 @@ class AudioCopyrightFields(BaseModel):
     whitelisted_ig_users: list[str] | None = Field(None, alias="whitelisted_ig_users")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

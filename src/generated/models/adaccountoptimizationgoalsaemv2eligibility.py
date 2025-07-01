@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class AdAccountOptimizationGoalsAEMv2EligibilityOptimizationGoal(str, Enum):
     """Enum for AdAccountOptimizationGoalsAEMv2Eligibility.OptimizationGoal."""
@@ -54,3 +58,8 @@ class AdAccountOptimizationGoalsAEMv2EligibilityFields(BaseModel):
     optimization_goal: dict[str, Any] | None = Field(None, alias="optimization_goal")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

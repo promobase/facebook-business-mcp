@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeFacebookBrandedContentField = Literal[
     "shared_to_sponsor_status", "sponsor_page_id", "sponsor_relationship"
 ]
@@ -21,3 +26,8 @@ class AdCreativeFacebookBrandedContentFields(BaseModel):
     sponsor_relationship: str | None = Field(None, alias="sponsor_relationship")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

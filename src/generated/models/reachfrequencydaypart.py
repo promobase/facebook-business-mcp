@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ReachFrequencyDayPartField = Literal["days", "end_minute", "start_minute"]
 
 
@@ -19,3 +24,8 @@ class ReachFrequencyDayPartFields(BaseModel):
     start_minute: int | None = Field(None, alias="start_minute")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

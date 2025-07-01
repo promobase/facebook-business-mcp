@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 OwnedDomainField = Literal["domain_name", "id", "owner_business", "status", "verification_code"]
 
 
@@ -21,3 +26,8 @@ class OwnedDomainFields(BaseModel):
     verification_code: str | None = Field(None, alias="verification_code")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

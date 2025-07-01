@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CTWAWhatsAppNumbersInfoField = Literal[
     "can_manage_wa_flows",
     "formatted_whatsapp_number",
@@ -35,3 +40,8 @@ class CTWAWhatsAppNumbersInfoFields(BaseModel):
     whatsapp_smb_device: str | None = Field(None, alias="whatsapp_smb_device")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
     from .offlineconversiondatasetpermissions import OfflineConversionDataSetPermissionsFields
@@ -153,3 +158,8 @@ class AdsDatasetFields(BaseModel):
     valid_entries: int | None = Field(None, alias="valid_entries")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

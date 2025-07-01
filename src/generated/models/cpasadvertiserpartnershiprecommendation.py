@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CPASAdvertiserPartnershipRecommendationField = Literal[
     "advertiser_business_id",
     "brand_business_id",
@@ -35,3 +40,8 @@ class CPASAdvertiserPartnershipRecommendationFields(BaseModel):
     status_reason: str | None = Field(None, alias="status_reason")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

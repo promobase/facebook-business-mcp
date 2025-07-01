@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 RightsManagerDataExportField = Literal[
     "download_uri",
     "export_scope",
@@ -31,3 +36,8 @@ class RightsManagerDataExportFields(BaseModel):
     time_range_start: datetime | None = Field(None, alias="time_range_start")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

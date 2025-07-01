@@ -21,6 +21,11 @@ from .adsinsights import (
 )
 from .highdemandperiod import HighDemandPeriodBudgetValueType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adcampaigngroupadvantagestate import AdCampaignGroupAdvantageStateFields
     from .adcampaignissuesinfo import AdCampaignIssuesInfoFields
@@ -697,3 +702,8 @@ class CampaignGetInsightsAsyncParams(BaseModel):
     )
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

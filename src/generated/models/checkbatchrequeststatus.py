@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class CheckBatchRequestStatusErrorPriority(str, Enum):
     """Enum for CheckBatchRequestStatus.ErrorPriority."""
@@ -40,3 +44,8 @@ class CheckBatchRequestStatusFields(BaseModel):
     warnings_total_count: int | None = Field(None, alias="warnings_total_count")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

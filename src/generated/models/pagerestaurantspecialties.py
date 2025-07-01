@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 PageRestaurantSpecialtiesField = Literal["breakfast", "coffee", "dinner", "drinks", "lunch"]
 
 
@@ -21,3 +26,8 @@ class PageRestaurantSpecialtiesFields(BaseModel):
     lunch: int | None = Field(None, alias="lunch")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

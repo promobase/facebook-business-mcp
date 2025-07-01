@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCreativeSiteLinksSpecField = Literal[
     "is_site_link_sticky",
     "site_link_hash",
@@ -33,3 +38,8 @@ class AdCreativeSiteLinksSpecFields(BaseModel):
     site_link_url: str | None = Field(None, alias="site_link_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

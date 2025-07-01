@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .profile import ProfileType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .application import ApplicationFields
     from .entityattextrange import EntityAtTextRangeFields
@@ -173,3 +178,8 @@ class CommentGetReactionsParams(BaseModel):
     type: ProfileType | None = Field(None, description="type parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

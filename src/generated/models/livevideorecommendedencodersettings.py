@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LiveVideoRecommendedEncoderSettingsField = Literal[
     "audio_codec_settings", "streaming_protocol", "video_codec_settings"
 ]
@@ -21,3 +26,8 @@ class LiveVideoRecommendedEncoderSettingsFields(BaseModel):
     video_codec_settings: dict[str, Any] | None = Field(None, alias="video_codec_settings")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsMcmeConversionField = Literal[
     "creation_time",
     "description",
@@ -31,3 +36,8 @@ class AdsMcmeConversionFields(BaseModel):
     omnichannel_object_id: str | None = Field(None, alias="omnichannel_object_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

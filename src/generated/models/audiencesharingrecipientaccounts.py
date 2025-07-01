@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AudienceSharingRecipientAccountsField = Literal[
     "account_id",
     "account_name",
@@ -33,3 +38,8 @@ class AudienceSharingRecipientAccountsFields(BaseModel):
     sharing_agreement_status: int | None = Field(None, alias="sharing_agreement_status")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 ChatPluginField = Literal[
     "alignment",
     "desktop_bottom_spacing",
@@ -41,3 +46,8 @@ class ChatPluginFields(BaseModel):
     welcome_screen_greeting: str | None = Field(None, alias="welcome_screen_greeting")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

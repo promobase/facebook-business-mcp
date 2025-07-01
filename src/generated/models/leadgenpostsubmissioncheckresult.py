@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LeadGenPostSubmissionCheckResultField = Literal[
     "api_call_result", "api_error_message", "shown_thank_you_page"
 ]
@@ -21,3 +26,8 @@ class LeadGenPostSubmissionCheckResultFields(BaseModel):
     shown_thank_you_page: str | None = Field(None, alias="shown_thank_you_page")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

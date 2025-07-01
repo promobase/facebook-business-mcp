@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.shadowighashtag import ShadowIGHashtag
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.igmedia import (
     IGMediaField,
     IGMediaFields,
@@ -18,6 +20,10 @@ from ..models.shadowighashtag import (
     ShadowIGHashtagGetTopMediaParams,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class ShadowIGHashtagWrappers:
@@ -76,3 +82,8 @@ class ShadowIGHashtagWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, IGMediaFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

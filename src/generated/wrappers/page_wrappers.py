@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.page import Page
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.advideo import (
     AdVideoField,
     AdVideoFields,
@@ -240,6 +242,10 @@ from ..models.videocopyrightrule import (
     VideoCopyrightRuleFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class PageWrappers:
@@ -2227,3 +2233,8 @@ class PageWrappers:
 
         # Return raw data for abstract base class
         return result.export_all_data() if hasattr(result, "export_all_data") else result
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

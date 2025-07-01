@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 BrandedContentShadowIGMediaIDField = Literal[
     "eligibility_errors",
     "has_permission_for_partnership_ad",
@@ -33,3 +38,8 @@ class BrandedContentShadowIGMediaIDFields(BaseModel):
     )
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

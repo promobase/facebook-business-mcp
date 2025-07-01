@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCampaignFrequencyControlSpecsField = Literal["event", "interval_days", "max_frequency"]
 
 
@@ -19,3 +24,8 @@ class AdCampaignFrequencyControlSpecsFields(BaseModel):
     max_frequency: int | None = Field(None, alias="max_frequency")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

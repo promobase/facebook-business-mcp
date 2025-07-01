@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.transactableitem import TransactableItem
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.overridedetails import (
     OverrideDetailsField,
     OverrideDetailsFields,
@@ -17,6 +19,10 @@ from ..models.transactableitem import (
     TransactableItemGetOverrideDetailsParams,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class TransactableItemWrappers:
@@ -48,3 +54,8 @@ class TransactableItemWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, OverrideDetailsFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

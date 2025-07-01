@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.offlineconversiondataset import OfflineConversionDataSet
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -39,6 +41,10 @@ from ..models.offlineconversiondatasetupload import (
     OfflineConversionDataSetUploadFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class OfflineConversionDataSetWrappers:
@@ -232,3 +238,8 @@ class OfflineConversionDataSetWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, OfflineConversionDataSetUploadFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

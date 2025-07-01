@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AppRequestFormerRecipientField = Literal["id", "recipient_id"]
 
 
@@ -18,3 +23,8 @@ class AppRequestFormerRecipientFields(BaseModel):
     recipient_id: str | None = Field(None, alias="recipient_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

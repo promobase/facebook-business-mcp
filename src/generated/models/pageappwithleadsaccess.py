@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 PageAppWithLeadsAccessField = Literal["can_access_leads", "type"]
 
 
@@ -18,3 +23,8 @@ class PageAppWithLeadsAccessFields(BaseModel):
     type: str | None = Field(None, alias="type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

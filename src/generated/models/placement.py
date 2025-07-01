@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class PlacementDevicePlatforms(str, Enum):
     """Enum for Placement.DevicePlatforms."""
@@ -82,3 +86,8 @@ class PlacementFields(BaseModel):
     whatsapp_positions: list[str] | None = Field(None, alias="whatsapp_positions")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

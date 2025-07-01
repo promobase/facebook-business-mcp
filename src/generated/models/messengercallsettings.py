@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 MessengerCallSettingsField = Literal["audio_enabled", "call_hours", "call_routing", "icon_enabled"]
 
 
@@ -20,3 +25,8 @@ class MessengerCallSettingsFields(BaseModel):
     icon_enabled: bool | None = Field(None, alias="icon_enabled")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

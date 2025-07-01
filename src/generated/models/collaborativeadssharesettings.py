@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CollaborativeAdsShareSettingsField = Literal[
     "agency_business", "id", "product_catalog_proxy_id", "utm_campaign", "utm_medium", "utm_source"
 ]
@@ -24,3 +29,8 @@ class CollaborativeAdsShareSettingsFields(BaseModel):
     utm_source: str | None = Field(None, alias="utm_source")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

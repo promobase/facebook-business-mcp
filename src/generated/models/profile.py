@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .profilepicturesource import ProfilePictureSourceType
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .profilepicturesource import ProfilePictureSourceFields
 
@@ -83,3 +88,8 @@ class ProfileGetPictureParams(BaseModel):
     width: int | None = Field(None, description="width parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

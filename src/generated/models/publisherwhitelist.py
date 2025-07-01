@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 PublisherWhiteListField = Literal[
     "business_owner_id", "id", "last_updated_time", "last_updated_user", "name", "placement_type"
 ]
@@ -24,3 +29,8 @@ class PublisherWhiteListFields(BaseModel):
     placement_type: str | None = Field(None, alias="placement_type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

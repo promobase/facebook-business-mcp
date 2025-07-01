@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LiveVideoInputStreamField = Literal[
     "dash_ingest_url",
     "dash_preview_url",
@@ -33,3 +38,8 @@ class LiveVideoInputStreamFields(BaseModel):
     stream_url: str | None = Field(None, alias="stream_url")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

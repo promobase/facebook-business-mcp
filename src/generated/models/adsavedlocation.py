@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .targetinggeolocationcity import TargetingGeoLocationCityFields
     from .targetinggeolocationcustomlocation import TargetingGeoLocationCustomLocationFields
@@ -47,3 +52,8 @@ class AdSavedLocationFields(BaseModel):
     zips: list[TargetingGeoLocationZipFields] | None = Field(None, alias="zips")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

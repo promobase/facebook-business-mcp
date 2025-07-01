@@ -11,6 +11,11 @@ from pydantic import BaseModel, ConfigDict, Field
 from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
 from .insightsresult import InsightsResultPeriod
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .audioisrc import AudioIsrcFields
     from .event import EventFields
@@ -647,3 +652,8 @@ class AdVideoGetVideoInsightsParams(BaseModel):
     until: datetime | None = Field(None, description="until parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

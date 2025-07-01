@@ -50,6 +50,11 @@ from .videocopyrightmatch import (
 )
 from .videocopyrightrule import VideoCopyrightRuleSource
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adset import AdSetFields
     from .advideo import AdVideoFields
@@ -2248,3 +2253,8 @@ class PageCreateWelcomeMessageFlowParams(BaseModel):
     )
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

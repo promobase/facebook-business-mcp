@@ -13,11 +13,18 @@ from ..models.igmediaforigonlyapi import (
     IGMediaForIGOnlyAPIFields,
     IGMediaForIGOnlyAPIGetInsightsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.insightsresult import (
     InsightsResultField,
     InsightsResultFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class IGMediaForIGOnlyAPIWrappers:
@@ -69,3 +76,8 @@ class IGMediaForIGOnlyAPIWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, InsightsResultFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

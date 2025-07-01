@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AnalyticsSegmentField = Literal[
     "custom_audience_ineligiblity_reasons",
     "description",
@@ -53,3 +58,8 @@ class AnalyticsSegmentFields(BaseModel):
     web_param_rules: list[dict[str, Any]] | None = Field(None, alias="web_param_rules")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

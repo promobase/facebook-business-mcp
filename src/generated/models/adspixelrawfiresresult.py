@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsPixelRawFiresResultField = Literal[
     "data_json",
     "device_type",
@@ -33,3 +38,8 @@ class AdsPixelRawFiresResultFields(BaseModel):
     user_pii_keys: str | None = Field(None, alias="user_pii_keys")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

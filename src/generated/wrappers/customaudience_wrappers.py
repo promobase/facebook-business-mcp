@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.customaudience import CustomAudience
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.ad import (
     AdField,
     AdFields,
@@ -43,6 +45,10 @@ from ..models.customaudiencesession import (
     CustomAudienceSessionFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class CustomAudienceWrappers:
@@ -300,3 +306,8 @@ class CustomAudienceWrappers:
 
         # Convert result to typed model
         return CustomAudienceFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

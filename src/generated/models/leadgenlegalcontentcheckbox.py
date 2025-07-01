@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LeadGenLegalContentCheckboxField = Literal[
     "id", "is_checked_by_default", "is_required", "key", "text"
 ]
@@ -23,3 +28,8 @@ class LeadGenLegalContentCheckboxFields(BaseModel):
     text: str | None = Field(None, alias="text")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

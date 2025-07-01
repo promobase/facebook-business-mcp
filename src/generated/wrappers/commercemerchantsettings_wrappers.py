@@ -18,6 +18,9 @@ from ..models.commercemerchantsettings import (
     CommerceMerchantSettingsGetReturnsParams,
     CommerceMerchantSettingsGetShippingProfilesParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.commerceorder import (
     CommerceOrderField,
     CommerceOrderFields,
@@ -31,6 +34,10 @@ from ..models.commercepayout import (
     CommercePayoutFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class CommerceMerchantSettingsWrappers:
@@ -210,3 +217,8 @@ class CommerceMerchantSettingsWrappers:
 
         # Return raw data for abstract base class
         return result.export_all_data() if hasattr(result, "export_all_data") else result
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

@@ -12,11 +12,18 @@ from ..models.adrule import (
     AdRuleFields,
     AdRuleGetHistoryParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adrulehistory import (
     AdRuleHistoryField,
     AdRuleHistoryFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdRuleWrappers:
@@ -48,3 +55,8 @@ class AdRuleWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, AdRuleHistoryFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

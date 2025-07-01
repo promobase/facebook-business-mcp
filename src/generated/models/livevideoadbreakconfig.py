@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LiveVideoAdBreakConfigField = Literal[
     "default_ad_break_duration",
     "failure_reason_polling_interval",
@@ -39,3 +44,8 @@ class LiveVideoAdBreakConfigFields(BaseModel):
     viewer_count_threshold: int | None = Field(None, alias="viewer_count_threshold")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

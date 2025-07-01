@@ -27,6 +27,11 @@ from .messagedeliveryestimate import (
     MessageDeliveryEstimatePacingType,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adbidadjustments import AdBidAdjustmentsFields
     from .adcampaignbidconstraint import AdCampaignBidConstraintFields
@@ -691,3 +696,8 @@ class AdSetGetMessageDeliveryEstimateParams(BaseModel):
     targeting_spec: TargetingFields | None = Field(None, description="targeting_spec parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

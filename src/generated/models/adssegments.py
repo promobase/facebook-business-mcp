@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsSegmentsField = Literal[
     "daily_audience_size",
     "daily_impressions",
@@ -35,3 +40,8 @@ class AdsSegmentsFields(BaseModel):
     projected_daily_revenue: int | None = Field(None, alias="projected_daily_revenue")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

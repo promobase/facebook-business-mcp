@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdCampaignGroupAgencyFeeConfigForApiField = Literal[
     "agency_fee_pct", "is_agency_fee_disabled", "is_default_agency_fee"
 ]
@@ -21,3 +26,8 @@ class AdCampaignGroupAgencyFeeConfigForApiFields(BaseModel):
     is_default_agency_fee: bool | None = Field(None, alias="is_default_agency_fee")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

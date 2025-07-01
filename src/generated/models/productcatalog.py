@@ -53,6 +53,11 @@ from .vehicle import (
     VehicleVehicleType,
 )
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .collaborativeadssharesettings import CollaborativeAdsShareSettingsFields
     from .commercemerchantsettings import CommerceMerchantSettingsFields
@@ -885,3 +890,8 @@ class ProductCatalogCreateVersionItemsBatchParams(BaseModel):
     version: int | None = Field(None, description="version parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

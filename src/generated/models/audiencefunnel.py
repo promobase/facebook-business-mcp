@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AudienceFunnelField = Literal[
     "audience_type_param_name", "audience_type_param_tags", "custom_audience_groups_info"
 ]
@@ -25,3 +30,8 @@ class AudienceFunnelFields(BaseModel):
     )
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

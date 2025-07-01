@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 OfflineConversionDataSetPermissionsField = Literal[
     "can_edit", "can_edit_or_upload", "can_upload", "should_block_vanilla_business_employee_access"
 ]
@@ -24,3 +29,8 @@ class OfflineConversionDataSetPermissionsFields(BaseModel):
     )
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

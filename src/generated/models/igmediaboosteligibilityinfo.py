@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 IGMediaBoostEligibilityInfoField = Literal["boost_ineligible_reason", "eligible_to_boost", "id"]
 
 
@@ -19,3 +24,8 @@ class IGMediaBoostEligibilityInfoFields(BaseModel):
     id: str | None = Field(None, alias="id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

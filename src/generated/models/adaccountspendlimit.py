@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdAccountSpendLimitField = Literal[
     "amount_spent", "group_id", "limit_id", "limit_value", "time_created", "time_start", "time_stop"
 ]
@@ -25,3 +30,8 @@ class AdAccountSpendLimitFields(BaseModel):
     time_stop: int | None = Field(None, alias="time_stop")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

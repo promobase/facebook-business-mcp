@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 LeadGenFormPreviewDetailsField = Literal[
     "call_business_text",
     "call_to_action_title",
@@ -147,3 +152,8 @@ class LeadGenFormPreviewDetailsFields(BaseModel):
     whats_app_opt_in_title: str | None = Field(None, alias="whats_app_opt_in_title")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

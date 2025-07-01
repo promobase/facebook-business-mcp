@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.campaign import Campaign
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.ad import (
     AdField,
     AdFields,
@@ -45,6 +47,10 @@ from ..models.highdemandperiod import (
     HighDemandPeriodFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class CampaignWrappers:
@@ -271,3 +277,8 @@ class CampaignWrappers:
 
         # Convert result to typed model
         return AdReportRunFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

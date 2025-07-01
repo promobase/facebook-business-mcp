@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CalibratorExistingRuleField = Literal[
     "7d_volume",
     "creation_source",
@@ -39,3 +44,8 @@ class CalibratorExistingRuleFields(BaseModel):
     transforms: list[str] | None = Field(None, alias="transforms")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

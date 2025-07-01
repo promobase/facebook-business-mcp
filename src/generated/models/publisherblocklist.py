@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .apppublisher import AppPublisherFields
     from .webpublisher import WebPublisherFields
@@ -58,3 +63,8 @@ class PublisherBlockListGetPagedWebPublishersParams(BaseModel):
     draft_id: str | None = Field(None, description="draft_id parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

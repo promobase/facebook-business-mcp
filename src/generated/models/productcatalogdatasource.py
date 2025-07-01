@@ -8,6 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
 
 class ProductCatalogDataSourceIngestionSourceType(str, Enum):
     """Enum for ProductCatalogDataSource.IngestionSourceType."""
@@ -32,3 +36,8 @@ class ProductCatalogDataSourceFields(BaseModel):
     upload_type: str | None = Field(None, alias="upload_type")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

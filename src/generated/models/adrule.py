@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .adrulehistory import AdRuleHistoryAction
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .adruleevaluationspec import AdRuleEvaluationSpecFields
     from .adruleexecutionspec import AdRuleExecutionSpecFields
@@ -104,3 +109,8 @@ class AdRuleGetHistoryParams(BaseModel):
     object_id: str | None = Field(None, description="object_id parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

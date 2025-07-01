@@ -12,11 +12,18 @@ from ..models.adgroupfacebookfeedback import (
     AdgroupFacebookFeedbackFields,
     AdgroupFacebookFeedbackGetCommentsParams,
 )
+
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.comment import (
     CommentField,
     CommentFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class AdgroupFacebookFeedbackWrappers:
@@ -48,3 +55,8 @@ class AdgroupFacebookFeedbackWrappers:
 
         # Wrap the cursor for type safety
         return TypedCursor(cursor, CommentFields)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

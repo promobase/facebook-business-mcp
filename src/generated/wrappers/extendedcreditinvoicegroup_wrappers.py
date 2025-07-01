@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Optional
 if TYPE_CHECKING:
     from facebook_business.adobjects.extendedcreditinvoicegroup import ExtendedCreditInvoiceGroup
 
+# ---- BEGIN MANUAL SECTION: imports ----
+# ---- END MANUAL SECTION: imports ----
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -18,6 +20,10 @@ from ..models.extendedcreditinvoicegroup import (
     ExtendedCreditInvoiceGroupFields,
 )
 from .cursor_utils import TypedCursor
+
+# ---- BEGIN MANUAL SECTION: pre_class ----
+
+# ---- END MANUAL SECTION: pre_class ----
 
 
 class ExtendedCreditInvoiceGroupWrappers:
@@ -61,3 +67,8 @@ class ExtendedCreditInvoiceGroupWrappers:
 
         # Convert result to typed model
         return AdAccountFields(**result)
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

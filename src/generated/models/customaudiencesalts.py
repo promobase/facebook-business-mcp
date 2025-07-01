@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 CustomAudienceSaltsField = Literal["app_id", "public_key", "salts", "user_id"]
 
 
@@ -20,3 +25,8 @@ class CustomAudienceSaltsFields(BaseModel):
     user_id: int | None = Field(None, alias="user_id")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

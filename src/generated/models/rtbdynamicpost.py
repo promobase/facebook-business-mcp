@@ -10,6 +10,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .comment import CommentFilter, CommentLiveFilter, CommentOrder
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 if TYPE_CHECKING:
     from .dynamicpostchildattachment import DynamicPostChildAttachmentFields
 
@@ -58,3 +63,8 @@ class RTBDynamicPostGetCommentsParams(BaseModel):
     since: datetime | None = Field(None, description="since parameter")
 
     model_config = ConfigDict(extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----

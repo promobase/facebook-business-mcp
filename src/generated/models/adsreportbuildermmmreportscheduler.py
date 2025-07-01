@@ -8,6 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+# ---- BEGIN MANUAL SECTION: imports ----
+
+# ---- END MANUAL SECTION: imports ----
+
+
 AdsReportBuilderMMMReportSchedulerField = Literal[
     "ad_account_ids", "filtering", "id", "report_name", "schedule_frequency"
 ]
@@ -23,3 +28,8 @@ class AdsReportBuilderMMMReportSchedulerFields(BaseModel):
     schedule_frequency: str | None = Field(None, alias="schedule_frequency")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+
+
+# ---- BEGIN MANUAL SECTION: end ----
+
+# ---- END MANUAL SECTION: end ----
