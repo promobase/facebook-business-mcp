@@ -6,6 +6,8 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Literal
 
+from pydantic import BaseModel, Field
+
 from .agerange import AgeRangeFields
 from .avatarprofilepicture import AvatarProfilePictureFields
 from .currency import CurrencyFields
@@ -16,29 +18,36 @@ from .page import PageFields
 from .paymentpricepoints import PaymentPricepointsFields
 from .usercoverphoto import UserCoverPhotoFields
 from .videouploadlimits import VideoUploadLimitsFields
-from pydantic import BaseModel, Field
 
 
 class UserLocalNewsMegaphoneDismissStatus(str, Enum):
     """Enum for User.LocalNewsMegaphoneDismissStatus."""
+
     NO = "NO"
     YES = "YES"
 
+
 class UserLocalNewsSubscriptionStatus(str, Enum):
     """Enum for User.LocalNewsSubscriptionStatus."""
+
     STATUS_OFF = "STATUS_OFF"
     STATUS_ON = "STATUS_ON"
 
+
 class UserFiltering(str, Enum):
     """Enum for User.Filtering."""
+
     EMA = "ema"
     GROUPS = "groups"
     GROUPS_SOCIAL = "groups_social"
 
+
 class UserType(str, Enum):
     """Enum for User.Type."""
+
     CONTENT_UPDATE = "content_update"
     GENERIC = "generic"
+
 
 UserField = Literal[
     "about",
@@ -91,7 +100,7 @@ UserField = Literal[
     "updated_time",
     "verified",
     "video_upload_limits",
-    "website"
+    "website",
 ]
 
 
@@ -100,7 +109,9 @@ class UserFields(BaseModel):
 
     about: str | None = Field(None, alias="about")
     age_range: AgeRangeFields | None = Field(None, alias="age_range")
-    avatar_2d_profile_picture: AvatarProfilePictureFields | None = Field(None, alias="avatar_2d_profile_picture")
+    avatar_2d_profile_picture: AvatarProfilePictureFields | None = Field(
+        None, alias="avatar_2d_profile_picture"
+    )
     birthday: str | None = Field(None, alias="birthday")
     client_business_id: str | None = Field(None, alias="client_business_id")
     community: GroupFields | None = Field(None, alias="community")
@@ -123,8 +134,12 @@ class UserFields(BaseModel):
     languages: list[ExperienceFields] | None = Field(None, alias="languages")
     last_name: str | None = Field(None, alias="last_name")
     link: str | None = Field(None, alias="link")
-    local_news_megaphone_dismiss_status: bool | None = Field(None, alias="local_news_megaphone_dismiss_status")
-    local_news_subscription_status: bool | None = Field(None, alias="local_news_subscription_status")
+    local_news_megaphone_dismiss_status: bool | None = Field(
+        None, alias="local_news_megaphone_dismiss_status"
+    )
+    local_news_subscription_status: bool | None = Field(
+        None, alias="local_news_subscription_status"
+    )
     locale: str | None = Field(None, alias="locale")
     location: PageFields | None = Field(None, alias="location")
     meeting_for: list[str] | None = Field(None, alias="meeting_for")
@@ -137,11 +152,15 @@ class UserFields(BaseModel):
     quotes: str | None = Field(None, alias="quotes")
     relationship_status: str | None = Field(None, alias="relationship_status")
     religion: str | None = Field(None, alias="religion")
-    shared_login_upgrade_required_by: datetime | None = Field(None, alias="shared_login_upgrade_required_by")
+    shared_login_upgrade_required_by: datetime | None = Field(
+        None, alias="shared_login_upgrade_required_by"
+    )
     short_name: str | None = Field(None, alias="short_name")
-    significant_other: "UserFields" | None = Field(None, alias="significant_other")
+    significant_other: UserFields | None = Field(None, alias="significant_other")
     sports: list[ExperienceFields] | None = Field(None, alias="sports")
-    supports_donate_button_in_live_video: bool | None = Field(None, alias="supports_donate_button_in_live_video")
+    supports_donate_button_in_live_video: bool | None = Field(
+        None, alias="supports_donate_button_in_live_video"
+    )
     third_party_id: str | None = Field(None, alias="third_party_id")
     timezone: float | None = Field(None, alias="timezone")
     token_for_business: str | None = Field(None, alias="token_for_business")
@@ -152,7 +171,8 @@ class UserFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserApiUpdateParams(BaseModel):
     """Parameters for User.api_update()."""
@@ -160,13 +180,18 @@ class UserApiUpdateParams(BaseModel):
     emoji_color_pref: int | None = Field(None, description="emoji_color_pref parameter")
     firstname: str | None = Field(None, description="firstname parameter")
     lastname: str | None = Field(None, description="lastname parameter")
-    local_news_megaphone_dismiss_status: str | None = Field(None, description="local_news_megaphone_dismiss_status parameter")
-    local_news_subscription_status: str | None = Field(None, description="local_news_subscription_status parameter")
+    local_news_megaphone_dismiss_status: str | None = Field(
+        None, description="local_news_megaphone_dismiss_status parameter"
+    )
+    local_news_subscription_status: str | None = Field(
+        None, description="local_news_subscription_status parameter"
+    )
     name: str | None = Field(None, description="name parameter")
     password: str | None = Field(None, description="password parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateAccessTokenParams(BaseModel):
     """Parameters for User.create_access_token()."""
@@ -174,10 +199,13 @@ class UserCreateAccessTokenParams(BaseModel):
     business_app: str | None = Field(None, description="business_app parameter")
     page_id: str | None = Field(None, description="page_id parameter")
     scope: list[str] | None = Field(None, description="scope parameter")
-    set_token_expires_in_60_days: bool | None = Field(None, description="set_token_expires_in_60_days parameter")
+    set_token_expires_in_60_days: bool | None = Field(
+        None, description="set_token_expires_in_60_days parameter"
+    )
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetAccountsParams(BaseModel):
     """Parameters for User.get_accounts()."""
@@ -187,7 +215,8 @@ class UserGetAccountsParams(BaseModel):
     is_promotable: bool | None = Field(None, description="is_promotable parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateAccountParams(BaseModel):
     """Parameters for User.create_account()."""
@@ -201,7 +230,9 @@ class UserCreateAccountParams(BaseModel):
     coordinates: Any | None = Field(None, description="coordinates parameter")
     cover_photo: Any | None = Field(None, description="cover_photo parameter")
     description: str | None = Field(None, description="description parameter")
-    ignore_coordinate_warnings: bool | None = Field(None, description="ignore_coordinate_warnings parameter")
+    ignore_coordinate_warnings: bool | None = Field(
+        None, description="ignore_coordinate_warnings parameter"
+    )
     location: Any | None = Field(None, description="location parameter")
     name: str | None = Field(None, description="name parameter")
     phone: str | None = Field(None, description="phone parameter")
@@ -210,7 +241,8 @@ class UserCreateAccountParams(BaseModel):
     zip: str | None = Field(None, description="zip parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateAdStudyParams(BaseModel):
     """Parameters for User.create_ad_study()."""
@@ -229,7 +261,8 @@ class UserCreateAdStudyParams(BaseModel):
     viewers: list[int] | None = Field(None, description="viewers parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateApplicationParams(BaseModel):
     """Parameters for User.create_application()."""
@@ -237,7 +270,8 @@ class UserCreateApplicationParams(BaseModel):
     business_app: int | None = Field(None, description="business_app parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetAssignedBusinessAssetGroupsParams(BaseModel):
     """Parameters for User.get_assigned_business_asset_groups()."""
@@ -245,7 +279,8 @@ class UserGetAssignedBusinessAssetGroupsParams(BaseModel):
     contained_asset_id: str | None = Field(None, description="contained_asset_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetAssignedPagesParams(BaseModel):
     """Parameters for User.get_assigned_pages()."""
@@ -253,7 +288,8 @@ class UserGetAssignedPagesParams(BaseModel):
     pages: list[int] | None = Field(None, description="pages parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserDeleteBusinessesParams(BaseModel):
     """Parameters for User.delete_businesses()."""
@@ -261,12 +297,15 @@ class UserDeleteBusinessesParams(BaseModel):
     business: str | None = Field(None, description="business parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateBusinessParams(BaseModel):
     """Parameters for User.create_business()."""
 
-    child_business_external_id: str | None = Field(None, description="child_business_external_id parameter")
+    child_business_external_id: str | None = Field(
+        None, description="child_business_external_id parameter"
+    )
     email: str | None = Field(None, description="email parameter")
     name: str | None = Field(None, description="name parameter")
     primary_page: str | None = Field(None, description="primary_page parameter")
@@ -278,7 +317,8 @@ class UserCreateBusinessParams(BaseModel):
     vertical: str | None = Field(None, description="vertical parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetConversationsParams(BaseModel):
     """Parameters for User.get_conversations()."""
@@ -289,7 +329,8 @@ class UserGetConversationsParams(BaseModel):
     user_id: str | None = Field(None, description="user_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetEventsParams(BaseModel):
     """Parameters for User.get_events()."""
@@ -298,7 +339,8 @@ class UserGetEventsParams(BaseModel):
     type: str | None = Field(None, description="type parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetFeedParams(BaseModel):
     """Parameters for User.get_feed()."""
@@ -308,10 +350,11 @@ class UserGetFeedParams(BaseModel):
     show_expired: bool | None = Field(None, description="show_expired parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
-    with: str | None = Field(None, description="with parameter")
+    field_with: str | None = Field(None, alias="with", description="with parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateFeedParams(BaseModel):
     """Parameters for User.create_feed()."""
@@ -320,16 +363,24 @@ class UserCreateFeedParams(BaseModel):
     album_id: str | None = Field(None, description="album_id parameter")
     android_key_hash: str | None = Field(None, description="android_key_hash parameter")
     application_id: str | None = Field(None, description="application_id parameter")
-    asked_fun_fact_prompt_id: int | None = Field(None, description="asked_fun_fact_prompt_id parameter")
+    asked_fun_fact_prompt_id: int | None = Field(
+        None, description="asked_fun_fact_prompt_id parameter"
+    )
     asset3d_id: str | None = Field(None, description="asset3d_id parameter")
     associated_id: str | None = Field(None, description="associated_id parameter")
-    attach_place_suggestion: bool | None = Field(None, description="attach_place_suggestion parameter")
+    attach_place_suggestion: bool | None = Field(
+        None, description="attach_place_suggestion parameter"
+    )
     attached_media: list[Any] | None = Field(None, description="attached_media parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(None, description="backdated_time_granularity parameter")
+    backdated_time_granularity: str | None = Field(
+        None, description="backdated_time_granularity parameter"
+    )
     breaking_news: bool | None = Field(None, description="breaking_news parameter")
-    breaking_news_expiration: int | None = Field(None, description="breaking_news_expiration parameter")
+    breaking_news_expiration: int | None = Field(
+        None, description="breaking_news_expiration parameter"
+    )
     call_to_action: Any | None = Field(None, description="call_to_action parameter")
     caption: str | None = Field(None, description="caption parameter")
     child_attachments: list[Any] | None = Field(None, description="child_attachments parameter")
@@ -337,9 +388,13 @@ class UserCreateFeedParams(BaseModel):
     composer_entry_picker: str | None = Field(None, description="composer_entry_picker parameter")
     composer_entry_point: str | None = Field(None, description="composer_entry_point parameter")
     composer_entry_time: int | None = Field(None, description="composer_entry_time parameter")
-    composer_session_events_log: str | None = Field(None, description="composer_session_events_log parameter")
+    composer_session_events_log: str | None = Field(
+        None, description="composer_session_events_log parameter"
+    )
     composer_session_id: str | None = Field(None, description="composer_session_id parameter")
-    composer_source_surface: str | None = Field(None, description="composer_source_surface parameter")
+    composer_source_surface: str | None = Field(
+        None, description="composer_source_surface parameter"
+    )
     composer_type: str | None = Field(None, description="composer_type parameter")
     connection_class: str | None = Field(None, description="connection_class parameter")
     content_attachment: str | None = Field(None, description="content_attachment parameter")
@@ -358,7 +413,9 @@ class UserCreateFeedParams(BaseModel):
     home_checkin_city_id: Any | None = Field(None, description="home_checkin_city_id parameter")
     image_crops: dict[str, Any] | None = Field(None, description="image_crops parameter")
     implicit_with_tags: list[int] | None = Field(None, description="implicit_with_tags parameter")
-    instant_game_entry_point_data: str | None = Field(None, description="instant_game_entry_point_data parameter")
+    instant_game_entry_point_data: str | None = Field(
+        None, description="instant_game_entry_point_data parameter"
+    )
     ios_bundle_id: str | None = Field(None, description="ios_bundle_id parameter")
     is_backout_draft: bool | None = Field(None, description="is_backout_draft parameter")
     is_boost_intended: bool | None = Field(None, description="is_boost_intended parameter")
@@ -376,19 +433,27 @@ class UserCreateFeedParams(BaseModel):
     nectar_module: str | None = Field(None, description="nectar_module parameter")
     object_attachment: str | None = Field(None, description="object_attachment parameter")
     og_action_type_id: str | None = Field(None, description="og_action_type_id parameter")
-    og_hide_object_attachment: bool | None = Field(None, description="og_hide_object_attachment parameter")
+    og_hide_object_attachment: bool | None = Field(
+        None, description="og_hide_object_attachment parameter"
+    )
     og_icon_id: str | None = Field(None, description="og_icon_id parameter")
     og_object_id: str | None = Field(None, description="og_object_id parameter")
     og_phrase: str | None = Field(None, description="og_phrase parameter")
     og_set_profile_badge: bool | None = Field(None, description="og_set_profile_badge parameter")
-    og_suggestion_mechanism: str | None = Field(None, description="og_suggestion_mechanism parameter")
+    og_suggestion_mechanism: str | None = Field(
+        None, description="og_suggestion_mechanism parameter"
+    )
     page_recommendation: str | None = Field(None, description="page_recommendation parameter")
     picture: str | None = Field(None, description="picture parameter")
     place: Any | None = Field(None, description="place parameter")
-    place_attachment_setting: str | None = Field(None, description="place_attachment_setting parameter")
+    place_attachment_setting: str | None = Field(
+        None, description="place_attachment_setting parameter"
+    )
     place_list: str | None = Field(None, description="place_list parameter")
     place_list_data: Any | None = Field(None, description="place_list_data parameter")
-    post_surfaces_blacklist: list[str] | None = Field(None, description="post_surfaces_blacklist parameter")
+    post_surfaces_blacklist: list[str] | None = Field(
+        None, description="post_surfaces_blacklist parameter"
+    )
     posting_to_redspace: str | None = Field(None, description="posting_to_redspace parameter")
     privacy: str | None = Field(None, description="privacy parameter")
     prompt_id: str | None = Field(None, description="prompt_id parameter")
@@ -399,9 +464,13 @@ class UserCreateFeedParams(BaseModel):
     published: bool | None = Field(None, description="published parameter")
     quote: str | None = Field(None, description="quote parameter")
     ref: list[str] | None = Field(None, description="ref parameter")
-    referenceable_image_ids: list[str] | None = Field(None, description="referenceable_image_ids parameter")
+    referenceable_image_ids: list[str] | None = Field(
+        None, description="referenceable_image_ids parameter"
+    )
     referral_id: str | None = Field(None, description="referral_id parameter")
-    scheduled_publish_time: datetime | None = Field(None, description="scheduled_publish_time parameter")
+    scheduled_publish_time: datetime | None = Field(
+        None, description="scheduled_publish_time parameter"
+    )
     source: str | None = Field(None, description="source parameter")
     sponsor_id: str | None = Field(None, description="sponsor_id parameter")
     sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
@@ -413,17 +482,22 @@ class UserCreateFeedParams(BaseModel):
     text_format_preset_id: str | None = Field(None, description="text_format_preset_id parameter")
     text_only_place: str | None = Field(None, description="text_only_place parameter")
     thumbnail: Any | None = Field(None, description="thumbnail parameter")
-    time_since_original_post: int | None = Field(None, description="time_since_original_post parameter")
+    time_since_original_post: int | None = Field(
+        None, description="time_since_original_post parameter"
+    )
     title: str | None = Field(None, description="title parameter")
     tracking_info: str | None = Field(None, description="tracking_info parameter")
-    unpublished_content_type: str | None = Field(None, description="unpublished_content_type parameter")
+    unpublished_content_type: str | None = Field(
+        None, description="unpublished_content_type parameter"
+    )
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     viewer_coordinates: Any | None = Field(None, description="viewer_coordinates parameter")
     width: int | None = Field(None, description="width parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetFriendsParams(BaseModel):
     """Parameters for User.get_friends()."""
@@ -431,7 +505,8 @@ class UserGetFriendsParams(BaseModel):
     uid: int | None = Field(None, description="uid parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateFundraiserParams(BaseModel):
     """Parameters for User.create_fundraiser()."""
@@ -442,9 +517,13 @@ class UserCreateFundraiserParams(BaseModel):
     description: str | None = Field(None, description="description parameter")
     end_time: datetime | None = Field(None, description="end_time parameter")
     external_event_name: str | None = Field(None, description="external_event_name parameter")
-    external_event_start_time: datetime | None = Field(None, description="external_event_start_time parameter")
+    external_event_start_time: datetime | None = Field(
+        None, description="external_event_start_time parameter"
+    )
     external_event_uri: str | None = Field(None, description="external_event_uri parameter")
-    external_fundraiser_uri: str | None = Field(None, description="external_fundraiser_uri parameter")
+    external_fundraiser_uri: str | None = Field(
+        None, description="external_fundraiser_uri parameter"
+    )
     external_id: str | None = Field(None, description="external_id parameter")
     fundraiser_type: str | None = Field(None, description="fundraiser_type parameter")
     goal_amount: int | None = Field(None, description="goal_amount parameter")
@@ -452,7 +531,8 @@ class UserCreateFundraiserParams(BaseModel):
     page_id: str | None = Field(None, description="page_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetGroupsParams(BaseModel):
     """Parameters for User.get_groups()."""
@@ -461,7 +541,8 @@ class UserGetGroupsParams(BaseModel):
     parent: str | None = Field(None, description="parent parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetIdsForAppsParams(BaseModel):
     """Parameters for User.get_ids_for_apps()."""
@@ -469,7 +550,8 @@ class UserGetIdsForAppsParams(BaseModel):
     app: int | None = Field(None, description="app parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetIdsForBusinessParams(BaseModel):
     """Parameters for User.get_ids_for_business()."""
@@ -477,7 +559,8 @@ class UserGetIdsForBusinessParams(BaseModel):
     app: int | None = Field(None, description="app parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetIdsForPagesParams(BaseModel):
     """Parameters for User.get_ids_for_pages()."""
@@ -485,7 +568,8 @@ class UserGetIdsForPagesParams(BaseModel):
     page: int | None = Field(None, description="page parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetLikesParams(BaseModel):
     """Parameters for User.get_likes()."""
@@ -493,7 +577,8 @@ class UserGetLikesParams(BaseModel):
     target_id: str | None = Field(None, description="target_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetLiveVideosParams(BaseModel):
     """Parameters for User.get_live_videos()."""
@@ -502,7 +587,8 @@ class UserGetLiveVideosParams(BaseModel):
     source: str | None = Field(None, description="source parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateLiveVideoParams(BaseModel):
     """Parameters for User.create_live_video()."""
@@ -520,7 +606,9 @@ class UserCreateLiveVideoParams(BaseModel):
     privacy: str | None = Field(None, description="privacy parameter")
     projection: str | None = Field(None, description="projection parameter")
     published: bool | None = Field(None, description="published parameter")
-    schedule_custom_profile_image: Any | None = Field(None, description="schedule_custom_profile_image parameter")
+    schedule_custom_profile_image: Any | None = Field(
+        None, description="schedule_custom_profile_image parameter"
+    )
     spatial_audio_format: str | None = Field(None, description="spatial_audio_format parameter")
     status: str | None = Field(None, description="status parameter")
     stereoscopic_mode: str | None = Field(None, description="stereoscopic_mode parameter")
@@ -529,7 +617,8 @@ class UserCreateLiveVideoParams(BaseModel):
     title: str | None = Field(None, description="title parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateMessengerKidsAccountsUnreadBadgeParams(BaseModel):
     """Parameters for User.create_messenger_kids_accounts_unread_badge()."""
@@ -537,7 +626,8 @@ class UserCreateMessengerKidsAccountsUnreadBadgeParams(BaseModel):
     proxied_app_id: int | None = Field(None, description="proxied_app_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetMusicParams(BaseModel):
     """Parameters for User.get_music()."""
@@ -545,12 +635,15 @@ class UserGetMusicParams(BaseModel):
     target_id: str | None = Field(None, description="target_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateNotificationParams(BaseModel):
     """Parameters for User.create_notification()."""
 
-    bot_message_payload_elements: str | None = Field(None, description="bot_message_payload_elements parameter")
+    bot_message_payload_elements: str | None = Field(
+        None, description="bot_message_payload_elements parameter"
+    )
     filtering: list[str] | None = Field(None, description="filtering parameter")
     href: Any | None = Field(None, description="href parameter")
     label: str | None = Field(None, description="label parameter")
@@ -565,7 +658,8 @@ class UserCreateNotificationParams(BaseModel):
     type: str | None = Field(None, description="type parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserDeletePermissionsParams(BaseModel):
     """Parameters for User.delete_permissions()."""
@@ -573,7 +667,8 @@ class UserDeletePermissionsParams(BaseModel):
     permission: str | None = Field(None, description="permission parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetPermissionsParams(BaseModel):
     """Parameters for User.get_permissions()."""
@@ -582,7 +677,8 @@ class UserGetPermissionsParams(BaseModel):
     status: str | None = Field(None, description="status parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetPhotosParams(BaseModel):
     """Parameters for User.get_photos()."""
@@ -590,7 +686,8 @@ class UserGetPhotosParams(BaseModel):
     type: str | None = Field(None, description="type parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreatePhotoParams(BaseModel):
     """Parameters for User.create_photo()."""
@@ -603,16 +700,26 @@ class UserCreatePhotoParams(BaseModel):
     attempt: int | None = Field(None, description="attempt parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(None, description="backdated_time_granularity parameter")
+    backdated_time_granularity: str | None = Field(
+        None, description="backdated_time_granularity parameter"
+    )
     caption: str | None = Field(None, description="caption parameter")
     composer_session_id: str | None = Field(None, description="composer_session_id parameter")
     direct_share_status: int | None = Field(None, description="direct_share_status parameter")
     feed_targeting: Any | None = Field(None, description="feed_targeting parameter")
     filter_type: int | None = Field(None, description="filter_type parameter")
-    full_res_is_coming_later: bool | None = Field(None, description="full_res_is_coming_later parameter")
-    initial_view_heading_override_degrees: int | None = Field(None, description="initial_view_heading_override_degrees parameter")
-    initial_view_pitch_override_degrees: int | None = Field(None, description="initial_view_pitch_override_degrees parameter")
-    initial_view_vertical_fov_override_degrees: int | None = Field(None, description="initial_view_vertical_fov_override_degrees parameter")
+    full_res_is_coming_later: bool | None = Field(
+        None, description="full_res_is_coming_later parameter"
+    )
+    initial_view_heading_override_degrees: int | None = Field(
+        None, description="initial_view_heading_override_degrees parameter"
+    )
+    initial_view_pitch_override_degrees: int | None = Field(
+        None, description="initial_view_pitch_override_degrees parameter"
+    )
+    initial_view_vertical_fov_override_degrees: int | None = Field(
+        None, description="initial_view_vertical_fov_override_degrees parameter"
+    )
     ios_bundle_id: str | None = Field(None, description="ios_bundle_id parameter")
     is_explicit_location: bool | None = Field(None, description="is_explicit_location parameter")
     is_explicit_place: bool | None = Field(None, description="is_explicit_place parameter")
@@ -626,7 +733,9 @@ class UserCreatePhotoParams(BaseModel):
     og_object_id: str | None = Field(None, description="og_object_id parameter")
     og_phrase: str | None = Field(None, description="og_phrase parameter")
     og_set_profile_badge: bool | None = Field(None, description="og_set_profile_badge parameter")
-    og_suggestion_mechanism: str | None = Field(None, description="og_suggestion_mechanism parameter")
+    og_suggestion_mechanism: str | None = Field(
+        None, description="og_suggestion_mechanism parameter"
+    )
     place: Any | None = Field(None, description="place parameter")
     privacy: str | None = Field(None, description="privacy parameter")
     profile_id: int | None = Field(None, description="profile_id parameter")
@@ -635,21 +744,28 @@ class UserCreatePhotoParams(BaseModel):
     published: bool | None = Field(None, description="published parameter")
     qn: str | None = Field(None, description="qn parameter")
     scheduled_publish_time: int | None = Field(None, description="scheduled_publish_time parameter")
-    spherical_metadata: dict[str, Any] | None = Field(None, description="spherical_metadata parameter")
+    spherical_metadata: dict[str, Any] | None = Field(
+        None, description="spherical_metadata parameter"
+    )
     sponsor_id: str | None = Field(None, description="sponsor_id parameter")
     sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
     tags: list[Any] | None = Field(None, description="tags parameter")
     target_id: int | None = Field(None, description="target_id parameter")
     targeting: Any | None = Field(None, description="targeting parameter")
-    time_since_original_post: int | None = Field(None, description="time_since_original_post parameter")
+    time_since_original_post: int | None = Field(
+        None, description="time_since_original_post parameter"
+    )
     uid: int | None = Field(None, description="uid parameter")
-    unpublished_content_type: str | None = Field(None, description="unpublished_content_type parameter")
+    unpublished_content_type: str | None = Field(
+        None, description="unpublished_content_type parameter"
+    )
     url: str | None = Field(None, description="url parameter")
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
     vault_image_id: str | None = Field(None, description="vault_image_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetPictureParams(BaseModel):
     """Parameters for User.get_picture()."""
@@ -660,7 +776,8 @@ class UserGetPictureParams(BaseModel):
     width: int | None = Field(None, description="width parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetPostsParams(BaseModel):
     """Parameters for User.get_posts()."""
@@ -670,10 +787,11 @@ class UserGetPostsParams(BaseModel):
     show_expired: bool | None = Field(None, description="show_expired parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
-    with: str | None = Field(None, description="with parameter")
+    field_with: str | None = Field(None, alias="with", description="with parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetRichMediaDocumentsParams(BaseModel):
     """Parameters for User.get_rich_media_documents()."""
@@ -681,7 +799,8 @@ class UserGetRichMediaDocumentsParams(BaseModel):
     query: str | None = Field(None, description="query parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateStagingResourceParams(BaseModel):
     """Parameters for User.create_staging_resource()."""
@@ -689,7 +808,8 @@ class UserCreateStagingResourceParams(BaseModel):
     file: Any | None = Field(None, description="file parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserGetVideosParams(BaseModel):
     """Parameters for User.get_videos()."""
@@ -697,20 +817,29 @@ class UserGetVideosParams(BaseModel):
     type: str | None = Field(None, description="type parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class UserCreateVideoParams(BaseModel):
     """Parameters for User.create_video()."""
 
     application_id: str | None = Field(None, description="application_id parameter")
-    asked_fun_fact_prompt_id: int | None = Field(None, description="asked_fun_fact_prompt_id parameter")
-    audio_story_wave_animation_handle: str | None = Field(None, description="audio_story_wave_animation_handle parameter")
+    asked_fun_fact_prompt_id: int | None = Field(
+        None, description="asked_fun_fact_prompt_id parameter"
+    )
+    audio_story_wave_animation_handle: str | None = Field(
+        None, description="audio_story_wave_animation_handle parameter"
+    )
     composer_entry_picker: str | None = Field(None, description="composer_entry_picker parameter")
     composer_entry_point: str | None = Field(None, description="composer_entry_point parameter")
     composer_entry_time: int | None = Field(None, description="composer_entry_time parameter")
-    composer_session_events_log: str | None = Field(None, description="composer_session_events_log parameter")
+    composer_session_events_log: str | None = Field(
+        None, description="composer_session_events_log parameter"
+    )
     composer_session_id: str | None = Field(None, description="composer_session_id parameter")
-    composer_source_surface: str | None = Field(None, description="composer_source_surface parameter")
+    composer_source_surface: str | None = Field(
+        None, description="composer_source_surface parameter"
+    )
     composer_type: str | None = Field(None, description="composer_type parameter")
     container_type: str | None = Field(None, description="container_type parameter")
     content_category: str | None = Field(None, description="content_category parameter")
@@ -719,7 +848,9 @@ class UserCreateVideoParams(BaseModel):
     direct_share_status: int | None = Field(None, description="direct_share_status parameter")
     embeddable: bool | None = Field(None, description="embeddable parameter")
     end_offset: int | None = Field(None, description="end_offset parameter")
-    fbuploader_video_file_chunk: str | None = Field(None, description="fbuploader_video_file_chunk parameter")
+    fbuploader_video_file_chunk: str | None = Field(
+        None, description="fbuploader_video_file_chunk parameter"
+    )
     file_size: int | None = Field(None, description="file_size parameter")
     file_url: str | None = Field(None, description="file_url parameter")
     fisheye_video_cropped: bool | None = Field(None, description="fisheye_video_cropped parameter")
@@ -732,7 +863,9 @@ class UserCreateVideoParams(BaseModel):
     guide_enabled: bool | None = Field(None, description="guide_enabled parameter")
     initial_heading: int | None = Field(None, description="initial_heading parameter")
     initial_pitch: int | None = Field(None, description="initial_pitch parameter")
-    instant_game_entry_point_data: str | None = Field(None, description="instant_game_entry_point_data parameter")
+    instant_game_entry_point_data: str | None = Field(
+        None, description="instant_game_entry_point_data parameter"
+    )
     is_boost_intended: bool | None = Field(None, description="is_boost_intended parameter")
     is_explicit_share: bool | None = Field(None, description="is_explicit_share parameter")
     is_group_linking_post: bool | None = Field(None, description="is_group_linking_post parameter")
@@ -745,9 +878,13 @@ class UserCreateVideoParams(BaseModel):
     og_icon_id: str | None = Field(None, description="og_icon_id parameter")
     og_object_id: str | None = Field(None, description="og_object_id parameter")
     og_phrase: str | None = Field(None, description="og_phrase parameter")
-    og_suggestion_mechanism: str | None = Field(None, description="og_suggestion_mechanism parameter")
+    og_suggestion_mechanism: str | None = Field(
+        None, description="og_suggestion_mechanism parameter"
+    )
     original_fov: int | None = Field(None, description="original_fov parameter")
-    original_projection_type: str | None = Field(None, description="original_projection_type parameter")
+    original_projection_type: str | None = Field(
+        None, description="original_projection_type parameter"
+    )
     partnership_ad_ad_code: str | None = Field(None, description="partnership_ad_ad_code parameter")
     privacy: str | None = Field(None, description="privacy parameter")
     publish_event_id: int | None = Field(None, description="publish_event_id parameter")
@@ -755,24 +892,34 @@ class UserCreateVideoParams(BaseModel):
     replace_video_id: str | None = Field(None, description="replace_video_id parameter")
     slideshow_spec: dict[str, Any] | None = Field(None, description="slideshow_spec parameter")
     source: str | None = Field(None, description="source parameter")
-    source_instagram_media_id: str | None = Field(None, description="source_instagram_media_id parameter")
+    source_instagram_media_id: str | None = Field(
+        None, description="source_instagram_media_id parameter"
+    )
     spherical: bool | None = Field(None, description="spherical parameter")
     sponsor_id: str | None = Field(None, description="sponsor_id parameter")
     start_offset: int | None = Field(None, description="start_offset parameter")
     swap_mode: str | None = Field(None, description="swap_mode parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     thumb: Any | None = Field(None, description="thumb parameter")
-    time_since_original_post: int | None = Field(None, description="time_since_original_post parameter")
+    time_since_original_post: int | None = Field(
+        None, description="time_since_original_post parameter"
+    )
     title: str | None = Field(None, description="title parameter")
-    transcode_setting_properties: str | None = Field(None, description="transcode_setting_properties parameter")
-    unpublished_content_type: str | None = Field(None, description="unpublished_content_type parameter")
+    transcode_setting_properties: str | None = Field(
+        None, description="transcode_setting_properties parameter"
+    )
+    unpublished_content_type: str | None = Field(
+        None, description="unpublished_content_type parameter"
+    )
     upload_phase: str | None = Field(None, description="upload_phase parameter")
     upload_session_id: str | None = Field(None, description="upload_session_id parameter")
-    upload_setting_properties: str | None = Field(None, description="upload_setting_properties parameter")
+    upload_setting_properties: str | None = Field(
+        None, description="upload_setting_properties parameter"
+    )
     video_file_chunk: str | None = Field(None, description="video_file_chunk parameter")
     video_id_original: str | None = Field(None, description="video_id_original parameter")
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"

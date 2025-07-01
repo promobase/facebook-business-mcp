@@ -6,25 +6,31 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Literal
 
+from pydantic import BaseModel, Field
+
 from .coverphoto import CoverPhotoFields
 from .location import LocationFields
-from pydantic import BaseModel, Field
 
 
 class GroupJoinSetting(str, Enum):
     """Enum for Group.JoinSetting."""
+
     ADMIN_ONLY = "ADMIN_ONLY"
     ANYONE = "ANYONE"
     NONE = "NONE"
+
 
 class GroupPostPermissions(str, Enum):
     """Enum for Group.PostPermissions."""
+
     ADMIN_ONLY = "ADMIN_ONLY"
     ANYONE = "ANYONE"
     NONE = "NONE"
 
+
 class GroupPurpose(str, Enum):
     """Enum for Group.Purpose."""
+
     CASUAL = "CASUAL"
     COWORKERS = "COWORKERS"
     CUSTOM = "CUSTOM"
@@ -54,8 +60,10 @@ class GroupPurpose(str, Enum):
     WORK_TEAM = "WORK_TEAM"
     WORK_TEAMWORK = "WORK_TEAMWORK"
 
+
 class GroupGroupType(str, Enum):
     """Enum for Group.GroupType."""
+
     CASUAL = "CASUAL"
     COWORKERS = "COWORKERS"
     CUSTOM = "CUSTOM"
@@ -84,6 +92,7 @@ class GroupGroupType(str, Enum):
     WORK_STAGES = "WORK_STAGES"
     WORK_TEAM = "WORK_TEAM"
     WORK_TEAMWORK = "WORK_TEAMWORK"
+
 
 GroupField = Literal[
     "archived",
@@ -104,7 +113,7 @@ GroupField = Literal[
     "purpose",
     "subdomain",
     "updated_time",
-    "venue"
+    "venue",
 ]
 
 
@@ -133,7 +142,8 @@ class GroupFields(BaseModel):
 
     class Config:
         populate_by_name = True
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupApiGetParams(BaseModel):
     """Parameters for Group.api_get()."""
@@ -141,7 +151,8 @@ class GroupApiGetParams(BaseModel):
     icon_size: str | None = Field(None, description="icon_size parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupApiUpdateParams(BaseModel):
     """Parameters for Group.api_update()."""
@@ -158,13 +169,16 @@ class GroupApiUpdateParams(BaseModel):
     no_feed_story: bool | None = Field(None, description="no_feed_story parameter")
     offset_y: int | None = Field(None, description="offset_y parameter")
     post_permissions: str | None = Field(None, description="post_permissions parameter")
-    post_requires_admin_approval: bool | None = Field(None, description="post_requires_admin_approval parameter")
+    post_requires_admin_approval: bool | None = Field(
+        None, description="post_requires_admin_approval parameter"
+    )
     privacy: str | None = Field(None, description="privacy parameter")
     purpose: str | None = Field(None, description="purpose parameter")
     update_view_time: bool | None = Field(None, description="update_view_time parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupDeleteAdminsParams(BaseModel):
     """Parameters for Group.delete_admins()."""
@@ -172,7 +186,8 @@ class GroupDeleteAdminsParams(BaseModel):
     uid: int | None = Field(None, description="uid parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupCreateAdminParams(BaseModel):
     """Parameters for Group.create_admin()."""
@@ -180,7 +195,8 @@ class GroupCreateAdminParams(BaseModel):
     uid: int | None = Field(None, description="uid parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupGetFeedParams(BaseModel):
     """Parameters for Group.get_feed()."""
@@ -190,10 +206,11 @@ class GroupGetFeedParams(BaseModel):
     show_expired: bool | None = Field(None, description="show_expired parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
-    with: str | None = Field(None, description="with parameter")
+    field_with: str | None = Field(None, alias="with", description="with parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupCreateFeedParams(BaseModel):
     """Parameters for Group.create_feed()."""
@@ -202,16 +219,24 @@ class GroupCreateFeedParams(BaseModel):
     album_id: str | None = Field(None, description="album_id parameter")
     android_key_hash: str | None = Field(None, description="android_key_hash parameter")
     application_id: str | None = Field(None, description="application_id parameter")
-    asked_fun_fact_prompt_id: int | None = Field(None, description="asked_fun_fact_prompt_id parameter")
+    asked_fun_fact_prompt_id: int | None = Field(
+        None, description="asked_fun_fact_prompt_id parameter"
+    )
     asset3d_id: str | None = Field(None, description="asset3d_id parameter")
     associated_id: str | None = Field(None, description="associated_id parameter")
-    attach_place_suggestion: bool | None = Field(None, description="attach_place_suggestion parameter")
+    attach_place_suggestion: bool | None = Field(
+        None, description="attach_place_suggestion parameter"
+    )
     attached_media: list[Any] | None = Field(None, description="attached_media parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(None, description="backdated_time_granularity parameter")
+    backdated_time_granularity: str | None = Field(
+        None, description="backdated_time_granularity parameter"
+    )
     breaking_news: bool | None = Field(None, description="breaking_news parameter")
-    breaking_news_expiration: int | None = Field(None, description="breaking_news_expiration parameter")
+    breaking_news_expiration: int | None = Field(
+        None, description="breaking_news_expiration parameter"
+    )
     call_to_action: Any | None = Field(None, description="call_to_action parameter")
     caption: str | None = Field(None, description="caption parameter")
     child_attachments: list[Any] | None = Field(None, description="child_attachments parameter")
@@ -219,9 +244,13 @@ class GroupCreateFeedParams(BaseModel):
     composer_entry_picker: str | None = Field(None, description="composer_entry_picker parameter")
     composer_entry_point: str | None = Field(None, description="composer_entry_point parameter")
     composer_entry_time: int | None = Field(None, description="composer_entry_time parameter")
-    composer_session_events_log: str | None = Field(None, description="composer_session_events_log parameter")
+    composer_session_events_log: str | None = Field(
+        None, description="composer_session_events_log parameter"
+    )
     composer_session_id: str | None = Field(None, description="composer_session_id parameter")
-    composer_source_surface: str | None = Field(None, description="composer_source_surface parameter")
+    composer_source_surface: str | None = Field(
+        None, description="composer_source_surface parameter"
+    )
     composer_type: str | None = Field(None, description="composer_type parameter")
     connection_class: str | None = Field(None, description="connection_class parameter")
     content_attachment: str | None = Field(None, description="content_attachment parameter")
@@ -240,7 +269,9 @@ class GroupCreateFeedParams(BaseModel):
     home_checkin_city_id: Any | None = Field(None, description="home_checkin_city_id parameter")
     image_crops: dict[str, Any] | None = Field(None, description="image_crops parameter")
     implicit_with_tags: list[int] | None = Field(None, description="implicit_with_tags parameter")
-    instant_game_entry_point_data: str | None = Field(None, description="instant_game_entry_point_data parameter")
+    instant_game_entry_point_data: str | None = Field(
+        None, description="instant_game_entry_point_data parameter"
+    )
     ios_bundle_id: str | None = Field(None, description="ios_bundle_id parameter")
     is_backout_draft: bool | None = Field(None, description="is_backout_draft parameter")
     is_boost_intended: bool | None = Field(None, description="is_boost_intended parameter")
@@ -258,19 +289,27 @@ class GroupCreateFeedParams(BaseModel):
     nectar_module: str | None = Field(None, description="nectar_module parameter")
     object_attachment: str | None = Field(None, description="object_attachment parameter")
     og_action_type_id: str | None = Field(None, description="og_action_type_id parameter")
-    og_hide_object_attachment: bool | None = Field(None, description="og_hide_object_attachment parameter")
+    og_hide_object_attachment: bool | None = Field(
+        None, description="og_hide_object_attachment parameter"
+    )
     og_icon_id: str | None = Field(None, description="og_icon_id parameter")
     og_object_id: str | None = Field(None, description="og_object_id parameter")
     og_phrase: str | None = Field(None, description="og_phrase parameter")
     og_set_profile_badge: bool | None = Field(None, description="og_set_profile_badge parameter")
-    og_suggestion_mechanism: str | None = Field(None, description="og_suggestion_mechanism parameter")
+    og_suggestion_mechanism: str | None = Field(
+        None, description="og_suggestion_mechanism parameter"
+    )
     page_recommendation: str | None = Field(None, description="page_recommendation parameter")
     picture: str | None = Field(None, description="picture parameter")
     place: Any | None = Field(None, description="place parameter")
-    place_attachment_setting: str | None = Field(None, description="place_attachment_setting parameter")
+    place_attachment_setting: str | None = Field(
+        None, description="place_attachment_setting parameter"
+    )
     place_list: str | None = Field(None, description="place_list parameter")
     place_list_data: Any | None = Field(None, description="place_list_data parameter")
-    post_surfaces_blacklist: list[str] | None = Field(None, description="post_surfaces_blacklist parameter")
+    post_surfaces_blacklist: list[str] | None = Field(
+        None, description="post_surfaces_blacklist parameter"
+    )
     posting_to_redspace: str | None = Field(None, description="posting_to_redspace parameter")
     privacy: str | None = Field(None, description="privacy parameter")
     prompt_id: str | None = Field(None, description="prompt_id parameter")
@@ -281,9 +320,13 @@ class GroupCreateFeedParams(BaseModel):
     published: bool | None = Field(None, description="published parameter")
     quote: str | None = Field(None, description="quote parameter")
     ref: list[str] | None = Field(None, description="ref parameter")
-    referenceable_image_ids: list[str] | None = Field(None, description="referenceable_image_ids parameter")
+    referenceable_image_ids: list[str] | None = Field(
+        None, description="referenceable_image_ids parameter"
+    )
     referral_id: str | None = Field(None, description="referral_id parameter")
-    scheduled_publish_time: datetime | None = Field(None, description="scheduled_publish_time parameter")
+    scheduled_publish_time: datetime | None = Field(
+        None, description="scheduled_publish_time parameter"
+    )
     source: str | None = Field(None, description="source parameter")
     sponsor_id: str | None = Field(None, description="sponsor_id parameter")
     sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
@@ -295,17 +338,22 @@ class GroupCreateFeedParams(BaseModel):
     text_format_preset_id: str | None = Field(None, description="text_format_preset_id parameter")
     text_only_place: str | None = Field(None, description="text_only_place parameter")
     thumbnail: Any | None = Field(None, description="thumbnail parameter")
-    time_since_original_post: int | None = Field(None, description="time_since_original_post parameter")
+    time_since_original_post: int | None = Field(
+        None, description="time_since_original_post parameter"
+    )
     title: str | None = Field(None, description="title parameter")
     tracking_info: str | None = Field(None, description="tracking_info parameter")
-    unpublished_content_type: str | None = Field(None, description="unpublished_content_type parameter")
+    unpublished_content_type: str | None = Field(
+        None, description="unpublished_content_type parameter"
+    )
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     viewer_coordinates: Any | None = Field(None, description="viewer_coordinates parameter")
     width: int | None = Field(None, description="width parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupCreateGroupParams(BaseModel):
     """Parameters for Group.create_group()."""
@@ -318,12 +366,15 @@ class GroupCreateGroupParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     parent_id: str | None = Field(None, description="parent_id parameter")
     post_permissions: str | None = Field(None, description="post_permissions parameter")
-    post_requires_admin_approval: bool | None = Field(None, description="post_requires_admin_approval parameter")
+    post_requires_admin_approval: bool | None = Field(
+        None, description="post_requires_admin_approval parameter"
+    )
     privacy: str | None = Field(None, description="privacy parameter")
     ref: str | None = Field(None, description="ref parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupGetLiveVideosParams(BaseModel):
     """Parameters for Group.get_live_videos()."""
@@ -332,7 +383,8 @@ class GroupGetLiveVideosParams(BaseModel):
     source: str | None = Field(None, description="source parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupCreateLiveVideoParams(BaseModel):
     """Parameters for Group.create_live_video()."""
@@ -350,7 +402,9 @@ class GroupCreateLiveVideoParams(BaseModel):
     privacy: str | None = Field(None, description="privacy parameter")
     projection: str | None = Field(None, description="projection parameter")
     published: bool | None = Field(None, description="published parameter")
-    schedule_custom_profile_image: Any | None = Field(None, description="schedule_custom_profile_image parameter")
+    schedule_custom_profile_image: Any | None = Field(
+        None, description="schedule_custom_profile_image parameter"
+    )
     spatial_audio_format: str | None = Field(None, description="spatial_audio_format parameter")
     status: str | None = Field(None, description="status parameter")
     stereoscopic_mode: str | None = Field(None, description="stereoscopic_mode parameter")
@@ -359,7 +413,8 @@ class GroupCreateLiveVideoParams(BaseModel):
     title: str | None = Field(None, description="title parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupDeleteMembersParams(BaseModel):
     """Parameters for Group.delete_members()."""
@@ -368,19 +423,21 @@ class GroupDeleteMembersParams(BaseModel):
     member: int | None = Field(None, description="member parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupCreateMemberParams(BaseModel):
     """Parameters for Group.create_member()."""
 
     email: str | None = Field(None, description="email parameter")
-    from: int | None = Field(None, description="from parameter")
+    field_from: int | None = Field(None, alias="from", description="from parameter")
     member: int | None = Field(None, description="member parameter")
     rate: int | None = Field(None, description="rate parameter")
     source: str | None = Field(None, description="source parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupCreatePhotoParams(BaseModel):
     """Parameters for Group.create_photo()."""
@@ -393,16 +450,26 @@ class GroupCreatePhotoParams(BaseModel):
     attempt: int | None = Field(None, description="attempt parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(None, description="backdated_time_granularity parameter")
+    backdated_time_granularity: str | None = Field(
+        None, description="backdated_time_granularity parameter"
+    )
     caption: str | None = Field(None, description="caption parameter")
     composer_session_id: str | None = Field(None, description="composer_session_id parameter")
     direct_share_status: int | None = Field(None, description="direct_share_status parameter")
     feed_targeting: Any | None = Field(None, description="feed_targeting parameter")
     filter_type: int | None = Field(None, description="filter_type parameter")
-    full_res_is_coming_later: bool | None = Field(None, description="full_res_is_coming_later parameter")
-    initial_view_heading_override_degrees: int | None = Field(None, description="initial_view_heading_override_degrees parameter")
-    initial_view_pitch_override_degrees: int | None = Field(None, description="initial_view_pitch_override_degrees parameter")
-    initial_view_vertical_fov_override_degrees: int | None = Field(None, description="initial_view_vertical_fov_override_degrees parameter")
+    full_res_is_coming_later: bool | None = Field(
+        None, description="full_res_is_coming_later parameter"
+    )
+    initial_view_heading_override_degrees: int | None = Field(
+        None, description="initial_view_heading_override_degrees parameter"
+    )
+    initial_view_pitch_override_degrees: int | None = Field(
+        None, description="initial_view_pitch_override_degrees parameter"
+    )
+    initial_view_vertical_fov_override_degrees: int | None = Field(
+        None, description="initial_view_vertical_fov_override_degrees parameter"
+    )
     ios_bundle_id: str | None = Field(None, description="ios_bundle_id parameter")
     is_explicit_location: bool | None = Field(None, description="is_explicit_location parameter")
     is_explicit_place: bool | None = Field(None, description="is_explicit_place parameter")
@@ -416,7 +483,9 @@ class GroupCreatePhotoParams(BaseModel):
     og_object_id: str | None = Field(None, description="og_object_id parameter")
     og_phrase: str | None = Field(None, description="og_phrase parameter")
     og_set_profile_badge: bool | None = Field(None, description="og_set_profile_badge parameter")
-    og_suggestion_mechanism: str | None = Field(None, description="og_suggestion_mechanism parameter")
+    og_suggestion_mechanism: str | None = Field(
+        None, description="og_suggestion_mechanism parameter"
+    )
     place: Any | None = Field(None, description="place parameter")
     privacy: str | None = Field(None, description="privacy parameter")
     profile_id: int | None = Field(None, description="profile_id parameter")
@@ -424,21 +493,28 @@ class GroupCreatePhotoParams(BaseModel):
     proxied_app_id: str | None = Field(None, description="proxied_app_id parameter")
     published: bool | None = Field(None, description="published parameter")
     qn: str | None = Field(None, description="qn parameter")
-    spherical_metadata: dict[str, Any] | None = Field(None, description="spherical_metadata parameter")
+    spherical_metadata: dict[str, Any] | None = Field(
+        None, description="spherical_metadata parameter"
+    )
     sponsor_id: str | None = Field(None, description="sponsor_id parameter")
     sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
     tags: list[Any] | None = Field(None, description="tags parameter")
     target_id: int | None = Field(None, description="target_id parameter")
     targeting: Any | None = Field(None, description="targeting parameter")
-    time_since_original_post: int | None = Field(None, description="time_since_original_post parameter")
+    time_since_original_post: int | None = Field(
+        None, description="time_since_original_post parameter"
+    )
     uid: int | None = Field(None, description="uid parameter")
-    unpublished_content_type: str | None = Field(None, description="unpublished_content_type parameter")
+    unpublished_content_type: str | None = Field(
+        None, description="unpublished_content_type parameter"
+    )
     url: str | None = Field(None, description="url parameter")
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
     vault_image_id: str | None = Field(None, description="vault_image_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupGetPictureParams(BaseModel):
     """Parameters for Group.get_picture()."""
@@ -449,7 +525,8 @@ class GroupGetPictureParams(BaseModel):
     width: int | None = Field(None, description="width parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupGetVideosParams(BaseModel):
     """Parameters for Group.get_videos()."""
@@ -457,20 +534,29 @@ class GroupGetVideosParams(BaseModel):
     type: str | None = Field(None, description="type parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
+
 
 class GroupCreateVideoParams(BaseModel):
     """Parameters for Group.create_video()."""
 
     application_id: str | None = Field(None, description="application_id parameter")
-    asked_fun_fact_prompt_id: int | None = Field(None, description="asked_fun_fact_prompt_id parameter")
-    audio_story_wave_animation_handle: str | None = Field(None, description="audio_story_wave_animation_handle parameter")
+    asked_fun_fact_prompt_id: int | None = Field(
+        None, description="asked_fun_fact_prompt_id parameter"
+    )
+    audio_story_wave_animation_handle: str | None = Field(
+        None, description="audio_story_wave_animation_handle parameter"
+    )
     composer_entry_picker: str | None = Field(None, description="composer_entry_picker parameter")
     composer_entry_point: str | None = Field(None, description="composer_entry_point parameter")
     composer_entry_time: int | None = Field(None, description="composer_entry_time parameter")
-    composer_session_events_log: str | None = Field(None, description="composer_session_events_log parameter")
+    composer_session_events_log: str | None = Field(
+        None, description="composer_session_events_log parameter"
+    )
     composer_session_id: str | None = Field(None, description="composer_session_id parameter")
-    composer_source_surface: str | None = Field(None, description="composer_source_surface parameter")
+    composer_source_surface: str | None = Field(
+        None, description="composer_source_surface parameter"
+    )
     composer_type: str | None = Field(None, description="composer_type parameter")
     container_type: str | None = Field(None, description="container_type parameter")
     content_category: str | None = Field(None, description="content_category parameter")
@@ -478,7 +564,9 @@ class GroupCreateVideoParams(BaseModel):
     description: str | None = Field(None, description="description parameter")
     embeddable: bool | None = Field(None, description="embeddable parameter")
     end_offset: int | None = Field(None, description="end_offset parameter")
-    fbuploader_video_file_chunk: str | None = Field(None, description="fbuploader_video_file_chunk parameter")
+    fbuploader_video_file_chunk: str | None = Field(
+        None, description="fbuploader_video_file_chunk parameter"
+    )
     file_size: int | None = Field(None, description="file_size parameter")
     file_url: str | None = Field(None, description="file_url parameter")
     fisheye_video_cropped: bool | None = Field(None, description="fisheye_video_cropped parameter")
@@ -491,7 +579,9 @@ class GroupCreateVideoParams(BaseModel):
     guide_enabled: bool | None = Field(None, description="guide_enabled parameter")
     initial_heading: int | None = Field(None, description="initial_heading parameter")
     initial_pitch: int | None = Field(None, description="initial_pitch parameter")
-    instant_game_entry_point_data: str | None = Field(None, description="instant_game_entry_point_data parameter")
+    instant_game_entry_point_data: str | None = Field(
+        None, description="instant_game_entry_point_data parameter"
+    )
     is_boost_intended: bool | None = Field(None, description="is_boost_intended parameter")
     is_explicit_share: bool | None = Field(None, description="is_explicit_share parameter")
     is_group_linking_post: bool | None = Field(None, description="is_group_linking_post parameter")
@@ -503,9 +593,13 @@ class GroupCreateVideoParams(BaseModel):
     og_icon_id: str | None = Field(None, description="og_icon_id parameter")
     og_object_id: str | None = Field(None, description="og_object_id parameter")
     og_phrase: str | None = Field(None, description="og_phrase parameter")
-    og_suggestion_mechanism: str | None = Field(None, description="og_suggestion_mechanism parameter")
+    og_suggestion_mechanism: str | None = Field(
+        None, description="og_suggestion_mechanism parameter"
+    )
     original_fov: int | None = Field(None, description="original_fov parameter")
-    original_projection_type: str | None = Field(None, description="original_projection_type parameter")
+    original_projection_type: str | None = Field(
+        None, description="original_projection_type parameter"
+    )
     partnership_ad_ad_code: str | None = Field(None, description="partnership_ad_ad_code parameter")
     publish_event_id: int | None = Field(None, description="publish_event_id parameter")
     published: bool | None = Field(None, description="published parameter")
@@ -514,23 +608,33 @@ class GroupCreateVideoParams(BaseModel):
     scheduled_publish_time: int | None = Field(None, description="scheduled_publish_time parameter")
     slideshow_spec: dict[str, Any] | None = Field(None, description="slideshow_spec parameter")
     source: str | None = Field(None, description="source parameter")
-    source_instagram_media_id: str | None = Field(None, description="source_instagram_media_id parameter")
+    source_instagram_media_id: str | None = Field(
+        None, description="source_instagram_media_id parameter"
+    )
     spherical: bool | None = Field(None, description="spherical parameter")
     start_offset: int | None = Field(None, description="start_offset parameter")
     swap_mode: str | None = Field(None, description="swap_mode parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     thumb: Any | None = Field(None, description="thumb parameter")
-    time_since_original_post: int | None = Field(None, description="time_since_original_post parameter")
+    time_since_original_post: int | None = Field(
+        None, description="time_since_original_post parameter"
+    )
     title: str | None = Field(None, description="title parameter")
-    transcode_setting_properties: str | None = Field(None, description="transcode_setting_properties parameter")
-    unpublished_content_type: str | None = Field(None, description="unpublished_content_type parameter")
+    transcode_setting_properties: str | None = Field(
+        None, description="transcode_setting_properties parameter"
+    )
+    unpublished_content_type: str | None = Field(
+        None, description="unpublished_content_type parameter"
+    )
     upload_phase: str | None = Field(None, description="upload_phase parameter")
     upload_session_id: str | None = Field(None, description="upload_session_id parameter")
-    upload_setting_properties: str | None = Field(None, description="upload_setting_properties parameter")
+    upload_setting_properties: str | None = Field(
+        None, description="upload_setting_properties parameter"
+    )
     video_file_chunk: str | None = Field(None, description="video_file_chunk parameter")
     video_id_original: str | None = Field(None, description="video_id_original parameter")
     video_start_time_ms: int | None = Field(None, description="video_start_time_ms parameter")
     waterfall_id: str | None = Field(None, description="waterfall_id parameter")
 
     class Config:
-        extra = 'forbid'
+        extra = "forbid"

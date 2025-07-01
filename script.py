@@ -60,6 +60,20 @@ class EnumInfo:
 
 
 @dataclass
+class ApiMethodInfo:
+    """Information about an API method."""
+
+    name: str
+    http_method: str  # GET, POST, DELETE
+    endpoint: Optional[str]  # e.g., "/ads"
+    target_class: Optional[str]  # e.g., "Ad"
+    param_types: dict[str, str]
+    enums: dict[str, str]
+    is_edge: bool = True  # Most methods are edge calls
+    returns_iterator: bool = True  # GET methods usually return iterators
+
+
+@dataclass
 class AdObjectInfo:
     """Information about an AdObject."""
 
@@ -68,7 +82,7 @@ class AdObjectInfo:
     fields: list[FieldInfo]
     enums: list[EnumInfo]
     field_types: dict[str, str]
-    api_methods: Optional[list[dict]] = None  # Will store API method info
+    api_methods: Optional[list[ApiMethodInfo]] = None  # Will store API method info
 
 
 class FacebookSDKParser:
@@ -89,7 +103,7 @@ class FacebookSDKParser:
         for file_path in self.adobjects_path.glob("*.py"):
             if file_path.name.startswith("__"):
                 continue
-            
+
             # Parse the file to get the main class name
             with open(file_path) as f:
                 try:
@@ -101,7 +115,7 @@ class FacebookSDKParser:
                             break
                 except:
                     continue
-    
+
     def find_adobject_files(self) -> list[Path]:
         """Find all Python files in the adobjects directory."""
         return list(self.adobjects_path.glob("*.py"))
@@ -183,6 +197,45 @@ class FacebookSDKParser:
 
     def _extract_fields(self, field_class: ast.ClassDef) -> list[FieldInfo]:
         """Extract field definitions from Field class."""
+        # Python reserved keywords
+        RESERVED_KEYWORDS = {
+            "and",
+            "as",
+            "assert",
+            "async",
+            "await",
+            "break",
+            "class",
+            "continue",
+            "def",
+            "del",
+            "elif",
+            "else",
+            "except",
+            "finally",
+            "for",
+            "from",
+            "global",
+            "if",
+            "import",
+            "in",
+            "is",
+            "lambda",
+            "nonlocal",
+            "not",
+            "or",
+            "pass",
+            "raise",
+            "return",
+            "try",
+            "while",
+            "with",
+            "yield",
+            "True",
+            "False",
+            "None",
+        }
+
         fields = []
         for node in field_class.body:
             if isinstance(node, ast.Assign):
@@ -191,10 +244,14 @@ class FacebookSDKParser:
                         field_name = target.id
                         if isinstance(node.value, ast.Constant):
                             field_value = node.value.value
+                            # Handle reserved keywords
+                            python_name = field_name
+                            if field_value in RESERVED_KEYWORDS:
+                                python_name = f"field_{field_value}"
                             fields.append(
                                 FieldInfo(
                                     name=field_value,
-                                    python_name=field_name,
+                                    python_name=python_name,
                                     field_type="string",  # Default, will be overridden
                                     python_type="str",
                                 )
@@ -225,27 +282,60 @@ class FacebookSDKParser:
                 field_types[key.value] = value.value
         return field_types
 
-    def _extract_api_method_info(self, func_node: ast.FunctionDef) -> Optional[dict]:
+    def _extract_api_method_info(self, func_node: ast.FunctionDef) -> Optional[ApiMethodInfo]:
         """Extract parameter types from API methods like get_ad_sets."""
-        method_info = {
-            "name": func_node.name,
-            "param_types": {},
-            "enums": {},
-        }
+        # Skip methods that don't match our pattern
+        if not (func_node.name.startswith(("get_", "create_", "delete_"))):
+            return None
 
-        # Look for param_types dictionary in the function body
+        method_info = ApiMethodInfo(
+            name=func_node.name,
+            http_method="GET"
+            if func_node.name.startswith("get_")
+            else "POST"
+            if func_node.name.startswith("create_")
+            else "DELETE",
+            endpoint=None,
+            target_class=None,
+            param_types={},
+            enums={},
+        )
+
+        # Look for various assignments in the function body
         for node in ast.walk(func_node):
             if isinstance(node, ast.Assign):
                 for target in node.targets:
-                    if isinstance(target, ast.Name) and target.id == "param_types":
-                        if isinstance(node.value, ast.Dict):
-                            method_info["param_types"] = self._extract_param_types(node.value)
-                    elif isinstance(target, ast.Name) and target.id == "enums":
-                        if isinstance(node.value, ast.Dict):
-                            method_info["enums"] = self._extract_enum_refs(node.value)
+                    if isinstance(target, ast.Name):
+                        if target.id == "param_types" and isinstance(node.value, ast.Dict):
+                            method_info.param_types = self._extract_param_types(node.value)
+                        elif target.id == "enums" and isinstance(node.value, ast.Dict):
+                            method_info.enums = self._extract_enum_refs(node.value)
 
-        # Only return if we found param_types
-        if method_info["param_types"]:
+            # Look for FacebookRequest instantiation to get endpoint and target class
+            elif (
+                isinstance(node, ast.Call)
+                and isinstance(node.func, ast.Name)
+                and node.func.id == "FacebookRequest"
+            ):
+                for keyword in node.keywords:
+                    if keyword.arg == "endpoint" and isinstance(keyword.value, ast.Constant):
+                        method_info.endpoint = keyword.value.value
+                    elif keyword.arg == "target_class" and isinstance(keyword.value, ast.Name):
+                        method_info.target_class = keyword.value.id
+                    elif keyword.arg == "method" and isinstance(keyword.value, ast.Constant):
+                        method_info.http_method = keyword.value.value
+
+            # Check for imports to get target class
+            elif isinstance(node, ast.ImportFrom):
+                # Extract class name from import like "from facebook_business.adobjects.ad import Ad"
+                if node.module and "adobjects" in node.module:
+                    for alias in node.names:
+                        if hasattr(alias, "name"):
+                            # This might be our target class
+                            pass
+
+        # Only return if we found param_types or it's a simple method
+        if method_info.param_types or method_info.name in ["api_get", "api_update", "api_delete"]:
             return method_info
         return None
 
@@ -449,6 +539,45 @@ class PydanticModelGenerator:
         if not method_info["param_types"]:
             return None
 
+        # Python reserved keywords
+        RESERVED_KEYWORDS = {
+            "and",
+            "as",
+            "assert",
+            "async",
+            "await",
+            "break",
+            "class",
+            "continue",
+            "def",
+            "del",
+            "elif",
+            "else",
+            "except",
+            "finally",
+            "for",
+            "from",
+            "global",
+            "if",
+            "import",
+            "in",
+            "is",
+            "lambda",
+            "nonlocal",
+            "not",
+            "or",
+            "pass",
+            "raise",
+            "return",
+            "try",
+            "while",
+            "with",
+            "yield",
+            "True",
+            "False",
+            "None",
+        }
+
         lines = []
         method_name = method_info["name"]
         # Convert method name to PascalCase for the model name
@@ -464,7 +593,12 @@ class PydanticModelGenerator:
         for param_name, param_type in method_info["param_types"].items():
             python_type = self._map_param_type(param_type, method_info["enums"])
             # Make all params optional by default
-            field_def = f'    {param_name}: {python_type} | None = Field(None, description="{param_name} parameter")'
+            field_name = param_name
+            if param_name in RESERVED_KEYWORDS:
+                field_name = f"field_{param_name}"
+                field_def = f'    {field_name}: {python_type} | None = Field(None, alias="{param_name}", description="{param_name} parameter")'
+            else:
+                field_def = f'    {param_name}: {python_type} | None = Field(None, description="{param_name} parameter")'
             lines.append(field_def)
 
         lines.append("")
@@ -524,9 +658,10 @@ def generate_comprehensive_types_file(output_dir: Path):
     """Generate a comprehensive file with all field types and models."""
     lines = []
     lines.append('"""Code generated by PromoBase script - DO NOT EDIT MANUALLY."""')
-    lines.append('"""Comprehensive type definitions for Facebook Marketing API objects."""')
     lines.append("")
     lines.append("from __future__ import annotations")
+    lines.append("")
+    lines.append('"""Comprehensive type definitions for Facebook Marketing API objects."""')
     lines.append("")
     lines.append("from typing import Union")
     lines.append("")
@@ -544,9 +679,7 @@ def generate_comprehensive_types_file(output_dir: Path):
 
     for module_file in module_files:
         module_name = module_file.stem
-        class_name = "".join(
-            word.capitalize() for word in module_name.split("_")
-        )
+        class_name = "".join(word.capitalize() for word in module_name.split("_"))
 
         # Import field literal
         field_literal = f"{class_name}Field"
@@ -638,30 +771,37 @@ def main():
     parser = FacebookSDKParser()
     generator = PydanticModelGenerator(parser)
 
-    # Output directory
-    output_dir = Path("src/generated/models")
-    output_dir.mkdir(parents=True, exist_ok=True)
+    # Output directories
+    models_dir = Path("src/generated/models")
+    models_dir.mkdir(parents=True, exist_ok=True)
+
+    wrappers_dir = Path("src/generated/wrappers")
+    wrappers_dir.mkdir(parents=True, exist_ok=True)
 
     # Clean up existing files first
     print("Cleaning up existing generated files...")
     # Remove old _models.py files
-    for old_file in output_dir.glob("*_models.py"):
+    for old_file in models_dir.glob("*_models.py"):
         old_file.unlink()
         print(f"  Removed {old_file}")
     # Remove new .py files (excluding special files)
-    for old_file in output_dir.glob("*.py"):
+    for old_file in models_dir.glob("*.py"):
         if not old_file.stem.startswith("__") and old_file.stem not in ["fb_types"]:
             old_file.unlink()
             print(f"  Removed {old_file}")
 
     # Process all AdObject files
     adobject_files = parser.find_adobject_files()
-    
+
     # Filter out non-adobject files (like __init__.py, abstractobject.py, etc.)
     files_to_process = []
     for file_path in adobject_files:
         # Skip special files
-        if file_path.stem.startswith("__") or file_path.stem in ["abstractobject", "abstractcrudobject", "apispecfile"]:
+        if file_path.stem.startswith("__") or file_path.stem in [
+            "abstractobject",
+            "abstractcrudobject",
+            "apispecfile",
+        ]:
             continue
         files_to_process.append(file_path)
 
@@ -677,7 +817,7 @@ def main():
             model_code = generator.generate_model(adobject_info)
 
             # Write to file
-            output_file = output_dir / f"{adobject_info.module_path}.py"
+            output_file = models_dir / f"{adobject_info.module_path}.py"
             with open(output_file, "w") as f:
                 f.write(model_code)
 
@@ -690,7 +830,7 @@ def main():
             print(f"  ✗ No fields found in {file_path.name}")
 
     # Generate __init__.py for all models
-    init_file = output_dir / "__init__.py"
+    init_file = models_dir / "__init__.py"
     with open(init_file, "w") as f:
         f.write('"""Code generated by PromoBase script - DO NOT EDIT MANUALLY."""\n')
         f.write('"""Auto-generated Pydantic models for Facebook Business SDK objects."""\n\n')
@@ -702,21 +842,21 @@ def main():
 
     # Generate a comprehensive types file that exports all field literals
     print("\nGenerating comprehensive types file...")
-    generate_comprehensive_types_file(output_dir)
+    generate_comprehensive_types_file(models_dir)
 
-    print(f"\n✓ Successfully generated {len(generated_files)} model files in {output_dir}")
-    
+    print(f"\n✓ Successfully generated {len(generated_files)} model files in {models_dir}")
+
     # Run ruff format and ruff check
     print("\nRunning ruff format...")
     try:
-        subprocess.run(["ruff", "format", str(output_dir)], check=True, capture_output=True)
+        subprocess.run(["ruff", "format", str(models_dir)], check=True, capture_output=True)
         print("✓ Ruff format completed")
     except subprocess.CalledProcessError as e:
         print(f"✗ Ruff format failed: {e.stderr.decode()}")
-    
+
     print("\nRunning ruff check...")
     try:
-        subprocess.run(["ruff", "check", "--fix", str(output_dir)], check=True, capture_output=True)
+        subprocess.run(["ruff", "check", "--fix", str(models_dir)], check=True, capture_output=True)
         print("✓ Ruff check completed")
     except subprocess.CalledProcessError as e:
         print(f"✗ Ruff check failed: {e.stderr.decode()}")
