@@ -233,6 +233,8 @@ class FacebookSDKParser:
             "True",
             "False",
             "None",
+            # pydantic ones
+            "schema",
         }
 
         fields = []

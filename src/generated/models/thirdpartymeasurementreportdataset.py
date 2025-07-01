@@ -18,6 +18,6 @@ class ThirdPartyMeasurementReportDatasetFields(BaseModel):
     id: str | None = Field(None, alias="id")
     partner: dict[str, Any] | None = Field(None, alias="partner")
     product: str | None = Field(None, alias="product")
-    schema: list[dict[str, Any]] | None = Field(None, alias="schema")
+    field_schema: list[dict[str, Any]] | None = Field(None, alias="schema")
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
