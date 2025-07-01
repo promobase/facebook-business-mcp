@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING, Any, Literal
 from pydantic import BaseModel, Field
 
 if TYPE_CHECKING:
+    from .adasyncrequest import AdAsyncRequestStatuses
     from .adasyncrequestsetnotificationresult import AdAsyncRequestSetNotificationResultFields
     from .adcreative import AdCreativeFields
 
@@ -74,7 +75,7 @@ class AdAsyncRequestSetFields(BaseModel):
 class AdAsyncRequestSetGetRequestsParams(BaseModel):
     """Parameters for AdAsyncRequestSet.get_requests()."""
 
-    statuses: list[str] | None = Field(None, description="statuses parameter")
+    statuses: list[AdAsyncRequestStatuses] | None = Field(None, description="statuses parameter")
 
     class Config:
         extra = "forbid"

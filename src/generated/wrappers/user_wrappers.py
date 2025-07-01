@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.user import User
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.adstudy import (
     AdStudyFields,
 )
@@ -171,12 +168,12 @@ class UserWrappers:
     def create_account(
         obj: User,
         params: UserCreateAccountParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for User.create_account().
 
         Endpoint: POST /accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -184,8 +181,8 @@ class UserWrappers:
         # Call the original method
         result = obj.create_account(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_ad_study(
@@ -290,7 +287,7 @@ class UserWrappers:
         Type-safe wrapper for User.delete_businesses().
 
         Endpoint: DELETE /businesses
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -726,7 +723,7 @@ class UserWrappers:
         Type-safe wrapper for User.delete_permissions().
 
         Endpoint: DELETE /permissions
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Any, Literal
 from pydantic import BaseModel, Field
 
 if TYPE_CHECKING:
+    from .commerceorder import CommerceOrderFilters, CommerceOrderState
     from .profile import ProfileFields
 
 
@@ -73,8 +74,8 @@ class CommerceMerchantSettingsCreateAcknowledgeOrderParams(BaseModel):
 class CommerceMerchantSettingsGetCommerceOrdersParams(BaseModel):
     """Parameters for CommerceMerchantSettings.get_commerce_orders()."""
 
-    filters: list[str] | None = Field(None, description="filters parameter")
-    state: list[str] | None = Field(None, description="state parameter")
+    filters: list[CommerceOrderFilters] | None = Field(None, description="filters parameter")
+    state: list[CommerceOrderState] | None = Field(None, description="state parameter")
     updated_after: datetime | None = Field(None, description="updated_after parameter")
     updated_before: datetime | None = Field(None, description="updated_before parameter")
 

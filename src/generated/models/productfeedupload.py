@@ -8,7 +8,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .productfeeduploaderror import ProductFeedUploadErrorErrorPriority
+
 if TYPE_CHECKING:
+    from .productfeeduploaderror import ProductFeedUploadErrorErrorPriority
     from .productfeeduploaderrorreport import ProductFeedUploadErrorReportFields
 
 
@@ -64,7 +67,9 @@ class ProductFeedUploadFields(BaseModel):
 class ProductFeedUploadGetErrorsParams(BaseModel):
     """Parameters for ProductFeedUpload.get_errors()."""
 
-    error_priority: str | None = Field(None, description="error_priority parameter")
+    error_priority: ProductFeedUploadErrorErrorPriority | None = Field(
+        None, description="error_priority parameter"
+    )
 
     class Config:
         extra = "forbid"

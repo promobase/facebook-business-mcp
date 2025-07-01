@@ -8,8 +8,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .customconversionstatsresult import CustomConversionStatsResultAggregation
+
 if TYPE_CHECKING:
     from .adspixel import AdsPixelFields
+    from .customconversionstatsresult import CustomConversionStatsResultAggregation
     from .externaleventsource import ExternalEventSourceFields
     from .offlineconversiondataset import OfflineConversionDataSetFields
 
@@ -117,7 +120,9 @@ class CustomConversionFields(BaseModel):
 class CustomConversionGetStatsParams(BaseModel):
     """Parameters for CustomConversion.get_stats()."""
 
-    aggregation: str | None = Field(None, description="aggregation parameter")
+    aggregation: CustomConversionStatsResultAggregation | None = Field(
+        None, description="aggregation parameter"
+    )
     end_time: datetime | None = Field(None, description="end_time parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
 

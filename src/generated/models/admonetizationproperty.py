@@ -3,9 +3,25 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
+
+from .adnetworkanalyticssyncqueryresult import (
+    AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+    AdNetworkAnalyticsSyncQueryResultOrderingColumn,
+    AdNetworkAnalyticsSyncQueryResultOrderingType,
+)
+
+if TYPE_CHECKING:
+    from .adnetworkanalyticssyncqueryresult import (
+        AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+        AdNetworkAnalyticsSyncQueryResultBreakdowns,
+        AdNetworkAnalyticsSyncQueryResultMetrics,
+        AdNetworkAnalyticsSyncQueryResultOrderingColumn,
+        AdNetworkAnalyticsSyncQueryResultOrderingType,
+    )
+
 
 AdMonetizationPropertyField = Literal["owner_business", "id"]
 
@@ -24,13 +40,23 @@ class AdMonetizationPropertyFields(BaseModel):
 class AdMonetizationPropertyGetAdNetworkAnalyticsParams(BaseModel):
     """Parameters for AdMonetizationProperty.get_ad_network_analytics()."""
 
-    aggregation_period: str | None = Field(None, description="aggregation_period parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
+    aggregation_period: AdNetworkAnalyticsSyncQueryResultAggregationPeriod | None = Field(
+        None, description="aggregation_period parameter"
+    )
+    breakdowns: list[AdNetworkAnalyticsSyncQueryResultBreakdowns] | None = Field(
+        None, description="breakdowns parameter"
+    )
     filters: list[dict[str, Any]] | None = Field(None, description="filters parameter")
     limit: int | None = Field(None, description="limit parameter")
-    metrics: list[str] | None = Field(None, description="metrics parameter")
-    ordering_column: str | None = Field(None, description="ordering_column parameter")
-    ordering_type: str | None = Field(None, description="ordering_type parameter")
+    metrics: list[AdNetworkAnalyticsSyncQueryResultMetrics] | None = Field(
+        None, description="metrics parameter"
+    )
+    ordering_column: AdNetworkAnalyticsSyncQueryResultOrderingColumn | None = Field(
+        None, description="ordering_column parameter"
+    )
+    ordering_type: AdNetworkAnalyticsSyncQueryResultOrderingType | None = Field(
+        None, description="ordering_type parameter"
+    )
     should_include_until: bool | None = Field(None, description="should_include_until parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
@@ -42,13 +68,23 @@ class AdMonetizationPropertyGetAdNetworkAnalyticsParams(BaseModel):
 class AdMonetizationPropertyCreateAdNetworkAnalyticParams(BaseModel):
     """Parameters for AdMonetizationProperty.create_ad_network_analytic()."""
 
-    aggregation_period: str | None = Field(None, description="aggregation_period parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
+    aggregation_period: AdNetworkAnalyticsSyncQueryResultAggregationPeriod | None = Field(
+        None, description="aggregation_period parameter"
+    )
+    breakdowns: list[AdNetworkAnalyticsSyncQueryResultBreakdowns] | None = Field(
+        None, description="breakdowns parameter"
+    )
     filters: list[Any] | None = Field(None, description="filters parameter")
     limit: int | None = Field(None, description="limit parameter")
-    metrics: list[str] | None = Field(None, description="metrics parameter")
-    ordering_column: str | None = Field(None, description="ordering_column parameter")
-    ordering_type: str | None = Field(None, description="ordering_type parameter")
+    metrics: list[AdNetworkAnalyticsSyncQueryResultMetrics] | None = Field(
+        None, description="metrics parameter"
+    )
+    ordering_column: AdNetworkAnalyticsSyncQueryResultOrderingColumn | None = Field(
+        None, description="ordering_column parameter"
+    )
+    ordering_type: AdNetworkAnalyticsSyncQueryResultOrderingType | None = Field(
+        None, description="ordering_type parameter"
+    )
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 

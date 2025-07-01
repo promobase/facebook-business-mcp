@@ -2,15 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.iguserforigonlyapi import IGUserForIGOnlyAPI
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectField,
-    AbstractCrudObjectFields,
-)
 from ..models.contentpublishinglimitresponse import (
     ContentPublishingLimitResponseField,
     ContentPublishingLimitResponseFields,
@@ -55,13 +51,13 @@ class IGUserForIGOnlyAPIWrappers:
     def get_business_messaging_feature_status(
         obj: IGUserForIGOnlyAPI,
         params: Optional[IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.get_business_messaging_feature_status().
 
         Endpoint: GET /business_messaging_feature_status
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -75,8 +71,8 @@ class IGUserForIGOnlyAPIWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_content_publishing_limit(
@@ -163,13 +159,13 @@ class IGUserForIGOnlyAPIWrappers:
     def get_media(
         obj: IGUserForIGOnlyAPI,
         params: Optional[IGUserForIGOnlyAPIGetMediaParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.get_media().
 
         Endpoint: GET /media
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -183,19 +179,19 @@ class IGUserForIGOnlyAPIWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_media(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateMediaParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_media().
 
         Endpoint: POST /media
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -203,19 +199,19 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_media(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_media_publish(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateMediaPublishParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_media_publish().
 
         Endpoint: POST /mediapublish
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -223,19 +219,19 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_media_publish(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_mention(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateMentionParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_mention().
 
         Endpoint: POST /mentions
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -243,19 +239,19 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_mention(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_message_attachment(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateMessageAttachmentParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_message_attachment().
 
         Endpoint: POST /messageattachments
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -263,19 +259,19 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_message_attachment(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_message(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateMessageParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_message().
 
         Endpoint: POST /messages
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -283,8 +279,8 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_message(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def delete_messenger_profile(
@@ -295,7 +291,7 @@ class IGUserForIGOnlyAPIWrappers:
         Type-safe wrapper for IGUserForIGOnlyAPI.delete_messenger_profile().
 
         Endpoint: DELETE /messenger_profile
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -309,12 +305,12 @@ class IGUserForIGOnlyAPIWrappers:
     def create_messenger_profile(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateMessengerProfileParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_messenger_profile().
 
         Endpoint: POST /messenger_profile
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -322,19 +318,19 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_messenger_profile(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_subscribed_app(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateSubscribedAppParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_subscribed_app().
 
         Endpoint: POST /subscribed_apps
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -342,8 +338,8 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_subscribed_app(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def delete_welcome_message_flows(
@@ -354,7 +350,7 @@ class IGUserForIGOnlyAPIWrappers:
         Type-safe wrapper for IGUserForIGOnlyAPI.delete_welcome_message_flows().
 
         Endpoint: DELETE /welcome_message_flows
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -395,12 +391,12 @@ class IGUserForIGOnlyAPIWrappers:
     def create_welcome_message_flow(
         obj: IGUserForIGOnlyAPI,
         params: IGUserForIGOnlyAPICreateWelcomeMessageFlowParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUserForIGOnlyAPI.create_welcome_message_flow().
 
         Endpoint: POST /welcome_message_flows
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -408,5 +404,5 @@ class IGUserForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_welcome_message_flow(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result

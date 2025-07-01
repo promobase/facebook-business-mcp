@@ -74,20 +74,20 @@ def create_root_mcp() -> FastMCP:
         return config.get("ad_account_id", "No default ad account configured")
 
     # Mount workflow servers (high-level operations)
-    mcp.mount(campaign_management_server, "campaign_management")
-    mcp.mount(reporting_server, "reporting")
-    mcp.mount(audience_server, "audience")
+    # mcp.mount(campaign_management_server, "campaign_management")
+    # mcp.mount(reporting_server, "reporting")
+    # mcp.mount(audience_server, "audience")
 
     # Mount resource servers (core operations)
     mcp.mount(ad_account_server, "ad_account")
-    mcp.mount(campaign_server, "campaign")
-    mcp.mount(adset_server, "adset")
-    mcp.mount(ad_server, "ad")
+    # mcp.mount(campaign_server, "campaign")
+    # mcp.mount(adset_server, "adset")
+    # mcp.mount(ad_server, "ad")
 
     # Mount insights server (to be refactored)
-    mcp.mount(insights_server, "insights")
+    # mcp.mount(insights_server, "insights")
 
     # Mount universal server (foundation layer)
-    mcp.mount(higher_order_server, "universal")
+    # mcp.mount(higher_order_server, "universal")
 
     return mcp

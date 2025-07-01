@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.extendedcredit import ExtendedCredit
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.extendedcredit import (
     ExtendedCreditCreateExtendedCreditInvoiceGroupParams,
     ExtendedCreditCreateOwningCreditAllocationConfigParams,
@@ -102,12 +99,12 @@ class ExtendedCreditWrappers:
     def create_whats_app_credit_attach(
         obj: ExtendedCredit,
         params: ExtendedCreditCreateWhatsAppCreditAttachParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for ExtendedCredit.create_whats_app_credit_attach().
 
         Endpoint: POST /whatsapp_credit_attach
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -115,19 +112,19 @@ class ExtendedCreditWrappers:
         # Call the original method
         result = obj.create_whats_app_credit_attach(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_whats_app_credit_sharing(
         obj: ExtendedCredit,
         params: ExtendedCreditCreateWhatsAppCreditSharingParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for ExtendedCredit.create_whats_app_credit_sharing().
 
         Endpoint: POST /whatsapp_credit_sharing
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -135,8 +132,8 @@ class ExtendedCreditWrappers:
         # Call the original method
         result = obj.create_whats_app_credit_sharing(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_whats_app_credit_sharing_and_attach(

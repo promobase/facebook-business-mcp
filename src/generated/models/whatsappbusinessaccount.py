@@ -177,7 +177,7 @@ class WhatsAppBusinessAccountGetAssignedUsersParams(BaseModel):
 class WhatsAppBusinessAccountCreateAssignedUserParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_assigned_user()."""
 
-    tasks: list[str] | None = Field(None, description="tasks parameter")
+    tasks: list[WhatsAppBusinessAccountTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
     class Config:
@@ -285,7 +285,9 @@ class WhatsAppBusinessAccountDeleteMessageTemplatesParams(BaseModel):
 class WhatsAppBusinessAccountGetMessageTemplatesParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_message_templates()."""
 
-    category: list[str] | None = Field(None, description="category parameter")
+    category: list[WhatsAppBusinessAccountCategory] | None = Field(
+        None, description="category parameter"
+    )
     content: str | None = Field(None, description="content parameter")
     language: list[str] | None = Field(None, description="language parameter")
     name: str | None = Field(None, description="name parameter")
@@ -301,7 +303,7 @@ class WhatsAppBusinessAccountCreateMessageTemplateParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_message_template()."""
 
     allow_category_change: bool | None = Field(None, description="allow_category_change parameter")
-    category: str | None = Field(None, description="category parameter")
+    category: WhatsAppBusinessAccountCategory | None = Field(None, description="category parameter")
     components: list[dict[str, Any]] | None = Field(None, description="components parameter")
     cta_url_link_tracking_opted_out: bool | None = Field(
         None, description="cta_url_link_tracking_opted_out parameter"
@@ -309,7 +311,9 @@ class WhatsAppBusinessAccountCreateMessageTemplateParams(BaseModel):
     degrees_of_freedom_spec: dict[str, Any] | None = Field(
         None, description="degrees_of_freedom_spec parameter"
     )
-    display_format: str | None = Field(None, description="display_format parameter")
+    display_format: WhatsAppBusinessAccountDisplayFormat | None = Field(
+        None, description="display_format parameter"
+    )
     language: str | None = Field(None, description="language parameter")
     library_template_body_inputs: dict[str, Any] | None = Field(
         None, description="library_template_body_inputs parameter"
@@ -322,8 +326,12 @@ class WhatsAppBusinessAccountCreateMessageTemplateParams(BaseModel):
         None, description="message_send_ttl_seconds parameter"
     )
     name: str | None = Field(None, description="name parameter")
-    parameter_format: str | None = Field(None, description="parameter_format parameter")
-    sub_category: str | None = Field(None, description="sub_category parameter")
+    parameter_format: WhatsAppBusinessAccountParameterFormat | None = Field(
+        None, description="parameter_format parameter"
+    )
+    sub_category: WhatsAppBusinessAccountSubCategory | None = Field(
+        None, description="sub_category parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -374,7 +382,9 @@ class WhatsAppBusinessAccountCreatePaymentConfigurationParams(BaseModel):
     data_endpoint_url: str | None = Field(None, description="data_endpoint_url parameter")
     merchant_category_code: str | None = Field(None, description="merchant_category_code parameter")
     merchant_vpa: str | None = Field(None, description="merchant_vpa parameter")
-    provider_name: str | None = Field(None, description="provider_name parameter")
+    provider_name: WhatsAppBusinessAccountProviderName | None = Field(
+        None, description="provider_name parameter"
+    )
     purpose_code: str | None = Field(None, description="purpose_code parameter")
     redirect_url: str | None = Field(None, description="redirect_url parameter")
 
@@ -513,7 +523,7 @@ class WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams(BaseModel):
 class WhatsAppBusinessAccountCreateUpsertMessageTemplateParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_upsert_message_template()."""
 
-    category: str | None = Field(None, description="category parameter")
+    category: WhatsAppBusinessAccountCategory | None = Field(None, description="category parameter")
     components: list[dict[str, Any]] | None = Field(None, description="components parameter")
     languages: list[str] | None = Field(None, description="languages parameter")
     message_send_ttl_seconds: int | None = Field(

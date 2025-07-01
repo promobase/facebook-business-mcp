@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.igmediaforigonlyapi import IGMediaForIGOnlyAPI
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.igmediaforigonlyapi import (
     IGMediaForIGOnlyAPICreateCommentParams,
     IGMediaForIGOnlyAPIGetInsightsParams,
@@ -28,12 +25,12 @@ class IGMediaForIGOnlyAPIWrappers:
     def create_comment(
         obj: IGMediaForIGOnlyAPI,
         params: IGMediaForIGOnlyAPICreateCommentParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGMediaForIGOnlyAPI.create_comment().
 
         Endpoint: POST /comments
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -41,8 +38,8 @@ class IGMediaForIGOnlyAPIWrappers:
         # Call the original method
         result = obj.create_comment(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_insights(

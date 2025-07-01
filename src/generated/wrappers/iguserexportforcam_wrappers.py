@@ -2,19 +2,15 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.iguserexportforcam import IGUserExportForCAM
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectField,
-    AbstractCrudObjectFields,
-)
+
 from ..models.iguserexportforcam import (
     IGUserExportForCAMGetInsightsParams,
 )
-from .cursor_utils import TypedCursor
 
 
 class IGUserExportForCAMWrappers:
@@ -24,13 +20,13 @@ class IGUserExportForCAMWrappers:
     def get_insights(
         obj: IGUserExportForCAM,
         params: Optional[IGUserExportForCAMGetInsightsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for IGUserExportForCAM.get_insights().
 
         Endpoint: GET /insights
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -44,5 +40,5 @@ class IGUserExportForCAMWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]

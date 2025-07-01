@@ -8,25 +8,103 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .advideo import (
+    AdVideoContainerType,
+    AdVideoContentCategory,
+    AdVideoFormatting,
+    AdVideoOriginalProjectionType,
+    AdVideoSwapMode,
+    AdVideoType,
+    AdVideoUnpublishedContentType,
+    AdVideoUploadPhase,
+    AdVideoVideoState,
+)
+from .application import ApplicationPlatform
+from .event import EventTimeFilter, EventType
+from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
+from .leadgenform import LeadgenFormLocale
+from .livevideo import (
+    LiveVideoProjection,
+    LiveVideoSource,
+    LiveVideoSpatialAudioFormat,
+    LiveVideoStatus,
+    LiveVideoStereoscopicMode,
+    LiveVideoStreamType,
+)
+from .mediafingerprint import MediaFingerprintFingerprintContentType
+from .pagepost import PagePostWith
+from .pagepostexperiment import PagePostExperimentOptimizationGoal
+from .photo import PhotoBackdatedTimeGranularity, PhotoType, PhotoUnpublishedContentType
+from .profilepicturesource import ProfilePictureSourceType
+from .unifiedthread import UnifiedThreadPlatform
+from .videocopyright import VideoCopyrightContentCategory, VideoCopyrightMonitoringType
+from .videocopyrightmatch import (
+    VideoCopyrightMatchAction,
+    VideoCopyrightMatchActionReason,
+    VideoCopyrightMatchMatchContentType,
+)
+from .videocopyrightrule import VideoCopyrightRuleSource
+
 if TYPE_CHECKING:
     from .adset import AdSetFields
-    from .advideo import AdVideoFields
+    from .advideo import (
+        AdVideoContainerType,
+        AdVideoContentCategory,
+        AdVideoFields,
+        AdVideoFormatting,
+        AdVideoOriginalProjectionType,
+        AdVideoSwapMode,
+        AdVideoType,
+        AdVideoUnpublishedContentType,
+        AdVideoUploadPhase,
+        AdVideoVideoState,
+    )
+    from .application import ApplicationPlatform
+    from .commerceorder import CommerceOrderFilters, CommerceOrderState
     from .coverphoto import CoverPhotoFields
     from .engagement import EngagementFields
+    from .event import EventEventStateFilter, EventTimeFilter, EventType
     from .hasleadaccess import HasLeadAccessFields
     from .iguser import IGUserFields
+    from .imagecopyright import ImageCopyrightGeoOwnership
+    from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
+    from .leadgenform import LeadgenFormLocale
+    from .livevideo import (
+        LiveVideoBroadcastStatus,
+        LiveVideoProjection,
+        LiveVideoSource,
+        LiveVideoSpatialAudioFormat,
+        LiveVideoStatus,
+        LiveVideoStereoscopicMode,
+        LiveVideoStreamType,
+    )
     from .location import LocationFields
     from .mailingaddress import MailingAddressFields
+    from .mediafingerprint import MediaFingerprintFingerprintContentType
     from .messagingfeaturestatus import MessagingFeatureStatusFields
+    from .messengerbusinesstemplate import MessengerBusinessTemplateStatus
     from .pagecategory import PageCategoryFields
     from .pageparking import PageParkingFields
     from .pagepaymentoptions import PagePaymentOptionsFields
+    from .pagepost import PagePostWith
+    from .pagepostexperiment import PagePostExperimentOptimizationGoal
     from .pagerestaurantservices import PageRestaurantServicesFields
     from .pagerestaurantspecialties import PageRestaurantSpecialtiesFields
     from .pagestartinfo import PageStartInfoFields
+    from .photo import PhotoBackdatedTimeGranularity, PhotoType, PhotoUnpublishedContentType
+    from .profilepicturesource import ProfilePictureSourceType
     from .shop import ShopFields
+    from .stories import StoriesStatus
     from .targeting import TargetingFields
+    from .unifiedthread import UnifiedThreadPlatform
     from .user import UserFields
+    from .videocopyright import VideoCopyrightContentCategory, VideoCopyrightMonitoringType
+    from .videocopyrightmatch import (
+        VideoCopyrightMatchAction,
+        VideoCopyrightMatchActionReason,
+        VideoCopyrightMatchMatchContentType,
+    )
+    from .videocopyrightrule import VideoCopyrightRuleSource
     from .voipinfo import VoipInfoFields
 
 
@@ -808,7 +886,9 @@ class PageCreateAbTestParams(BaseModel):
         None, description="experiment_video_ids parameter"
     )
     name: str | None = Field(None, description="name parameter")
-    optimization_goal: str | None = Field(None, description="optimization_goal parameter")
+    optimization_goal: PagePostExperimentOptimizationGoal | None = Field(
+        None, description="optimization_goal parameter"
+    )
     scheduled_experiment_timestamp: int | None = Field(
         None, description="scheduled_experiment_timestamp parameter"
     )
@@ -852,7 +932,9 @@ class PageCreateAgencyParams(BaseModel):
     """Parameters for Page.create_agency()."""
 
     business: str | None = Field(None, description="business parameter")
-    permitted_tasks: list[str] | None = Field(None, description="permitted_tasks parameter")
+    permitted_tasks: list[PagePermittedTasks] | None = Field(
+        None, description="permitted_tasks parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -879,7 +961,7 @@ class PageGetAssignedUsersParams(BaseModel):
 class PageCreateAssignedUserParams(BaseModel):
     """Parameters for Page.create_assigned_user()."""
 
-    tasks: list[str] | None = Field(None, description="tasks parameter")
+    tasks: list[PageTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
     class Config:
@@ -1001,8 +1083,8 @@ class PageCreateCanvaseParams(BaseModel):
 class PageGetCommerceOrdersParams(BaseModel):
     """Parameters for Page.get_commerce_orders()."""
 
-    filters: list[str] | None = Field(None, description="filters parameter")
-    state: list[str] | None = Field(None, description="state parameter")
+    filters: list[CommerceOrderFilters] | None = Field(None, description="filters parameter")
+    state: list[CommerceOrderState] | None = Field(None, description="state parameter")
     updated_after: datetime | None = Field(None, description="updated_after parameter")
     updated_before: datetime | None = Field(None, description="updated_before parameter")
 
@@ -1035,7 +1117,7 @@ class PageGetConversationsParams(BaseModel):
     """Parameters for Page.get_conversations()."""
 
     folder: str | None = Field(None, description="folder parameter")
-    platform: str | None = Field(None, description="platform parameter")
+    platform: UnifiedThreadPlatform | None = Field(None, description="platform parameter")
     tags: list[str] | None = Field(None, description="tags parameter")
     user_id: str | None = Field(None, description="user_id parameter")
 
@@ -1046,10 +1128,14 @@ class PageGetConversationsParams(BaseModel):
 class PageCreateCopyrightManualClaimParams(BaseModel):
     """Parameters for Page.create_copyright_manual_claim()."""
 
-    action: str | None = Field(None, description="action parameter")
-    action_reason: str | None = Field(None, description="action_reason parameter")
+    action: VideoCopyrightMatchAction | None = Field(None, description="action parameter")
+    action_reason: VideoCopyrightMatchActionReason | None = Field(
+        None, description="action_reason parameter"
+    )
     countries: Any | None = Field(None, description="countries parameter")
-    match_content_type: str | None = Field(None, description="match_content_type parameter")
+    match_content_type: VideoCopyrightMatchMatchContentType | None = Field(
+        None, description="match_content_type parameter"
+    )
     matched_asset_id: str | None = Field(None, description="matched_asset_id parameter")
     reference_asset_id: str | None = Field(None, description="reference_asset_id parameter")
     selected_segments: list[dict[str, Any]] | None = Field(
@@ -1111,10 +1197,12 @@ class PageCreateDatasetParams(BaseModel):
 class PageGetEventsParams(BaseModel):
     """Parameters for Page.get_events()."""
 
-    event_state_filter: list[str] | None = Field(None, description="event_state_filter parameter")
+    event_state_filter: list[EventEventStateFilter] | None = Field(
+        None, description="event_state_filter parameter"
+    )
     include_canceled: bool | None = Field(None, description="include_canceled parameter")
-    time_filter: str | None = Field(None, description="time_filter parameter")
-    type: str | None = Field(None, description="type parameter")
+    time_filter: EventTimeFilter | None = Field(None, description="time_filter parameter")
+    type: EventType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -1136,7 +1224,7 @@ class PageGetFeedParams(BaseModel):
     include_hidden: bool | None = Field(None, description="include_hidden parameter")
     limit: int | None = Field(None, description="limit parameter")
     show_expired: bool | None = Field(None, description="show_expired parameter")
-    field_with: str | None = Field(None, alias="with", description="with parameter")
+    field_with: PagePostWith | None = Field(None, alias="with", description="with parameter")
 
     class Config:
         extra = "forbid"
@@ -1160,7 +1248,7 @@ class PageCreateFeedParams(BaseModel):
     attached_media: list[Any] | None = Field(None, description="attached_media parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(
+    backdated_time_granularity: PageBackdatedTimeGranularity | None = Field(
         None, description="backdated_time_granularity parameter"
     )
     breaking_news: bool | None = Field(None, description="breaking_news parameter")
@@ -1195,7 +1283,7 @@ class PageCreateFeedParams(BaseModel):
     expanded_height: int | None = Field(None, description="expanded_height parameter")
     expanded_width: int | None = Field(None, description="expanded_width parameter")
     feed_targeting: Any | None = Field(None, description="feed_targeting parameter")
-    formatting: str | None = Field(None, description="formatting parameter")
+    formatting: PageFormatting | None = Field(None, description="formatting parameter")
     fun_fact_prompt_id: str | None = Field(None, description="fun_fact_prompt_id parameter")
     fun_fact_toastee_id: int | None = Field(None, description="fun_fact_toastee_id parameter")
     height: int | None = Field(None, description="height parameter")
@@ -1235,15 +1323,17 @@ class PageCreateFeedParams(BaseModel):
     page_recommendation: str | None = Field(None, description="page_recommendation parameter")
     picture: str | None = Field(None, description="picture parameter")
     place: Any | None = Field(None, description="place parameter")
-    place_attachment_setting: str | None = Field(
+    place_attachment_setting: PagePlaceAttachmentSetting | None = Field(
         None, description="place_attachment_setting parameter"
     )
     place_list: str | None = Field(None, description="place_list parameter")
     place_list_data: Any | None = Field(None, description="place_list_data parameter")
-    post_surfaces_blacklist: list[str] | None = Field(
+    post_surfaces_blacklist: list[PagePostSurfacesBlacklist] | None = Field(
         None, description="post_surfaces_blacklist parameter"
     )
-    posting_to_redspace: str | None = Field(None, description="posting_to_redspace parameter")
+    posting_to_redspace: PagePostingToRedspace | None = Field(
+        None, description="posting_to_redspace parameter"
+    )
     privacy: str | None = Field(None, description="privacy parameter")
     prompt_id: str | None = Field(None, description="prompt_id parameter")
     prompt_tracking_string: str | None = Field(None, description="prompt_tracking_string parameter")
@@ -1265,7 +1355,7 @@ class PageCreateFeedParams(BaseModel):
     sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
     suggested_place_id: Any | None = Field(None, description="suggested_place_id parameter")
     tags: list[int] | None = Field(None, description="tags parameter")
-    target_surface: str | None = Field(None, description="target_surface parameter")
+    target_surface: PageTargetSurface | None = Field(None, description="target_surface parameter")
     targeting: Any | None = Field(None, description="targeting parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     text_format_preset_id: str | None = Field(None, description="text_format_preset_id parameter")
@@ -1276,7 +1366,7 @@ class PageCreateFeedParams(BaseModel):
     )
     title: str | None = Field(None, description="title parameter")
     tracking_info: str | None = Field(None, description="tracking_info parameter")
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: PageUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
@@ -1297,7 +1387,9 @@ class PageCreateImageCopyrightParams(BaseModel):
     custom_id: str | None = Field(None, description="custom_id parameter")
     description: str | None = Field(None, description="description parameter")
     filename: str | None = Field(None, description="filename parameter")
-    geo_ownership: list[str] | None = Field(None, description="geo_ownership parameter")
+    geo_ownership: list[ImageCopyrightGeoOwnership] | None = Field(
+        None, description="geo_ownership parameter"
+    )
     original_content_creation_date: int | None = Field(
         None, description="original_content_creation_date parameter"
     )
@@ -1312,9 +1404,9 @@ class PageGetInsightsParams(BaseModel):
     """Parameters for Page.get_insights()."""
 
     breakdown: list[Any] | None = Field(None, description="breakdown parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    date_preset: InsightsResultDatePreset | None = Field(None, description="date_preset parameter")
     metric: list[Any] | None = Field(None, description="metric parameter")
-    period: str | None = Field(None, description="period parameter")
+    period: InsightsResultPeriod | None = Field(None, description="period parameter")
     show_description_from_api_doc: bool | None = Field(
         None, description="show_description_from_api_doc parameter"
     )
@@ -1342,7 +1434,7 @@ class PageCreateLeadGenFormParams(BaseModel):
     is_optimized_for_quality: bool | None = Field(
         None, description="is_optimized_for_quality parameter"
     )
-    locale: str | None = Field(None, description="locale parameter")
+    locale: LeadgenFormLocale | None = Field(None, description="locale parameter")
     name: str | None = Field(None, description="name parameter")
     privacy_policy: Any | None = Field(None, description="privacy_policy parameter")
     question_page_custom_headline: str | None = Field(
@@ -1371,8 +1463,10 @@ class PageGetLikesParams(BaseModel):
 class PageGetLiveVideosParams(BaseModel):
     """Parameters for Page.get_live_videos()."""
 
-    broadcast_status: list[str] | None = Field(None, description="broadcast_status parameter")
-    source: str | None = Field(None, description="source parameter")
+    broadcast_status: list[LiveVideoBroadcastStatus] | None = Field(
+        None, description="broadcast_status parameter"
+    )
+    source: LiveVideoSource | None = Field(None, description="source parameter")
 
     class Config:
         extra = "forbid"
@@ -1397,16 +1491,20 @@ class PageCreateLiveVideoParams(BaseModel):
     is_spherical: bool | None = Field(None, description="is_spherical parameter")
     original_fov: int | None = Field(None, description="original_fov parameter")
     privacy: str | None = Field(None, description="privacy parameter")
-    projection: str | None = Field(None, description="projection parameter")
+    projection: LiveVideoProjection | None = Field(None, description="projection parameter")
     published: bool | None = Field(None, description="published parameter")
     schedule_custom_profile_image: Any | None = Field(
         None, description="schedule_custom_profile_image parameter"
     )
-    spatial_audio_format: str | None = Field(None, description="spatial_audio_format parameter")
-    status: str | None = Field(None, description="status parameter")
-    stereoscopic_mode: str | None = Field(None, description="stereoscopic_mode parameter")
+    spatial_audio_format: LiveVideoSpatialAudioFormat | None = Field(
+        None, description="spatial_audio_format parameter"
+    )
+    status: LiveVideoStatus | None = Field(None, description="status parameter")
+    stereoscopic_mode: LiveVideoStereoscopicMode | None = Field(
+        None, description="stereoscopic_mode parameter"
+    )
     stop_on_delete_stream: bool | None = Field(None, description="stop_on_delete_stream parameter")
-    stream_type: str | None = Field(None, description="stream_type parameter")
+    stream_type: LiveVideoStreamType | None = Field(None, description="stream_type parameter")
     targeting: Any | None = Field(None, description="targeting parameter")
     title: str | None = Field(None, description="title parameter")
 
@@ -1442,7 +1540,9 @@ class PageCreateLocationParams(BaseModel):
     page_username: str | None = Field(None, description="page_username parameter")
     permanently_closed: bool | None = Field(None, description="permanently_closed parameter")
     phone: str | None = Field(None, description="phone parameter")
-    pickup_options: list[str] | None = Field(None, description="pickup_options parameter")
+    pickup_options: list[PagePickupOptions] | None = Field(
+        None, description="pickup_options parameter"
+    )
     place_topics: list[str] | None = Field(None, description="place_topics parameter")
     price_range: str | None = Field(None, description="price_range parameter")
     store_code: str | None = Field(None, description="store_code parameter")
@@ -1451,7 +1551,9 @@ class PageCreateLocationParams(BaseModel):
     )
     store_name: str | None = Field(None, description="store_name parameter")
     store_number: int | None = Field(None, description="store_number parameter")
-    temporary_status: str | None = Field(None, description="temporary_status parameter")
+    temporary_status: PageTemporaryStatus | None = Field(
+        None, description="temporary_status parameter"
+    )
     website: str | None = Field(None, description="website parameter")
 
     class Config:
@@ -1470,7 +1572,7 @@ class PageGetMediaFingerprintsParams(BaseModel):
 class PageCreateMediaFingerprintParams(BaseModel):
     """Parameters for Page.create_media_fingerprint()."""
 
-    fingerprint_content_type: str | None = Field(
+    fingerprint_content_type: MediaFingerprintFingerprintContentType | None = Field(
         None, description="fingerprint_content_type parameter"
     )
     metadata: Any | None = Field(None, description="metadata parameter")
@@ -1505,12 +1607,14 @@ class PageDeleteMessageTemplatesParams(BaseModel):
 class PageGetMessageTemplatesParams(BaseModel):
     """Parameters for Page.get_message_templates()."""
 
-    category: list[str] | None = Field(None, description="category parameter")
+    category: list[PageCategory] | None = Field(None, description="category parameter")
     content: str | None = Field(None, description="content parameter")
     language: list[str] | None = Field(None, description="language parameter")
     name: str | None = Field(None, description="name parameter")
     name_or_content: str | None = Field(None, description="name_or_content parameter")
-    status: list[str] | None = Field(None, description="status parameter")
+    status: list[MessengerBusinessTemplateStatus] | None = Field(
+        None, description="status parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1519,7 +1623,7 @@ class PageGetMessageTemplatesParams(BaseModel):
 class PageCreateMessageTemplateParams(BaseModel):
     """Parameters for Page.create_message_template()."""
 
-    category: str | None = Field(None, description="category parameter")
+    category: PageCategory | None = Field(None, description="category parameter")
     components: list[dict[str, Any]] | None = Field(None, description="components parameter")
     language: str | None = Field(None, description="language parameter")
     library_template_button_inputs: list[dict[str, Any]] | None = Field(
@@ -1536,14 +1640,18 @@ class PageCreateMessageParams(BaseModel):
     """Parameters for Page.create_message()."""
 
     message: Any | None = Field(None, description="message parameter")
-    messaging_type: str | None = Field(None, description="messaging_type parameter")
-    notification_type: str | None = Field(None, description="notification_type parameter")
+    messaging_type: PageMessagingType | None = Field(None, description="messaging_type parameter")
+    notification_type: PageNotificationType | None = Field(
+        None, description="notification_type parameter"
+    )
     payload: str | None = Field(None, description="payload parameter")
     persona_id: str | None = Field(None, description="persona_id parameter")
     recipient: Any | None = Field(None, description="recipient parameter")
     reply_to: str | None = Field(None, description="reply_to parameter")
-    sender_action: str | None = Field(None, description="sender_action parameter")
-    suggestion_action: str | None = Field(None, description="suggestion_action parameter")
+    sender_action: PageSenderAction | None = Field(None, description="sender_action parameter")
+    suggestion_action: PageSuggestionAction | None = Field(
+        None, description="suggestion_action parameter"
+    )
     tag: Any | None = Field(None, description="tag parameter")
     thread_control: Any | None = Field(None, description="thread_control parameter")
 
@@ -1588,7 +1696,7 @@ class PageDeleteMessengerProfileParams(BaseModel):
     """Parameters for Page.delete_messenger_profile()."""
 
     fields: list[str] | None = Field(None, description="fields parameter")
-    platform: str | None = Field(None, description="platform parameter")
+    platform: PagePlatform | None = Field(None, description="platform parameter")
 
     class Config:
         extra = "forbid"
@@ -1597,7 +1705,7 @@ class PageDeleteMessengerProfileParams(BaseModel):
 class PageGetMessengerProfileParams(BaseModel):
     """Parameters for Page.get_messenger_profile()."""
 
-    platform: str | None = Field(None, description="platform parameter")
+    platform: PagePlatform | None = Field(None, description="platform parameter")
 
     class Config:
         extra = "forbid"
@@ -1613,7 +1721,7 @@ class PageCreateMessengerProfileParams(BaseModel):
     greeting: list[Any] | None = Field(None, description="greeting parameter")
     ice_breakers: list[dict[str, Any]] | None = Field(None, description="ice_breakers parameter")
     persistent_menu: list[Any] | None = Field(None, description="persistent_menu parameter")
-    platform: str | None = Field(None, description="platform parameter")
+    platform: PagePlatform | None = Field(None, description="platform parameter")
     title: list[Any] | None = Field(None, description="title parameter")
     whitelisted_domains: list[str] | None = Field(None, description="whitelisted_domains parameter")
 
@@ -1624,7 +1732,7 @@ class PageCreateMessengerProfileParams(BaseModel):
 class PageCreateModerateConversationParams(BaseModel):
     """Parameters for Page.create_moderate_conversation()."""
 
-    actions: list[str] | None = Field(None, description="actions parameter")
+    actions: list[PageActions] | None = Field(None, description="actions parameter")
     user_ids: list[dict[str, Any]] | None = Field(None, description="user_ids parameter")
 
     class Config:
@@ -1636,7 +1744,7 @@ class PageCreateNlpConfigParams(BaseModel):
 
     api_version: Any | None = Field(None, description="api_version parameter")
     custom_token: str | None = Field(None, description="custom_token parameter")
-    model: str | None = Field(None, description="model parameter")
+    model: PageModel | None = Field(None, description="model parameter")
     n_best: int | None = Field(None, description="n_best parameter")
     nlp_enabled: bool | None = Field(None, description="nlp_enabled parameter")
     other_language_support: dict[str, Any] | None = Field(
@@ -1651,7 +1759,9 @@ class PageCreateNlpConfigParams(BaseModel):
 class PageCreateNotificationMessagesDevSupportParams(BaseModel):
     """Parameters for Page.create_notification_messages_dev_support()."""
 
-    developer_action: str | None = Field(None, description="developer_action parameter")
+    developer_action: PageDeveloperAction | None = Field(
+        None, description="developer_action parameter"
+    )
     recipient: Any | None = Field(None, description="recipient parameter")
 
     class Config:
@@ -1703,7 +1813,7 @@ class PageGetPhotosParams(BaseModel):
 
     biz_tag_id: int | None = Field(None, description="biz_tag_id parameter")
     business_id: str | None = Field(None, description="business_id parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: PhotoType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -1720,7 +1830,7 @@ class PageCreatePhotoParams(BaseModel):
     attempt: int | None = Field(None, description="attempt parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(
+    backdated_time_granularity: PhotoBackdatedTimeGranularity | None = Field(
         None, description="backdated_time_granularity parameter"
     )
     caption: str | None = Field(None, description="caption parameter")
@@ -1780,7 +1890,7 @@ class PageCreatePhotoParams(BaseModel):
         None, description="time_since_original_post parameter"
     )
     uid: int | None = Field(None, description="uid parameter")
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: PhotoUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
     url: str | None = Field(None, description="url parameter")
@@ -1796,7 +1906,7 @@ class PageGetPictureParams(BaseModel):
 
     height: int | None = Field(None, description="height parameter")
     redirect: bool | None = Field(None, description="redirect parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
     class Config:
@@ -1850,7 +1960,7 @@ class PageGetPostsParams(BaseModel):
     limit: int | None = Field(None, description="limit parameter")
     q: str | None = Field(None, description="q parameter")
     show_expired: bool | None = Field(None, description="show_expired parameter")
-    field_with: str | None = Field(None, alias="with", description="with parameter")
+    field_with: PagePostWith | None = Field(None, alias="with", description="with parameter")
 
     class Config:
         extra = "forbid"
@@ -1862,7 +1972,7 @@ class PageGetPublishedPostsParams(BaseModel):
     include_hidden: bool | None = Field(None, description="include_hidden parameter")
     limit: int | None = Field(None, description="limit parameter")
     show_expired: bool | None = Field(None, description="show_expired parameter")
-    field_with: str | None = Field(None, alias="with", description="with parameter")
+    field_with: PagePostWith | None = Field(None, alias="with", description="with parameter")
 
     class Config:
         extra = "forbid"
@@ -1900,7 +2010,7 @@ class PageGetRolesParams(BaseModel):
 class PageGetSecondaryReceiversParams(BaseModel):
     """Parameters for Page.get_secondary_receivers()."""
 
-    platform: str | None = Field(None, description="platform parameter")
+    platform: ApplicationPlatform | None = Field(None, description="platform parameter")
 
     class Config:
         extra = "forbid"
@@ -1919,7 +2029,7 @@ class PageGetStoriesParams(BaseModel):
     """Parameters for Page.get_stories()."""
 
     since: datetime | None = Field(None, description="since parameter")
-    status: list[str] | None = Field(None, description="status parameter")
+    status: list[StoriesStatus] | None = Field(None, description="status parameter")
     until: datetime | None = Field(None, description="until parameter")
 
     class Config:
@@ -1929,7 +2039,9 @@ class PageGetStoriesParams(BaseModel):
 class PageCreateSubscribedAppParams(BaseModel):
     """Parameters for Page.create_subscribed_app()."""
 
-    subscribed_fields: list[str] | None = Field(None, description="subscribed_fields parameter")
+    subscribed_fields: list[PageSubscribedFields] | None = Field(
+        None, description="subscribed_fields parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1967,7 +2079,7 @@ class PageGetThreadsParams(BaseModel):
     """Parameters for Page.get_threads()."""
 
     folder: str | None = Field(None, description="folder parameter")
-    platform: str | None = Field(None, description="platform parameter")
+    platform: UnifiedThreadPlatform | None = Field(None, description="platform parameter")
     tags: list[str] | None = Field(None, description="tags parameter")
     user_id: str | None = Field(None, description="user_id parameter")
 
@@ -1988,7 +2100,7 @@ class PageGetVideoCopyrightRulesParams(BaseModel):
     """Parameters for Page.get_video_copyright_rules()."""
 
     selected_rule_id: str | None = Field(None, description="selected_rule_id parameter")
-    source: str | None = Field(None, description="source parameter")
+    source: VideoCopyrightRuleSource | None = Field(None, description="source parameter")
 
     class Config:
         extra = "forbid"
@@ -2008,7 +2120,9 @@ class PageCreateVideoCopyrightParams(BaseModel):
     """Parameters for Page.create_video_copyright()."""
 
     attribution_id: str | None = Field(None, description="attribution_id parameter")
-    content_category: str | None = Field(None, description="content_category parameter")
+    content_category: VideoCopyrightContentCategory | None = Field(
+        None, description="content_category parameter"
+    )
     copyright_content_id: str | None = Field(None, description="copyright_content_id parameter")
     excluded_ownership_countries: list[str] | None = Field(
         None, description="excluded_ownership_countries parameter"
@@ -2018,7 +2132,9 @@ class PageCreateVideoCopyrightParams(BaseModel):
     )
     is_reference_disabled: bool | None = Field(None, description="is_reference_disabled parameter")
     is_reference_video: bool | None = Field(None, description="is_reference_video parameter")
-    monitoring_type: str | None = Field(None, description="monitoring_type parameter")
+    monitoring_type: VideoCopyrightMonitoringType | None = Field(
+        None, description="monitoring_type parameter"
+    )
     ownership_countries: list[str] | None = Field(None, description="ownership_countries parameter")
     rule_id: str | None = Field(None, description="rule_id parameter")
     tags: list[str] | None = Field(None, description="tags parameter")
@@ -2052,9 +2168,9 @@ class PageCreateVideoReelParams(BaseModel):
     )
     targeting: Any | None = Field(None, description="targeting parameter")
     title: str | None = Field(None, description="title parameter")
-    upload_phase: str | None = Field(None, description="upload_phase parameter")
+    upload_phase: AdVideoUploadPhase | None = Field(None, description="upload_phase parameter")
     video_id: str | None = Field(None, description="video_id parameter")
-    video_state: str | None = Field(None, description="video_state parameter")
+    video_state: AdVideoVideoState | None = Field(None, description="video_state parameter")
 
     class Config:
         extra = "forbid"
@@ -2082,7 +2198,7 @@ class PageCreateVideoStoryParams(BaseModel):
 class PageGetVideosParams(BaseModel):
     """Parameters for Page.get_videos()."""
 
-    type: str | None = Field(None, description="type parameter")
+    type: AdVideoType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -2112,8 +2228,12 @@ class PageCreateVideoParams(BaseModel):
         None, description="composer_source_surface parameter"
     )
     composer_type: str | None = Field(None, description="composer_type parameter")
-    container_type: str | None = Field(None, description="container_type parameter")
-    content_category: str | None = Field(None, description="content_category parameter")
+    container_type: AdVideoContainerType | None = Field(
+        None, description="container_type parameter"
+    )
+    content_category: AdVideoContentCategory | None = Field(
+        None, description="content_category parameter"
+    )
     content_tags: list[str] | None = Field(None, description="content_tags parameter")
     creative_tools: str | None = Field(None, description="creative_tools parameter")
     crossposted_video_id: str | None = Field(None, description="crossposted_video_id parameter")
@@ -2130,7 +2250,7 @@ class PageCreateVideoParams(BaseModel):
     file_size: int | None = Field(None, description="file_size parameter")
     file_url: str | None = Field(None, description="file_url parameter")
     fisheye_video_cropped: bool | None = Field(None, description="fisheye_video_cropped parameter")
-    formatting: str | None = Field(None, description="formatting parameter")
+    formatting: AdVideoFormatting | None = Field(None, description="formatting parameter")
     fov: int | None = Field(None, description="fov parameter")
     front_z_rotation: float | None = Field(None, description="front_z_rotation parameter")
     fun_fact_prompt_id: str | None = Field(None, description="fun_fact_prompt_id parameter")
@@ -2159,7 +2279,7 @@ class PageCreateVideoParams(BaseModel):
         None, description="og_suggestion_mechanism parameter"
     )
     original_fov: int | None = Field(None, description="original_fov parameter")
-    original_projection_type: str | None = Field(
+    original_projection_type: AdVideoOriginalProjectionType | None = Field(
         None, description="original_projection_type parameter"
     )
     partnership_ad_ad_code: str | None = Field(None, description="partnership_ad_ad_code parameter")
@@ -2181,7 +2301,7 @@ class PageCreateVideoParams(BaseModel):
     sponsor_id: str | None = Field(None, description="sponsor_id parameter")
     sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
     start_offset: int | None = Field(None, description="start_offset parameter")
-    swap_mode: str | None = Field(None, description="swap_mode parameter")
+    swap_mode: AdVideoSwapMode | None = Field(None, description="swap_mode parameter")
     targeting: Any | None = Field(None, description="targeting parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     thumb: Any | None = Field(None, description="thumb parameter")
@@ -2193,10 +2313,10 @@ class PageCreateVideoParams(BaseModel):
         None, description="transcode_setting_properties parameter"
     )
     universal_video_id: str | None = Field(None, description="universal_video_id parameter")
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: AdVideoUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
-    upload_phase: str | None = Field(None, description="upload_phase parameter")
+    upload_phase: AdVideoUploadPhase | None = Field(None, description="upload_phase parameter")
     upload_session_id: str | None = Field(None, description="upload_session_id parameter")
     upload_setting_properties: str | None = Field(
         None, description="upload_setting_properties parameter"
@@ -2217,7 +2337,7 @@ class PageGetVisitorPostsParams(BaseModel):
     include_hidden: bool | None = Field(None, description="include_hidden parameter")
     limit: int | None = Field(None, description="limit parameter")
     show_expired: bool | None = Field(None, description="show_expired parameter")
-    field_with: str | None = Field(None, alias="with", description="with parameter")
+    field_with: PagePostWith | None = Field(None, alias="with", description="with parameter")
 
     class Config:
         extra = "forbid"

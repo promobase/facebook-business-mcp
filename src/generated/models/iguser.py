@@ -7,9 +7,21 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .instagraminsightsresult import (
+    InstagramInsightsResultMetricType,
+    InstagramInsightsResultTimeframe,
+)
+
 if TYPE_CHECKING:
     from .igcomment import IGCommentFields
     from .igmedia import IGMediaFields
+    from .instagraminsightsresult import (
+        InstagramInsightsResultBreakdown,
+        InstagramInsightsResultMetric,
+        InstagramInsightsResultMetricType,
+        InstagramInsightsResultPeriod,
+        InstagramInsightsResultTimeframe,
+    )
 
 
 IGUserField = Literal[
@@ -174,12 +186,18 @@ class IGUserCreateDatasetParams(BaseModel):
 class IGUserGetInsightsParams(BaseModel):
     """Parameters for IGUser.get_insights()."""
 
-    breakdown: list[str] | None = Field(None, description="breakdown parameter")
-    metric: list[str] | None = Field(None, description="metric parameter")
-    metric_type: str | None = Field(None, description="metric_type parameter")
-    period: list[str] | None = Field(None, description="period parameter")
+    breakdown: list[InstagramInsightsResultBreakdown] | None = Field(
+        None, description="breakdown parameter"
+    )
+    metric: list[InstagramInsightsResultMetric] | None = Field(None, description="metric parameter")
+    metric_type: InstagramInsightsResultMetricType | None = Field(
+        None, description="metric_type parameter"
+    )
+    period: list[InstagramInsightsResultPeriod] | None = Field(None, description="period parameter")
     since: datetime | None = Field(None, description="since parameter")
-    timeframe: str | None = Field(None, description="timeframe parameter")
+    timeframe: InstagramInsightsResultTimeframe | None = Field(
+        None, description="timeframe parameter"
+    )
     until: datetime | None = Field(None, description="until parameter")
 
     class Config:

@@ -46,7 +46,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_assigned_users().
 
         Endpoint: DELETE /assigned_users
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -112,7 +112,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_contained_ad_accounts().
 
         Endpoint: DELETE /contained_adaccounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -151,7 +151,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_contained_applications().
 
         Endpoint: DELETE /contained_applications
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -190,7 +190,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_contained_custom_conversions().
 
         Endpoint: DELETE /contained_custom_conversions
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -229,7 +229,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_contained_instagram_accounts().
 
         Endpoint: DELETE /contained_instagram_accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -268,7 +268,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_contained_pages().
 
         Endpoint: DELETE /contained_pages
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -307,7 +307,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_contained_pixels().
 
         Endpoint: DELETE /contained_pixels
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -346,7 +346,7 @@ class BusinessAssetGroupWrappers:
         Type-safe wrapper for BusinessAssetGroup.delete_contained_product_catalogs().
 
         Endpoint: DELETE /contained_product_catalogs
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

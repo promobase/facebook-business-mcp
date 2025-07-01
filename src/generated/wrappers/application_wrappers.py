@@ -2,15 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.application import Application
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectField,
-    AbstractCrudObjectFields,
-)
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -94,7 +90,7 @@ class ApplicationWrappers:
         Type-safe wrapper for Application.delete_accounts().
 
         Endpoint: DELETE /accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -108,13 +104,13 @@ class ApplicationWrappers:
     def get_accounts(
         obj: Application,
         params: Optional[ApplicationGetAccountsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_accounts().
 
         Endpoint: GET /accounts
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -128,19 +124,19 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_account(
         obj: Application,
         params: ApplicationCreateAccountParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_account().
 
         Endpoint: POST /accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -148,19 +144,19 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_account(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_activity(
         obj: Application,
         params: ApplicationCreateActivityParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_activity().
 
         Endpoint: POST /activities
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -168,8 +164,8 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_activity(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_ad_network_placements(
@@ -276,13 +272,13 @@ class ApplicationWrappers:
     def get_aem_attribution(
         obj: Application,
         params: Optional[ApplicationGetAemAttributionParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_aem_attribution().
 
         Endpoint: GET /aem_attribution
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -296,20 +292,20 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_aem_conversion_configs(
         obj: Application,
         params: Optional[ApplicationGetAemConversionConfigsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_aem_conversion_configs().
 
         Endpoint: GET /aem_conversion_configs
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -323,20 +319,20 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_aem_conversion_filter(
         obj: Application,
         params: Optional[ApplicationGetAemConversionFilterParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_aem_conversion_filter().
 
         Endpoint: GET /aem_conversion_filter
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -350,19 +346,19 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_aem_conversion(
         obj: Application,
         params: ApplicationCreateAemConversionParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_aem_conversion().
 
         Endpoint: POST /aem_conversions
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -370,19 +366,19 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_aem_conversion(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_aem_skan_readiness(
         obj: Application,
         params: ApplicationCreateAemSkanReadinessParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_aem_skan_readiness().
 
         Endpoint: POST /aem_skan_readiness
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -390,19 +386,19 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_aem_skan_readiness(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_aggregate_revenue(
         obj: Application,
         params: ApplicationCreateAggregateRevenueParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_aggregate_revenue().
 
         Endpoint: POST /aggregate_revenue
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -410,8 +406,8 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_aggregate_revenue(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_app_indexing(
@@ -551,13 +547,13 @@ class ApplicationWrappers:
     def get_button_auto_detection_device_selection(
         obj: Application,
         params: Optional[ApplicationGetButtonAutoDetectionDeviceSelectionParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_button_auto_detection_device_selection().
 
         Endpoint: GET /button_auto_detection_device_selection
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -571,8 +567,8 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_codeless_event_mapping(
@@ -625,12 +621,12 @@ class ApplicationWrappers:
     def create_domain_report(
         obj: Application,
         params: ApplicationCreateDomainReportParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_domain_report().
 
         Endpoint: POST /domain_reports
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -638,20 +634,20 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_domain_report(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_iap_purchases(
         obj: Application,
         params: Optional[ApplicationGetIapPurchasesParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_iap_purchases().
 
         Endpoint: GET /iap_purchases
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -665,20 +661,20 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_message_templates(
         obj: Application,
         params: Optional[ApplicationGetMessageTemplatesParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_message_templates().
 
         Endpoint: GET /message_templates
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -692,19 +688,19 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_mmp_auditing(
         obj: Application,
         params: ApplicationCreateMmpAuditingParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_mmp_auditing().
 
         Endpoint: POST /mmp_auditing
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -712,20 +708,20 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_mmp_auditing(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_mobile_sdk_gk(
         obj: Application,
         params: Optional[ApplicationGetMobileSdkGkParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_mobile_sdk_gk().
 
         Endpoint: GET /mobile_sdk_gk
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -739,19 +735,19 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_monetized_digital_store_object(
         obj: Application,
         params: ApplicationCreateMonetizedDigitalStoreObjectParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_monetized_digital_store_object().
 
         Endpoint: POST /monetized_digital_store_objects
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -759,19 +755,19 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_monetized_digital_store_object(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_occludes_popup(
         obj: Application,
         params: ApplicationCreateOccludesPopupParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_occludes_popup().
 
         Endpoint: POST /occludespopups
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -779,20 +775,20 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_occludes_popup(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_permissions(
         obj: Application,
         params: Optional[ApplicationGetPermissionsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_permissions().
 
         Endpoint: GET /permissions
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -806,20 +802,20 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_products(
         obj: Application,
         params: Optional[ApplicationGetProductsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_products().
 
         Endpoint: GET /products
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -833,20 +829,20 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_sgw_dataset_status(
         obj: Application,
         params: Optional[ApplicationGetSgwDatasetStatusParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_sgw_dataset_status().
 
         Endpoint: GET /sgw_dataset_status
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -860,20 +856,20 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_sgw_install_deferral_link(
         obj: Application,
         params: Optional[ApplicationGetSgwInstallDeferralLinkParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_sgw_install_deferral_link().
 
         Endpoint: GET /sgw_install_deferral_link
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -887,8 +883,8 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_subscribed_domain(
@@ -939,7 +935,7 @@ class ApplicationWrappers:
         Type-safe wrapper for Application.delete_subscriptions().
 
         Endpoint: DELETE /subscriptions
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -953,12 +949,12 @@ class ApplicationWrappers:
     def create_subscription(
         obj: Application,
         params: ApplicationCreateSubscriptionParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_subscription().
 
         Endpoint: POST /subscriptions
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -966,19 +962,19 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_subscription(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_upload(
         obj: Application,
         params: ApplicationCreateUploadParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Application.create_upload().
 
         Endpoint: POST /uploads
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -986,8 +982,8 @@ class ApplicationWrappers:
         # Call the original method
         result = obj.create_upload(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_whats_app_business_solution(
@@ -1013,13 +1009,13 @@ class ApplicationWrappers:
     def get_whats_app_business_solutions(
         obj: Application,
         params: Optional[ApplicationGetWhatsAppBusinessSolutionsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for Application.get_whats_app_business_solutions().
 
         Endpoint: GET /whatsapp_business_solutions
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1033,5 +1029,5 @@ class ApplicationWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]

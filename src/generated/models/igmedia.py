@@ -13,6 +13,11 @@ if TYPE_CHECKING:
     from .igvideocopyrightcheckmatchesinformation import (
         IGVideoCopyrightCheckMatchesInformationFields,
     )
+    from .instagraminsightsresult import (
+        InstagramInsightsResultBreakdown,
+        InstagramInsightsResultMetric,
+        InstagramInsightsResultPeriod,
+    )
 
 
 IGMediaField = Literal[
@@ -97,9 +102,11 @@ class IGMediaCreateCommentParams(BaseModel):
 class IGMediaGetInsightsParams(BaseModel):
     """Parameters for IGMedia.get_insights()."""
 
-    breakdown: list[str] | None = Field(None, description="breakdown parameter")
-    metric: list[str] | None = Field(None, description="metric parameter")
-    period: list[str] | None = Field(None, description="period parameter")
+    breakdown: list[InstagramInsightsResultBreakdown] | None = Field(
+        None, description="breakdown parameter"
+    )
+    metric: list[InstagramInsightsResultMetric] | None = Field(None, description="metric parameter")
+    period: list[InstagramInsightsResultPeriod] | None = Field(None, description="period parameter")
 
     class Config:
         extra = "forbid"

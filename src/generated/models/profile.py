@@ -7,8 +7,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .profilepicturesource import ProfilePictureSourceType
+
 if TYPE_CHECKING:
-    from .profilepicturesource import ProfilePictureSourceFields
+    from .profilepicturesource import ProfilePictureSourceFields, ProfilePictureSourceType
 
 
 class ProfileProfileType(str, Enum):
@@ -78,7 +80,7 @@ class ProfileGetPictureParams(BaseModel):
 
     height: int | None = Field(None, description="height parameter")
     redirect: bool | None = Field(None, description="redirect parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
     class Config:

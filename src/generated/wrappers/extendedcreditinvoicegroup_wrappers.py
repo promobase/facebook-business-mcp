@@ -29,7 +29,7 @@ class ExtendedCreditInvoiceGroupWrappers:
         Type-safe wrapper for ExtendedCreditInvoiceGroup.delete_ad_accounts().
 
         Endpoint: DELETE /ad_accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

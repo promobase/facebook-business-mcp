@@ -8,9 +8,12 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adrulehistory import AdRuleHistoryAction
+
 if TYPE_CHECKING:
     from .adruleevaluationspec import AdRuleEvaluationSpecFields
     from .adruleexecutionspec import AdRuleExecutionSpecFields
+    from .adrulehistory import AdRuleHistoryAction
     from .adruleschedulespec import AdRuleScheduleSpecFields
     from .user import UserFields
 
@@ -99,7 +102,7 @@ class AdRuleFields(BaseModel):
 class AdRuleGetHistoryParams(BaseModel):
     """Parameters for AdRule.get_history()."""
 
-    action: str | None = Field(None, description="action parameter")
+    action: AdRuleHistoryAction | None = Field(None, description="action parameter")
     hide_no_changes: bool | None = Field(None, description="hide_no_changes parameter")
     object_id: str | None = Field(None, description="object_id parameter")
 

@@ -7,8 +7,27 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .productitem import (
+    ProductItemAgeGroup,
+    ProductItemAvailability,
+    ProductItemCommerceTaxCategory,
+    ProductItemCondition,
+    ProductItemGender,
+    ProductItemMarkedForProductLaunch,
+    ProductItemVisibility,
+)
+
 if TYPE_CHECKING:
     from .productcatalog import ProductCatalogFields
+    from .productitem import (
+        ProductItemAgeGroup,
+        ProductItemAvailability,
+        ProductItemCommerceTaxCategory,
+        ProductItemCondition,
+        ProductItemGender,
+        ProductItemMarkedForProductLaunch,
+        ProductItemVisibility,
+    )
     from .productvariant import ProductVariantFields
 
 
@@ -37,18 +56,20 @@ class ProductGroupCreateProductParams(BaseModel):
     additional_variant_attributes: dict[str, Any] | None = Field(
         None, description="additional_variant_attributes parameter"
     )
-    age_group: str | None = Field(None, description="age_group parameter")
+    age_group: ProductItemAgeGroup | None = Field(None, description="age_group parameter")
     android_app_name: str | None = Field(None, description="android_app_name parameter")
     android_class: str | None = Field(None, description="android_class parameter")
     android_package: str | None = Field(None, description="android_package parameter")
     android_url: str | None = Field(None, description="android_url parameter")
-    availability: str | None = Field(None, description="availability parameter")
+    availability: ProductItemAvailability | None = Field(None, description="availability parameter")
     brand: str | None = Field(None, description="brand parameter")
     category: str | None = Field(None, description="category parameter")
     checkout_url: str | None = Field(None, description="checkout_url parameter")
     color: str | None = Field(None, description="color parameter")
-    commerce_tax_category: str | None = Field(None, description="commerce_tax_category parameter")
-    condition: str | None = Field(None, description="condition parameter")
+    commerce_tax_category: ProductItemCommerceTaxCategory | None = Field(
+        None, description="commerce_tax_category parameter"
+    )
+    condition: ProductItemCondition | None = Field(None, description="condition parameter")
     currency: str | None = Field(None, description="currency parameter")
     custom_data: dict[str, Any] | None = Field(None, description="custom_data parameter")
     custom_label_0: str | None = Field(None, description="custom_label_0 parameter")
@@ -64,7 +85,7 @@ class ProductGroupCreateProductParams(BaseModel):
     description: str | None = Field(None, description="description parameter")
     expiration_date: str | None = Field(None, description="expiration_date parameter")
     fb_product_category: str | None = Field(None, description="fb_product_category parameter")
-    gender: str | None = Field(None, description="gender parameter")
+    gender: ProductItemGender | None = Field(None, description="gender parameter")
     gtin: str | None = Field(None, description="gtin parameter")
     image_url: str | None = Field(None, description="image_url parameter")
     inventory: int | None = Field(None, description="inventory parameter")
@@ -81,7 +102,7 @@ class ProductGroupCreateProductParams(BaseModel):
     manufacturer_part_number: str | None = Field(
         None, description="manufacturer_part_number parameter"
     )
-    marked_for_product_launch: str | None = Field(
+    marked_for_product_launch: ProductItemMarkedForProductLaunch | None = Field(
         None, description="marked_for_product_launch parameter"
     )
     material: str | None = Field(None, description="material parameter")
@@ -110,7 +131,7 @@ class ProductGroupCreateProductParams(BaseModel):
     size: str | None = Field(None, description="size parameter")
     start_date: str | None = Field(None, description="start_date parameter")
     url: str | None = Field(None, description="url parameter")
-    visibility: str | None = Field(None, description="visibility parameter")
+    visibility: ProductItemVisibility | None = Field(None, description="visibility parameter")
     windows_phone_app_id: str | None = Field(None, description="windows_phone_app_id parameter")
     windows_phone_app_name: str | None = Field(None, description="windows_phone_app_name parameter")
     windows_phone_url: str | None = Field(None, description="windows_phone_url parameter")

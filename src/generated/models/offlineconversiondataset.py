@@ -7,8 +7,22 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adaccount import AdAccountActionSource
+from .business import BusinessActionSource
+from .customaudience import CustomAudienceActionSource
+from .offlineconversiondatasetupload import (
+    OfflineConversionDataSetUploadOrder,
+    OfflineConversionDataSetUploadSortBy,
+)
+
 if TYPE_CHECKING:
-    from .adaccount import AdAccountFields
+    from .adaccount import AdAccountActionSource, AdAccountFields
+    from .business import BusinessActionSource
+    from .customaudience import CustomAudienceActionSource
+    from .offlineconversiondatasetupload import (
+        OfflineConversionDataSetUploadOrder,
+        OfflineConversionDataSetUploadSortBy,
+    )
     from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
     from .user import UserFields
 
@@ -104,7 +118,9 @@ class OfflineConversionDataSetGetAdAccountsParams(BaseModel):
 class OfflineConversionDataSetGetAudiencesParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_audiences()."""
 
-    action_source: str | None = Field(None, description="action_source parameter")
+    action_source: CustomAudienceActionSource | None = Field(
+        None, description="action_source parameter"
+    )
     ad_account: str | None = Field(None, description="ad_account parameter")
 
     class Config:
@@ -123,7 +139,7 @@ class OfflineConversionDataSetGetCustomConversionsParams(BaseModel):
 class OfflineConversionDataSetGetSharedAccountsParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_shared_accounts()."""
 
-    action_source: str | None = Field(None, description="action_source parameter")
+    action_source: AdAccountActionSource | None = Field(None, description="action_source parameter")
     business: str | None = Field(None, description="business parameter")
 
     class Config:
@@ -133,7 +149,7 @@ class OfflineConversionDataSetGetSharedAccountsParams(BaseModel):
 class OfflineConversionDataSetGetSharedAgenciesParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_shared_agencies()."""
 
-    action_source: str | None = Field(None, description="action_source parameter")
+    action_source: BusinessActionSource | None = Field(None, description="action_source parameter")
 
     class Config:
         extra = "forbid"
@@ -157,8 +173,10 @@ class OfflineConversionDataSetGetUploadsParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_uploads()."""
 
     end_time: datetime | None = Field(None, description="end_time parameter")
-    order: str | None = Field(None, description="order parameter")
-    sort_by: str | None = Field(None, description="sort_by parameter")
+    order: OfflineConversionDataSetUploadOrder | None = Field(None, description="order parameter")
+    sort_by: OfflineConversionDataSetUploadSortBy | None = Field(
+        None, description="sort_by parameter"
+    )
     start_time: datetime | None = Field(None, description="start_time parameter")
     upload_tag: str | None = Field(None, description="upload_tag parameter")
 

@@ -117,7 +117,7 @@ class PostWrappers:
         Type-safe wrapper for Post.delete_likes().
 
         Endpoint: DELETE /likes
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

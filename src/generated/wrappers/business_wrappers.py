@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.business import Business
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -250,7 +247,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_ad_accounts().
 
         Endpoint: DELETE /ad_accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -264,12 +261,12 @@ class BusinessWrappers:
     def create_ad_review_request(
         obj: Business,
         params: BusinessCreateAdReviewRequestParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Business.create_ad_review_request().
 
         Endpoint: POST /ad_review_requests
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -277,8 +274,8 @@ class BusinessWrappers:
         # Call the original method
         result = obj.create_ad_review_request(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_ad_study(
@@ -564,7 +561,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_agencies().
 
         Endpoint: DELETE /agencies
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -598,12 +595,12 @@ class BusinessWrappers:
     def create_bm_review_request(
         obj: Business,
         params: BusinessCreateBmReviewRequestParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Business.create_bm_review_request().
 
         Endpoint: POST /bm_review_requests
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -611,8 +608,8 @@ class BusinessWrappers:
         # Call the original method
         result = obj.create_bm_review_request(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_business_invoices(
@@ -757,7 +754,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_clients().
 
         Endpoint: DELETE /clients
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1004,7 +1001,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_instagram_accounts().
 
         Endpoint: DELETE /instagram_accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1023,7 +1020,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_managed_businesses().
 
         Endpoint: DELETE /managed_businesses
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1109,7 +1106,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_managed_partner_businesses().
 
         Endpoint: DELETE /managed_partner_businesses
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1143,12 +1140,12 @@ class BusinessWrappers:
     def create_onboard_partners_to_mm_lite(
         obj: Business,
         params: BusinessCreateOnboardPartnersToMmLiteParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Business.create_onboard_partners_to_mm_lite().
 
         Endpoint: POST /onboard_partners_to_mm_lite
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1156,8 +1153,8 @@ class BusinessWrappers:
         # Call the original method
         result = obj.create_onboard_partners_to_mm_lite(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_open_bridge_configuration(
@@ -1255,7 +1252,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_owned_businesses().
 
         Endpoint: DELETE /owned_businesses
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1361,7 +1358,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_pages().
 
         Endpoint: DELETE /pages
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1375,12 +1372,12 @@ class BusinessWrappers:
     def create_partner_premium_option(
         obj: Business,
         params: BusinessCreatePartnerPremiumOptionParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Business.create_partner_premium_option().
 
         Endpoint: POST /partner_premium_options
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1388,8 +1385,8 @@ class BusinessWrappers:
         # Call the original method
         result = obj.create_partner_premium_option(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_pending_users(
@@ -1575,7 +1572,7 @@ class BusinessWrappers:
         Type-safe wrapper for Business.delete_share_pre_verified_numbers().
 
         Endpoint: DELETE /share_preverified_numbers
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

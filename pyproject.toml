@@ -131,6 +131,7 @@ ignore = [
     "B006",
     "B007",
     "F841",   # unused variable
+    "F401",   # unused import
     "UP045",
     "E722",   # bare excepts
     "UP007",  # union

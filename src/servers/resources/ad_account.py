@@ -1,9 +1,10 @@
 """Streamlined Ad Account MCP Server - Core Operations Only."""
 
-from typing import Any
+from typing import Annotated, Any
 
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
+from pydantic import Field
 
 from src.generated.models.adaccount import AdAccountField
 from src.generated.models.campaign import CampaignField
@@ -67,11 +68,16 @@ def update_ad_account(
 
 
 # ---- Resource Management (4) ----
+from src.generated.wrappers.adaccount_wrappers import AdAccountGetCampaignsParams
+
+
 @wrapped_fn_tool
 def get_campaigns(
     ad_account_id: str,
-    fields: list[CampaignField] = [],
-    params: dict[str, Any] = {},
+    fields: Annotated[
+        list[CampaignField], Field(description="fields for querying ad campaigns")
+    ] = [],
+    params: AdAccountGetCampaignsParams = {},
 ) -> str:
     """Get campaigns for this ad account.
 
@@ -260,14 +266,14 @@ def run_any_ad_account_fn(
 
 
 # ---- Register tools ----
-ad_account_server.tool(get_ad_account)
-ad_account_server.tool(update_ad_account)
+# ad_account_server.tool(get_ad_account)
+# ad_account_server.tool(update_ad_account)
 ad_account_server.tool(get_campaigns)
-ad_account_server.tool(create_campaign)
-ad_account_server.tool(get_ad_sets)
-ad_account_server.tool(create_ad_set)
-ad_account_server.tool(get_insights)
-ad_account_server.tool(get_insights_async)
-ad_account_server.tool(get_custom_audiences)
-ad_account_server.tool(create_custom_audience)
-ad_account_server.tool(run_any_ad_account_fn)
+# ad_account_server.tool(create_campaign)
+# ad_account_server.tool(get_ad_sets)
+# ad_account_server.tool(create_ad_set)
+# ad_account_server.tool(get_insights)
+# ad_account_server.tool(get_insights_async)
+# ad_account_server.tool(get_custom_audiences)
+# ad_account_server.tool(create_custom_audience)
+# ad_account_server.tool(run_any_ad_account_fn)

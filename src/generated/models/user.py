@@ -8,15 +8,86 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adstudy import AdStudyType
+from .advideo import (
+    AdVideoContainerType,
+    AdVideoContentCategory,
+    AdVideoFormatting,
+    AdVideoOriginalProjectionType,
+    AdVideoSwapMode,
+    AdVideoType,
+    AdVideoUnpublishedContentType,
+    AdVideoUploadPhase,
+)
+from .business import BusinessSurveyBusinessType, BusinessTimezoneId, BusinessVertical
+from .event import EventType
+from .fundraiserpersontocharity import FundraiserPersonToCharityFundraiserType
+from .livevideo import (
+    LiveVideoProjection,
+    LiveVideoSource,
+    LiveVideoSpatialAudioFormat,
+    LiveVideoStatus,
+    LiveVideoStereoscopicMode,
+    LiveVideoStreamType,
+)
+from .permission import PermissionStatus
+from .photo import PhotoBackdatedTimeGranularity, PhotoType, PhotoUnpublishedContentType
+from .post import (
+    PostBackdatedTimeGranularity,
+    PostFormatting,
+    PostPlaceAttachmentSetting,
+    PostPostingToRedspace,
+    PostTargetSurface,
+    PostUnpublishedContentType,
+)
+from .profilepicturesource import ProfilePictureSourceType
+from .unifiedthread import UnifiedThreadPlatform
+
 if TYPE_CHECKING:
+    from .adstudy import AdStudyType
+    from .advideo import (
+        AdVideoContainerType,
+        AdVideoContentCategory,
+        AdVideoFormatting,
+        AdVideoOriginalProjectionType,
+        AdVideoSwapMode,
+        AdVideoType,
+        AdVideoUnpublishedContentType,
+        AdVideoUploadPhase,
+    )
     from .agerange import AgeRangeFields
     from .avatarprofilepicture import AvatarProfilePictureFields
+    from .business import BusinessSurveyBusinessType, BusinessTimezoneId, BusinessVertical
     from .currency import CurrencyFields
     from .educationexperience import EducationExperienceFields
+    from .event import EventType
     from .experience import ExperienceFields
+    from .fundraiserpersontocharity import FundraiserPersonToCharityFundraiserType
     from .group import GroupFields
+    from .livevideo import (
+        LiveVideoBroadcastStatus,
+        LiveVideoProjection,
+        LiveVideoSource,
+        LiveVideoSpatialAudioFormat,
+        LiveVideoStatus,
+        LiveVideoStereoscopicMode,
+        LiveVideoStreamType,
+    )
     from .page import PageFields
     from .paymentpricepoints import PaymentPricepointsFields
+    from .permission import PermissionStatus
+    from .photo import PhotoBackdatedTimeGranularity, PhotoType, PhotoUnpublishedContentType
+    from .post import (
+        PostBackdatedTimeGranularity,
+        PostFormatting,
+        PostPlaceAttachmentSetting,
+        PostPostingToRedspace,
+        PostPostSurfacesBlacklist,
+        PostTargetSurface,
+        PostUnpublishedContentType,
+    )
+    from .profilepicturesource import ProfilePictureSourceType
+    from .unifiedthread import UnifiedThreadPlatform
     from .usercoverphoto import UserCoverPhotoFields
     from .videouploadlimits import VideoUploadLimitsFields
 
@@ -239,7 +310,7 @@ class UserCreateAdStudyParams(BaseModel):
     objectives: list[Any] | None = Field(None, description="objectives parameter")
     observation_end_time: int | None = Field(None, description="observation_end_time parameter")
     start_time: int | None = Field(None, description="start_time parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: AdStudyType | None = Field(None, description="type parameter")
     viewers: list[int] | None = Field(None, description="viewers parameter")
 
     class Config:
@@ -292,11 +363,13 @@ class UserCreateBusinessParams(BaseModel):
     name: str | None = Field(None, description="name parameter")
     primary_page: str | None = Field(None, description="primary_page parameter")
     sales_rep_email: str | None = Field(None, description="sales_rep_email parameter")
-    survey_business_type: str | None = Field(None, description="survey_business_type parameter")
+    survey_business_type: BusinessSurveyBusinessType | None = Field(
+        None, description="survey_business_type parameter"
+    )
     survey_num_assets: int | None = Field(None, description="survey_num_assets parameter")
     survey_num_people: int | None = Field(None, description="survey_num_people parameter")
-    timezone_id: str | None = Field(None, description="timezone_id parameter")
-    vertical: str | None = Field(None, description="vertical parameter")
+    timezone_id: BusinessTimezoneId | None = Field(None, description="timezone_id parameter")
+    vertical: BusinessVertical | None = Field(None, description="vertical parameter")
 
     class Config:
         extra = "forbid"
@@ -306,7 +379,7 @@ class UserGetConversationsParams(BaseModel):
     """Parameters for User.get_conversations()."""
 
     folder: str | None = Field(None, description="folder parameter")
-    platform: str | None = Field(None, description="platform parameter")
+    platform: UnifiedThreadPlatform | None = Field(None, description="platform parameter")
     tags: list[str] | None = Field(None, description="tags parameter")
     user_id: str | None = Field(None, description="user_id parameter")
 
@@ -318,7 +391,7 @@ class UserGetEventsParams(BaseModel):
     """Parameters for User.get_events()."""
 
     include_canceled: bool | None = Field(None, description="include_canceled parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: EventType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -356,7 +429,7 @@ class UserCreateFeedParams(BaseModel):
     attached_media: list[Any] | None = Field(None, description="attached_media parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(
+    backdated_time_granularity: PostBackdatedTimeGranularity | None = Field(
         None, description="backdated_time_granularity parameter"
     )
     breaking_news: bool | None = Field(None, description="breaking_news parameter")
@@ -388,7 +461,7 @@ class UserCreateFeedParams(BaseModel):
     expanded_height: int | None = Field(None, description="expanded_height parameter")
     expanded_width: int | None = Field(None, description="expanded_width parameter")
     feed_targeting: Any | None = Field(None, description="feed_targeting parameter")
-    formatting: str | None = Field(None, description="formatting parameter")
+    formatting: PostFormatting | None = Field(None, description="formatting parameter")
     fun_fact_prompt_id: str | None = Field(None, description="fun_fact_prompt_id parameter")
     fun_fact_toastee_id: int | None = Field(None, description="fun_fact_toastee_id parameter")
     height: int | None = Field(None, description="height parameter")
@@ -428,15 +501,17 @@ class UserCreateFeedParams(BaseModel):
     page_recommendation: str | None = Field(None, description="page_recommendation parameter")
     picture: str | None = Field(None, description="picture parameter")
     place: Any | None = Field(None, description="place parameter")
-    place_attachment_setting: str | None = Field(
+    place_attachment_setting: PostPlaceAttachmentSetting | None = Field(
         None, description="place_attachment_setting parameter"
     )
     place_list: str | None = Field(None, description="place_list parameter")
     place_list_data: Any | None = Field(None, description="place_list_data parameter")
-    post_surfaces_blacklist: list[str] | None = Field(
+    post_surfaces_blacklist: list[PostPostSurfacesBlacklist] | None = Field(
         None, description="post_surfaces_blacklist parameter"
     )
-    posting_to_redspace: str | None = Field(None, description="posting_to_redspace parameter")
+    posting_to_redspace: PostPostingToRedspace | None = Field(
+        None, description="posting_to_redspace parameter"
+    )
     privacy: str | None = Field(None, description="privacy parameter")
     prompt_id: str | None = Field(None, description="prompt_id parameter")
     prompt_tracking_string: str | None = Field(None, description="prompt_tracking_string parameter")
@@ -458,7 +533,7 @@ class UserCreateFeedParams(BaseModel):
     sponsor_relationship: int | None = Field(None, description="sponsor_relationship parameter")
     suggested_place_id: Any | None = Field(None, description="suggested_place_id parameter")
     tags: list[int] | None = Field(None, description="tags parameter")
-    target_surface: str | None = Field(None, description="target_surface parameter")
+    target_surface: PostTargetSurface | None = Field(None, description="target_surface parameter")
     targeting: Any | None = Field(None, description="targeting parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     text_format_preset_id: str | None = Field(None, description="text_format_preset_id parameter")
@@ -469,7 +544,7 @@ class UserCreateFeedParams(BaseModel):
     )
     title: str | None = Field(None, description="title parameter")
     tracking_info: str | None = Field(None, description="tracking_info parameter")
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: PostUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
     user_selected_tags: bool | None = Field(None, description="user_selected_tags parameter")
@@ -507,7 +582,9 @@ class UserCreateFundraiserParams(BaseModel):
         None, description="external_fundraiser_uri parameter"
     )
     external_id: str | None = Field(None, description="external_id parameter")
-    fundraiser_type: str | None = Field(None, description="fundraiser_type parameter")
+    fundraiser_type: FundraiserPersonToCharityFundraiserType | None = Field(
+        None, description="fundraiser_type parameter"
+    )
     goal_amount: int | None = Field(None, description="goal_amount parameter")
     name: str | None = Field(None, description="name parameter")
     page_id: str | None = Field(None, description="page_id parameter")
@@ -565,8 +642,10 @@ class UserGetLikesParams(BaseModel):
 class UserGetLiveVideosParams(BaseModel):
     """Parameters for User.get_live_videos()."""
 
-    broadcast_status: list[str] | None = Field(None, description="broadcast_status parameter")
-    source: str | None = Field(None, description="source parameter")
+    broadcast_status: list[LiveVideoBroadcastStatus] | None = Field(
+        None, description="broadcast_status parameter"
+    )
+    source: LiveVideoSource | None = Field(None, description="source parameter")
 
     class Config:
         extra = "forbid"
@@ -586,16 +665,20 @@ class UserCreateLiveVideoParams(BaseModel):
     is_spherical: bool | None = Field(None, description="is_spherical parameter")
     original_fov: int | None = Field(None, description="original_fov parameter")
     privacy: str | None = Field(None, description="privacy parameter")
-    projection: str | None = Field(None, description="projection parameter")
+    projection: LiveVideoProjection | None = Field(None, description="projection parameter")
     published: bool | None = Field(None, description="published parameter")
     schedule_custom_profile_image: Any | None = Field(
         None, description="schedule_custom_profile_image parameter"
     )
-    spatial_audio_format: str | None = Field(None, description="spatial_audio_format parameter")
-    status: str | None = Field(None, description="status parameter")
-    stereoscopic_mode: str | None = Field(None, description="stereoscopic_mode parameter")
+    spatial_audio_format: LiveVideoSpatialAudioFormat | None = Field(
+        None, description="spatial_audio_format parameter"
+    )
+    status: LiveVideoStatus | None = Field(None, description="status parameter")
+    stereoscopic_mode: LiveVideoStereoscopicMode | None = Field(
+        None, description="stereoscopic_mode parameter"
+    )
     stop_on_delete_stream: bool | None = Field(None, description="stop_on_delete_stream parameter")
-    stream_type: str | None = Field(None, description="stream_type parameter")
+    stream_type: LiveVideoStreamType | None = Field(None, description="stream_type parameter")
     title: str | None = Field(None, description="title parameter")
 
     class Config:
@@ -626,7 +709,7 @@ class UserCreateNotificationParams(BaseModel):
     bot_message_payload_elements: str | None = Field(
         None, description="bot_message_payload_elements parameter"
     )
-    filtering: list[str] | None = Field(None, description="filtering parameter")
+    filtering: list[UserFiltering] | None = Field(None, description="filtering parameter")
     href: Any | None = Field(None, description="href parameter")
     label: str | None = Field(None, description="label parameter")
     message: dict[str, Any] | None = Field(None, description="message parameter")
@@ -637,7 +720,7 @@ class UserCreateNotificationParams(BaseModel):
     schedule_interval: int | None = Field(None, description="schedule_interval parameter")
     seen: bool | None = Field(None, description="seen parameter")
     template: Any | None = Field(None, description="template parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: UserType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -656,7 +739,7 @@ class UserGetPermissionsParams(BaseModel):
     """Parameters for User.get_permissions()."""
 
     permission: str | None = Field(None, description="permission parameter")
-    status: str | None = Field(None, description="status parameter")
+    status: PermissionStatus | None = Field(None, description="status parameter")
 
     class Config:
         extra = "forbid"
@@ -665,7 +748,7 @@ class UserGetPermissionsParams(BaseModel):
 class UserGetPhotosParams(BaseModel):
     """Parameters for User.get_photos()."""
 
-    type: str | None = Field(None, description="type parameter")
+    type: PhotoType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -682,7 +765,7 @@ class UserCreatePhotoParams(BaseModel):
     attempt: int | None = Field(None, description="attempt parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(
+    backdated_time_granularity: PhotoBackdatedTimeGranularity | None = Field(
         None, description="backdated_time_granularity parameter"
     )
     caption: str | None = Field(None, description="caption parameter")
@@ -738,7 +821,7 @@ class UserCreatePhotoParams(BaseModel):
         None, description="time_since_original_post parameter"
     )
     uid: int | None = Field(None, description="uid parameter")
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: PhotoUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
     url: str | None = Field(None, description="url parameter")
@@ -754,7 +837,7 @@ class UserGetPictureParams(BaseModel):
 
     height: int | None = Field(None, description="height parameter")
     redirect: bool | None = Field(None, description="redirect parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
     class Config:
@@ -796,7 +879,7 @@ class UserCreateStagingResourceParams(BaseModel):
 class UserGetVideosParams(BaseModel):
     """Parameters for User.get_videos()."""
 
-    type: str | None = Field(None, description="type parameter")
+    type: AdVideoType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -823,8 +906,12 @@ class UserCreateVideoParams(BaseModel):
         None, description="composer_source_surface parameter"
     )
     composer_type: str | None = Field(None, description="composer_type parameter")
-    container_type: str | None = Field(None, description="container_type parameter")
-    content_category: str | None = Field(None, description="content_category parameter")
+    container_type: AdVideoContainerType | None = Field(
+        None, description="container_type parameter"
+    )
+    content_category: AdVideoContentCategory | None = Field(
+        None, description="content_category parameter"
+    )
     creative_tools: str | None = Field(None, description="creative_tools parameter")
     description: str | None = Field(None, description="description parameter")
     direct_share_status: int | None = Field(None, description="direct_share_status parameter")
@@ -836,7 +923,7 @@ class UserCreateVideoParams(BaseModel):
     file_size: int | None = Field(None, description="file_size parameter")
     file_url: str | None = Field(None, description="file_url parameter")
     fisheye_video_cropped: bool | None = Field(None, description="fisheye_video_cropped parameter")
-    formatting: str | None = Field(None, description="formatting parameter")
+    formatting: AdVideoFormatting | None = Field(None, description="formatting parameter")
     fov: int | None = Field(None, description="fov parameter")
     front_z_rotation: float | None = Field(None, description="front_z_rotation parameter")
     fun_fact_prompt_id: str | None = Field(None, description="fun_fact_prompt_id parameter")
@@ -864,7 +951,7 @@ class UserCreateVideoParams(BaseModel):
         None, description="og_suggestion_mechanism parameter"
     )
     original_fov: int | None = Field(None, description="original_fov parameter")
-    original_projection_type: str | None = Field(
+    original_projection_type: AdVideoOriginalProjectionType | None = Field(
         None, description="original_projection_type parameter"
     )
     partnership_ad_ad_code: str | None = Field(None, description="partnership_ad_ad_code parameter")
@@ -880,7 +967,7 @@ class UserCreateVideoParams(BaseModel):
     spherical: bool | None = Field(None, description="spherical parameter")
     sponsor_id: str | None = Field(None, description="sponsor_id parameter")
     start_offset: int | None = Field(None, description="start_offset parameter")
-    swap_mode: str | None = Field(None, description="swap_mode parameter")
+    swap_mode: AdVideoSwapMode | None = Field(None, description="swap_mode parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     thumb: Any | None = Field(None, description="thumb parameter")
     time_since_original_post: int | None = Field(
@@ -890,10 +977,10 @@ class UserCreateVideoParams(BaseModel):
     transcode_setting_properties: str | None = Field(
         None, description="transcode_setting_properties parameter"
     )
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: AdVideoUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
-    upload_phase: str | None = Field(None, description="upload_phase parameter")
+    upload_phase: AdVideoUploadPhase | None = Field(None, description="upload_phase parameter")
     upload_session_id: str | None = Field(None, description="upload_session_id parameter")
     upload_setting_properties: str | None = Field(
         None, description="upload_setting_properties parameter"

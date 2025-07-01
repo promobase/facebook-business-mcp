@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.page import Page
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.advideo import (
     AdVideoField,
     AdVideoFields,
@@ -315,7 +312,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_agencies().
 
         Endpoint: DELETE /agencies
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -354,7 +351,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_assigned_users().
 
         Endpoint: DELETE /assigned_users
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -420,7 +417,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_blocked().
 
         Endpoint: DELETE /blocked
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -461,12 +458,12 @@ class PageWrappers:
     def create_blocked(
         obj: Page,
         params: PageCreateBlockedParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Page.create_blocked().
 
         Endpoint: POST /blocked
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -474,19 +471,19 @@ class PageWrappers:
         # Call the original method
         result = obj.create_blocked(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_business_datum(
         obj: Page,
         params: PageCreateBusinessDatumParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Page.create_business_datum().
 
         Endpoint: POST /business_data
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -494,8 +491,8 @@ class PageWrappers:
         # Call the original method
         result = obj.create_business_datum(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_business_projects(
@@ -528,12 +525,12 @@ class PageWrappers:
     def create_call(
         obj: Page,
         params: PageCreateCallParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Page.create_call().
 
         Endpoint: POST /calls
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -541,8 +538,8 @@ class PageWrappers:
         # Call the original method
         result = obj.create_call(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_canvas_element(
@@ -768,7 +765,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_custom_user_settings().
 
         Endpoint: DELETE /custom_user_settings
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1089,7 +1086,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_locations().
 
         Endpoint: DELETE /locations
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1170,12 +1167,12 @@ class PageWrappers:
     def create_message_attachment(
         obj: Page,
         params: PageCreateMessageAttachmentParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Page.create_message_attachment().
 
         Endpoint: POST /message_attachments
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1183,8 +1180,8 @@ class PageWrappers:
         # Call the original method
         result = obj.create_message_attachment(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def delete_message_templates(
@@ -1195,7 +1192,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_message_templates().
 
         Endpoint: DELETE /message_templates
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1321,7 +1318,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_messenger_profile().
 
         Endpoint: DELETE /messenger_profile
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -2066,12 +2063,12 @@ class PageWrappers:
     def create_video_story(
         obj: Page,
         params: PageCreateVideoStoryParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Page.create_video_story().
 
         Endpoint: POST /video_stories
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -2079,8 +2076,8 @@ class PageWrappers:
         # Call the original method
         result = obj.create_video_story(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_videos(
@@ -2165,7 +2162,7 @@ class PageWrappers:
         Type-safe wrapper for Page.delete_welcome_message_flows().
 
         Endpoint: DELETE /welcome_message_flows
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -2206,12 +2203,12 @@ class PageWrappers:
     def create_welcome_message_flow(
         obj: Page,
         params: PageCreateWelcomeMessageFlowParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for Page.create_welcome_message_flow().
 
         Endpoint: POST /welcome_message_flows
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -2219,5 +2216,5 @@ class PageWrappers:
         # Call the original method
         result = obj.create_welcome_message_flow(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result

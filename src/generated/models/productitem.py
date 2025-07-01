@@ -7,10 +7,13 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .overridedetails import OverrideDetailsType
+
 if TYPE_CHECKING:
     from .aigeneratedproductimage import AIGeneratedProductImageFields
     from .catalogitemapplinks import CatalogItemAppLinksFields
     from .catalogsubverticallist import CatalogSubVerticalListFields
+    from .overridedetails import OverrideDetailsType
     from .productcatalog import ProductCatalogFields
     from .productfeed import ProductFeedFields
     from .productgroup import ProductGroupFields
@@ -1038,7 +1041,7 @@ class ProductItemGetOverrideDetailsParams(BaseModel):
     """Parameters for ProductItem.get_override_details()."""
 
     keys: list[str] | None = Field(None, description="keys parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: OverrideDetailsType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"

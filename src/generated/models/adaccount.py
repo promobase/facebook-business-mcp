@@ -8,12 +8,196 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .ad import AdDatePreset, AdOperator, AdStatus
+from .adaccountadruleshistory import (
+    AdAccountAdRulesHistoryAction,
+    AdAccountAdRulesHistoryEvaluationType,
+)
+from .adaccountadvolume import AdAccountAdVolumeRecommendationType
+from .adaccountdeliveryestimate import AdAccountDeliveryEstimateOptimizationGoal
+from .adaccountmatchedsearchapplicationsedgedata import (
+    AdAccountMatchedSearchApplicationsEdgeDataAppStore,
+)
+from .adaccounttargetingunified import (
+    AdAccountTargetingUnifiedAppStore,
+    AdAccountTargetingUnifiedLimitType,
+    AdAccountTargetingUnifiedMode,
+    AdAccountTargetingUnifiedObjective,
+)
+from .adactivity import AdActivityCategory, AdActivityDataSource
+from .adasyncrequestset import AdAsyncRequestSetNotificationMode
+from .adcreative import (
+    AdCreativeApplinkTreatment,
+    AdCreativeAuthorizationCategory,
+    AdCreativeCategorizationCriteria,
+    AdCreativeCategoryMediaSource,
+    AdCreativeDynamicAdVoice,
+    AdCreativeOperator,
+)
+from .adplacepageset import AdPlacePageSetTargetedAreaType
+from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
+from .adrule import AdRuleStatus, AdRuleUiCreationSource
+from .adset import (
+    AdSetBidStrategy,
+    AdSetBillingEvent,
+    AdSetBudgetSource,
+    AdSetCreativeSequenceRepetitionPattern,
+    AdSetDatePreset,
+    AdSetDestinationType,
+    AdSetFullFunnelExplorationMode,
+    AdSetMultiOptimizationGoalWeight,
+    AdSetOperator,
+    AdSetOptimizationGoal,
+    AdSetOptimizationSubEvent,
+    AdSetStatus,
+    AdSetTuneForCategory,
+)
+from .adsinsights import AdsInsightsActionReportTime, AdsInsightsDatePreset, AdsInsightsLevel
+from .adspixel import AdsPixelSortBy
+from .adsvalueadjustmentrulecollection import (
+    AdsValueAdjustmentRuleCollectionProductType,
+    AdsValueAdjustmentRuleCollectionStatus,
+)
+from .advideo import (
+    AdVideoContainerType,
+    AdVideoContentCategory,
+    AdVideoFormatting,
+    AdVideoOriginalProjectionType,
+    AdVideoSwapMode,
+    AdVideoUnpublishedContentType,
+    AdVideoUploadPhase,
+    AdVideoVideoState,
+)
+from .asyncrequest import AsyncRequestStatus, AsyncRequestType
+from .businessownedobjectonbehalfofrequest import BusinessOwnedObjectOnBehalfOfRequestStatus
+from .campaign import (
+    CampaignBidStrategy,
+    CampaignDatePreset,
+    CampaignObjective,
+    CampaignOperator,
+    CampaignSmartPromotionType,
+    CampaignStatus,
+)
+from .customaudience import (
+    CustomAudienceClaimObjective,
+    CustomAudienceContentType,
+    CustomAudienceCustomerFileSource,
+    CustomAudienceSubtype,
+)
+from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
+from .reachfrequencyprediction import (
+    ReachFrequencyPredictionAction,
+    ReachFrequencyPredictionBuyingType,
+)
+
 if TYPE_CHECKING:
+    from .ad import AdDatePreset, AdExecutionOptions, AdOperator, AdStatus
+    from .adaccountadruleshistory import (
+        AdAccountAdRulesHistoryAction,
+        AdAccountAdRulesHistoryEvaluationType,
+    )
+    from .adaccountadvolume import AdAccountAdVolumeRecommendationType
+    from .adaccountdeliveryestimate import AdAccountDeliveryEstimateOptimizationGoal
+    from .adaccountmatchedsearchapplicationsedgedata import (
+        AdAccountMatchedSearchApplicationsEdgeDataAppStore,
+    )
     from .adaccountpromotableobjects import AdAccountPromotableObjectsFields
-    from .adcreative import AdCreativeFields
+    from .adaccounttargetingunified import (
+        AdAccountTargetingUnifiedAppStore,
+        AdAccountTargetingUnifiedLimitType,
+        AdAccountTargetingUnifiedMode,
+        AdAccountTargetingUnifiedObjective,
+        AdAccountTargetingUnifiedRegulatedCategories,
+        AdAccountTargetingUnifiedRegulatedCountries,
+        AdAccountTargetingUnifiedWhitelistedTypes,
+    )
+    from .adactivity import AdActivityCategory, AdActivityDataSource
+    from .adasyncrequestset import AdAsyncRequestSetNotificationMode
+    from .adcreative import (
+        AdCreativeApplinkTreatment,
+        AdCreativeAuthorizationCategory,
+        AdCreativeCategorizationCriteria,
+        AdCreativeCategoryMediaSource,
+        AdCreativeDynamicAdVoice,
+        AdCreativeFields,
+        AdCreativeOperator,
+    )
     from .adcreativeobjectstoryspec import AdCreativeObjectStorySpecFields
-    from .adset import AdSetFields
+    from .adplacepageset import AdPlacePageSetLocationTypes, AdPlacePageSetTargetedAreaType
+    from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
+    from .adrule import AdRuleStatus, AdRuleUiCreationSource
+    from .adset import (
+        AdSetBidStrategy,
+        AdSetBillingEvent,
+        AdSetBudgetSource,
+        AdSetCreativeSequenceRepetitionPattern,
+        AdSetDatePreset,
+        AdSetDestinationType,
+        AdSetEffectiveStatus,
+        AdSetExecutionOptions,
+        AdSetFields,
+        AdSetFullFunnelExplorationMode,
+        AdSetMultiOptimizationGoalWeight,
+        AdSetOperator,
+        AdSetOptimizationGoal,
+        AdSetOptimizationSubEvent,
+        AdSetRegionalRegulatedCategories,
+        AdSetStatus,
+        AdSetTuneForCategory,
+    )
+    from .adsinsights import (
+        AdsInsightsActionAttributionWindows,
+        AdsInsightsActionBreakdowns,
+        AdsInsightsActionReportTime,
+        AdsInsightsBreakdowns,
+        AdsInsightsDatePreset,
+        AdsInsightsLevel,
+        AdsInsightsSummaryActionBreakdowns,
+    )
+    from .adspixel import AdsPixelSortBy
+    from .adsvalueadjustmentrulecollection import (
+        AdsValueAdjustmentRuleCollectionProductType,
+        AdsValueAdjustmentRuleCollectionStatus,
+    )
+    from .advideo import (
+        AdVideoContainerType,
+        AdVideoContentCategory,
+        AdVideoFormatting,
+        AdVideoOriginalProjectionType,
+        AdVideoSwapMode,
+        AdVideoUnpublishedContentType,
+        AdVideoUploadPhase,
+        AdVideoVideoState,
+    )
+    from .asyncrequest import AsyncRequestStatus, AsyncRequestType
+    from .businessownedobjectonbehalfofrequest import BusinessOwnedObjectOnBehalfOfRequestStatus
+    from .campaign import (
+        CampaignBidStrategy,
+        CampaignDatePreset,
+        CampaignEffectiveStatus,
+        CampaignExecutionOptions,
+        CampaignObjective,
+        CampaignOperator,
+        CampaignSmartPromotionType,
+        CampaignSpecialAdCategories,
+        CampaignSpecialAdCategoryCountry,
+        CampaignStatus,
+    )
+    from .customaudience import (
+        CustomAudienceClaimObjective,
+        CustomAudienceContentType,
+        CustomAudienceCustomerFileSource,
+        CustomAudienceSubscriptionInfo,
+        CustomAudienceSubtype,
+        CustomAudienceUseForProducts,
+    )
     from .customaudiencegroup import CustomAudienceGroupFields
+    from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
+    from .reachfrequencyprediction import (
+        ReachFrequencyPredictionAction,
+        ReachFrequencyPredictionBuyingType,
+        ReachFrequencyPredictionInstreamPackages,
+    )
     from .targeting import TargetingFields
 
 
@@ -368,8 +552,8 @@ class AdAccountGetActivitiesParams(BaseModel):
     add_children: bool | None = Field(None, description="add_children parameter")
     after: str | None = Field(None, description="after parameter")
     business_id: str | None = Field(None, description="business_id parameter")
-    category: str | None = Field(None, description="category parameter")
-    data_source: str | None = Field(None, description="data_source parameter")
+    category: AdActivityCategory | None = Field(None, description="category parameter")
+    data_source: AdActivityDataSource | None = Field(None, description="data_source parameter")
     extra_oids: list[str] | None = Field(None, description="extra_oids parameter")
     limit: int | None = Field(None, description="limit parameter")
     oid: str | None = Field(None, description="oid parameter")
@@ -384,10 +568,14 @@ class AdAccountGetActivitiesParams(BaseModel):
 class AdAccountCreateAdPlacePageSetParams(BaseModel):
     """Parameters for AdAccount.create_ad_place_page_set()."""
 
-    location_types: list[str] | None = Field(None, description="location_types parameter")
+    location_types: list[AdPlacePageSetLocationTypes] | None = Field(
+        None, description="location_types parameter"
+    )
     name: str | None = Field(None, description="name parameter")
     parent_page: str | None = Field(None, description="parent_page parameter")
-    targeted_area_type: str | None = Field(None, description="targeted_area_type parameter")
+    targeted_area_type: AdPlacePageSetTargetedAreaType | None = Field(
+        None, description="targeted_area_type parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -396,10 +584,14 @@ class AdAccountCreateAdPlacePageSetParams(BaseModel):
 class AdAccountCreateAdPlacePageSetsAsyncParams(BaseModel):
     """Parameters for AdAccount.create_ad_place_page_sets_async()."""
 
-    location_types: list[str] | None = Field(None, description="location_types parameter")
+    location_types: list[AdPlacePageSetLocationTypes] | None = Field(
+        None, description="location_types parameter"
+    )
     name: str | None = Field(None, description="name parameter")
     parent_page: str | None = Field(None, description="parent_page parameter")
-    targeted_area_type: str | None = Field(None, description="targeted_area_type parameter")
+    targeted_area_type: AdPlacePageSetTargetedAreaType | None = Field(
+        None, description="targeted_area_type parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -422,9 +614,13 @@ class AdAccountCreateAdCreativeParams(BaseModel):
         None, description="ad_disclaimer_spec parameter"
     )
     adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    applink_treatment: str | None = Field(None, description="applink_treatment parameter")
+    applink_treatment: AdCreativeApplinkTreatment | None = Field(
+        None, description="applink_treatment parameter"
+    )
     asset_feed_spec: Any | None = Field(None, description="asset_feed_spec parameter")
-    authorization_category: str | None = Field(None, description="authorization_category parameter")
+    authorization_category: AdCreativeAuthorizationCategory | None = Field(
+        None, description="authorization_category parameter"
+    )
     body: str | None = Field(None, description="body parameter")
     branded_content: dict[str, Any] | None = Field(None, description="branded_content parameter")
     branded_content_sponsor_page_id: str | None = Field(
@@ -432,10 +628,12 @@ class AdAccountCreateAdCreativeParams(BaseModel):
     )
     bundle_folder_id: str | None = Field(None, description="bundle_folder_id parameter")
     call_to_action: Any | None = Field(None, description="call_to_action parameter")
-    categorization_criteria: str | None = Field(
+    categorization_criteria: AdCreativeCategorizationCriteria | None = Field(
         None, description="categorization_criteria parameter"
     )
-    category_media_source: str | None = Field(None, description="category_media_source parameter")
+    category_media_source: AdCreativeCategoryMediaSource | None = Field(
+        None, description="category_media_source parameter"
+    )
     contextual_multi_ads: dict[str, Any] | None = Field(
         None, description="contextual_multi_ads parameter"
     )
@@ -446,7 +644,9 @@ class AdAccountCreateAdCreativeParams(BaseModel):
         None, description="degrees_of_freedom_spec parameter"
     )
     destination_set_id: str | None = Field(None, description="destination_set_id parameter")
-    dynamic_ad_voice: str | None = Field(None, description="dynamic_ad_voice parameter")
+    dynamic_ad_voice: AdCreativeDynamicAdVoice | None = Field(
+        None, description="dynamic_ad_voice parameter"
+    )
     enable_launch_instant_app: bool | None = Field(
         None, description="enable_launch_instant_app parameter"
     )
@@ -517,7 +717,7 @@ class AdAccountGetAdCreativesByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_ad_creatives_by_labels()."""
 
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
-    operator: str | None = Field(None, description="operator parameter")
+    operator: AdCreativeOperator | None = Field(None, description="operator parameter")
 
     class Config:
         extra = "forbid"
@@ -583,8 +783,10 @@ class AdAccountCreateAdPlayableParams(BaseModel):
 class AdAccountGetAdRulesHistoryParams(BaseModel):
     """Parameters for AdAccount.get_ad_rules_history()."""
 
-    action: str | None = Field(None, description="action parameter")
-    evaluation_type: str | None = Field(None, description="evaluation_type parameter")
+    action: AdAccountAdRulesHistoryAction | None = Field(None, description="action parameter")
+    evaluation_type: AdAccountAdRulesHistoryEvaluationType | None = Field(
+        None, description="evaluation_type parameter"
+    )
     hide_no_changes: bool | None = Field(None, description="hide_no_changes parameter")
     object_id: str | None = Field(None, description="object_id parameter")
 
@@ -600,8 +802,10 @@ class AdAccountCreateAdRulesLibraryParams(BaseModel):
     execution_spec: Any | None = Field(None, description="execution_spec parameter")
     name: str | None = Field(None, description="name parameter")
     schedule_spec: Any | None = Field(None, description="schedule_spec parameter")
-    status: str | None = Field(None, description="status parameter")
-    ui_creation_source: str | None = Field(None, description="ui_creation_source parameter")
+    status: AdRuleStatus | None = Field(None, description="status parameter")
+    ui_creation_source: AdRuleUiCreationSource | None = Field(
+        None, description="ui_creation_source parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -610,7 +814,7 @@ class AdAccountCreateAdRulesLibraryParams(BaseModel):
 class AdAccountGetAdsParams(BaseModel):
     """Parameters for AdAccount.get_ads()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    date_preset: AdDatePreset | None = Field(None, description="date_preset parameter")
     effective_status: list[str] | None = Field(None, description="effective_status parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
@@ -642,14 +846,16 @@ class AdAccountCreateAdParams(BaseModel):
     display_sequence: int | None = Field(None, description="display_sequence parameter")
     draft_adgroup_id: str | None = Field(None, description="draft_adgroup_id parameter")
     engagement_audience: bool | None = Field(None, description="engagement_audience parameter")
-    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    execution_options: list[AdExecutionOptions] | None = Field(
+        None, description="execution_options parameter"
+    )
     include_demolink_hashes: bool | None = Field(
         None, description="include_demolink_hashes parameter"
     )
     name: str | None = Field(None, description="name parameter")
     priority: int | None = Field(None, description="priority parameter")
     source_ad_id: str | None = Field(None, description="source_ad_id parameter")
-    status: str | None = Field(None, description="status parameter")
+    status: AdStatus | None = Field(None, description="status parameter")
     tracking_specs: Any | None = Field(None, description="tracking_specs parameter")
 
     class Config:
@@ -669,7 +875,9 @@ class AdAccountGetAdsVolumeParams(BaseModel):
     """Parameters for AdAccount.get_ads_volume()."""
 
     page_id: str | None = Field(None, description="page_id parameter")
-    recommendation_type: str | None = Field(None, description="recommendation_type parameter")
+    recommendation_type: AdAccountAdVolumeRecommendationType | None = Field(
+        None, description="recommendation_type parameter"
+    )
     show_breakdown_by_actor: bool | None = Field(
         None, description="show_breakdown_by_actor parameter"
     )
@@ -682,7 +890,7 @@ class AdAccountGetAdsByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_ads_by_labels()."""
 
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
-    operator: str | None = Field(None, description="operator parameter")
+    operator: AdOperator | None = Field(None, description="operator parameter")
 
     class Config:
         extra = "forbid"
@@ -691,8 +899,10 @@ class AdAccountGetAdsByLabelsParams(BaseModel):
 class AdAccountGetAdSetsParams(BaseModel):
     """Parameters for AdAccount.get_ad_sets()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
-    effective_status: list[str] | None = Field(None, description="effective_status parameter")
+    date_preset: AdSetDatePreset | None = Field(None, description="date_preset parameter")
+    effective_status: list[AdSetEffectiveStatus] | None = Field(
+        None, description="effective_status parameter"
+    )
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
@@ -712,15 +922,15 @@ class AdAccountCreateAdSetParams(BaseModel):
     bid_adjustments: Any | None = Field(None, description="bid_adjustments parameter")
     bid_amount: int | None = Field(None, description="bid_amount parameter")
     bid_constraints: Any | None = Field(None, description="bid_constraints parameter")
-    bid_strategy: str | None = Field(None, description="bid_strategy parameter")
-    billing_event: str | None = Field(None, description="billing_event parameter")
-    budget_source: str | None = Field(None, description="budget_source parameter")
+    bid_strategy: AdSetBidStrategy | None = Field(None, description="bid_strategy parameter")
+    billing_event: AdSetBillingEvent | None = Field(None, description="billing_event parameter")
+    budget_source: AdSetBudgetSource | None = Field(None, description="budget_source parameter")
     budget_split_set_id: str | None = Field(None, description="budget_split_set_id parameter")
     campaign_attribution: Any | None = Field(None, description="campaign_attribution parameter")
     campaign_id: str | None = Field(None, description="campaign_id parameter")
     campaign_spec: Any | None = Field(None, description="campaign_spec parameter")
     creative_sequence: list[str] | None = Field(None, description="creative_sequence parameter")
-    creative_sequence_repetition_pattern: str | None = Field(
+    creative_sequence_repetition_pattern: AdSetCreativeSequenceRepetitionPattern | None = Field(
         None, description="creative_sequence_repetition_pattern parameter"
     )
     daily_budget: int | None = Field(None, description="daily_budget parameter")
@@ -728,18 +938,22 @@ class AdAccountCreateAdSetParams(BaseModel):
     daily_min_spend_target: int | None = Field(None, description="daily_min_spend_target parameter")
     daily_spend_cap: int | None = Field(None, description="daily_spend_cap parameter")
     date_format: str | None = Field(None, description="date_format parameter")
-    destination_type: str | None = Field(None, description="destination_type parameter")
+    destination_type: AdSetDestinationType | None = Field(
+        None, description="destination_type parameter"
+    )
     dsa_beneficiary: str | None = Field(None, description="dsa_beneficiary parameter")
     dsa_payor: str | None = Field(None, description="dsa_payor parameter")
     end_time: datetime | None = Field(None, description="end_time parameter")
-    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    execution_options: list[AdSetExecutionOptions] | None = Field(
+        None, description="execution_options parameter"
+    )
     existing_customer_budget_percentage: int | None = Field(
         None, description="existing_customer_budget_percentage parameter"
     )
     frequency_control_specs: list[Any] | None = Field(
         None, description="frequency_control_specs parameter"
     )
-    full_funnel_exploration_mode: str | None = Field(
+    full_funnel_exploration_mode: AdSetFullFunnelExplorationMode | None = Field(
         None, description="full_funnel_exploration_mode parameter"
     )
     is_ba_skip_delayed_eligible: bool | None = Field(
@@ -765,16 +979,20 @@ class AdAccountCreateAdSetParams(BaseModel):
     min_budget_spend_percentage: int | None = Field(
         None, description="min_budget_spend_percentage parameter"
     )
-    multi_optimization_goal_weight: str | None = Field(
+    multi_optimization_goal_weight: AdSetMultiOptimizationGoalWeight | None = Field(
         None, description="multi_optimization_goal_weight parameter"
     )
     name: str | None = Field(None, description="name parameter")
-    optimization_goal: str | None = Field(None, description="optimization_goal parameter")
-    optimization_sub_event: str | None = Field(None, description="optimization_sub_event parameter")
+    optimization_goal: AdSetOptimizationGoal | None = Field(
+        None, description="optimization_goal parameter"
+    )
+    optimization_sub_event: AdSetOptimizationSubEvent | None = Field(
+        None, description="optimization_sub_event parameter"
+    )
     pacing_type: list[str] | None = Field(None, description="pacing_type parameter")
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
     rb_prediction_id: str | None = Field(None, description="rb_prediction_id parameter")
-    regional_regulated_categories: list[str] | None = Field(
+    regional_regulated_categories: list[AdSetRegionalRegulatedCategories] | None = Field(
         None, description="regional_regulated_categories parameter"
     )
     regional_regulation_identities: dict[str, Any] | None = Field(
@@ -783,7 +1001,7 @@ class AdAccountCreateAdSetParams(BaseModel):
     rf_prediction_id: str | None = Field(None, description="rf_prediction_id parameter")
     source_adset_id: str | None = Field(None, description="source_adset_id parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
-    status: str | None = Field(None, description="status parameter")
+    status: AdSetStatus | None = Field(None, description="status parameter")
     targeting: TargetingFields | None = Field(None, description="targeting parameter")
     time_based_ad_rotation_id_blocks: list[list[int]] | None = Field(
         None, description="time_based_ad_rotation_id_blocks parameter"
@@ -794,7 +1012,9 @@ class AdAccountCreateAdSetParams(BaseModel):
     time_start: datetime | None = Field(None, description="time_start parameter")
     time_stop: datetime | None = Field(None, description="time_stop parameter")
     topline_id: str | None = Field(None, description="topline_id parameter")
-    tune_for_category: str | None = Field(None, description="tune_for_category parameter")
+    tune_for_category: AdSetTuneForCategory | None = Field(
+        None, description="tune_for_category parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -804,7 +1024,7 @@ class AdAccountGetAdSetsByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_ad_sets_by_labels()."""
 
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
-    operator: str | None = Field(None, description="operator parameter")
+    operator: AdSetOperator | None = Field(None, description="operator parameter")
 
     class Config:
         extra = "forbid"
@@ -813,7 +1033,7 @@ class AdAccountGetAdSetsByLabelsParams(BaseModel):
 class AdAccountGetAdsPixelsParams(BaseModel):
     """Parameters for AdAccount.get_ads_pixels()."""
 
-    sort_by: str | None = Field(None, description="sort_by parameter")
+    sort_by: AdsPixelSortBy | None = Field(None, description="sort_by parameter")
 
     class Config:
         extra = "forbid"
@@ -886,8 +1106,12 @@ class AdAccountCreateAdVideoParams(BaseModel):
         None, description="composer_source_surface parameter"
     )
     composer_type: str | None = Field(None, description="composer_type parameter")
-    container_type: str | None = Field(None, description="container_type parameter")
-    content_category: str | None = Field(None, description="content_category parameter")
+    container_type: AdVideoContainerType | None = Field(
+        None, description="container_type parameter"
+    )
+    content_category: AdVideoContentCategory | None = Field(
+        None, description="content_category parameter"
+    )
     creative_tools: str | None = Field(None, description="creative_tools parameter")
     description: str | None = Field(None, description="description parameter")
     embeddable: bool | None = Field(None, description="embeddable parameter")
@@ -898,7 +1122,7 @@ class AdAccountCreateAdVideoParams(BaseModel):
     file_size: int | None = Field(None, description="file_size parameter")
     file_url: str | None = Field(None, description="file_url parameter")
     fisheye_video_cropped: bool | None = Field(None, description="fisheye_video_cropped parameter")
-    formatting: str | None = Field(None, description="formatting parameter")
+    formatting: AdVideoFormatting | None = Field(None, description="formatting parameter")
     fov: int | None = Field(None, description="fov parameter")
     front_z_rotation: float | None = Field(None, description="front_z_rotation parameter")
     fun_fact_prompt_id: str | None = Field(None, description="fun_fact_prompt_id parameter")
@@ -924,7 +1148,7 @@ class AdAccountCreateAdVideoParams(BaseModel):
         None, description="og_suggestion_mechanism parameter"
     )
     original_fov: int | None = Field(None, description="original_fov parameter")
-    original_projection_type: str | None = Field(
+    original_projection_type: AdVideoOriginalProjectionType | None = Field(
         None, description="original_projection_type parameter"
     )
     partnership_ad_ad_code: str | None = Field(None, description="partnership_ad_ad_code parameter")
@@ -938,7 +1162,7 @@ class AdAccountCreateAdVideoParams(BaseModel):
     )
     spherical: bool | None = Field(None, description="spherical parameter")
     start_offset: int | None = Field(None, description="start_offset parameter")
-    swap_mode: str | None = Field(None, description="swap_mode parameter")
+    swap_mode: AdVideoSwapMode | None = Field(None, description="swap_mode parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     thumb: Any | None = Field(None, description="thumb parameter")
     time_since_original_post: int | None = Field(
@@ -948,10 +1172,10 @@ class AdAccountCreateAdVideoParams(BaseModel):
     transcode_setting_properties: str | None = Field(
         None, description="transcode_setting_properties parameter"
     )
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: AdVideoUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
-    upload_phase: str | None = Field(None, description="upload_phase parameter")
+    upload_phase: AdVideoUploadPhase | None = Field(None, description="upload_phase parameter")
     upload_session_id: str | None = Field(None, description="upload_session_id parameter")
     upload_setting_properties: str | None = Field(
         None, description="upload_setting_properties parameter"
@@ -978,7 +1202,9 @@ class AdAccountCreateAgencyParams(BaseModel):
     """Parameters for AdAccount.create_agency()."""
 
     business: str | None = Field(None, description="business parameter")
-    permitted_tasks: list[str] | None = Field(None, description="permitted_tasks parameter")
+    permitted_tasks: list[AdAccountPermittedTasks] | None = Field(
+        None, description="permitted_tasks parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1005,7 +1231,7 @@ class AdAccountGetAssignedUsersParams(BaseModel):
 class AdAccountCreateAssignedUserParams(BaseModel):
     """Parameters for AdAccount.create_assigned_user()."""
 
-    tasks: list[str] | None = Field(None, description="tasks parameter")
+    tasks: list[AdAccountTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
     class Config:
@@ -1025,8 +1251,8 @@ class AdAccountCreateAsyncBatchRequestParams(BaseModel):
 class AdAccountGetAsyncRequestsParams(BaseModel):
     """Parameters for AdAccount.get_async_requests()."""
 
-    status: str | None = Field(None, description="status parameter")
-    type: str | None = Field(None, description="type parameter")
+    status: AsyncRequestStatus | None = Field(None, description="status parameter")
+    type: AsyncRequestType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -1046,7 +1272,9 @@ class AdAccountCreateAsyncAdCreativeParams(BaseModel):
 
     creative_spec: AdCreativeFields | None = Field(None, description="creative_spec parameter")
     name: str | None = Field(None, description="name parameter")
-    notification_mode: str | None = Field(None, description="notification_mode parameter")
+    notification_mode: AdAsyncRequestSetNotificationMode | None = Field(
+        None, description="notification_mode parameter"
+    )
     notification_uri: str | None = Field(None, description="notification_uri parameter")
 
     class Config:
@@ -1067,7 +1295,9 @@ class AdAccountCreateAsyncAdRequestSetParams(BaseModel):
 
     ad_specs: list[dict[str, Any]] | None = Field(None, description="ad_specs parameter")
     name: str | None = Field(None, description="name parameter")
-    notification_mode: str | None = Field(None, description="notification_mode parameter")
+    notification_mode: AdAsyncRequestSetNotificationMode | None = Field(
+        None, description="notification_mode parameter"
+    )
     notification_uri: str | None = Field(None, description="notification_uri parameter")
 
     class Config:
@@ -1086,8 +1316,8 @@ class AdAccountCreateBlockListDraftParams(BaseModel):
 class AdAccountCreateBrandSafetyContentFilterLevelParams(BaseModel):
     """Parameters for AdAccount.create_brand_safety_content_filter_level()."""
 
-    brand_safety_content_filter_levels: list[str] | None = Field(
-        None, description="brand_safety_content_filter_levels parameter"
+    brand_safety_content_filter_levels: list[AdAccountBrandSafetyContentFilterLevels] | None = (
+        Field(None, description="brand_safety_content_filter_levels parameter")
     )
     business_id: str | None = Field(None, description="business_id parameter")
 
@@ -1130,8 +1360,10 @@ class AdAccountDeleteCampaignsParams(BaseModel):
 class AdAccountGetCampaignsParams(BaseModel):
     """Parameters for AdAccount.get_campaigns()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
-    effective_status: list[str] | None = Field(None, description="effective_status parameter")
+    date_preset: CampaignDatePreset | None = Field(None, description="date_preset parameter")
+    effective_status: list[CampaignEffectiveStatus] | None = Field(
+        None, description="effective_status parameter"
+    )
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
@@ -1143,10 +1375,12 @@ class AdAccountCreateCampaignParams(BaseModel):
     """Parameters for AdAccount.create_campaign()."""
 
     adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    bid_strategy: str | None = Field(None, description="bid_strategy parameter")
+    bid_strategy: CampaignBidStrategy | None = Field(None, description="bid_strategy parameter")
     buying_type: str | None = Field(None, description="buying_type parameter")
     daily_budget: int | None = Field(None, description="daily_budget parameter")
-    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    execution_options: list[CampaignExecutionOptions] | None = Field(
+        None, description="execution_options parameter"
+    )
     is_skadnetwork_attribution: bool | None = Field(
         None, description="is_skadnetwork_attribution parameter"
     )
@@ -1155,20 +1389,22 @@ class AdAccountCreateCampaignParams(BaseModel):
     )
     lifetime_budget: int | None = Field(None, description="lifetime_budget parameter")
     name: str | None = Field(None, description="name parameter")
-    objective: str | None = Field(None, description="objective parameter")
+    objective: CampaignObjective | None = Field(None, description="objective parameter")
     pacing_type: list[str] | None = Field(None, description="pacing_type parameter")
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
-    smart_promotion_type: str | None = Field(None, description="smart_promotion_type parameter")
+    smart_promotion_type: CampaignSmartPromotionType | None = Field(
+        None, description="smart_promotion_type parameter"
+    )
     source_campaign_id: str | None = Field(None, description="source_campaign_id parameter")
-    special_ad_categories: list[str] | None = Field(
+    special_ad_categories: list[CampaignSpecialAdCategories] | None = Field(
         None, description="special_ad_categories parameter"
     )
-    special_ad_category_country: list[str] | None = Field(
+    special_ad_category_country: list[CampaignSpecialAdCategoryCountry] | None = Field(
         None, description="special_ad_category_country parameter"
     )
     spend_cap: int | None = Field(None, description="spend_cap parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
-    status: str | None = Field(None, description="status parameter")
+    status: CampaignStatus | None = Field(None, description="status parameter")
     stop_time: datetime | None = Field(None, description="stop_time parameter")
     topline_id: str | None = Field(None, description="topline_id parameter")
 
@@ -1180,7 +1416,7 @@ class AdAccountGetCampaignsByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_campaigns_by_labels()."""
 
     ad_label_ids: list[str] | None = Field(None, description="ad_label_ids parameter")
-    operator: str | None = Field(None, description="operator parameter")
+    operator: CampaignOperator | None = Field(None, description="operator parameter")
 
     class Config:
         extra = "forbid"
@@ -1215,11 +1451,17 @@ class AdAccountCreateCustomAudienceParams(BaseModel):
 
     allowed_domains: list[str] | None = Field(None, description="allowed_domains parameter")
     associated_audience_id: int | None = Field(None, description="associated_audience_id parameter")
-    claim_objective: str | None = Field(None, description="claim_objective parameter")
-    content_type: str | None = Field(None, description="content_type parameter")
+    claim_objective: CustomAudienceClaimObjective | None = Field(
+        None, description="claim_objective parameter"
+    )
+    content_type: CustomAudienceContentType | None = Field(
+        None, description="content_type parameter"
+    )
     countries: str | None = Field(None, description="countries parameter")
     creation_params: dict[str, Any] | None = Field(None, description="creation_params parameter")
-    customer_file_source: str | None = Field(None, description="customer_file_source parameter")
+    customer_file_source: CustomAudienceCustomerFileSource | None = Field(
+        None, description="customer_file_source parameter"
+    )
     dataset_id: str | None = Field(None, description="dataset_id parameter")
     description: str | None = Field(None, description="description parameter")
     enable_fetch_or_create: bool | None = Field(
@@ -1252,9 +1494,13 @@ class AdAccountCreateCustomAudienceParams(BaseModel):
     rev_share_policy_id: int | None = Field(None, description="rev_share_policy_id parameter")
     rule: str | None = Field(None, description="rule parameter")
     rule_aggregation: str | None = Field(None, description="rule_aggregation parameter")
-    subscription_info: list[str] | None = Field(None, description="subscription_info parameter")
-    subtype: str | None = Field(None, description="subtype parameter")
-    use_for_products: list[str] | None = Field(None, description="use_for_products parameter")
+    subscription_info: list[CustomAudienceSubscriptionInfo] | None = Field(
+        None, description="subscription_info parameter"
+    )
+    subtype: CustomAudienceSubtype | None = Field(None, description="subtype parameter")
+    use_for_products: list[CustomAudienceUseForProducts] | None = Field(
+        None, description="use_for_products parameter"
+    )
     use_in_campaigns: bool | None = Field(None, description="use_in_campaigns parameter")
     video_group_ids: list[str] | None = Field(None, description="video_group_ids parameter")
     whats_app_business_phone_number_id: str | None = Field(
@@ -1278,9 +1524,13 @@ class AdAccountCreateCustomAudiencesToParams(BaseModel):
 class AdAccountCreateCustomConversionParams(BaseModel):
     """Parameters for AdAccount.create_custom_conversion()."""
 
-    action_source_type: str | None = Field(None, description="action_source_type parameter")
+    action_source_type: CustomConversionActionSourceType | None = Field(
+        None, description="action_source_type parameter"
+    )
     advanced_rule: str | None = Field(None, description="advanced_rule parameter")
-    custom_event_type: str | None = Field(None, description="custom_event_type parameter")
+    custom_event_type: CustomConversionCustomEventType | None = Field(
+        None, description="custom_event_type parameter"
+    )
     default_conversion_value: float | None = Field(
         None, description="default_conversion_value parameter"
     )
@@ -1296,7 +1546,9 @@ class AdAccountCreateCustomConversionParams(BaseModel):
 class AdAccountGetDeliveryEstimateParams(BaseModel):
     """Parameters for AdAccount.get_delivery_estimate()."""
 
-    optimization_goal: str | None = Field(None, description="optimization_goal parameter")
+    optimization_goal: AdAccountDeliveryEstimateOptimizationGoal | None = Field(
+        None, description="optimization_goal parameter"
+    )
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
     targeting_spec: TargetingFields | None = Field(None, description="targeting_spec parameter")
 
@@ -1316,9 +1568,11 @@ class AdAccountGetDeprecatedTargetingAdSetsParams(BaseModel):
 class AdAccountGetGeneratePreviewsParams(BaseModel):
     """Parameters for AdAccount.get_generate_previews()."""
 
-    ad_format: str | None = Field(None, description="ad_format parameter")
+    ad_format: AdPreviewAdFormat | None = Field(None, description="ad_format parameter")
     creative: AdCreativeFields | None = Field(None, description="creative parameter")
-    creative_feature: str | None = Field(None, description="creative_feature parameter")
+    creative_feature: AdPreviewCreativeFeature | None = Field(
+        None, description="creative_feature parameter"
+    )
     dynamic_asset_label: str | None = Field(None, description="dynamic_asset_label parameter")
     dynamic_creative_spec: Any | None = Field(None, description="dynamic_creative_spec parameter")
     dynamic_customization: Any | None = Field(None, description="dynamic_customization parameter")
@@ -1328,7 +1582,7 @@ class AdAccountGetGeneratePreviewsParams(BaseModel):
     place_page_id: int | None = Field(None, description="place_page_id parameter")
     post: Any | None = Field(None, description="post parameter")
     product_item_ids: list[str] | None = Field(None, description="product_item_ids parameter")
-    render_type: str | None = Field(None, description="render_type parameter")
+    render_type: AdPreviewRenderType | None = Field(None, description="render_type parameter")
     start_date: datetime | None = Field(None, description="start_date parameter")
     width: int | None = Field(None, description="width parameter")
 
@@ -1339,25 +1593,29 @@ class AdAccountGetGeneratePreviewsParams(BaseModel):
 class AdAccountGetInsightsParams(BaseModel):
     """Parameters for AdAccount.get_insights()."""
 
-    action_attribution_windows: list[str] | None = Field(
+    action_attribution_windows: list[AdsInsightsActionAttributionWindows] | None = Field(
         None, description="action_attribution_windows parameter"
     )
-    action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
-    action_report_time: str | None = Field(None, description="action_report_time parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    action_breakdowns: list[AdsInsightsActionBreakdowns] | None = Field(
+        None, description="action_breakdowns parameter"
+    )
+    action_report_time: AdsInsightsActionReportTime | None = Field(
+        None, description="action_report_time parameter"
+    )
+    breakdowns: list[AdsInsightsBreakdowns] | None = Field(None, description="breakdowns parameter")
+    date_preset: AdsInsightsDatePreset | None = Field(None, description="date_preset parameter")
     default_summary: bool | None = Field(None, description="default_summary parameter")
     export_columns: list[str] | None = Field(None, description="export_columns parameter")
     export_format: str | None = Field(None, description="export_format parameter")
     export_name: str | None = Field(None, description="export_name parameter")
     fields: list[str] | None = Field(None, description="fields parameter")
     filtering: list[Any] | None = Field(None, description="filtering parameter")
-    level: str | None = Field(None, description="level parameter")
+    level: AdsInsightsLevel | None = Field(None, description="level parameter")
     limit: int | None = Field(None, description="limit parameter")
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(
+    summary_action_breakdowns: list[AdsInsightsSummaryActionBreakdowns] | None = Field(
         None, description="summary_action_breakdowns parameter"
     )
     time_increment: str | None = Field(None, description="time_increment parameter")
@@ -1377,25 +1635,29 @@ class AdAccountGetInsightsParams(BaseModel):
 class AdAccountGetInsightsAsyncParams(BaseModel):
     """Parameters for AdAccount.get_insights_async()."""
 
-    action_attribution_windows: list[str] | None = Field(
+    action_attribution_windows: list[AdsInsightsActionAttributionWindows] | None = Field(
         None, description="action_attribution_windows parameter"
     )
-    action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
-    action_report_time: str | None = Field(None, description="action_report_time parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    action_breakdowns: list[AdsInsightsActionBreakdowns] | None = Field(
+        None, description="action_breakdowns parameter"
+    )
+    action_report_time: AdsInsightsActionReportTime | None = Field(
+        None, description="action_report_time parameter"
+    )
+    breakdowns: list[AdsInsightsBreakdowns] | None = Field(None, description="breakdowns parameter")
+    date_preset: AdsInsightsDatePreset | None = Field(None, description="date_preset parameter")
     default_summary: bool | None = Field(None, description="default_summary parameter")
     export_columns: list[str] | None = Field(None, description="export_columns parameter")
     export_format: str | None = Field(None, description="export_format parameter")
     export_name: str | None = Field(None, description="export_name parameter")
     fields: list[str] | None = Field(None, description="fields parameter")
     filtering: list[Any] | None = Field(None, description="filtering parameter")
-    level: str | None = Field(None, description="level parameter")
+    level: AdsInsightsLevel | None = Field(None, description="level parameter")
     limit: int | None = Field(None, description="limit parameter")
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(
+    summary_action_breakdowns: list[AdsInsightsSummaryActionBreakdowns] | None = Field(
         None, description="summary_action_breakdowns parameter"
     )
     time_increment: str | None = Field(None, description="time_increment parameter")
@@ -1425,7 +1687,9 @@ class AdAccountGetMatchedSearchApplicationsParams(BaseModel):
     """Parameters for AdAccount.get_matched_search_applications()."""
 
     allow_incomplete_app: bool | None = Field(None, description="allow_incomplete_app parameter")
-    app_store: str | None = Field(None, description="app_store parameter")
+    app_store: AdAccountMatchedSearchApplicationsEdgeDataAppStore | None = Field(
+        None, description="app_store parameter"
+    )
     app_store_country: str | None = Field(None, description="app_store_country parameter")
     business_id: str | None = Field(None, description="business_id parameter")
     is_skadnetwork_search: bool | None = Field(None, description="is_skadnetwork_search parameter")
@@ -1450,7 +1714,9 @@ class AdAccountGetMinimumBudgetsParams(BaseModel):
 class AdAccountGetOnBehalfRequestsParams(BaseModel):
     """Parameters for AdAccount.get_on_behalf_requests()."""
 
-    status: str | None = Field(None, description="status parameter")
+    status: BusinessOwnedObjectOnBehalfOfRequestStatus | None = Field(
+        None, description="status parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1461,8 +1727,10 @@ class AdAccountCreateProductAudienceParams(BaseModel):
 
     allowed_domains: list[str] | None = Field(None, description="allowed_domains parameter")
     associated_audience_id: int | None = Field(None, description="associated_audience_id parameter")
-    claim_objective: str | None = Field(None, description="claim_objective parameter")
-    content_type: str | None = Field(None, description="content_type parameter")
+    claim_objective: AdAccountClaimObjective | None = Field(
+        None, description="claim_objective parameter"
+    )
+    content_type: AdAccountContentType | None = Field(None, description="content_type parameter")
     creation_params: dict[str, Any] | None = Field(None, description="creation_params parameter")
     description: str | None = Field(None, description="description parameter")
     enable_fetch_or_create: bool | None = Field(
@@ -1479,7 +1747,7 @@ class AdAccountCreateProductAudienceParams(BaseModel):
     parent_audience_id: int | None = Field(None, description="parent_audience_id parameter")
     product_set_id: str | None = Field(None, description="product_set_id parameter")
     rev_share_policy_id: int | None = Field(None, description="rev_share_policy_id parameter")
-    subtype: str | None = Field(None, description="subtype parameter")
+    subtype: AdAccountSubtype | None = Field(None, description="subtype parameter")
 
     class Config:
         extra = "forbid"
@@ -1512,13 +1780,15 @@ class AdAccountGetReachEstimateParams(BaseModel):
 class AdAccountCreateReachFrequencyPredictionParams(BaseModel):
     """Parameters for AdAccount.create_reach_frequency_prediction()."""
 
-    action: str | None = Field(None, description="action parameter")
+    action: ReachFrequencyPredictionAction | None = Field(None, description="action parameter")
     ad_formats: list[dict[str, Any]] | None = Field(None, description="ad_formats parameter")
     auction_entry_option_index: int | None = Field(
         None, description="auction_entry_option_index parameter"
     )
     budget: int | None = Field(None, description="budget parameter")
-    buying_type: str | None = Field(None, description="buying_type parameter")
+    buying_type: ReachFrequencyPredictionBuyingType | None = Field(
+        None, description="buying_type parameter"
+    )
     campaign_group_id: str | None = Field(None, description="campaign_group_id parameter")
     day_parting_schedule: list[Any] | None = Field(
         None, description="day_parting_schedule parameter"
@@ -1533,7 +1803,9 @@ class AdAccountCreateReachFrequencyPredictionParams(BaseModel):
     frequency_cap: int | None = Field(None, description="frequency_cap parameter")
     grp_buying: bool | None = Field(None, description="grp_buying parameter")
     impression: int | None = Field(None, description="impression parameter")
-    instream_packages: list[str] | None = Field(None, description="instream_packages parameter")
+    instream_packages: list[ReachFrequencyPredictionInstreamPackages] | None = Field(
+        None, description="instream_packages parameter"
+    )
     interval_frequency_cap_reset_period: int | None = Field(
         None, description="interval_frequency_cap_reset_period parameter"
     )
@@ -1636,12 +1908,18 @@ class AdAccountGetTargetingBrowseParams(BaseModel):
     excluded_category: str | None = Field(None, description="excluded_category parameter")
     include_nodes: bool | None = Field(None, description="include_nodes parameter")
     is_exclusion: bool | None = Field(None, description="is_exclusion parameter")
-    limit_type: str | None = Field(None, description="limit_type parameter")
-    regulated_categories: list[str] | None = Field(
+    limit_type: AdAccountTargetingUnifiedLimitType | None = Field(
+        None, description="limit_type parameter"
+    )
+    regulated_categories: list[AdAccountTargetingUnifiedRegulatedCategories] | None = Field(
         None, description="regulated_categories parameter"
     )
-    regulated_countries: list[str] | None = Field(None, description="regulated_countries parameter")
-    whitelisted_types: list[str] | None = Field(None, description="whitelisted_types parameter")
+    regulated_countries: list[AdAccountTargetingUnifiedRegulatedCountries] | None = Field(
+        None, description="regulated_countries parameter"
+    )
+    whitelisted_types: list[AdAccountTargetingUnifiedWhitelistedTypes] | None = Field(
+        None, description="whitelisted_types parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1653,7 +1931,9 @@ class AdAccountGetTargetingSearchParams(BaseModel):
     allow_only_fat_head_interests: bool | None = Field(
         None, description="allow_only_fat_head_interests parameter"
     )
-    app_store: str | None = Field(None, description="app_store parameter")
+    app_store: AdAccountTargetingUnifiedAppStore | None = Field(
+        None, description="app_store parameter"
+    )
     countries: list[str] | None = Field(None, description="countries parameter")
     is_account_level_brand_safety_exclusion: bool | None = Field(
         None, description="is_account_level_brand_safety_exclusion parameter"
@@ -1662,17 +1942,25 @@ class AdAccountGetTargetingSearchParams(BaseModel):
         None, description="is_account_level_employer_exclusion parameter"
     )
     is_exclusion: bool | None = Field(None, description="is_exclusion parameter")
-    limit_type: str | None = Field(None, description="limit_type parameter")
-    objective: str | None = Field(None, description="objective parameter")
+    limit_type: AdAccountTargetingUnifiedLimitType | None = Field(
+        None, description="limit_type parameter"
+    )
+    objective: AdAccountTargetingUnifiedObjective | None = Field(
+        None, description="objective parameter"
+    )
     promoted_object: Any | None = Field(None, description="promoted_object parameter")
     q: str | None = Field(None, description="q parameter")
-    regulated_categories: list[str] | None = Field(
+    regulated_categories: list[AdAccountTargetingUnifiedRegulatedCategories] | None = Field(
         None, description="regulated_categories parameter"
     )
-    regulated_countries: list[str] | None = Field(None, description="regulated_countries parameter")
+    regulated_countries: list[AdAccountTargetingUnifiedRegulatedCountries] | None = Field(
+        None, description="regulated_countries parameter"
+    )
     session_id: int | None = Field(None, description="session_id parameter")
     targeting_list: list[Any] | None = Field(None, description="targeting_list parameter")
-    whitelisted_types: list[str] | None = Field(None, description="whitelisted_types parameter")
+    whitelisted_types: list[AdAccountTargetingUnifiedWhitelistedTypes] | None = Field(
+        None, description="whitelisted_types parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1695,19 +1983,29 @@ class AdAccountGetTargetingSentenceLinesParams(BaseModel):
 class AdAccountGetTargetingSuggestionsParams(BaseModel):
     """Parameters for AdAccount.get_targeting_suggestions()."""
 
-    app_store: str | None = Field(None, description="app_store parameter")
+    app_store: AdAccountTargetingUnifiedAppStore | None = Field(
+        None, description="app_store parameter"
+    )
     countries: list[str] | None = Field(None, description="countries parameter")
-    limit_type: str | None = Field(None, description="limit_type parameter")
-    mode: str | None = Field(None, description="mode parameter")
-    objective: str | None = Field(None, description="objective parameter")
+    limit_type: AdAccountTargetingUnifiedLimitType | None = Field(
+        None, description="limit_type parameter"
+    )
+    mode: AdAccountTargetingUnifiedMode | None = Field(None, description="mode parameter")
+    objective: AdAccountTargetingUnifiedObjective | None = Field(
+        None, description="objective parameter"
+    )
     objects: Any | None = Field(None, description="objects parameter")
-    regulated_categories: list[str] | None = Field(
+    regulated_categories: list[AdAccountTargetingUnifiedRegulatedCategories] | None = Field(
         None, description="regulated_categories parameter"
     )
-    regulated_countries: list[str] | None = Field(None, description="regulated_countries parameter")
+    regulated_countries: list[AdAccountTargetingUnifiedRegulatedCountries] | None = Field(
+        None, description="regulated_countries parameter"
+    )
     session_id: int | None = Field(None, description="session_id parameter")
     targeting_list: list[Any] | None = Field(None, description="targeting_list parameter")
-    whitelisted_types: list[str] | None = Field(None, description="whitelisted_types parameter")
+    whitelisted_types: list[AdAccountTargetingUnifiedWhitelistedTypes] | None = Field(
+        None, description="whitelisted_types parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1748,8 +2046,12 @@ class AdAccountDeleteUsersOfAnyAudienceParams(BaseModel):
 class AdAccountGetValueRuleSetParams(BaseModel):
     """Parameters for AdAccount.get_value_rule_set()."""
 
-    product_type: str | None = Field(None, description="product_type parameter")
-    status: str | None = Field(None, description="status parameter")
+    product_type: AdsValueAdjustmentRuleCollectionProductType | None = Field(
+        None, description="product_type parameter"
+    )
+    status: AdsValueAdjustmentRuleCollectionStatus | None = Field(
+        None, description="status parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1759,7 +2061,9 @@ class AdAccountCreateValueRuleSetParams(BaseModel):
     """Parameters for AdAccount.create_value_rule_set()."""
 
     name: str | None = Field(None, description="name parameter")
-    product_type: str | None = Field(None, description="product_type parameter")
+    product_type: AdsValueAdjustmentRuleCollectionProductType | None = Field(
+        None, description="product_type parameter"
+    )
     rules: list[dict[str, Any]] | None = Field(None, description="rules parameter")
 
     class Config:
@@ -1782,9 +2086,9 @@ class AdAccountCreateVideoAdParams(BaseModel):
     description: str | None = Field(None, description="description parameter")
     privacy: str | None = Field(None, description="privacy parameter")
     title: str | None = Field(None, description="title parameter")
-    upload_phase: str | None = Field(None, description="upload_phase parameter")
+    upload_phase: AdVideoUploadPhase | None = Field(None, description="upload_phase parameter")
     video_id: str | None = Field(None, description="video_id parameter")
-    video_state: str | None = Field(None, description="video_state parameter")
+    video_state: AdVideoVideoState | None = Field(None, description="video_state parameter")
 
     class Config:
         extra = "forbid"

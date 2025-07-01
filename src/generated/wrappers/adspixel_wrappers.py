@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.adspixel import AdsPixel
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -88,7 +85,7 @@ class AdsPixelWrappers:
         Type-safe wrapper for AdsPixel.delete_agencies().
 
         Endpoint: DELETE /agencies
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -122,12 +119,12 @@ class AdsPixelWrappers:
     def create_ahp_config(
         obj: AdsPixel,
         params: AdsPixelCreateAhpConfigParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for AdsPixel.create_ahp_config().
 
         Endpoint: POST /ahp_configs
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -135,8 +132,8 @@ class AdsPixelWrappers:
         # Call the original method
         result = obj.create_ahp_config(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_assigned_users(
@@ -216,12 +213,12 @@ class AdsPixelWrappers:
     def create_event(
         obj: AdsPixel,
         params: AdsPixelCreateEventParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for AdsPixel.create_event().
 
         Endpoint: POST /events
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -229,8 +226,8 @@ class AdsPixelWrappers:
         # Call the original method
         result = obj.create_event(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_offline_event_uploads(
@@ -268,7 +265,7 @@ class AdsPixelWrappers:
         Type-safe wrapper for AdsPixel.delete_shared_accounts().
 
         Endpoint: DELETE /shared_accounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

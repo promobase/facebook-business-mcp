@@ -8,9 +8,14 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .productfeedrule import ProductFeedRuleRuleType
+from .productitem import ProductItemErrorPriority, ProductItemErrorType
+
 if TYPE_CHECKING:
+    from .productfeedrule import ProductFeedRuleRuleType
     from .productfeedschedule import ProductFeedScheduleFields
     from .productfeedupload import ProductFeedUploadFields
+    from .productitem import ProductItemErrorPriority, ProductItemErrorType
 
 
 class ProductFeedDelimiter(str, Enum):
@@ -242,8 +247,10 @@ class ProductFeedGetProductsParams(BaseModel):
     """Parameters for ProductFeed.get_products()."""
 
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
-    error_priority: str | None = Field(None, description="error_priority parameter")
-    error_type: str | None = Field(None, description="error_type parameter")
+    error_priority: ProductItemErrorPriority | None = Field(
+        None, description="error_priority parameter"
+    )
+    error_type: ProductItemErrorType | None = Field(None, description="error_type parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
     class Config:
@@ -255,7 +262,7 @@ class ProductFeedCreateRuleParams(BaseModel):
 
     attribute: str | None = Field(None, description="attribute parameter")
     params: dict[str, Any] | None = Field(None, description="params parameter")
-    rule_type: str | None = Field(None, description="rule_type parameter")
+    rule_type: ProductFeedRuleRuleType | None = Field(None, description="rule_type parameter")
 
     class Config:
         extra = "forbid"

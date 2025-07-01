@@ -8,13 +8,30 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .ad import AdDatePreset
+from .adset import AdSetDatePreset
+from .adsinsights import AdsInsightsActionReportTime, AdsInsightsDatePreset, AdsInsightsLevel
+from .highdemandperiod import HighDemandPeriodBudgetValueType
+
 if TYPE_CHECKING:
+    from .ad import AdDatePreset
     from .adcampaigngroupadvantagestate import AdCampaignGroupAdvantageStateFields
     from .adcampaignissuesinfo import AdCampaignIssuesInfoFields
     from .adlabel import AdLabelFields
     from .adpromotedobject import AdPromotedObjectFields
     from .adrecommendation import AdRecommendationFields
+    from .adset import AdSetDatePreset, AdSetEffectiveStatus
+    from .adsinsights import (
+        AdsInsightsActionAttributionWindows,
+        AdsInsightsActionBreakdowns,
+        AdsInsightsActionReportTime,
+        AdsInsightsBreakdowns,
+        AdsInsightsDatePreset,
+        AdsInsightsLevel,
+        AdsInsightsSummaryActionBreakdowns,
+    )
     from .adstudy import AdStudyFields
+    from .highdemandperiod import HighDemandPeriodBudgetValueType
     from .status import StatusFields
 
 
@@ -529,7 +546,9 @@ class CampaignCreateAdLabelParams(BaseModel):
     """Parameters for Campaign.create_ad_label()."""
 
     adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    execution_options: list[CampaignExecutionOptions] | None = Field(
+        None, description="execution_options parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -547,7 +566,7 @@ class CampaignGetAdRulesGovernedParams(BaseModel):
 class CampaignGetAdsParams(BaseModel):
     """Parameters for Campaign.get_ads()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    date_preset: AdDatePreset | None = Field(None, description="date_preset parameter")
     effective_status: list[str] | None = Field(None, description="effective_status parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
@@ -559,8 +578,10 @@ class CampaignGetAdsParams(BaseModel):
 class CampaignGetAdSetsParams(BaseModel):
     """Parameters for Campaign.get_ad_sets()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
-    effective_status: list[str] | None = Field(None, description="effective_status parameter")
+    date_preset: AdSetDatePreset | None = Field(None, description="date_preset parameter")
+    effective_status: list[AdSetEffectiveStatus] | None = Field(
+        None, description="effective_status parameter"
+    )
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
@@ -572,7 +593,9 @@ class CampaignCreateBudgetScheduleParams(BaseModel):
     """Parameters for Campaign.create_budget_schedule()."""
 
     budget_value: int | None = Field(None, description="budget_value parameter")
-    budget_value_type: str | None = Field(None, description="budget_value_type parameter")
+    budget_value_type: HighDemandPeriodBudgetValueType | None = Field(
+        None, description="budget_value_type parameter"
+    )
     time_end: int | None = Field(None, description="time_end parameter")
     time_start: int | None = Field(None, description="time_start parameter")
 
@@ -583,8 +606,10 @@ class CampaignCreateBudgetScheduleParams(BaseModel):
 class CampaignGetCopiesParams(BaseModel):
     """Parameters for Campaign.get_copies()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
-    effective_status: list[str] | None = Field(None, description="effective_status parameter")
+    date_preset: CampaignDatePreset | None = Field(None, description="date_preset parameter")
+    effective_status: list[CampaignEffectiveStatus] | None = Field(
+        None, description="effective_status parameter"
+    )
     is_completed: bool | None = Field(None, description="is_completed parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
 
@@ -599,7 +624,7 @@ class CampaignCreateCopyParams(BaseModel):
     end_time: datetime | None = Field(None, description="end_time parameter")
     rename_options: Any | None = Field(None, description="rename_options parameter")
     start_time: datetime | None = Field(None, description="start_time parameter")
-    status_option: str | None = Field(None, description="status_option parameter")
+    status_option: CampaignStatusOption | None = Field(None, description="status_option parameter")
 
     class Config:
         extra = "forbid"
@@ -608,25 +633,29 @@ class CampaignCreateCopyParams(BaseModel):
 class CampaignGetInsightsParams(BaseModel):
     """Parameters for Campaign.get_insights()."""
 
-    action_attribution_windows: list[str] | None = Field(
+    action_attribution_windows: list[AdsInsightsActionAttributionWindows] | None = Field(
         None, description="action_attribution_windows parameter"
     )
-    action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
-    action_report_time: str | None = Field(None, description="action_report_time parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    action_breakdowns: list[AdsInsightsActionBreakdowns] | None = Field(
+        None, description="action_breakdowns parameter"
+    )
+    action_report_time: AdsInsightsActionReportTime | None = Field(
+        None, description="action_report_time parameter"
+    )
+    breakdowns: list[AdsInsightsBreakdowns] | None = Field(None, description="breakdowns parameter")
+    date_preset: AdsInsightsDatePreset | None = Field(None, description="date_preset parameter")
     default_summary: bool | None = Field(None, description="default_summary parameter")
     export_columns: list[str] | None = Field(None, description="export_columns parameter")
     export_format: str | None = Field(None, description="export_format parameter")
     export_name: str | None = Field(None, description="export_name parameter")
     fields: list[str] | None = Field(None, description="fields parameter")
     filtering: list[Any] | None = Field(None, description="filtering parameter")
-    level: str | None = Field(None, description="level parameter")
+    level: AdsInsightsLevel | None = Field(None, description="level parameter")
     limit: int | None = Field(None, description="limit parameter")
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(
+    summary_action_breakdowns: list[AdsInsightsSummaryActionBreakdowns] | None = Field(
         None, description="summary_action_breakdowns parameter"
     )
     time_increment: str | None = Field(None, description="time_increment parameter")
@@ -646,25 +675,29 @@ class CampaignGetInsightsParams(BaseModel):
 class CampaignGetInsightsAsyncParams(BaseModel):
     """Parameters for Campaign.get_insights_async()."""
 
-    action_attribution_windows: list[str] | None = Field(
+    action_attribution_windows: list[AdsInsightsActionAttributionWindows] | None = Field(
         None, description="action_attribution_windows parameter"
     )
-    action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
-    action_report_time: str | None = Field(None, description="action_report_time parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    action_breakdowns: list[AdsInsightsActionBreakdowns] | None = Field(
+        None, description="action_breakdowns parameter"
+    )
+    action_report_time: AdsInsightsActionReportTime | None = Field(
+        None, description="action_report_time parameter"
+    )
+    breakdowns: list[AdsInsightsBreakdowns] | None = Field(None, description="breakdowns parameter")
+    date_preset: AdsInsightsDatePreset | None = Field(None, description="date_preset parameter")
     default_summary: bool | None = Field(None, description="default_summary parameter")
     export_columns: list[str] | None = Field(None, description="export_columns parameter")
     export_format: str | None = Field(None, description="export_format parameter")
     export_name: str | None = Field(None, description="export_name parameter")
     fields: list[str] | None = Field(None, description="fields parameter")
     filtering: list[Any] | None = Field(None, description="filtering parameter")
-    level: str | None = Field(None, description="level parameter")
+    level: AdsInsightsLevel | None = Field(None, description="level parameter")
     limit: int | None = Field(None, description="limit parameter")
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(
+    summary_action_breakdowns: list[AdsInsightsSummaryActionBreakdowns] | None = Field(
         None, description="summary_action_breakdowns parameter"
     )
     time_increment: str | None = Field(None, description="time_increment parameter")

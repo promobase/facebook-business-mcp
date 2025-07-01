@@ -78,7 +78,7 @@ class PaymentEnginePaymentFields(BaseModel):
 class PaymentEnginePaymentCreateDisputeParams(BaseModel):
     """Parameters for PaymentEnginePayment.create_dispute()."""
 
-    reason: str | None = Field(None, description="reason parameter")
+    reason: PaymentEnginePaymentReason | None = Field(None, description="reason parameter")
 
     class Config:
         extra = "forbid"
@@ -89,7 +89,7 @@ class PaymentEnginePaymentCreateRefundParams(BaseModel):
 
     amount: float | None = Field(None, description="amount parameter")
     currency: str | None = Field(None, description="currency parameter")
-    reason: str | None = Field(None, description="reason parameter")
+    reason: PaymentEnginePaymentReason | None = Field(None, description="reason parameter")
 
     class Config:
         extra = "forbid"

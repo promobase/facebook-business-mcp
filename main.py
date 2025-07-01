@@ -22,7 +22,7 @@ async def main() -> None:
             logger.info(f"Default Ad Account: {config['ad_account_id']}")
 
         tools = await mcp.get_tools()
-        logger.info(f"Available tools: {len(tools)}")
+        logger.info(f"Available tools: {tools}")
 
         await mcp.run_async(transport="stdio")
 

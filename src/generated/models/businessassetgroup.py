@@ -105,12 +105,18 @@ class BusinessAssetGroupGetAssignedUsersParams(BaseModel):
 class BusinessAssetGroupCreateAssignedUserParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_assigned_user()."""
 
-    adaccount_tasks: list[str] | None = Field(None, description="adaccount_tasks parameter")
-    offline_conversion_data_set_tasks: list[str] | None = Field(
-        None, description="offline_conversion_data_set_tasks parameter"
+    adaccount_tasks: list[BusinessAssetGroupAdaccountTasks] | None = Field(
+        None, description="adaccount_tasks parameter"
     )
-    page_tasks: list[str] | None = Field(None, description="page_tasks parameter")
-    pixel_tasks: list[str] | None = Field(None, description="pixel_tasks parameter")
+    offline_conversion_data_set_tasks: (
+        list[BusinessAssetGroupOfflineConversionDataSetTasks] | None
+    ) = Field(None, description="offline_conversion_data_set_tasks parameter")
+    page_tasks: list[BusinessAssetGroupPageTasks] | None = Field(
+        None, description="page_tasks parameter"
+    )
+    pixel_tasks: list[BusinessAssetGroupPixelTasks] | None = Field(
+        None, description="pixel_tasks parameter"
+    )
     user: int | None = Field(None, description="user parameter")
 
     class Config:

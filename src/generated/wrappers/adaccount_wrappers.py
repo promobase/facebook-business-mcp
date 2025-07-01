@@ -428,7 +428,7 @@ class AdAccountWrappers:
         Type-safe wrapper for AdAccount.delete_ad_images().
 
         Endpoint: DELETE /adimages
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -857,7 +857,7 @@ class AdAccountWrappers:
         Type-safe wrapper for AdAccount.delete_ad_videos().
 
         Endpoint: DELETE /advideos
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -923,7 +923,7 @@ class AdAccountWrappers:
         Type-safe wrapper for AdAccount.delete_agencies().
 
         Endpoint: DELETE /agencies
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -962,7 +962,7 @@ class AdAccountWrappers:
         Type-safe wrapper for AdAccount.delete_assigned_users().
 
         Endpoint: DELETE /assigned_users
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1263,7 +1263,7 @@ class AdAccountWrappers:
         Type-safe wrapper for AdAccount.delete_campaigns().
 
         Endpoint: DELETE /campaigns
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -1847,7 +1847,7 @@ class AdAccountWrappers:
         Type-safe wrapper for AdAccount.delete_subscribed_apps().
 
         Endpoint: DELETE /subscribed_apps
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -2041,7 +2041,7 @@ class AdAccountWrappers:
         Type-safe wrapper for AdAccount.delete_users_of_any_audience().
 
         Endpoint: DELETE /usersofanyaudience
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

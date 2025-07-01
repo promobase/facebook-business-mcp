@@ -6,9 +6,20 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .extendedcreditallocationconfig import (
+    ExtendedCreditAllocationConfigLiabilityType,
+    ExtendedCreditAllocationConfigPartitionType,
+    ExtendedCreditAllocationConfigSendBillTo,
+)
+
 if TYPE_CHECKING:
     from .currencyamount import CurrencyAmountFields
-    from .extendedcreditallocationconfig import ExtendedCreditAllocationConfigFields
+    from .extendedcreditallocationconfig import (
+        ExtendedCreditAllocationConfigFields,
+        ExtendedCreditAllocationConfigLiabilityType,
+        ExtendedCreditAllocationConfigPartitionType,
+        ExtendedCreditAllocationConfigSendBillTo,
+    )
 
 
 ExtendedCreditField = Literal[
@@ -87,10 +98,16 @@ class ExtendedCreditCreateOwningCreditAllocationConfigParams(BaseModel):
     """Parameters for ExtendedCredit.create_owning_credit_allocation_config()."""
 
     amount: Any | None = Field(None, description="amount parameter")
-    liability_type: str | None = Field(None, description="liability_type parameter")
-    partition_type: str | None = Field(None, description="partition_type parameter")
+    liability_type: ExtendedCreditAllocationConfigLiabilityType | None = Field(
+        None, description="liability_type parameter"
+    )
+    partition_type: ExtendedCreditAllocationConfigPartitionType | None = Field(
+        None, description="partition_type parameter"
+    )
     receiving_business_id: str | None = Field(None, description="receiving_business_id parameter")
-    send_bill_to: str | None = Field(None, description="send_bill_to parameter")
+    send_bill_to: ExtendedCreditAllocationConfigSendBillTo | None = Field(
+        None, description="send_bill_to parameter"
+    )
 
     class Config:
         extra = "forbid"

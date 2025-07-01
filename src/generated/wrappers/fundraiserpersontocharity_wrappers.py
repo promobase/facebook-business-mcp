@@ -2,15 +2,12 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.fundraiserpersontocharity import FundraiserPersonToCharity
 
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.fundraiserpersontocharity import (
     FundraiserPersonToCharityCreateExternalDonationParams,
 )
@@ -23,12 +20,12 @@ class FundraiserPersonToCharityWrappers:
     def create_external_donation(
         obj: FundraiserPersonToCharity,
         params: FundraiserPersonToCharityCreateExternalDonationParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for FundraiserPersonToCharity.create_external_donation().
 
         Endpoint: POST /external_donations
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -36,5 +33,5 @@ class FundraiserPersonToCharityWrappers:
         # Call the original method
         result = obj.create_external_donation(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result

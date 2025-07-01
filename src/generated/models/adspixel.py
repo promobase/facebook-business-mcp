@@ -8,8 +8,21 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adspixelstatsresult import AdsPixelStatsResultAggregation
+from .dacheck import DACheckConnectionMethod
+from .offlineconversiondatasetupload import (
+    OfflineConversionDataSetUploadOrder,
+    OfflineConversionDataSetUploadSortBy,
+)
+
 if TYPE_CHECKING:
     from .adaccount import AdAccountFields
+    from .adspixelstatsresult import AdsPixelStatsResultAggregation
+    from .dacheck import DACheckConnectionMethod
+    from .offlineconversiondatasetupload import (
+        OfflineConversionDataSetUploadOrder,
+        OfflineConversionDataSetUploadSortBy,
+    )
     from .offlineconversiondatasetusage import OfflineConversionDataSetUsageFields
     from .user import UserFields
 
@@ -177,7 +190,9 @@ class AdsPixelCreateAgencyParams(BaseModel):
     """Parameters for AdsPixel.create_agency()."""
 
     business: str | None = Field(None, description="business parameter")
-    permitted_tasks: list[str] | None = Field(None, description="permitted_tasks parameter")
+    permitted_tasks: list[AdsPixelPermittedTasks] | None = Field(
+        None, description="permitted_tasks parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -204,7 +219,7 @@ class AdsPixelGetAssignedUsersParams(BaseModel):
 class AdsPixelCreateAssignedUserParams(BaseModel):
     """Parameters for AdsPixel.create_assigned_user()."""
 
-    tasks: list[str] | None = Field(None, description="tasks parameter")
+    tasks: list[AdsPixelTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
     class Config:
@@ -215,7 +230,9 @@ class AdsPixelGetDaChecksParams(BaseModel):
     """Parameters for AdsPixel.get_da_checks()."""
 
     checks: list[str] | None = Field(None, description="checks parameter")
-    connection_method: str | None = Field(None, description="connection_method parameter")
+    connection_method: DACheckConnectionMethod | None = Field(
+        None, description="connection_method parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -243,8 +260,10 @@ class AdsPixelGetOfflineEventUploadsParams(BaseModel):
     """Parameters for AdsPixel.get_offline_event_uploads()."""
 
     end_time: datetime | None = Field(None, description="end_time parameter")
-    order: str | None = Field(None, description="order parameter")
-    sort_by: str | None = Field(None, description="sort_by parameter")
+    order: OfflineConversionDataSetUploadOrder | None = Field(None, description="order parameter")
+    sort_by: OfflineConversionDataSetUploadSortBy | None = Field(
+        None, description="sort_by parameter"
+    )
     start_time: datetime | None = Field(None, description="start_time parameter")
     upload_tag: str | None = Field(None, description="upload_tag parameter")
 
@@ -284,7 +303,9 @@ class AdsPixelCreateSharedAccountParams(BaseModel):
 class AdsPixelGetStatsParams(BaseModel):
     """Parameters for AdsPixel.get_stats()."""
 
-    aggregation: str | None = Field(None, description="aggregation parameter")
+    aggregation: AdsPixelStatsResultAggregation | None = Field(
+        None, description="aggregation parameter"
+    )
     end_time: datetime | None = Field(None, description="end_time parameter")
     event: str | None = Field(None, description="event parameter")
     event_source: str | None = Field(None, description="event_source parameter")

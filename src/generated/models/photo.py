@@ -8,10 +8,15 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
+from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
+
 if TYPE_CHECKING:
     from .album import AlbumFields
+    from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
     from .entityattextrange import EntityAtTextRangeFields
     from .event import EventFields
+    from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
     from .place import PlaceFields
     from .platformimagesource import PlatformImageSourceFields
     from .profile import ProfileFields
@@ -118,9 +123,9 @@ class PhotoFields(BaseModel):
 class PhotoGetCommentsParams(BaseModel):
     """Parameters for Photo.get_comments()."""
 
-    filter: str | None = Field(None, description="filter parameter")
-    live_filter: str | None = Field(None, description="live_filter parameter")
-    order: str | None = Field(None, description="order parameter")
+    filter: CommentFilter | None = Field(None, description="filter parameter")
+    live_filter: CommentLiveFilter | None = Field(None, description="live_filter parameter")
+    order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
     class Config:
@@ -133,7 +138,9 @@ class PhotoCreateCommentParams(BaseModel):
     attachment_id: str | None = Field(None, description="attachment_id parameter")
     attachment_share_url: str | None = Field(None, description="attachment_share_url parameter")
     attachment_url: str | None = Field(None, description="attachment_url parameter")
-    comment_privacy_value: str | None = Field(None, description="comment_privacy_value parameter")
+    comment_privacy_value: CommentCommentPrivacyValue | None = Field(
+        None, description="comment_privacy_value parameter"
+    )
     facepile_mentioned_ids: list[str] | None = Field(
         None, description="facepile_mentioned_ids parameter"
     )
@@ -153,9 +160,9 @@ class PhotoCreateCommentParams(BaseModel):
 class PhotoGetInsightsParams(BaseModel):
     """Parameters for Photo.get_insights()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    date_preset: InsightsResultDatePreset | None = Field(None, description="date_preset parameter")
     metric: list[Any] | None = Field(None, description="metric parameter")
-    period: str | None = Field(None, description="period parameter")
+    period: InsightsResultPeriod | None = Field(None, description="period parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 

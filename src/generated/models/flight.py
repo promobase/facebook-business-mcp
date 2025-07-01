@@ -7,9 +7,12 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .overridedetails import OverrideDetailsType
+
 if TYPE_CHECKING:
     from .catalogitemapplinks import CatalogItemAppLinksFields
     from .catalogsubverticallist import CatalogSubVerticalListFields
+    from .overridedetails import OverrideDetailsType
 
 
 class FlightImageFetchStatus(str, Enum):
@@ -119,7 +122,7 @@ class FlightGetOverrideDetailsParams(BaseModel):
     """Parameters for Flight.get_override_details()."""
 
     keys: list[str] | None = Field(None, description="keys parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: OverrideDetailsType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"

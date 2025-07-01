@@ -3,157 +3,157 @@
 """Type-safe wrappers for Facebook Business SDK API methods."""
 
 from .ad_wrappers import AdWrappers
-from .adaccount_wrappers import AdaccountWrappers
-from .adasyncrequestset_wrappers import AdasyncrequestsetWrappers
-from .adcreative_wrappers import AdcreativeWrappers
-from .adgroupfacebookfeedback_wrappers import AdgroupfacebookfeedbackWrappers
-from .admonetizationproperty_wrappers import AdmonetizationpropertyWrappers
-from .adrule_wrappers import AdruleWrappers
-from .adset_wrappers import AdsetWrappers
-from .adspixel_wrappers import AdspixelWrappers
-from .adstudy_wrappers import AdstudyWrappers
-from .advideo_wrappers import AdvideoWrappers
+from .adaccount_wrappers import AdAccountWrappers
+from .adasyncrequestset_wrappers import AdAsyncRequestSetWrappers
+from .adcreative_wrappers import AdCreativeWrappers
+from .adgroupfacebookfeedback_wrappers import AdgroupFacebookFeedbackWrappers
+from .admonetizationproperty_wrappers import AdMonetizationPropertyWrappers
+from .adrule_wrappers import AdRuleWrappers
+from .adset_wrappers import AdSetWrappers
+from .adspixel_wrappers import AdsPixelWrappers
+from .adstudy_wrappers import AdStudyWrappers
+from .advideo_wrappers import AdVideoWrappers
 from .album_wrappers import AlbumWrappers
 from .application_wrappers import ApplicationWrappers
-from .automotivemodel_wrappers import AutomotivemodelWrappers
+from .automotivemodel_wrappers import AutomotiveModelWrappers
 from .avatar_wrappers import AvatarWrappers
 from .business_wrappers import BusinessWrappers
-from .businessassetgroup_wrappers import BusinessassetgroupWrappers
-from .businessuser_wrappers import BusinessuserWrappers
+from .businessassetgroup_wrappers import BusinessAssetGroupWrappers
+from .businessuser_wrappers import BusinessUserWrappers
 from .campaign_wrappers import CampaignWrappers
 from .canvas_wrappers import CanvasWrappers
 from .comment_wrappers import CommentWrappers
-from .commercemerchantsettings_wrappers import CommercemerchantsettingsWrappers
-from .commerceorder_wrappers import CommerceorderWrappers
-from .customaudience_wrappers import CustomaudienceWrappers
-from .customconversion_wrappers import CustomconversionWrappers
+from .commercemerchantsettings_wrappers import CommerceMerchantSettingsWrappers
+from .commerceorder_wrappers import CommerceOrderWrappers
+from .customaudience_wrappers import CustomAudienceWrappers
+from .customconversion_wrappers import CustomConversionWrappers
 from .destination_wrappers import DestinationWrappers
 from .event_wrappers import EventWrappers
-from .eventsourcegroup_wrappers import EventsourcegroupWrappers
-from .extendedcredit_wrappers import ExtendedcreditWrappers
-from .extendedcreditinvoicegroup_wrappers import ExtendedcreditinvoicegroupWrappers
+from .eventsourcegroup_wrappers import EventSourceGroupWrappers
+from .extendedcredit_wrappers import ExtendedCreditWrappers
+from .extendedcreditinvoicegroup_wrappers import ExtendedCreditInvoiceGroupWrappers
 from .flight_wrappers import FlightWrappers
-from .fundraiserpersontocharity_wrappers import FundraiserpersontocharityWrappers
+from .fundraiserpersontocharity_wrappers import FundraiserPersonToCharityWrappers
 from .group_wrappers import GroupWrappers
-from .homelisting_wrappers import HomelistingWrappers
+from .homelisting_wrappers import HomeListingWrappers
 from .hotel_wrappers import HotelWrappers
-from .igcomment_wrappers import IgcommentWrappers
-from .igmedia_wrappers import IgmediaWrappers
-from .igmediaforigonlyapi_wrappers import IgmediaforigonlyapiWrappers
-from .iguser_wrappers import IguserWrappers
-from .iguserexportforcam_wrappers import IguserexportforcamWrappers
-from .iguserforigonlyapi_wrappers import IguserforigonlyapiWrappers
-from .instagramuser_wrappers import InstagramuserWrappers
-from .leadgenform_wrappers import LeadgenformWrappers
+from .igcomment_wrappers import IGCommentWrappers
+from .igmedia_wrappers import IGMediaWrappers
+from .igmediaforigonlyapi_wrappers import IGMediaForIGOnlyAPIWrappers
+from .iguser_wrappers import IGUserWrappers
+from .iguserexportforcam_wrappers import IGUserExportForCAMWrappers
+from .iguserforigonlyapi_wrappers import IGUserForIGOnlyAPIWrappers
+from .instagramuser_wrappers import InstagramUserWrappers
+from .leadgenform_wrappers import LeadgenFormWrappers
 from .link_wrappers import LinkWrappers
-from .livevideo_wrappers import LivevideoWrappers
-from .localservicebusiness_wrappers import LocalservicebusinessWrappers
-from .mediatitle_wrappers import MediatitleWrappers
-from .offlineconversiondataset_wrappers import OfflineconversiondatasetWrappers
-from .offlineproductitem_wrappers import OfflineproductitemWrappers
+from .livevideo_wrappers import LiveVideoWrappers
+from .localservicebusiness_wrappers import LocalServiceBusinessWrappers
+from .mediatitle_wrappers import MediaTitleWrappers
+from .offlineconversiondataset_wrappers import OfflineConversionDataSetWrappers
+from .offlineproductitem_wrappers import OfflineProductItemWrappers
 from .page_wrappers import PageWrappers
-from .pagepost_wrappers import PagepostWrappers
-from .pageusermessagethreadlabel_wrappers import PageusermessagethreadlabelWrappers
-from .paymentenginepayment_wrappers import PaymentenginepaymentWrappers
+from .pagepost_wrappers import PagePostWrappers
+from .pageusermessagethreadlabel_wrappers import PageUserMessageThreadLabelWrappers
+from .paymentenginepayment_wrappers import PaymentEnginePaymentWrappers
 from .photo_wrappers import PhotoWrappers
 from .post_wrappers import PostWrappers
-from .productcatalog_wrappers import ProductcatalogWrappers
-from .productfeed_wrappers import ProductfeedWrappers
-from .productfeedupload_wrappers import ProductfeeduploadWrappers
-from .productgroup_wrappers import ProductgroupWrappers
-from .productitem_wrappers import ProductitemWrappers
-from .productset_wrappers import ProductsetWrappers
+from .productcatalog_wrappers import ProductCatalogWrappers
+from .productfeed_wrappers import ProductFeedWrappers
+from .productfeedupload_wrappers import ProductFeedUploadWrappers
+from .productgroup_wrappers import ProductGroupWrappers
+from .productitem_wrappers import ProductItemWrappers
+from .productset_wrappers import ProductSetWrappers
 from .profile_wrappers import ProfileWrappers
-from .publisherblocklist_wrappers import PublisherblocklistWrappers
-from .rtbdynamicpost_wrappers import RtbdynamicpostWrappers
-from .shadowighashtag_wrappers import ShadowighashtagWrappers
+from .publisherblocklist_wrappers import PublisherBlockListWrappers
+from .rtbdynamicpost_wrappers import RTBDynamicPostWrappers
+from .shadowighashtag_wrappers import ShadowIGHashtagWrappers
 from .status_wrappers import StatusWrappers
 from .stories_wrappers import StoriesWrappers
-from .systemuser_wrappers import SystemuserWrappers
-from .transactableitem_wrappers import TransactableitemWrappers
-from .unifiedthread_wrappers import UnifiedthreadWrappers
+from .systemuser_wrappers import SystemUserWrappers
+from .transactableitem_wrappers import TransactableItemWrappers
+from .unifiedthread_wrappers import UnifiedThreadWrappers
 from .user_wrappers import UserWrappers
 from .vehicle_wrappers import VehicleWrappers
-from .vehicleoffer_wrappers import VehicleofferWrappers
-from .whatsappbusinessaccount_wrappers import WhatsappbusinessaccountWrappers
+from .vehicleoffer_wrappers import VehicleOfferWrappers
+from .whatsappbusinessaccount_wrappers import WhatsAppBusinessAccountWrappers
 from .whatsappbusinesspreverifiedphonenumber_wrappers import (
-    WhatsappbusinesspreverifiedphonenumberWrappers,
+    WhatsAppBusinessPreVerifiedPhoneNumberWrappers,
 )
 
 __all__ = [
     "AdWrappers",
-    "AdaccountWrappers",
-    "AdasyncrequestsetWrappers",
-    "AdcreativeWrappers",
-    "AdgroupfacebookfeedbackWrappers",
-    "AdmonetizationpropertyWrappers",
-    "AdruleWrappers",
-    "AdsetWrappers",
-    "AdspixelWrappers",
-    "AdstudyWrappers",
-    "AdvideoWrappers",
+    "AdAccountWrappers",
+    "AdAsyncRequestSetWrappers",
+    "AdCreativeWrappers",
+    "AdgroupFacebookFeedbackWrappers",
+    "AdMonetizationPropertyWrappers",
+    "AdRuleWrappers",
+    "AdSetWrappers",
+    "AdsPixelWrappers",
+    "AdStudyWrappers",
+    "AdVideoWrappers",
     "AlbumWrappers",
     "ApplicationWrappers",
-    "AutomotivemodelWrappers",
+    "AutomotiveModelWrappers",
     "AvatarWrappers",
     "BusinessWrappers",
-    "BusinessassetgroupWrappers",
-    "BusinessuserWrappers",
+    "BusinessAssetGroupWrappers",
+    "BusinessUserWrappers",
     "CampaignWrappers",
     "CanvasWrappers",
     "CommentWrappers",
-    "CommercemerchantsettingsWrappers",
-    "CommerceorderWrappers",
-    "CustomaudienceWrappers",
-    "CustomconversionWrappers",
+    "CommerceMerchantSettingsWrappers",
+    "CommerceOrderWrappers",
+    "CustomAudienceWrappers",
+    "CustomConversionWrappers",
     "DestinationWrappers",
     "EventWrappers",
-    "EventsourcegroupWrappers",
-    "ExtendedcreditWrappers",
-    "ExtendedcreditinvoicegroupWrappers",
+    "EventSourceGroupWrappers",
+    "ExtendedCreditWrappers",
+    "ExtendedCreditInvoiceGroupWrappers",
     "FlightWrappers",
-    "FundraiserpersontocharityWrappers",
+    "FundraiserPersonToCharityWrappers",
     "GroupWrappers",
-    "HomelistingWrappers",
+    "HomeListingWrappers",
     "HotelWrappers",
-    "IgcommentWrappers",
-    "IgmediaWrappers",
-    "IgmediaforigonlyapiWrappers",
-    "IguserWrappers",
-    "IguserexportforcamWrappers",
-    "IguserforigonlyapiWrappers",
-    "InstagramuserWrappers",
-    "LeadgenformWrappers",
+    "IGCommentWrappers",
+    "IGMediaWrappers",
+    "IGMediaForIGOnlyAPIWrappers",
+    "IGUserWrappers",
+    "IGUserExportForCAMWrappers",
+    "IGUserForIGOnlyAPIWrappers",
+    "InstagramUserWrappers",
+    "LeadgenFormWrappers",
     "LinkWrappers",
-    "LivevideoWrappers",
-    "LocalservicebusinessWrappers",
-    "MediatitleWrappers",
-    "OfflineconversiondatasetWrappers",
-    "OfflineproductitemWrappers",
+    "LiveVideoWrappers",
+    "LocalServiceBusinessWrappers",
+    "MediaTitleWrappers",
+    "OfflineConversionDataSetWrappers",
+    "OfflineProductItemWrappers",
     "PageWrappers",
-    "PagepostWrappers",
-    "PageusermessagethreadlabelWrappers",
-    "PaymentenginepaymentWrappers",
+    "PagePostWrappers",
+    "PageUserMessageThreadLabelWrappers",
+    "PaymentEnginePaymentWrappers",
     "PhotoWrappers",
     "PostWrappers",
-    "ProductcatalogWrappers",
-    "ProductfeedWrappers",
-    "ProductfeeduploadWrappers",
-    "ProductgroupWrappers",
-    "ProductitemWrappers",
-    "ProductsetWrappers",
+    "ProductCatalogWrappers",
+    "ProductFeedWrappers",
+    "ProductFeedUploadWrappers",
+    "ProductGroupWrappers",
+    "ProductItemWrappers",
+    "ProductSetWrappers",
     "ProfileWrappers",
-    "PublisherblocklistWrappers",
-    "RtbdynamicpostWrappers",
-    "ShadowighashtagWrappers",
+    "PublisherBlockListWrappers",
+    "RTBDynamicPostWrappers",
+    "ShadowIGHashtagWrappers",
     "StatusWrappers",
     "StoriesWrappers",
-    "SystemuserWrappers",
-    "TransactableitemWrappers",
-    "UnifiedthreadWrappers",
+    "SystemUserWrappers",
+    "TransactableItemWrappers",
+    "UnifiedThreadWrappers",
     "UserWrappers",
     "VehicleWrappers",
-    "VehicleofferWrappers",
-    "WhatsappbusinessaccountWrappers",
-    "WhatsappbusinesspreverifiedphonenumberWrappers",
+    "VehicleOfferWrappers",
+    "WhatsAppBusinessAccountWrappers",
+    "WhatsAppBusinessPreVerifiedPhoneNumberWrappers",
 ]

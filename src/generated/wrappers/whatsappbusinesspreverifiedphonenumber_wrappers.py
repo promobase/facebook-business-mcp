@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.whatsappbusinesspreverifiedphonenumber import (
@@ -10,9 +10,6 @@ if TYPE_CHECKING:
     )
 
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.whatsappbusinesspreverifiedphonenumber import (
     WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams,
     WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams,
@@ -26,12 +23,12 @@ class WhatsAppBusinessPreVerifiedPhoneNumberWrappers:
     def create_request_code(
         obj: WhatsAppBusinessPreVerifiedPhoneNumber,
         params: WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for WhatsAppBusinessPreVerifiedPhoneNumber.create_request_code().
 
         Endpoint: POST /request_code
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -39,19 +36,19 @@ class WhatsAppBusinessPreVerifiedPhoneNumberWrappers:
         # Call the original method
         result = obj.create_request_code(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_verify_code(
         obj: WhatsAppBusinessPreVerifiedPhoneNumber,
         params: WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for WhatsAppBusinessPreVerifiedPhoneNumber.create_verify_code().
 
         Endpoint: POST /verify_code
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -59,5 +56,5 @@ class WhatsAppBusinessPreVerifiedPhoneNumberWrappers:
         # Call the original method
         result = obj.create_verify_code(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result

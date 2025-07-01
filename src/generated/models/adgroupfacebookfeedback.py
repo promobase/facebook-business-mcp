@@ -2,9 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
+
+from .comment import CommentOrder
+
+if TYPE_CHECKING:
+    from .comment import CommentOrder
+
 
 AdgroupFacebookFeedbackField = Literal["id", "preview"]
 
@@ -23,7 +29,7 @@ class AdgroupFacebookFeedbackFields(BaseModel):
 class AdgroupFacebookFeedbackGetCommentsParams(BaseModel):
     """Parameters for AdgroupFacebookFeedback.get_comments()."""
 
-    order: str | None = Field(None, description="order parameter")
+    order: CommentOrder | None = Field(None, description="order parameter")
 
     class Config:
         extra = "forbid"

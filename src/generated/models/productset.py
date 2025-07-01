@@ -6,8 +6,11 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .productitem import ProductItemErrorPriority, ProductItemErrorType
+
 if TYPE_CHECKING:
     from .productcatalog import ProductCatalogFields
+    from .productitem import ProductItemErrorPriority, ProductItemErrorType
     from .productsetmetadata import ProductSetMetadataFields
 
 
@@ -112,8 +115,10 @@ class ProductSetGetProductsParams(BaseModel):
     """Parameters for ProductSet.get_products()."""
 
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
-    error_priority: str | None = Field(None, description="error_priority parameter")
-    error_type: str | None = Field(None, description="error_type parameter")
+    error_priority: ProductItemErrorPriority | None = Field(
+        None, description="error_priority parameter"
+    )
+    error_type: ProductItemErrorType | None = Field(None, description="error_type parameter")
     filter: Any | None = Field(None, description="filter parameter")
 
     class Config:

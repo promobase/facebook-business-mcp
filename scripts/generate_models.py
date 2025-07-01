@@ -7,7 +7,6 @@ corresponding Pydantic models with proper type annotations for use in MCP tools.
 
 import ast
 import importlib
-import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -355,12 +354,22 @@ class FacebookSDKParser:
         for key, value in zip(dict_node.keys, dict_node.values, strict=False):
             if isinstance(key, ast.Constant):
                 enum_name = key.value
-                # Extract the enum class reference (e.g., AdSet.DatePreset)
-                if isinstance(value, ast.Attribute):
-                    if isinstance(value.value, ast.Attribute) and isinstance(
-                        value.value.value, ast.Name
-                    ):
-                        enum_refs[enum_name] = f"{value.value.value.id}.{value.value.attr}"
+                # Extract the enum class reference (e.g., Campaign.DatePreset)
+                if isinstance(value, ast.Call):
+                    # Handle values() call: Campaign.DatePreset.__dict__.values()
+                    if isinstance(value.func, ast.Attribute) and value.func.attr == "values":
+                        # Get the __dict__ attribute access
+                        if (
+                            isinstance(value.func.value, ast.Attribute)
+                            and value.func.value.attr == "__dict__"
+                        ):
+                            # Get the enum class (e.g., Campaign.DatePreset)
+                            if isinstance(value.func.value.value, ast.Attribute):
+                                class_node = value.func.value.value
+                                if isinstance(class_node.value, ast.Name):
+                                    enum_refs[enum_name] = (
+                                        f"{class_node.value.id}.{class_node.attr}"
+                                    )
         return enum_refs
 
 
@@ -601,9 +610,24 @@ class PydanticModelGenerator:
         lines.append(f'    """Parameters for {class_name}.{method_name}()."""')
         lines.append("")
 
+        # Track enum imports needed for this model
+        local_enum_imports = set()
+
         # Generate fields for each parameter
         for param_name, param_type in method_info.param_types.items():
             python_type = self._map_param_type(param_type, method_info.enums)
+            # Track if we need to add enum imports
+            if param_type.endswith("_enum") and param_type in method_info.enums:
+                enum_ref = method_info.enums[param_type]
+                if "." in enum_ref:
+                    class_name_ref, enum_name = enum_ref.rsplit(".", 1)
+                    full_enum_name = f"{class_name_ref}{enum_name}"
+                    # Check if it's from a different module
+                    if class_name_ref in self.parser._adobject_types:
+                        module_name = self.parser._adobject_types[class_name_ref]
+                        if module_name != self.current_module:
+                            local_enum_imports.add((module_name, full_enum_name))
+
             # Make all params optional by default
             field_name = param_name
             if param_name in RESERVED_KEYWORDS:
@@ -617,6 +641,10 @@ class PydanticModelGenerator:
         lines.append("    class Config:")
         lines.append("        extra = 'forbid'")
 
+        # Add the enum imports to the general imports (not TYPE_CHECKING)
+        for module_name, enum_name in local_enum_imports:
+            self.imports.add(f"from .{module_name} import {enum_name}")
+
         return "\n".join(lines)
 
     def _map_param_type(self, param_type: str, enums: dict) -> str:
@@ -626,11 +654,20 @@ class PydanticModelGenerator:
             # Check if we have the enum reference
             if param_type in enums:
                 enum_ref = enums[param_type]
-                # Extract the enum name (e.g., "AdSet.DatePreset" -> "DatePreset")
+                # Extract the enum name (e.g., "Campaign.DatePreset")
                 if "." in enum_ref:
-                    _, enum_name = enum_ref.rsplit(".", 1)
-                    # We'll use the enum from the same module if available
-                    return "str"  # For now, use str; could be improved to use actual enum
+                    class_name, enum_name = enum_ref.rsplit(".", 1)
+                    # Import the enum from the appropriate module
+                    module_name = class_name.lower()
+                    if class_name in self.parser._adobject_types:
+                        module_name = self.parser._adobject_types[class_name]
+                    # Add to type checking imports for forward references
+                    if module_name != self.current_module:
+                        self.type_checking_imports.add(
+                            f"from .{module_name} import {class_name}{enum_name}"
+                        )
+                    # Return the properly typed enum reference
+                    return f'"{class_name}{enum_name}"'  # Use string annotation for forward ref
             return "str"
 
         # Check if this is an adobject type
@@ -856,20 +893,7 @@ def main():
 
     print(f"\n✓ Successfully generated {len(generated_files)} model files in {models_dir}")
 
-    # Run ruff format and ruff check
-    print("\nRunning ruff format...")
-    try:
-        subprocess.run(["ruff", "format", str(models_dir)], check=True, capture_output=True)
-        print("✓ Ruff format completed")
-    except subprocess.CalledProcessError as e:
-        print(f"✗ Ruff format failed: {e.stderr.decode()}")
-
-    print("\nRunning ruff check...")
-    try:
-        subprocess.run(["ruff", "check", "--fix", str(models_dir)], check=True, capture_output=True)
-        print("✓ Ruff check completed")
-    except subprocess.CalledProcessError as e:
-        print(f"✗ Ruff check failed: {e.stderr.decode()}")
+    # Ruff formatting will be done by the main codegen.py script
 
 
 if __name__ == "__main__":

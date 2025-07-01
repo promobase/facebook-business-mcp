@@ -2,15 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.whatsappbusinessaccount import WhatsAppBusinessAccount
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectField,
-    AbstractCrudObjectFields,
-)
 from ..models.assigneduser import (
     AssignedUserField,
     AssignedUserFields,
@@ -73,7 +69,7 @@ class WhatsAppBusinessAccountWrappers:
         Type-safe wrapper for WhatsAppBusinessAccount.delete_assigned_users().
 
         Endpoint: DELETE /assigned_users
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -134,13 +130,13 @@ class WhatsAppBusinessAccountWrappers:
     def get_call_analytics(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetCallAnalyticsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_call_analytics().
 
         Endpoint: GET /call_analytics
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -154,20 +150,20 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_conversation_analytics(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetConversationAnalyticsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_conversation_analytics().
 
         Endpoint: GET /conversation_analytics
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -181,8 +177,8 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_dataset(
@@ -208,12 +204,12 @@ class WhatsAppBusinessAccountWrappers:
     def create_flow(
         obj: WhatsAppBusinessAccount,
         params: WhatsAppBusinessAccountCreateFlowParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.create_flow().
 
         Endpoint: POST /flows
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -221,8 +217,8 @@ class WhatsAppBusinessAccountWrappers:
         # Call the original method
         result = obj.create_flow(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_generate_payment_configuration_oauth_link(
@@ -248,13 +244,13 @@ class WhatsAppBusinessAccountWrappers:
     def get_message_template_previews(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetMessageTemplatePreviewsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_message_template_previews().
 
         Endpoint: GET /message_template_previews
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -268,8 +264,8 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def delete_message_templates(
@@ -280,7 +276,7 @@ class WhatsAppBusinessAccountWrappers:
         Type-safe wrapper for WhatsAppBusinessAccount.delete_message_templates().
 
         Endpoint: DELETE /message_templates
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -294,13 +290,13 @@ class WhatsAppBusinessAccountWrappers:
     def get_message_templates(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetMessageTemplatesParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_message_templates().
 
         Endpoint: GET /message_templates
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -314,8 +310,8 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_message_template(
@@ -386,7 +382,7 @@ class WhatsAppBusinessAccountWrappers:
         Type-safe wrapper for WhatsAppBusinessAccount.delete_payment_configuration().
 
         Endpoint: DELETE /payment_configuration
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -400,13 +396,13 @@ class WhatsAppBusinessAccountWrappers:
     def get_payment_configuration(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetPaymentConfigurationParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_payment_configuration().
 
         Endpoint: GET /payment_configuration
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -420,8 +416,8 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_payment_configuration(
@@ -447,12 +443,12 @@ class WhatsAppBusinessAccountWrappers:
     def create_phone_number(
         obj: WhatsAppBusinessAccount,
         params: WhatsAppBusinessAccountCreatePhoneNumberParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.create_phone_number().
 
         Endpoint: POST /phone_numbers
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -460,20 +456,20 @@ class WhatsAppBusinessAccountWrappers:
         # Call the original method
         result = obj.create_phone_number(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_pricing_analytics(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetPricingAnalyticsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_pricing_analytics().
 
         Endpoint: GET /pricing_analytics
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -487,8 +483,8 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def delete_product_catalogs(
@@ -499,7 +495,7 @@ class WhatsAppBusinessAccountWrappers:
         Type-safe wrapper for WhatsAppBusinessAccount.delete_product_catalogs().
 
         Endpoint: DELETE /product_catalogs
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -533,12 +529,12 @@ class WhatsAppBusinessAccountWrappers:
     def create_set_obo_mobility_intent(
         obj: WhatsAppBusinessAccount,
         params: WhatsAppBusinessAccountCreateSetOboMobilityIntentParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.create_set_obo_mobility_intent().
 
         Endpoint: POST /set_obo_mobility_intent
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -546,19 +542,19 @@ class WhatsAppBusinessAccountWrappers:
         # Call the original method
         result = obj.create_set_obo_mobility_intent(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_set_solution_migration_intent(
         obj: WhatsAppBusinessAccount,
         params: WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.create_set_solution_migration_intent().
 
         Endpoint: POST /set_solution_migration_intent
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -566,8 +562,8 @@ class WhatsAppBusinessAccountWrappers:
         # Call the original method
         result = obj.create_set_solution_migration_intent(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_subscribed_app(
@@ -593,13 +589,13 @@ class WhatsAppBusinessAccountWrappers:
     def get_template_analytics(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetTemplateAnalyticsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_template_analytics().
 
         Endpoint: GET /template_analytics
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -613,20 +609,20 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_template_group_analytics(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_template_group_analytics().
 
         Endpoint: GET /template_group_analytics
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -640,19 +636,19 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_template_group(
         obj: WhatsAppBusinessAccount,
         params: WhatsAppBusinessAccountCreateTemplateGroupParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.create_template_group().
 
         Endpoint: POST /template_groups
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -660,20 +656,20 @@ class WhatsAppBusinessAccountWrappers:
         # Call the original method
         result = obj.create_template_group(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_template_performance_metrics(
         obj: WhatsAppBusinessAccount,
         params: Optional[WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for WhatsAppBusinessAccount.get_template_performance_metrics().
 
         Endpoint: GET /template_performance_metrics
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -687,8 +683,8 @@ class WhatsAppBusinessAccountWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def create_upsert_message_template(

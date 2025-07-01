@@ -8,12 +8,18 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
+from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
+from .profile import ProfileType
+
 if TYPE_CHECKING:
     from .application import ApplicationFields
+    from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
     from .event import EventFields
+    from .insightsresult import InsightsResultDatePreset, InsightsResultPeriod
     from .place import PlaceFields
     from .privacy import PrivacyFields
-    from .profile import ProfileFields
+    from .profile import ProfileFields, ProfileType
 
 
 class PagePostWith(str, Enum):
@@ -176,9 +182,9 @@ class PagePostFields(BaseModel):
 class PagePostGetCommentsParams(BaseModel):
     """Parameters for PagePost.get_comments()."""
 
-    filter: str | None = Field(None, description="filter parameter")
-    live_filter: str | None = Field(None, description="live_filter parameter")
-    order: str | None = Field(None, description="order parameter")
+    filter: CommentFilter | None = Field(None, description="filter parameter")
+    live_filter: CommentLiveFilter | None = Field(None, description="live_filter parameter")
+    order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
     class Config:
@@ -192,7 +198,9 @@ class PagePostCreateCommentParams(BaseModel):
     attachment_share_url: str | None = Field(None, description="attachment_share_url parameter")
     attachment_url: str | None = Field(None, description="attachment_url parameter")
     comment: str | None = Field(None, description="comment parameter")
-    comment_privacy_value: str | None = Field(None, description="comment_privacy_value parameter")
+    comment_privacy_value: CommentCommentPrivacyValue | None = Field(
+        None, description="comment_privacy_value parameter"
+    )
     feedback_source: str | None = Field(None, description="feedback_source parameter")
     message: str | None = Field(None, description="message parameter")
     nectar_module: str | None = Field(None, description="nectar_module parameter")
@@ -207,9 +215,9 @@ class PagePostCreateCommentParams(BaseModel):
 class PagePostGetInsightsParams(BaseModel):
     """Parameters for PagePost.get_insights()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    date_preset: InsightsResultDatePreset | None = Field(None, description="date_preset parameter")
     metric: list[Any] | None = Field(None, description="metric parameter")
-    period: str | None = Field(None, description="period parameter")
+    period: InsightsResultPeriod | None = Field(None, description="period parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
@@ -241,7 +249,7 @@ class PagePostCreateLikeParams(BaseModel):
 class PagePostGetReactionsParams(BaseModel):
     """Parameters for PagePost.get_reactions()."""
 
-    type: str | None = Field(None, description="type parameter")
+    type: ProfileType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"

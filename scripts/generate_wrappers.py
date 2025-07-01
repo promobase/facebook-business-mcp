@@ -2,12 +2,11 @@
 Generate type-safe wrapper functions for Facebook Business SDK API methods.
 """
 
-import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from script import AdObjectInfo, ApiMethodInfo, FacebookSDKParser
+from generate_models import AdObjectInfo, ApiMethodInfo, FacebookSDKParser
 
 
 @dataclass
@@ -72,6 +71,9 @@ class WrapperGenerator:
         target_imports = {}
         for method_info in adobject_info.api_methods:
             if method_info.target_class and method_info.target_class != adobject_info.name:
+                # Skip abstract base classes
+                if method_info.target_class == "AbstractCrudObject":
+                    continue
                 target_module = self._get_module_name(method_info.target_class)
                 if target_module:
                     if target_module not in target_imports:
@@ -137,12 +139,19 @@ class WrapperGenerator:
 
         # Determine return type
         if method_info.target_class:
-            # Special case: get_insights_async is a POST method but still named get_*
-            if method_info.http_method == "GET" and method_info.name != "api_get":
-                # GET methods on EDGE endpoints return Cursor objects for pagination
-                return_type = f"TypedCursor[{method_info.target_class}Fields]"
+            # Skip abstract base classes - return dict instead
+            if method_info.target_class == "AbstractCrudObject":
+                if method_info.http_method == "GET" and method_info.name != "api_get":
+                    return_type = "list[dict[str, Any]]"  # Cursor returns list
+                else:
+                    return_type = "dict[str, Any]"
             else:
-                return_type = f"{method_info.target_class}Fields"
+                # Special case: get_insights_async is a POST method but still named get_*
+                if method_info.http_method == "GET" and method_info.name != "api_get":
+                    # GET methods on EDGE endpoints return Cursor objects for pagination
+                    return_type = f"TypedCursor[{method_info.target_class}Fields]"
+                else:
+                    return_type = f"{method_info.target_class}Fields"
         else:
             return_type = "dict[str, Any]"
 
@@ -151,7 +160,7 @@ class WrapperGenerator:
             lines.append(f"    def {method_info.name}(")
             lines.append(f"        obj: {adobject_info.name},")
             lines.append(f"        params: Optional[{param_model_name}] = None,")
-            if method_info.target_class:
+            if method_info.target_class and method_info.target_class != "AbstractCrudObject":
                 target_field = f"{method_info.target_class}Field"
                 lines.append(f"        fields: Optional[list[{target_field}]] = None,")
             else:
@@ -199,10 +208,14 @@ class WrapperGenerator:
                 lines.append("            fields=fields_list,")
                 lines.append("        )")
                 lines.append("        ")
-                lines.append("        # Wrap the cursor for type safety")
-                lines.append(
-                    f"        return TypedCursor(cursor, {method_info.target_class}Fields)"
-                )
+                if method_info.target_class == "AbstractCrudObject":
+                    lines.append("        # Return raw cursor data for abstract base class")
+                    lines.append("        return [item.export_all_data() for item in cursor]")
+                else:
+                    lines.append("        # Wrap the cursor for type safety")
+                    lines.append(
+                        f"        return TypedCursor(cursor, {method_info.target_class}Fields)"
+                    )
             else:
                 # This is a POST method that happens to start with get_ (like get_insights_async)
                 lines.append(f"        result = obj.{method_info.name}(")
@@ -210,18 +223,30 @@ class WrapperGenerator:
                 lines.append("            fields=fields_list,")
                 lines.append("        )")
                 lines.append("        ")
-                lines.append("        # Convert result to typed model")
-                lines.append(f"        return {method_info.target_class}Fields(**result)")
+                if method_info.target_class == "AbstractCrudObject":
+                    lines.append("        # Return raw data for abstract base class")
+                    lines.append(
+                        "        return result.export_all_data() if hasattr(result, 'export_all_data') else result"
+                    )
+                else:
+                    lines.append("        # Convert result to typed model")
+                    lines.append(f"        return {method_info.target_class}Fields(**result)")
 
         elif method_info.name.startswith("create_"):
             lines.append("        ")
             lines.append("        # Call the original method")
             lines.append(f"        result = obj.{method_info.name}(params=params_dict)")
             lines.append("        ")
-            lines.append("        # Convert result to typed model")
-            lines.append(
-                f"        return {method_info.target_class or adobject_info.name}Fields(**result)"
-            )
+            if method_info.target_class == "AbstractCrudObject":
+                lines.append("        # Return raw data for abstract base class")
+                lines.append(
+                    "        return result.export_all_data() if hasattr(result, 'export_all_data') else result"
+                )
+            else:
+                lines.append("        # Convert result to typed model")
+                lines.append(
+                    f"        return {method_info.target_class or adobject_info.name}Fields(**result)"
+                )
 
         else:  # delete_
             lines.append("        ")
@@ -293,17 +318,25 @@ def main():
         # Import all wrapper classes
         for wrapper_file in sorted(generated_wrappers):
             module_name = wrapper_file.stem
-            # Convert module name to class name (e.g., campaign_wrappers -> CampaignWrappers)
-            parts = module_name.replace("_wrappers", "").split("_")
-            class_name = "".join(word.capitalize() for word in parts) + "Wrappers"
-            f.write(f"from .{module_name} import {class_name}\n")
+            # Get the actual class name from the adobject info
+            # Find the matching adobject_info
+            for file_path in files_to_process:
+                adobject_info = parser.parse_file(file_path)
+                if adobject_info and adobject_info.module_path + "_wrappers" == module_name:
+                    class_name = f"{adobject_info.name}Wrappers"
+                    f.write(f"from .{module_name} import {class_name}\n")
+                    break
 
         f.write("\n__all__ = [\n")
         for wrapper_file in sorted(generated_wrappers):
             module_name = wrapper_file.stem
-            parts = module_name.replace("_wrappers", "").split("_")
-            class_name = "".join(word.capitalize() for word in parts) + "Wrappers"
-            f.write(f'    "{class_name}",\n')
+            # Get the actual class name from the adobject info
+            for file_path in files_to_process:
+                adobject_info = parser.parse_file(file_path)
+                if adobject_info and adobject_info.module_path + "_wrappers" == module_name:
+                    class_name = f"{adobject_info.name}Wrappers"
+                    f.write(f'    "{class_name}",\n')
+                    break
         f.write("]\n")
 
     print(
@@ -311,20 +344,7 @@ def main():
     )
     print("✓ Generated __init__.py")
 
-    # Run ruff format
-    print("\nRunning ruff format...")
-    try:
-        subprocess.run(["ruff", "format", str(output_dir)], check=True, capture_output=True)
-        print("✓ Ruff format completed")
-    except subprocess.CalledProcessError as e:
-        print(f"✗ Ruff format failed: {e.stderr.decode()}")
-
-    print("\nRunning ruff check...")
-    try:
-        subprocess.run(["ruff", "check", "--fix", str(output_dir)], check=True, capture_output=True)
-        print("✓ Ruff check completed")
-    except subprocess.CalledProcessError as e:
-        print(f"✗ Ruff check failed: {e.stderr.decode()}")
+    # Ruff formatting will be done by the main codegen.py script
 
 
 if __name__ == "__main__":

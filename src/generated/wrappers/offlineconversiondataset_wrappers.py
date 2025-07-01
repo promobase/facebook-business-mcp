@@ -2,15 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.offlineconversiondataset import OfflineConversionDataSet
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectField,
-    AbstractCrudObjectFields,
-)
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -185,13 +181,13 @@ class OfflineConversionDataSetWrappers:
     def get_stats(
         obj: OfflineConversionDataSet,
         params: Optional[OfflineConversionDataSetGetStatsParams] = None,
-        fields: Optional[list[AbstractCrudObjectField]] = None,
-    ) -> TypedCursor[AbstractCrudObjectFields]:
+        fields: Optional[list[str]] = None,
+    ) -> list[dict[str, Any]]:
         """
         Type-safe wrapper for OfflineConversionDataSet.get_stats().
 
         Endpoint: GET /stats
-        Returns: TypedCursor[AbstractCrudObjectFields]
+        Returns: list[dict[str, Any]]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -205,8 +201,8 @@ class OfflineConversionDataSetWrappers:
             fields=fields_list,
         )
 
-        # Wrap the cursor for type safety
-        return TypedCursor(cursor, AbstractCrudObjectFields)
+        # Return raw cursor data for abstract base class
+        return [item.export_all_data() for item in cursor]
 
     @staticmethod
     def get_uploads(

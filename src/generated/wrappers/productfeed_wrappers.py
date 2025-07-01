@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.productfeed import ProductFeed
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.automotivemodel import (
     AutomotiveModelField,
     AutomotiveModelFields,
@@ -287,12 +284,12 @@ class ProductFeedWrappers:
     def create_supplementary_feed_assoc(
         obj: ProductFeed,
         params: ProductFeedCreateSupplementaryFeedAssocParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for ProductFeed.create_supplementary_feed_assoc().
 
         Endpoint: POST /supplementary_feed_assocs
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -300,8 +297,8 @@ class ProductFeedWrappers:
         # Call the original method
         result = obj.create_supplementary_feed_assoc(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def create_upload_schedule(

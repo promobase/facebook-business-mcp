@@ -8,7 +8,22 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adnetworkanalyticssyncqueryresult import (
+    AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+    AdNetworkAnalyticsSyncQueryResultOrderingColumn,
+    AdNetworkAnalyticsSyncQueryResultOrderingType,
+)
+from .dacheck import DACheckConnectionMethod
+
 if TYPE_CHECKING:
+    from .adnetworkanalyticssyncqueryresult import (
+        AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+        AdNetworkAnalyticsSyncQueryResultBreakdowns,
+        AdNetworkAnalyticsSyncQueryResultMetrics,
+        AdNetworkAnalyticsSyncQueryResultOrderingColumn,
+        AdNetworkAnalyticsSyncQueryResultOrderingType,
+    )
+    from .dacheck import DACheckConnectionMethod
     from .permission import PermissionFields
 
 
@@ -466,13 +481,23 @@ class ApplicationGetAdNetworkPlacementsParams(BaseModel):
 class ApplicationGetAdNetworkAnalyticsParams(BaseModel):
     """Parameters for Application.get_ad_network_analytics()."""
 
-    aggregation_period: str | None = Field(None, description="aggregation_period parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
+    aggregation_period: AdNetworkAnalyticsSyncQueryResultAggregationPeriod | None = Field(
+        None, description="aggregation_period parameter"
+    )
+    breakdowns: list[AdNetworkAnalyticsSyncQueryResultBreakdowns] | None = Field(
+        None, description="breakdowns parameter"
+    )
     filters: list[dict[str, Any]] | None = Field(None, description="filters parameter")
     limit: int | None = Field(None, description="limit parameter")
-    metrics: list[str] | None = Field(None, description="metrics parameter")
-    ordering_column: str | None = Field(None, description="ordering_column parameter")
-    ordering_type: str | None = Field(None, description="ordering_type parameter")
+    metrics: list[AdNetworkAnalyticsSyncQueryResultMetrics] | None = Field(
+        None, description="metrics parameter"
+    )
+    ordering_column: AdNetworkAnalyticsSyncQueryResultOrderingColumn | None = Field(
+        None, description="ordering_column parameter"
+    )
+    ordering_type: AdNetworkAnalyticsSyncQueryResultOrderingType | None = Field(
+        None, description="ordering_type parameter"
+    )
     should_include_until: bool | None = Field(None, description="should_include_until parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
@@ -484,13 +509,23 @@ class ApplicationGetAdNetworkAnalyticsParams(BaseModel):
 class ApplicationCreateAdNetworkAnalyticParams(BaseModel):
     """Parameters for Application.create_ad_network_analytic()."""
 
-    aggregation_period: str | None = Field(None, description="aggregation_period parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
+    aggregation_period: AdNetworkAnalyticsSyncQueryResultAggregationPeriod | None = Field(
+        None, description="aggregation_period parameter"
+    )
+    breakdowns: list[AdNetworkAnalyticsSyncQueryResultBreakdowns] | None = Field(
+        None, description="breakdowns parameter"
+    )
     filters: list[Any] | None = Field(None, description="filters parameter")
     limit: int | None = Field(None, description="limit parameter")
-    metrics: list[str] | None = Field(None, description="metrics parameter")
-    ordering_column: str | None = Field(None, description="ordering_column parameter")
-    ordering_type: str | None = Field(None, description="ordering_type parameter")
+    metrics: list[AdNetworkAnalyticsSyncQueryResultMetrics] | None = Field(
+        None, description="metrics parameter"
+    )
+    ordering_column: AdNetworkAnalyticsSyncQueryResultOrderingColumn | None = Field(
+        None, description="ordering_column parameter"
+    )
+    ordering_type: AdNetworkAnalyticsSyncQueryResultOrderingType | None = Field(
+        None, description="ordering_type parameter"
+    )
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
@@ -581,8 +616,8 @@ class ApplicationCreateAppIndexingParams(BaseModel):
     app_version: str | None = Field(None, description="app_version parameter")
     device_session_id: str | None = Field(None, description="device_session_id parameter")
     extra_info: str | None = Field(None, description="extra_info parameter")
-    platform: str | None = Field(None, description="platform parameter")
-    request_type: str | None = Field(None, description="request_type parameter")
+    platform: ApplicationPlatform | None = Field(None, description="platform parameter")
+    request_type: ApplicationRequestType | None = Field(None, description="request_type parameter")
     tree: dict[str, Any] | None = Field(None, description="tree parameter")
 
     class Config:
@@ -613,7 +648,7 @@ class ApplicationCreateAppPushDeviceTokenParams(BaseModel):
 
     device_id: str | None = Field(None, description="device_id parameter")
     device_token: str | None = Field(None, description="device_token parameter")
-    platform: str | None = Field(None, description="platform parameter")
+    platform: ApplicationPlatform | None = Field(None, description="platform parameter")
 
     class Config:
         extra = "forbid"
@@ -652,9 +687,11 @@ class ApplicationCreateCodelessEventMappingParams(BaseModel):
     """Parameters for Application.create_codeless_event_mapping()."""
 
     mappings: list[dict[str, Any]] | None = Field(None, description="mappings parameter")
-    mutation_method: str | None = Field(None, description="mutation_method parameter")
-    platform: str | None = Field(None, description="platform parameter")
-    post_method: str | None = Field(None, description="post_method parameter")
+    mutation_method: ApplicationMutationMethod | None = Field(
+        None, description="mutation_method parameter"
+    )
+    platform: ApplicationPlatform | None = Field(None, description="platform parameter")
+    post_method: ApplicationPostMethod | None = Field(None, description="post_method parameter")
 
     class Config:
         extra = "forbid"
@@ -664,7 +701,9 @@ class ApplicationGetDaChecksParams(BaseModel):
     """Parameters for Application.get_da_checks()."""
 
     checks: list[str] | None = Field(None, description="checks parameter")
-    connection_method: str | None = Field(None, description="connection_method parameter")
+    connection_method: DACheckConnectionMethod | None = Field(
+        None, description="connection_method parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -866,9 +905,13 @@ class ApplicationCreateUploadParams(BaseModel):
 class ApplicationCreateWhatsAppBusinessSolutionParams(BaseModel):
     """Parameters for Application.create_whats_app_business_solution()."""
 
-    owner_permissions: list[str] | None = Field(None, description="owner_permissions parameter")
+    owner_permissions: list[ApplicationOwnerPermissions] | None = Field(
+        None, description="owner_permissions parameter"
+    )
     partner_app_id: str | None = Field(None, description="partner_app_id parameter")
-    partner_permissions: list[str] | None = Field(None, description="partner_permissions parameter")
+    partner_permissions: list[ApplicationPartnerPermissions] | None = Field(
+        None, description="partner_permissions parameter"
+    )
     solution_name: str | None = Field(None, description="solution_name parameter")
 
     class Config:

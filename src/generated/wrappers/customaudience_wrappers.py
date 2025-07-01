@@ -56,7 +56,7 @@ class CustomAudienceWrappers:
         Type-safe wrapper for CustomAudience.delete_ad_accounts().
 
         Endpoint: DELETE /adaccounts
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -250,7 +250,7 @@ class CustomAudienceWrappers:
         Type-safe wrapper for CustomAudience.delete_users().
 
         Endpoint: DELETE /users
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

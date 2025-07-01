@@ -8,12 +8,17 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .comment import CommentFilter, CommentLiveFilter, CommentOrder
+from .profile import ProfileType
+
 if TYPE_CHECKING:
     from .advideo import AdVideoFields
+    from .comment import CommentFilter, CommentLiveFilter, CommentOrder
     from .livevideoadbreakconfig import LiveVideoAdBreakConfigFields
     from .livevideoinputstream import LiveVideoInputStreamFields
     from .livevideorecommendedencodersettings import LiveVideoRecommendedEncoderSettingsFields
     from .livevideotargeting import LiveVideoTargetingFields
+    from .profile import ProfileType
     from .videocopyright import VideoCopyrightFields
 
 
@@ -181,9 +186,9 @@ class LiveVideoGetBlockedUsersParams(BaseModel):
 class LiveVideoGetCommentsParams(BaseModel):
     """Parameters for LiveVideo.get_comments()."""
 
-    filter: str | None = Field(None, description="filter parameter")
-    live_filter: str | None = Field(None, description="live_filter parameter")
-    order: str | None = Field(None, description="order parameter")
+    filter: CommentFilter | None = Field(None, description="filter parameter")
+    live_filter: CommentLiveFilter | None = Field(None, description="live_filter parameter")
+    order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
     class Config:
@@ -208,7 +213,7 @@ class LiveVideoCreatePollParams(BaseModel):
 class LiveVideoGetReactionsParams(BaseModel):
     """Parameters for LiveVideo.get_reactions()."""
 
-    type: str | None = Field(None, description="type parameter")
+    type: ProfileType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"

@@ -3,9 +3,23 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
+
+from .insightsresult import InsightsResultMetricType, InsightsResultTimeframe
+from .unifiedthread import UnifiedThreadPlatform
+
+if TYPE_CHECKING:
+    from .insightsresult import (
+        InsightsResultBreakdown,
+        InsightsResultMetric,
+        InsightsResultMetricType,
+        InsightsResultPeriod,
+        InsightsResultTimeframe,
+    )
+    from .unifiedthread import UnifiedThreadPlatform
+
 
 IGUserForIGOnlyAPIField = Literal[
     "account_type",
@@ -64,7 +78,7 @@ class IGUserForIGOnlyAPIGetConversationsParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_conversations()."""
 
     folder: str | None = Field(None, description="folder parameter")
-    platform: str | None = Field(None, description="platform parameter")
+    platform: UnifiedThreadPlatform | None = Field(None, description="platform parameter")
     tags: list[str] | None = Field(None, description="tags parameter")
     user_id: str | None = Field(None, description="user_id parameter")
 
@@ -75,12 +89,12 @@ class IGUserForIGOnlyAPIGetConversationsParams(BaseModel):
 class IGUserForIGOnlyAPIGetInsightsParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_insights()."""
 
-    breakdown: list[str] | None = Field(None, description="breakdown parameter")
-    metric: list[str] | None = Field(None, description="metric parameter")
-    metric_type: str | None = Field(None, description="metric_type parameter")
-    period: list[str] | None = Field(None, description="period parameter")
+    breakdown: list[InsightsResultBreakdown] | None = Field(None, description="breakdown parameter")
+    metric: list[InsightsResultMetric] | None = Field(None, description="metric parameter")
+    metric_type: InsightsResultMetricType | None = Field(None, description="metric_type parameter")
+    period: list[InsightsResultPeriod] | None = Field(None, description="period parameter")
     since: datetime | None = Field(None, description="since parameter")
-    timeframe: str | None = Field(None, description="timeframe parameter")
+    timeframe: InsightsResultTimeframe | None = Field(None, description="timeframe parameter")
     until: datetime | None = Field(None, description="until parameter")
 
     class Config:

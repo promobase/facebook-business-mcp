@@ -7,7 +7,10 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .comment import CommentCommentPrivacyValue
+
 if TYPE_CHECKING:
+    from .comment import CommentCommentPrivacyValue
     from .privacy import PrivacyFields
 
 
@@ -54,7 +57,9 @@ class LinkCreateCommentParams(BaseModel):
     attachment_id: str | None = Field(None, description="attachment_id parameter")
     attachment_share_url: str | None = Field(None, description="attachment_share_url parameter")
     attachment_url: str | None = Field(None, description="attachment_url parameter")
-    comment_privacy_value: str | None = Field(None, description="comment_privacy_value parameter")
+    comment_privacy_value: CommentCommentPrivacyValue | None = Field(
+        None, description="comment_privacy_value parameter"
+    )
     facepile_mentioned_ids: list[str] | None = Field(
         None, description="facepile_mentioned_ids parameter"
     )

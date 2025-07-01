@@ -7,7 +7,10 @@ from typing import TYPE_CHECKING, Literal
 
 from pydantic import BaseModel, Field
 
+from .comment import CommentFilter, CommentLiveFilter, CommentOrder
+
 if TYPE_CHECKING:
+    from .comment import CommentFilter, CommentLiveFilter, CommentOrder
     from .dynamicpostchildattachment import DynamicPostChildAttachmentFields
 
 
@@ -51,9 +54,9 @@ class RTBDynamicPostFields(BaseModel):
 class RTBDynamicPostGetCommentsParams(BaseModel):
     """Parameters for RTBDynamicPost.get_comments()."""
 
-    filter: str | None = Field(None, description="filter parameter")
-    live_filter: str | None = Field(None, description="live_filter parameter")
-    order: str | None = Field(None, description="order parameter")
+    filter: CommentFilter | None = Field(None, description="filter parameter")
+    live_filter: CommentLiveFilter | None = Field(None, description="live_filter parameter")
+    order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
     class Config:

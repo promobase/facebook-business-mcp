@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Literal
 from pydantic import BaseModel, Field
 
 if TYPE_CHECKING:
+    from .insightsresult import InsightsResultBreakdown, InsightsResultMetric, InsightsResultPeriod
     from .user import UserFields
 
 
@@ -68,9 +69,9 @@ class IGMediaForIGOnlyAPICreateCommentParams(BaseModel):
 class IGMediaForIGOnlyAPIGetInsightsParams(BaseModel):
     """Parameters for IGMediaForIGOnlyAPI.get_insights()."""
 
-    breakdown: list[str] | None = Field(None, description="breakdown parameter")
-    metric: list[str] | None = Field(None, description="metric parameter")
-    period: list[str] | None = Field(None, description="period parameter")
+    breakdown: list[InsightsResultBreakdown] | None = Field(None, description="breakdown parameter")
+    metric: list[InsightsResultMetric] | None = Field(None, description="metric parameter")
+    period: list[InsightsResultPeriod] | None = Field(None, description="period parameter")
 
     class Config:
         extra = "forbid"

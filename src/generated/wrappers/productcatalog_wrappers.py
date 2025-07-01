@@ -163,7 +163,7 @@ class ProductCatalogWrappers:
         Type-safe wrapper for ProductCatalog.delete_agencies().
 
         Endpoint: DELETE /agencies
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -202,7 +202,7 @@ class ProductCatalogWrappers:
         Type-safe wrapper for ProductCatalog.delete_assigned_users().
 
         Endpoint: DELETE /assigned_users
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -591,7 +591,7 @@ class ProductCatalogWrappers:
         Type-safe wrapper for ProductCatalog.delete_external_event_sources().
 
         Endpoint: DELETE /external_event_sources
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

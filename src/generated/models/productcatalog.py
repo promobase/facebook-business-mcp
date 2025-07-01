@@ -8,12 +8,93 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .checkbatchrequeststatus import CheckBatchRequestStatusErrorPriority
+from .creatorassetcreative import CreatorAssetCreativeModerationStatus
+from .productcatalogcategory import ProductCatalogCategoryCategorizationCriteria
+from .productcatalogdatasource import ProductCatalogDataSourceIngestionSourceType
+from .productfeed import (
+    ProductFeedDelimiter,
+    ProductFeedEncoding,
+    ProductFeedFeedType,
+    ProductFeedIngestionSourceType,
+    ProductFeedItemSubType,
+    ProductFeedOverrideType,
+    ProductFeedQuotedFieldsMode,
+)
+from .productitem import (
+    ProductItemAgeGroup,
+    ProductItemAvailability,
+    ProductItemCommerceTaxCategory,
+    ProductItemCondition,
+    ProductItemErrorPriority,
+    ProductItemErrorType,
+    ProductItemGender,
+    ProductItemMarkedForProductLaunch,
+    ProductItemOriginCountry,
+    ProductItemVisibility,
+    ProductItemWaComplianceCategory,
+)
+from .vehicle import (
+    VehicleAvailability,
+    VehicleBodyStyle,
+    VehicleCondition,
+    VehicleDrivetrain,
+    VehicleFuelType,
+    VehicleStateOfVehicle,
+    VehicleTransmission,
+    VehicleVehicleType,
+)
+
 if TYPE_CHECKING:
+    from .checkbatchrequeststatus import CheckBatchRequestStatusErrorPriority
     from .collaborativeadssharesettings import CollaborativeAdsShareSettingsFields
     from .commercemerchantsettings import CommerceMerchantSettingsFields
+    from .creatorassetcreative import CreatorAssetCreativeModerationStatus
+    from .productcatalogcategory import ProductCatalogCategoryCategorizationCriteria
+    from .productcatalogdatasource import ProductCatalogDataSourceIngestionSourceType
+    from .productcatalogdiagnosticgroup import (
+        ProductCatalogDiagnosticGroupAffectedChannels,
+        ProductCatalogDiagnosticGroupAffectedEntities,
+        ProductCatalogDiagnosticGroupAffectedFeatures,
+        ProductCatalogDiagnosticGroupSeverities,
+        ProductCatalogDiagnosticGroupTypes,
+    )
     from .productcatalogimagesettings import ProductCatalogImageSettingsFields
+    from .producteventstat import ProductEventStatBreakdowns
+    from .productfeed import (
+        ProductFeedDelimiter,
+        ProductFeedEncoding,
+        ProductFeedFeedType,
+        ProductFeedIngestionSourceType,
+        ProductFeedItemSubType,
+        ProductFeedOverrideType,
+        ProductFeedQuotedFieldsMode,
+    )
+    from .productitem import (
+        ProductItemAgeGroup,
+        ProductItemAvailability,
+        ProductItemCommerceTaxCategory,
+        ProductItemCondition,
+        ProductItemErrorPriority,
+        ProductItemErrorType,
+        ProductItemGender,
+        ProductItemMarkedForProductLaunch,
+        ProductItemOriginCountry,
+        ProductItemVisibility,
+        ProductItemWaComplianceCategory,
+    )
     from .storecatalogsettings import StoreCatalogSettingsFields
     from .user import UserFields
+    from .vehicle import (
+        VehicleAvailability,
+        VehicleBodyStyle,
+        VehicleCondition,
+        VehicleDrivetrain,
+        VehicleFuelType,
+        VehicleStateOfVehicle,
+        VehicleTransmission,
+        VehicleVehicleType,
+    )
 
 
 class ProductCatalogAdditionalVerticalOption(str, Enum):
@@ -205,8 +286,12 @@ class ProductCatalogCreateAgencyParams(BaseModel):
     """Parameters for ProductCatalog.create_agency()."""
 
     business: str | None = Field(None, description="business parameter")
-    permitted_roles: list[str] | None = Field(None, description="permitted_roles parameter")
-    permitted_tasks: list[str] | None = Field(None, description="permitted_tasks parameter")
+    permitted_roles: list[ProductCatalogPermittedRoles] | None = Field(
+        None, description="permitted_roles parameter"
+    )
+    permitted_tasks: list[ProductCatalogPermittedTasks] | None = Field(
+        None, description="permitted_tasks parameter"
+    )
     skip_defaults: bool | None = Field(None, description="skip_defaults parameter")
     utm_settings: dict[str, Any] | None = Field(None, description="utm_settings parameter")
 
@@ -235,7 +320,7 @@ class ProductCatalogGetAssignedUsersParams(BaseModel):
 class ProductCatalogCreateAssignedUserParams(BaseModel):
     """Parameters for ProductCatalog.create_assigned_user()."""
 
-    tasks: list[str] | None = Field(None, description="tasks parameter")
+    tasks: list[ProductCatalogTasks] | None = Field(None, description="tasks parameter")
     user: int | None = Field(None, description="user parameter")
 
     class Config:
@@ -278,7 +363,7 @@ class ProductCatalogCreateCatalogStoreParams(BaseModel):
 class ProductCatalogGetCategoriesParams(BaseModel):
     """Parameters for ProductCatalog.get_categories()."""
 
-    categorization_criteria: str | None = Field(
+    categorization_criteria: ProductCatalogCategoryCategorizationCriteria | None = Field(
         None, description="categorization_criteria parameter"
     )
     filter: Any | None = Field(None, description="filter parameter")
@@ -299,7 +384,9 @@ class ProductCatalogCreateCategoryParams(BaseModel):
 class ProductCatalogGetCheckBatchRequestStatusParams(BaseModel):
     """Parameters for ProductCatalog.get_check_batch_request_status()."""
 
-    error_priority: str | None = Field(None, description="error_priority parameter")
+    error_priority: CheckBatchRequestStatusErrorPriority | None = Field(
+        None, description="error_priority parameter"
+    )
     handle: str | None = Field(None, description="handle parameter")
     load_ids_of_invalid_requests: bool | None = Field(
         None, description="load_ids_of_invalid_requests parameter"
@@ -332,7 +419,9 @@ class ProductCatalogCreateCpasLsbImageBankParams(BaseModel):
 class ProductCatalogGetCreatorAssetCreativesParams(BaseModel):
     """Parameters for ProductCatalog.get_creator_asset_creatives()."""
 
-    moderation_status: str | None = Field(None, description="moderation_status parameter")
+    moderation_status: CreatorAssetCreativeModerationStatus | None = Field(
+        None, description="moderation_status parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -341,7 +430,9 @@ class ProductCatalogGetCreatorAssetCreativesParams(BaseModel):
 class ProductCatalogGetDataSourcesParams(BaseModel):
     """Parameters for ProductCatalog.get_data_sources()."""
 
-    ingestion_source_type: str | None = Field(None, description="ingestion_source_type parameter")
+    ingestion_source_type: ProductCatalogDataSourceIngestionSourceType | None = Field(
+        None, description="ingestion_source_type parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -360,11 +451,21 @@ class ProductCatalogGetDestinationsParams(BaseModel):
 class ProductCatalogGetDiagnosticsParams(BaseModel):
     """Parameters for ProductCatalog.get_diagnostics()."""
 
-    affected_channels: list[str] | None = Field(None, description="affected_channels parameter")
-    affected_entities: list[str] | None = Field(None, description="affected_entities parameter")
-    affected_features: list[str] | None = Field(None, description="affected_features parameter")
-    severities: list[str] | None = Field(None, description="severities parameter")
-    types: list[str] | None = Field(None, description="types parameter")
+    affected_channels: list[ProductCatalogDiagnosticGroupAffectedChannels] | None = Field(
+        None, description="affected_channels parameter"
+    )
+    affected_entities: list[ProductCatalogDiagnosticGroupAffectedEntities] | None = Field(
+        None, description="affected_entities parameter"
+    )
+    affected_features: list[ProductCatalogDiagnosticGroupAffectedFeatures] | None = Field(
+        None, description="affected_features parameter"
+    )
+    severities: list[ProductCatalogDiagnosticGroupSeverities] | None = Field(
+        None, description="severities parameter"
+    )
+    types: list[ProductCatalogDiagnosticGroupTypes] | None = Field(
+        None, description="types parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -373,7 +474,9 @@ class ProductCatalogGetDiagnosticsParams(BaseModel):
 class ProductCatalogGetEventStatsParams(BaseModel):
     """Parameters for ProductCatalog.get_event_stats()."""
 
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
+    breakdowns: list[ProductEventStatBreakdowns] | None = Field(
+        None, description="breakdowns parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -465,7 +568,7 @@ class ProductCatalogCreateHotelRoomsBatchParams(BaseModel):
 
     file: Any | None = Field(None, description="file parameter")
     password: str | None = Field(None, description="password parameter")
-    standard: str | None = Field(None, description="standard parameter")
+    standard: ProductCatalogStandard | None = Field(None, description="standard parameter")
     update_only: bool | None = Field(None, description="update_only parameter")
     url: str | None = Field(None, description="url parameter")
     username: str | None = Field(None, description="username parameter")
@@ -509,7 +612,9 @@ class ProductCatalogCreateItemsBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_items_batch()."""
 
     allow_upsert: bool | None = Field(None, description="allow_upsert parameter")
-    item_sub_type: str | None = Field(None, description="item_sub_type parameter")
+    item_sub_type: ProductCatalogItemSubType | None = Field(
+        None, description="item_sub_type parameter"
+    )
     item_type: str | None = Field(None, description="item_type parameter")
     requests: dict[str, Any] | None = Field(None, description="requests parameter")
     version: int | None = Field(None, description="version parameter")
@@ -542,7 +647,7 @@ class ProductCatalogCreateMarketPlacePartnerSellersDetailParams(BaseModel):
 class ProductCatalogCreateMarketPlacePartnerSignalParams(BaseModel):
     """Parameters for ProductCatalog.create_market_place_partner_signal()."""
 
-    event_name: str | None = Field(None, description="event_name parameter")
+    event_name: ProductCatalogEventName | None = Field(None, description="event_name parameter")
     event_source_url: str | None = Field(None, description="event_source_url parameter")
     event_time: datetime | None = Field(None, description="event_time parameter")
     order_data: dict[str, Any] | None = Field(None, description="order_data parameter")
@@ -566,7 +671,7 @@ class ProductCatalogCreatePricingVariablesBatchParams(BaseModel):
 
     file: Any | None = Field(None, description="file parameter")
     password: str | None = Field(None, description="password parameter")
-    standard: str | None = Field(None, description="standard parameter")
+    standard: ProductCatalogStandard | None = Field(None, description="standard parameter")
     update_only: bool | None = Field(None, description="update_only parameter")
     url: str | None = Field(None, description="url parameter")
     username: str | None = Field(None, description="username parameter")
@@ -581,18 +686,26 @@ class ProductCatalogCreateProductFeedParams(BaseModel):
     country: str | None = Field(None, description="country parameter")
     default_currency: str | None = Field(None, description="default_currency parameter")
     deletion_enabled: bool | None = Field(None, description="deletion_enabled parameter")
-    delimiter: str | None = Field(None, description="delimiter parameter")
-    encoding: str | None = Field(None, description="encoding parameter")
-    feed_type: str | None = Field(None, description="feed_type parameter")
+    delimiter: ProductFeedDelimiter | None = Field(None, description="delimiter parameter")
+    encoding: ProductFeedEncoding | None = Field(None, description="encoding parameter")
+    feed_type: ProductFeedFeedType | None = Field(None, description="feed_type parameter")
     file_name: str | None = Field(None, description="file_name parameter")
-    ingestion_source_type: str | None = Field(None, description="ingestion_source_type parameter")
-    item_sub_type: str | None = Field(None, description="item_sub_type parameter")
+    ingestion_source_type: ProductFeedIngestionSourceType | None = Field(
+        None, description="ingestion_source_type parameter"
+    )
+    item_sub_type: ProductFeedItemSubType | None = Field(
+        None, description="item_sub_type parameter"
+    )
     migrated_from_feed_id: str | None = Field(None, description="migrated_from_feed_id parameter")
     name: str | None = Field(None, description="name parameter")
-    override_type: str | None = Field(None, description="override_type parameter")
+    override_type: ProductFeedOverrideType | None = Field(
+        None, description="override_type parameter"
+    )
     override_value: str | None = Field(None, description="override_value parameter")
     primary_feed_ids: list[str] | None = Field(None, description="primary_feed_ids parameter")
-    quoted_fields_mode: str | None = Field(None, description="quoted_fields_mode parameter")
+    quoted_fields_mode: ProductFeedQuotedFieldsMode | None = Field(
+        None, description="quoted_fields_mode parameter"
+    )
     rules: list[str] | None = Field(None, description="rules parameter")
     schedule: str | None = Field(None, description="schedule parameter")
     selected_override_fields: list[str] | None = Field(
@@ -655,8 +768,10 @@ class ProductCatalogGetProductsParams(BaseModel):
     """Parameters for ProductCatalog.get_products()."""
 
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")
-    error_priority: str | None = Field(None, description="error_priority parameter")
-    error_type: str | None = Field(None, description="error_type parameter")
+    error_priority: ProductItemErrorPriority | None = Field(
+        None, description="error_priority parameter"
+    )
+    error_type: ProductItemErrorType | None = Field(None, description="error_type parameter")
     filter: Any | None = Field(None, description="filter parameter")
     return_only_approved_products: bool | None = Field(
         None, description="return_only_approved_products parameter"
@@ -675,12 +790,12 @@ class ProductCatalogCreateProductParams(BaseModel):
     additional_variant_attributes: dict[str, Any] | None = Field(
         None, description="additional_variant_attributes parameter"
     )
-    age_group: str | None = Field(None, description="age_group parameter")
+    age_group: ProductItemAgeGroup | None = Field(None, description="age_group parameter")
     android_app_name: str | None = Field(None, description="android_app_name parameter")
     android_class: str | None = Field(None, description="android_class parameter")
     android_package: str | None = Field(None, description="android_package parameter")
     android_url: str | None = Field(None, description="android_url parameter")
-    availability: str | None = Field(None, description="availability parameter")
+    availability: ProductItemAvailability | None = Field(None, description="availability parameter")
     brand: str | None = Field(None, description="brand parameter")
     category: str | None = Field(None, description="category parameter")
     category_specific_fields: dict[str, Any] | None = Field(
@@ -688,8 +803,10 @@ class ProductCatalogCreateProductParams(BaseModel):
     )
     checkout_url: str | None = Field(None, description="checkout_url parameter")
     color: str | None = Field(None, description="color parameter")
-    commerce_tax_category: str | None = Field(None, description="commerce_tax_category parameter")
-    condition: str | None = Field(None, description="condition parameter")
+    commerce_tax_category: ProductItemCommerceTaxCategory | None = Field(
+        None, description="commerce_tax_category parameter"
+    )
+    condition: ProductItemCondition | None = Field(None, description="condition parameter")
     currency: str | None = Field(None, description="currency parameter")
     custom_data: dict[str, Any] | None = Field(None, description="custom_data parameter")
     custom_label_0: str | None = Field(None, description="custom_label_0 parameter")
@@ -705,7 +822,7 @@ class ProductCatalogCreateProductParams(BaseModel):
     description: str | None = Field(None, description="description parameter")
     expiration_date: str | None = Field(None, description="expiration_date parameter")
     fb_product_category: str | None = Field(None, description="fb_product_category parameter")
-    gender: str | None = Field(None, description="gender parameter")
+    gender: ProductItemGender | None = Field(None, description="gender parameter")
     gtin: str | None = Field(None, description="gtin parameter")
     image_url: str | None = Field(None, description="image_url parameter")
     importer_address: dict[str, Any] | None = Field(None, description="importer_address parameter")
@@ -725,14 +842,16 @@ class ProductCatalogCreateProductParams(BaseModel):
     manufacturer_part_number: str | None = Field(
         None, description="manufacturer_part_number parameter"
     )
-    marked_for_product_launch: str | None = Field(
+    marked_for_product_launch: ProductItemMarkedForProductLaunch | None = Field(
         None, description="marked_for_product_launch parameter"
     )
     material: str | None = Field(None, description="material parameter")
     mobile_link: str | None = Field(None, description="mobile_link parameter")
     name: str | None = Field(None, description="name parameter")
     ordering_index: int | None = Field(None, description="ordering_index parameter")
-    origin_country: str | None = Field(None, description="origin_country parameter")
+    origin_country: ProductItemOriginCountry | None = Field(
+        None, description="origin_country parameter"
+    )
     pattern: str | None = Field(None, description="pattern parameter")
     price: int | None = Field(None, description="price parameter")
     product_priority_0: float | None = Field(None, description="product_priority_0 parameter")
@@ -758,8 +877,10 @@ class ProductCatalogCreateProductParams(BaseModel):
     size: str | None = Field(None, description="size parameter")
     start_date: str | None = Field(None, description="start_date parameter")
     url: str | None = Field(None, description="url parameter")
-    visibility: str | None = Field(None, description="visibility parameter")
-    wa_compliance_category: str | None = Field(None, description="wa_compliance_category parameter")
+    visibility: ProductItemVisibility | None = Field(None, description="visibility parameter")
+    wa_compliance_category: ProductItemWaComplianceCategory | None = Field(
+        None, description="wa_compliance_category parameter"
+    )
     windows_phone_app_id: str | None = Field(None, description="windows_phone_app_id parameter")
     windows_phone_app_name: str | None = Field(None, description="windows_phone_app_name parameter")
     windows_phone_url: str | None = Field(None, description="windows_phone_url parameter")
@@ -802,32 +923,34 @@ class ProductCatalogCreateVehicleParams(BaseModel):
 
     address: dict[str, Any] | None = Field(None, description="address parameter")
     applinks: Any | None = Field(None, description="applinks parameter")
-    availability: str | None = Field(None, description="availability parameter")
-    body_style: str | None = Field(None, description="body_style parameter")
-    condition: str | None = Field(None, description="condition parameter")
+    availability: VehicleAvailability | None = Field(None, description="availability parameter")
+    body_style: VehicleBodyStyle | None = Field(None, description="body_style parameter")
+    condition: VehicleCondition | None = Field(None, description="condition parameter")
     currency: str | None = Field(None, description="currency parameter")
     date_first_on_lot: str | None = Field(None, description="date_first_on_lot parameter")
     dealer_id: str | None = Field(None, description="dealer_id parameter")
     dealer_name: str | None = Field(None, description="dealer_name parameter")
     dealer_phone: str | None = Field(None, description="dealer_phone parameter")
     description: str | None = Field(None, description="description parameter")
-    drivetrain: str | None = Field(None, description="drivetrain parameter")
+    drivetrain: VehicleDrivetrain | None = Field(None, description="drivetrain parameter")
     exterior_color: str | None = Field(None, description="exterior_color parameter")
     fb_page_id: str | None = Field(None, description="fb_page_id parameter")
-    fuel_type: str | None = Field(None, description="fuel_type parameter")
+    fuel_type: VehicleFuelType | None = Field(None, description="fuel_type parameter")
     images: list[Any] | None = Field(None, description="images parameter")
     interior_color: str | None = Field(None, description="interior_color parameter")
     make: str | None = Field(None, description="make parameter")
     mileage: dict[str, Any] | None = Field(None, description="mileage parameter")
     model: str | None = Field(None, description="model parameter")
     price: int | None = Field(None, description="price parameter")
-    state_of_vehicle: str | None = Field(None, description="state_of_vehicle parameter")
+    state_of_vehicle: VehicleStateOfVehicle | None = Field(
+        None, description="state_of_vehicle parameter"
+    )
     title: str | None = Field(None, description="title parameter")
-    transmission: str | None = Field(None, description="transmission parameter")
+    transmission: VehicleTransmission | None = Field(None, description="transmission parameter")
     trim: str | None = Field(None, description="trim parameter")
     url: str | None = Field(None, description="url parameter")
     vehicle_id: str | None = Field(None, description="vehicle_id parameter")
-    vehicle_type: str | None = Field(None, description="vehicle_type parameter")
+    vehicle_type: VehicleVehicleType | None = Field(None, description="vehicle_type parameter")
     vin: str | None = Field(None, description="vin parameter")
     year: int | None = Field(None, description="year parameter")
 

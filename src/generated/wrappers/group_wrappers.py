@@ -57,7 +57,7 @@ class GroupWrappers:
         Type-safe wrapper for Group.delete_admins().
 
         Endpoint: DELETE /admins
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -210,7 +210,7 @@ class GroupWrappers:
         Type-safe wrapper for Group.delete_members().
 
         Endpoint: DELETE /members
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

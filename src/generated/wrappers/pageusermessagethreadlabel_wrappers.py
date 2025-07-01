@@ -27,7 +27,7 @@ class PageUserMessageThreadLabelWrappers:
         Type-safe wrapper for PageUserMessageThreadLabel.delete_label().
 
         Endpoint: DELETE /label
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None

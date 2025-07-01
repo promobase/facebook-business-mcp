@@ -8,6 +8,8 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
+
 if TYPE_CHECKING:
     from .adassetfeedspec import AdAssetFeedSpecFields
     from .adcreativeaddisclaimer import AdCreativeAdDisclaimerFields
@@ -28,6 +30,7 @@ if TYPE_CHECKING:
     from .adcreativesourcingspec import AdCreativeSourcingSpecFields
     from .adcreativetemplateurlspec import AdCreativeTemplateURLSpecFields
     from .adlabel import AdLabelFields
+    from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
     from .adsimagecrops import AdsImageCropsFields
     from .status import StatusFields
 
@@ -408,8 +411,10 @@ class AdCreativeCreateAdLabelParams(BaseModel):
 class AdCreativeGetPreviewsParams(BaseModel):
     """Parameters for AdCreative.get_previews()."""
 
-    ad_format: str | None = Field(None, description="ad_format parameter")
-    creative_feature: str | None = Field(None, description="creative_feature parameter")
+    ad_format: AdPreviewAdFormat | None = Field(None, description="ad_format parameter")
+    creative_feature: AdPreviewCreativeFeature | None = Field(
+        None, description="creative_feature parameter"
+    )
     dynamic_asset_label: str | None = Field(None, description="dynamic_asset_label parameter")
     dynamic_creative_spec: Any | None = Field(None, description="dynamic_creative_spec parameter")
     dynamic_customization: Any | None = Field(None, description="dynamic_customization parameter")
@@ -419,7 +424,7 @@ class AdCreativeGetPreviewsParams(BaseModel):
     place_page_id: int | None = Field(None, description="place_page_id parameter")
     post: Any | None = Field(None, description="post parameter")
     product_item_ids: list[str] | None = Field(None, description="product_item_ids parameter")
-    render_type: str | None = Field(None, description="render_type parameter")
+    render_type: AdPreviewRenderType | None = Field(None, description="render_type parameter")
     start_date: datetime | None = Field(None, description="start_date parameter")
     width: int | None = Field(None, description="width parameter")
 

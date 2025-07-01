@@ -134,7 +134,7 @@ class CommerceOrderCreateRefundParams(BaseModel):
     deductions: list[dict[str, Any]] | None = Field(None, description="deductions parameter")
     idempotency_key: str | None = Field(None, description="idempotency_key parameter")
     items: list[dict[str, Any]] | None = Field(None, description="items parameter")
-    reason_code: str | None = Field(None, description="reason_code parameter")
+    reason_code: CommerceOrderReasonCode | None = Field(None, description="reason_code parameter")
     reason_text: str | None = Field(None, description="reason_text parameter")
     return_id: str | None = Field(None, description="return_id parameter")
     shipping: dict[str, Any] | None = Field(None, description="shipping parameter")

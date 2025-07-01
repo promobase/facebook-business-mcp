@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.iguser import IGUser
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.adaccount import (
     AdAccountField,
     AdAccountFields,
@@ -184,7 +181,7 @@ class IGUserWrappers:
         Type-safe wrapper for IGUser.delete_branded_content_tag_approval().
 
         Endpoint: DELETE /branded_content_tag_approval
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -440,12 +437,12 @@ class IGUserWrappers:
     def create_mention(
         obj: IGUser,
         params: IGUserCreateMentionParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUser.create_mention().
 
         Endpoint: POST /mentions
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -453,8 +450,8 @@ class IGUserWrappers:
         # Call the original method
         result = obj.create_mention(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_product_appeal(
@@ -507,12 +504,12 @@ class IGUserWrappers:
     def create_upcoming_event(
         obj: IGUser,
         params: IGUserCreateUpcomingEventParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for IGUser.create_upcoming_event().
 
         Endpoint: POST /upcoming_events
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -520,8 +517,8 @@ class IGUserWrappers:
         # Call the original method
         result = obj.create_upcoming_event(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_welcome_message_flows(

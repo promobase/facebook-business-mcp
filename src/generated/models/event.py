@@ -8,12 +8,27 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .livevideo import (
+    LiveVideoProjection,
+    LiveVideoSpatialAudioFormat,
+    LiveVideoStatus,
+    LiveVideoStereoscopicMode,
+    LiveVideoStreamType,
+)
+
 if TYPE_CHECKING:
     from .childevent import ChildEventFields
     from .coverphoto import CoverPhotoFields
     from .eventregistrationsetting import EventRegistrationSettingFields
     from .eventticketsetting import EventTicketSettingFields
     from .group import GroupFields
+    from .livevideo import (
+        LiveVideoProjection,
+        LiveVideoSpatialAudioFormat,
+        LiveVideoStatus,
+        LiveVideoStereoscopicMode,
+        LiveVideoStreamType,
+    )
     from .place import PlaceFields
 
 
@@ -189,16 +204,20 @@ class EventCreateLiveVideoParams(BaseModel):
     is_spherical: bool | None = Field(None, description="is_spherical parameter")
     original_fov: int | None = Field(None, description="original_fov parameter")
     privacy: str | None = Field(None, description="privacy parameter")
-    projection: str | None = Field(None, description="projection parameter")
+    projection: LiveVideoProjection | None = Field(None, description="projection parameter")
     published: bool | None = Field(None, description="published parameter")
     schedule_custom_profile_image: Any | None = Field(
         None, description="schedule_custom_profile_image parameter"
     )
-    spatial_audio_format: str | None = Field(None, description="spatial_audio_format parameter")
-    status: str | None = Field(None, description="status parameter")
-    stereoscopic_mode: str | None = Field(None, description="stereoscopic_mode parameter")
+    spatial_audio_format: LiveVideoSpatialAudioFormat | None = Field(
+        None, description="spatial_audio_format parameter"
+    )
+    status: LiveVideoStatus | None = Field(None, description="status parameter")
+    stereoscopic_mode: LiveVideoStereoscopicMode | None = Field(
+        None, description="stereoscopic_mode parameter"
+    )
     stop_on_delete_stream: bool | None = Field(None, description="stop_on_delete_stream parameter")
-    stream_type: str | None = Field(None, description="stream_type parameter")
+    stream_type: LiveVideoStreamType | None = Field(None, description="stream_type parameter")
     title: str | None = Field(None, description="title parameter")
 
     class Config:

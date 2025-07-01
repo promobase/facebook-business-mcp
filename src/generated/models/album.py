@@ -7,10 +7,16 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
+from .photo import PhotoBackdatedTimeGranularity, PhotoUnpublishedContentType
+from .profilepicturesource import ProfilePictureSourceType
+
 if TYPE_CHECKING:
+    from .comment import CommentCommentPrivacyValue, CommentFilter, CommentLiveFilter, CommentOrder
     from .event import EventFields
-    from .photo import PhotoFields
+    from .photo import PhotoBackdatedTimeGranularity, PhotoFields, PhotoUnpublishedContentType
     from .place import PlaceFields
+    from .profilepicturesource import ProfilePictureSourceType
 
 
 AlbumField = Literal[
@@ -75,9 +81,9 @@ class AlbumFields(BaseModel):
 class AlbumGetCommentsParams(BaseModel):
     """Parameters for Album.get_comments()."""
 
-    filter: str | None = Field(None, description="filter parameter")
-    live_filter: str | None = Field(None, description="live_filter parameter")
-    order: str | None = Field(None, description="order parameter")
+    filter: CommentFilter | None = Field(None, description="filter parameter")
+    live_filter: CommentLiveFilter | None = Field(None, description="live_filter parameter")
+    order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
     class Config:
@@ -90,7 +96,9 @@ class AlbumCreateCommentParams(BaseModel):
     attachment_id: str | None = Field(None, description="attachment_id parameter")
     attachment_share_url: str | None = Field(None, description="attachment_share_url parameter")
     attachment_url: str | None = Field(None, description="attachment_url parameter")
-    comment_privacy_value: str | None = Field(None, description="comment_privacy_value parameter")
+    comment_privacy_value: CommentCommentPrivacyValue | None = Field(
+        None, description="comment_privacy_value parameter"
+    )
     facepile_mentioned_ids: list[str] | None = Field(
         None, description="facepile_mentioned_ids parameter"
     )
@@ -130,7 +138,7 @@ class AlbumCreatePhotoParams(BaseModel):
     attempt: int | None = Field(None, description="attempt parameter")
     audience_exp: bool | None = Field(None, description="audience_exp parameter")
     backdated_time: datetime | None = Field(None, description="backdated_time parameter")
-    backdated_time_granularity: str | None = Field(
+    backdated_time_granularity: PhotoBackdatedTimeGranularity | None = Field(
         None, description="backdated_time_granularity parameter"
     )
     caption: str | None = Field(None, description="caption parameter")
@@ -185,7 +193,7 @@ class AlbumCreatePhotoParams(BaseModel):
         None, description="time_since_original_post parameter"
     )
     uid: int | None = Field(None, description="uid parameter")
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: PhotoUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
     url: str | None = Field(None, description="url parameter")
@@ -200,7 +208,7 @@ class AlbumGetPictureParams(BaseModel):
     """Parameters for Album.get_picture()."""
 
     redirect: bool | None = Field(None, description="redirect parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: ProfilePictureSourceType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"

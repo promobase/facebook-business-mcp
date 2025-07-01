@@ -8,9 +8,12 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .profile import ProfileType
+
 if TYPE_CHECKING:
     from .application import ApplicationFields
     from .entityattextrange import EntityAtTextRangeFields
+    from .profile import ProfileType
     from .user import UserFields
 
 
@@ -115,9 +118,9 @@ class CommentFields(BaseModel):
 class CommentGetCommentsParams(BaseModel):
     """Parameters for Comment.get_comments()."""
 
-    filter: str | None = Field(None, description="filter parameter")
-    live_filter: str | None = Field(None, description="live_filter parameter")
-    order: str | None = Field(None, description="order parameter")
+    filter: CommentFilter | None = Field(None, description="filter parameter")
+    live_filter: CommentLiveFilter | None = Field(None, description="live_filter parameter")
+    order: CommentOrder | None = Field(None, description="order parameter")
     since: datetime | None = Field(None, description="since parameter")
 
     class Config:
@@ -130,7 +133,9 @@ class CommentCreateCommentParams(BaseModel):
     attachment_id: str | None = Field(None, description="attachment_id parameter")
     attachment_share_url: str | None = Field(None, description="attachment_share_url parameter")
     attachment_url: str | None = Field(None, description="attachment_url parameter")
-    comment_privacy_value: str | None = Field(None, description="comment_privacy_value parameter")
+    comment_privacy_value: CommentCommentPrivacyValue | None = Field(
+        None, description="comment_privacy_value parameter"
+    )
     facepile_mentioned_ids: list[str] | None = Field(
         None, description="facepile_mentioned_ids parameter"
     )
@@ -172,7 +177,7 @@ class CommentCreateLikeParams(BaseModel):
 class CommentGetReactionsParams(BaseModel):
     """Parameters for Comment.get_reactions()."""
 
-    type: str | None = Field(None, description="type parameter")
+    type: ProfileType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"

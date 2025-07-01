@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from facebook_business.adobjects.publisherblocklist import PublisherBlockList
 
-from ..models.abstractcrudobject import (
-    AbstractCrudObjectFields,
-)
 from ..models.publisherblocklist import (
     PublisherBlockListCreateAppendPublisherUrlParams,
     PublisherBlockListGetPagedWebPublishersParams,
@@ -28,12 +25,12 @@ class PublisherBlockListWrappers:
     def create_append_publisher_url(
         obj: PublisherBlockList,
         params: PublisherBlockListCreateAppendPublisherUrlParams,
-    ) -> AbstractCrudObjectFields:
+    ) -> dict[str, Any]:
         """
         Type-safe wrapper for PublisherBlockList.create_append_publisher_url().
 
         Endpoint: POST /append_publisher_urls
-        Returns: AbstractCrudObjectFields
+        Returns: dict[str, Any]
         """
         # Convert params to dict if provided
         params_dict = params.model_dump(exclude_none=True, by_alias=True) if params else None
@@ -41,8 +38,8 @@ class PublisherBlockListWrappers:
         # Call the original method
         result = obj.create_append_publisher_url(params=params_dict)
 
-        # Convert result to typed model
-        return AbstractCrudObjectFields(**result)
+        # Return raw data for abstract base class
+        return result.export_all_data() if hasattr(result, "export_all_data") else result
 
     @staticmethod
     def get_paged_web_publishers(

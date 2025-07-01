@@ -8,12 +8,85 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adnetworkanalyticssyncqueryresult import (
+    AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+    AdNetworkAnalyticsSyncQueryResultOrderingColumn,
+    AdNetworkAnalyticsSyncQueryResultOrderingType,
+)
+from .adsdataset import AdsDatasetSortBy
+from .adspixel import AdsPixelSortBy
+from .adstudy import AdStudyType
+from .advideo import (
+    AdVideoContainerType,
+    AdVideoContentCategory,
+    AdVideoFormatting,
+    AdVideoOriginalProjectionType,
+    AdVideoSwapMode,
+    AdVideoUnpublishedContentType,
+    AdVideoUploadPhase,
+)
+from .businessassetsharingagreement import BusinessAssetSharingAgreementRequestStatus
+from .businessuser import BusinessUserRole
+from .cpascollaborationrequest import CPASCollaborationRequestRequesterAgencyOrBrand
+from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
+from .managedpartnerbusiness import (
+    ManagedPartnerBusinessPartitionType,
+    ManagedPartnerBusinessSurveyBusinessType,
+    ManagedPartnerBusinessTimezoneId,
+    ManagedPartnerBusinessVertical,
+)
+from .omegacustomertrx import OmegaCustomerTrxType
+from .productcatalog import ProductCatalogAdditionalVerticalOption, ProductCatalogVertical
+from .profilepicturesource import ProfilePictureSourceType
+from .systemuser import SystemUserRole
+from .whatsappbusinesspreverifiedphonenumber import (
+    WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus,
+)
+
 if TYPE_CHECKING:
+    from .adnetworkanalyticssyncqueryresult import (
+        AdNetworkAnalyticsSyncQueryResultAggregationPeriod,
+        AdNetworkAnalyticsSyncQueryResultBreakdowns,
+        AdNetworkAnalyticsSyncQueryResultMetrics,
+        AdNetworkAnalyticsSyncQueryResultOrderingColumn,
+        AdNetworkAnalyticsSyncQueryResultOrderingType,
+    )
+    from .adsdataset import AdsDatasetSortBy
+    from .adspixel import AdsPixelSortBy
+    from .adstudy import AdStudyType
+    from .advideo import (
+        AdVideoContainerType,
+        AdVideoContentCategory,
+        AdVideoFormatting,
+        AdVideoOriginalProjectionType,
+        AdVideoSwapMode,
+        AdVideoUnpublishedContentType,
+        AdVideoUploadPhase,
+        AdVideoValidationAdPlacements,
+    )
+    from .businessassetsharingagreement import BusinessAssetSharingAgreementRequestStatus
+    from .businessimage import BusinessImageValidationAdPlacements
     from .businessmanagedpartnereligibility import BusinessManagedPartnerEligibilityFields
     from .businesspartnerpremiumoptions import BusinessPartnerPremiumOptionsFields
-    from .managedpartnerbusiness import ManagedPartnerBusinessFields
+    from .businessuser import BusinessUserInvitedUserType, BusinessUserRole, BusinessUserTasks
+    from .cpascollaborationrequest import CPASCollaborationRequestRequesterAgencyOrBrand
+    from .customconversion import CustomConversionActionSourceType, CustomConversionCustomEventType
+    from .managedpartnerbusiness import (
+        ManagedPartnerBusinessFields,
+        ManagedPartnerBusinessPartitionType,
+        ManagedPartnerBusinessSurveyBusinessType,
+        ManagedPartnerBusinessTimezoneId,
+        ManagedPartnerBusinessVertical,
+    )
+    from .omegacustomertrx import OmegaCustomerTrxType
     from .page import PageFields
     from .permission import PermissionFields
+    from .productcatalog import ProductCatalogAdditionalVerticalOption, ProductCatalogVertical
+    from .profilepicturesource import ProfilePictureSourceType
+    from .systemuser import SystemUserRole
+    from .whatsappbusinesspreverifiedphonenumber import (
+        WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus,
+    )
 
 
 class BusinessVerificationStatus(str, Enum):
@@ -994,7 +1067,7 @@ class BusinessCreateAdStudyParams(BaseModel):
     objectives: list[Any] | None = Field(None, description="objectives parameter")
     observation_end_time: int | None = Field(None, description="observation_end_time parameter")
     start_time: int | None = Field(None, description="start_time parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: AdStudyType | None = Field(None, description="type parameter")
     viewers: list[int] | None = Field(None, description="viewers parameter")
 
     class Config:
@@ -1045,13 +1118,23 @@ class BusinessCreateAdNetworkApplicationParams(BaseModel):
 class BusinessGetAdNetworkAnalyticsParams(BaseModel):
     """Parameters for Business.get_ad_network_analytics()."""
 
-    aggregation_period: str | None = Field(None, description="aggregation_period parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
+    aggregation_period: AdNetworkAnalyticsSyncQueryResultAggregationPeriod | None = Field(
+        None, description="aggregation_period parameter"
+    )
+    breakdowns: list[AdNetworkAnalyticsSyncQueryResultBreakdowns] | None = Field(
+        None, description="breakdowns parameter"
+    )
     filters: list[dict[str, Any]] | None = Field(None, description="filters parameter")
     limit: int | None = Field(None, description="limit parameter")
-    metrics: list[str] | None = Field(None, description="metrics parameter")
-    ordering_column: str | None = Field(None, description="ordering_column parameter")
-    ordering_type: str | None = Field(None, description="ordering_type parameter")
+    metrics: list[AdNetworkAnalyticsSyncQueryResultMetrics] | None = Field(
+        None, description="metrics parameter"
+    )
+    ordering_column: AdNetworkAnalyticsSyncQueryResultOrderingColumn | None = Field(
+        None, description="ordering_column parameter"
+    )
+    ordering_type: AdNetworkAnalyticsSyncQueryResultOrderingType | None = Field(
+        None, description="ordering_type parameter"
+    )
     should_include_until: bool | None = Field(None, description="should_include_until parameter")
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
@@ -1063,13 +1146,23 @@ class BusinessGetAdNetworkAnalyticsParams(BaseModel):
 class BusinessCreateAdNetworkAnalyticParams(BaseModel):
     """Parameters for Business.create_ad_network_analytic()."""
 
-    aggregation_period: str | None = Field(None, description="aggregation_period parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
+    aggregation_period: AdNetworkAnalyticsSyncQueryResultAggregationPeriod | None = Field(
+        None, description="aggregation_period parameter"
+    )
+    breakdowns: list[AdNetworkAnalyticsSyncQueryResultBreakdowns] | None = Field(
+        None, description="breakdowns parameter"
+    )
     filters: list[Any] | None = Field(None, description="filters parameter")
     limit: int | None = Field(None, description="limit parameter")
-    metrics: list[str] | None = Field(None, description="metrics parameter")
-    ordering_column: str | None = Field(None, description="ordering_column parameter")
-    ordering_type: str | None = Field(None, description="ordering_type parameter")
+    metrics: list[AdNetworkAnalyticsSyncQueryResultMetrics] | None = Field(
+        None, description="metrics parameter"
+    )
+    ordering_column: AdNetworkAnalyticsSyncQueryResultOrderingColumn | None = Field(
+        None, description="ordering_column parameter"
+    )
+    ordering_type: AdNetworkAnalyticsSyncQueryResultOrderingType | None = Field(
+        None, description="ordering_type parameter"
+    )
     since: datetime | None = Field(None, description="since parameter")
     until: datetime | None = Field(None, description="until parameter")
 
@@ -1091,7 +1184,7 @@ class BusinessGetAdsDatasetParams(BaseModel):
 
     id_filter: str | None = Field(None, description="id_filter parameter")
     name_filter: str | None = Field(None, description="name_filter parameter")
-    sort_by: str | None = Field(None, description="sort_by parameter")
+    sort_by: AdsDatasetSortBy | None = Field(None, description="sort_by parameter")
 
     class Config:
         extra = "forbid"
@@ -1123,7 +1216,7 @@ class BusinessGetAdsPixelsParams(BaseModel):
 
     id_filter: str | None = Field(None, description="id_filter parameter")
     name_filter: str | None = Field(None, description="name_filter parameter")
-    sort_by: str | None = Field(None, description="sort_by parameter")
+    sort_by: AdsPixelSortBy | None = Field(None, description="sort_by parameter")
 
     class Config:
         extra = "forbid"
@@ -1177,7 +1270,7 @@ class BusinessGetBusinessInvoicesParams(BaseModel):
     issue_start_date: str | None = Field(None, description="issue_start_date parameter")
     root_id: int | None = Field(None, description="root_id parameter")
     start_date: str | None = Field(None, description="start_date parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: OmegaCustomerTrxType | None = Field(None, description="type parameter")
 
     class Config:
         extra = "forbid"
@@ -1187,9 +1280,11 @@ class BusinessCreateBusinessUserParams(BaseModel):
     """Parameters for Business.create_business_user()."""
 
     email: str | None = Field(None, description="email parameter")
-    invited_user_type: list[str] | None = Field(None, description="invited_user_type parameter")
-    role: str | None = Field(None, description="role parameter")
-    tasks: list[str] | None = Field(None, description="tasks parameter")
+    invited_user_type: list[BusinessUserInvitedUserType] | None = Field(
+        None, description="invited_user_type parameter"
+    )
+    role: BusinessUserRole | None = Field(None, description="role parameter")
+    tasks: list[BusinessUserTasks] | None = Field(None, description="tasks parameter")
 
     class Config:
         extra = "forbid"
@@ -1226,7 +1321,9 @@ class BusinessCreateClientPageParams(BaseModel):
     """Parameters for Business.create_client_page()."""
 
     page_id: int | None = Field(None, description="page_id parameter")
-    permitted_tasks: list[str] | None = Field(None, description="permitted_tasks parameter")
+    permitted_tasks: list[BusinessPermittedTasks] | None = Field(
+        None, description="permitted_tasks parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1259,7 +1356,7 @@ class BusinessCreateCollaborativeAdsCollaborationRequestParams(BaseModel):
     contact_last_name: str | None = Field(None, description="contact_last_name parameter")
     phone_number: str | None = Field(None, description="phone_number parameter")
     receiver_business: str | None = Field(None, description="receiver_business parameter")
-    requester_agency_or_brand: str | None = Field(
+    requester_agency_or_brand: CPASCollaborationRequestRequesterAgencyOrBrand | None = Field(
         None, description="requester_agency_or_brand parameter"
     )
     sender_client_business: str | None = Field(None, description="sender_client_business parameter")
@@ -1300,9 +1397,13 @@ class BusinessCreateCreativeFolderParams(BaseModel):
 class BusinessCreateCustomConversionParams(BaseModel):
     """Parameters for Business.create_custom_conversion()."""
 
-    action_source_type: str | None = Field(None, description="action_source_type parameter")
+    action_source_type: CustomConversionActionSourceType | None = Field(
+        None, description="action_source_type parameter"
+    )
     advanced_rule: str | None = Field(None, description="advanced_rule parameter")
-    custom_event_type: str | None = Field(None, description="custom_event_type parameter")
+    custom_event_type: CustomConversionCustomEventType | None = Field(
+        None, description="custom_event_type parameter"
+    )
     default_conversion_value: float | None = Field(
         None, description="default_conversion_value parameter"
     )
@@ -1354,7 +1455,7 @@ class BusinessCreateImageParams(BaseModel):
     bytes: str | None = Field(None, description="bytes parameter")
     creative_folder_id: str | None = Field(None, description="creative_folder_id parameter")
     name: str | None = Field(None, description="name parameter")
-    validation_ad_placements: list[str] | None = Field(
+    validation_ad_placements: list[BusinessImageValidationAdPlacements] | None = Field(
         None, description="validation_ad_placements parameter"
     )
 
@@ -1366,7 +1467,9 @@ class BusinessGetInitiatedAudienceSharingRequestsParams(BaseModel):
     """Parameters for Business.get_initiated_audience_sharing_requests()."""
 
     recipient_id: str | None = Field(None, description="recipient_id parameter")
-    request_status: str | None = Field(None, description="request_status parameter")
+    request_status: BusinessAssetSharingAgreementRequestStatus | None = Field(
+        None, description="request_status parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1403,11 +1506,13 @@ class BusinessCreateManagedBusinessParams(BaseModel):
     )
     name: str | None = Field(None, description="name parameter")
     sales_rep_email: str | None = Field(None, description="sales_rep_email parameter")
-    survey_business_type: str | None = Field(None, description="survey_business_type parameter")
+    survey_business_type: BusinessSurveyBusinessType | None = Field(
+        None, description="survey_business_type parameter"
+    )
     survey_num_assets: int | None = Field(None, description="survey_num_assets parameter")
     survey_num_people: int | None = Field(None, description="survey_num_people parameter")
-    timezone_id: str | None = Field(None, description="timezone_id parameter")
-    vertical: str | None = Field(None, description="vertical parameter")
+    timezone_id: BusinessTimezoneId | None = Field(None, description="timezone_id parameter")
+    vertical: BusinessVertical | None = Field(None, description="vertical parameter")
 
     class Config:
         extra = "forbid"
@@ -1469,7 +1574,9 @@ class BusinessCreateManagedPartnerBusinessParams(BaseModel):
     no_ad_account: bool | None = Field(None, description="no_ad_account parameter")
     page_name: str | None = Field(None, description="page_name parameter")
     page_profile_image_url: str | None = Field(None, description="page_profile_image_url parameter")
-    partition_type: str | None = Field(None, description="partition_type parameter")
+    partition_type: ManagedPartnerBusinessPartitionType | None = Field(
+        None, description="partition_type parameter"
+    )
     partner_facebook_page_url: str | None = Field(
         None, description="partner_facebook_page_url parameter"
     )
@@ -1486,11 +1593,15 @@ class BusinessCreateManagedPartnerBusinessParams(BaseModel):
     skip_partner_page_creation: bool | None = Field(
         None, description="skip_partner_page_creation parameter"
     )
-    survey_business_type: str | None = Field(None, description="survey_business_type parameter")
+    survey_business_type: ManagedPartnerBusinessSurveyBusinessType | None = Field(
+        None, description="survey_business_type parameter"
+    )
     survey_num_assets: int | None = Field(None, description="survey_num_assets parameter")
     survey_num_people: int | None = Field(None, description="survey_num_people parameter")
-    timezone_id: str | None = Field(None, description="timezone_id parameter")
-    vertical: str | None = Field(None, description="vertical parameter")
+    timezone_id: ManagedPartnerBusinessTimezoneId | None = Field(
+        None, description="timezone_id parameter"
+    )
+    vertical: ManagedPartnerBusinessVertical | None = Field(None, description="vertical parameter")
 
     class Config:
         extra = "forbid"
@@ -1587,17 +1698,19 @@ class BusinessCreateOwnedBusinessParams(BaseModel):
         None, description="child_business_external_id parameter"
     )
     name: str | None = Field(None, description="name parameter")
-    page_permitted_tasks: list[str] | None = Field(
+    page_permitted_tasks: list[BusinessPagePermittedTasks] | None = Field(
         None, description="page_permitted_tasks parameter"
     )
     sales_rep_email: str | None = Field(None, description="sales_rep_email parameter")
     shared_page_id: str | None = Field(None, description="shared_page_id parameter")
     should_generate_name: bool | None = Field(None, description="should_generate_name parameter")
-    survey_business_type: str | None = Field(None, description="survey_business_type parameter")
+    survey_business_type: BusinessSurveyBusinessType | None = Field(
+        None, description="survey_business_type parameter"
+    )
     survey_num_assets: int | None = Field(None, description="survey_num_assets parameter")
     survey_num_people: int | None = Field(None, description="survey_num_people parameter")
-    timezone_id: str | None = Field(None, description="timezone_id parameter")
-    vertical: str | None = Field(None, description="vertical parameter")
+    timezone_id: BusinessTimezoneId | None = Field(None, description="timezone_id parameter")
+    vertical: BusinessVertical | None = Field(None, description="vertical parameter")
 
     class Config:
         extra = "forbid"
@@ -1617,7 +1730,7 @@ class BusinessCreateOwnedPageParams(BaseModel):
 class BusinessCreateOwnedProductCatalogParams(BaseModel):
     """Parameters for Business.create_owned_product_catalog()."""
 
-    additional_vertical_option: str | None = Field(
+    additional_vertical_option: ProductCatalogAdditionalVerticalOption | None = Field(
         None, description="additional_vertical_option parameter"
     )
     business_metadata: dict[str, Any] | None = Field(
@@ -1642,7 +1755,7 @@ class BusinessCreateOwnedProductCatalogParams(BaseModel):
     store_catalog_settings: dict[str, Any] | None = Field(
         None, description="store_catalog_settings parameter"
     )
-    vertical: str | None = Field(None, description="vertical parameter")
+    vertical: ProductCatalogVertical | None = Field(None, description="vertical parameter")
 
     class Config:
         extra = "forbid"
@@ -1689,7 +1802,7 @@ class BusinessGetPictureParams(BaseModel):
 
     height: int | None = Field(None, description="height parameter")
     redirect: bool | None = Field(None, description="redirect parameter")
-    type: str | None = Field(None, description="type parameter")
+    type: ProfilePictureSourceType | None = Field(None, description="type parameter")
     width: int | None = Field(None, description="width parameter")
 
     class Config:
@@ -1699,9 +1812,9 @@ class BusinessGetPictureParams(BaseModel):
 class BusinessGetPreVerifiedNumbersParams(BaseModel):
     """Parameters for Business.get_pre_verified_numbers()."""
 
-    code_verification_status: str | None = Field(
-        None, description="code_verification_status parameter"
-    )
+    code_verification_status: (
+        WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus | None
+    ) = Field(None, description="code_verification_status parameter")
     phone_number: str | None = Field(None, description="phone_number parameter")
 
     class Config:
@@ -1712,7 +1825,9 @@ class BusinessGetReceivedAudienceSharingRequestsParams(BaseModel):
     """Parameters for Business.get_received_audience_sharing_requests()."""
 
     initiator_id: str | None = Field(None, description="initiator_id parameter")
-    request_status: str | None = Field(None, description="request_status parameter")
+    request_status: BusinessAssetSharingAgreementRequestStatus | None = Field(
+        None, description="request_status parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -1734,7 +1849,9 @@ class BusinessCreateSelfCertifyWhatsAppBusinessParams(BaseModel):
         None, description="average_monthly_revenue_spend_with_partner parameter"
     )
     business_documents: list[Any] | None = Field(None, description="business_documents parameter")
-    business_vertical: str | None = Field(None, description="business_vertical parameter")
+    business_vertical: BusinessBusinessVertical | None = Field(
+        None, description="business_vertical parameter"
+    )
     end_business_address: dict[str, Any] | None = Field(
         None, description="end_business_address parameter"
     )
@@ -1761,9 +1878,11 @@ class BusinessCreateSetupManagedPartnerAdAccountParams(BaseModel):
     marketplace_business_id: str | None = Field(
         None, description="marketplace_business_id parameter"
     )
-    subvertical_v2: str | None = Field(None, description="subvertical_v2 parameter")
+    subvertical_v2: BusinessSubverticalV2 | None = Field(
+        None, description="subvertical_v2 parameter"
+    )
     vendor_id: str | None = Field(None, description="vendor_id parameter")
-    vertical_v2: str | None = Field(None, description="vertical_v2 parameter")
+    vertical_v2: BusinessVerticalV2 | None = Field(None, description="vertical_v2 parameter")
 
     class Config:
         extra = "forbid"
@@ -1808,7 +1927,7 @@ class BusinessCreateSystemUserParams(BaseModel):
     """Parameters for Business.create_system_user()."""
 
     name: str | None = Field(None, description="name parameter")
-    role: str | None = Field(None, description="role parameter")
+    role: SystemUserRole | None = Field(None, description="role parameter")
     system_user_id: int | None = Field(None, description="system_user_id parameter")
 
     class Config:
@@ -1840,8 +1959,12 @@ class BusinessCreateVideoParams(BaseModel):
         None, description="composer_source_surface parameter"
     )
     composer_type: str | None = Field(None, description="composer_type parameter")
-    container_type: str | None = Field(None, description="container_type parameter")
-    content_category: str | None = Field(None, description="content_category parameter")
+    container_type: AdVideoContainerType | None = Field(
+        None, description="container_type parameter"
+    )
+    content_category: AdVideoContentCategory | None = Field(
+        None, description="content_category parameter"
+    )
     creative_folder_id: str | None = Field(None, description="creative_folder_id parameter")
     creative_tools: str | None = Field(None, description="creative_tools parameter")
     description: str | None = Field(None, description="description parameter")
@@ -1853,7 +1976,7 @@ class BusinessCreateVideoParams(BaseModel):
     file_size: int | None = Field(None, description="file_size parameter")
     file_url: str | None = Field(None, description="file_url parameter")
     fisheye_video_cropped: bool | None = Field(None, description="fisheye_video_cropped parameter")
-    formatting: str | None = Field(None, description="formatting parameter")
+    formatting: AdVideoFormatting | None = Field(None, description="formatting parameter")
     fov: int | None = Field(None, description="fov parameter")
     front_z_rotation: float | None = Field(None, description="front_z_rotation parameter")
     fun_fact_prompt_id: str | None = Field(None, description="fun_fact_prompt_id parameter")
@@ -1878,7 +2001,7 @@ class BusinessCreateVideoParams(BaseModel):
         None, description="og_suggestion_mechanism parameter"
     )
     original_fov: int | None = Field(None, description="original_fov parameter")
-    original_projection_type: str | None = Field(
+    original_projection_type: AdVideoOriginalProjectionType | None = Field(
         None, description="original_projection_type parameter"
     )
     partnership_ad_ad_code: str | None = Field(None, description="partnership_ad_ad_code parameter")
@@ -1892,7 +2015,7 @@ class BusinessCreateVideoParams(BaseModel):
     )
     spherical: bool | None = Field(None, description="spherical parameter")
     start_offset: int | None = Field(None, description="start_offset parameter")
-    swap_mode: str | None = Field(None, description="swap_mode parameter")
+    swap_mode: AdVideoSwapMode | None = Field(None, description="swap_mode parameter")
     text_format_metadata: str | None = Field(None, description="text_format_metadata parameter")
     thumb: Any | None = Field(None, description="thumb parameter")
     time_since_original_post: int | None = Field(
@@ -1902,15 +2025,15 @@ class BusinessCreateVideoParams(BaseModel):
     transcode_setting_properties: str | None = Field(
         None, description="transcode_setting_properties parameter"
     )
-    unpublished_content_type: str | None = Field(
+    unpublished_content_type: AdVideoUnpublishedContentType | None = Field(
         None, description="unpublished_content_type parameter"
     )
-    upload_phase: str | None = Field(None, description="upload_phase parameter")
+    upload_phase: AdVideoUploadPhase | None = Field(None, description="upload_phase parameter")
     upload_session_id: str | None = Field(None, description="upload_session_id parameter")
     upload_setting_properties: str | None = Field(
         None, description="upload_setting_properties parameter"
     )
-    validation_ad_placements: list[str] | None = Field(
+    validation_ad_placements: list[AdVideoValidationAdPlacements] | None = Field(
         None, description="validation_ad_placements parameter"
     )
     video_file_chunk: str | None = Field(None, description="video_file_chunk parameter")

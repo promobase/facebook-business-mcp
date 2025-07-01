@@ -8,14 +8,27 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
+from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
+from .adsinsights import AdsInsightsActionReportTime, AdsInsightsDatePreset, AdsInsightsLevel
+
 if TYPE_CHECKING:
     from .adcreative import AdCreativeFields
     from .adcreativeassetgroupsspec import AdCreativeAssetGroupsSpecFields
     from .adgroupissuesinfo import AdgroupIssuesInfoFields
     from .adgroupreviewfeedback import AdgroupReviewFeedbackFields
     from .adlabel import AdLabelFields
+    from .adpreview import AdPreviewAdFormat, AdPreviewCreativeFeature, AdPreviewRenderType
     from .adrecommendation import AdRecommendationFields
     from .adset import AdSetFields
+    from .adsinsights import (
+        AdsInsightsActionAttributionWindows,
+        AdsInsightsActionBreakdowns,
+        AdsInsightsActionReportTime,
+        AdsInsightsBreakdowns,
+        AdsInsightsDatePreset,
+        AdsInsightsLevel,
+        AdsInsightsSummaryActionBreakdowns,
+    )
     from .campaign import CampaignFields
     from .conversionactionquery import ConversionActionQueryFields
     from .placement import PlacementFields
@@ -234,7 +247,9 @@ class AdCreateAdLabelParams(BaseModel):
     """Parameters for Ad.create_ad_label()."""
 
     adlabels: list[Any] | None = Field(None, description="adlabels parameter")
-    execution_options: list[str] | None = Field(None, description="execution_options parameter")
+    execution_options: list[AdExecutionOptions] | None = Field(
+        None, description="execution_options parameter"
+    )
 
     class Config:
         extra = "forbid"
@@ -252,7 +267,7 @@ class AdGetAdRulesGovernedParams(BaseModel):
 class AdGetCopiesParams(BaseModel):
     """Parameters for Ad.get_copies()."""
 
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    date_preset: AdDatePreset | None = Field(None, description="date_preset parameter")
     effective_status: list[str] | None = Field(None, description="effective_status parameter")
     time_range: dict[str, Any] | None = Field(None, description="time_range parameter")
     updated_since: int | None = Field(None, description="updated_since parameter")
@@ -269,7 +284,7 @@ class AdCreateCopyParams(BaseModel):
         None, description="creative_parameters parameter"
     )
     rename_options: Any | None = Field(None, description="rename_options parameter")
-    status_option: str | None = Field(None, description="status_option parameter")
+    status_option: AdStatusOption | None = Field(None, description="status_option parameter")
 
     class Config:
         extra = "forbid"
@@ -278,25 +293,29 @@ class AdCreateCopyParams(BaseModel):
 class AdGetInsightsParams(BaseModel):
     """Parameters for Ad.get_insights()."""
 
-    action_attribution_windows: list[str] | None = Field(
+    action_attribution_windows: list[AdsInsightsActionAttributionWindows] | None = Field(
         None, description="action_attribution_windows parameter"
     )
-    action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
-    action_report_time: str | None = Field(None, description="action_report_time parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    action_breakdowns: list[AdsInsightsActionBreakdowns] | None = Field(
+        None, description="action_breakdowns parameter"
+    )
+    action_report_time: AdsInsightsActionReportTime | None = Field(
+        None, description="action_report_time parameter"
+    )
+    breakdowns: list[AdsInsightsBreakdowns] | None = Field(None, description="breakdowns parameter")
+    date_preset: AdsInsightsDatePreset | None = Field(None, description="date_preset parameter")
     default_summary: bool | None = Field(None, description="default_summary parameter")
     export_columns: list[str] | None = Field(None, description="export_columns parameter")
     export_format: str | None = Field(None, description="export_format parameter")
     export_name: str | None = Field(None, description="export_name parameter")
     fields: list[str] | None = Field(None, description="fields parameter")
     filtering: list[Any] | None = Field(None, description="filtering parameter")
-    level: str | None = Field(None, description="level parameter")
+    level: AdsInsightsLevel | None = Field(None, description="level parameter")
     limit: int | None = Field(None, description="limit parameter")
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(
+    summary_action_breakdowns: list[AdsInsightsSummaryActionBreakdowns] | None = Field(
         None, description="summary_action_breakdowns parameter"
     )
     time_increment: str | None = Field(None, description="time_increment parameter")
@@ -316,25 +335,29 @@ class AdGetInsightsParams(BaseModel):
 class AdGetInsightsAsyncParams(BaseModel):
     """Parameters for Ad.get_insights_async()."""
 
-    action_attribution_windows: list[str] | None = Field(
+    action_attribution_windows: list[AdsInsightsActionAttributionWindows] | None = Field(
         None, description="action_attribution_windows parameter"
     )
-    action_breakdowns: list[str] | None = Field(None, description="action_breakdowns parameter")
-    action_report_time: str | None = Field(None, description="action_report_time parameter")
-    breakdowns: list[str] | None = Field(None, description="breakdowns parameter")
-    date_preset: str | None = Field(None, description="date_preset parameter")
+    action_breakdowns: list[AdsInsightsActionBreakdowns] | None = Field(
+        None, description="action_breakdowns parameter"
+    )
+    action_report_time: AdsInsightsActionReportTime | None = Field(
+        None, description="action_report_time parameter"
+    )
+    breakdowns: list[AdsInsightsBreakdowns] | None = Field(None, description="breakdowns parameter")
+    date_preset: AdsInsightsDatePreset | None = Field(None, description="date_preset parameter")
     default_summary: bool | None = Field(None, description="default_summary parameter")
     export_columns: list[str] | None = Field(None, description="export_columns parameter")
     export_format: str | None = Field(None, description="export_format parameter")
     export_name: str | None = Field(None, description="export_name parameter")
     fields: list[str] | None = Field(None, description="fields parameter")
     filtering: list[Any] | None = Field(None, description="filtering parameter")
-    level: str | None = Field(None, description="level parameter")
+    level: AdsInsightsLevel | None = Field(None, description="level parameter")
     limit: int | None = Field(None, description="limit parameter")
     product_id_limit: int | None = Field(None, description="product_id_limit parameter")
     sort: list[str] | None = Field(None, description="sort parameter")
     summary: list[str] | None = Field(None, description="summary parameter")
-    summary_action_breakdowns: list[str] | None = Field(
+    summary_action_breakdowns: list[AdsInsightsSummaryActionBreakdowns] | None = Field(
         None, description="summary_action_breakdowns parameter"
     )
     time_increment: str | None = Field(None, description="time_increment parameter")
@@ -354,8 +377,10 @@ class AdGetInsightsAsyncParams(BaseModel):
 class AdGetPreviewsParams(BaseModel):
     """Parameters for Ad.get_previews()."""
 
-    ad_format: str | None = Field(None, description="ad_format parameter")
-    creative_feature: str | None = Field(None, description="creative_feature parameter")
+    ad_format: AdPreviewAdFormat | None = Field(None, description="ad_format parameter")
+    creative_feature: AdPreviewCreativeFeature | None = Field(
+        None, description="creative_feature parameter"
+    )
     dynamic_asset_label: str | None = Field(None, description="dynamic_asset_label parameter")
     dynamic_creative_spec: Any | None = Field(None, description="dynamic_creative_spec parameter")
     dynamic_customization: Any | None = Field(None, description="dynamic_customization parameter")
@@ -365,7 +390,7 @@ class AdGetPreviewsParams(BaseModel):
     place_page_id: int | None = Field(None, description="place_page_id parameter")
     post: Any | None = Field(None, description="post parameter")
     product_item_ids: list[str] | None = Field(None, description="product_item_ids parameter")
-    render_type: str | None = Field(None, description="render_type parameter")
+    render_type: AdPreviewRenderType | None = Field(None, description="render_type parameter")
     start_date: datetime | None = Field(None, description="start_date parameter")
     width: int | None = Field(None, description="width parameter")
 
