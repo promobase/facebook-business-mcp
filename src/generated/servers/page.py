@@ -5,6 +5,136 @@ from __future__ import annotations
 from facebook_business.adobjects.page import Page
 from fastmcp import FastMCP
 
+from src.generated.models.abstractcrudobject import AbstractCrudObjectField
+from src.generated.models.advideo import AdVideoField
+from src.generated.models.application import ApplicationField
+from src.generated.models.assigneduser import AssignedUserField
+from src.generated.models.businessproject import BusinessProjectField
+from src.generated.models.canvas import CanvasField
+from src.generated.models.canvasbodyelement import CanvasBodyElementField
+from src.generated.models.commerceorder import CommerceOrderField
+from src.generated.models.commerceordertransactiondetail import CommerceOrderTransactionDetailField
+from src.generated.models.commercepayout import CommercePayoutField
+from src.generated.models.ctxpartnerappwelcomemessageflow import (
+    CTXPartnerAppWelcomeMessageFlowField,
+)
+from src.generated.models.customusersettings import CustomUserSettingsField
+from src.generated.models.dataset import DatasetField
+from src.generated.models.event import EventField
+from src.generated.models.imagecopyright import ImageCopyrightField
+from src.generated.models.insightsresult import InsightsResultField
+from src.generated.models.leadgenform import LeadgenFormField
+from src.generated.models.livevideo import LiveVideoField
+from src.generated.models.mediafingerprint import MediaFingerprintField
+from src.generated.models.messengerbusinesstemplate import MessengerBusinessTemplateField
+from src.generated.models.messengerprofile import MessengerProfileField
+from src.generated.models.page import (
+    PageCreateAbTestParams,
+    PageCreateAcknowledgeOrderParams,
+    PageCreateAgencyParams,
+    PageCreateAssignedUserParams,
+    PageCreateBlockedParams,
+    PageCreateBusinessDatumParams,
+    PageCreateCallParams,
+    PageCreateCanvasElementParams,
+    PageCreateCanvaseParams,
+    PageCreateCopyrightManualClaimParams,
+    PageCreateCustomLabelParams,
+    PageCreateCustomUserSettingParams,
+    PageCreateDatasetParams,
+    PageCreateExtendThreadControlParams,
+    PageCreateFeedParams,
+    PageCreateImageCopyrightParams,
+    PageCreateLeadGenFormParams,
+    PageCreateLiveVideoParams,
+    PageCreateLocationParams,
+    PageCreateMediaFingerprintParams,
+    PageCreateMessageAttachmentParams,
+    PageCreateMessageParams,
+    PageCreateMessageTemplateParams,
+    PageCreateMessengerCallSettingParams,
+    PageCreateMessengerLeadFormParams,
+    PageCreateMessengerProfileParams,
+    PageCreateModerateConversationParams,
+    PageCreateNlpConfigParams,
+    PageCreateNotificationMessagesDevSupportParams,
+    PageCreatePageWhatsAppNumberVerificationParams,
+    PageCreatePassThreadControlParams,
+    PageCreatePersonaParams,
+    PageCreatePhotoParams,
+    PageCreatePhotoStoryParams,
+    PageCreatePictureParams,
+    PageCreateReleaseThreadControlParams,
+    PageCreateRequestThreadControlParams,
+    PageCreateSettingParams,
+    PageCreateSubscribedAppParams,
+    PageCreateTakeThreadControlParams,
+    PageCreateUnlinkAccountParams,
+    PageCreateVideoCopyrightParams,
+    PageCreateVideoCopyrightRuleParams,
+    PageCreateVideoParams,
+    PageCreateVideoReelParams,
+    PageCreateVideoStoryParams,
+    PageCreateWelcomeMessageFlowParams,
+    PageDeleteAgenciesParams,
+    PageDeleteAssignedUsersParams,
+    PageDeleteBlockedParams,
+    PageDeleteCustomUserSettingsParams,
+    PageDeleteLocationsParams,
+    PageDeleteMessageTemplatesParams,
+    PageDeleteMessengerProfileParams,
+    PageDeleteWelcomeMessageFlowsParams,
+    PageField,
+    PageGetAdsPostsParams,
+    PageGetAssignedUsersParams,
+    PageGetBlockedParams,
+    PageGetBusinessProjectsParams,
+    PageGetCanvasesParams,
+    PageGetCommerceOrdersParams,
+    PageGetCommercePayoutsParams,
+    PageGetCommerceTransactionsParams,
+    PageGetConversationsParams,
+    PageGetCustomUserSettingsParams,
+    PageGetEventsParams,
+    PageGetFeedParams,
+    PageGetInsightsParams,
+    PageGetLikesParams,
+    PageGetLiveVideosParams,
+    PageGetMediaFingerprintsParams,
+    PageGetMessageTemplatesParams,
+    PageGetMessengerProfileParams,
+    PageGetPhotosParams,
+    PageGetPictureParams,
+    PageGetPostsParams,
+    PageGetPublishedPostsParams,
+    PageGetRolesParams,
+    PageGetSecondaryReceiversParams,
+    PageGetStoriesParams,
+    PageGetTabsParams,
+    PageGetThreadOwnerParams,
+    PageGetThreadsParams,
+    PageGetVideoCopyrightRulesParams,
+    PageGetVideoReelsParams,
+    PageGetVideosParams,
+    PageGetVisitorPostsParams,
+    PageGetWelcomeMessageFlowsParams,
+    PageUpdateParams,
+)
+from src.generated.models.pagepost import PagePostField
+from src.generated.models.pagepostexperiment import PagePostExperimentField
+from src.generated.models.pagethreadowner import PageThreadOwnerField
+from src.generated.models.pageusermessagethreadlabel import PageUserMessageThreadLabelField
+from src.generated.models.persona import PersonaField
+from src.generated.models.photo import PhotoField
+from src.generated.models.profile import ProfileField
+from src.generated.models.profilepicturesource import ProfilePictureSourceField
+from src.generated.models.stories import StoriesField
+from src.generated.models.tab import TabField
+from src.generated.models.unifiedthread import UnifiedThreadField
+from src.generated.models.user import UserField
+from src.generated.models.videocopyright import VideoCopyrightField
+from src.generated.models.videocopyrightmatch import VideoCopyrightMatchField
+from src.generated.models.videocopyrightrule import VideoCopyrightRuleField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +156,13 @@ page_server = FastMCP(
 @wrapped_fn_tool
 def get_page(
     page_id: str,
-    fields: list[str] = [],
+    fields: list[PageField] = [],
 ) -> str:
     """Get a Page object by ID.
 
     Args:
         page_id: The ID of the Page.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See PageField type.
     """
     obj = Page(page_id)
     return obj.api_get(fields=fields)
@@ -42,14 +172,14 @@ def get_page(
 @wrapped_fn_tool
 def update_page(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PageField] = [],
+    params: PageUpdateParams | dict = {},
 ) -> str:
     """Update a Page object.
 
     Args:
         page_id: The ID of the Page.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See PageField type.
         params: Parameters to update. Available params: See PageUpdateParams type.
     """
     return Page(page_id).api_update(fields=fields, params=params)
@@ -61,7 +191,7 @@ def update_page(
 def create_ab_test(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateAbTestParams | dict = {},
 ):
     """Create Ab Test for this Page.
 
@@ -78,7 +208,7 @@ def create_ab_test(
 def create_acknowledge_order(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateAcknowledgeOrderParams | dict = {},
 ):
     """Create Acknowledge Order for this Page.
 
@@ -94,8 +224,8 @@ def create_acknowledge_order(
 @wrapped_fn_tool
 def get_ads_posts(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PagePostField] = [],
+    params: PageGetAdsPostsParams | dict = {},
 ):
     """Get Ads Posts for this Page.
 
@@ -111,7 +241,7 @@ def get_ads_posts(
 @wrapped_fn_tool
 def delete_agencies(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteAgenciesParams | dict = {},
 ):
     """Delete Agencies for this Page.
 
@@ -127,7 +257,7 @@ def delete_agencies(
 def create_agency(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateAgencyParams | dict = {},
 ):
     """Create Agency for this Page.
 
@@ -143,7 +273,7 @@ def create_agency(
 @wrapped_fn_tool
 def delete_assigned_users(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteAssignedUsersParams | dict = {},
 ):
     """Delete Assigned Users for this Page.
 
@@ -158,8 +288,8 @@ def delete_assigned_users(
 @wrapped_fn_tool
 def get_assigned_users(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AssignedUserField] = [],
+    params: PageGetAssignedUsersParams | dict = {},
 ):
     """Get Assigned Users for this Page.
 
@@ -176,7 +306,7 @@ def get_assigned_users(
 def create_assigned_user(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateAssignedUserParams | dict = {},
 ):
     """Create Assigned User for this Page.
 
@@ -192,7 +322,7 @@ def create_assigned_user(
 @wrapped_fn_tool
 def delete_blocked(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteBlockedParams | dict = {},
 ):
     """Delete Blocked for this Page.
 
@@ -207,8 +337,8 @@ def delete_blocked(
 @wrapped_fn_tool
 def get_blocked(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProfileField] = [],
+    params: PageGetBlockedParams | dict = {},
 ):
     """Get Blocked for this Page.
 
@@ -225,7 +355,7 @@ def get_blocked(
 def create_blocked(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateBlockedParams | dict = {},
 ):
     """Create Blocked for this Page.
 
@@ -242,7 +372,7 @@ def create_blocked(
 def create_business_datum(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateBusinessDatumParams | dict = {},
 ):
     """Create Business Datum for this Page.
 
@@ -258,8 +388,8 @@ def create_business_datum(
 @wrapped_fn_tool
 def get_business_projects(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessProjectField] = [],
+    params: PageGetBusinessProjectsParams | dict = {},
 ):
     """Get Business Projects for this Page.
 
@@ -276,7 +406,7 @@ def get_business_projects(
 def create_call(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateCallParams | dict = {},
 ):
     """Create Call for this Page.
 
@@ -293,7 +423,7 @@ def create_call(
 def create_canvas_element(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateCanvasElementParams | dict = {},
 ):
     """Create Canvas Element for this Page.
 
@@ -309,8 +439,8 @@ def create_canvas_element(
 @wrapped_fn_tool
 def get_canvases(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CanvasField] = [],
+    params: PageGetCanvasesParams | dict = {},
 ):
     """Get Canvases for this Page.
 
@@ -327,7 +457,7 @@ def get_canvases(
 def create_canvase(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateCanvaseParams | dict = {},
 ):
     """Create Canvase for this Page.
 
@@ -343,8 +473,8 @@ def create_canvase(
 @wrapped_fn_tool
 def get_commerce_orders(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CommerceOrderField] = [],
+    params: PageGetCommerceOrdersParams | dict = {},
 ):
     """Get Commerce Orders for this Page.
 
@@ -360,8 +490,8 @@ def get_commerce_orders(
 @wrapped_fn_tool
 def get_commerce_payouts(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CommercePayoutField] = [],
+    params: PageGetCommercePayoutsParams | dict = {},
 ):
     """Get Commerce Payouts for this Page.
 
@@ -377,8 +507,8 @@ def get_commerce_payouts(
 @wrapped_fn_tool
 def get_commerce_transactions(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CommerceOrderTransactionDetailField] = [],
+    params: PageGetCommerceTransactionsParams | dict = {},
 ):
     """Get Commerce Transactions for this Page.
 
@@ -394,8 +524,8 @@ def get_commerce_transactions(
 @wrapped_fn_tool
 def get_conversations(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[UnifiedThreadField] = [],
+    params: PageGetConversationsParams | dict = {},
 ):
     """Get Conversations for this Page.
 
@@ -412,7 +542,7 @@ def get_conversations(
 def create_copyright_manual_claim(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateCopyrightManualClaimParams | dict = {},
 ):
     """Create Copyright Manual Claim for this Page.
 
@@ -429,7 +559,7 @@ def create_copyright_manual_claim(
 def create_custom_label(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateCustomLabelParams | dict = {},
 ):
     """Create Custom Label for this Page.
 
@@ -445,7 +575,7 @@ def create_custom_label(
 @wrapped_fn_tool
 def delete_custom_user_settings(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteCustomUserSettingsParams | dict = {},
 ):
     """Delete Custom User Settings for this Page.
 
@@ -460,8 +590,8 @@ def delete_custom_user_settings(
 @wrapped_fn_tool
 def get_custom_user_settings(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CustomUserSettingsField] = [],
+    params: PageGetCustomUserSettingsParams | dict = {},
 ):
     """Get Custom User Settings for this Page.
 
@@ -478,7 +608,7 @@ def get_custom_user_settings(
 def create_custom_user_setting(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateCustomUserSettingParams | dict = {},
 ):
     """Create Custom User Setting for this Page.
 
@@ -495,7 +625,7 @@ def create_custom_user_setting(
 def create_dataset(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateDatasetParams | dict = {},
 ):
     """Create Dataset for this Page.
 
@@ -511,8 +641,8 @@ def create_dataset(
 @wrapped_fn_tool
 def get_events(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[EventField] = [],
+    params: PageGetEventsParams | dict = {},
 ):
     """Get Events for this Page.
 
@@ -529,7 +659,7 @@ def get_events(
 def create_extend_thread_control(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateExtendThreadControlParams | dict = {},
 ):
     """Create Extend Thread Control for this Page.
 
@@ -545,8 +675,8 @@ def create_extend_thread_control(
 @wrapped_fn_tool
 def get_feed(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PagePostField] = [],
+    params: PageGetFeedParams | dict = {},
 ):
     """Get Feed for this Page.
 
@@ -563,7 +693,7 @@ def get_feed(
 def create_feed(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateFeedParams | dict = {},
 ):
     """Create Feed for this Page.
 
@@ -580,7 +710,7 @@ def create_feed(
 def create_image_copyright(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateImageCopyrightParams | dict = {},
 ):
     """Create Image Copyright for this Page.
 
@@ -596,8 +726,8 @@ def create_image_copyright(
 @wrapped_fn_tool
 def get_insights(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[InsightsResultField] = [],
+    params: PageGetInsightsParams | dict = {},
 ):
     """Get Insights for this Page.
 
@@ -614,7 +744,7 @@ def get_insights(
 def create_lead_gen_form(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateLeadGenFormParams | dict = {},
 ):
     """Create Lead Gen Form for this Page.
 
@@ -630,8 +760,8 @@ def create_lead_gen_form(
 @wrapped_fn_tool
 def get_likes(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PageField] = [],
+    params: PageGetLikesParams | dict = {},
 ):
     """Get Likes for this Page.
 
@@ -647,8 +777,8 @@ def get_likes(
 @wrapped_fn_tool
 def get_live_videos(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[LiveVideoField] = [],
+    params: PageGetLiveVideosParams | dict = {},
 ):
     """Get Live Videos for this Page.
 
@@ -665,7 +795,7 @@ def get_live_videos(
 def create_live_video(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateLiveVideoParams | dict = {},
 ):
     """Create Live Video for this Page.
 
@@ -681,7 +811,7 @@ def create_live_video(
 @wrapped_fn_tool
 def delete_locations(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteLocationsParams | dict = {},
 ):
     """Delete Locations for this Page.
 
@@ -697,7 +827,7 @@ def delete_locations(
 def create_location(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateLocationParams | dict = {},
 ):
     """Create Location for this Page.
 
@@ -713,8 +843,8 @@ def create_location(
 @wrapped_fn_tool
 def get_media_fingerprints(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[MediaFingerprintField] = [],
+    params: PageGetMediaFingerprintsParams | dict = {},
 ):
     """Get Media Fingerprints for this Page.
 
@@ -731,7 +861,7 @@ def get_media_fingerprints(
 def create_media_fingerprint(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateMediaFingerprintParams | dict = {},
 ):
     """Create Media Fingerprint for this Page.
 
@@ -748,7 +878,7 @@ def create_media_fingerprint(
 def create_message_attachment(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateMessageAttachmentParams | dict = {},
 ):
     """Create Message Attachment for this Page.
 
@@ -764,7 +894,7 @@ def create_message_attachment(
 @wrapped_fn_tool
 def delete_message_templates(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteMessageTemplatesParams | dict = {},
 ):
     """Delete Message Templates for this Page.
 
@@ -779,8 +909,8 @@ def delete_message_templates(
 @wrapped_fn_tool
 def get_message_templates(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[MessengerBusinessTemplateField] = [],
+    params: PageGetMessageTemplatesParams | dict = {},
 ):
     """Get Message Templates for this Page.
 
@@ -797,7 +927,7 @@ def get_message_templates(
 def create_message_template(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateMessageTemplateParams | dict = {},
 ):
     """Create Message Template for this Page.
 
@@ -814,7 +944,7 @@ def create_message_template(
 def create_message(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateMessageParams | dict = {},
 ):
     """Create Message for this Page.
 
@@ -831,7 +961,7 @@ def create_message(
 def create_messenger_call_setting(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateMessengerCallSettingParams | dict = {},
 ):
     """Create Messenger Call Setting for this Page.
 
@@ -848,7 +978,7 @@ def create_messenger_call_setting(
 def create_messenger_lead_form(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateMessengerLeadFormParams | dict = {},
 ):
     """Create Messenger Lead Form for this Page.
 
@@ -864,7 +994,7 @@ def create_messenger_lead_form(
 @wrapped_fn_tool
 def delete_messenger_profile(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteMessengerProfileParams | dict = {},
 ):
     """Delete Messenger Profile for this Page.
 
@@ -879,8 +1009,8 @@ def delete_messenger_profile(
 @wrapped_fn_tool
 def get_messenger_profile(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[MessengerProfileField] = [],
+    params: PageGetMessengerProfileParams | dict = {},
 ):
     """Get Messenger Profile for this Page.
 
@@ -897,7 +1027,7 @@ def get_messenger_profile(
 def create_messenger_profile(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateMessengerProfileParams | dict = {},
 ):
     """Create Messenger Profile for this Page.
 
@@ -914,7 +1044,7 @@ def create_messenger_profile(
 def create_moderate_conversation(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateModerateConversationParams | dict = {},
 ):
     """Create Moderate Conversation for this Page.
 
@@ -931,7 +1061,7 @@ def create_moderate_conversation(
 def create_nlp_config(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateNlpConfigParams | dict = {},
 ):
     """Create Nlp Config for this Page.
 
@@ -948,7 +1078,7 @@ def create_nlp_config(
 def create_notification_messages_dev_support(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateNotificationMessagesDevSupportParams | dict = {},
 ):
     """Create Notification Messages Dev Support for this Page.
 
@@ -965,7 +1095,7 @@ def create_notification_messages_dev_support(
 def create_page_whats_app_number_verification(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreatePageWhatsAppNumberVerificationParams | dict = {},
 ):
     """Create Page Whats App Number Verification for this Page.
 
@@ -982,7 +1112,7 @@ def create_page_whats_app_number_verification(
 def create_pass_thread_control(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreatePassThreadControlParams | dict = {},
 ):
     """Create Pass Thread Control for this Page.
 
@@ -999,7 +1129,7 @@ def create_pass_thread_control(
 def create_persona(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreatePersonaParams | dict = {},
 ):
     """Create Persona for this Page.
 
@@ -1016,7 +1146,7 @@ def create_persona(
 def create_photo_story(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreatePhotoStoryParams | dict = {},
 ):
     """Create Photo Story for this Page.
 
@@ -1032,8 +1162,8 @@ def create_photo_story(
 @wrapped_fn_tool
 def get_photos(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PhotoField] = [],
+    params: PageGetPhotosParams | dict = {},
 ):
     """Get Photos for this Page.
 
@@ -1050,7 +1180,7 @@ def get_photos(
 def create_photo(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreatePhotoParams | dict = {},
 ):
     """Create Photo for this Page.
 
@@ -1066,8 +1196,8 @@ def create_photo(
 @wrapped_fn_tool
 def get_picture(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProfilePictureSourceField] = [],
+    params: PageGetPictureParams | dict = {},
 ):
     """Get Picture for this Page.
 
@@ -1084,7 +1214,7 @@ def get_picture(
 def create_picture(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreatePictureParams | dict = {},
 ):
     """Create Picture for this Page.
 
@@ -1100,8 +1230,8 @@ def create_picture(
 @wrapped_fn_tool
 def get_posts(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PagePostField] = [],
+    params: PageGetPostsParams | dict = {},
 ):
     """Get Posts for this Page.
 
@@ -1117,8 +1247,8 @@ def get_posts(
 @wrapped_fn_tool
 def get_published_posts(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PagePostField] = [],
+    params: PageGetPublishedPostsParams | dict = {},
 ):
     """Get Published Posts for this Page.
 
@@ -1135,7 +1265,7 @@ def get_published_posts(
 def create_release_thread_control(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateReleaseThreadControlParams | dict = {},
 ):
     """Create Release Thread Control for this Page.
 
@@ -1152,7 +1282,7 @@ def create_release_thread_control(
 def create_request_thread_control(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateRequestThreadControlParams | dict = {},
 ):
     """Create Request Thread Control for this Page.
 
@@ -1168,8 +1298,8 @@ def create_request_thread_control(
 @wrapped_fn_tool
 def get_roles(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[UserField] = [],
+    params: PageGetRolesParams | dict = {},
 ):
     """Get Roles for this Page.
 
@@ -1185,8 +1315,8 @@ def get_roles(
 @wrapped_fn_tool
 def get_secondary_receivers(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ApplicationField] = [],
+    params: PageGetSecondaryReceiversParams | dict = {},
 ):
     """Get Secondary Receivers for this Page.
 
@@ -1203,7 +1333,7 @@ def get_secondary_receivers(
 def create_setting(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateSettingParams | dict = {},
 ):
     """Create Setting for this Page.
 
@@ -1219,8 +1349,8 @@ def create_setting(
 @wrapped_fn_tool
 def get_stories(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[StoriesField] = [],
+    params: PageGetStoriesParams | dict = {},
 ):
     """Get Stories for this Page.
 
@@ -1237,7 +1367,7 @@ def get_stories(
 def create_subscribed_app(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateSubscribedAppParams | dict = {},
 ):
     """Create Subscribed App for this Page.
 
@@ -1253,8 +1383,8 @@ def create_subscribed_app(
 @wrapped_fn_tool
 def get_tabs(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[TabField] = [],
+    params: PageGetTabsParams | dict = {},
 ):
     """Get Tabs for this Page.
 
@@ -1271,7 +1401,7 @@ def get_tabs(
 def create_take_thread_control(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateTakeThreadControlParams | dict = {},
 ):
     """Create Take Thread Control for this Page.
 
@@ -1287,8 +1417,8 @@ def create_take_thread_control(
 @wrapped_fn_tool
 def get_thread_owner(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PageThreadOwnerField] = [],
+    params: PageGetThreadOwnerParams | dict = {},
 ):
     """Get Thread Owner for this Page.
 
@@ -1304,8 +1434,8 @@ def get_thread_owner(
 @wrapped_fn_tool
 def get_threads(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[UnifiedThreadField] = [],
+    params: PageGetThreadsParams | dict = {},
 ):
     """Get Threads for this Page.
 
@@ -1322,7 +1452,7 @@ def get_threads(
 def create_unlink_account(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateUnlinkAccountParams | dict = {},
 ):
     """Create Unlink Account for this Page.
 
@@ -1338,8 +1468,8 @@ def create_unlink_account(
 @wrapped_fn_tool
 def get_video_copyright_rules(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[VideoCopyrightRuleField] = [],
+    params: PageGetVideoCopyrightRulesParams | dict = {},
 ):
     """Get Video Copyright Rules for this Page.
 
@@ -1356,7 +1486,7 @@ def get_video_copyright_rules(
 def create_video_copyright_rule(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateVideoCopyrightRuleParams | dict = {},
 ):
     """Create Video Copyright Rule for this Page.
 
@@ -1373,7 +1503,7 @@ def create_video_copyright_rule(
 def create_video_copyright(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateVideoCopyrightParams | dict = {},
 ):
     """Create Video Copyright for this Page.
 
@@ -1389,8 +1519,8 @@ def create_video_copyright(
 @wrapped_fn_tool
 def get_video_reels(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdVideoField] = [],
+    params: PageGetVideoReelsParams | dict = {},
 ):
     """Get Video Reels for this Page.
 
@@ -1407,7 +1537,7 @@ def get_video_reels(
 def create_video_reel(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateVideoReelParams | dict = {},
 ):
     """Create Video Reel for this Page.
 
@@ -1424,7 +1554,7 @@ def create_video_reel(
 def create_video_story(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateVideoStoryParams | dict = {},
 ):
     """Create Video Story for this Page.
 
@@ -1440,8 +1570,8 @@ def create_video_story(
 @wrapped_fn_tool
 def get_videos(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdVideoField] = [],
+    params: PageGetVideosParams | dict = {},
 ):
     """Get Videos for this Page.
 
@@ -1458,7 +1588,7 @@ def get_videos(
 def create_video(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateVideoParams | dict = {},
 ):
     """Create Video for this Page.
 
@@ -1474,8 +1604,8 @@ def create_video(
 @wrapped_fn_tool
 def get_visitor_posts(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[PagePostField] = [],
+    params: PageGetVisitorPostsParams | dict = {},
 ):
     """Get Visitor Posts for this Page.
 
@@ -1491,7 +1621,7 @@ def get_visitor_posts(
 @wrapped_fn_tool
 def delete_welcome_message_flows(
     page_id: str,
-    params: dict = {},
+    params: PageDeleteWelcomeMessageFlowsParams | dict = {},
 ):
     """Delete Welcome Message Flows for this Page.
 
@@ -1506,8 +1636,8 @@ def delete_welcome_message_flows(
 @wrapped_fn_tool
 def get_welcome_message_flows(
     page_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CTXPartnerAppWelcomeMessageFlowField] = [],
+    params: PageGetWelcomeMessageFlowsParams | dict = {},
 ):
     """Get Welcome Message Flows for this Page.
 
@@ -1524,7 +1654,7 @@ def get_welcome_message_flows(
 def create_welcome_message_flow(
     page_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: PageCreateWelcomeMessageFlowParams | dict = {},
 ):
     """Create Welcome Message Flow for this Page.
 

@@ -5,6 +5,45 @@ from __future__ import annotations
 from facebook_business.adobjects.iguser import IGUser
 from fastmcp import FastMCP
 
+from src.generated.models.abstractcrudobject import AbstractCrudObjectField
+from src.generated.models.adaccount import AdAccountField
+from src.generated.models.brandedcontentshadowigmediaid import BrandedContentShadowIGMediaIDField
+from src.generated.models.brandedcontentshadowiguserid import BrandedContentShadowIGUserIDField
+from src.generated.models.contentpublishinglimitresponse import ContentPublishingLimitResponseField
+from src.generated.models.dataset import DatasetField
+from src.generated.models.igbcadspermission import IGBCAdsPermissionField
+from src.generated.models.igmedia import IGMediaField
+from src.generated.models.igshoppingproductappeal import IGShoppingProductAppealField
+from src.generated.models.iguser import (
+    IGUserCreateAuthorizedAdAccountParams,
+    IGUserCreateBrandedContentAdPermissionParams,
+    IGUserCreateBrandedContentTagApprovalParams,
+    IGUserCreateDatasetParams,
+    IGUserCreateMediaParams,
+    IGUserCreateMediaPublishParams,
+    IGUserCreateMentionParams,
+    IGUserCreateProductAppealParams,
+    IGUserCreateUpcomingEventParams,
+    IGUserDeleteBrandedContentTagApprovalParams,
+    IGUserField,
+    IGUserGetAuthorizedAdAccountsParams,
+    IGUserGetBrandedContentAdvertisableMediasParams,
+    IGUserGetBrandedContentTagApprovalParams,
+    IGUserGetCatalogProductSearchParams,
+    IGUserGetContentPublishingLimitParams,
+    IGUserGetInsightsParams,
+    IGUserGetLiveMediaParams,
+    IGUserGetMediaParams,
+    IGUserGetProductAppealParams,
+    IGUserGetWelcomeMessageFlowsParams,
+)
+from src.generated.models.instagraminsightsresult import InstagramInsightsResultField
+from src.generated.models.shadowigusercatalogproductsearch import (
+    ShadowIGUserCatalogProductSearchField,
+)
+from src.generated.models.shadowiguserctxpartnerappwelcomemessageflow import (
+    ShadowIGUserCTXPartnerAppWelcomeMessageFlowField,
+)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +65,13 @@ iguser_server = FastMCP(
 @wrapped_fn_tool
 def get_iguser(
     iguser_id: str,
-    fields: list[str] = [],
+    fields: list[IGUserField] = [],
 ) -> str:
     """Get a IGUser object by ID.
 
     Args:
         iguser_id: The ID of the IGUser.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See IGUserField type.
     """
     obj = IGUser(iguser_id)
     return obj.api_get(fields=fields)
@@ -43,8 +82,8 @@ def get_iguser(
 @wrapped_fn_tool
 def get_authorized_ad_accounts(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountField] = [],
+    params: IGUserGetAuthorizedAdAccountsParams | dict = {},
 ):
     """Get Authorized Ad Accounts for this IGUser.
 
@@ -61,7 +100,7 @@ def get_authorized_ad_accounts(
 def create_authorized_ad_account(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateAuthorizedAdAccountParams | dict = {},
 ):
     """Create Authorized Ad Account for this IGUser.
 
@@ -78,7 +117,7 @@ def create_authorized_ad_account(
 def create_branded_content_ad_permission(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateBrandedContentAdPermissionParams | dict = {},
 ):
     """Create Branded Content Ad Permission for this IGUser.
 
@@ -94,8 +133,8 @@ def create_branded_content_ad_permission(
 @wrapped_fn_tool
 def get_branded_content_advertisable_medias(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BrandedContentShadowIGMediaIDField] = [],
+    params: IGUserGetBrandedContentAdvertisableMediasParams | dict = {},
 ):
     """Get Branded Content Advertisable Medias for this IGUser.
 
@@ -111,7 +150,7 @@ def get_branded_content_advertisable_medias(
 @wrapped_fn_tool
 def delete_branded_content_tag_approval(
     iguser_id: str,
-    params: dict = {},
+    params: IGUserDeleteBrandedContentTagApprovalParams | dict = {},
 ):
     """Delete Branded Content Tag Approval for this IGUser.
 
@@ -126,8 +165,8 @@ def delete_branded_content_tag_approval(
 @wrapped_fn_tool
 def get_branded_content_tag_approval(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BrandedContentShadowIGUserIDField] = [],
+    params: IGUserGetBrandedContentTagApprovalParams | dict = {},
 ):
     """Get Branded Content Tag Approval for this IGUser.
 
@@ -144,7 +183,7 @@ def get_branded_content_tag_approval(
 def create_branded_content_tag_approval(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateBrandedContentTagApprovalParams | dict = {},
 ):
     """Create Branded Content Tag Approval for this IGUser.
 
@@ -160,8 +199,8 @@ def create_branded_content_tag_approval(
 @wrapped_fn_tool
 def get_catalog_product_search(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ShadowIGUserCatalogProductSearchField] = [],
+    params: IGUserGetCatalogProductSearchParams | dict = {},
 ):
     """Get Catalog Product Search for this IGUser.
 
@@ -177,8 +216,8 @@ def get_catalog_product_search(
 @wrapped_fn_tool
 def get_content_publishing_limit(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ContentPublishingLimitResponseField] = [],
+    params: IGUserGetContentPublishingLimitParams | dict = {},
 ):
     """Get Content Publishing Limit for this IGUser.
 
@@ -195,7 +234,7 @@ def get_content_publishing_limit(
 def create_dataset(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateDatasetParams | dict = {},
 ):
     """Create Dataset for this IGUser.
 
@@ -211,8 +250,8 @@ def create_dataset(
 @wrapped_fn_tool
 def get_insights(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[InstagramInsightsResultField] = [],
+    params: IGUserGetInsightsParams | dict = {},
 ):
     """Get Insights for this IGUser.
 
@@ -228,8 +267,8 @@ def get_insights(
 @wrapped_fn_tool
 def get_live_media(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[IGMediaField] = [],
+    params: IGUserGetLiveMediaParams | dict = {},
 ):
     """Get Live Media for this IGUser.
 
@@ -245,8 +284,8 @@ def get_live_media(
 @wrapped_fn_tool
 def get_media(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[IGMediaField] = [],
+    params: IGUserGetMediaParams | dict = {},
 ):
     """Get Media for this IGUser.
 
@@ -263,7 +302,7 @@ def get_media(
 def create_media(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateMediaParams | dict = {},
 ):
     """Create Media for this IGUser.
 
@@ -280,7 +319,7 @@ def create_media(
 def create_media_publish(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateMediaPublishParams | dict = {},
 ):
     """Create Media Publish for this IGUser.
 
@@ -297,7 +336,7 @@ def create_media_publish(
 def create_mention(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateMentionParams | dict = {},
 ):
     """Create Mention for this IGUser.
 
@@ -313,8 +352,8 @@ def create_mention(
 @wrapped_fn_tool
 def get_product_appeal(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[IGShoppingProductAppealField] = [],
+    params: IGUserGetProductAppealParams | dict = {},
 ):
     """Get Product Appeal for this IGUser.
 
@@ -331,7 +370,7 @@ def get_product_appeal(
 def create_product_appeal(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateProductAppealParams | dict = {},
 ):
     """Create Product Appeal for this IGUser.
 
@@ -348,7 +387,7 @@ def create_product_appeal(
 def create_upcoming_event(
     iguser_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: IGUserCreateUpcomingEventParams | dict = {},
 ):
     """Create Upcoming Event for this IGUser.
 
@@ -364,8 +403,8 @@ def create_upcoming_event(
 @wrapped_fn_tool
 def get_welcome_message_flows(
     iguser_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ShadowIGUserCTXPartnerAppWelcomeMessageFlowField] = [],
+    params: IGUserGetWelcomeMessageFlowsParams | dict = {},
 ):
     """Get Welcome Message Flows for this IGUser.
 

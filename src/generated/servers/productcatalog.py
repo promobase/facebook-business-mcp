@@ -5,6 +5,85 @@ from __future__ import annotations
 from facebook_business.adobjects.productcatalog import ProductCatalog
 from fastmcp import FastMCP
 
+from src.generated.models.abstractcrudobject import AbstractCrudObjectField
+from src.generated.models.assigneduser import AssignedUserField
+from src.generated.models.automotivemodel import AutomotiveModelField
+from src.generated.models.checkbatchrequeststatus import CheckBatchRequestStatusField
+from src.generated.models.cpaslsbimagebank import CPASLsbImageBankField
+from src.generated.models.creatorassetcreative import CreatorAssetCreativeField
+from src.generated.models.destination import DestinationField
+from src.generated.models.flight import FlightField
+from src.generated.models.homelisting import HomeListingField
+from src.generated.models.hotel import HotelField
+from src.generated.models.productcatalog import (
+    ProductCatalogCreateAgencyParams,
+    ProductCatalogCreateAssignedUserParams,
+    ProductCatalogCreateBatchParams,
+    ProductCatalogCreateCatalogStoreParams,
+    ProductCatalogCreateCategoryParams,
+    ProductCatalogCreateCpasLsbImageBankParams,
+    ProductCatalogCreateExternalEventSourceParams,
+    ProductCatalogCreateGeolocatedItemsBatchParams,
+    ProductCatalogCreateHomeListingParams,
+    ProductCatalogCreateHotelParams,
+    ProductCatalogCreateHotelRoomsBatchParams,
+    ProductCatalogCreateItemsBatchParams,
+    ProductCatalogCreateLocalizedItemsBatchParams,
+    ProductCatalogCreateMarketPlacePartnerSellersDetailParams,
+    ProductCatalogCreateMarketPlacePartnerSignalParams,
+    ProductCatalogCreatePricingVariablesBatchParams,
+    ProductCatalogCreateProductFeedParams,
+    ProductCatalogCreateProductGroupParams,
+    ProductCatalogCreateProductParams,
+    ProductCatalogCreateProductSetParams,
+    ProductCatalogCreateUpdateGeneratedImageConfigParams,
+    ProductCatalogCreateVehicleParams,
+    ProductCatalogCreateVersionItemsBatchParams,
+    ProductCatalogDeleteAgenciesParams,
+    ProductCatalogDeleteAssignedUsersParams,
+    ProductCatalogDeleteExternalEventSourcesParams,
+    ProductCatalogField,
+    ProductCatalogGetAssignedUsersParams,
+    ProductCatalogGetAutomotiveModelsParams,
+    ProductCatalogGetCategoriesParams,
+    ProductCatalogGetCheckBatchRequestStatusParams,
+    ProductCatalogGetCheckMarketplacePartnerSellersStatusParams,
+    ProductCatalogGetCreatorAssetCreativesParams,
+    ProductCatalogGetDataSourcesParams,
+    ProductCatalogGetDestinationsParams,
+    ProductCatalogGetDiagnosticsParams,
+    ProductCatalogGetEventStatsParams,
+    ProductCatalogGetFlightsParams,
+    ProductCatalogGetHomeListingsParams,
+    ProductCatalogGetHotelRoomsBatchParams,
+    ProductCatalogGetHotelsParams,
+    ProductCatalogGetPricingVariablesBatchParams,
+    ProductCatalogGetProductSetsBatchParams,
+    ProductCatalogGetProductSetsParams,
+    ProductCatalogGetProductsParams,
+    ProductCatalogGetVehicleOffersParams,
+    ProductCatalogGetVehiclesParams,
+    ProductCatalogUpdateParams,
+)
+from src.generated.models.productcatalogcategory import ProductCatalogCategoryField
+from src.generated.models.productcatalogcheckmarketplacepartnersellersstatus import (
+    ProductCatalogCheckMarketplacePartnerSellersStatusField,
+)
+from src.generated.models.productcatalogdatasource import ProductCatalogDataSourceField
+from src.generated.models.productcatalogdiagnosticgroup import ProductCatalogDiagnosticGroupField
+from src.generated.models.productcataloghotelroomsbatch import ProductCatalogHotelRoomsBatchField
+from src.generated.models.productcatalogpricingvariablesbatch import (
+    ProductCatalogPricingVariablesBatchField,
+)
+from src.generated.models.productcatalogproductsetsbatch import ProductCatalogProductSetsBatchField
+from src.generated.models.producteventstat import ProductEventStatField
+from src.generated.models.productfeed import ProductFeedField
+from src.generated.models.productgroup import ProductGroupField
+from src.generated.models.productitem import ProductItemField
+from src.generated.models.productset import ProductSetField
+from src.generated.models.storecatalogsettings import StoreCatalogSettingsField
+from src.generated.models.vehicle import VehicleField
+from src.generated.models.vehicleoffer import VehicleOfferField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +105,13 @@ productcatalog_server = FastMCP(
 @wrapped_fn_tool
 def get_productcatalog(
     productcatalog_id: str,
-    fields: list[str] = [],
+    fields: list[ProductCatalogField] = [],
 ) -> str:
     """Get a ProductCatalog object by ID.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See ProductCatalogField type.
     """
     obj = ProductCatalog(productcatalog_id)
     return obj.api_get(fields=fields)
@@ -42,14 +121,14 @@ def get_productcatalog(
 @wrapped_fn_tool
 def update_productcatalog(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogField] = [],
+    params: ProductCatalogUpdateParams | dict = {},
 ) -> str:
     """Update a ProductCatalog object.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See ProductCatalogField type.
         params: Parameters to update. Available params: See ProductCatalogUpdateParams type.
     """
     return ProductCatalog(productcatalog_id).api_update(fields=fields, params=params)
@@ -73,7 +152,7 @@ def delete_productcatalog(
 @wrapped_fn_tool
 def delete_agencies(
     productcatalog_id: str,
-    params: dict = {},
+    params: ProductCatalogDeleteAgenciesParams | dict = {},
 ):
     """Delete Agencies for this ProductCatalog.
 
@@ -89,7 +168,7 @@ def delete_agencies(
 def create_agency(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateAgencyParams | dict = {},
 ):
     """Create Agency for this ProductCatalog.
 
@@ -105,7 +184,7 @@ def create_agency(
 @wrapped_fn_tool
 def delete_assigned_users(
     productcatalog_id: str,
-    params: dict = {},
+    params: ProductCatalogDeleteAssignedUsersParams | dict = {},
 ):
     """Delete Assigned Users for this ProductCatalog.
 
@@ -120,8 +199,8 @@ def delete_assigned_users(
 @wrapped_fn_tool
 def get_assigned_users(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AssignedUserField] = [],
+    params: ProductCatalogGetAssignedUsersParams | dict = {},
 ):
     """Get Assigned Users for this ProductCatalog.
 
@@ -138,7 +217,7 @@ def get_assigned_users(
 def create_assigned_user(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateAssignedUserParams | dict = {},
 ):
     """Create Assigned User for this ProductCatalog.
 
@@ -154,8 +233,8 @@ def create_assigned_user(
 @wrapped_fn_tool
 def get_automotive_models(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AutomotiveModelField] = [],
+    params: ProductCatalogGetAutomotiveModelsParams | dict = {},
 ):
     """Get Automotive Models for this ProductCatalog.
 
@@ -172,7 +251,7 @@ def get_automotive_models(
 def create_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateBatchParams | dict = {},
 ):
     """Create Batch for this ProductCatalog.
 
@@ -189,7 +268,7 @@ def create_batch(
 def create_catalog_store(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateCatalogStoreParams | dict = {},
 ):
     """Create Catalog Store for this ProductCatalog.
 
@@ -205,8 +284,8 @@ def create_catalog_store(
 @wrapped_fn_tool
 def get_categories(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogCategoryField] = [],
+    params: ProductCatalogGetCategoriesParams | dict = {},
 ):
     """Get Categories for this ProductCatalog.
 
@@ -223,7 +302,7 @@ def get_categories(
 def create_category(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateCategoryParams | dict = {},
 ):
     """Create Category for this ProductCatalog.
 
@@ -239,8 +318,8 @@ def create_category(
 @wrapped_fn_tool
 def get_check_batch_request_status(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CheckBatchRequestStatusField] = [],
+    params: ProductCatalogGetCheckBatchRequestStatusParams | dict = {},
 ):
     """Get Check Batch Request Status for this ProductCatalog.
 
@@ -258,8 +337,8 @@ def get_check_batch_request_status(
 @wrapped_fn_tool
 def get_check_marketplace_partner_sellers_status(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogCheckMarketplacePartnerSellersStatusField] = [],
+    params: ProductCatalogGetCheckMarketplacePartnerSellersStatusParams | dict = {},
 ):
     """Get Check Marketplace Partner Sellers Status for this ProductCatalog.
 
@@ -278,7 +357,7 @@ def get_check_marketplace_partner_sellers_status(
 def create_cpas_lsb_image_bank(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateCpasLsbImageBankParams | dict = {},
 ):
     """Create Cpas Lsb Image Bank for this ProductCatalog.
 
@@ -296,8 +375,8 @@ def create_cpas_lsb_image_bank(
 @wrapped_fn_tool
 def get_creator_asset_creatives(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CreatorAssetCreativeField] = [],
+    params: ProductCatalogGetCreatorAssetCreativesParams | dict = {},
 ):
     """Get Creator Asset Creatives for this ProductCatalog.
 
@@ -315,8 +394,8 @@ def get_creator_asset_creatives(
 @wrapped_fn_tool
 def get_data_sources(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogDataSourceField] = [],
+    params: ProductCatalogGetDataSourcesParams | dict = {},
 ):
     """Get Data Sources for this ProductCatalog.
 
@@ -332,8 +411,8 @@ def get_data_sources(
 @wrapped_fn_tool
 def get_destinations(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[DestinationField] = [],
+    params: ProductCatalogGetDestinationsParams | dict = {},
 ):
     """Get Destinations for this ProductCatalog.
 
@@ -349,8 +428,8 @@ def get_destinations(
 @wrapped_fn_tool
 def get_diagnostics(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogDiagnosticGroupField] = [],
+    params: ProductCatalogGetDiagnosticsParams | dict = {},
 ):
     """Get Diagnostics for this ProductCatalog.
 
@@ -366,8 +445,8 @@ def get_diagnostics(
 @wrapped_fn_tool
 def get_event_stats(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductEventStatField] = [],
+    params: ProductCatalogGetEventStatsParams | dict = {},
 ):
     """Get Event Stats for this ProductCatalog.
 
@@ -383,7 +462,7 @@ def get_event_stats(
 @wrapped_fn_tool
 def delete_external_event_sources(
     productcatalog_id: str,
-    params: dict = {},
+    params: ProductCatalogDeleteExternalEventSourcesParams | dict = {},
 ):
     """Delete External Event Sources for this ProductCatalog.
 
@@ -399,7 +478,7 @@ def delete_external_event_sources(
 def create_external_event_source(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateExternalEventSourceParams | dict = {},
 ):
     """Create External Event Source for this ProductCatalog.
 
@@ -417,8 +496,8 @@ def create_external_event_source(
 @wrapped_fn_tool
 def get_flights(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[FlightField] = [],
+    params: ProductCatalogGetFlightsParams | dict = {},
 ):
     """Get Flights for this ProductCatalog.
 
@@ -435,7 +514,7 @@ def get_flights(
 def create_geolocated_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateGeolocatedItemsBatchParams | dict = {},
 ):
     """Create Geolocated Items Batch for this ProductCatalog.
 
@@ -453,8 +532,8 @@ def create_geolocated_items_batch(
 @wrapped_fn_tool
 def get_home_listings(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[HomeListingField] = [],
+    params: ProductCatalogGetHomeListingsParams | dict = {},
 ):
     """Get Home Listings for this ProductCatalog.
 
@@ -471,7 +550,7 @@ def get_home_listings(
 def create_home_listing(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateHomeListingParams | dict = {},
 ):
     """Create Home Listing for this ProductCatalog.
 
@@ -487,8 +566,8 @@ def create_home_listing(
 @wrapped_fn_tool
 def get_hotel_rooms_batch(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogHotelRoomsBatchField] = [],
+    params: ProductCatalogGetHotelRoomsBatchParams | dict = {},
 ):
     """Get Hotel Rooms Batch for this ProductCatalog.
 
@@ -505,7 +584,7 @@ def get_hotel_rooms_batch(
 def create_hotel_rooms_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateHotelRoomsBatchParams | dict = {},
 ):
     """Create Hotel Rooms Batch for this ProductCatalog.
 
@@ -521,8 +600,8 @@ def create_hotel_rooms_batch(
 @wrapped_fn_tool
 def get_hotels(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[HotelField] = [],
+    params: ProductCatalogGetHotelsParams | dict = {},
 ):
     """Get Hotels for this ProductCatalog.
 
@@ -539,7 +618,7 @@ def get_hotels(
 def create_hotel(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateHotelParams | dict = {},
 ):
     """Create Hotel for this ProductCatalog.
 
@@ -556,7 +635,7 @@ def create_hotel(
 def create_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateItemsBatchParams | dict = {},
 ):
     """Create Items Batch for this ProductCatalog.
 
@@ -573,7 +652,7 @@ def create_items_batch(
 def create_localized_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateLocalizedItemsBatchParams | dict = {},
 ):
     """Create Localized Items Batch for this ProductCatalog.
 
@@ -592,7 +671,7 @@ def create_localized_items_batch(
 def create_market_place_partner_sellers_detail(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateMarketPlacePartnerSellersDetailParams | dict = {},
 ):
     """Create Market Place Partner Sellers Detail for this ProductCatalog.
 
@@ -611,7 +690,7 @@ def create_market_place_partner_sellers_detail(
 def create_market_place_partner_signal(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateMarketPlacePartnerSignalParams | dict = {},
 ):
     """Create Market Place Partner Signal for this ProductCatalog.
 
@@ -629,8 +708,8 @@ def create_market_place_partner_signal(
 @wrapped_fn_tool
 def get_pricing_variables_batch(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogPricingVariablesBatchField] = [],
+    params: ProductCatalogGetPricingVariablesBatchParams | dict = {},
 ):
     """Get Pricing Variables Batch for this ProductCatalog.
 
@@ -649,7 +728,7 @@ def get_pricing_variables_batch(
 def create_pricing_variables_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreatePricingVariablesBatchParams | dict = {},
 ):
     """Create Pricing Variables Batch for this ProductCatalog.
 
@@ -668,7 +747,7 @@ def create_pricing_variables_batch(
 def create_product_feed(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateProductFeedParams | dict = {},
 ):
     """Create Product Feed for this ProductCatalog.
 
@@ -685,7 +764,7 @@ def create_product_feed(
 def create_product_group(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateProductGroupParams | dict = {},
 ):
     """Create Product Group for this ProductCatalog.
 
@@ -701,8 +780,8 @@ def create_product_group(
 @wrapped_fn_tool
 def get_product_sets(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductSetField] = [],
+    params: ProductCatalogGetProductSetsParams | dict = {},
 ):
     """Get Product Sets for this ProductCatalog.
 
@@ -719,7 +798,7 @@ def get_product_sets(
 def create_product_set(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateProductSetParams | dict = {},
 ):
     """Create Product Set for this ProductCatalog.
 
@@ -735,8 +814,8 @@ def create_product_set(
 @wrapped_fn_tool
 def get_product_sets_batch(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductCatalogProductSetsBatchField] = [],
+    params: ProductCatalogGetProductSetsBatchParams | dict = {},
 ):
     """Get Product Sets Batch for this ProductCatalog.
 
@@ -752,8 +831,8 @@ def get_product_sets_batch(
 @wrapped_fn_tool
 def get_products(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProductItemField] = [],
+    params: ProductCatalogGetProductsParams | dict = {},
 ):
     """Get Products for this ProductCatalog.
 
@@ -770,7 +849,7 @@ def get_products(
 def create_product(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateProductParams | dict = {},
 ):
     """Create Product for this ProductCatalog.
 
@@ -787,7 +866,7 @@ def create_product(
 def create_update_generated_image_config(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateUpdateGeneratedImageConfigParams | dict = {},
 ):
     """Create Update Generated Image Config for this ProductCatalog.
 
@@ -805,8 +884,8 @@ def create_update_generated_image_config(
 @wrapped_fn_tool
 def get_vehicle_offers(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[VehicleOfferField] = [],
+    params: ProductCatalogGetVehicleOffersParams | dict = {},
 ):
     """Get Vehicle Offers for this ProductCatalog.
 
@@ -822,8 +901,8 @@ def get_vehicle_offers(
 @wrapped_fn_tool
 def get_vehicles(
     productcatalog_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[VehicleField] = [],
+    params: ProductCatalogGetVehiclesParams | dict = {},
 ):
     """Get Vehicles for this ProductCatalog.
 
@@ -840,7 +919,7 @@ def get_vehicles(
 def create_vehicle(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateVehicleParams | dict = {},
 ):
     """Create Vehicle for this ProductCatalog.
 
@@ -857,7 +936,7 @@ def create_vehicle(
 def create_version_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: ProductCatalogCreateVersionItemsBatchParams | dict = {},
 ):
     """Create Version Items Batch for this ProductCatalog.
 

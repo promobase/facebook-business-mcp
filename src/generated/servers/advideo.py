@@ -5,6 +5,22 @@ from __future__ import annotations
 from facebook_business.adobjects.advideo import AdVideo
 from fastmcp import FastMCP
 
+from src.generated.models.advideo import (
+    AdVideoCreateCapTIOnParams,
+    AdVideoCreateCollaboratorParams,
+    AdVideoCreateCommentParams,
+    AdVideoCreateGamingClipCreateParams,
+    AdVideoCreateLikeParams,
+    AdVideoCreatePollParams,
+    AdVideoCreateThumbnailParams,
+    AdVideoField,
+    AdVideoGetCommentsParams,
+    AdVideoGetVideoInsightsParams,
+    AdVideoUpdateParams,
+)
+from src.generated.models.comment import CommentField
+from src.generated.models.insightsresult import InsightsResultField
+from src.generated.models.videopoll import VideoPollField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +42,13 @@ advideo_server = FastMCP(
 @wrapped_fn_tool
 def get_advideo(
     advideo_id: str,
-    fields: list[str] = [],
+    fields: list[AdVideoField] = [],
 ) -> str:
     """Get a AdVideo object by ID.
 
     Args:
         advideo_id: The ID of the AdVideo.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See AdVideoField type.
     """
     obj = AdVideo(advideo_id)
     return obj.api_get(fields=fields)
@@ -42,14 +58,14 @@ def get_advideo(
 @wrapped_fn_tool
 def update_advideo(
     advideo_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdVideoField] = [],
+    params: AdVideoUpdateParams | dict = {},
 ) -> str:
     """Update a AdVideo object.
 
     Args:
         advideo_id: The ID of the AdVideo.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See AdVideoField type.
         params: Parameters to update. Available params: See AdVideoUpdateParams type.
     """
     return AdVideo(advideo_id).api_update(fields=fields, params=params)
@@ -74,7 +90,7 @@ def delete_advideo(
 def create_cap_t_i_on(
     advideo_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdVideoCreateCapTIOnParams | dict = {},
 ):
     """Create Cap T I On for this AdVideo.
 
@@ -91,7 +107,7 @@ def create_cap_t_i_on(
 def create_collaborator(
     advideo_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdVideoCreateCollaboratorParams | dict = {},
 ):
     """Create Collaborator for this AdVideo.
 
@@ -107,8 +123,8 @@ def create_collaborator(
 @wrapped_fn_tool
 def get_comments(
     advideo_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CommentField] = [],
+    params: AdVideoGetCommentsParams | dict = {},
 ):
     """Get Comments for this AdVideo.
 
@@ -125,7 +141,7 @@ def get_comments(
 def create_comment(
     advideo_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdVideoCreateCommentParams | dict = {},
 ):
     """Create Comment for this AdVideo.
 
@@ -142,7 +158,7 @@ def create_comment(
 def create_gaming_clip_create(
     advideo_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdVideoCreateGamingClipCreateParams | dict = {},
 ):
     """Create Gaming Clip Create for this AdVideo.
 
@@ -159,7 +175,7 @@ def create_gaming_clip_create(
 def create_like(
     advideo_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdVideoCreateLikeParams | dict = {},
 ):
     """Create Like for this AdVideo.
 
@@ -176,7 +192,7 @@ def create_like(
 def create_poll(
     advideo_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdVideoCreatePollParams | dict = {},
 ):
     """Create Poll for this AdVideo.
 
@@ -193,7 +209,7 @@ def create_poll(
 def create_thumbnail(
     advideo_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdVideoCreateThumbnailParams | dict = {},
 ):
     """Create Thumbnail for this AdVideo.
 
@@ -209,8 +225,8 @@ def create_thumbnail(
 @wrapped_fn_tool
 def get_video_insights(
     advideo_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[InsightsResultField] = [],
+    params: AdVideoGetVideoInsightsParams | dict = {},
 ):
     """Get Video Insights for this AdVideo.
 

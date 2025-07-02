@@ -5,6 +5,33 @@ from __future__ import annotations
 from facebook_business.adobjects.adset import AdSet
 from fastmcp import FastMCP
 
+from src.generated.models.abstractcrudobject import AbstractCrudObjectField
+from src.generated.models.ad import AdField
+from src.generated.models.adactivity import AdActivityField
+from src.generated.models.adasyncrequest import AdAsyncRequestField
+from src.generated.models.adcampaigndeliveryestimate import AdCampaignDeliveryEstimateField
+from src.generated.models.adreportrun import AdReportRunField
+from src.generated.models.adrule import AdRuleField
+from src.generated.models.adset import (
+    AdSetCreateAdLabelParams,
+    AdSetCreateBudgetScheduleParams,
+    AdSetCreateCopyParams,
+    AdSetDeleteAdLabelsParams,
+    AdSetField,
+    AdSetGetActivitiesParams,
+    AdSetGetAdRulesGovernedParams,
+    AdSetGetAdsParams,
+    AdSetGetAsyncAdRequestsParams,
+    AdSetGetCopiesParams,
+    AdSetGetDeliveryEstimateParams,
+    AdSetGetInsightsAsyncParams,
+    AdSetGetInsightsParams,
+    AdSetGetMessageDeliveryEstimateParams,
+    AdSetUpdateParams,
+)
+from src.generated.models.adsinsights import AdsInsightsField
+from src.generated.models.highdemandperiod import HighDemandPeriodField
+from src.generated.models.messagedeliveryestimate import MessageDeliveryEstimateField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +53,13 @@ adset_server = FastMCP(
 @wrapped_fn_tool
 def get_adset(
     adset_id: str,
-    fields: list[str] = [],
+    fields: list[AdSetField] = [],
 ) -> str:
     """Get a AdSet object by ID.
 
     Args:
         adset_id: The ID of the AdSet.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See AdSetField type.
     """
     obj = AdSet(adset_id)
     return obj.api_get(fields=fields)
@@ -42,14 +69,14 @@ def get_adset(
 @wrapped_fn_tool
 def update_adset(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdSetField] = [],
+    params: AdSetUpdateParams | dict = {},
 ) -> str:
     """Update a AdSet object.
 
     Args:
         adset_id: The ID of the AdSet.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See AdSetField type.
         params: Parameters to update. Available params: See AdSetUpdateParams type.
     """
     return AdSet(adset_id).api_update(fields=fields, params=params)
@@ -73,8 +100,8 @@ def delete_adset(
 @wrapped_fn_tool
 def get_activities(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdActivityField] = [],
+    params: AdSetGetActivitiesParams | dict = {},
 ):
     """Get Activities for this AdSet.
 
@@ -90,7 +117,7 @@ def get_activities(
 @wrapped_fn_tool
 def delete_ad_labels(
     adset_id: str,
-    params: dict = {},
+    params: AdSetDeleteAdLabelsParams | dict = {},
 ):
     """Delete Ad Labels for this AdSet.
 
@@ -106,7 +133,7 @@ def delete_ad_labels(
 def create_ad_label(
     adset_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdSetCreateAdLabelParams | dict = {},
 ):
     """Create Ad Label for this AdSet.
 
@@ -122,8 +149,8 @@ def create_ad_label(
 @wrapped_fn_tool
 def get_ad_rules_governed(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdRuleField] = [],
+    params: AdSetGetAdRulesGovernedParams | dict = {},
 ):
     """Get Ad Rules Governed for this AdSet.
 
@@ -139,8 +166,8 @@ def get_ad_rules_governed(
 @wrapped_fn_tool
 def get_ads(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdField] = [],
+    params: AdSetGetAdsParams | dict = {},
 ):
     """Get Ads for this AdSet.
 
@@ -156,8 +183,8 @@ def get_ads(
 @wrapped_fn_tool
 def get_async_ad_requests(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAsyncRequestField] = [],
+    params: AdSetGetAsyncAdRequestsParams | dict = {},
 ):
     """Get Async Ad Requests for this AdSet.
 
@@ -174,7 +201,7 @@ def get_async_ad_requests(
 def create_budget_schedule(
     adset_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdSetCreateBudgetScheduleParams | dict = {},
 ):
     """Create Budget Schedule for this AdSet.
 
@@ -190,8 +217,8 @@ def create_budget_schedule(
 @wrapped_fn_tool
 def get_copies(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdSetField] = [],
+    params: AdSetGetCopiesParams | dict = {},
 ):
     """Get Copies for this AdSet.
 
@@ -208,7 +235,7 @@ def get_copies(
 def create_copy(
     adset_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdSetCreateCopyParams | dict = {},
 ):
     """Create Copy for this AdSet.
 
@@ -224,8 +251,8 @@ def create_copy(
 @wrapped_fn_tool
 def get_delivery_estimate(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdCampaignDeliveryEstimateField] = [],
+    params: AdSetGetDeliveryEstimateParams | dict = {},
 ):
     """Get Delivery Estimate for this AdSet.
 
@@ -241,8 +268,8 @@ def get_delivery_estimate(
 @wrapped_fn_tool
 def get_insights(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsInsightsField] = [],
+    params: AdSetGetInsightsParams | dict = {},
 ):
     """Get Insights for this AdSet.
 
@@ -258,8 +285,8 @@ def get_insights(
 @wrapped_fn_tool
 def get_insights_async(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdReportRunField] = [],
+    params: AdSetGetInsightsAsyncParams | dict = {},
 ):
     """Get Insights Async for this AdSet.
 
@@ -275,8 +302,8 @@ def get_insights_async(
 @wrapped_fn_tool
 def get_message_delivery_estimate(
     adset_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[MessageDeliveryEstimateField] = [],
+    params: AdSetGetMessageDeliveryEstimateParams | dict = {},
 ):
     """Get Message Delivery Estimate for this AdSet.
 

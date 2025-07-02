@@ -5,6 +5,116 @@ from __future__ import annotations
 from facebook_business.adobjects.business import Business
 from fastmcp import FastMCP
 
+from src.generated.models.abstractcrudobject import AbstractCrudObjectField
+from src.generated.models.adaccount import AdAccountField
+from src.generated.models.adnetworkanalyticsasyncqueryresult import (
+    AdNetworkAnalyticsAsyncQueryResultField,
+)
+from src.generated.models.adnetworkanalyticssyncqueryresult import (
+    AdNetworkAnalyticsSyncQueryResultField,
+)
+from src.generated.models.adsdataset import AdsDatasetField
+from src.generated.models.adspixel import AdsPixelField
+from src.generated.models.adsreportbuildermmmreport import AdsReportBuilderMMMReportField
+from src.generated.models.adstudy import AdStudyField
+from src.generated.models.advideo import AdVideoField
+from src.generated.models.almadaccountinfo import ALMAdAccountInfoField
+from src.generated.models.application import ApplicationField
+from src.generated.models.business import (
+    BusinessCreateAccessTokenParams,
+    BusinessCreateAdAccountParams,
+    BusinessCreateAddPhoneNumberParams,
+    BusinessCreateAdNetworkAnalyticParams,
+    BusinessCreateAdNetworkApplicationParams,
+    BusinessCreateAdReviewRequestParams,
+    BusinessCreateAdsDataSetParams,
+    BusinessCreateAdsPixelParams,
+    BusinessCreateAdStudyParams,
+    BusinessCreateBlockListDraftParams,
+    BusinessCreateBmReviewRequestParams,
+    BusinessCreateBusinessUserParams,
+    BusinessCreateClaimCustomConversionParams,
+    BusinessCreateClientAppParams,
+    BusinessCreateClientPageParams,
+    BusinessCreateCollaborativeAdsCollaborationRequestParams,
+    BusinessCreateCpasBusinessSetupConfigParams,
+    BusinessCreateCreativeFolderParams,
+    BusinessCreateCustomConversionParams,
+    BusinessCreateEventSourceGroupParams,
+    BusinessCreateImageParams,
+    BusinessCreateManagedBusinessParams,
+    BusinessCreateManagedPartnerBusinessParams,
+    BusinessCreateManagedPartnerBusinessSetupParams,
+    BusinessCreateOnboardPartnersToMmLiteParams,
+    BusinessCreateOpenBridgeConfigurationParams,
+    BusinessCreateOwnedAdAccountParams,
+    BusinessCreateOwnedAppParams,
+    BusinessCreateOwnedBusinessParams,
+    BusinessCreateOwnedPageParams,
+    BusinessCreateOwnedProductCatalogParams,
+    BusinessCreatePartnerPremiumOptionParams,
+    BusinessCreateSelfCertifyWhatsAppBusinessParams,
+    BusinessCreateSetupManagedPartnerAdAccountParams,
+    BusinessCreateSharePreVerifiedNumberParams,
+    BusinessCreateSystemUserAccessTokenParams,
+    BusinessCreateSystemUserParams,
+    BusinessCreateVideoParams,
+    BusinessDeleteAdAccountsParams,
+    BusinessDeleteAgenciesParams,
+    BusinessDeleteClientsParams,
+    BusinessDeleteInstagramAccountsParams,
+    BusinessDeleteManagedBusinessesParams,
+    BusinessDeleteManagedPartnerBusinessesParams,
+    BusinessDeleteOwnedBusinessesParams,
+    BusinessDeletePagesParams,
+    BusinessDeleteSharePreVerifiedNumbersParams,
+    BusinessField,
+    BusinessGetAdAccountInfosParams,
+    BusinessGetAdNetworkAnalyticsParams,
+    BusinessGetAdNetworkAnalyticsResultsParams,
+    BusinessGetAdsDatasetParams,
+    BusinessGetAdsPixelsParams,
+    BusinessGetAdsReportingMmmReportsParams,
+    BusinessGetBusinessInvoicesParams,
+    BusinessGetClientAdAccountsParams,
+    BusinessGetCollaborativeAdsCollaborationRequestsParams,
+    BusinessGetExtendedCreditApplicationsParams,
+    BusinessGetExtendedCreditsParams,
+    BusinessGetInitiatedAudienceSharingRequestsParams,
+    BusinessGetManagedPartnerAdsFundingSourceDetailsParams,
+    BusinessGetOwnedAdAccountsParams,
+    BusinessGetOwnedBusinessesParams,
+    BusinessGetPendingUsersParams,
+    BusinessGetPictureParams,
+    BusinessGetPreVerifiedNumbersParams,
+    BusinessGetReceivedAudienceSharingRequestsParams,
+    BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams,
+    BusinessUpdateParams,
+)
+from src.generated.models.businessassetsharingagreement import BusinessAssetSharingAgreementField
+from src.generated.models.businesscreativefolder import BusinessCreativeFolderField
+from src.generated.models.businessimage import BusinessImageField
+from src.generated.models.businessrolerequest import BusinessRoleRequestField
+from src.generated.models.businessuser import BusinessUserField
+from src.generated.models.cpasbusinesssetupconfig import CPASBusinessSetupConfigField
+from src.generated.models.cpascollaborationrequest import CPASCollaborationRequestField
+from src.generated.models.customconversion import CustomConversionField
+from src.generated.models.eventsourcegroup import EventSourceGroupField
+from src.generated.models.extendedcredit import ExtendedCreditField
+from src.generated.models.extendedcreditapplication import ExtendedCreditApplicationField
+from src.generated.models.fundingsourcedetailscoupon import FundingSourceDetailsCouponField
+from src.generated.models.managedpartnerbusiness import ManagedPartnerBusinessField
+from src.generated.models.omegacustomertrx import OmegaCustomerTrxField
+from src.generated.models.openbridgeconfiguration import OpenBridgeConfigurationField
+from src.generated.models.productcatalog import ProductCatalogField
+from src.generated.models.profilepicturesource import ProfilePictureSourceField
+from src.generated.models.systemuser import SystemUserField
+from src.generated.models.whatsappbusinesspartnerclientverificationsubmission import (
+    WhatsAppBusinessPartnerClientVerificationSubmissionField,
+)
+from src.generated.models.whatsappbusinesspreverifiedphonenumber import (
+    WhatsAppBusinessPreVerifiedPhoneNumberField,
+)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +136,13 @@ business_server = FastMCP(
 @wrapped_fn_tool
 def get_business(
     business_id: str,
-    fields: list[str] = [],
+    fields: list[BusinessField] = [],
 ) -> str:
     """Get a Business object by ID.
 
     Args:
         business_id: The ID of the Business.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See BusinessField type.
     """
     obj = Business(business_id)
     return obj.api_get(fields=fields)
@@ -42,14 +152,14 @@ def get_business(
 @wrapped_fn_tool
 def update_business(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessField] = [],
+    params: BusinessUpdateParams | dict = {},
 ) -> str:
     """Update a Business object.
 
     Args:
         business_id: The ID of the Business.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See BusinessField type.
         params: Parameters to update. Available params: See BusinessUpdateParams type.
     """
     return Business(business_id).api_update(fields=fields, params=params)
@@ -61,7 +171,7 @@ def update_business(
 def create_access_token(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAccessTokenParams | dict = {},
 ):
     """Create Access Token for this Business.
 
@@ -77,8 +187,8 @@ def create_access_token(
 @wrapped_fn_tool
 def get_ad_account_infos(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ALMAdAccountInfoField] = [],
+    params: BusinessGetAdAccountInfosParams | dict = {},
 ):
     """Get Ad Account Infos for this Business.
 
@@ -94,7 +204,7 @@ def get_ad_account_infos(
 @wrapped_fn_tool
 def delete_ad_accounts(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteAdAccountsParams | dict = {},
 ):
     """Delete Ad Accounts for this Business.
 
@@ -110,7 +220,7 @@ def delete_ad_accounts(
 def create_ad_review_request(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAdReviewRequestParams | dict = {},
 ):
     """Create Ad Review Request for this Business.
 
@@ -127,7 +237,7 @@ def create_ad_review_request(
 def create_ad_study(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAdStudyParams | dict = {},
 ):
     """Create Ad Study for this Business.
 
@@ -144,7 +254,7 @@ def create_ad_study(
 def create_ad_account(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAdAccountParams | dict = {},
 ):
     """Create Ad Account for this Business.
 
@@ -161,7 +271,7 @@ def create_ad_account(
 def create_add_phone_number(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAddPhoneNumberParams | dict = {},
 ):
     """Create Add Phone Number for this Business.
 
@@ -178,7 +288,7 @@ def create_add_phone_number(
 def create_ad_network_application(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAdNetworkApplicationParams | dict = {},
 ):
     """Create Ad Network Application for this Business.
 
@@ -194,8 +304,8 @@ def create_ad_network_application(
 @wrapped_fn_tool
 def get_ad_network_analytics(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdNetworkAnalyticsSyncQueryResultField] = [],
+    params: BusinessGetAdNetworkAnalyticsParams | dict = {},
 ):
     """Get Ad Network Analytics for this Business.
 
@@ -212,7 +322,7 @@ def get_ad_network_analytics(
 def create_ad_network_analytic(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAdNetworkAnalyticParams | dict = {},
 ):
     """Create Ad Network Analytic for this Business.
 
@@ -228,8 +338,8 @@ def create_ad_network_analytic(
 @wrapped_fn_tool
 def get_ad_network_analytics_results(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdNetworkAnalyticsAsyncQueryResultField] = [],
+    params: BusinessGetAdNetworkAnalyticsResultsParams | dict = {},
 ):
     """Get Ad Network Analytics Results for this Business.
 
@@ -245,8 +355,8 @@ def get_ad_network_analytics_results(
 @wrapped_fn_tool
 def get_ads_dataset(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsDatasetField] = [],
+    params: BusinessGetAdsDatasetParams | dict = {},
 ):
     """Get Ads Dataset for this Business.
 
@@ -263,7 +373,7 @@ def get_ads_dataset(
 def create_ads_data_set(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAdsDataSetParams | dict = {},
 ):
     """Create Ads Data Set for this Business.
 
@@ -279,8 +389,8 @@ def create_ads_data_set(
 @wrapped_fn_tool
 def get_ads_reporting_mmm_reports(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsReportBuilderMMMReportField] = [],
+    params: BusinessGetAdsReportingMmmReportsParams | dict = {},
 ):
     """Get Ads Reporting Mmm Reports for this Business.
 
@@ -296,8 +406,8 @@ def get_ads_reporting_mmm_reports(
 @wrapped_fn_tool
 def get_ads_pixels(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsPixelField] = [],
+    params: BusinessGetAdsPixelsParams | dict = {},
 ):
     """Get Ads Pixels for this Business.
 
@@ -314,7 +424,7 @@ def get_ads_pixels(
 def create_ads_pixel(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateAdsPixelParams | dict = {},
 ):
     """Create Ads Pixel for this Business.
 
@@ -330,7 +440,7 @@ def create_ads_pixel(
 @wrapped_fn_tool
 def delete_agencies(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteAgenciesParams | dict = {},
 ):
     """Delete Agencies for this Business.
 
@@ -346,7 +456,7 @@ def delete_agencies(
 def create_block_list_draft(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateBlockListDraftParams | dict = {},
 ):
     """Create Block List Draft for this Business.
 
@@ -363,7 +473,7 @@ def create_block_list_draft(
 def create_bm_review_request(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateBmReviewRequestParams | dict = {},
 ):
     """Create Bm Review Request for this Business.
 
@@ -379,8 +489,8 @@ def create_bm_review_request(
 @wrapped_fn_tool
 def get_business_invoices(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[OmegaCustomerTrxField] = [],
+    params: BusinessGetBusinessInvoicesParams | dict = {},
 ):
     """Get Business Invoices for this Business.
 
@@ -397,7 +507,7 @@ def get_business_invoices(
 def create_business_user(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateBusinessUserParams | dict = {},
 ):
     """Create Business User for this Business.
 
@@ -414,7 +524,7 @@ def create_business_user(
 def create_claim_custom_conversion(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateClaimCustomConversionParams | dict = {},
 ):
     """Create Claim Custom Conversion for this Business.
 
@@ -430,8 +540,8 @@ def create_claim_custom_conversion(
 @wrapped_fn_tool
 def get_client_ad_accounts(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountField] = [],
+    params: BusinessGetClientAdAccountsParams | dict = {},
 ):
     """Get Client Ad Accounts for this Business.
 
@@ -448,7 +558,7 @@ def get_client_ad_accounts(
 def create_client_app(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateClientAppParams | dict = {},
 ):
     """Create Client App for this Business.
 
@@ -465,7 +575,7 @@ def create_client_app(
 def create_client_page(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateClientPageParams | dict = {},
 ):
     """Create Client Page for this Business.
 
@@ -481,7 +591,7 @@ def create_client_page(
 @wrapped_fn_tool
 def delete_clients(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteClientsParams | dict = {},
 ):
     """Delete Clients for this Business.
 
@@ -496,8 +606,8 @@ def delete_clients(
 @wrapped_fn_tool
 def get_collaborative_ads_collaboration_requests(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CPASCollaborationRequestField] = [],
+    params: BusinessGetCollaborativeAdsCollaborationRequestsParams | dict = {},
 ):
     """Get Collaborative Ads Collaboration Requests for this Business.
 
@@ -516,7 +626,7 @@ def get_collaborative_ads_collaboration_requests(
 def create_collaborative_ads_collaboration_request(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateCollaborativeAdsCollaborationRequestParams | dict = {},
 ):
     """Create Collaborative Ads Collaboration Request for this Business.
 
@@ -535,7 +645,7 @@ def create_collaborative_ads_collaboration_request(
 def create_cpas_business_setup_config(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateCpasBusinessSetupConfigParams | dict = {},
 ):
     """Create Cpas Business Setup Config for this Business.
 
@@ -552,7 +662,7 @@ def create_cpas_business_setup_config(
 def create_creative_folder(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateCreativeFolderParams | dict = {},
 ):
     """Create Creative Folder for this Business.
 
@@ -569,7 +679,7 @@ def create_creative_folder(
 def create_custom_conversion(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateCustomConversionParams | dict = {},
 ):
     """Create Custom Conversion for this Business.
 
@@ -586,7 +696,7 @@ def create_custom_conversion(
 def create_event_source_group(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateEventSourceGroupParams | dict = {},
 ):
     """Create Event Source Group for this Business.
 
@@ -602,8 +712,8 @@ def create_event_source_group(
 @wrapped_fn_tool
 def get_extended_credit_applications(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ExtendedCreditApplicationField] = [],
+    params: BusinessGetExtendedCreditApplicationsParams | dict = {},
 ):
     """Get Extended Credit Applications for this Business.
 
@@ -619,8 +729,8 @@ def get_extended_credit_applications(
 @wrapped_fn_tool
 def get_extended_credits(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ExtendedCreditField] = [],
+    params: BusinessGetExtendedCreditsParams | dict = {},
 ):
     """Get Extended Credits for this Business.
 
@@ -637,7 +747,7 @@ def get_extended_credits(
 def create_image(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateImageParams | dict = {},
 ):
     """Create Image for this Business.
 
@@ -653,8 +763,8 @@ def create_image(
 @wrapped_fn_tool
 def get_initiated_audience_sharing_requests(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessAssetSharingAgreementField] = [],
+    params: BusinessGetInitiatedAudienceSharingRequestsParams | dict = {},
 ):
     """Get Initiated Audience Sharing Requests for this Business.
 
@@ -672,7 +782,7 @@ def get_initiated_audience_sharing_requests(
 @wrapped_fn_tool
 def delete_instagram_accounts(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteInstagramAccountsParams | dict = {},
 ):
     """Delete Instagram Accounts for this Business.
 
@@ -687,7 +797,7 @@ def delete_instagram_accounts(
 @wrapped_fn_tool
 def delete_managed_businesses(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteManagedBusinessesParams | dict = {},
 ):
     """Delete Managed Businesses for this Business.
 
@@ -703,7 +813,7 @@ def delete_managed_businesses(
 def create_managed_business(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateManagedBusinessParams | dict = {},
 ):
     """Create Managed Business for this Business.
 
@@ -719,8 +829,8 @@ def create_managed_business(
 @wrapped_fn_tool
 def get_managed_partner_ads_funding_source_details(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[FundingSourceDetailsCouponField] = [],
+    params: BusinessGetManagedPartnerAdsFundingSourceDetailsParams | dict = {},
 ):
     """Get Managed Partner Ads Funding Source Details for this Business.
 
@@ -739,7 +849,7 @@ def get_managed_partner_ads_funding_source_details(
 def create_managed_partner_business_setup(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateManagedPartnerBusinessSetupParams | dict = {},
 ):
     """Create Managed Partner Business Setup for this Business.
 
@@ -755,7 +865,7 @@ def create_managed_partner_business_setup(
 @wrapped_fn_tool
 def delete_managed_partner_businesses(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteManagedPartnerBusinessesParams | dict = {},
 ):
     """Delete Managed Partner Businesses for this Business.
 
@@ -771,7 +881,7 @@ def delete_managed_partner_businesses(
 def create_managed_partner_business(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateManagedPartnerBusinessParams | dict = {},
 ):
     """Create Managed Partner Business for this Business.
 
@@ -788,7 +898,7 @@ def create_managed_partner_business(
 def create_onboard_partners_to_mm_lite(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateOnboardPartnersToMmLiteParams | dict = {},
 ):
     """Create Onboard Partners To Mm Lite for this Business.
 
@@ -805,7 +915,7 @@ def create_onboard_partners_to_mm_lite(
 def create_open_bridge_configuration(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateOpenBridgeConfigurationParams | dict = {},
 ):
     """Create Open Bridge Configuration for this Business.
 
@@ -821,8 +931,8 @@ def create_open_bridge_configuration(
 @wrapped_fn_tool
 def get_owned_ad_accounts(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountField] = [],
+    params: BusinessGetOwnedAdAccountsParams | dict = {},
 ):
     """Get Owned Ad Accounts for this Business.
 
@@ -839,7 +949,7 @@ def get_owned_ad_accounts(
 def create_owned_ad_account(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateOwnedAdAccountParams | dict = {},
 ):
     """Create Owned Ad Account for this Business.
 
@@ -856,7 +966,7 @@ def create_owned_ad_account(
 def create_owned_app(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateOwnedAppParams | dict = {},
 ):
     """Create Owned App for this Business.
 
@@ -872,7 +982,7 @@ def create_owned_app(
 @wrapped_fn_tool
 def delete_owned_businesses(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteOwnedBusinessesParams | dict = {},
 ):
     """Delete Owned Businesses for this Business.
 
@@ -887,8 +997,8 @@ def delete_owned_businesses(
 @wrapped_fn_tool
 def get_owned_businesses(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessField] = [],
+    params: BusinessGetOwnedBusinessesParams | dict = {},
 ):
     """Get Owned Businesses for this Business.
 
@@ -905,7 +1015,7 @@ def get_owned_businesses(
 def create_owned_business(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateOwnedBusinessParams | dict = {},
 ):
     """Create Owned Business for this Business.
 
@@ -922,7 +1032,7 @@ def create_owned_business(
 def create_owned_page(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateOwnedPageParams | dict = {},
 ):
     """Create Owned Page for this Business.
 
@@ -939,7 +1049,7 @@ def create_owned_page(
 def create_owned_product_catalog(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateOwnedProductCatalogParams | dict = {},
 ):
     """Create Owned Product Catalog for this Business.
 
@@ -955,7 +1065,7 @@ def create_owned_product_catalog(
 @wrapped_fn_tool
 def delete_pages(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeletePagesParams | dict = {},
 ):
     """Delete Pages for this Business.
 
@@ -971,7 +1081,7 @@ def delete_pages(
 def create_partner_premium_option(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreatePartnerPremiumOptionParams | dict = {},
 ):
     """Create Partner Premium Option for this Business.
 
@@ -987,8 +1097,8 @@ def create_partner_premium_option(
 @wrapped_fn_tool
 def get_pending_users(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessRoleRequestField] = [],
+    params: BusinessGetPendingUsersParams | dict = {},
 ):
     """Get Pending Users for this Business.
 
@@ -1004,8 +1114,8 @@ def get_pending_users(
 @wrapped_fn_tool
 def get_picture(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ProfilePictureSourceField] = [],
+    params: BusinessGetPictureParams | dict = {},
 ):
     """Get Picture for this Business.
 
@@ -1021,8 +1131,8 @@ def get_picture(
 @wrapped_fn_tool
 def get_pre_verified_numbers(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[WhatsAppBusinessPreVerifiedPhoneNumberField] = [],
+    params: BusinessGetPreVerifiedNumbersParams | dict = {},
 ):
     """Get Pre Verified Numbers for this Business.
 
@@ -1038,8 +1148,8 @@ def get_pre_verified_numbers(
 @wrapped_fn_tool
 def get_received_audience_sharing_requests(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessAssetSharingAgreementField] = [],
+    params: BusinessGetReceivedAudienceSharingRequestsParams | dict = {},
 ):
     """Get Received Audience Sharing Requests for this Business.
 
@@ -1057,8 +1167,8 @@ def get_received_audience_sharing_requests(
 @wrapped_fn_tool
 def get_self_certified_whats_app_business_submissions(
     business_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[WhatsAppBusinessPartnerClientVerificationSubmissionField] = [],
+    params: BusinessGetSelfCertifiedWhatsAppBusinessSubmissionsParams | dict = {},
 ):
     """Get Self Certified Whats App Business Submissions for this Business.
 
@@ -1077,7 +1187,7 @@ def get_self_certified_whats_app_business_submissions(
 def create_self_certify_whats_app_business(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateSelfCertifyWhatsAppBusinessParams | dict = {},
 ):
     """Create Self Certify Whats App Business for this Business.
 
@@ -1096,7 +1206,7 @@ def create_self_certify_whats_app_business(
 def create_setup_managed_partner_ad_account(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateSetupManagedPartnerAdAccountParams | dict = {},
 ):
     """Create Setup Managed Partner Ad Account for this Business.
 
@@ -1114,7 +1224,7 @@ def create_setup_managed_partner_ad_account(
 @wrapped_fn_tool
 def delete_share_pre_verified_numbers(
     business_id: str,
-    params: dict = {},
+    params: BusinessDeleteSharePreVerifiedNumbersParams | dict = {},
 ):
     """Delete Share Pre Verified Numbers for this Business.
 
@@ -1130,7 +1240,7 @@ def delete_share_pre_verified_numbers(
 def create_share_pre_verified_number(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateSharePreVerifiedNumberParams | dict = {},
 ):
     """Create Share Pre Verified Number for this Business.
 
@@ -1147,7 +1257,7 @@ def create_share_pre_verified_number(
 def create_system_user_access_token(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateSystemUserAccessTokenParams | dict = {},
 ):
     """Create System User Access Token for this Business.
 
@@ -1164,7 +1274,7 @@ def create_system_user_access_token(
 def create_system_user(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateSystemUserParams | dict = {},
 ):
     """Create System User for this Business.
 
@@ -1181,7 +1291,7 @@ def create_system_user(
 def create_video(
     business_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: BusinessCreateVideoParams | dict = {},
 ):
     """Create Video for this Business.
 

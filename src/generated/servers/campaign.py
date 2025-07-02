@@ -5,6 +5,25 @@ from __future__ import annotations
 from facebook_business.adobjects.campaign import Campaign
 from fastmcp import FastMCP
 
+from src.generated.models.ad import AdField
+from src.generated.models.adreportrun import AdReportRunField
+from src.generated.models.adrule import AdRuleField
+from src.generated.models.adset import AdSetField
+from src.generated.models.adsinsights import AdsInsightsField
+from src.generated.models.campaign import (
+    CampaignCreateAdLabelParams,
+    CampaignCreateBudgetScheduleParams,
+    CampaignCreateCopyParams,
+    CampaignField,
+    CampaignGetAdRulesGovernedParams,
+    CampaignGetAdSetsParams,
+    CampaignGetAdsParams,
+    CampaignGetCopiesParams,
+    CampaignGetInsightsAsyncParams,
+    CampaignGetInsightsParams,
+    CampaignUpdateParams,
+)
+from src.generated.models.highdemandperiod import HighDemandPeriodField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +45,13 @@ campaign_server = FastMCP(
 @wrapped_fn_tool
 def get_campaign(
     campaign_id: str,
-    fields: list[str] = [],
+    fields: list[CampaignField] = [],
 ) -> str:
     """Get a Campaign object by ID.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See CampaignField type.
     """
     obj = Campaign(campaign_id)
     return obj.api_get(fields=fields)
@@ -42,14 +61,14 @@ def get_campaign(
 @wrapped_fn_tool
 def update_campaign(
     campaign_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CampaignField] = [],
+    params: CampaignUpdateParams | dict = {},
 ) -> str:
     """Update a Campaign object.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See CampaignField type.
         params: Parameters to update. Available params: See CampaignUpdateParams type.
     """
     return Campaign(campaign_id).api_update(fields=fields, params=params)
@@ -74,7 +93,7 @@ def delete_campaign(
 def create_ad_label(
     campaign_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: CampaignCreateAdLabelParams | dict = {},
 ):
     """Create Ad Label for this Campaign.
 
@@ -90,8 +109,8 @@ def create_ad_label(
 @wrapped_fn_tool
 def get_ad_rules_governed(
     campaign_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdRuleField] = [],
+    params: CampaignGetAdRulesGovernedParams | dict = {},
 ):
     """Get Ad Rules Governed for this Campaign.
 
@@ -107,8 +126,8 @@ def get_ad_rules_governed(
 @wrapped_fn_tool
 def get_ads(
     campaign_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdField] = [],
+    params: CampaignGetAdsParams | dict = {},
 ):
     """Get Ads for this Campaign.
 
@@ -124,8 +143,8 @@ def get_ads(
 @wrapped_fn_tool
 def get_ad_sets(
     campaign_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdSetField] = [],
+    params: CampaignGetAdSetsParams | dict = {},
 ):
     """Get Ad Sets for this Campaign.
 
@@ -142,7 +161,7 @@ def get_ad_sets(
 def create_budget_schedule(
     campaign_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: CampaignCreateBudgetScheduleParams | dict = {},
 ):
     """Create Budget Schedule for this Campaign.
 
@@ -158,8 +177,8 @@ def create_budget_schedule(
 @wrapped_fn_tool
 def get_copies(
     campaign_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CampaignField] = [],
+    params: CampaignGetCopiesParams | dict = {},
 ):
     """Get Copies for this Campaign.
 
@@ -176,7 +195,7 @@ def get_copies(
 def create_copy(
     campaign_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: CampaignCreateCopyParams | dict = {},
 ):
     """Create Copy for this Campaign.
 
@@ -192,8 +211,8 @@ def create_copy(
 @wrapped_fn_tool
 def get_insights(
     campaign_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsInsightsField] = [],
+    params: CampaignGetInsightsParams | dict = {},
 ):
     """Get Insights for this Campaign.
 
@@ -209,8 +228,8 @@ def get_insights(
 @wrapped_fn_tool
 def get_insights_async(
     campaign_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdReportRunField] = [],
+    params: CampaignGetInsightsAsyncParams | dict = {},
 ):
     """Get Insights Async for this Campaign.
 

@@ -5,6 +5,21 @@ from __future__ import annotations
 from facebook_business.adobjects.ad import Ad
 from fastmcp import FastMCP
 
+from src.generated.models.ad import (
+    AdCreateAdLabelParams,
+    AdCreateCopyParams,
+    AdField,
+    AdGetAdRulesGovernedParams,
+    AdGetCopiesParams,
+    AdGetInsightsAsyncParams,
+    AdGetInsightsParams,
+    AdGetPreviewsParams,
+    AdUpdateParams,
+)
+from src.generated.models.adpreview import AdPreviewField
+from src.generated.models.adreportrun import AdReportRunField
+from src.generated.models.adrule import AdRuleField
+from src.generated.models.adsinsights import AdsInsightsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +41,13 @@ ad_server = FastMCP(
 @wrapped_fn_tool
 def get_ad(
     ad_id: str,
-    fields: list[str] = [],
+    fields: list[AdField] = [],
 ) -> str:
     """Get a Ad object by ID.
 
     Args:
         ad_id: The ID of the Ad.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See AdField type.
     """
     obj = Ad(ad_id)
     return obj.api_get(fields=fields)
@@ -42,14 +57,14 @@ def get_ad(
 @wrapped_fn_tool
 def update_ad(
     ad_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdField] = [],
+    params: AdUpdateParams | dict = {},
 ) -> str:
     """Update a Ad object.
 
     Args:
         ad_id: The ID of the Ad.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See AdField type.
         params: Parameters to update. Available params: See AdUpdateParams type.
     """
     return Ad(ad_id).api_update(fields=fields, params=params)
@@ -74,7 +89,7 @@ def delete_ad(
 def create_ad_label(
     ad_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdCreateAdLabelParams | dict = {},
 ):
     """Create Ad Label for this Ad.
 
@@ -90,8 +105,8 @@ def create_ad_label(
 @wrapped_fn_tool
 def get_ad_rules_governed(
     ad_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdRuleField] = [],
+    params: AdGetAdRulesGovernedParams | dict = {},
 ):
     """Get Ad Rules Governed for this Ad.
 
@@ -107,8 +122,8 @@ def get_ad_rules_governed(
 @wrapped_fn_tool
 def get_copies(
     ad_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdField] = [],
+    params: AdGetCopiesParams | dict = {},
 ):
     """Get Copies for this Ad.
 
@@ -125,7 +140,7 @@ def get_copies(
 def create_copy(
     ad_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdCreateCopyParams | dict = {},
 ):
     """Create Copy for this Ad.
 
@@ -141,8 +156,8 @@ def create_copy(
 @wrapped_fn_tool
 def get_insights(
     ad_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsInsightsField] = [],
+    params: AdGetInsightsParams | dict = {},
 ):
     """Get Insights for this Ad.
 
@@ -158,8 +173,8 @@ def get_insights(
 @wrapped_fn_tool
 def get_insights_async(
     ad_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdReportRunField] = [],
+    params: AdGetInsightsAsyncParams | dict = {},
 ):
     """Get Insights Async for this Ad.
 
@@ -175,8 +190,8 @@ def get_insights_async(
 @wrapped_fn_tool
 def get_previews(
     ad_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdPreviewField] = [],
+    params: AdGetPreviewsParams | dict = {},
 ):
     """Get Previews for this Ad.
 

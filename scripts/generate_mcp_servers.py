@@ -193,6 +193,43 @@ class MCPServerGenerator:
             "from src.utils import wrapped_fn_tool",
         ]
 
+        # Add type imports if we have generated types
+        type_imports = []
+
+        # Import field type
+        type_imports.append(
+            f"from src.generated.models.{server_info.module_path} import {server_info.object_name}Field"
+        )
+
+        # Import param types if needed
+        if server_info.has_update_params:
+            type_imports.append(
+                f"from src.generated.models.{server_info.module_path} import {server_info.object_name}UpdateParams"
+            )
+
+        # Import edge method param types and return types
+        imported_return_types = set()
+        for method in server_info.edge_methods:
+            param_model_name = f"{server_info.object_name}{''.join(word.capitalize() for word in method.name.split('_'))}Params"
+            type_imports.append(
+                f"from src.generated.models.{server_info.module_path} import {param_model_name}"
+            )
+
+            # Import field types for different return types
+            if method.target_class and method.target_class != server_info.object_name:
+                if method.target_class not in imported_return_types:
+                    imported_return_types.add(method.target_class)
+                    target_module = method.target_class.lower()
+                    if method.target_class in self.parser._adobject_types:
+                        target_module = self.parser._adobject_types[method.target_class]
+                    type_imports.append(
+                        f"from src.generated.models.{target_module} import {method.target_class}Field"
+                    )
+
+        if type_imports:
+            imports.append("")
+            imports.extend(sorted(set(type_imports)))
+
         return "\n".join(imports)
 
     def _generate_get_method(
@@ -205,7 +242,7 @@ class MCPServerGenerator:
         lines.append("@wrapped_fn_tool")
         lines.append(f"def get_{server_info.module_path}(")
         lines.append(f"    {server_info.module_path}_id: str,")
-        lines.append("    fields: list[str] = [],")
+        lines.append(f"    fields: list[{server_info.object_name}Field] = [],")
         lines.append(") -> str:")
         lines.append(f'    """Get a {server_info.object_name} object by ID.')
         lines.append("    ")
@@ -214,7 +251,7 @@ class MCPServerGenerator:
             f"        {server_info.module_path}_id: The ID of the {server_info.object_name}."
         )
         lines.append(
-            "        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type."
+            f"        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type."
         )
         lines.append('    """')
         lines.append(f"    obj = {server_info.object_name}({server_info.module_path}_id)")
@@ -232,8 +269,11 @@ class MCPServerGenerator:
         lines.append("@wrapped_fn_tool")
         lines.append(f"def update_{server_info.module_path}(")
         lines.append(f"    {server_info.module_path}_id: str,")
-        lines.append("    fields: list[str] = [],")
-        lines.append("    params: dict = {},")
+        lines.append(f"    fields: list[{server_info.object_name}Field] = [],")
+        if server_info.has_update_params:
+            lines.append(f"    params: {server_info.object_name}UpdateParams | dict = {{}},")
+        else:
+            lines.append("    params: dict = {},")
         lines.append(") -> str:")
         lines.append(f'    """Update a {server_info.object_name} object.')
         lines.append("    ")
@@ -242,7 +282,7 @@ class MCPServerGenerator:
             f"        {server_info.module_path}_id: The ID of the {server_info.object_name}."
         )
         lines.append(
-            "        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type."
+            f"        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type."
         )
         if server_info.has_update_params:
             lines.append(
@@ -302,13 +342,17 @@ class MCPServerGenerator:
 
         # Add fields parameter for GET methods or methods that return data
         if method.http_method == "GET" or method.name.startswith("get_"):
-            lines.append("    fields: list[str] = [],")
+            # Determine field type based on target class
+            if method.target_class and method.target_class != server_info.object_name:
+                lines.append(f"    fields: list[{method.target_class}Field] = [],")
+            else:
+                lines.append(f"    fields: list[{server_info.object_name}Field] = [],")
         elif method.http_method == "POST" and method.name.startswith("create_"):
             # Some create methods also return fields
             lines.append("    fields: list[str] = [],")
 
         # Add params parameter
-        lines.append("    params: dict = {},")
+        lines.append(f"    params: {param_model_name} | dict = {{}},")
         lines.append("):")
 
         # Generate docstring
@@ -425,45 +469,11 @@ def main():
     print(f"  - {total_crud_objects} with CRUD operations")
     print(f"  - {total_edge_methods} total edge methods")
 
-    # Define important AdObjects that users commonly use
-    important_objects = {
-        "adaccount": "Core resource for managing ads",
-        "campaign": "Top-level advertising campaigns",
-        "adset": "Ad sets within campaigns",
-        "ad": "Individual ads",
-        "adcreative": "Creative assets for ads",
-        "customaudience": "Custom audiences for targeting",
-        "business": "Business/organization management",
-        "page": "Facebook pages",
-        "iguser": "Instagram accounts",
-        "adimage": "Ad images",
-        "advideo": "Ad videos",
-        "productcatalog": "Product catalogs for e-commerce",
-        "productfeed": "Product feeds",
-        "productset": "Product sets",
-        "adspixel": "Facebook pixel for tracking",
-    }
-
-    # Filter server infos to only include important objects
-    important_server_infos = []
-    other_server_infos = []
-
-    for server_info in server_infos:
-        if server_info.module_path in important_objects:
-            important_server_infos.append(server_info)
-        else:
-            other_server_infos.append(server_info)
-
-    print(f"\nFound {len(important_server_infos)} important AdObjects to generate:")
-    for info in important_server_infos:
-        desc = important_objects.get(info.module_path, "")
-        print(f"  - {info.object_name}: {desc}")
-
-    # Generate server files for important objects
+    # Generate server files for all objects
     print(f"\nGenerating MCP server files in {output_dir}/...")
 
     generated_infos = []
-    for server_info in important_server_infos:
+    for server_info in server_infos:
         adobject_info = adobject_infos[server_info.module_path]
         output_file = generator.generate_server_file(server_info, adobject_info, output_dir)
         generated_infos.append(server_info)
@@ -477,8 +487,9 @@ def main():
     generator.generate_init_file(generated_infos, output_dir)
     print("\n✓ Generated __init__.py")
 
-    print(f"\n✓ Generated {len(generated_infos)} MCP server files for important AdObjects")
-    print(f"  Total objects with servers available: {len(server_infos)}")
+    print(
+        f"\n✓ Generated {len(generated_infos)} MCP server files for all AdObjects with CRUD/edge methods"
+    )
 
 
 if __name__ == "__main__":

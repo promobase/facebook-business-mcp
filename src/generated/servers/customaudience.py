@@ -5,6 +5,27 @@ from __future__ import annotations
 from facebook_business.adobjects.customaudience import CustomAudience
 from fastmcp import FastMCP
 
+from src.generated.models.abstractcrudobject import AbstractCrudObjectField
+from src.generated.models.ad import AdField
+from src.generated.models.adaccount import AdAccountField
+from src.generated.models.customaudience import (
+    CustomAudienceCreateAdAccountParams,
+    CustomAudienceCreateSaltParams,
+    CustomAudienceCreateUserParams,
+    CustomAudienceCreateUsersReplaceParams,
+    CustomAudienceDeleteAdAccountsParams,
+    CustomAudienceDeleteUsersParams,
+    CustomAudienceField,
+    CustomAudienceGetAdAccountsParams,
+    CustomAudienceGetAdsParams,
+    CustomAudienceGetHealthParams,
+    CustomAudienceGetSaltsParams,
+    CustomAudienceGetSessionsParams,
+    CustomAudienceUpdateParams,
+)
+from src.generated.models.customaudiencehealth import CustomAudienceHealthField
+from src.generated.models.customaudiencesalts import CustomAudienceSaltsField
+from src.generated.models.customaudiencesession import CustomAudienceSessionField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +47,13 @@ customaudience_server = FastMCP(
 @wrapped_fn_tool
 def get_customaudience(
     customaudience_id: str,
-    fields: list[str] = [],
+    fields: list[CustomAudienceField] = [],
 ) -> str:
     """Get a CustomAudience object by ID.
 
     Args:
         customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See CustomAudienceField type.
     """
     obj = CustomAudience(customaudience_id)
     return obj.api_get(fields=fields)
@@ -42,14 +63,14 @@ def get_customaudience(
 @wrapped_fn_tool
 def update_customaudience(
     customaudience_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CustomAudienceField] = [],
+    params: CustomAudienceUpdateParams | dict = {},
 ) -> str:
     """Update a CustomAudience object.
 
     Args:
         customaudience_id: The ID of the CustomAudience.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See CustomAudienceField type.
         params: Parameters to update. Available params: See CustomAudienceUpdateParams type.
     """
     return CustomAudience(customaudience_id).api_update(fields=fields, params=params)
@@ -73,7 +94,7 @@ def delete_customaudience(
 @wrapped_fn_tool
 def delete_ad_accounts(
     customaudience_id: str,
-    params: dict = {},
+    params: CustomAudienceDeleteAdAccountsParams | dict = {},
 ):
     """Delete Ad Accounts for this CustomAudience.
 
@@ -88,8 +109,8 @@ def delete_ad_accounts(
 @wrapped_fn_tool
 def get_ad_accounts(
     customaudience_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountField] = [],
+    params: CustomAudienceGetAdAccountsParams | dict = {},
 ):
     """Get Ad Accounts for this CustomAudience.
 
@@ -106,7 +127,7 @@ def get_ad_accounts(
 def create_ad_account(
     customaudience_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: CustomAudienceCreateAdAccountParams | dict = {},
 ):
     """Create Ad Account for this CustomAudience.
 
@@ -122,8 +143,8 @@ def create_ad_account(
 @wrapped_fn_tool
 def get_ads(
     customaudience_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdField] = [],
+    params: CustomAudienceGetAdsParams | dict = {},
 ):
     """Get Ads for this CustomAudience.
 
@@ -139,8 +160,8 @@ def get_ads(
 @wrapped_fn_tool
 def get_health(
     customaudience_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CustomAudienceHealthField] = [],
+    params: CustomAudienceGetHealthParams | dict = {},
 ):
     """Get Health for this CustomAudience.
 
@@ -156,8 +177,8 @@ def get_health(
 @wrapped_fn_tool
 def get_salts(
     customaudience_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CustomAudienceSaltsField] = [],
+    params: CustomAudienceGetSaltsParams | dict = {},
 ):
     """Get Salts for this CustomAudience.
 
@@ -174,7 +195,7 @@ def get_salts(
 def create_salt(
     customaudience_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: CustomAudienceCreateSaltParams | dict = {},
 ):
     """Create Salt for this CustomAudience.
 
@@ -190,8 +211,8 @@ def create_salt(
 @wrapped_fn_tool
 def get_sessions(
     customaudience_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CustomAudienceSessionField] = [],
+    params: CustomAudienceGetSessionsParams | dict = {},
 ):
     """Get Sessions for this CustomAudience.
 
@@ -207,7 +228,7 @@ def get_sessions(
 @wrapped_fn_tool
 def delete_users(
     customaudience_id: str,
-    params: dict = {},
+    params: CustomAudienceDeleteUsersParams | dict = {},
 ):
     """Delete Users for this CustomAudience.
 
@@ -223,7 +244,7 @@ def delete_users(
 def create_user(
     customaudience_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: CustomAudienceCreateUserParams | dict = {},
 ):
     """Create User for this CustomAudience.
 
@@ -240,7 +261,7 @@ def create_user(
 def create_users_replace(
     customaudience_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: CustomAudienceCreateUsersReplaceParams | dict = {},
 ):
     """Create Users Replace for this CustomAudience.
 

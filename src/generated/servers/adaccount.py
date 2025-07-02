@@ -5,6 +5,142 @@ from __future__ import annotations
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 
+from src.generated.models.abstractcrudobject import AbstractCrudObjectField
+from src.generated.models.ad import AdField
+from src.generated.models.adaccount import (
+    AdAccountCreateAccountControlParams,
+    AdAccountCreateAdCreativeParams,
+    AdAccountCreateAdImageParams,
+    AdAccountCreateAdLabelParams,
+    AdAccountCreateAdParams,
+    AdAccountCreateAdPlacePageSetParams,
+    AdAccountCreateAdPlacePageSetsAsyncParams,
+    AdAccountCreateAdPlayableParams,
+    AdAccountCreateAdRulesLibraryParams,
+    AdAccountCreateAdSetParams,
+    AdAccountCreateAdsPixelParams,
+    AdAccountCreateAdVideoParams,
+    AdAccountCreateAgencyParams,
+    AdAccountCreateAssignedUserParams,
+    AdAccountCreateAsyncAdCreativeParams,
+    AdAccountCreateAsyncAdRequestSetParams,
+    AdAccountCreateAsyncBatchRequestParams,
+    AdAccountCreateBlockListDraftParams,
+    AdAccountCreateBrandSafetyContentFilterLevelParams,
+    AdAccountCreateCampaignParams,
+    AdAccountCreateCustomAudienceParams,
+    AdAccountCreateCustomAudiencesToParams,
+    AdAccountCreateCustomConversionParams,
+    AdAccountCreateProductAudienceParams,
+    AdAccountCreatePublisherBlockListParams,
+    AdAccountCreateReachFrequencyPredictionParams,
+    AdAccountCreateRecommendationParams,
+    AdAccountCreateSubscribedAppParams,
+    AdAccountCreateTrackingParams,
+    AdAccountCreateValueRuleSetParams,
+    AdAccountCreateVideoAdParams,
+    AdAccountDeleteAdImagesParams,
+    AdAccountDeleteAdVideosParams,
+    AdAccountDeleteAgenciesParams,
+    AdAccountDeleteAssignedUsersParams,
+    AdAccountDeleteCampaignsParams,
+    AdAccountDeleteSubscribedAppsParams,
+    AdAccountDeleteUsersOfAnyAudienceParams,
+    AdAccountField,
+    AdAccountGetActivitiesParams,
+    AdAccountGetAdCreativesByLabelsParams,
+    AdAccountGetAdImagesParams,
+    AdAccountGetAdRulesHistoryParams,
+    AdAccountGetAdSavedKeywordsParams,
+    AdAccountGetAdsByLabelsParams,
+    AdAccountGetAdSetsByLabelsParams,
+    AdAccountGetAdSetsParams,
+    AdAccountGetAdsParams,
+    AdAccountGetAdsPixelsParams,
+    AdAccountGetAdsReportingMmmReportsParams,
+    AdAccountGetAdsVolumeParams,
+    AdAccountGetAdvertisableApplicationsParams,
+    AdAccountGetAdVideosParams,
+    AdAccountGetAssignedUsersParams,
+    AdAccountGetAsyncAdCreativesParams,
+    AdAccountGetAsyncAdRequestSetsParams,
+    AdAccountGetAsyncRequestsParams,
+    AdAccountGetBroadTargetingCategoriesParams,
+    AdAccountGetBusinessProjectsParams,
+    AdAccountGetCampaignsByLabelsParams,
+    AdAccountGetCampaignsParams,
+    AdAccountGetConnectedInstagramAccountsWithIabpParams,
+    AdAccountGetCustomAudiencesParams,
+    AdAccountGetDeliveryEstimateParams,
+    AdAccountGetDeprecatedTargetingAdSetsParams,
+    AdAccountGetGeneratePreviewsParams,
+    AdAccountGetInsightsAsyncParams,
+    AdAccountGetInsightsParams,
+    AdAccountGetIosFourteenCampaignLimitsParams,
+    AdAccountGetMatchedSearchApplicationsParams,
+    AdAccountGetMinimumBudgetsParams,
+    AdAccountGetOnBehalfRequestsParams,
+    AdAccountGetReachEstimateParams,
+    AdAccountGetSavedAudiencesParams,
+    AdAccountGetTargetingBrowseParams,
+    AdAccountGetTargetingSearchParams,
+    AdAccountGetTargetingSentenceLinesParams,
+    AdAccountGetTargetingSuggestionsParams,
+    AdAccountGetTargetingValidATIOnParams,
+    AdAccountGetValueRuleSetParams,
+    AdAccountGetVideoAdsParams,
+    AdAccountUpdateParams,
+)
+from src.generated.models.adaccountadruleshistory import AdAccountAdRulesHistoryField
+from src.generated.models.adaccountadvolume import AdAccountAdVolumeField
+from src.generated.models.adaccountbusinessconstraints import AdAccountBusinessConstraintsField
+from src.generated.models.adaccountdeliveryestimate import AdAccountDeliveryEstimateField
+from src.generated.models.adaccountiosfourteencampaignlimits import (
+    AdAccountIosFourteenCampaignLimitsField,
+)
+from src.generated.models.adaccountmatchedsearchapplicationsedgedata import (
+    AdAccountMatchedSearchApplicationsEdgeDataField,
+)
+from src.generated.models.adaccountreachestimate import AdAccountReachEstimateField
+from src.generated.models.adaccountrecommendations import AdAccountRecommendationsField
+from src.generated.models.adaccountsubscribedapps import AdAccountSubscribedAppsField
+from src.generated.models.adaccounttargetingunified import AdAccountTargetingUnifiedField
+from src.generated.models.adactivity import AdActivityField
+from src.generated.models.adasyncrequestset import AdAsyncRequestSetField
+from src.generated.models.adcreative import AdCreativeField
+from src.generated.models.adimage import AdImageField
+from src.generated.models.adlabel import AdLabelField
+from src.generated.models.adplacepageset import AdPlacePageSetField
+from src.generated.models.adpreview import AdPreviewField
+from src.generated.models.adreportrun import AdReportRunField
+from src.generated.models.adrule import AdRuleField
+from src.generated.models.adsavedkeywords import AdSavedKeywordsField
+from src.generated.models.adset import AdSetField
+from src.generated.models.adsinsights import AdsInsightsField
+from src.generated.models.adspixel import AdsPixelField
+from src.generated.models.adsreportbuildermmmreport import AdsReportBuilderMMMReportField
+from src.generated.models.adsvalueadjustmentrulecollection import (
+    AdsValueAdjustmentRuleCollectionField,
+)
+from src.generated.models.advideo import AdVideoField
+from src.generated.models.application import ApplicationField
+from src.generated.models.assigneduser import AssignedUserField
+from src.generated.models.asyncrequest import AsyncRequestField
+from src.generated.models.broadtargetingcategories import BroadTargetingCategoriesField
+from src.generated.models.businessownedobjectonbehalfofrequest import (
+    BusinessOwnedObjectOnBehalfOfRequestField,
+)
+from src.generated.models.businessproject import BusinessProjectField
+from src.generated.models.campaign import CampaignField
+from src.generated.models.customaudience import CustomAudienceField
+from src.generated.models.customconversion import CustomConversionField
+from src.generated.models.iguser import IGUserField
+from src.generated.models.minimumbudget import MinimumBudgetField
+from src.generated.models.playablecontent import PlayableContentField
+from src.generated.models.publisherblocklist import PublisherBlockListField
+from src.generated.models.reachfrequencyprediction import ReachFrequencyPredictionField
+from src.generated.models.savedaudience import SavedAudienceField
+from src.generated.models.targetingsentenceline import TargetingSentenceLineField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,13 +162,13 @@ adaccount_server = FastMCP(
 @wrapped_fn_tool
 def get_adaccount(
     adaccount_id: str,
-    fields: list[str] = [],
+    fields: list[AdAccountField] = [],
 ) -> str:
     """Get a AdAccount object by ID.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to retrieve. Available fields: See AdAccountField type.
     """
     obj = AdAccount(adaccount_id)
     return obj.api_get(fields=fields)
@@ -42,14 +178,14 @@ def get_adaccount(
 @wrapped_fn_tool
 def update_adaccount(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountField] = [],
+    params: AdAccountUpdateParams | dict = {},
 ) -> str:
     """Update a AdAccount object.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        fields: Fields to return after update. Available fields: See AdAccountField type.
         params: Parameters to update. Available params: See AdAccountUpdateParams type.
     """
     return AdAccount(adaccount_id).api_update(fields=fields, params=params)
@@ -61,7 +197,7 @@ def update_adaccount(
 def create_account_control(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAccountControlParams | dict = {},
 ):
     """Create Account Control for this AdAccount.
 
@@ -77,8 +213,8 @@ def create_account_control(
 @wrapped_fn_tool
 def get_activities(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdActivityField] = [],
+    params: AdAccountGetActivitiesParams | dict = {},
 ):
     """Get Activities for this AdAccount.
 
@@ -95,7 +231,7 @@ def get_activities(
 def create_ad_place_page_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdPlacePageSetParams | dict = {},
 ):
     """Create Ad Place Page Set for this AdAccount.
 
@@ -112,7 +248,7 @@ def create_ad_place_page_set(
 def create_ad_place_page_sets_async(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdPlacePageSetsAsyncParams | dict = {},
 ):
     """Create Ad Place Page Sets Async for this AdAccount.
 
@@ -128,8 +264,8 @@ def create_ad_place_page_sets_async(
 @wrapped_fn_tool
 def get_ad_saved_keywords(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdSavedKeywordsField] = [],
+    params: AdAccountGetAdSavedKeywordsParams | dict = {},
 ):
     """Get Ad Saved Keywords for this AdAccount.
 
@@ -146,7 +282,7 @@ def get_ad_saved_keywords(
 def create_ad_creative(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdCreativeParams | dict = {},
 ):
     """Create Ad Creative for this AdAccount.
 
@@ -162,8 +298,8 @@ def create_ad_creative(
 @wrapped_fn_tool
 def get_ad_creatives_by_labels(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdCreativeField] = [],
+    params: AdAccountGetAdCreativesByLabelsParams | dict = {},
 ):
     """Get Ad Creatives By Labels for this AdAccount.
 
@@ -179,7 +315,7 @@ def get_ad_creatives_by_labels(
 @wrapped_fn_tool
 def delete_ad_images(
     adaccount_id: str,
-    params: dict = {},
+    params: AdAccountDeleteAdImagesParams | dict = {},
 ):
     """Delete Ad Images for this AdAccount.
 
@@ -194,8 +330,8 @@ def delete_ad_images(
 @wrapped_fn_tool
 def get_ad_images(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdImageField] = [],
+    params: AdAccountGetAdImagesParams | dict = {},
 ):
     """Get Ad Images for this AdAccount.
 
@@ -212,7 +348,7 @@ def get_ad_images(
 def create_ad_image(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdImageParams | dict = {},
 ):
     """Create Ad Image for this AdAccount.
 
@@ -229,7 +365,7 @@ def create_ad_image(
 def create_ad_label(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdLabelParams | dict = {},
 ):
     """Create Ad Label for this AdAccount.
 
@@ -246,7 +382,7 @@ def create_ad_label(
 def create_ad_playable(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdPlayableParams | dict = {},
 ):
     """Create Ad Playable for this AdAccount.
 
@@ -262,8 +398,8 @@ def create_ad_playable(
 @wrapped_fn_tool
 def get_ad_rules_history(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountAdRulesHistoryField] = [],
+    params: AdAccountGetAdRulesHistoryParams | dict = {},
 ):
     """Get Ad Rules History for this AdAccount.
 
@@ -280,7 +416,7 @@ def get_ad_rules_history(
 def create_ad_rules_library(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdRulesLibraryParams | dict = {},
 ):
     """Create Ad Rules Library for this AdAccount.
 
@@ -296,8 +432,8 @@ def create_ad_rules_library(
 @wrapped_fn_tool
 def get_ads(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdField] = [],
+    params: AdAccountGetAdsParams | dict = {},
 ):
     """Get Ads for this AdAccount.
 
@@ -314,7 +450,7 @@ def get_ads(
 def create_ad(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdParams | dict = {},
 ):
     """Create Ad for this AdAccount.
 
@@ -330,8 +466,8 @@ def create_ad(
 @wrapped_fn_tool
 def get_ads_reporting_mmm_reports(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsReportBuilderMMMReportField] = [],
+    params: AdAccountGetAdsReportingMmmReportsParams | dict = {},
 ):
     """Get Ads Reporting Mmm Reports for this AdAccount.
 
@@ -347,8 +483,8 @@ def get_ads_reporting_mmm_reports(
 @wrapped_fn_tool
 def get_ads_volume(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountAdVolumeField] = [],
+    params: AdAccountGetAdsVolumeParams | dict = {},
 ):
     """Get Ads Volume for this AdAccount.
 
@@ -364,8 +500,8 @@ def get_ads_volume(
 @wrapped_fn_tool
 def get_ads_by_labels(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdField] = [],
+    params: AdAccountGetAdsByLabelsParams | dict = {},
 ):
     """Get Ads By Labels for this AdAccount.
 
@@ -381,8 +517,8 @@ def get_ads_by_labels(
 @wrapped_fn_tool
 def get_ad_sets(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdSetField] = [],
+    params: AdAccountGetAdSetsParams | dict = {},
 ):
     """Get Ad Sets for this AdAccount.
 
@@ -399,7 +535,7 @@ def get_ad_sets(
 def create_ad_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdSetParams | dict = {},
 ):
     """Create Ad Set for this AdAccount.
 
@@ -415,8 +551,8 @@ def create_ad_set(
 @wrapped_fn_tool
 def get_ad_sets_by_labels(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdSetField] = [],
+    params: AdAccountGetAdSetsByLabelsParams | dict = {},
 ):
     """Get Ad Sets By Labels for this AdAccount.
 
@@ -432,8 +568,8 @@ def get_ad_sets_by_labels(
 @wrapped_fn_tool
 def get_ads_pixels(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsPixelField] = [],
+    params: AdAccountGetAdsPixelsParams | dict = {},
 ):
     """Get Ads Pixels for this AdAccount.
 
@@ -450,7 +586,7 @@ def get_ads_pixels(
 def create_ads_pixel(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdsPixelParams | dict = {},
 ):
     """Create Ads Pixel for this AdAccount.
 
@@ -466,8 +602,8 @@ def create_ads_pixel(
 @wrapped_fn_tool
 def get_advertisable_applications(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[ApplicationField] = [],
+    params: AdAccountGetAdvertisableApplicationsParams | dict = {},
 ):
     """Get Advertisable Applications for this AdAccount.
 
@@ -483,7 +619,7 @@ def get_advertisable_applications(
 @wrapped_fn_tool
 def delete_ad_videos(
     adaccount_id: str,
-    params: dict = {},
+    params: AdAccountDeleteAdVideosParams | dict = {},
 ):
     """Delete Ad Videos for this AdAccount.
 
@@ -498,8 +634,8 @@ def delete_ad_videos(
 @wrapped_fn_tool
 def get_ad_videos(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdVideoField] = [],
+    params: AdAccountGetAdVideosParams | dict = {},
 ):
     """Get Ad Videos for this AdAccount.
 
@@ -516,7 +652,7 @@ def get_ad_videos(
 def create_ad_video(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAdVideoParams | dict = {},
 ):
     """Create Ad Video for this AdAccount.
 
@@ -532,7 +668,7 @@ def create_ad_video(
 @wrapped_fn_tool
 def delete_agencies(
     adaccount_id: str,
-    params: dict = {},
+    params: AdAccountDeleteAgenciesParams | dict = {},
 ):
     """Delete Agencies for this AdAccount.
 
@@ -548,7 +684,7 @@ def delete_agencies(
 def create_agency(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAgencyParams | dict = {},
 ):
     """Create Agency for this AdAccount.
 
@@ -564,7 +700,7 @@ def create_agency(
 @wrapped_fn_tool
 def delete_assigned_users(
     adaccount_id: str,
-    params: dict = {},
+    params: AdAccountDeleteAssignedUsersParams | dict = {},
 ):
     """Delete Assigned Users for this AdAccount.
 
@@ -579,8 +715,8 @@ def delete_assigned_users(
 @wrapped_fn_tool
 def get_assigned_users(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AssignedUserField] = [],
+    params: AdAccountGetAssignedUsersParams | dict = {},
 ):
     """Get Assigned Users for this AdAccount.
 
@@ -597,7 +733,7 @@ def get_assigned_users(
 def create_assigned_user(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAssignedUserParams | dict = {},
 ):
     """Create Assigned User for this AdAccount.
 
@@ -614,7 +750,7 @@ def create_assigned_user(
 def create_async_batch_request(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAsyncBatchRequestParams | dict = {},
 ):
     """Create Async Batch Request for this AdAccount.
 
@@ -630,8 +766,8 @@ def create_async_batch_request(
 @wrapped_fn_tool
 def get_async_requests(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AsyncRequestField] = [],
+    params: AdAccountGetAsyncRequestsParams | dict = {},
 ):
     """Get Async Requests for this AdAccount.
 
@@ -647,8 +783,8 @@ def get_async_requests(
 @wrapped_fn_tool
 def get_async_ad_creatives(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAsyncRequestSetField] = [],
+    params: AdAccountGetAsyncAdCreativesParams | dict = {},
 ):
     """Get Async Ad Creatives for this AdAccount.
 
@@ -665,7 +801,7 @@ def get_async_ad_creatives(
 def create_async_ad_creative(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAsyncAdCreativeParams | dict = {},
 ):
     """Create Async Ad Creative for this AdAccount.
 
@@ -681,8 +817,8 @@ def create_async_ad_creative(
 @wrapped_fn_tool
 def get_async_ad_request_sets(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAsyncRequestSetField] = [],
+    params: AdAccountGetAsyncAdRequestSetsParams | dict = {},
 ):
     """Get Async Ad Request Sets for this AdAccount.
 
@@ -699,7 +835,7 @@ def get_async_ad_request_sets(
 def create_async_ad_request_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateAsyncAdRequestSetParams | dict = {},
 ):
     """Create Async Ad Request Set for this AdAccount.
 
@@ -716,7 +852,7 @@ def create_async_ad_request_set(
 def create_block_list_draft(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateBlockListDraftParams | dict = {},
 ):
     """Create Block List Draft for this AdAccount.
 
@@ -733,7 +869,7 @@ def create_block_list_draft(
 def create_brand_safety_content_filter_level(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateBrandSafetyContentFilterLevelParams | dict = {},
 ):
     """Create Brand Safety Content Filter Level for this AdAccount.
 
@@ -751,8 +887,8 @@ def create_brand_safety_content_filter_level(
 @wrapped_fn_tool
 def get_broad_targeting_categories(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BroadTargetingCategoriesField] = [],
+    params: AdAccountGetBroadTargetingCategoriesParams | dict = {},
 ):
     """Get Broad Targeting Categories for this AdAccount.
 
@@ -768,8 +904,8 @@ def get_broad_targeting_categories(
 @wrapped_fn_tool
 def get_business_projects(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessProjectField] = [],
+    params: AdAccountGetBusinessProjectsParams | dict = {},
 ):
     """Get Business Projects for this AdAccount.
 
@@ -785,7 +921,7 @@ def get_business_projects(
 @wrapped_fn_tool
 def delete_campaigns(
     adaccount_id: str,
-    params: dict = {},
+    params: AdAccountDeleteCampaignsParams | dict = {},
 ):
     """Delete Campaigns for this AdAccount.
 
@@ -800,8 +936,8 @@ def delete_campaigns(
 @wrapped_fn_tool
 def get_campaigns(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CampaignField] = [],
+    params: AdAccountGetCampaignsParams | dict = {},
 ):
     """Get Campaigns for this AdAccount.
 
@@ -818,7 +954,7 @@ def get_campaigns(
 def create_campaign(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateCampaignParams | dict = {},
 ):
     """Create Campaign for this AdAccount.
 
@@ -834,8 +970,8 @@ def create_campaign(
 @wrapped_fn_tool
 def get_campaigns_by_labels(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CampaignField] = [],
+    params: AdAccountGetCampaignsByLabelsParams | dict = {},
 ):
     """Get Campaigns By Labels for this AdAccount.
 
@@ -851,8 +987,8 @@ def get_campaigns_by_labels(
 @wrapped_fn_tool
 def get_connected_instagram_accounts_with_iabp(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[IGUserField] = [],
+    params: AdAccountGetConnectedInstagramAccountsWithIabpParams | dict = {},
 ):
     """Get Connected Instagram Accounts With Iabp for this AdAccount.
 
@@ -870,8 +1006,8 @@ def get_connected_instagram_accounts_with_iabp(
 @wrapped_fn_tool
 def get_custom_audiences(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[CustomAudienceField] = [],
+    params: AdAccountGetCustomAudiencesParams | dict = {},
 ):
     """Get Custom Audiences for this AdAccount.
 
@@ -888,7 +1024,7 @@ def get_custom_audiences(
 def create_custom_audience(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateCustomAudienceParams | dict = {},
 ):
     """Create Custom Audience for this AdAccount.
 
@@ -905,7 +1041,7 @@ def create_custom_audience(
 def create_custom_audiences_to(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateCustomAudiencesToParams | dict = {},
 ):
     """Create Custom Audiences To for this AdAccount.
 
@@ -922,7 +1058,7 @@ def create_custom_audiences_to(
 def create_custom_conversion(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateCustomConversionParams | dict = {},
 ):
     """Create Custom Conversion for this AdAccount.
 
@@ -938,8 +1074,8 @@ def create_custom_conversion(
 @wrapped_fn_tool
 def get_delivery_estimate(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountDeliveryEstimateField] = [],
+    params: AdAccountGetDeliveryEstimateParams | dict = {},
 ):
     """Get Delivery Estimate for this AdAccount.
 
@@ -955,8 +1091,8 @@ def get_delivery_estimate(
 @wrapped_fn_tool
 def get_deprecated_targeting_ad_sets(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdSetField] = [],
+    params: AdAccountGetDeprecatedTargetingAdSetsParams | dict = {},
 ):
     """Get Deprecated Targeting Ad Sets for this AdAccount.
 
@@ -972,8 +1108,8 @@ def get_deprecated_targeting_ad_sets(
 @wrapped_fn_tool
 def get_generate_previews(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdPreviewField] = [],
+    params: AdAccountGetGeneratePreviewsParams | dict = {},
 ):
     """Get Generate Previews for this AdAccount.
 
@@ -989,8 +1125,8 @@ def get_generate_previews(
 @wrapped_fn_tool
 def get_insights(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsInsightsField] = [],
+    params: AdAccountGetInsightsParams | dict = {},
 ):
     """Get Insights for this AdAccount.
 
@@ -1006,8 +1142,8 @@ def get_insights(
 @wrapped_fn_tool
 def get_insights_async(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdReportRunField] = [],
+    params: AdAccountGetInsightsAsyncParams | dict = {},
 ):
     """Get Insights Async for this AdAccount.
 
@@ -1023,8 +1159,8 @@ def get_insights_async(
 @wrapped_fn_tool
 def get_ios_fourteen_campaign_limits(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountIosFourteenCampaignLimitsField] = [],
+    params: AdAccountGetIosFourteenCampaignLimitsParams | dict = {},
 ):
     """Get Ios Fourteen Campaign Limits for this AdAccount.
 
@@ -1040,8 +1176,8 @@ def get_ios_fourteen_campaign_limits(
 @wrapped_fn_tool
 def get_matched_search_applications(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountMatchedSearchApplicationsEdgeDataField] = [],
+    params: AdAccountGetMatchedSearchApplicationsParams | dict = {},
 ):
     """Get Matched Search Applications for this AdAccount.
 
@@ -1057,8 +1193,8 @@ def get_matched_search_applications(
 @wrapped_fn_tool
 def get_minimum_budgets(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[MinimumBudgetField] = [],
+    params: AdAccountGetMinimumBudgetsParams | dict = {},
 ):
     """Get Minimum Budgets for this AdAccount.
 
@@ -1074,8 +1210,8 @@ def get_minimum_budgets(
 @wrapped_fn_tool
 def get_on_behalf_requests(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[BusinessOwnedObjectOnBehalfOfRequestField] = [],
+    params: AdAccountGetOnBehalfRequestsParams | dict = {},
 ):
     """Get On Behalf Requests for this AdAccount.
 
@@ -1092,7 +1228,7 @@ def get_on_behalf_requests(
 def create_product_audience(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateProductAudienceParams | dict = {},
 ):
     """Create Product Audience for this AdAccount.
 
@@ -1109,7 +1245,7 @@ def create_product_audience(
 def create_publisher_block_list(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreatePublisherBlockListParams | dict = {},
 ):
     """Create Publisher Block List for this AdAccount.
 
@@ -1125,8 +1261,8 @@ def create_publisher_block_list(
 @wrapped_fn_tool
 def get_reach_estimate(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountReachEstimateField] = [],
+    params: AdAccountGetReachEstimateParams | dict = {},
 ):
     """Get Reach Estimate for this AdAccount.
 
@@ -1143,7 +1279,7 @@ def get_reach_estimate(
 def create_reach_frequency_prediction(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateReachFrequencyPredictionParams | dict = {},
 ):
     """Create Reach Frequency Prediction for this AdAccount.
 
@@ -1160,7 +1296,7 @@ def create_reach_frequency_prediction(
 def create_recommendation(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateRecommendationParams | dict = {},
 ):
     """Create Recommendation for this AdAccount.
 
@@ -1176,8 +1312,8 @@ def create_recommendation(
 @wrapped_fn_tool
 def get_saved_audiences(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[SavedAudienceField] = [],
+    params: AdAccountGetSavedAudiencesParams | dict = {},
 ):
     """Get Saved Audiences for this AdAccount.
 
@@ -1193,7 +1329,7 @@ def get_saved_audiences(
 @wrapped_fn_tool
 def delete_subscribed_apps(
     adaccount_id: str,
-    params: dict = {},
+    params: AdAccountDeleteSubscribedAppsParams | dict = {},
 ):
     """Delete Subscribed Apps for this AdAccount.
 
@@ -1209,7 +1345,7 @@ def delete_subscribed_apps(
 def create_subscribed_app(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateSubscribedAppParams | dict = {},
 ):
     """Create Subscribed App for this AdAccount.
 
@@ -1225,8 +1361,8 @@ def create_subscribed_app(
 @wrapped_fn_tool
 def get_targeting_browse(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingBrowseParams | dict = {},
 ):
     """Get Targeting Browse for this AdAccount.
 
@@ -1242,8 +1378,8 @@ def get_targeting_browse(
 @wrapped_fn_tool
 def get_targeting_search(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingSearchParams | dict = {},
 ):
     """Get Targeting Search for this AdAccount.
 
@@ -1259,8 +1395,8 @@ def get_targeting_search(
 @wrapped_fn_tool
 def get_targeting_sentence_lines(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[TargetingSentenceLineField] = [],
+    params: AdAccountGetTargetingSentenceLinesParams | dict = {},
 ):
     """Get Targeting Sentence Lines for this AdAccount.
 
@@ -1276,8 +1412,8 @@ def get_targeting_sentence_lines(
 @wrapped_fn_tool
 def get_targeting_suggestions(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingSuggestionsParams | dict = {},
 ):
     """Get Targeting Suggestions for this AdAccount.
 
@@ -1293,8 +1429,8 @@ def get_targeting_suggestions(
 @wrapped_fn_tool
 def get_targeting_valid_a_t_i_on(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdAccountTargetingUnifiedField] = [],
+    params: AdAccountGetTargetingValidATIOnParams | dict = {},
 ):
     """Get Targeting Valid A T I On for this AdAccount.
 
@@ -1311,7 +1447,7 @@ def get_targeting_valid_a_t_i_on(
 def create_tracking(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateTrackingParams | dict = {},
 ):
     """Create Tracking for this AdAccount.
 
@@ -1327,7 +1463,7 @@ def create_tracking(
 @wrapped_fn_tool
 def delete_users_of_any_audience(
     adaccount_id: str,
-    params: dict = {},
+    params: AdAccountDeleteUsersOfAnyAudienceParams | dict = {},
 ):
     """Delete Users Of Any Audience for this AdAccount.
 
@@ -1342,8 +1478,8 @@ def delete_users_of_any_audience(
 @wrapped_fn_tool
 def get_value_rule_set(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdsValueAdjustmentRuleCollectionField] = [],
+    params: AdAccountGetValueRuleSetParams | dict = {},
 ):
     """Get Value Rule Set for this AdAccount.
 
@@ -1360,7 +1496,7 @@ def get_value_rule_set(
 def create_value_rule_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateValueRuleSetParams | dict = {},
 ):
     """Create Value Rule Set for this AdAccount.
 
@@ -1376,8 +1512,8 @@ def create_value_rule_set(
 @wrapped_fn_tool
 def get_video_ads(
     adaccount_id: str,
-    fields: list[str] = [],
-    params: dict = {},
+    fields: list[AdVideoField] = [],
+    params: AdAccountGetVideoAdsParams | dict = {},
 ):
     """Get Video Ads for this AdAccount.
 
@@ -1394,7 +1530,7 @@ def get_video_ads(
 def create_video_ad(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict = {},
+    params: AdAccountCreateVideoAdParams | dict = {},
 ):
     """Create Video Ad for this AdAccount.
 
