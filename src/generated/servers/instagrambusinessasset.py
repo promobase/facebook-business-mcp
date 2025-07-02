@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-instagrambusinessasset")
 
 
 @mcp.tool()
-async def create_instagrambusinessasset(
-    object_id: str,
+async def api_create_instagrambusinessasset(
+    instagrambusinessasset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramBusinessAsset(fbid=object_id).api_create(
+    result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_instagrambusinessasset(
 
 
 @mcp.tool()
-async def delete_instagrambusinessasset(
-    object_id: str,
+async def api_delete_instagrambusinessasset(
+    instagrambusinessasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramBusinessAsset(fbid=object_id).api_delete(
+    result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_instagrambusinessasset(
 
 
 @mcp.tool()
-async def get_instagrambusinessasset(
-    object_id: str,
+async def api_get_instagrambusinessasset(
+    instagrambusinessasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramBusinessAsset(fbid=object_id).api_get(
+    result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_instagrambusinessasset(
 
 
 @mcp.tool()
-async def update_instagrambusinessasset(
-    object_id: str,
+async def api_update_instagrambusinessasset(
+    instagrambusinessasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramBusinessAsset(fbid=object_id).api_update(
+    result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_update(
         fields=fields,
         params=params,
     )

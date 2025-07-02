@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-commercemerchantsettings")
 
 
 @mcp.tool()
-async def create_commercemerchantsettings(
-    object_id: str,
+async def api_create_commercemerchantsettings(
+    commercemerchantsettings_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).api_create(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_commercemerchantsettings(
 
 
 @mcp.tool()
-async def delete_commercemerchantsettings(
-    object_id: str,
+async def api_delete_commercemerchantsettings(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).api_delete(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_commercemerchantsettings(
-    object_id: str,
+async def api_get_commercemerchantsettings(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).api_get(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_commercemerchantsettings(
 
 
 @mcp.tool()
-async def update_commercemerchantsettings(
-    object_id: str,
+async def api_update_commercemerchantsettings(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).api_update(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_commercemerchantsettings(
 
 
 @mcp.tool()
-async def create_acknowledge_order_for_commercemerchantsettings(
-    object_id: str,
+async def create_acknowledge_order(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).create_acknowledge_order(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).create_acknowledge_order(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_acknowledge_order_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def create_order_management_app_for_commercemerchantsettings(
-    object_id: str,
+async def create_order_management_app(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).create_order_management_app(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).create_order_management_app(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_order_management_app_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def create_shipping_profile_for_commercemerchantsettings(
-    object_id: str,
+async def create_shipping_profile(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).create_shipping_profile(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).create_shipping_profile(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_shipping_profile_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_commerce_orders_for_commercemerchantsettings(
-    object_id: str,
+async def get_commerce_orders(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_commerce_orders(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_commerce_orders(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_commerce_orders_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_commerce_payouts_for_commercemerchantsettings(
-    object_id: str,
+async def get_commerce_payouts(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_commerce_payouts(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_commerce_payouts(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_commerce_payouts_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_commerce_transactions_for_commercemerchantsettings(
-    object_id: str,
+async def get_commerce_transactions(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_commerce_transactions(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_commerce_transactions(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_commerce_transactions_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_order_management_apps_for_commercemerchantsettings(
-    object_id: str,
+async def get_order_management_apps(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_order_management_apps(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_order_management_apps(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_order_management_apps_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_product_catalogs_for_commercemerchantsettings(
-    object_id: str,
+async def get_product_catalogs(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_product_catalogs(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_product_catalogs(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_product_catalogs_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_returns_for_commercemerchantsettings(
-    object_id: str,
+async def get_returns(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_returns(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_returns(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_returns_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_setup_status_for_commercemerchantsettings(
-    object_id: str,
+async def get_setup_status(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_setup_status(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_setup_status(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_setup_status_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_shipping_profiles_for_commercemerchantsettings(
-    object_id: str,
+async def get_shipping_profiles(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_shipping_profiles(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_shipping_profiles(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_shipping_profiles_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_shops_for_commercemerchantsettings(
-    object_id: str,
+async def get_shops(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_shops(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_shops(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def get_shops_for_commercemerchantsettings(
 
 
 @mcp.tool()
-async def get_tax_settings_for_commercemerchantsettings(
-    object_id: str,
+async def get_tax_settings(
+    commercemerchantsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceMerchantSettings(fbid=object_id).get_tax_settings(
+    result = CommerceMerchantSettings(fbid=commercemerchantsettings_id).get_tax_settings(
         fields=fields,
         params=params,
     )

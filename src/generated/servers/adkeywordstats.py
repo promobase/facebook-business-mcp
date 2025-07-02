@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adkeywordstats")
 
 
 @mcp.tool()
-async def create_adkeywordstats(
-    object_id: str,
+async def api_create_adkeywordstats(
+    adkeywordstats_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdKeywordStats(fbid=object_id).api_create(
+    result = AdKeywordStats(fbid=adkeywordstats_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adkeywordstats(
 
 
 @mcp.tool()
-async def delete_adkeywordstats(
-    object_id: str,
+async def api_delete_adkeywordstats(
+    adkeywordstats_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdKeywordStats(fbid=object_id).api_delete(
+    result = AdKeywordStats(fbid=adkeywordstats_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adkeywordstats(
 
 
 @mcp.tool()
-async def get_adkeywordstats(
-    object_id: str,
+async def api_get_adkeywordstats(
+    adkeywordstats_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdKeywordStats(fbid=object_id).api_get(
+    result = AdKeywordStats(fbid=adkeywordstats_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adkeywordstats(
 
 
 @mcp.tool()
-async def update_adkeywordstats(
-    object_id: str,
+async def api_update_adkeywordstats(
+    adkeywordstats_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdKeywordStats(fbid=object_id).api_update(
+    result = AdKeywordStats(fbid=adkeywordstats_id).api_update(
         fields=fields,
         params=params,
     )

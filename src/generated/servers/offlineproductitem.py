@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-offlineproductitem")
 
 
 @mcp.tool()
-async def create_offlineproductitem(
-    object_id: str,
+async def api_create_offlineproductitem(
+    offlineproductitem_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineProductItem(fbid=object_id).api_create(
+    result = OfflineProductItem(fbid=offlineproductitem_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_offlineproductitem(
 
 
 @mcp.tool()
-async def delete_offlineproductitem(
-    object_id: str,
+async def api_delete_offlineproductitem(
+    offlineproductitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineProductItem(fbid=object_id).api_delete(
+    result = OfflineProductItem(fbid=offlineproductitem_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_offlineproductitem(
 
 
 @mcp.tool()
-async def get_offlineproductitem(
-    object_id: str,
+async def api_get_offlineproductitem(
+    offlineproductitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineProductItem(fbid=object_id).api_get(
+    result = OfflineProductItem(fbid=offlineproductitem_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_offlineproductitem(
 
 
 @mcp.tool()
-async def update_offlineproductitem(
-    object_id: str,
+async def api_update_offlineproductitem(
+    offlineproductitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineProductItem(fbid=object_id).api_update(
+    result = OfflineProductItem(fbid=offlineproductitem_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_offlineproductitem(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_offlineproductitem(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    offlineproductitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineProductItem(fbid=object_id).get_channels_to_integrity_status(
+    result = OfflineProductItem(fbid=offlineproductitem_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_offlineproductitem(
 
 
 @mcp.tool()
-async def get_override_details_for_offlineproductitem(
-    object_id: str,
+async def get_override_details(
+    offlineproductitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineProductItem(fbid=object_id).get_override_details(
+    result = OfflineProductItem(fbid=offlineproductitem_id).get_override_details(
         fields=fields,
         params=params,
     )

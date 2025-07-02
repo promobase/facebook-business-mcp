@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-dynamicitemdisplaybundle")
 
 
 @mcp.tool()
-async def create_dynamicitemdisplaybundle(
-    object_id: str,
+async def api_create_dynamicitemdisplaybundle(
+    dynamicitemdisplaybundle_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundle(fbid=object_id).api_create(
+    result = DynamicItemDisplayBundle(fbid=dynamicitemdisplaybundle_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_dynamicitemdisplaybundle(
 
 
 @mcp.tool()
-async def delete_dynamicitemdisplaybundle(
-    object_id: str,
+async def api_delete_dynamicitemdisplaybundle(
+    dynamicitemdisplaybundle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundle(fbid=object_id).api_delete(
+    result = DynamicItemDisplayBundle(fbid=dynamicitemdisplaybundle_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_dynamicitemdisplaybundle(
 
 
 @mcp.tool()
-async def get_dynamicitemdisplaybundle(
-    object_id: str,
+async def api_get_dynamicitemdisplaybundle(
+    dynamicitemdisplaybundle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundle(fbid=object_id).api_get(
+    result = DynamicItemDisplayBundle(fbid=dynamicitemdisplaybundle_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_dynamicitemdisplaybundle(
 
 
 @mcp.tool()
-async def update_dynamicitemdisplaybundle(
-    object_id: str,
+async def api_update_dynamicitemdisplaybundle(
+    dynamicitemdisplaybundle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundle(fbid=object_id).api_update(
+    result = DynamicItemDisplayBundle(fbid=dynamicitemdisplaybundle_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-coverphoto")
 
 
 @mcp.tool()
-async def create_coverphoto(
-    object_id: str,
+async def api_create_coverphoto(
+    coverphoto_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CoverPhoto(fbid=object_id).api_create(
+    result = CoverPhoto(fbid=coverphoto_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_coverphoto(
 
 
 @mcp.tool()
-async def delete_coverphoto(
-    object_id: str,
+async def api_delete_coverphoto(
+    coverphoto_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CoverPhoto(fbid=object_id).api_delete(
+    result = CoverPhoto(fbid=coverphoto_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_coverphoto(
 
 
 @mcp.tool()
-async def get_coverphoto(
-    object_id: str,
+async def api_get_coverphoto(
+    coverphoto_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CoverPhoto(fbid=object_id).api_get(
+    result = CoverPhoto(fbid=coverphoto_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_coverphoto(
 
 
 @mcp.tool()
-async def update_coverphoto(
-    object_id: str,
+async def api_update_coverphoto(
+    coverphoto_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CoverPhoto(fbid=object_id).api_update(
+    result = CoverPhoto(fbid=coverphoto_id).api_update(
         fields=fields,
         params=params,
     )

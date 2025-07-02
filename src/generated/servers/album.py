@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-album")
 
 
 @mcp.tool()
-async def create_album(
-    object_id: str,
+async def api_create_album(
+    album_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).api_create(
+    result = Album(fbid=album_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_album(
 
 
 @mcp.tool()
-async def delete_album(
-    object_id: str,
+async def api_delete_album(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).api_delete(
+    result = Album(fbid=album_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_album(
 
 
 @mcp.tool()
-async def get_album(
-    object_id: str,
+async def api_get_album(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).api_get(
+    result = Album(fbid=album_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_album(
 
 
 @mcp.tool()
-async def update_album(
-    object_id: str,
+async def api_update_album(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).api_update(
+    result = Album(fbid=album_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_album(
 
 
 @mcp.tool()
-async def create_comment_for_album(
-    object_id: str,
+async def create_comment(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).create_comment(
+    result = Album(fbid=album_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_comment_for_album(
 
 
 @mcp.tool()
-async def create_like_for_album(
-    object_id: str,
+async def create_like(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).create_like(
+    result = Album(fbid=album_id).create_like(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_like_for_album(
 
 
 @mcp.tool()
-async def create_photo_for_album(
-    object_id: str,
+async def create_photo(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).create_photo(
+    result = Album(fbid=album_id).create_photo(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_photo_for_album(
 
 
 @mcp.tool()
-async def get_comments_for_album(
-    object_id: str,
+async def get_comments(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).get_comments(
+    result = Album(fbid=album_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_comments_for_album(
 
 
 @mcp.tool()
-async def get_likes_for_album(
-    object_id: str,
+async def get_likes(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).get_likes(
+    result = Album(fbid=album_id).get_likes(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_likes_for_album(
 
 
 @mcp.tool()
-async def get_photos_for_album(
-    object_id: str,
+async def get_photos(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).get_photos(
+    result = Album(fbid=album_id).get_photos(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_photos_for_album(
 
 
 @mcp.tool()
-async def get_picture_for_album(
-    object_id: str,
+async def get_picture(
+    album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Album(fbid=object_id).get_picture(
+    result = Album(fbid=album_id).get_picture(
         fields=fields,
         params=params,
     )

@@ -23,6 +23,15 @@ class commercemerchantsettingscommerce_orders_filters_enum_param(str, Enum):
     NO_SHIPMENTS = "NO_SHIPMENTS"
 
 
+class commercemerchantsettingscommerce_orders_state_enum_param(str, Enum):
+    """commercemerchantsettingscommerce_orders_state_enum_param enum values."""
+
+    COMPLETED = "COMPLETED"
+    CREATED = "CREATED"
+    FB_PROCESSING = "FB_PROCESSING"
+    IN_PROGRESS = "IN_PROGRESS"
+
+
 class commercemerchantsettingsreturns_statuses_enum_param(str, Enum):
     """commercemerchantsettingsreturns_statuses_enum_param enum values."""
 
@@ -31,15 +40,6 @@ class commercemerchantsettingsreturns_statuses_enum_param(str, Enum):
     MERCHANT_MARKED_COMPLETED = "MERCHANT_MARKED_COMPLETED"
     REFUNDED = "REFUNDED"
     REQUESTED = "REQUESTED"
-
-
-class commercemerchantsettingscommerce_orders_state_enum_param(str, Enum):
-    """commercemerchantsettingscommerce_orders_state_enum_param enum values."""
-
-    COMPLETED = "COMPLETED"
-    CREATED = "CREATED"
-    FB_PROCESSING = "FB_PROCESSING"
-    IN_PROGRESS = "IN_PROGRESS"
 
 
 # Field literal type

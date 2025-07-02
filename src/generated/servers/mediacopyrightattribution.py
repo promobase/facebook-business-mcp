@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-mediacopyrightattribution")
 
 
 @mcp.tool()
-async def create_mediacopyrightattribution(
-    object_id: str,
+async def api_create_mediacopyrightattribution(
+    mediacopyrightattribution_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightAttribution(fbid=object_id).api_create(
+    result = MediaCopyrightAttribution(fbid=mediacopyrightattribution_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_mediacopyrightattribution(
 
 
 @mcp.tool()
-async def delete_mediacopyrightattribution(
-    object_id: str,
+async def api_delete_mediacopyrightattribution(
+    mediacopyrightattribution_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightAttribution(fbid=object_id).api_delete(
+    result = MediaCopyrightAttribution(fbid=mediacopyrightattribution_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_mediacopyrightattribution(
 
 
 @mcp.tool()
-async def get_mediacopyrightattribution(
-    object_id: str,
+async def api_get_mediacopyrightattribution(
+    mediacopyrightattribution_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightAttribution(fbid=object_id).api_get(
+    result = MediaCopyrightAttribution(fbid=mediacopyrightattribution_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_mediacopyrightattribution(
 
 
 @mcp.tool()
-async def update_mediacopyrightattribution(
-    object_id: str,
+async def api_update_mediacopyrightattribution(
+    mediacopyrightattribution_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightAttribution(fbid=object_id).api_update(
+    result = MediaCopyrightAttribution(fbid=mediacopyrightattribution_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-jobopening")
 
 
 @mcp.tool()
-async def create_jobopening(
-    object_id: str,
+async def api_create_jobopening(
+    jobopening_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = JobOpening(fbid=object_id).api_create(
+    result = JobOpening(fbid=jobopening_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_jobopening(
 
 
 @mcp.tool()
-async def delete_jobopening(
-    object_id: str,
+async def api_delete_jobopening(
+    jobopening_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = JobOpening(fbid=object_id).api_delete(
+    result = JobOpening(fbid=jobopening_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_jobopening(
 
 
 @mcp.tool()
-async def get_jobopening(
-    object_id: str,
+async def api_get_jobopening(
+    jobopening_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = JobOpening(fbid=object_id).api_get(
+    result = JobOpening(fbid=jobopening_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_jobopening(
 
 
 @mcp.tool()
-async def update_jobopening(
-    object_id: str,
+async def api_update_jobopening(
+    jobopening_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = JobOpening(fbid=object_id).api_update(
+    result = JobOpening(fbid=jobopening_id).api_update(
         fields=fields,
         params=params,
     )

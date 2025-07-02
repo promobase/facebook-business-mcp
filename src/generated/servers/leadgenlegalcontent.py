@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-leadgenlegalcontent")
 
 
 @mcp.tool()
-async def create_leadgenlegalcontent(
-    object_id: str,
+async def api_create_leadgenlegalcontent(
+    leadgenlegalcontent_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContent(fbid=object_id).api_create(
+    result = LeadGenLegalContent(fbid=leadgenlegalcontent_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_leadgenlegalcontent(
 
 
 @mcp.tool()
-async def delete_leadgenlegalcontent(
-    object_id: str,
+async def api_delete_leadgenlegalcontent(
+    leadgenlegalcontent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContent(fbid=object_id).api_delete(
+    result = LeadGenLegalContent(fbid=leadgenlegalcontent_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_leadgenlegalcontent(
 
 
 @mcp.tool()
-async def get_leadgenlegalcontent(
-    object_id: str,
+async def api_get_leadgenlegalcontent(
+    leadgenlegalcontent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContent(fbid=object_id).api_get(
+    result = LeadGenLegalContent(fbid=leadgenlegalcontent_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_leadgenlegalcontent(
 
 
 @mcp.tool()
-async def update_leadgenlegalcontent(
-    object_id: str,
+async def api_update_leadgenlegalcontent(
+    leadgenlegalcontent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContent(fbid=object_id).api_update(
+    result = LeadGenLegalContent(fbid=leadgenlegalcontent_id).api_update(
         fields=fields,
         params=params,
     )

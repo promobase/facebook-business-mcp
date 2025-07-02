@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-businessobjecttransferownershipagreement")
 
 
 @mcp.tool()
-async def create_businessobjecttransferownershipagreement(
-    object_id: str,
+async def api_create_businessobjecttransferownershipagreement(
+    businessobjecttransferownershipagreement_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessObjectTransferOwnershipAgreement(fbid=object_id).api_create(
+    result = BusinessObjectTransferOwnershipAgreement(
+        fbid=businessobjecttransferownershipagreement_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_businessobjecttransferownershipagreement(
 
 
 @mcp.tool()
-async def delete_businessobjecttransferownershipagreement(
-    object_id: str,
+async def api_delete_businessobjecttransferownershipagreement(
+    businessobjecttransferownershipagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessObjectTransferOwnershipAgreement(fbid=object_id).api_delete(
+    result = BusinessObjectTransferOwnershipAgreement(
+        fbid=businessobjecttransferownershipagreement_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,14 @@ async def delete_businessobjecttransferownershipagreement(
 
 
 @mcp.tool()
-async def get_businessobjecttransferownershipagreement(
-    object_id: str,
+async def api_get_businessobjecttransferownershipagreement(
+    businessobjecttransferownershipagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessObjectTransferOwnershipAgreement(fbid=object_id).api_get(
+    result = BusinessObjectTransferOwnershipAgreement(
+        fbid=businessobjecttransferownershipagreement_id
+    ).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +68,14 @@ async def get_businessobjecttransferownershipagreement(
 
 
 @mcp.tool()
-async def update_businessobjecttransferownershipagreement(
-    object_id: str,
+async def api_update_businessobjecttransferownershipagreement(
+    businessobjecttransferownershipagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessObjectTransferOwnershipAgreement(fbid=object_id).api_update(
+    result = BusinessObjectTransferOwnershipAgreement(
+        fbid=businessobjecttransferownershipagreement_id
+    ).api_update(
         fields=fields,
         params=params,
     )

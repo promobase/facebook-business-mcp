@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-videocopyright")
 
 
 @mcp.tool()
-async def create_videocopyright(
-    object_id: str,
+async def api_create_videocopyright(
+    videocopyright_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoCopyright(fbid=object_id).api_create(
+    result = VideoCopyright(fbid=videocopyright_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_videocopyright(
 
 
 @mcp.tool()
-async def delete_videocopyright(
-    object_id: str,
+async def api_delete_videocopyright(
+    videocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoCopyright(fbid=object_id).api_delete(
+    result = VideoCopyright(fbid=videocopyright_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_videocopyright(
 
 
 @mcp.tool()
-async def get_videocopyright(
-    object_id: str,
+async def api_get_videocopyright(
+    videocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoCopyright(fbid=object_id).api_get(
+    result = VideoCopyright(fbid=videocopyright_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_videocopyright(
 
 
 @mcp.tool()
-async def update_videocopyright(
-    object_id: str,
+async def api_update_videocopyright(
+    videocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoCopyright(fbid=object_id).api_update(
+    result = VideoCopyright(fbid=videocopyright_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_videocopyright(
 
 
 @mcp.tool()
-async def get_update_records_for_videocopyright(
-    object_id: str,
+async def get_update_records(
+    videocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoCopyright(fbid=object_id).get_update_records(
+    result = VideoCopyright(fbid=videocopyright_id).get_update_records(
         fields=fields,
         params=params,
     )

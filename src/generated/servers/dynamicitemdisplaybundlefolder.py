@@ -18,13 +18,13 @@ mcp = FastMCP("facebook-dynamicitemdisplaybundlefolder")
 
 
 @mcp.tool()
-async def create_dynamicitemdisplaybundlefolder(
-    object_id: str,
+async def api_create_dynamicitemdisplaybundlefolder(
+    dynamicitemdisplaybundlefolder_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundleFolder(fbid=object_id).api_create(
+    result = DynamicItemDisplayBundleFolder(fbid=dynamicitemdisplaybundlefolder_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +34,12 @@ async def create_dynamicitemdisplaybundlefolder(
 
 
 @mcp.tool()
-async def delete_dynamicitemdisplaybundlefolder(
-    object_id: str,
+async def api_delete_dynamicitemdisplaybundlefolder(
+    dynamicitemdisplaybundlefolder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundleFolder(fbid=object_id).api_delete(
+    result = DynamicItemDisplayBundleFolder(fbid=dynamicitemdisplaybundlefolder_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +48,12 @@ async def delete_dynamicitemdisplaybundlefolder(
 
 
 @mcp.tool()
-async def get_dynamicitemdisplaybundlefolder(
-    object_id: str,
+async def api_get_dynamicitemdisplaybundlefolder(
+    dynamicitemdisplaybundlefolder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundleFolder(fbid=object_id).api_get(
+    result = DynamicItemDisplayBundleFolder(fbid=dynamicitemdisplaybundlefolder_id).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +62,12 @@ async def get_dynamicitemdisplaybundlefolder(
 
 
 @mcp.tool()
-async def update_dynamicitemdisplaybundlefolder(
-    object_id: str,
+async def api_update_dynamicitemdisplaybundlefolder(
+    dynamicitemdisplaybundlefolder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DynamicItemDisplayBundleFolder(fbid=object_id).api_update(
+    result = DynamicItemDisplayBundleFolder(fbid=dynamicitemdisplaybundlefolder_id).api_update(
         fields=fields,
         params=params,
     )

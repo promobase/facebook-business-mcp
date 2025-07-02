@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-destination")
 
 
 @mcp.tool()
-async def create_destination(
-    object_id: str,
+async def api_create_destination(
+    destination_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Destination(fbid=object_id).api_create(
+    result = Destination(fbid=destination_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_destination(
 
 
 @mcp.tool()
-async def delete_destination(
-    object_id: str,
+async def api_delete_destination(
+    destination_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Destination(fbid=object_id).api_delete(
+    result = Destination(fbid=destination_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_destination(
 
 
 @mcp.tool()
-async def get_destination(
-    object_id: str,
+async def api_get_destination(
+    destination_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Destination(fbid=object_id).api_get(
+    result = Destination(fbid=destination_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_destination(
 
 
 @mcp.tool()
-async def update_destination(
-    object_id: str,
+async def api_update_destination(
+    destination_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Destination(fbid=object_id).api_update(
+    result = Destination(fbid=destination_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_destination(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_destination(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    destination_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Destination(fbid=object_id).get_channels_to_integrity_status(
+    result = Destination(fbid=destination_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_destination(
 
 
 @mcp.tool()
-async def get_override_details_for_destination(
-    object_id: str,
+async def get_override_details(
+    destination_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Destination(fbid=object_id).get_override_details(
+    result = Destination(fbid=destination_id).get_override_details(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_override_details_for_destination(
 
 
 @mcp.tool()
-async def get_videos_metadata_for_destination(
-    object_id: str,
+async def get_videos_metadata(
+    destination_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Destination(fbid=object_id).get_videos_metadata(
+    result = Destination(fbid=destination_id).get_videos_metadata(
         fields=fields,
         params=params,
     )

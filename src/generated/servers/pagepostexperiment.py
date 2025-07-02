@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-pagepostexperiment")
 
 
 @mcp.tool()
-async def create_pagepostexperiment(
-    object_id: str,
+async def api_create_pagepostexperiment(
+    pagepostexperiment_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePostExperiment(fbid=object_id).api_create(
+    result = PagePostExperiment(fbid=pagepostexperiment_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_pagepostexperiment(
 
 
 @mcp.tool()
-async def delete_pagepostexperiment(
-    object_id: str,
+async def api_delete_pagepostexperiment(
+    pagepostexperiment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePostExperiment(fbid=object_id).api_delete(
+    result = PagePostExperiment(fbid=pagepostexperiment_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_pagepostexperiment(
 
 
 @mcp.tool()
-async def get_pagepostexperiment(
-    object_id: str,
+async def api_get_pagepostexperiment(
+    pagepostexperiment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePostExperiment(fbid=object_id).api_get(
+    result = PagePostExperiment(fbid=pagepostexperiment_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_pagepostexperiment(
 
 
 @mcp.tool()
-async def update_pagepostexperiment(
-    object_id: str,
+async def api_update_pagepostexperiment(
+    pagepostexperiment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePostExperiment(fbid=object_id).api_update(
+    result = PagePostExperiment(fbid=pagepostexperiment_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_pagepostexperiment(
 
 
 @mcp.tool()
-async def get_video_insights_for_pagepostexperiment(
-    object_id: str,
+async def get_video_insights(
+    pagepostexperiment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePostExperiment(fbid=object_id).get_video_insights(
+    result = PagePostExperiment(fbid=pagepostexperiment_id).get_video_insights(
         fields=fields,
         params=params,
     )

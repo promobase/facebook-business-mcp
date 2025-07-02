@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-customaudiencestos")
 
 
 @mcp.tool()
-async def create_customaudiencestos(
-    object_id: str,
+async def api_create_customaudiencestos(
+    customaudiencestos_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudiencesTOS(fbid=object_id).api_create(
+    result = CustomAudiencesTOS(fbid=customaudiencestos_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_customaudiencestos(
 
 
 @mcp.tool()
-async def delete_customaudiencestos(
-    object_id: str,
+async def api_delete_customaudiencestos(
+    customaudiencestos_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudiencesTOS(fbid=object_id).api_delete(
+    result = CustomAudiencesTOS(fbid=customaudiencestos_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_customaudiencestos(
 
 
 @mcp.tool()
-async def get_customaudiencestos(
-    object_id: str,
+async def api_get_customaudiencestos(
+    customaudiencestos_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudiencesTOS(fbid=object_id).api_get(
+    result = CustomAudiencesTOS(fbid=customaudiencestos_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_customaudiencestos(
 
 
 @mcp.tool()
-async def update_customaudiencestos(
-    object_id: str,
+async def api_update_customaudiencestos(
+    customaudiencestos_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudiencesTOS(fbid=object_id).api_update(
+    result = CustomAudiencesTOS(fbid=customaudiencestos_id).api_update(
         fields=fields,
         params=params,
     )

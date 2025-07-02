@@ -12,12 +12,11 @@ if TYPE_CHECKING:
     from .business import BusinessFields
 
 
-class admonetizationpropertyadnetworkanalytics_ordering_column_enum_param(str, Enum):
-    """admonetizationpropertyadnetworkanalytics_ordering_column_enum_param enum values."""
+class admonetizationpropertyadnetworkanalytics_ordering_type_enum_param(str, Enum):
+    """admonetizationpropertyadnetworkanalytics_ordering_type_enum_param enum values."""
 
-    METRIC = "METRIC"
-    TIME = "TIME"
-    VALUE = "VALUE"
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
 
 
 class admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param(str, Enum):
@@ -27,30 +26,12 @@ class admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param(str
     TOTAL = "TOTAL"
 
 
-class admonetizationpropertyadnetworkanalytics_breakdowns_enum_param(str, Enum):
-    """admonetizationpropertyadnetworkanalytics_breakdowns_enum_param enum values."""
+class admonetizationpropertyadnetworkanalytics_ordering_column_enum_param(str, Enum):
+    """admonetizationpropertyadnetworkanalytics_ordering_column_enum_param enum values."""
 
-    AD_SERVER_CAMPAIGN_ID = "AD_SERVER_CAMPAIGN_ID"
-    AD_SPACE = "AD_SPACE"
-    AGE = "AGE"
-    APP = "APP"
-    CLICKED_VIEW_TAG = "CLICKED_VIEW_TAG"
-    COUNTRY = "COUNTRY"
-    DEAL = "DEAL"
-    DEAL_AD = "DEAL_AD"
-    DEAL_PAGE = "DEAL_PAGE"
-    DELIVERY_METHOD = "DELIVERY_METHOD"
-    DISPLAY_FORMAT = "DISPLAY_FORMAT"
-    FAIL_REASON = "FAIL_REASON"
-    GENDER = "GENDER"
-    INSTANT_ARTICLE_ID = "INSTANT_ARTICLE_ID"
-    INSTANT_ARTICLE_PAGE_ID = "INSTANT_ARTICLE_PAGE_ID"
-    IS_DEAL_BACKFILL = "IS_DEAL_BACKFILL"
-    PLACEMENT = "PLACEMENT"
-    PLACEMENT_NAME = "PLACEMENT_NAME"
-    PLATFORM = "PLATFORM"
-    PROPERTY = "PROPERTY"
-    SDK_VERSION = "SDK_VERSION"
+    METRIC = "METRIC"
+    TIME = "TIME"
+    VALUE = "VALUE"
 
 
 class admonetizationpropertyadnetworkanalytics_metrics_enum_param(str, Enum):
@@ -78,11 +59,30 @@ class admonetizationpropertyadnetworkanalytics_metrics_enum_param(str, Enum):
     FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
 
 
-class admonetizationpropertyadnetworkanalytics_ordering_type_enum_param(str, Enum):
-    """admonetizationpropertyadnetworkanalytics_ordering_type_enum_param enum values."""
+class admonetizationpropertyadnetworkanalytics_breakdowns_enum_param(str, Enum):
+    """admonetizationpropertyadnetworkanalytics_breakdowns_enum_param enum values."""
 
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
+    AD_SERVER_CAMPAIGN_ID = "AD_SERVER_CAMPAIGN_ID"
+    AD_SPACE = "AD_SPACE"
+    AGE = "AGE"
+    APP = "APP"
+    CLICKED_VIEW_TAG = "CLICKED_VIEW_TAG"
+    COUNTRY = "COUNTRY"
+    DEAL = "DEAL"
+    DEAL_AD = "DEAL_AD"
+    DEAL_PAGE = "DEAL_PAGE"
+    DELIVERY_METHOD = "DELIVERY_METHOD"
+    DISPLAY_FORMAT = "DISPLAY_FORMAT"
+    FAIL_REASON = "FAIL_REASON"
+    GENDER = "GENDER"
+    INSTANT_ARTICLE_ID = "INSTANT_ARTICLE_ID"
+    INSTANT_ARTICLE_PAGE_ID = "INSTANT_ARTICLE_PAGE_ID"
+    IS_DEAL_BACKFILL = "IS_DEAL_BACKFILL"
+    PLACEMENT = "PLACEMENT"
+    PLACEMENT_NAME = "PLACEMENT_NAME"
+    PLATFORM = "PLATFORM"
+    PROPERTY = "PROPERTY"
+    SDK_VERSION = "SDK_VERSION"
 
 
 # Field literal type

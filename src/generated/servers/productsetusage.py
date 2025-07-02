@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productsetusage")
 
 
 @mcp.tool()
-async def create_productsetusage(
-    object_id: str,
+async def api_create_productsetusage(
+    productsetusage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSetUsage(fbid=object_id).api_create(
+    result = ProductSetUsage(fbid=productsetusage_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productsetusage(
 
 
 @mcp.tool()
-async def delete_productsetusage(
-    object_id: str,
+async def api_delete_productsetusage(
+    productsetusage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSetUsage(fbid=object_id).api_delete(
+    result = ProductSetUsage(fbid=productsetusage_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productsetusage(
 
 
 @mcp.tool()
-async def get_productsetusage(
-    object_id: str,
+async def api_get_productsetusage(
+    productsetusage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSetUsage(fbid=object_id).api_get(
+    result = ProductSetUsage(fbid=productsetusage_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productsetusage(
 
 
 @mcp.tool()
-async def update_productsetusage(
-    object_id: str,
+async def api_update_productsetusage(
+    productsetusage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSetUsage(fbid=object_id).api_update(
+    result = ProductSetUsage(fbid=productsetusage_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adsnamingtemplate")
 
 
 @mcp.tool()
-async def create_adsnamingtemplate(
-    object_id: str,
+async def api_create_adsnamingtemplate(
+    adsnamingtemplate_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsNamingTemplate(fbid=object_id).api_create(
+    result = AdsNamingTemplate(fbid=adsnamingtemplate_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adsnamingtemplate(
 
 
 @mcp.tool()
-async def delete_adsnamingtemplate(
-    object_id: str,
+async def api_delete_adsnamingtemplate(
+    adsnamingtemplate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsNamingTemplate(fbid=object_id).api_delete(
+    result = AdsNamingTemplate(fbid=adsnamingtemplate_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adsnamingtemplate(
 
 
 @mcp.tool()
-async def get_adsnamingtemplate(
-    object_id: str,
+async def api_get_adsnamingtemplate(
+    adsnamingtemplate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsNamingTemplate(fbid=object_id).api_get(
+    result = AdsNamingTemplate(fbid=adsnamingtemplate_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adsnamingtemplate(
 
 
 @mcp.tool()
-async def update_adsnamingtemplate(
-    object_id: str,
+async def api_update_adsnamingtemplate(
+    adsnamingtemplate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsNamingTemplate(fbid=object_id).api_update(
+    result = AdsNamingTemplate(fbid=adsnamingtemplate_id).api_update(
         fields=fields,
         params=params,
     )

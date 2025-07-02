@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productgroup")
 
 
 @mcp.tool()
-async def create_productgroup(
-    object_id: str,
+async def api_create_productgroup(
+    productgroup_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductGroup(fbid=object_id).api_create(
+    result = ProductGroup(fbid=productgroup_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productgroup(
 
 
 @mcp.tool()
-async def delete_productgroup(
-    object_id: str,
+async def api_delete_productgroup(
+    productgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductGroup(fbid=object_id).api_delete(
+    result = ProductGroup(fbid=productgroup_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productgroup(
 
 
 @mcp.tool()
-async def get_productgroup(
-    object_id: str,
+async def api_get_productgroup(
+    productgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductGroup(fbid=object_id).api_get(
+    result = ProductGroup(fbid=productgroup_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productgroup(
 
 
 @mcp.tool()
-async def update_productgroup(
-    object_id: str,
+async def api_update_productgroup(
+    productgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductGroup(fbid=object_id).api_update(
+    result = ProductGroup(fbid=productgroup_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_productgroup(
 
 
 @mcp.tool()
-async def create_product_for_productgroup(
-    object_id: str,
+async def create_product(
+    productgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductGroup(fbid=object_id).create_product(
+    result = ProductGroup(fbid=productgroup_id).create_product(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_product_for_productgroup(
 
 
 @mcp.tool()
-async def get_products_for_productgroup(
-    object_id: str,
+async def get_products(
+    productgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductGroup(fbid=object_id).get_products(
+    result = ProductGroup(fbid=productgroup_id).get_products(
         fields=fields,
         params=params,
     )

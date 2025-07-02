@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-extendedcreditinvoicegroup")
 
 
 @mcp.tool()
-async def create_extendedcreditinvoicegroup(
-    object_id: str,
+async def api_create_extendedcreditinvoicegroup(
+    extendedcreditinvoicegroup_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditInvoiceGroup(fbid=object_id).api_create(
+    result = ExtendedCreditInvoiceGroup(fbid=extendedcreditinvoicegroup_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_extendedcreditinvoicegroup(
 
 
 @mcp.tool()
-async def delete_extendedcreditinvoicegroup(
-    object_id: str,
+async def api_delete_extendedcreditinvoicegroup(
+    extendedcreditinvoicegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditInvoiceGroup(fbid=object_id).api_delete(
+    result = ExtendedCreditInvoiceGroup(fbid=extendedcreditinvoicegroup_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_extendedcreditinvoicegroup(
 
 
 @mcp.tool()
-async def get_extendedcreditinvoicegroup(
-    object_id: str,
+async def api_get_extendedcreditinvoicegroup(
+    extendedcreditinvoicegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditInvoiceGroup(fbid=object_id).api_get(
+    result = ExtendedCreditInvoiceGroup(fbid=extendedcreditinvoicegroup_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_extendedcreditinvoicegroup(
 
 
 @mcp.tool()
-async def update_extendedcreditinvoicegroup(
-    object_id: str,
+async def api_update_extendedcreditinvoicegroup(
+    extendedcreditinvoicegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditInvoiceGroup(fbid=object_id).api_update(
+    result = ExtendedCreditInvoiceGroup(fbid=extendedcreditinvoicegroup_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_extendedcreditinvoicegroup(
 
 
 @mcp.tool()
-async def create_ad_account_for_extendedcreditinvoicegroup(
-    object_id: str,
+async def create_ad_account(
+    extendedcreditinvoicegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditInvoiceGroup(fbid=object_id).create_ad_account(
+    result = ExtendedCreditInvoiceGroup(fbid=extendedcreditinvoicegroup_id).create_ad_account(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_ad_account_for_extendedcreditinvoicegroup(
 
 
 @mcp.tool()
-async def delete_ad_accounts_for_extendedcreditinvoicegroup(
-    object_id: str,
+async def delete_ad_accounts(
+    extendedcreditinvoicegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditInvoiceGroup(fbid=object_id).delete_ad_accounts(
+    result = ExtendedCreditInvoiceGroup(fbid=extendedcreditinvoicegroup_id).delete_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def delete_ad_accounts_for_extendedcreditinvoicegroup(
 
 
 @mcp.tool()
-async def get_ad_accounts_for_extendedcreditinvoicegroup(
-    object_id: str,
+async def get_ad_accounts(
+    extendedcreditinvoicegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditInvoiceGroup(fbid=object_id).get_ad_accounts(
+    result = ExtendedCreditInvoiceGroup(fbid=extendedcreditinvoicegroup_id).get_ad_accounts(
         fields=fields,
         params=params,
     )

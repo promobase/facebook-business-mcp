@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-shadowiguserctxpartnerappwelcomemessageflow")
 
 
 @mcp.tool()
-async def create_shadowiguserctxpartnerappwelcomemessageflow(
-    object_id: str,
+async def api_create_shadowiguserctxpartnerappwelcomemessageflow(
+    shadowiguserctxpartnerappwelcomemessageflow_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(fbid=object_id).api_create(
+    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
+        fbid=shadowiguserctxpartnerappwelcomemessageflow_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_shadowiguserctxpartnerappwelcomemessageflow(
 
 
 @mcp.tool()
-async def delete_shadowiguserctxpartnerappwelcomemessageflow(
-    object_id: str,
+async def api_delete_shadowiguserctxpartnerappwelcomemessageflow(
+    shadowiguserctxpartnerappwelcomemessageflow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(fbid=object_id).api_delete(
+    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
+        fbid=shadowiguserctxpartnerappwelcomemessageflow_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,14 @@ async def delete_shadowiguserctxpartnerappwelcomemessageflow(
 
 
 @mcp.tool()
-async def get_shadowiguserctxpartnerappwelcomemessageflow(
-    object_id: str,
+async def api_get_shadowiguserctxpartnerappwelcomemessageflow(
+    shadowiguserctxpartnerappwelcomemessageflow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(fbid=object_id).api_get(
+    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
+        fbid=shadowiguserctxpartnerappwelcomemessageflow_id
+    ).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +68,14 @@ async def get_shadowiguserctxpartnerappwelcomemessageflow(
 
 
 @mcp.tool()
-async def update_shadowiguserctxpartnerappwelcomemessageflow(
-    object_id: str,
+async def api_update_shadowiguserctxpartnerappwelcomemessageflow(
+    shadowiguserctxpartnerappwelcomemessageflow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(fbid=object_id).api_update(
+    result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
+        fbid=shadowiguserctxpartnerappwelcomemessageflow_id
+    ).api_update(
         fields=fields,
         params=params,
     )

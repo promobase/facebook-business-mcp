@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adset")
 
 
 @mcp.tool()
-async def create_adset(
-    object_id: str,
+async def api_create_adset(
+    adset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).api_create(
+    result = AdSet(fbid=adset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adset(
 
 
 @mcp.tool()
-async def delete_adset(
-    object_id: str,
+async def api_delete_adset(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).api_delete(
+    result = AdSet(fbid=adset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adset(
 
 
 @mcp.tool()
-async def get_adset(
-    object_id: str,
+async def api_get_adset(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).api_get(
+    result = AdSet(fbid=adset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adset(
 
 
 @mcp.tool()
-async def update_adset(
-    object_id: str,
+async def api_update_adset(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).api_update(
+    result = AdSet(fbid=adset_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adset(
 
 
 @mcp.tool()
-async def create_ad_label_for_adset(
-    object_id: str,
+async def create_ad_label(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).create_ad_label(
+    result = AdSet(fbid=adset_id).create_ad_label(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_ad_label_for_adset(
 
 
 @mcp.tool()
-async def create_budget_schedule_for_adset(
-    object_id: str,
+async def create_budget_schedule(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).create_budget_schedule(
+    result = AdSet(fbid=adset_id).create_budget_schedule(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_budget_schedule_for_adset(
 
 
 @mcp.tool()
-async def create_copy_for_adset(
-    object_id: str,
+async def create_copy(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).create_copy(
+    result = AdSet(fbid=adset_id).create_copy(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_copy_for_adset(
 
 
 @mcp.tool()
-async def delete_ad_labels_for_adset(
-    object_id: str,
+async def delete_ad_labels(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).delete_ad_labels(
+    result = AdSet(fbid=adset_id).delete_ad_labels(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def delete_ad_labels_for_adset(
 
 
 @mcp.tool()
-async def get_activities_for_adset(
-    object_id: str,
+async def get_activities(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_activities(
+    result = AdSet(fbid=adset_id).get_activities(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_activities_for_adset(
 
 
 @mcp.tool()
-async def get_ad_creatives_for_adset(
-    object_id: str,
+async def get_ad_creatives(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_ad_creatives(
+    result = AdSet(fbid=adset_id).get_ad_creatives(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_ad_creatives_for_adset(
 
 
 @mcp.tool()
-async def get_ad_rules_governed_for_adset(
-    object_id: str,
+async def get_ad_rules_governed(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_ad_rules_governed(
+    result = AdSet(fbid=adset_id).get_ad_rules_governed(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_ad_rules_governed_for_adset(
 
 
 @mcp.tool()
-async def get_ad_studies_for_adset(
-    object_id: str,
+async def get_ad_studies(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_ad_studies(
+    result = AdSet(fbid=adset_id).get_ad_studies(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_ad_studies_for_adset(
 
 
 @mcp.tool()
-async def get_ads_for_adset(
-    object_id: str,
+async def get_ads(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_ads(
+    result = AdSet(fbid=adset_id).get_ads(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_ads_for_adset(
 
 
 @mcp.tool()
-async def get_async_ad_requests_for_adset(
-    object_id: str,
+async def get_async_ad_requests(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_async_ad_requests(
+    result = AdSet(fbid=adset_id).get_async_ad_requests(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_async_ad_requests_for_adset(
 
 
 @mcp.tool()
-async def get_copies_for_adset(
-    object_id: str,
+async def get_copies(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_copies(
+    result = AdSet(fbid=adset_id).get_copies(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_copies_for_adset(
 
 
 @mcp.tool()
-async def get_delivery_estimate_for_adset(
-    object_id: str,
+async def get_delivery_estimate(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_delivery_estimate(
+    result = AdSet(fbid=adset_id).get_delivery_estimate(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def get_delivery_estimate_for_adset(
 
 
 @mcp.tool()
-async def get_insights_for_adset(
-    object_id: str,
+async def get_insights(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_insights(
+    result = AdSet(fbid=adset_id).get_insights(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def get_insights_for_adset(
 
 
 @mcp.tool()
-async def get_insights_async_for_adset(
-    object_id: str,
+async def get_insights_async(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_insights_async(
+    result = AdSet(fbid=adset_id).get_insights_async(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def get_insights_async_for_adset(
 
 
 @mcp.tool()
-async def get_message_delivery_estimate_for_adset(
-    object_id: str,
+async def get_message_delivery_estimate(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_message_delivery_estimate(
+    result = AdSet(fbid=adset_id).get_message_delivery_estimate(
         fields=fields,
         params=params,
     )
@@ -287,12 +287,12 @@ async def get_message_delivery_estimate_for_adset(
 
 
 @mcp.tool()
-async def get_targeting_sentence_lines_for_adset(
-    object_id: str,
+async def get_targeting_sentence_lines(
+    adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSet(fbid=object_id).get_targeting_sentence_lines(
+    result = AdSet(fbid=adset_id).get_targeting_sentence_lines(
         fields=fields,
         params=params,
     )

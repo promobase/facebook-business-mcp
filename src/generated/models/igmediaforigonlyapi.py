@@ -12,15 +12,6 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class mediainsights_breakdown_enum_param(str, Enum):
-    """mediainsights_breakdown_enum_param enum values."""
-
-    action_type = "action_type"
-    follow_type = "follow_type"
-    story_navigation_action_type = "story_navigation_action_type"
-    surface_type = "surface_type"
-
-
 class mediainsights_period_enum_param(str, Enum):
     """mediainsights_period_enum_param enum values."""
 
@@ -30,6 +21,15 @@ class mediainsights_period_enum_param(str, Enum):
     month = "month"
     total_over_range = "total_over_range"
     week = "week"
+
+
+class mediainsights_breakdown_enum_param(str, Enum):
+    """mediainsights_breakdown_enum_param enum values."""
+
+    action_type = "action_type"
+    follow_type = "follow_type"
+    story_navigation_action_type = "story_navigation_action_type"
+    surface_type = "surface_type"
 
 
 class mediainsights_metric_enum_param(str, Enum):

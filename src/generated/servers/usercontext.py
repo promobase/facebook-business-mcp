@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-usercontext")
 
 
 @mcp.tool()
-async def create_usercontext(
-    object_id: str,
+async def api_create_usercontext(
+    usercontext_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserContext(fbid=object_id).api_create(
+    result = UserContext(fbid=usercontext_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_usercontext(
 
 
 @mcp.tool()
-async def delete_usercontext(
-    object_id: str,
+async def api_delete_usercontext(
+    usercontext_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserContext(fbid=object_id).api_delete(
+    result = UserContext(fbid=usercontext_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_usercontext(
 
 
 @mcp.tool()
-async def get_usercontext(
-    object_id: str,
+async def api_get_usercontext(
+    usercontext_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserContext(fbid=object_id).api_get(
+    result = UserContext(fbid=usercontext_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_usercontext(
 
 
 @mcp.tool()
-async def update_usercontext(
-    object_id: str,
+async def api_update_usercontext(
+    usercontext_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserContext(fbid=object_id).api_update(
+    result = UserContext(fbid=usercontext_id).api_update(
         fields=fields,
         params=params,
     )

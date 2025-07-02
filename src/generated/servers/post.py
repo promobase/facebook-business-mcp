@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-post")
 
 
 @mcp.tool()
-async def create_post(
-    object_id: str,
+async def api_create_post(
+    post_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).api_create(
+    result = Post(fbid=post_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_post(
 
 
 @mcp.tool()
-async def delete_post(
-    object_id: str,
+async def api_delete_post(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).api_delete(
+    result = Post(fbid=post_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_post(
 
 
 @mcp.tool()
-async def get_post(
-    object_id: str,
+async def api_get_post(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).api_get(
+    result = Post(fbid=post_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_post(
 
 
 @mcp.tool()
-async def update_post(
-    object_id: str,
+async def api_update_post(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).api_update(
+    result = Post(fbid=post_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_post(
 
 
 @mcp.tool()
-async def create_comment_for_post(
-    object_id: str,
+async def create_comment(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).create_comment(
+    result = Post(fbid=post_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_comment_for_post(
 
 
 @mcp.tool()
-async def create_like_for_post(
-    object_id: str,
+async def create_like(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).create_like(
+    result = Post(fbid=post_id).create_like(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_like_for_post(
 
 
 @mcp.tool()
-async def delete_likes_for_post(
-    object_id: str,
+async def delete_likes(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).delete_likes(
+    result = Post(fbid=post_id).delete_likes(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def delete_likes_for_post(
 
 
 @mcp.tool()
-async def get_attachments_for_post(
-    object_id: str,
+async def get_attachments(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_attachments(
+    result = Post(fbid=post_id).get_attachments(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_attachments_for_post(
 
 
 @mcp.tool()
-async def get_comments_for_post(
-    object_id: str,
+async def get_comments(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_comments(
+    result = Post(fbid=post_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_comments_for_post(
 
 
 @mcp.tool()
-async def get_dynamic_posts_for_post(
-    object_id: str,
+async def get_dynamic_posts(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_dynamic_posts(
+    result = Post(fbid=post_id).get_dynamic_posts(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_dynamic_posts_for_post(
 
 
 @mcp.tool()
-async def get_insights_for_post(
-    object_id: str,
+async def get_insights(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_insights(
+    result = Post(fbid=post_id).get_insights(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_insights_for_post(
 
 
 @mcp.tool()
-async def get_reactions_for_post(
-    object_id: str,
+async def get_reactions(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_reactions(
+    result = Post(fbid=post_id).get_reactions(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_reactions_for_post(
 
 
 @mcp.tool()
-async def get_shared_posts_for_post(
-    object_id: str,
+async def get_shared_posts(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_shared_posts(
+    result = Post(fbid=post_id).get_shared_posts(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_shared_posts_for_post(
 
 
 @mcp.tool()
-async def get_sponsor_tags_for_post(
-    object_id: str,
+async def get_sponsor_tags(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_sponsor_tags(
+    result = Post(fbid=post_id).get_sponsor_tags(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_sponsor_tags_for_post(
 
 
 @mcp.tool()
-async def get_to_for_post(
-    object_id: str,
+async def get_to(
+    post_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Post(fbid=object_id).get_to(
+    result = Post(fbid=post_id).get_to(
         fields=fields,
         params=params,
     )

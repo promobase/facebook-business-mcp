@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-deliverywindow")
 
 
 @mcp.tool()
-async def create_deliverywindow(
-    object_id: str,
+async def api_create_deliverywindow(
+    deliverywindow_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DeliveryWindow(fbid=object_id).api_create(
+    result = DeliveryWindow(fbid=deliverywindow_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_deliverywindow(
 
 
 @mcp.tool()
-async def delete_deliverywindow(
-    object_id: str,
+async def api_delete_deliverywindow(
+    deliverywindow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DeliveryWindow(fbid=object_id).api_delete(
+    result = DeliveryWindow(fbid=deliverywindow_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_deliverywindow(
 
 
 @mcp.tool()
-async def get_deliverywindow(
-    object_id: str,
+async def api_get_deliverywindow(
+    deliverywindow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DeliveryWindow(fbid=object_id).api_get(
+    result = DeliveryWindow(fbid=deliverywindow_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_deliverywindow(
 
 
 @mcp.tool()
-async def update_deliverywindow(
-    object_id: str,
+async def api_update_deliverywindow(
+    deliverywindow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DeliveryWindow(fbid=object_id).api_update(
+    result = DeliveryWindow(fbid=deliverywindow_id).api_update(
         fields=fields,
         params=params,
     )

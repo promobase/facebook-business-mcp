@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-customconversion")
 
 
 @mcp.tool()
-async def create_customconversion(
-    object_id: str,
+async def api_create_customconversion(
+    customconversion_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomConversion(fbid=object_id).api_create(
+    result = CustomConversion(fbid=customconversion_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_customconversion(
 
 
 @mcp.tool()
-async def delete_customconversion(
-    object_id: str,
+async def api_delete_customconversion(
+    customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomConversion(fbid=object_id).api_delete(
+    result = CustomConversion(fbid=customconversion_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_customconversion(
 
 
 @mcp.tool()
-async def get_customconversion(
-    object_id: str,
+async def api_get_customconversion(
+    customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomConversion(fbid=object_id).api_get(
+    result = CustomConversion(fbid=customconversion_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_customconversion(
 
 
 @mcp.tool()
-async def update_customconversion(
-    object_id: str,
+async def api_update_customconversion(
+    customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomConversion(fbid=object_id).api_update(
+    result = CustomConversion(fbid=customconversion_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_customconversion(
 
 
 @mcp.tool()
-async def get_stats_for_customconversion(
-    object_id: str,
+async def get_stats(
+    customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomConversion(fbid=object_id).get_stats(
+    result = CustomConversion(fbid=customconversion_id).get_stats(
         fields=fields,
         params=params,
     )

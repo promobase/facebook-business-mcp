@@ -61,18 +61,6 @@ class productgroupproducts_gender_enum_param(str, Enum):
     unisex = "unisex"
 
 
-class productgroupproducts_age_group_enum_param(str, Enum):
-    """productgroupproducts_age_group_enum_param enum values."""
-
-    adult = "adult"
-    ALL_AGES = "all ages"
-    infant = "infant"
-    kids = "kids"
-    newborn = "newborn"
-    teen = "teen"
-    toddler = "toddler"
-
-
 class productgroupproducts_commerce_tax_category_enum_param(str, Enum):
     """productgroupproducts_commerce_tax_category_enum_param enum values."""
 
@@ -281,6 +269,18 @@ class productgroupproducts_commerce_tax_category_enum_param(str, Enum):
     FB_TOYS_TOYS = "FB_TOYS_TOYS"
     FB_VEHI = "FB_VEHI"
     FB_VEHI_PART = "FB_VEHI_PART"
+
+
+class productgroupproducts_age_group_enum_param(str, Enum):
+    """productgroupproducts_age_group_enum_param enum values."""
+
+    adult = "adult"
+    ALL_AGES = "all ages"
+    infant = "infant"
+    kids = "kids"
+    newborn = "newborn"
+    teen = "teen"
+    toddler = "toddler"
 
 
 # Field literal type

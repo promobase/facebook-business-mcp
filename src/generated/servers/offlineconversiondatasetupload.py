@@ -18,13 +18,13 @@ mcp = FastMCP("facebook-offlineconversiondatasetupload")
 
 
 @mcp.tool()
-async def create_offlineconversiondatasetupload(
-    object_id: str,
+async def api_create_offlineconversiondatasetupload(
+    offlineconversiondatasetupload_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSetUpload(fbid=object_id).api_create(
+    result = OfflineConversionDataSetUpload(fbid=offlineconversiondatasetupload_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +34,12 @@ async def create_offlineconversiondatasetupload(
 
 
 @mcp.tool()
-async def delete_offlineconversiondatasetupload(
-    object_id: str,
+async def api_delete_offlineconversiondatasetupload(
+    offlineconversiondatasetupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSetUpload(fbid=object_id).api_delete(
+    result = OfflineConversionDataSetUpload(fbid=offlineconversiondatasetupload_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +48,12 @@ async def delete_offlineconversiondatasetupload(
 
 
 @mcp.tool()
-async def get_offlineconversiondatasetupload(
-    object_id: str,
+async def api_get_offlineconversiondatasetupload(
+    offlineconversiondatasetupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSetUpload(fbid=object_id).api_get(
+    result = OfflineConversionDataSetUpload(fbid=offlineconversiondatasetupload_id).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +62,12 @@ async def get_offlineconversiondatasetupload(
 
 
 @mcp.tool()
-async def update_offlineconversiondatasetupload(
-    object_id: str,
+async def api_update_offlineconversiondatasetupload(
+    offlineconversiondatasetupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSetUpload(fbid=object_id).api_update(
+    result = OfflineConversionDataSetUpload(fbid=offlineconversiondatasetupload_id).api_update(
         fields=fields,
         params=params,
     )
@@ -79,12 +79,12 @@ async def update_offlineconversiondatasetupload(
 
 
 @mcp.tool()
-async def get_progress_for_offlineconversiondatasetupload(
-    object_id: str,
+async def get_progress(
+    offlineconversiondatasetupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSetUpload(fbid=object_id).get_progress(
+    result = OfflineConversionDataSetUpload(fbid=offlineconversiondatasetupload_id).get_progress(
         fields=fields,
         params=params,
     )
@@ -93,12 +93,14 @@ async def get_progress_for_offlineconversiondatasetupload(
 
 
 @mcp.tool()
-async def get_pull_sessions_for_offlineconversiondatasetupload(
-    object_id: str,
+async def get_pull_sessions(
+    offlineconversiondatasetupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSetUpload(fbid=object_id).get_pull_sessions(
+    result = OfflineConversionDataSetUpload(
+        fbid=offlineconversiondatasetupload_id
+    ).get_pull_sessions(
         fields=fields,
         params=params,
     )

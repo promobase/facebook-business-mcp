@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-hotelroom")
 
 
 @mcp.tool()
-async def create_hotelroom(
-    object_id: str,
+async def api_create_hotelroom(
+    hotelroom_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HotelRoom(fbid=object_id).api_create(
+    result = HotelRoom(fbid=hotelroom_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_hotelroom(
 
 
 @mcp.tool()
-async def delete_hotelroom(
-    object_id: str,
+async def api_delete_hotelroom(
+    hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HotelRoom(fbid=object_id).api_delete(
+    result = HotelRoom(fbid=hotelroom_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_hotelroom(
 
 
 @mcp.tool()
-async def get_hotelroom(
-    object_id: str,
+async def api_get_hotelroom(
+    hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HotelRoom(fbid=object_id).api_get(
+    result = HotelRoom(fbid=hotelroom_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_hotelroom(
 
 
 @mcp.tool()
-async def update_hotelroom(
-    object_id: str,
+async def api_update_hotelroom(
+    hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HotelRoom(fbid=object_id).api_update(
+    result = HotelRoom(fbid=hotelroom_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_hotelroom(
 
 
 @mcp.tool()
-async def get_pricing_variables_for_hotelroom(
-    object_id: str,
+async def get_pricing_variables(
+    hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HotelRoom(fbid=object_id).get_pricing_variables(
+    result = HotelRoom(fbid=hotelroom_id).get_pricing_variables(
         fields=fields,
         params=params,
     )

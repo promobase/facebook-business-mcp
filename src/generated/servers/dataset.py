@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-dataset")
 
 
 @mcp.tool()
-async def create_dataset(
-    object_id: str,
+async def api_create_dataset(
+    dataset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Dataset(fbid=object_id).api_create(
+    result = Dataset(fbid=dataset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_dataset(
 
 
 @mcp.tool()
-async def delete_dataset(
-    object_id: str,
+async def api_delete_dataset(
+    dataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Dataset(fbid=object_id).api_delete(
+    result = Dataset(fbid=dataset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_dataset(
 
 
 @mcp.tool()
-async def get_dataset(
-    object_id: str,
+async def api_get_dataset(
+    dataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Dataset(fbid=object_id).api_get(
+    result = Dataset(fbid=dataset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_dataset(
 
 
 @mcp.tool()
-async def update_dataset(
-    object_id: str,
+async def api_update_dataset(
+    dataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Dataset(fbid=object_id).api_update(
+    result = Dataset(fbid=dataset_id).api_update(
         fields=fields,
         params=params,
     )

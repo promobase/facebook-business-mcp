@@ -17,13 +17,6 @@ if TYPE_CHECKING:
     from .profile import ProfileFields
 
 
-class photocomments_live_filter_enum_param(str, Enum):
-    """photocomments_live_filter_enum_param enum values."""
-
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
-
-
 class photoinsights_period_enum_param(str, Enum):
     """photoinsights_period_enum_param enum values."""
 
@@ -33,6 +26,13 @@ class photoinsights_period_enum_param(str, Enum):
     month = "month"
     total_over_range = "total_over_range"
     week = "week"
+
+
+class photocomments_filter_enum_param(str, Enum):
+    """photocomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
 
 
 class photoinsights_date_preset_enum_param(str, Enum):
@@ -60,13 +60,6 @@ class photoinsights_date_preset_enum_param(str, Enum):
     yesterday = "yesterday"
 
 
-class photocomments_order_enum_param(str, Enum):
-    """photocomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
-
-
 class photocomments_comment_privacy_value_enum_param(str, Enum):
     """photocomments_comment_privacy_value_enum_param enum values."""
 
@@ -83,11 +76,18 @@ class photocomments_comment_privacy_value_enum_param(str, Enum):
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
 
 
-class photocomments_filter_enum_param(str, Enum):
-    """photocomments_filter_enum_param enum values."""
+class photocomments_live_filter_enum_param(str, Enum):
+    """photocomments_live_filter_enum_param enum values."""
 
-    stream = "stream"
-    toplevel = "toplevel"
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
+
+
+class photocomments_order_enum_param(str, Enum):
+    """photocomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 # Field literal type

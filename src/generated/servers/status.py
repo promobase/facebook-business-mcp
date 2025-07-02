@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-status")
 
 
 @mcp.tool()
-async def create_status(
-    object_id: str,
+async def api_create_status(
+    status_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Status(fbid=object_id).api_create(
+    result = Status(fbid=status_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_status(
 
 
 @mcp.tool()
-async def delete_status(
-    object_id: str,
+async def api_delete_status(
+    status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Status(fbid=object_id).api_delete(
+    result = Status(fbid=status_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_status(
 
 
 @mcp.tool()
-async def get_status(
-    object_id: str,
+async def api_get_status(
+    status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Status(fbid=object_id).api_get(
+    result = Status(fbid=status_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_status(
 
 
 @mcp.tool()
-async def update_status(
-    object_id: str,
+async def api_update_status(
+    status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Status(fbid=object_id).api_update(
+    result = Status(fbid=status_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_status(
 
 
 @mcp.tool()
-async def create_like_for_status(
-    object_id: str,
+async def create_like(
+    status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Status(fbid=object_id).create_like(
+    result = Status(fbid=status_id).create_like(
         fields=fields,
         params=params,
     )

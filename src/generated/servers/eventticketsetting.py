@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-eventticketsetting")
 
 
 @mcp.tool()
-async def create_eventticketsetting(
-    object_id: str,
+async def api_create_eventticketsetting(
+    eventticketsetting_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketSetting(fbid=object_id).api_create(
+    result = EventTicketSetting(fbid=eventticketsetting_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_eventticketsetting(
 
 
 @mcp.tool()
-async def delete_eventticketsetting(
-    object_id: str,
+async def api_delete_eventticketsetting(
+    eventticketsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketSetting(fbid=object_id).api_delete(
+    result = EventTicketSetting(fbid=eventticketsetting_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_eventticketsetting(
 
 
 @mcp.tool()
-async def get_eventticketsetting(
-    object_id: str,
+async def api_get_eventticketsetting(
+    eventticketsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketSetting(fbid=object_id).api_get(
+    result = EventTicketSetting(fbid=eventticketsetting_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_eventticketsetting(
 
 
 @mcp.tool()
-async def update_eventticketsetting(
-    object_id: str,
+async def api_update_eventticketsetting(
+    eventticketsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketSetting(fbid=object_id).api_update(
+    result = EventTicketSetting(fbid=eventticketsetting_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-instagraminsightsresult")
 
 
 @mcp.tool()
-async def create_instagraminsightsresult(
-    object_id: str,
+async def api_create_instagraminsightsresult(
+    instagraminsightsresult_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramInsightsResult(fbid=object_id).api_create(
+    result = InstagramInsightsResult(fbid=instagraminsightsresult_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_instagraminsightsresult(
 
 
 @mcp.tool()
-async def delete_instagraminsightsresult(
-    object_id: str,
+async def api_delete_instagraminsightsresult(
+    instagraminsightsresult_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramInsightsResult(fbid=object_id).api_delete(
+    result = InstagramInsightsResult(fbid=instagraminsightsresult_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_instagraminsightsresult(
 
 
 @mcp.tool()
-async def get_instagraminsightsresult(
-    object_id: str,
+async def api_get_instagraminsightsresult(
+    instagraminsightsresult_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramInsightsResult(fbid=object_id).api_get(
+    result = InstagramInsightsResult(fbid=instagraminsightsresult_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_instagraminsightsresult(
 
 
 @mcp.tool()
-async def update_instagraminsightsresult(
-    object_id: str,
+async def api_update_instagraminsightsresult(
+    instagraminsightsresult_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = InstagramInsightsResult(fbid=object_id).api_update(
+    result = InstagramInsightsResult(fbid=instagraminsightsresult_id).api_update(
         fields=fields,
         params=params,
     )

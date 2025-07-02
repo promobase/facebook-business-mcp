@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-playablecontent")
 
 
 @mcp.tool()
-async def create_playablecontent(
-    object_id: str,
+async def api_create_playablecontent(
+    playablecontent_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlayableContent(fbid=object_id).api_create(
+    result = PlayableContent(fbid=playablecontent_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_playablecontent(
 
 
 @mcp.tool()
-async def delete_playablecontent(
-    object_id: str,
+async def api_delete_playablecontent(
+    playablecontent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlayableContent(fbid=object_id).api_delete(
+    result = PlayableContent(fbid=playablecontent_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_playablecontent(
 
 
 @mcp.tool()
-async def get_playablecontent(
-    object_id: str,
+async def api_get_playablecontent(
+    playablecontent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlayableContent(fbid=object_id).api_get(
+    result = PlayableContent(fbid=playablecontent_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_playablecontent(
 
 
 @mcp.tool()
-async def update_playablecontent(
-    object_id: str,
+async def api_update_playablecontent(
+    playablecontent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlayableContent(fbid=object_id).api_update(
+    result = PlayableContent(fbid=playablecontent_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-offlineconversiondataset")
 
 
 @mcp.tool()
-async def create_offlineconversiondataset(
-    object_id: str,
+async def api_create_offlineconversiondataset(
+    offlineconversiondataset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).api_create(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_offlineconversiondataset(
 
 
 @mcp.tool()
-async def delete_offlineconversiondataset(
-    object_id: str,
+async def api_delete_offlineconversiondataset(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).api_delete(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_offlineconversiondataset(
-    object_id: str,
+async def api_get_offlineconversiondataset(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).api_get(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_offlineconversiondataset(
 
 
 @mcp.tool()
-async def update_offlineconversiondataset(
-    object_id: str,
+async def api_update_offlineconversiondataset(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).api_update(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_ad_accounts_for_offlineconversiondataset(
-    object_id: str,
+async def get_ad_accounts(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_ad_accounts(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_ad_accounts_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_agencies_for_offlineconversiondataset(
-    object_id: str,
+async def get_agencies(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_agencies(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_agencies(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_agencies_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_audiences_for_offlineconversiondataset(
-    object_id: str,
+async def get_audiences(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_audiences(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_audiences(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_audiences_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_custom_conversions_for_offlineconversiondataset(
-    object_id: str,
+async def get_custom_conversions(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_custom_conversions(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_custom_conversions(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,14 @@ async def get_custom_conversions_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_server_events_permitted_business_for_offlineconversiondataset(
-    object_id: str,
+async def get_server_events_permitted_business(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_server_events_permitted_business(
+    result = OfflineConversionDataSet(
+        fbid=offlineconversiondataset_id
+    ).get_server_events_permitted_business(
         fields=fields,
         params=params,
     )
@@ -147,12 +149,12 @@ async def get_server_events_permitted_business_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_shared_accounts_for_offlineconversiondataset(
-    object_id: str,
+async def get_shared_accounts(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_shared_accounts(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_shared_accounts(
         fields=fields,
         params=params,
     )
@@ -161,12 +163,12 @@ async def get_shared_accounts_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_shared_agencies_for_offlineconversiondataset(
-    object_id: str,
+async def get_shared_agencies(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_shared_agencies(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_shared_agencies(
         fields=fields,
         params=params,
     )
@@ -175,12 +177,12 @@ async def get_shared_agencies_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_stats_for_offlineconversiondataset(
-    object_id: str,
+async def get_stats(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_stats(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_stats(
         fields=fields,
         params=params,
     )
@@ -189,12 +191,12 @@ async def get_stats_for_offlineconversiondataset(
 
 
 @mcp.tool()
-async def get_uploads_for_offlineconversiondataset(
-    object_id: str,
+async def get_uploads(
+    offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineConversionDataSet(fbid=object_id).get_uploads(
+    result = OfflineConversionDataSet(fbid=offlineconversiondataset_id).get_uploads(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adassetvideo")
 
 
 @mcp.tool()
-async def create_adassetvideo(
-    object_id: str,
+async def api_create_adassetvideo(
+    adassetvideo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetVideo(fbid=object_id).api_create(
+    result = AdAssetVideo(fbid=adassetvideo_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adassetvideo(
 
 
 @mcp.tool()
-async def delete_adassetvideo(
-    object_id: str,
+async def api_delete_adassetvideo(
+    adassetvideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetVideo(fbid=object_id).api_delete(
+    result = AdAssetVideo(fbid=adassetvideo_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adassetvideo(
 
 
 @mcp.tool()
-async def get_adassetvideo(
-    object_id: str,
+async def api_get_adassetvideo(
+    adassetvideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetVideo(fbid=object_id).api_get(
+    result = AdAssetVideo(fbid=adassetvideo_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adassetvideo(
 
 
 @mcp.tool()
-async def update_adassetvideo(
-    object_id: str,
+async def api_update_adassetvideo(
+    adassetvideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetVideo(fbid=object_id).api_update(
+    result = AdAssetVideo(fbid=adassetvideo_id).api_update(
         fields=fields,
         params=params,
     )

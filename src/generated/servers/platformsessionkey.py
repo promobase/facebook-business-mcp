@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-platformsessionkey")
 
 
 @mcp.tool()
-async def create_platformsessionkey(
-    object_id: str,
+async def api_create_platformsessionkey(
+    platformsessionkey_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlatformSessionKey(fbid=object_id).api_create(
+    result = PlatformSessionKey(fbid=platformsessionkey_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_platformsessionkey(
 
 
 @mcp.tool()
-async def delete_platformsessionkey(
-    object_id: str,
+async def api_delete_platformsessionkey(
+    platformsessionkey_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlatformSessionKey(fbid=object_id).api_delete(
+    result = PlatformSessionKey(fbid=platformsessionkey_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_platformsessionkey(
 
 
 @mcp.tool()
-async def get_platformsessionkey(
-    object_id: str,
+async def api_get_platformsessionkey(
+    platformsessionkey_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlatformSessionKey(fbid=object_id).api_get(
+    result = PlatformSessionKey(fbid=platformsessionkey_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_platformsessionkey(
 
 
 @mcp.tool()
-async def update_platformsessionkey(
-    object_id: str,
+async def api_update_platformsessionkey(
+    platformsessionkey_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlatformSessionKey(fbid=object_id).api_update(
+    result = PlatformSessionKey(fbid=platformsessionkey_id).api_update(
         fields=fields,
         params=params,
     )

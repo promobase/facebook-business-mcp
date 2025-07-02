@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-leadgendatadraft")
 
 
 @mcp.tool()
-async def create_leadgendatadraft(
-    object_id: str,
+async def api_create_leadgendatadraft(
+    leadgendatadraft_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenDataDraft(fbid=object_id).api_create(
+    result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_leadgendatadraft(
 
 
 @mcp.tool()
-async def delete_leadgendatadraft(
-    object_id: str,
+async def api_delete_leadgendatadraft(
+    leadgendatadraft_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenDataDraft(fbid=object_id).api_delete(
+    result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_leadgendatadraft(
 
 
 @mcp.tool()
-async def get_leadgendatadraft(
-    object_id: str,
+async def api_get_leadgendatadraft(
+    leadgendatadraft_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenDataDraft(fbid=object_id).api_get(
+    result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_leadgendatadraft(
 
 
 @mcp.tool()
-async def update_leadgendatadraft(
-    object_id: str,
+async def api_update_leadgendatadraft(
+    leadgendatadraft_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenDataDraft(fbid=object_id).api_update(
+    result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_update(
         fields=fields,
         params=params,
     )

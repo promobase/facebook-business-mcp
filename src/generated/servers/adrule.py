@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adrule")
 
 
 @mcp.tool()
-async def create_adrule(
-    object_id: str,
+async def api_create_adrule(
+    adrule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdRule(fbid=object_id).api_create(
+    result = AdRule(fbid=adrule_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adrule(
 
 
 @mcp.tool()
-async def delete_adrule(
-    object_id: str,
+async def api_delete_adrule(
+    adrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdRule(fbid=object_id).api_delete(
+    result = AdRule(fbid=adrule_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adrule(
 
 
 @mcp.tool()
-async def get_adrule(
-    object_id: str,
+async def api_get_adrule(
+    adrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdRule(fbid=object_id).api_get(
+    result = AdRule(fbid=adrule_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adrule(
 
 
 @mcp.tool()
-async def update_adrule(
-    object_id: str,
+async def api_update_adrule(
+    adrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdRule(fbid=object_id).api_update(
+    result = AdRule(fbid=adrule_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adrule(
 
 
 @mcp.tool()
-async def create_execute_for_adrule(
-    object_id: str,
+async def create_execute(
+    adrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdRule(fbid=object_id).create_execute(
+    result = AdRule(fbid=adrule_id).create_execute(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_execute_for_adrule(
 
 
 @mcp.tool()
-async def create_preview_for_adrule(
-    object_id: str,
+async def create_preview(
+    adrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdRule(fbid=object_id).create_preview(
+    result = AdRule(fbid=adrule_id).create_preview(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_preview_for_adrule(
 
 
 @mcp.tool()
-async def get_history_for_adrule(
-    object_id: str,
+async def get_history(
+    adrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdRule(fbid=object_id).get_history(
+    result = AdRule(fbid=adrule_id).get_history(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-imagecopyrightdispute")
 
 
 @mcp.tool()
-async def create_imagecopyrightdispute(
-    object_id: str,
+async def api_create_imagecopyrightdispute(
+    imagecopyrightdispute_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ImageCopyrightDispute(fbid=object_id).api_create(
+    result = ImageCopyrightDispute(fbid=imagecopyrightdispute_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_imagecopyrightdispute(
 
 
 @mcp.tool()
-async def delete_imagecopyrightdispute(
-    object_id: str,
+async def api_delete_imagecopyrightdispute(
+    imagecopyrightdispute_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ImageCopyrightDispute(fbid=object_id).api_delete(
+    result = ImageCopyrightDispute(fbid=imagecopyrightdispute_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_imagecopyrightdispute(
 
 
 @mcp.tool()
-async def get_imagecopyrightdispute(
-    object_id: str,
+async def api_get_imagecopyrightdispute(
+    imagecopyrightdispute_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ImageCopyrightDispute(fbid=object_id).api_get(
+    result = ImageCopyrightDispute(fbid=imagecopyrightdispute_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_imagecopyrightdispute(
 
 
 @mcp.tool()
-async def update_imagecopyrightdispute(
-    object_id: str,
+async def api_update_imagecopyrightdispute(
+    imagecopyrightdispute_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ImageCopyrightDispute(fbid=object_id).api_update(
+    result = ImageCopyrightDispute(fbid=imagecopyrightdispute_id).api_update(
         fields=fields,
         params=params,
     )

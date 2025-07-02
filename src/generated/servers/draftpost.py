@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-draftpost")
 
 
 @mcp.tool()
-async def create_draftpost(
-    object_id: str,
+async def api_create_draftpost(
+    draftpost_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DraftPost(fbid=object_id).api_create(
+    result = DraftPost(fbid=draftpost_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_draftpost(
 
 
 @mcp.tool()
-async def delete_draftpost(
-    object_id: str,
+async def api_delete_draftpost(
+    draftpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DraftPost(fbid=object_id).api_delete(
+    result = DraftPost(fbid=draftpost_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_draftpost(
 
 
 @mcp.tool()
-async def get_draftpost(
-    object_id: str,
+async def api_get_draftpost(
+    draftpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DraftPost(fbid=object_id).api_get(
+    result = DraftPost(fbid=draftpost_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_draftpost(
 
 
 @mcp.tool()
-async def update_draftpost(
-    object_id: str,
+async def api_update_draftpost(
+    draftpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = DraftPost(fbid=object_id).api_update(
+    result = DraftPost(fbid=draftpost_id).api_update(
         fields=fields,
         params=params,
     )

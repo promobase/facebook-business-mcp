@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-researchpollstudy")
 
 
 @mcp.tool()
-async def create_researchpollstudy(
-    object_id: str,
+async def api_create_researchpollstudy(
+    researchpollstudy_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ResearchPollStudy(fbid=object_id).api_create(
+    result = ResearchPollStudy(fbid=researchpollstudy_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_researchpollstudy(
 
 
 @mcp.tool()
-async def delete_researchpollstudy(
-    object_id: str,
+async def api_delete_researchpollstudy(
+    researchpollstudy_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ResearchPollStudy(fbid=object_id).api_delete(
+    result = ResearchPollStudy(fbid=researchpollstudy_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_researchpollstudy(
 
 
 @mcp.tool()
-async def get_researchpollstudy(
-    object_id: str,
+async def api_get_researchpollstudy(
+    researchpollstudy_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ResearchPollStudy(fbid=object_id).api_get(
+    result = ResearchPollStudy(fbid=researchpollstudy_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_researchpollstudy(
 
 
 @mcp.tool()
-async def update_researchpollstudy(
-    object_id: str,
+async def api_update_researchpollstudy(
+    researchpollstudy_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ResearchPollStudy(fbid=object_id).api_update(
+    result = ResearchPollStudy(fbid=researchpollstudy_id).api_update(
         fields=fields,
         params=params,
     )

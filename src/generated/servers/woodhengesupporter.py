@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-woodhengesupporter")
 
 
 @mcp.tool()
-async def create_woodhengesupporter(
-    object_id: str,
+async def api_create_woodhengesupporter(
+    woodhengesupporter_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengeSupporter(fbid=object_id).api_create(
+    result = WoodhengeSupporter(fbid=woodhengesupporter_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_woodhengesupporter(
 
 
 @mcp.tool()
-async def delete_woodhengesupporter(
-    object_id: str,
+async def api_delete_woodhengesupporter(
+    woodhengesupporter_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengeSupporter(fbid=object_id).api_delete(
+    result = WoodhengeSupporter(fbid=woodhengesupporter_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_woodhengesupporter(
 
 
 @mcp.tool()
-async def get_woodhengesupporter(
-    object_id: str,
+async def api_get_woodhengesupporter(
+    woodhengesupporter_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengeSupporter(fbid=object_id).api_get(
+    result = WoodhengeSupporter(fbid=woodhengesupporter_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_woodhengesupporter(
 
 
 @mcp.tool()
-async def update_woodhengesupporter(
-    object_id: str,
+async def api_update_woodhengesupporter(
+    woodhengesupporter_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengeSupporter(fbid=object_id).api_update(
+    result = WoodhengeSupporter(fbid=woodhengesupporter_id).api_update(
         fields=fields,
         params=params,
     )

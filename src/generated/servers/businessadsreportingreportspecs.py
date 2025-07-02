@@ -18,13 +18,13 @@ mcp = FastMCP("facebook-businessadsreportingreportspecs")
 
 
 @mcp.tool()
-async def create_businessadsreportingreportspecs(
-    object_id: str,
+async def api_create_businessadsreportingreportspecs(
+    businessadsreportingreportspecs_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdsReportingReportSpecs(fbid=object_id).api_create(
+    result = BusinessAdsReportingReportSpecs(fbid=businessadsreportingreportspecs_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +34,12 @@ async def create_businessadsreportingreportspecs(
 
 
 @mcp.tool()
-async def delete_businessadsreportingreportspecs(
-    object_id: str,
+async def api_delete_businessadsreportingreportspecs(
+    businessadsreportingreportspecs_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdsReportingReportSpecs(fbid=object_id).api_delete(
+    result = BusinessAdsReportingReportSpecs(fbid=businessadsreportingreportspecs_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +48,12 @@ async def delete_businessadsreportingreportspecs(
 
 
 @mcp.tool()
-async def get_businessadsreportingreportspecs(
-    object_id: str,
+async def api_get_businessadsreportingreportspecs(
+    businessadsreportingreportspecs_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdsReportingReportSpecs(fbid=object_id).api_get(
+    result = BusinessAdsReportingReportSpecs(fbid=businessadsreportingreportspecs_id).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +62,12 @@ async def get_businessadsreportingreportspecs(
 
 
 @mcp.tool()
-async def update_businessadsreportingreportspecs(
-    object_id: str,
+async def api_update_businessadsreportingreportspecs(
+    businessadsreportingreportspecs_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdsReportingReportSpecs(fbid=object_id).api_update(
+    result = BusinessAdsReportingReportSpecs(fbid=businessadsreportingreportspecs_id).api_update(
         fields=fields,
         params=params,
     )

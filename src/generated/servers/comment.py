@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-comment")
 
 
 @mcp.tool()
-async def create_comment(
-    object_id: str,
+async def api_create_comment(
+    comment_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).api_create(
+    result = Comment(fbid=comment_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_comment(
 
 
 @mcp.tool()
-async def delete_comment(
-    object_id: str,
+async def api_delete_comment(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).api_delete(
+    result = Comment(fbid=comment_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_comment(
 
 
 @mcp.tool()
-async def get_comment(
-    object_id: str,
+async def api_get_comment(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).api_get(
+    result = Comment(fbid=comment_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_comment(
 
 
 @mcp.tool()
-async def update_comment(
-    object_id: str,
+async def api_update_comment(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).api_update(
+    result = Comment(fbid=comment_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_comment(
 
 
 @mcp.tool()
-async def create_comment_for_comment(
-    object_id: str,
+async def create_comment(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).create_comment(
+    result = Comment(fbid=comment_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_comment_for_comment(
 
 
 @mcp.tool()
-async def create_like_for_comment(
-    object_id: str,
+async def create_like(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).create_like(
+    result = Comment(fbid=comment_id).create_like(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_like_for_comment(
 
 
 @mcp.tool()
-async def delete_likes_for_comment(
-    object_id: str,
+async def delete_likes(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).delete_likes(
+    result = Comment(fbid=comment_id).delete_likes(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def delete_likes_for_comment(
 
 
 @mcp.tool()
-async def get_comments_for_comment(
-    object_id: str,
+async def get_comments(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).get_comments(
+    result = Comment(fbid=comment_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_comments_for_comment(
 
 
 @mcp.tool()
-async def get_likes_for_comment(
-    object_id: str,
+async def get_likes(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).get_likes(
+    result = Comment(fbid=comment_id).get_likes(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_likes_for_comment(
 
 
 @mcp.tool()
-async def get_reactions_for_comment(
-    object_id: str,
+async def get_reactions(
+    comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Comment(fbid=object_id).get_reactions(
+    result = Comment(fbid=comment_id).get_reactions(
         fields=fields,
         params=params,
     )

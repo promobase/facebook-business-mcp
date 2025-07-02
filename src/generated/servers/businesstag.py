@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-businesstag")
 
 
 @mcp.tool()
-async def create_businesstag(
-    object_id: str,
+async def api_create_businesstag(
+    businesstag_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessTag(fbid=object_id).api_create(
+    result = BusinessTag(fbid=businesstag_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_businesstag(
 
 
 @mcp.tool()
-async def delete_businesstag(
-    object_id: str,
+async def api_delete_businesstag(
+    businesstag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessTag(fbid=object_id).api_delete(
+    result = BusinessTag(fbid=businesstag_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_businesstag(
 
 
 @mcp.tool()
-async def get_businesstag(
-    object_id: str,
+async def api_get_businesstag(
+    businesstag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessTag(fbid=object_id).api_get(
+    result = BusinessTag(fbid=businesstag_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_businesstag(
 
 
 @mcp.tool()
-async def update_businesstag(
-    object_id: str,
+async def api_update_businesstag(
+    businesstag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessTag(fbid=object_id).api_update(
+    result = BusinessTag(fbid=businesstag_id).api_update(
         fields=fields,
         params=params,
     )

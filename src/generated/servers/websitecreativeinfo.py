@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-websitecreativeinfo")
 
 
 @mcp.tool()
-async def create_websitecreativeinfo(
-    object_id: str,
+async def api_create_websitecreativeinfo(
+    websitecreativeinfo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WebsiteCreativeInfo(fbid=object_id).api_create(
+    result = WebsiteCreativeInfo(fbid=websitecreativeinfo_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_websitecreativeinfo(
 
 
 @mcp.tool()
-async def delete_websitecreativeinfo(
-    object_id: str,
+async def api_delete_websitecreativeinfo(
+    websitecreativeinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WebsiteCreativeInfo(fbid=object_id).api_delete(
+    result = WebsiteCreativeInfo(fbid=websitecreativeinfo_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_websitecreativeinfo(
 
 
 @mcp.tool()
-async def get_websitecreativeinfo(
-    object_id: str,
+async def api_get_websitecreativeinfo(
+    websitecreativeinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WebsiteCreativeInfo(fbid=object_id).api_get(
+    result = WebsiteCreativeInfo(fbid=websitecreativeinfo_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_websitecreativeinfo(
 
 
 @mcp.tool()
-async def update_websitecreativeinfo(
-    object_id: str,
+async def api_update_websitecreativeinfo(
+    websitecreativeinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WebsiteCreativeInfo(fbid=object_id).api_update(
+    result = WebsiteCreativeInfo(fbid=websitecreativeinfo_id).api_update(
         fields=fields,
         params=params,
     )

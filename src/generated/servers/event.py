@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-event")
 
 
 @mcp.tool()
-async def create_event(
-    object_id: str,
+async def api_create_event(
+    event_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).api_create(
+    result = Event(fbid=event_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_event(
 
 
 @mcp.tool()
-async def delete_event(
-    object_id: str,
+async def api_delete_event(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).api_delete(
+    result = Event(fbid=event_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_event(
 
 
 @mcp.tool()
-async def get_event(
-    object_id: str,
+async def api_get_event(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).api_get(
+    result = Event(fbid=event_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_event(
 
 
 @mcp.tool()
-async def update_event(
-    object_id: str,
+async def api_update_event(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).api_update(
+    result = Event(fbid=event_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_event(
 
 
 @mcp.tool()
-async def create_live_video_for_event(
-    object_id: str,
+async def create_live_video(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).create_live_video(
+    result = Event(fbid=event_id).create_live_video(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_live_video_for_event(
 
 
 @mcp.tool()
-async def get_comments_for_event(
-    object_id: str,
+async def get_comments(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_comments(
+    result = Event(fbid=event_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_comments_for_event(
 
 
 @mcp.tool()
-async def get_feed_for_event(
-    object_id: str,
+async def get_feed(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_feed(
+    result = Event(fbid=event_id).get_feed(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_feed_for_event(
 
 
 @mcp.tool()
-async def get_live_videos_for_event(
-    object_id: str,
+async def get_live_videos(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_live_videos(
+    result = Event(fbid=event_id).get_live_videos(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_live_videos_for_event(
 
 
 @mcp.tool()
-async def get_photos_for_event(
-    object_id: str,
+async def get_photos(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_photos(
+    result = Event(fbid=event_id).get_photos(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_photos_for_event(
 
 
 @mcp.tool()
-async def get_picture_for_event(
-    object_id: str,
+async def get_picture(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_picture(
+    result = Event(fbid=event_id).get_picture(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_picture_for_event(
 
 
 @mcp.tool()
-async def get_posts_for_event(
-    object_id: str,
+async def get_posts(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_posts(
+    result = Event(fbid=event_id).get_posts(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_posts_for_event(
 
 
 @mcp.tool()
-async def get_roles_for_event(
-    object_id: str,
+async def get_roles(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_roles(
+    result = Event(fbid=event_id).get_roles(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_roles_for_event(
 
 
 @mcp.tool()
-async def get_ticket_tiers_for_event(
-    object_id: str,
+async def get_ticket_tiers(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_ticket_tiers(
+    result = Event(fbid=event_id).get_ticket_tiers(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_ticket_tiers_for_event(
 
 
 @mcp.tool()
-async def get_videos_for_event(
-    object_id: str,
+async def get_videos(
+    event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Event(fbid=object_id).get_videos(
+    result = Event(fbid=event_id).get_videos(
         fields=fields,
         params=params,
     )

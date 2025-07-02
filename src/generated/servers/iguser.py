@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-iguser")
 
 
 @mcp.tool()
-async def create_iguser(
-    object_id: str,
+async def api_create_iguser(
+    iguser_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).api_create(
+    result = IGUser(fbid=iguser_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_iguser(
 
 
 @mcp.tool()
-async def delete_iguser(
-    object_id: str,
+async def api_delete_iguser(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).api_delete(
+    result = IGUser(fbid=iguser_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_iguser(
 
 
 @mcp.tool()
-async def get_iguser(
-    object_id: str,
+async def api_get_iguser(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).api_get(
+    result = IGUser(fbid=iguser_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_iguser(
 
 
 @mcp.tool()
-async def update_iguser(
-    object_id: str,
+async def api_update_iguser(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).api_update(
+    result = IGUser(fbid=iguser_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_iguser(
 
 
 @mcp.tool()
-async def create_authorized_ad_account_for_iguser(
-    object_id: str,
+async def create_authorized_ad_account(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_authorized_ad_account(
+    result = IGUser(fbid=iguser_id).create_authorized_ad_account(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_authorized_ad_account_for_iguser(
 
 
 @mcp.tool()
-async def create_branded_content_ad_permission_for_iguser(
-    object_id: str,
+async def create_branded_content_ad_permission(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_branded_content_ad_permission(
+    result = IGUser(fbid=iguser_id).create_branded_content_ad_permission(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_branded_content_ad_permission_for_iguser(
 
 
 @mcp.tool()
-async def create_branded_content_tag_approval_for_iguser(
-    object_id: str,
+async def create_branded_content_tag_approval(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_branded_content_tag_approval(
+    result = IGUser(fbid=iguser_id).create_branded_content_tag_approval(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_branded_content_tag_approval_for_iguser(
 
 
 @mcp.tool()
-async def create_dataset_for_iguser(
-    object_id: str,
+async def create_dataset(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_dataset(
+    result = IGUser(fbid=iguser_id).create_dataset(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_dataset_for_iguser(
 
 
 @mcp.tool()
-async def create_media_for_iguser(
-    object_id: str,
+async def create_media(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_media(
+    result = IGUser(fbid=iguser_id).create_media(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def create_media_for_iguser(
 
 
 @mcp.tool()
-async def create_media_publish_for_iguser(
-    object_id: str,
+async def create_media_publish(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_media_publish(
+    result = IGUser(fbid=iguser_id).create_media_publish(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def create_media_publish_for_iguser(
 
 
 @mcp.tool()
-async def create_mention_for_iguser(
-    object_id: str,
+async def create_mention(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_mention(
+    result = IGUser(fbid=iguser_id).create_mention(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def create_mention_for_iguser(
 
 
 @mcp.tool()
-async def create_product_appeal_for_iguser(
-    object_id: str,
+async def create_product_appeal(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_product_appeal(
+    result = IGUser(fbid=iguser_id).create_product_appeal(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def create_product_appeal_for_iguser(
 
 
 @mcp.tool()
-async def create_upcoming_event_for_iguser(
-    object_id: str,
+async def create_upcoming_event(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).create_upcoming_event(
+    result = IGUser(fbid=iguser_id).create_upcoming_event(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def create_upcoming_event_for_iguser(
 
 
 @mcp.tool()
-async def delete_branded_content_tag_approval_for_iguser(
-    object_id: str,
+async def delete_branded_content_tag_approval(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).delete_branded_content_tag_approval(
+    result = IGUser(fbid=iguser_id).delete_branded_content_tag_approval(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def delete_branded_content_tag_approval_for_iguser(
 
 
 @mcp.tool()
-async def get_agencies_for_iguser(
-    object_id: str,
+async def get_agencies(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_agencies(
+    result = IGUser(fbid=iguser_id).get_agencies(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_agencies_for_iguser(
 
 
 @mcp.tool()
-async def get_authorized_ad_accounts_for_iguser(
-    object_id: str,
+async def get_authorized_ad_accounts(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_authorized_ad_accounts(
+    result = IGUser(fbid=iguser_id).get_authorized_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def get_authorized_ad_accounts_for_iguser(
 
 
 @mcp.tool()
-async def get_available_catalogs_for_iguser(
-    object_id: str,
+async def get_available_catalogs(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_available_catalogs(
+    result = IGUser(fbid=iguser_id).get_available_catalogs(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def get_available_catalogs_for_iguser(
 
 
 @mcp.tool()
-async def get_branded_content_ad_permissions_for_iguser(
-    object_id: str,
+async def get_branded_content_ad_permissions(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_branded_content_ad_permissions(
+    result = IGUser(fbid=iguser_id).get_branded_content_ad_permissions(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def get_branded_content_ad_permissions_for_iguser(
 
 
 @mcp.tool()
-async def get_branded_content_advertisable_medias_for_iguser(
-    object_id: str,
+async def get_branded_content_advertisable_medias(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_branded_content_advertisable_medias(
+    result = IGUser(fbid=iguser_id).get_branded_content_advertisable_medias(
         fields=fields,
         params=params,
     )
@@ -287,12 +287,12 @@ async def get_branded_content_advertisable_medias_for_iguser(
 
 
 @mcp.tool()
-async def get_branded_content_tag_approval_for_iguser(
-    object_id: str,
+async def get_branded_content_tag_approval(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_branded_content_tag_approval(
+    result = IGUser(fbid=iguser_id).get_branded_content_tag_approval(
         fields=fields,
         params=params,
     )
@@ -301,12 +301,12 @@ async def get_branded_content_tag_approval_for_iguser(
 
 
 @mcp.tool()
-async def get_catalog_product_search_for_iguser(
-    object_id: str,
+async def get_catalog_product_search(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_catalog_product_search(
+    result = IGUser(fbid=iguser_id).get_catalog_product_search(
         fields=fields,
         params=params,
     )
@@ -315,12 +315,12 @@ async def get_catalog_product_search_for_iguser(
 
 
 @mcp.tool()
-async def get_connected_threads_user_for_iguser(
-    object_id: str,
+async def get_connected_threads_user(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_connected_threads_user(
+    result = IGUser(fbid=iguser_id).get_connected_threads_user(
         fields=fields,
         params=params,
     )
@@ -329,12 +329,12 @@ async def get_connected_threads_user_for_iguser(
 
 
 @mcp.tool()
-async def get_content_publishing_limit_for_iguser(
-    object_id: str,
+async def get_content_publishing_limit(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_content_publishing_limit(
+    result = IGUser(fbid=iguser_id).get_content_publishing_limit(
         fields=fields,
         params=params,
     )
@@ -343,12 +343,12 @@ async def get_content_publishing_limit_for_iguser(
 
 
 @mcp.tool()
-async def get_dataset_for_iguser(
-    object_id: str,
+async def get_dataset(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_dataset(
+    result = IGUser(fbid=iguser_id).get_dataset(
         fields=fields,
         params=params,
     )
@@ -357,12 +357,12 @@ async def get_dataset_for_iguser(
 
 
 @mcp.tool()
-async def get_insights_for_iguser(
-    object_id: str,
+async def get_insights(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_insights(
+    result = IGUser(fbid=iguser_id).get_insights(
         fields=fields,
         params=params,
     )
@@ -371,12 +371,12 @@ async def get_insights_for_iguser(
 
 
 @mcp.tool()
-async def get_instagram_backed_threads_user_for_iguser(
-    object_id: str,
+async def get_instagram_backed_threads_user(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_instagram_backed_threads_user(
+    result = IGUser(fbid=iguser_id).get_instagram_backed_threads_user(
         fields=fields,
         params=params,
     )
@@ -385,12 +385,12 @@ async def get_instagram_backed_threads_user_for_iguser(
 
 
 @mcp.tool()
-async def get_live_media_for_iguser(
-    object_id: str,
+async def get_live_media(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_live_media(
+    result = IGUser(fbid=iguser_id).get_live_media(
         fields=fields,
         params=params,
     )
@@ -399,12 +399,12 @@ async def get_live_media_for_iguser(
 
 
 @mcp.tool()
-async def get_media_for_iguser(
-    object_id: str,
+async def get_media(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_media(
+    result = IGUser(fbid=iguser_id).get_media(
         fields=fields,
         params=params,
     )
@@ -413,12 +413,12 @@ async def get_media_for_iguser(
 
 
 @mcp.tool()
-async def get_notification_message_tokens_for_iguser(
-    object_id: str,
+async def get_notification_message_tokens(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_notification_message_tokens(
+    result = IGUser(fbid=iguser_id).get_notification_message_tokens(
         fields=fields,
         params=params,
     )
@@ -427,12 +427,12 @@ async def get_notification_message_tokens_for_iguser(
 
 
 @mcp.tool()
-async def get_product_appeal_for_iguser(
-    object_id: str,
+async def get_product_appeal(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_product_appeal(
+    result = IGUser(fbid=iguser_id).get_product_appeal(
         fields=fields,
         params=params,
     )
@@ -441,12 +441,12 @@ async def get_product_appeal_for_iguser(
 
 
 @mcp.tool()
-async def get_recently_searched_hashtags_for_iguser(
-    object_id: str,
+async def get_recently_searched_hashtags(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_recently_searched_hashtags(
+    result = IGUser(fbid=iguser_id).get_recently_searched_hashtags(
         fields=fields,
         params=params,
     )
@@ -455,12 +455,12 @@ async def get_recently_searched_hashtags_for_iguser(
 
 
 @mcp.tool()
-async def get_stories_for_iguser(
-    object_id: str,
+async def get_stories(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_stories(
+    result = IGUser(fbid=iguser_id).get_stories(
         fields=fields,
         params=params,
     )
@@ -469,12 +469,12 @@ async def get_stories_for_iguser(
 
 
 @mcp.tool()
-async def get_tags_for_iguser(
-    object_id: str,
+async def get_tags(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_tags(
+    result = IGUser(fbid=iguser_id).get_tags(
         fields=fields,
         params=params,
     )
@@ -483,12 +483,12 @@ async def get_tags_for_iguser(
 
 
 @mcp.tool()
-async def get_upcoming_events_for_iguser(
-    object_id: str,
+async def get_upcoming_events(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_upcoming_events(
+    result = IGUser(fbid=iguser_id).get_upcoming_events(
         fields=fields,
         params=params,
     )
@@ -497,12 +497,12 @@ async def get_upcoming_events_for_iguser(
 
 
 @mcp.tool()
-async def get_welcome_message_flows_for_iguser(
-    object_id: str,
+async def get_welcome_message_flows(
+    iguser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUser(fbid=object_id).get_welcome_message_flows(
+    result = IGUser(fbid=iguser_id).get_welcome_message_flows(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-broadtargetingcategories")
 
 
 @mcp.tool()
-async def create_broadtargetingcategories(
-    object_id: str,
+async def api_create_broadtargetingcategories(
+    broadtargetingcategories_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BroadTargetingCategories(fbid=object_id).api_create(
+    result = BroadTargetingCategories(fbid=broadtargetingcategories_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_broadtargetingcategories(
 
 
 @mcp.tool()
-async def delete_broadtargetingcategories(
-    object_id: str,
+async def api_delete_broadtargetingcategories(
+    broadtargetingcategories_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BroadTargetingCategories(fbid=object_id).api_delete(
+    result = BroadTargetingCategories(fbid=broadtargetingcategories_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_broadtargetingcategories(
 
 
 @mcp.tool()
-async def get_broadtargetingcategories(
-    object_id: str,
+async def api_get_broadtargetingcategories(
+    broadtargetingcategories_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BroadTargetingCategories(fbid=object_id).api_get(
+    result = BroadTargetingCategories(fbid=broadtargetingcategories_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_broadtargetingcategories(
 
 
 @mcp.tool()
-async def update_broadtargetingcategories(
-    object_id: str,
+async def api_update_broadtargetingcategories(
+    broadtargetingcategories_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BroadTargetingCategories(fbid=object_id).api_update(
+    result = BroadTargetingCategories(fbid=broadtargetingcategories_id).api_update(
         fields=fields,
         params=params,
     )

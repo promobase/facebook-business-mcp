@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-place")
 
 
 @mcp.tool()
-async def create_place(
-    object_id: str,
+async def api_create_place(
+    place_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Place(fbid=object_id).api_create(
+    result = Place(fbid=place_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_place(
 
 
 @mcp.tool()
-async def delete_place(
-    object_id: str,
+async def api_delete_place(
+    place_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Place(fbid=object_id).api_delete(
+    result = Place(fbid=place_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_place(
 
 
 @mcp.tool()
-async def get_place(
-    object_id: str,
+async def api_get_place(
+    place_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Place(fbid=object_id).api_get(
+    result = Place(fbid=place_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_place(
 
 
 @mcp.tool()
-async def update_place(
-    object_id: str,
+async def api_update_place(
+    place_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Place(fbid=object_id).api_update(
+    result = Place(fbid=place_id).api_update(
         fields=fields,
         params=params,
     )

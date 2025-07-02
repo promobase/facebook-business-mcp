@@ -67,6 +67,6 @@ def create_root_mcp() -> FastMCP:
     def test_resource():
         return "This is a test resource"
 
-    mcp.mount(adaccount_server, "adaccount")
+    mcp.mount(adaccount_server)
 
     return mcp

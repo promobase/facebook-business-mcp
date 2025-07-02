@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-rawcustomaudience")
 
 
 @mcp.tool()
-async def create_rawcustomaudience(
-    object_id: str,
+async def api_create_rawcustomaudience(
+    rawcustomaudience_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RawCustomAudience(fbid=object_id).api_create(
+    result = RawCustomAudience(fbid=rawcustomaudience_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_rawcustomaudience(
 
 
 @mcp.tool()
-async def delete_rawcustomaudience(
-    object_id: str,
+async def api_delete_rawcustomaudience(
+    rawcustomaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RawCustomAudience(fbid=object_id).api_delete(
+    result = RawCustomAudience(fbid=rawcustomaudience_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_rawcustomaudience(
 
 
 @mcp.tool()
-async def get_rawcustomaudience(
-    object_id: str,
+async def api_get_rawcustomaudience(
+    rawcustomaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RawCustomAudience(fbid=object_id).api_get(
+    result = RawCustomAudience(fbid=rawcustomaudience_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_rawcustomaudience(
 
 
 @mcp.tool()
-async def update_rawcustomaudience(
-    object_id: str,
+async def api_update_rawcustomaudience(
+    rawcustomaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RawCustomAudience(fbid=object_id).api_update(
+    result = RawCustomAudience(fbid=rawcustomaudience_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-entwithsponsor")
 
 
 @mcp.tool()
-async def create_entwithsponsor(
-    object_id: str,
+async def api_create_entwithsponsor(
+    entwithsponsor_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntWithSponsor(fbid=object_id).api_create(
+    result = EntWithSponsor(fbid=entwithsponsor_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_entwithsponsor(
 
 
 @mcp.tool()
-async def delete_entwithsponsor(
-    object_id: str,
+async def api_delete_entwithsponsor(
+    entwithsponsor_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntWithSponsor(fbid=object_id).api_delete(
+    result = EntWithSponsor(fbid=entwithsponsor_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_entwithsponsor(
 
 
 @mcp.tool()
-async def get_entwithsponsor(
-    object_id: str,
+async def api_get_entwithsponsor(
+    entwithsponsor_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntWithSponsor(fbid=object_id).api_get(
+    result = EntWithSponsor(fbid=entwithsponsor_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_entwithsponsor(
 
 
 @mcp.tool()
-async def update_entwithsponsor(
-    object_id: str,
+async def api_update_entwithsponsor(
+    entwithsponsor_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntWithSponsor(fbid=object_id).api_update(
+    result = EntWithSponsor(fbid=entwithsponsor_id).api_update(
         fields=fields,
         params=params,
     )

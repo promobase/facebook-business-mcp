@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adstudycell")
 
 
 @mcp.tool()
-async def create_adstudycell(
-    object_id: str,
+async def api_create_adstudycell(
+    adstudycell_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyCell(fbid=object_id).api_create(
+    result = AdStudyCell(fbid=adstudycell_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adstudycell(
 
 
 @mcp.tool()
-async def delete_adstudycell(
-    object_id: str,
+async def api_delete_adstudycell(
+    adstudycell_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyCell(fbid=object_id).api_delete(
+    result = AdStudyCell(fbid=adstudycell_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adstudycell(
 
 
 @mcp.tool()
-async def get_adstudycell(
-    object_id: str,
+async def api_get_adstudycell(
+    adstudycell_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyCell(fbid=object_id).api_get(
+    result = AdStudyCell(fbid=adstudycell_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adstudycell(
 
 
 @mcp.tool()
-async def update_adstudycell(
-    object_id: str,
+async def api_update_adstudycell(
+    adstudycell_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyCell(fbid=object_id).api_update(
+    result = AdStudyCell(fbid=adstudycell_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adstudycell(
 
 
 @mcp.tool()
-async def get_ad_accounts_for_adstudycell(
-    object_id: str,
+async def get_ad_accounts(
+    adstudycell_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyCell(fbid=object_id).get_ad_accounts(
+    result = AdStudyCell(fbid=adstudycell_id).get_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_ad_accounts_for_adstudycell(
 
 
 @mcp.tool()
-async def get_ad_sets_for_adstudycell(
-    object_id: str,
+async def get_ad_sets(
+    adstudycell_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyCell(fbid=object_id).get_ad_sets(
+    result = AdStudyCell(fbid=adstudycell_id).get_ad_sets(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_ad_sets_for_adstudycell(
 
 
 @mcp.tool()
-async def get_campaigns_for_adstudycell(
-    object_id: str,
+async def get_campaigns(
+    adstudycell_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyCell(fbid=object_id).get_campaigns(
+    result = AdStudyCell(fbid=adstudycell_id).get_campaigns(
         fields=fields,
         params=params,
     )

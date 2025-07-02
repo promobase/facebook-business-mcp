@@ -19,11 +19,18 @@ if TYPE_CHECKING:
     from .videostatus import VideoStatusFields
 
 
-class videocomments_order_enum_param(str, Enum):
-    """videocomments_order_enum_param enum values."""
+class videocomments_live_filter_enum_param(str, Enum):
+    """videocomments_live_filter_enum_param enum values."""
 
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
+
+
+class videocomments_filter_enum_param(str, Enum):
+    """videocomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
 
 
 class videovideo_insights_period_enum_param(str, Enum):
@@ -53,18 +60,11 @@ class videocomments_comment_privacy_value_enum_param(str, Enum):
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
 
 
-class videocomments_filter_enum_param(str, Enum):
-    """videocomments_filter_enum_param enum values."""
+class videocomments_order_enum_param(str, Enum):
+    """videocomments_order_enum_param enum values."""
 
-    stream = "stream"
-    toplevel = "toplevel"
-
-
-class videocomments_live_filter_enum_param(str, Enum):
-    """videocomments_live_filter_enum_param enum values."""
-
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 # Field literal type

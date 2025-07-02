@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-pagepost")
 
 
 @mcp.tool()
-async def create_pagepost(
-    object_id: str,
+async def api_create_pagepost(
+    pagepost_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).api_create(
+    result = PagePost(fbid=pagepost_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_pagepost(
 
 
 @mcp.tool()
-async def delete_pagepost(
-    object_id: str,
+async def api_delete_pagepost(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).api_delete(
+    result = PagePost(fbid=pagepost_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_pagepost(
 
 
 @mcp.tool()
-async def get_pagepost(
-    object_id: str,
+async def api_get_pagepost(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).api_get(
+    result = PagePost(fbid=pagepost_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_pagepost(
 
 
 @mcp.tool()
-async def update_pagepost(
-    object_id: str,
+async def api_update_pagepost(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).api_update(
+    result = PagePost(fbid=pagepost_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_pagepost(
 
 
 @mcp.tool()
-async def create_comment_for_pagepost(
-    object_id: str,
+async def create_comment(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).create_comment(
+    result = PagePost(fbid=pagepost_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_comment_for_pagepost(
 
 
 @mcp.tool()
-async def create_like_for_pagepost(
-    object_id: str,
+async def create_like(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).create_like(
+    result = PagePost(fbid=pagepost_id).create_like(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_like_for_pagepost(
 
 
 @mcp.tool()
-async def delete_likes_for_pagepost(
-    object_id: str,
+async def delete_likes(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).delete_likes(
+    result = PagePost(fbid=pagepost_id).delete_likes(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def delete_likes_for_pagepost(
 
 
 @mcp.tool()
-async def get_attachments_for_pagepost(
-    object_id: str,
+async def get_attachments(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_attachments(
+    result = PagePost(fbid=pagepost_id).get_attachments(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_attachments_for_pagepost(
 
 
 @mcp.tool()
-async def get_comments_for_pagepost(
-    object_id: str,
+async def get_comments(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_comments(
+    result = PagePost(fbid=pagepost_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_comments_for_pagepost(
 
 
 @mcp.tool()
-async def get_dynamic_posts_for_pagepost(
-    object_id: str,
+async def get_dynamic_posts(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_dynamic_posts(
+    result = PagePost(fbid=pagepost_id).get_dynamic_posts(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_dynamic_posts_for_pagepost(
 
 
 @mcp.tool()
-async def get_insights_for_pagepost(
-    object_id: str,
+async def get_insights(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_insights(
+    result = PagePost(fbid=pagepost_id).get_insights(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_insights_for_pagepost(
 
 
 @mcp.tool()
-async def get_likes_for_pagepost(
-    object_id: str,
+async def get_likes(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_likes(
+    result = PagePost(fbid=pagepost_id).get_likes(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_likes_for_pagepost(
 
 
 @mcp.tool()
-async def get_reactions_for_pagepost(
-    object_id: str,
+async def get_reactions(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_reactions(
+    result = PagePost(fbid=pagepost_id).get_reactions(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_reactions_for_pagepost(
 
 
 @mcp.tool()
-async def get_shared_posts_for_pagepost(
-    object_id: str,
+async def get_shared_posts(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_shared_posts(
+    result = PagePost(fbid=pagepost_id).get_shared_posts(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_shared_posts_for_pagepost(
 
 
 @mcp.tool()
-async def get_sponsor_tags_for_pagepost(
-    object_id: str,
+async def get_sponsor_tags(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_sponsor_tags(
+    result = PagePost(fbid=pagepost_id).get_sponsor_tags(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_sponsor_tags_for_pagepost(
 
 
 @mcp.tool()
-async def get_to_for_pagepost(
-    object_id: str,
+async def get_to(
+    pagepost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PagePost(fbid=object_id).get_to(
+    result = PagePost(fbid=pagepost_id).get_to(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-rtbdynamicpost")
 
 
 @mcp.tool()
-async def create_rtbdynamicpost(
-    object_id: str,
+async def api_create_rtbdynamicpost(
+    rtbdynamicpost_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RTBDynamicPost(fbid=object_id).api_create(
+    result = RTBDynamicPost(fbid=rtbdynamicpost_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_rtbdynamicpost(
 
 
 @mcp.tool()
-async def delete_rtbdynamicpost(
-    object_id: str,
+async def api_delete_rtbdynamicpost(
+    rtbdynamicpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RTBDynamicPost(fbid=object_id).api_delete(
+    result = RTBDynamicPost(fbid=rtbdynamicpost_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_rtbdynamicpost(
 
 
 @mcp.tool()
-async def get_rtbdynamicpost(
-    object_id: str,
+async def api_get_rtbdynamicpost(
+    rtbdynamicpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RTBDynamicPost(fbid=object_id).api_get(
+    result = RTBDynamicPost(fbid=rtbdynamicpost_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_rtbdynamicpost(
 
 
 @mcp.tool()
-async def update_rtbdynamicpost(
-    object_id: str,
+async def api_update_rtbdynamicpost(
+    rtbdynamicpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RTBDynamicPost(fbid=object_id).api_update(
+    result = RTBDynamicPost(fbid=rtbdynamicpost_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_rtbdynamicpost(
 
 
 @mcp.tool()
-async def get_comments_for_rtbdynamicpost(
-    object_id: str,
+async def get_comments(
+    rtbdynamicpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RTBDynamicPost(fbid=object_id).get_comments(
+    result = RTBDynamicPost(fbid=rtbdynamicpost_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_comments_for_rtbdynamicpost(
 
 
 @mcp.tool()
-async def get_likes_for_rtbdynamicpost(
-    object_id: str,
+async def get_likes(
+    rtbdynamicpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RTBDynamicPost(fbid=object_id).get_likes(
+    result = RTBDynamicPost(fbid=rtbdynamicpost_id).get_likes(
         fields=fields,
         params=params,
     )

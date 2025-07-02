@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-user")
 
 
 @mcp.tool()
-async def create_user(
-    object_id: str,
+async def api_create_user(
+    user_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).api_create(
+    result = User(fbid=user_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_user(
 
 
 @mcp.tool()
-async def delete_user(
-    object_id: str,
+async def api_delete_user(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).api_delete(
+    result = User(fbid=user_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_user(
 
 
 @mcp.tool()
-async def get_user(
-    object_id: str,
+async def api_get_user(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).api_get(
+    result = User(fbid=user_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_user(
 
 
 @mcp.tool()
-async def update_user(
-    object_id: str,
+async def api_update_user(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).api_update(
+    result = User(fbid=user_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_user(
 
 
 @mcp.tool()
-async def create_access_token_for_user(
-    object_id: str,
+async def create_access_token(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_access_token(
+    result = User(fbid=user_id).create_access_token(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_access_token_for_user(
 
 
 @mcp.tool()
-async def create_account_for_user(
-    object_id: str,
+async def create_account(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_account(
+    result = User(fbid=user_id).create_account(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_account_for_user(
 
 
 @mcp.tool()
-async def create_ad_study_for_user(
-    object_id: str,
+async def create_ad_study(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_ad_study(
+    result = User(fbid=user_id).create_ad_study(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_ad_study_for_user(
 
 
 @mcp.tool()
-async def create_application_for_user(
-    object_id: str,
+async def create_application(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_application(
+    result = User(fbid=user_id).create_application(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_application_for_user(
 
 
 @mcp.tool()
-async def create_business_for_user(
-    object_id: str,
+async def create_business(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_business(
+    result = User(fbid=user_id).create_business(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def create_business_for_user(
 
 
 @mcp.tool()
-async def create_feed_for_user(
-    object_id: str,
+async def create_feed(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_feed(
+    result = User(fbid=user_id).create_feed(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def create_feed_for_user(
 
 
 @mcp.tool()
-async def create_fundraiser_for_user(
-    object_id: str,
+async def create_fundraiser(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_fundraiser(
+    result = User(fbid=user_id).create_fundraiser(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def create_fundraiser_for_user(
 
 
 @mcp.tool()
-async def create_live_video_for_user(
-    object_id: str,
+async def create_live_video(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_live_video(
+    result = User(fbid=user_id).create_live_video(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def create_live_video_for_user(
 
 
 @mcp.tool()
-async def create_messenger_desktop_performance_trace_for_user(
-    object_id: str,
+async def create_messenger_desktop_performance_trace(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_messenger_desktop_performance_trace(
+    result = User(fbid=user_id).create_messenger_desktop_performance_trace(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def create_messenger_desktop_performance_trace_for_user(
 
 
 @mcp.tool()
-async def create_messenger_kids_accounts_unread_badge_for_user(
-    object_id: str,
+async def create_messenger_kids_accounts_unread_badge(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_messenger_kids_accounts_unread_badge(
+    result = User(fbid=user_id).create_messenger_kids_accounts_unread_badge(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def create_messenger_kids_accounts_unread_badge_for_user(
 
 
 @mcp.tool()
-async def create_notification_for_user(
-    object_id: str,
+async def create_notification(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_notification(
+    result = User(fbid=user_id).create_notification(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def create_notification_for_user(
 
 
 @mcp.tool()
-async def create_photo_for_user(
-    object_id: str,
+async def create_photo(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_photo(
+    result = User(fbid=user_id).create_photo(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def create_photo_for_user(
 
 
 @mcp.tool()
-async def create_staging_resource_for_user(
-    object_id: str,
+async def create_staging_resource(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_staging_resource(
+    result = User(fbid=user_id).create_staging_resource(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def create_staging_resource_for_user(
 
 
 @mcp.tool()
-async def create_video_for_user(
-    object_id: str,
+async def create_video(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).create_video(
+    result = User(fbid=user_id).create_video(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def create_video_for_user(
 
 
 @mcp.tool()
-async def delete_access_tokens_for_user(
-    object_id: str,
+async def delete_access_tokens(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).delete_access_tokens(
+    result = User(fbid=user_id).delete_access_tokens(
         fields=fields,
         params=params,
     )
@@ -287,12 +287,12 @@ async def delete_access_tokens_for_user(
 
 
 @mcp.tool()
-async def delete_businesses_for_user(
-    object_id: str,
+async def delete_businesses(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).delete_businesses(
+    result = User(fbid=user_id).delete_businesses(
         fields=fields,
         params=params,
     )
@@ -301,12 +301,12 @@ async def delete_businesses_for_user(
 
 
 @mcp.tool()
-async def delete_permissions_for_user(
-    object_id: str,
+async def delete_permissions(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).delete_permissions(
+    result = User(fbid=user_id).delete_permissions(
         fields=fields,
         params=params,
     )
@@ -315,12 +315,12 @@ async def delete_permissions_for_user(
 
 
 @mcp.tool()
-async def get_accounts_for_user(
-    object_id: str,
+async def get_accounts(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_accounts(
+    result = User(fbid=user_id).get_accounts(
         fields=fields,
         params=params,
     )
@@ -329,12 +329,12 @@ async def get_accounts_for_user(
 
 
 @mcp.tool()
-async def get_ad_accounts_for_user(
-    object_id: str,
+async def get_ad_accounts(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_ad_accounts(
+    result = User(fbid=user_id).get_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -343,12 +343,12 @@ async def get_ad_accounts_for_user(
 
 
 @mcp.tool()
-async def get_ad_studies_for_user(
-    object_id: str,
+async def get_ad_studies(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_ad_studies(
+    result = User(fbid=user_id).get_ad_studies(
         fields=fields,
         params=params,
     )
@@ -357,12 +357,12 @@ async def get_ad_studies_for_user(
 
 
 @mcp.tool()
-async def get_albums_for_user(
-    object_id: str,
+async def get_albums(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_albums(
+    result = User(fbid=user_id).get_albums(
         fields=fields,
         params=params,
     )
@@ -371,12 +371,12 @@ async def get_albums_for_user(
 
 
 @mcp.tool()
-async def get_app_request_former_recipients_for_user(
-    object_id: str,
+async def get_app_request_former_recipients(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_app_request_former_recipients(
+    result = User(fbid=user_id).get_app_request_former_recipients(
         fields=fields,
         params=params,
     )
@@ -385,12 +385,12 @@ async def get_app_request_former_recipients_for_user(
 
 
 @mcp.tool()
-async def get_app_requests_for_user(
-    object_id: str,
+async def get_app_requests(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_app_requests(
+    result = User(fbid=user_id).get_app_requests(
         fields=fields,
         params=params,
     )
@@ -399,12 +399,12 @@ async def get_app_requests_for_user(
 
 
 @mcp.tool()
-async def get_assigned_ad_accounts_for_user(
-    object_id: str,
+async def get_assigned_ad_accounts(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_assigned_ad_accounts(
+    result = User(fbid=user_id).get_assigned_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -413,12 +413,12 @@ async def get_assigned_ad_accounts_for_user(
 
 
 @mcp.tool()
-async def get_assigned_applications_for_user(
-    object_id: str,
+async def get_assigned_applications(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_assigned_applications(
+    result = User(fbid=user_id).get_assigned_applications(
         fields=fields,
         params=params,
     )
@@ -427,12 +427,12 @@ async def get_assigned_applications_for_user(
 
 
 @mcp.tool()
-async def get_assigned_business_asset_groups_for_user(
-    object_id: str,
+async def get_assigned_business_asset_groups(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_assigned_business_asset_groups(
+    result = User(fbid=user_id).get_assigned_business_asset_groups(
         fields=fields,
         params=params,
     )
@@ -441,12 +441,12 @@ async def get_assigned_business_asset_groups_for_user(
 
 
 @mcp.tool()
-async def get_assigned_pages_for_user(
-    object_id: str,
+async def get_assigned_pages(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_assigned_pages(
+    result = User(fbid=user_id).get_assigned_pages(
         fields=fields,
         params=params,
     )
@@ -455,12 +455,12 @@ async def get_assigned_pages_for_user(
 
 
 @mcp.tool()
-async def get_assigned_product_catalogs_for_user(
-    object_id: str,
+async def get_assigned_product_catalogs(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_assigned_product_catalogs(
+    result = User(fbid=user_id).get_assigned_product_catalogs(
         fields=fields,
         params=params,
     )
@@ -469,12 +469,12 @@ async def get_assigned_product_catalogs_for_user(
 
 
 @mcp.tool()
-async def get_avatars_for_user(
-    object_id: str,
+async def get_avatars(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_avatars(
+    result = User(fbid=user_id).get_avatars(
         fields=fields,
         params=params,
     )
@@ -483,12 +483,12 @@ async def get_avatars_for_user(
 
 
 @mcp.tool()
-async def get_business_users_for_user(
-    object_id: str,
+async def get_business_users(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_business_users(
+    result = User(fbid=user_id).get_business_users(
         fields=fields,
         params=params,
     )
@@ -497,12 +497,12 @@ async def get_business_users_for_user(
 
 
 @mcp.tool()
-async def get_businesses_for_user(
-    object_id: str,
+async def get_businesses(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_businesses(
+    result = User(fbid=user_id).get_businesses(
         fields=fields,
         params=params,
     )
@@ -511,12 +511,12 @@ async def get_businesses_for_user(
 
 
 @mcp.tool()
-async def get_conversations_for_user(
-    object_id: str,
+async def get_conversations(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_conversations(
+    result = User(fbid=user_id).get_conversations(
         fields=fields,
         params=params,
     )
@@ -525,12 +525,12 @@ async def get_conversations_for_user(
 
 
 @mcp.tool()
-async def get_custom_labels_for_user(
-    object_id: str,
+async def get_custom_labels(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_custom_labels(
+    result = User(fbid=user_id).get_custom_labels(
         fields=fields,
         params=params,
     )
@@ -539,12 +539,12 @@ async def get_custom_labels_for_user(
 
 
 @mcp.tool()
-async def get_events_for_user(
-    object_id: str,
+async def get_events(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_events(
+    result = User(fbid=user_id).get_events(
         fields=fields,
         params=params,
     )
@@ -553,12 +553,12 @@ async def get_events_for_user(
 
 
 @mcp.tool()
-async def get_feed_for_user(
-    object_id: str,
+async def get_feed(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_feed(
+    result = User(fbid=user_id).get_feed(
         fields=fields,
         params=params,
     )
@@ -567,12 +567,12 @@ async def get_feed_for_user(
 
 
 @mcp.tool()
-async def get_friends_for_user(
-    object_id: str,
+async def get_friends(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_friends(
+    result = User(fbid=user_id).get_friends(
         fields=fields,
         params=params,
     )
@@ -581,12 +581,12 @@ async def get_friends_for_user(
 
 
 @mcp.tool()
-async def get_fundraisers_for_user(
-    object_id: str,
+async def get_fundraisers(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_fundraisers(
+    result = User(fbid=user_id).get_fundraisers(
         fields=fields,
         params=params,
     )
@@ -595,12 +595,12 @@ async def get_fundraisers_for_user(
 
 
 @mcp.tool()
-async def get_groups_for_user(
-    object_id: str,
+async def get_groups(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_groups(
+    result = User(fbid=user_id).get_groups(
         fields=fields,
         params=params,
     )
@@ -609,12 +609,12 @@ async def get_groups_for_user(
 
 
 @mcp.tool()
-async def get_ids_for_apps_for_user(
-    object_id: str,
+async def get_ids_for_apps(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_ids_for_apps(
+    result = User(fbid=user_id).get_ids_for_apps(
         fields=fields,
         params=params,
     )
@@ -623,12 +623,12 @@ async def get_ids_for_apps_for_user(
 
 
 @mcp.tool()
-async def get_ids_for_business_for_user(
-    object_id: str,
+async def get_ids_for_business(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_ids_for_business(
+    result = User(fbid=user_id).get_ids_for_business(
         fields=fields,
         params=params,
     )
@@ -637,12 +637,12 @@ async def get_ids_for_business_for_user(
 
 
 @mcp.tool()
-async def get_ids_for_pages_for_user(
-    object_id: str,
+async def get_ids_for_pages(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_ids_for_pages(
+    result = User(fbid=user_id).get_ids_for_pages(
         fields=fields,
         params=params,
     )
@@ -651,12 +651,12 @@ async def get_ids_for_pages_for_user(
 
 
 @mcp.tool()
-async def get_likes_for_user(
-    object_id: str,
+async def get_likes(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_likes(
+    result = User(fbid=user_id).get_likes(
         fields=fields,
         params=params,
     )
@@ -665,12 +665,12 @@ async def get_likes_for_user(
 
 
 @mcp.tool()
-async def get_live_videos_for_user(
-    object_id: str,
+async def get_live_videos(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_live_videos(
+    result = User(fbid=user_id).get_live_videos(
         fields=fields,
         params=params,
     )
@@ -679,12 +679,12 @@ async def get_live_videos_for_user(
 
 
 @mcp.tool()
-async def get_music_for_user(
-    object_id: str,
+async def get_music(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_music(
+    result = User(fbid=user_id).get_music(
         fields=fields,
         params=params,
     )
@@ -693,12 +693,12 @@ async def get_music_for_user(
 
 
 @mcp.tool()
-async def get_payment_transactions_for_user(
-    object_id: str,
+async def get_payment_transactions(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_payment_transactions(
+    result = User(fbid=user_id).get_payment_transactions(
         fields=fields,
         params=params,
     )
@@ -707,12 +707,12 @@ async def get_payment_transactions_for_user(
 
 
 @mcp.tool()
-async def get_permissions_for_user(
-    object_id: str,
+async def get_permissions(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_permissions(
+    result = User(fbid=user_id).get_permissions(
         fields=fields,
         params=params,
     )
@@ -721,12 +721,12 @@ async def get_permissions_for_user(
 
 
 @mcp.tool()
-async def get_personal_ad_accounts_for_user(
-    object_id: str,
+async def get_personal_ad_accounts(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_personal_ad_accounts(
+    result = User(fbid=user_id).get_personal_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -735,12 +735,12 @@ async def get_personal_ad_accounts_for_user(
 
 
 @mcp.tool()
-async def get_photos_for_user(
-    object_id: str,
+async def get_photos(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_photos(
+    result = User(fbid=user_id).get_photos(
         fields=fields,
         params=params,
     )
@@ -749,12 +749,12 @@ async def get_photos_for_user(
 
 
 @mcp.tool()
-async def get_picture_for_user(
-    object_id: str,
+async def get_picture(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_picture(
+    result = User(fbid=user_id).get_picture(
         fields=fields,
         params=params,
     )
@@ -763,12 +763,12 @@ async def get_picture_for_user(
 
 
 @mcp.tool()
-async def get_posts_for_user(
-    object_id: str,
+async def get_posts(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_posts(
+    result = User(fbid=user_id).get_posts(
         fields=fields,
         params=params,
     )
@@ -777,12 +777,12 @@ async def get_posts_for_user(
 
 
 @mcp.tool()
-async def get_rich_media_documents_for_user(
-    object_id: str,
+async def get_rich_media_documents(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_rich_media_documents(
+    result = User(fbid=user_id).get_rich_media_documents(
         fields=fields,
         params=params,
     )
@@ -791,12 +791,12 @@ async def get_rich_media_documents_for_user(
 
 
 @mcp.tool()
-async def get_videos_for_user(
-    object_id: str,
+async def get_videos(
+    user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = User(fbid=object_id).get_videos(
+    result = User(fbid=user_id).get_videos(
         fields=fields,
         params=params,
     )

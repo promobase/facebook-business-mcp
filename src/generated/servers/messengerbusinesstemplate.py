@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-messengerbusinesstemplate")
 
 
 @mcp.tool()
-async def create_messengerbusinesstemplate(
-    object_id: str,
+async def api_create_messengerbusinesstemplate(
+    messengerbusinesstemplate_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerBusinessTemplate(fbid=object_id).api_create(
+    result = MessengerBusinessTemplate(fbid=messengerbusinesstemplate_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_messengerbusinesstemplate(
 
 
 @mcp.tool()
-async def delete_messengerbusinesstemplate(
-    object_id: str,
+async def api_delete_messengerbusinesstemplate(
+    messengerbusinesstemplate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerBusinessTemplate(fbid=object_id).api_delete(
+    result = MessengerBusinessTemplate(fbid=messengerbusinesstemplate_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_messengerbusinesstemplate(
 
 
 @mcp.tool()
-async def get_messengerbusinesstemplate(
-    object_id: str,
+async def api_get_messengerbusinesstemplate(
+    messengerbusinesstemplate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerBusinessTemplate(fbid=object_id).api_get(
+    result = MessengerBusinessTemplate(fbid=messengerbusinesstemplate_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_messengerbusinesstemplate(
 
 
 @mcp.tool()
-async def update_messengerbusinesstemplate(
-    object_id: str,
+async def api_update_messengerbusinesstemplate(
+    messengerbusinesstemplate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerBusinessTemplate(fbid=object_id).api_update(
+    result = MessengerBusinessTemplate(fbid=messengerbusinesstemplate_id).api_update(
         fields=fields,
         params=params,
     )

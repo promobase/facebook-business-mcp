@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-omegacustomertrx")
 
 
 @mcp.tool()
-async def create_omegacustomertrx(
-    object_id: str,
+async def api_create_omegacustomertrx(
+    omegacustomertrx_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OmegaCustomerTrx(fbid=object_id).api_create(
+    result = OmegaCustomerTrx(fbid=omegacustomertrx_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_omegacustomertrx(
 
 
 @mcp.tool()
-async def delete_omegacustomertrx(
-    object_id: str,
+async def api_delete_omegacustomertrx(
+    omegacustomertrx_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OmegaCustomerTrx(fbid=object_id).api_delete(
+    result = OmegaCustomerTrx(fbid=omegacustomertrx_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_omegacustomertrx(
 
 
 @mcp.tool()
-async def get_omegacustomertrx(
-    object_id: str,
+async def api_get_omegacustomertrx(
+    omegacustomertrx_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OmegaCustomerTrx(fbid=object_id).api_get(
+    result = OmegaCustomerTrx(fbid=omegacustomertrx_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_omegacustomertrx(
 
 
 @mcp.tool()
-async def update_omegacustomertrx(
-    object_id: str,
+async def api_update_omegacustomertrx(
+    omegacustomertrx_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OmegaCustomerTrx(fbid=object_id).api_update(
+    result = OmegaCustomerTrx(fbid=omegacustomertrx_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_omegacustomertrx(
 
 
 @mcp.tool()
-async def get_campaigns_for_omegacustomertrx(
-    object_id: str,
+async def get_campaigns(
+    omegacustomertrx_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OmegaCustomerTrx(fbid=object_id).get_campaigns(
+    result = OmegaCustomerTrx(fbid=omegacustomertrx_id).get_campaigns(
         fields=fields,
         params=params,
     )

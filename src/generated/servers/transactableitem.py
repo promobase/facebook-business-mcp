@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-transactableitem")
 
 
 @mcp.tool()
-async def create_transactableitem(
-    object_id: str,
+async def api_create_transactableitem(
+    transactableitem_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TransactableItem(fbid=object_id).api_create(
+    result = TransactableItem(fbid=transactableitem_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_transactableitem(
 
 
 @mcp.tool()
-async def delete_transactableitem(
-    object_id: str,
+async def api_delete_transactableitem(
+    transactableitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TransactableItem(fbid=object_id).api_delete(
+    result = TransactableItem(fbid=transactableitem_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_transactableitem(
 
 
 @mcp.tool()
-async def get_transactableitem(
-    object_id: str,
+async def api_get_transactableitem(
+    transactableitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TransactableItem(fbid=object_id).api_get(
+    result = TransactableItem(fbid=transactableitem_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_transactableitem(
 
 
 @mcp.tool()
-async def update_transactableitem(
-    object_id: str,
+async def api_update_transactableitem(
+    transactableitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TransactableItem(fbid=object_id).api_update(
+    result = TransactableItem(fbid=transactableitem_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_transactableitem(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_transactableitem(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    transactableitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TransactableItem(fbid=object_id).get_channels_to_integrity_status(
+    result = TransactableItem(fbid=transactableitem_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_transactableitem(
 
 
 @mcp.tool()
-async def get_override_details_for_transactableitem(
-    object_id: str,
+async def get_override_details(
+    transactableitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TransactableItem(fbid=object_id).get_override_details(
+    result = TransactableItem(fbid=transactableitem_id).get_override_details(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-targetingsentenceline")
 
 
 @mcp.tool()
-async def create_targetingsentenceline(
-    object_id: str,
+async def api_create_targetingsentenceline(
+    targetingsentenceline_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TargetingSentenceLine(fbid=object_id).api_create(
+    result = TargetingSentenceLine(fbid=targetingsentenceline_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_targetingsentenceline(
 
 
 @mcp.tool()
-async def delete_targetingsentenceline(
-    object_id: str,
+async def api_delete_targetingsentenceline(
+    targetingsentenceline_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TargetingSentenceLine(fbid=object_id).api_delete(
+    result = TargetingSentenceLine(fbid=targetingsentenceline_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_targetingsentenceline(
 
 
 @mcp.tool()
-async def get_targetingsentenceline(
-    object_id: str,
+async def api_get_targetingsentenceline(
+    targetingsentenceline_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TargetingSentenceLine(fbid=object_id).api_get(
+    result = TargetingSentenceLine(fbid=targetingsentenceline_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_targetingsentenceline(
 
 
 @mcp.tool()
-async def update_targetingsentenceline(
-    object_id: str,
+async def api_update_targetingsentenceline(
+    targetingsentenceline_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = TargetingSentenceLine(fbid=object_id).api_update(
+    result = TargetingSentenceLine(fbid=targetingsentenceline_id).api_update(
         fields=fields,
         params=params,
     )

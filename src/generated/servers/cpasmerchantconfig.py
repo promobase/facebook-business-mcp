@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-cpasmerchantconfig")
 
 
 @mcp.tool()
-async def create_cpasmerchantconfig(
-    object_id: str,
+async def api_create_cpasmerchantconfig(
+    cpasmerchantconfig_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASMerchantConfig(fbid=object_id).api_create(
+    result = CPASMerchantConfig(fbid=cpasmerchantconfig_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_cpasmerchantconfig(
 
 
 @mcp.tool()
-async def delete_cpasmerchantconfig(
-    object_id: str,
+async def api_delete_cpasmerchantconfig(
+    cpasmerchantconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASMerchantConfig(fbid=object_id).api_delete(
+    result = CPASMerchantConfig(fbid=cpasmerchantconfig_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_cpasmerchantconfig(
 
 
 @mcp.tool()
-async def get_cpasmerchantconfig(
-    object_id: str,
+async def api_get_cpasmerchantconfig(
+    cpasmerchantconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASMerchantConfig(fbid=object_id).api_get(
+    result = CPASMerchantConfig(fbid=cpasmerchantconfig_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_cpasmerchantconfig(
 
 
 @mcp.tool()
-async def update_cpasmerchantconfig(
-    object_id: str,
+async def api_update_cpasmerchantconfig(
+    cpasmerchantconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASMerchantConfig(fbid=object_id).api_update(
+    result = CPASMerchantConfig(fbid=cpasmerchantconfig_id).api_update(
         fields=fields,
         params=params,
     )

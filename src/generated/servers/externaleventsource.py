@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-externaleventsource")
 
 
 @mcp.tool()
-async def create_externaleventsource(
-    object_id: str,
+async def api_create_externaleventsource(
+    externaleventsource_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExternalEventSource(fbid=object_id).api_create(
+    result = ExternalEventSource(fbid=externaleventsource_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_externaleventsource(
 
 
 @mcp.tool()
-async def delete_externaleventsource(
-    object_id: str,
+async def api_delete_externaleventsource(
+    externaleventsource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExternalEventSource(fbid=object_id).api_delete(
+    result = ExternalEventSource(fbid=externaleventsource_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_externaleventsource(
 
 
 @mcp.tool()
-async def get_externaleventsource(
-    object_id: str,
+async def api_get_externaleventsource(
+    externaleventsource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExternalEventSource(fbid=object_id).api_get(
+    result = ExternalEventSource(fbid=externaleventsource_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_externaleventsource(
 
 
 @mcp.tool()
-async def update_externaleventsource(
-    object_id: str,
+async def api_update_externaleventsource(
+    externaleventsource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExternalEventSource(fbid=object_id).api_update(
+    result = ExternalEventSource(fbid=externaleventsource_id).api_update(
         fields=fields,
         params=params,
     )

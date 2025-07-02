@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-audiocopyright")
 
 
 @mcp.tool()
-async def create_audiocopyright(
-    object_id: str,
+async def api_create_audiocopyright(
+    audiocopyright_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioCopyright(fbid=object_id).api_create(
+    result = AudioCopyright(fbid=audiocopyright_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_audiocopyright(
 
 
 @mcp.tool()
-async def delete_audiocopyright(
-    object_id: str,
+async def api_delete_audiocopyright(
+    audiocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioCopyright(fbid=object_id).api_delete(
+    result = AudioCopyright(fbid=audiocopyright_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_audiocopyright(
 
 
 @mcp.tool()
-async def get_audiocopyright(
-    object_id: str,
+async def api_get_audiocopyright(
+    audiocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioCopyright(fbid=object_id).api_get(
+    result = AudioCopyright(fbid=audiocopyright_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_audiocopyright(
 
 
 @mcp.tool()
-async def update_audiocopyright(
-    object_id: str,
+async def api_update_audiocopyright(
+    audiocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioCopyright(fbid=object_id).api_update(
+    result = AudioCopyright(fbid=audiocopyright_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_audiocopyright(
 
 
 @mcp.tool()
-async def get_update_records_for_audiocopyright(
-    object_id: str,
+async def get_update_records(
+    audiocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioCopyright(fbid=object_id).get_update_records(
+    result = AudioCopyright(fbid=audiocopyright_id).get_update_records(
         fields=fields,
         params=params,
     )

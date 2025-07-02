@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-mediacopyrightupdaterecord")
 
 
 @mcp.tool()
-async def create_mediacopyrightupdaterecord(
-    object_id: str,
+async def api_create_mediacopyrightupdaterecord(
+    mediacopyrightupdaterecord_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightUpdateRecord(fbid=object_id).api_create(
+    result = MediaCopyrightUpdateRecord(fbid=mediacopyrightupdaterecord_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_mediacopyrightupdaterecord(
 
 
 @mcp.tool()
-async def delete_mediacopyrightupdaterecord(
-    object_id: str,
+async def api_delete_mediacopyrightupdaterecord(
+    mediacopyrightupdaterecord_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightUpdateRecord(fbid=object_id).api_delete(
+    result = MediaCopyrightUpdateRecord(fbid=mediacopyrightupdaterecord_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_mediacopyrightupdaterecord(
 
 
 @mcp.tool()
-async def get_mediacopyrightupdaterecord(
-    object_id: str,
+async def api_get_mediacopyrightupdaterecord(
+    mediacopyrightupdaterecord_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightUpdateRecord(fbid=object_id).api_get(
+    result = MediaCopyrightUpdateRecord(fbid=mediacopyrightupdaterecord_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_mediacopyrightupdaterecord(
 
 
 @mcp.tool()
-async def update_mediacopyrightupdaterecord(
-    object_id: str,
+async def api_update_mediacopyrightupdaterecord(
+    mediacopyrightupdaterecord_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaCopyrightUpdateRecord(fbid=object_id).api_update(
+    result = MediaCopyrightUpdateRecord(fbid=mediacopyrightupdaterecord_id).api_update(
         fields=fields,
         params=params,
     )

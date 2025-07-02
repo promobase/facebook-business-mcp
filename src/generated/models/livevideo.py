@@ -34,11 +34,11 @@ class livevideoreactions_type_enum_param(str, Enum):
     WOW = "WOW"
 
 
-class livevideocomments_live_filter_enum_param(str, Enum):
-    """livevideocomments_live_filter_enum_param enum values."""
+class livevideocomments_order_enum_param(str, Enum):
+    """livevideocomments_order_enum_param enum values."""
 
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 class livevideocomments_filter_enum_param(str, Enum):
@@ -48,11 +48,11 @@ class livevideocomments_filter_enum_param(str, Enum):
     toplevel = "toplevel"
 
 
-class livevideocomments_order_enum_param(str, Enum):
-    """livevideocomments_order_enum_param enum values."""
+class livevideocomments_live_filter_enum_param(str, Enum):
+    """livevideocomments_live_filter_enum_param enum values."""
 
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
 
 
 # Field literal type

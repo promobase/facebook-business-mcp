@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-rightsmanagerdataexport")
 
 
 @mcp.tool()
-async def create_rightsmanagerdataexport(
-    object_id: str,
+async def api_create_rightsmanagerdataexport(
+    rightsmanagerdataexport_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RightsManagerDataExport(fbid=object_id).api_create(
+    result = RightsManagerDataExport(fbid=rightsmanagerdataexport_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_rightsmanagerdataexport(
 
 
 @mcp.tool()
-async def delete_rightsmanagerdataexport(
-    object_id: str,
+async def api_delete_rightsmanagerdataexport(
+    rightsmanagerdataexport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RightsManagerDataExport(fbid=object_id).api_delete(
+    result = RightsManagerDataExport(fbid=rightsmanagerdataexport_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_rightsmanagerdataexport(
 
 
 @mcp.tool()
-async def get_rightsmanagerdataexport(
-    object_id: str,
+async def api_get_rightsmanagerdataexport(
+    rightsmanagerdataexport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RightsManagerDataExport(fbid=object_id).api_get(
+    result = RightsManagerDataExport(fbid=rightsmanagerdataexport_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_rightsmanagerdataexport(
 
 
 @mcp.tool()
-async def update_rightsmanagerdataexport(
-    object_id: str,
+async def api_update_rightsmanagerdataexport(
+    rightsmanagerdataexport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = RightsManagerDataExport(fbid=object_id).api_update(
+    result = RightsManagerDataExport(fbid=rightsmanagerdataexport_id).api_update(
         fields=fields,
         params=params,
     )

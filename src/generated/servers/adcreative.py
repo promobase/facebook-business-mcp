@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adcreative")
 
 
 @mcp.tool()
-async def create_adcreative(
-    object_id: str,
+async def api_create_adcreative(
+    adcreative_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCreative(fbid=object_id).api_create(
+    result = AdCreative(fbid=adcreative_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adcreative(
 
 
 @mcp.tool()
-async def delete_adcreative(
-    object_id: str,
+async def api_delete_adcreative(
+    adcreative_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCreative(fbid=object_id).api_delete(
+    result = AdCreative(fbid=adcreative_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adcreative(
 
 
 @mcp.tool()
-async def get_adcreative(
-    object_id: str,
+async def api_get_adcreative(
+    adcreative_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCreative(fbid=object_id).api_get(
+    result = AdCreative(fbid=adcreative_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adcreative(
 
 
 @mcp.tool()
-async def update_adcreative(
-    object_id: str,
+async def api_update_adcreative(
+    adcreative_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCreative(fbid=object_id).api_update(
+    result = AdCreative(fbid=adcreative_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adcreative(
 
 
 @mcp.tool()
-async def create_ad_label_for_adcreative(
-    object_id: str,
+async def create_ad_label(
+    adcreative_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCreative(fbid=object_id).create_ad_label(
+    result = AdCreative(fbid=adcreative_id).create_ad_label(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_ad_label_for_adcreative(
 
 
 @mcp.tool()
-async def get_creative_insights_for_adcreative(
-    object_id: str,
+async def get_creative_insights(
+    adcreative_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCreative(fbid=object_id).get_creative_insights(
+    result = AdCreative(fbid=adcreative_id).get_creative_insights(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_creative_insights_for_adcreative(
 
 
 @mcp.tool()
-async def get_previews_for_adcreative(
-    object_id: str,
+async def get_previews(
+    adcreative_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCreative(fbid=object_id).get_previews(
+    result = AdCreative(fbid=adcreative_id).get_previews(
         fields=fields,
         params=params,
     )

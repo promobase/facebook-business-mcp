@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-pagechangeproposal")
 
 
 @mcp.tool()
-async def create_pagechangeproposal(
-    object_id: str,
+async def api_create_pagechangeproposal(
+    pagechangeproposal_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageChangeProposal(fbid=object_id).api_create(
+    result = PageChangeProposal(fbid=pagechangeproposal_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_pagechangeproposal(
 
 
 @mcp.tool()
-async def delete_pagechangeproposal(
-    object_id: str,
+async def api_delete_pagechangeproposal(
+    pagechangeproposal_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageChangeProposal(fbid=object_id).api_delete(
+    result = PageChangeProposal(fbid=pagechangeproposal_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_pagechangeproposal(
 
 
 @mcp.tool()
-async def get_pagechangeproposal(
-    object_id: str,
+async def api_get_pagechangeproposal(
+    pagechangeproposal_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageChangeProposal(fbid=object_id).api_get(
+    result = PageChangeProposal(fbid=pagechangeproposal_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_pagechangeproposal(
 
 
 @mcp.tool()
-async def update_pagechangeproposal(
-    object_id: str,
+async def api_update_pagechangeproposal(
+    pagechangeproposal_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageChangeProposal(fbid=object_id).api_update(
+    result = PageChangeProposal(fbid=pagechangeproposal_id).api_update(
         fields=fields,
         params=params,
     )

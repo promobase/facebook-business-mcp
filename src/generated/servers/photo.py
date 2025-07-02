@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-photo")
 
 
 @mcp.tool()
-async def create_photo(
-    object_id: str,
+async def api_create_photo(
+    photo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).api_create(
+    result = Photo(fbid=photo_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_photo(
 
 
 @mcp.tool()
-async def delete_photo(
-    object_id: str,
+async def api_delete_photo(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).api_delete(
+    result = Photo(fbid=photo_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_photo(
 
 
 @mcp.tool()
-async def get_photo(
-    object_id: str,
+async def api_get_photo(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).api_get(
+    result = Photo(fbid=photo_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_photo(
 
 
 @mcp.tool()
-async def update_photo(
-    object_id: str,
+async def api_update_photo(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).api_update(
+    result = Photo(fbid=photo_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_photo(
 
 
 @mcp.tool()
-async def create_comment_for_photo(
-    object_id: str,
+async def create_comment(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).create_comment(
+    result = Photo(fbid=photo_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_comment_for_photo(
 
 
 @mcp.tool()
-async def create_like_for_photo(
-    object_id: str,
+async def create_like(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).create_like(
+    result = Photo(fbid=photo_id).create_like(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_like_for_photo(
 
 
 @mcp.tool()
-async def get_comments_for_photo(
-    object_id: str,
+async def get_comments(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).get_comments(
+    result = Photo(fbid=photo_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_comments_for_photo(
 
 
 @mcp.tool()
-async def get_insights_for_photo(
-    object_id: str,
+async def get_insights(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).get_insights(
+    result = Photo(fbid=photo_id).get_insights(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_insights_for_photo(
 
 
 @mcp.tool()
-async def get_likes_for_photo(
-    object_id: str,
+async def get_likes(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).get_likes(
+    result = Photo(fbid=photo_id).get_likes(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_likes_for_photo(
 
 
 @mcp.tool()
-async def get_sponsor_tags_for_photo(
-    object_id: str,
+async def get_sponsor_tags(
+    photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Photo(fbid=object_id).get_sponsor_tags(
+    result = Photo(fbid=photo_id).get_sponsor_tags(
         fields=fields,
         params=params,
     )

@@ -14,6 +14,23 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
+class commentreactions_type_enum_param(str, Enum):
+    """commentreactions_type_enum_param enum values."""
+
+    ANGRY = "ANGRY"
+    CARE = "CARE"
+    FIRE = "FIRE"
+    HAHA = "HAHA"
+    HUNDRED = "HUNDRED"
+    LIKE = "LIKE"
+    LOVE = "LOVE"
+    NONE = "NONE"
+    PRIDE = "PRIDE"
+    SAD = "SAD"
+    THANKFUL = "THANKFUL"
+    WOW = "WOW"
+
+
 class commentcomments_filter_enum_param(str, Enum):
     """commentcomments_filter_enum_param enum values."""
 
@@ -26,6 +43,13 @@ class commentcomments_live_filter_enum_param(str, Enum):
 
     filter_low_quality = "filter_low_quality"
     no_filter = "no_filter"
+
+
+class commentcomments_order_enum_param(str, Enum):
+    """commentcomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 class commentcomments_comment_privacy_value_enum_param(str, Enum):
@@ -42,30 +66,6 @@ class commentcomments_comment_privacy_value_enum_param(str, Enum):
     SIDE_CONVERSATION = "SIDE_CONVERSATION"
     SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
-
-
-class commentcomments_order_enum_param(str, Enum):
-    """commentcomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
-
-
-class commentreactions_type_enum_param(str, Enum):
-    """commentreactions_type_enum_param enum values."""
-
-    ANGRY = "ANGRY"
-    CARE = "CARE"
-    FIRE = "FIRE"
-    HAHA = "HAHA"
-    HUNDRED = "HUNDRED"
-    LIKE = "LIKE"
-    LOVE = "LOVE"
-    NONE = "NONE"
-    PRIDE = "PRIDE"
-    SAD = "SAD"
-    THANKFUL = "THANKFUL"
-    WOW = "WOW"
 
 
 # Field literal type

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adassetimage")
 
 
 @mcp.tool()
-async def create_adassetimage(
-    object_id: str,
+async def api_create_adassetimage(
+    adassetimage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetImage(fbid=object_id).api_create(
+    result = AdAssetImage(fbid=adassetimage_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adassetimage(
 
 
 @mcp.tool()
-async def delete_adassetimage(
-    object_id: str,
+async def api_delete_adassetimage(
+    adassetimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetImage(fbid=object_id).api_delete(
+    result = AdAssetImage(fbid=adassetimage_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adassetimage(
 
 
 @mcp.tool()
-async def get_adassetimage(
-    object_id: str,
+async def api_get_adassetimage(
+    adassetimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetImage(fbid=object_id).api_get(
+    result = AdAssetImage(fbid=adassetimage_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adassetimage(
 
 
 @mcp.tool()
-async def update_adassetimage(
-    object_id: str,
+async def api_update_adassetimage(
+    adassetimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetImage(fbid=object_id).api_update(
+    result = AdAssetImage(fbid=adassetimage_id).api_update(
         fields=fields,
         params=params,
     )

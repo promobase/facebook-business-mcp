@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-paymentsubscription")
 
 
 @mcp.tool()
-async def create_paymentsubscription(
-    object_id: str,
+async def api_create_paymentsubscription(
+    paymentsubscription_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentSubscription(fbid=object_id).api_create(
+    result = PaymentSubscription(fbid=paymentsubscription_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_paymentsubscription(
 
 
 @mcp.tool()
-async def delete_paymentsubscription(
-    object_id: str,
+async def api_delete_paymentsubscription(
+    paymentsubscription_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentSubscription(fbid=object_id).api_delete(
+    result = PaymentSubscription(fbid=paymentsubscription_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_paymentsubscription(
 
 
 @mcp.tool()
-async def get_paymentsubscription(
-    object_id: str,
+async def api_get_paymentsubscription(
+    paymentsubscription_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentSubscription(fbid=object_id).api_get(
+    result = PaymentSubscription(fbid=paymentsubscription_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_paymentsubscription(
 
 
 @mcp.tool()
-async def update_paymentsubscription(
-    object_id: str,
+async def api_update_paymentsubscription(
+    paymentsubscription_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentSubscription(fbid=object_id).api_update(
+    result = PaymentSubscription(fbid=paymentsubscription_id).api_update(
         fields=fields,
         params=params,
     )

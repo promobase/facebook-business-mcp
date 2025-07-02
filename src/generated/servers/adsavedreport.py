@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adsavedreport")
 
 
 @mcp.tool()
-async def create_adsavedreport(
-    object_id: str,
+async def api_create_adsavedreport(
+    adsavedreport_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedReport(fbid=object_id).api_create(
+    result = AdSavedReport(fbid=adsavedreport_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adsavedreport(
 
 
 @mcp.tool()
-async def delete_adsavedreport(
-    object_id: str,
+async def api_delete_adsavedreport(
+    adsavedreport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedReport(fbid=object_id).api_delete(
+    result = AdSavedReport(fbid=adsavedreport_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adsavedreport(
 
 
 @mcp.tool()
-async def get_adsavedreport(
-    object_id: str,
+async def api_get_adsavedreport(
+    adsavedreport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedReport(fbid=object_id).api_get(
+    result = AdSavedReport(fbid=adsavedreport_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adsavedreport(
 
 
 @mcp.tool()
-async def update_adsavedreport(
-    object_id: str,
+async def api_update_adsavedreport(
+    adsavedreport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedReport(fbid=object_id).api_update(
+    result = AdSavedReport(fbid=adsavedreport_id).api_update(
         fields=fields,
         params=params,
     )

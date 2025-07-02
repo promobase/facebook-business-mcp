@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-copyrightaudioasset")
 
 
 @mcp.tool()
-async def create_copyrightaudioasset(
-    object_id: str,
+async def api_create_copyrightaudioasset(
+    copyrightaudioasset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightAudioAsset(fbid=object_id).api_create(
+    result = CopyrightAudioAsset(fbid=copyrightaudioasset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_copyrightaudioasset(
 
 
 @mcp.tool()
-async def delete_copyrightaudioasset(
-    object_id: str,
+async def api_delete_copyrightaudioasset(
+    copyrightaudioasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightAudioAsset(fbid=object_id).api_delete(
+    result = CopyrightAudioAsset(fbid=copyrightaudioasset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_copyrightaudioasset(
 
 
 @mcp.tool()
-async def get_copyrightaudioasset(
-    object_id: str,
+async def api_get_copyrightaudioasset(
+    copyrightaudioasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightAudioAsset(fbid=object_id).api_get(
+    result = CopyrightAudioAsset(fbid=copyrightaudioasset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_copyrightaudioasset(
 
 
 @mcp.tool()
-async def update_copyrightaudioasset(
-    object_id: str,
+async def api_update_copyrightaudioasset(
+    copyrightaudioasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightAudioAsset(fbid=object_id).api_update(
+    result = CopyrightAudioAsset(fbid=copyrightaudioasset_id).api_update(
         fields=fields,
         params=params,
     )

@@ -14,20 +14,20 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class paymentenginepaymentdispute_reason_enum_param(str, Enum):
-    """paymentenginepaymentdispute_reason_enum_param enum values."""
-
-    BANNED_USER = "BANNED_USER"
-    DENIED_REFUND = "DENIED_REFUND"
-    GRANTED_REPLACEMENT_ITEM = "GRANTED_REPLACEMENT_ITEM"
-
-
 class paymentenginepaymentrefunds_reason_enum_param(str, Enum):
     """paymentenginepaymentrefunds_reason_enum_param enum values."""
 
     CUSTOMER_SERVICE = "CUSTOMER_SERVICE"
     FRIENDLY_FRAUD = "FRIENDLY_FRAUD"
     MALICIOUS_FRAUD = "MALICIOUS_FRAUD"
+
+
+class paymentenginepaymentdispute_reason_enum_param(str, Enum):
+    """paymentenginepaymentdispute_reason_enum_param enum values."""
+
+    BANNED_USER = "BANNED_USER"
+    DENIED_REFUND = "DENIED_REFUND"
+    GRANTED_REPLACEMENT_ITEM = "GRANTED_REPLACEMENT_ITEM"
 
 
 # Field literal type

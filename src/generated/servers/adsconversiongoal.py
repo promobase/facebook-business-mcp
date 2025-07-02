@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adsconversiongoal")
 
 
 @mcp.tool()
-async def create_adsconversiongoal(
-    object_id: str,
+async def api_create_adsconversiongoal(
+    adsconversiongoal_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsConversionGoal(fbid=object_id).api_create(
+    result = AdsConversionGoal(fbid=adsconversiongoal_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adsconversiongoal(
 
 
 @mcp.tool()
-async def delete_adsconversiongoal(
-    object_id: str,
+async def api_delete_adsconversiongoal(
+    adsconversiongoal_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsConversionGoal(fbid=object_id).api_delete(
+    result = AdsConversionGoal(fbid=adsconversiongoal_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adsconversiongoal(
 
 
 @mcp.tool()
-async def get_adsconversiongoal(
-    object_id: str,
+async def api_get_adsconversiongoal(
+    adsconversiongoal_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsConversionGoal(fbid=object_id).api_get(
+    result = AdsConversionGoal(fbid=adsconversiongoal_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adsconversiongoal(
 
 
 @mcp.tool()
-async def update_adsconversiongoal(
-    object_id: str,
+async def api_update_adsconversiongoal(
+    adsconversiongoal_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsConversionGoal(fbid=object_id).api_update(
+    result = AdsConversionGoal(fbid=adsconversiongoal_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adsconversiongoal(
 
 
 @mcp.tool()
-async def get_conversion_events_for_adsconversiongoal(
-    object_id: str,
+async def get_conversion_events(
+    adsconversiongoal_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsConversionGoal(fbid=object_id).get_conversion_events(
+    result = AdsConversionGoal(fbid=adsconversiongoal_id).get_conversion_events(
         fields=fields,
         params=params,
     )

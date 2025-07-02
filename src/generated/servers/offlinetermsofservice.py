@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-offlinetermsofservice")
 
 
 @mcp.tool()
-async def create_offlinetermsofservice(
-    object_id: str,
+async def api_create_offlinetermsofservice(
+    offlinetermsofservice_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineTermsOfService(fbid=object_id).api_create(
+    result = OfflineTermsOfService(fbid=offlinetermsofservice_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_offlinetermsofservice(
 
 
 @mcp.tool()
-async def delete_offlinetermsofservice(
-    object_id: str,
+async def api_delete_offlinetermsofservice(
+    offlinetermsofservice_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineTermsOfService(fbid=object_id).api_delete(
+    result = OfflineTermsOfService(fbid=offlinetermsofservice_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_offlinetermsofservice(
 
 
 @mcp.tool()
-async def get_offlinetermsofservice(
-    object_id: str,
+async def api_get_offlinetermsofservice(
+    offlinetermsofservice_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineTermsOfService(fbid=object_id).api_get(
+    result = OfflineTermsOfService(fbid=offlinetermsofservice_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_offlinetermsofservice(
 
 
 @mcp.tool()
-async def update_offlinetermsofservice(
-    object_id: str,
+async def api_update_offlinetermsofservice(
+    offlinetermsofservice_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OfflineTermsOfService(fbid=object_id).api_update(
+    result = OfflineTermsOfService(fbid=offlinetermsofservice_id).api_update(
         fields=fields,
         params=params,
     )

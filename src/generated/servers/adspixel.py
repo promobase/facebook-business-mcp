@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adspixel")
 
 
 @mcp.tool()
-async def create_adspixel(
-    object_id: str,
+async def api_create_adspixel(
+    adspixel_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).api_create(
+    result = AdsPixel(fbid=adspixel_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adspixel(
 
 
 @mcp.tool()
-async def delete_adspixel(
-    object_id: str,
+async def api_delete_adspixel(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).api_delete(
+    result = AdsPixel(fbid=adspixel_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adspixel(
 
 
 @mcp.tool()
-async def get_adspixel(
-    object_id: str,
+async def api_get_adspixel(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).api_get(
+    result = AdsPixel(fbid=adspixel_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adspixel(
 
 
 @mcp.tool()
-async def update_adspixel(
-    object_id: str,
+async def api_update_adspixel(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).api_update(
+    result = AdsPixel(fbid=adspixel_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adspixel(
 
 
 @mcp.tool()
-async def create_agency_for_adspixel(
-    object_id: str,
+async def create_agency(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).create_agency(
+    result = AdsPixel(fbid=adspixel_id).create_agency(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_agency_for_adspixel(
 
 
 @mcp.tool()
-async def create_ahp_config_for_adspixel(
-    object_id: str,
+async def create_ahp_config(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).create_ahp_config(
+    result = AdsPixel(fbid=adspixel_id).create_ahp_config(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_ahp_config_for_adspixel(
 
 
 @mcp.tool()
-async def create_assigned_user_for_adspixel(
-    object_id: str,
+async def create_assigned_user(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).create_assigned_user(
+    result = AdsPixel(fbid=adspixel_id).create_assigned_user(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_assigned_user_for_adspixel(
 
 
 @mcp.tool()
-async def create_event_for_adspixel(
-    object_id: str,
+async def create_event(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).create_event(
+    result = AdsPixel(fbid=adspixel_id).create_event(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_event_for_adspixel(
 
 
 @mcp.tool()
-async def create_shadow_traffic_helper_for_adspixel(
-    object_id: str,
+async def create_shadow_traffic_helper(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).create_shadow_traffic_helper(
+    result = AdsPixel(fbid=adspixel_id).create_shadow_traffic_helper(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def create_shadow_traffic_helper_for_adspixel(
 
 
 @mcp.tool()
-async def create_shared_account_for_adspixel(
-    object_id: str,
+async def create_shared_account(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).create_shared_account(
+    result = AdsPixel(fbid=adspixel_id).create_shared_account(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def create_shared_account_for_adspixel(
 
 
 @mcp.tool()
-async def delete_agencies_for_adspixel(
-    object_id: str,
+async def delete_agencies(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).delete_agencies(
+    result = AdsPixel(fbid=adspixel_id).delete_agencies(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def delete_agencies_for_adspixel(
 
 
 @mcp.tool()
-async def delete_shared_accounts_for_adspixel(
-    object_id: str,
+async def delete_shared_accounts(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).delete_shared_accounts(
+    result = AdsPixel(fbid=adspixel_id).delete_shared_accounts(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def delete_shared_accounts_for_adspixel(
 
 
 @mcp.tool()
-async def get_ad_accounts_for_adspixel(
-    object_id: str,
+async def get_ad_accounts(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_ad_accounts(
+    result = AdsPixel(fbid=adspixel_id).get_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_ad_accounts_for_adspixel(
 
 
 @mcp.tool()
-async def get_agencies_for_adspixel(
-    object_id: str,
+async def get_agencies(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_agencies(
+    result = AdsPixel(fbid=adspixel_id).get_agencies(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_agencies_for_adspixel(
 
 
 @mcp.tool()
-async def get_assigned_users_for_adspixel(
-    object_id: str,
+async def get_assigned_users(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_assigned_users(
+    result = AdsPixel(fbid=adspixel_id).get_assigned_users(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_assigned_users_for_adspixel(
 
 
 @mcp.tool()
-async def get_da_checks_for_adspixel(
-    object_id: str,
+async def get_da_checks(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_da_checks(
+    result = AdsPixel(fbid=adspixel_id).get_da_checks(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def get_da_checks_for_adspixel(
 
 
 @mcp.tool()
-async def get_offline_event_uploads_for_adspixel(
-    object_id: str,
+async def get_offline_event_uploads(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_offline_event_uploads(
+    result = AdsPixel(fbid=adspixel_id).get_offline_event_uploads(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def get_offline_event_uploads_for_adspixel(
 
 
 @mcp.tool()
-async def get_open_bridge_configurations_for_adspixel(
-    object_id: str,
+async def get_open_bridge_configurations(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_open_bridge_configurations(
+    result = AdsPixel(fbid=adspixel_id).get_open_bridge_configurations(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def get_open_bridge_configurations_for_adspixel(
 
 
 @mcp.tool()
-async def get_shared_accounts_for_adspixel(
-    object_id: str,
+async def get_shared_accounts(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_shared_accounts(
+    result = AdsPixel(fbid=adspixel_id).get_shared_accounts(
         fields=fields,
         params=params,
     )
@@ -287,12 +287,12 @@ async def get_shared_accounts_for_adspixel(
 
 
 @mcp.tool()
-async def get_shared_agencies_for_adspixel(
-    object_id: str,
+async def get_shared_agencies(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_shared_agencies(
+    result = AdsPixel(fbid=adspixel_id).get_shared_agencies(
         fields=fields,
         params=params,
     )
@@ -301,12 +301,12 @@ async def get_shared_agencies_for_adspixel(
 
 
 @mcp.tool()
-async def get_stats_for_adspixel(
-    object_id: str,
+async def get_stats(
+    adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixel(fbid=object_id).get_stats(
+    result = AdsPixel(fbid=adspixel_id).get_stats(
         fields=fields,
         params=params,
     )

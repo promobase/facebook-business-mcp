@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-entityattextrange")
 
 
 @mcp.tool()
-async def create_entityattextrange(
-    object_id: str,
+async def api_create_entityattextrange(
+    entityattextrange_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntityAtTextRange(fbid=object_id).api_create(
+    result = EntityAtTextRange(fbid=entityattextrange_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_entityattextrange(
 
 
 @mcp.tool()
-async def delete_entityattextrange(
-    object_id: str,
+async def api_delete_entityattextrange(
+    entityattextrange_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntityAtTextRange(fbid=object_id).api_delete(
+    result = EntityAtTextRange(fbid=entityattextrange_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_entityattextrange(
 
 
 @mcp.tool()
-async def get_entityattextrange(
-    object_id: str,
+async def api_get_entityattextrange(
+    entityattextrange_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntityAtTextRange(fbid=object_id).api_get(
+    result = EntityAtTextRange(fbid=entityattextrange_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_entityattextrange(
 
 
 @mcp.tool()
-async def update_entityattextrange(
-    object_id: str,
+async def api_update_entityattextrange(
+    entityattextrange_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EntityAtTextRange(fbid=object_id).api_update(
+    result = EntityAtTextRange(fbid=entityattextrange_id).api_update(
         fields=fields,
         params=params,
     )

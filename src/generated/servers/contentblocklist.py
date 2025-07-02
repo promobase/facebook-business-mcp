@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-contentblocklist")
 
 
 @mcp.tool()
-async def create_contentblocklist(
-    object_id: str,
+async def api_create_contentblocklist(
+    contentblocklist_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ContentBlockList(fbid=object_id).api_create(
+    result = ContentBlockList(fbid=contentblocklist_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_contentblocklist(
 
 
 @mcp.tool()
-async def delete_contentblocklist(
-    object_id: str,
+async def api_delete_contentblocklist(
+    contentblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ContentBlockList(fbid=object_id).api_delete(
+    result = ContentBlockList(fbid=contentblocklist_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_contentblocklist(
 
 
 @mcp.tool()
-async def get_contentblocklist(
-    object_id: str,
+async def api_get_contentblocklist(
+    contentblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ContentBlockList(fbid=object_id).api_get(
+    result = ContentBlockList(fbid=contentblocklist_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_contentblocklist(
 
 
 @mcp.tool()
-async def update_contentblocklist(
-    object_id: str,
+async def api_update_contentblocklist(
+    contentblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ContentBlockList(fbid=object_id).api_update(
+    result = ContentBlockList(fbid=contentblocklist_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_contentblocklist(
 
 
 @mcp.tool()
-async def get_applied_ad_accounts_for_contentblocklist(
-    object_id: str,
+async def get_applied_ad_accounts(
+    contentblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ContentBlockList(fbid=object_id).get_applied_ad_accounts(
+    result = ContentBlockList(fbid=contentblocklist_id).get_applied_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_applied_ad_accounts_for_contentblocklist(
 
 
 @mcp.tool()
-async def get_facebook_content_for_contentblocklist(
-    object_id: str,
+async def get_facebook_content(
+    contentblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ContentBlockList(fbid=object_id).get_facebook_content(
+    result = ContentBlockList(fbid=contentblocklist_id).get_facebook_content(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_facebook_content_for_contentblocklist(
 
 
 @mcp.tool()
-async def get_instagram_content_for_contentblocklist(
-    object_id: str,
+async def get_instagram_content(
+    contentblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ContentBlockList(fbid=object_id).get_instagram_content(
+    result = ContentBlockList(fbid=contentblocklist_id).get_instagram_content(
         fields=fields,
         params=params,
     )

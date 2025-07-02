@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-fundingsourcedetails")
 
 
 @mcp.tool()
-async def create_fundingsourcedetails(
-    object_id: str,
+async def api_create_fundingsourcedetails(
+    fundingsourcedetails_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundingSourceDetails(fbid=object_id).api_create(
+    result = FundingSourceDetails(fbid=fundingsourcedetails_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_fundingsourcedetails(
 
 
 @mcp.tool()
-async def delete_fundingsourcedetails(
-    object_id: str,
+async def api_delete_fundingsourcedetails(
+    fundingsourcedetails_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundingSourceDetails(fbid=object_id).api_delete(
+    result = FundingSourceDetails(fbid=fundingsourcedetails_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_fundingsourcedetails(
 
 
 @mcp.tool()
-async def get_fundingsourcedetails(
-    object_id: str,
+async def api_get_fundingsourcedetails(
+    fundingsourcedetails_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundingSourceDetails(fbid=object_id).api_get(
+    result = FundingSourceDetails(fbid=fundingsourcedetails_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_fundingsourcedetails(
 
 
 @mcp.tool()
-async def update_fundingsourcedetails(
-    object_id: str,
+async def api_update_fundingsourcedetails(
+    fundingsourcedetails_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundingSourceDetails(fbid=object_id).api_update(
+    result = FundingSourceDetails(fbid=fundingsourcedetails_id).api_update(
         fields=fields,
         params=params,
     )

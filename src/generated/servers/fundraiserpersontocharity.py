@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-fundraiserpersontocharity")
 
 
 @mcp.tool()
-async def create_fundraiserpersontocharity(
-    object_id: str,
+async def api_create_fundraiserpersontocharity(
+    fundraiserpersontocharity_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).api_create(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_fundraiserpersontocharity(
 
 
 @mcp.tool()
-async def delete_fundraiserpersontocharity(
-    object_id: str,
+async def api_delete_fundraiserpersontocharity(
+    fundraiserpersontocharity_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).api_delete(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_fundraiserpersontocharity(
 
 
 @mcp.tool()
-async def get_fundraiserpersontocharity(
-    object_id: str,
+async def api_get_fundraiserpersontocharity(
+    fundraiserpersontocharity_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).api_get(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_fundraiserpersontocharity(
 
 
 @mcp.tool()
-async def update_fundraiserpersontocharity(
-    object_id: str,
+async def api_update_fundraiserpersontocharity(
+    fundraiserpersontocharity_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).api_update(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_fundraiserpersontocharity(
 
 
 @mcp.tool()
-async def create_end_fundraiser_for_fundraiserpersontocharity(
-    object_id: str,
+async def create_end_fundraiser(
+    fundraiserpersontocharity_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).create_end_fundraiser(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).create_end_fundraiser(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_end_fundraiser_for_fundraiserpersontocharity(
 
 
 @mcp.tool()
-async def create_external_donation_for_fundraiserpersontocharity(
-    object_id: str,
+async def create_external_donation(
+    fundraiserpersontocharity_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).create_external_donation(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).create_external_donation(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_external_donation_for_fundraiserpersontocharity(
 
 
 @mcp.tool()
-async def get_donations_for_fundraiserpersontocharity(
-    object_id: str,
+async def get_donations(
+    fundraiserpersontocharity_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).get_donations(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).get_donations(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_donations_for_fundraiserpersontocharity(
 
 
 @mcp.tool()
-async def get_external_donations_for_fundraiserpersontocharity(
-    object_id: str,
+async def get_external_donations(
+    fundraiserpersontocharity_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = FundraiserPersonToCharity(fbid=object_id).get_external_donations(
+    result = FundraiserPersonToCharity(fbid=fundraiserpersontocharity_id).get_external_donations(
         fields=fields,
         params=params,
     )

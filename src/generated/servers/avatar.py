@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-avatar")
 
 
 @mcp.tool()
-async def create_avatar(
-    object_id: str,
+async def api_create_avatar(
+    avatar_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Avatar(fbid=object_id).api_create(
+    result = Avatar(fbid=avatar_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_avatar(
 
 
 @mcp.tool()
-async def delete_avatar(
-    object_id: str,
+async def api_delete_avatar(
+    avatar_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Avatar(fbid=object_id).api_delete(
+    result = Avatar(fbid=avatar_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_avatar(
 
 
 @mcp.tool()
-async def get_avatar(
-    object_id: str,
+async def api_get_avatar(
+    avatar_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Avatar(fbid=object_id).api_get(
+    result = Avatar(fbid=avatar_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_avatar(
 
 
 @mcp.tool()
-async def update_avatar(
-    object_id: str,
+async def api_update_avatar(
+    avatar_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Avatar(fbid=object_id).api_update(
+    result = Avatar(fbid=avatar_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_avatar(
 
 
 @mcp.tool()
-async def get_models_for_avatar(
-    object_id: str,
+async def get_models(
+    avatar_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Avatar(fbid=object_id).get_models(
+    result = Avatar(fbid=avatar_id).get_models(
         fields=fields,
         params=params,
     )

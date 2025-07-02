@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-igmedia")
 
 
 @mcp.tool()
-async def create_igmedia(
-    object_id: str,
+async def api_create_igmedia(
+    igmedia_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).api_create(
+    result = IGMedia(fbid=igmedia_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_igmedia(
 
 
 @mcp.tool()
-async def delete_igmedia(
-    object_id: str,
+async def api_delete_igmedia(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).api_delete(
+    result = IGMedia(fbid=igmedia_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_igmedia(
 
 
 @mcp.tool()
-async def get_igmedia(
-    object_id: str,
+async def api_get_igmedia(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).api_get(
+    result = IGMedia(fbid=igmedia_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_igmedia(
 
 
 @mcp.tool()
-async def update_igmedia(
-    object_id: str,
+async def api_update_igmedia(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).api_update(
+    result = IGMedia(fbid=igmedia_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_igmedia(
 
 
 @mcp.tool()
-async def create_branded_content_partner_promote_for_igmedia(
-    object_id: str,
+async def create_branded_content_partner_promote(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).create_branded_content_partner_promote(
+    result = IGMedia(fbid=igmedia_id).create_branded_content_partner_promote(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_branded_content_partner_promote_for_igmedia(
 
 
 @mcp.tool()
-async def create_comment_for_igmedia(
-    object_id: str,
+async def create_comment(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).create_comment(
+    result = IGMedia(fbid=igmedia_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_comment_for_igmedia(
 
 
 @mcp.tool()
-async def create_partnership_ad_code_for_igmedia(
-    object_id: str,
+async def create_partnership_ad_code(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).create_partnership_ad_code(
+    result = IGMedia(fbid=igmedia_id).create_partnership_ad_code(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_partnership_ad_code_for_igmedia(
 
 
 @mcp.tool()
-async def create_product_tag_for_igmedia(
-    object_id: str,
+async def create_product_tag(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).create_product_tag(
+    result = IGMedia(fbid=igmedia_id).create_product_tag(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_product_tag_for_igmedia(
 
 
 @mcp.tool()
-async def delete_partnership_ad_code_for_igmedia(
-    object_id: str,
+async def delete_partnership_ad_code(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).delete_partnership_ad_code(
+    result = IGMedia(fbid=igmedia_id).delete_partnership_ad_code(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def delete_partnership_ad_code_for_igmedia(
 
 
 @mcp.tool()
-async def get_boost_ads_list_for_igmedia(
-    object_id: str,
+async def get_boost_ads_list(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).get_boost_ads_list(
+    result = IGMedia(fbid=igmedia_id).get_boost_ads_list(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_boost_ads_list_for_igmedia(
 
 
 @mcp.tool()
-async def get_branded_content_partner_promote_for_igmedia(
-    object_id: str,
+async def get_branded_content_partner_promote(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).get_branded_content_partner_promote(
+    result = IGMedia(fbid=igmedia_id).get_branded_content_partner_promote(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_branded_content_partner_promote_for_igmedia(
 
 
 @mcp.tool()
-async def get_children_for_igmedia(
-    object_id: str,
+async def get_children(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).get_children(
+    result = IGMedia(fbid=igmedia_id).get_children(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_children_for_igmedia(
 
 
 @mcp.tool()
-async def get_collaborators_for_igmedia(
-    object_id: str,
+async def get_collaborators(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).get_collaborators(
+    result = IGMedia(fbid=igmedia_id).get_collaborators(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_collaborators_for_igmedia(
 
 
 @mcp.tool()
-async def get_comments_for_igmedia(
-    object_id: str,
+async def get_comments(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).get_comments(
+    result = IGMedia(fbid=igmedia_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_comments_for_igmedia(
 
 
 @mcp.tool()
-async def get_insights_for_igmedia(
-    object_id: str,
+async def get_insights(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).get_insights(
+    result = IGMedia(fbid=igmedia_id).get_insights(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_insights_for_igmedia(
 
 
 @mcp.tool()
-async def get_product_tags_for_igmedia(
-    object_id: str,
+async def get_product_tags(
+    igmedia_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMedia(fbid=object_id).get_product_tags(
+    result = IGMedia(fbid=igmedia_id).get_product_tags(
         fields=fields,
         params=params,
     )

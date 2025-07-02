@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-managedpartnerbusiness")
 
 
 @mcp.tool()
-async def create_managedpartnerbusiness(
-    object_id: str,
+async def api_create_managedpartnerbusiness(
+    managedpartnerbusiness_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ManagedPartnerBusiness(fbid=object_id).api_create(
+    result = ManagedPartnerBusiness(fbid=managedpartnerbusiness_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_managedpartnerbusiness(
 
 
 @mcp.tool()
-async def delete_managedpartnerbusiness(
-    object_id: str,
+async def api_delete_managedpartnerbusiness(
+    managedpartnerbusiness_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ManagedPartnerBusiness(fbid=object_id).api_delete(
+    result = ManagedPartnerBusiness(fbid=managedpartnerbusiness_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_managedpartnerbusiness(
 
 
 @mcp.tool()
-async def get_managedpartnerbusiness(
-    object_id: str,
+async def api_get_managedpartnerbusiness(
+    managedpartnerbusiness_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ManagedPartnerBusiness(fbid=object_id).api_get(
+    result = ManagedPartnerBusiness(fbid=managedpartnerbusiness_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_managedpartnerbusiness(
 
 
 @mcp.tool()
-async def update_managedpartnerbusiness(
-    object_id: str,
+async def api_update_managedpartnerbusiness(
+    managedpartnerbusiness_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ManagedPartnerBusiness(fbid=object_id).api_update(
+    result = ManagedPartnerBusiness(fbid=managedpartnerbusiness_id).api_update(
         fields=fields,
         params=params,
     )

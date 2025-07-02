@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-leadgenthankyoupagegatedfile")
 
 
 @mcp.tool()
-async def create_leadgenthankyoupagegatedfile(
-    object_id: str,
+async def api_create_leadgenthankyoupagegatedfile(
+    leadgenthankyoupagegatedfile_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenThankYouPageGatedFile(fbid=object_id).api_create(
+    result = LeadGenThankYouPageGatedFile(fbid=leadgenthankyoupagegatedfile_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_leadgenthankyoupagegatedfile(
 
 
 @mcp.tool()
-async def delete_leadgenthankyoupagegatedfile(
-    object_id: str,
+async def api_delete_leadgenthankyoupagegatedfile(
+    leadgenthankyoupagegatedfile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenThankYouPageGatedFile(fbid=object_id).api_delete(
+    result = LeadGenThankYouPageGatedFile(fbid=leadgenthankyoupagegatedfile_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_leadgenthankyoupagegatedfile(
 
 
 @mcp.tool()
-async def get_leadgenthankyoupagegatedfile(
-    object_id: str,
+async def api_get_leadgenthankyoupagegatedfile(
+    leadgenthankyoupagegatedfile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenThankYouPageGatedFile(fbid=object_id).api_get(
+    result = LeadGenThankYouPageGatedFile(fbid=leadgenthankyoupagegatedfile_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_leadgenthankyoupagegatedfile(
 
 
 @mcp.tool()
-async def update_leadgenthankyoupagegatedfile(
-    object_id: str,
+async def api_update_leadgenthankyoupagegatedfile(
+    leadgenthankyoupagegatedfile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenThankYouPageGatedFile(fbid=object_id).api_update(
+    result = LeadGenThankYouPageGatedFile(fbid=leadgenthankyoupagegatedfile_id).api_update(
         fields=fields,
         params=params,
     )

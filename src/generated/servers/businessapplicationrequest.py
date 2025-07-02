@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-businessapplicationrequest")
 
 
 @mcp.tool()
-async def create_businessapplicationrequest(
-    object_id: str,
+async def api_create_businessapplicationrequest(
+    businessapplicationrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessApplicationRequest(fbid=object_id).api_create(
+    result = BusinessApplicationRequest(fbid=businessapplicationrequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_businessapplicationrequest(
 
 
 @mcp.tool()
-async def delete_businessapplicationrequest(
-    object_id: str,
+async def api_delete_businessapplicationrequest(
+    businessapplicationrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessApplicationRequest(fbid=object_id).api_delete(
+    result = BusinessApplicationRequest(fbid=businessapplicationrequest_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_businessapplicationrequest(
 
 
 @mcp.tool()
-async def get_businessapplicationrequest(
-    object_id: str,
+async def api_get_businessapplicationrequest(
+    businessapplicationrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessApplicationRequest(fbid=object_id).api_get(
+    result = BusinessApplicationRequest(fbid=businessapplicationrequest_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_businessapplicationrequest(
 
 
 @mcp.tool()
-async def update_businessapplicationrequest(
-    object_id: str,
+async def api_update_businessapplicationrequest(
+    businessapplicationrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessApplicationRequest(fbid=object_id).api_update(
+    result = BusinessApplicationRequest(fbid=businessapplicationrequest_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-childevent")
 
 
 @mcp.tool()
-async def create_childevent(
-    object_id: str,
+async def api_create_childevent(
+    childevent_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ChildEvent(fbid=object_id).api_create(
+    result = ChildEvent(fbid=childevent_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_childevent(
 
 
 @mcp.tool()
-async def delete_childevent(
-    object_id: str,
+async def api_delete_childevent(
+    childevent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ChildEvent(fbid=object_id).api_delete(
+    result = ChildEvent(fbid=childevent_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_childevent(
 
 
 @mcp.tool()
-async def get_childevent(
-    object_id: str,
+async def api_get_childevent(
+    childevent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ChildEvent(fbid=object_id).api_get(
+    result = ChildEvent(fbid=childevent_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_childevent(
 
 
 @mcp.tool()
-async def update_childevent(
-    object_id: str,
+async def api_update_childevent(
+    childevent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ChildEvent(fbid=object_id).api_update(
+    result = ChildEvent(fbid=childevent_id).api_update(
         fields=fields,
         params=params,
     )

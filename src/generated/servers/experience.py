@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-experience")
 
 
 @mcp.tool()
-async def create_experience(
-    object_id: str,
+async def api_create_experience(
+    experience_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Experience(fbid=object_id).api_create(
+    result = Experience(fbid=experience_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_experience(
 
 
 @mcp.tool()
-async def delete_experience(
-    object_id: str,
+async def api_delete_experience(
+    experience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Experience(fbid=object_id).api_delete(
+    result = Experience(fbid=experience_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_experience(
 
 
 @mcp.tool()
-async def get_experience(
-    object_id: str,
+async def api_get_experience(
+    experience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Experience(fbid=object_id).api_get(
+    result = Experience(fbid=experience_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_experience(
 
 
 @mcp.tool()
-async def update_experience(
-    object_id: str,
+async def api_update_experience(
+    experience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Experience(fbid=object_id).api_update(
+    result = Experience(fbid=experience_id).api_update(
         fields=fields,
         params=params,
     )

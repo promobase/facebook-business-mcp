@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-partneraccountlinking")
 
 
 @mcp.tool()
-async def create_partneraccountlinking(
-    object_id: str,
+async def api_create_partneraccountlinking(
+    partneraccountlinking_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PartnerAccountLinking(fbid=object_id).api_create(
+    result = PartnerAccountLinking(fbid=partneraccountlinking_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_partneraccountlinking(
 
 
 @mcp.tool()
-async def delete_partneraccountlinking(
-    object_id: str,
+async def api_delete_partneraccountlinking(
+    partneraccountlinking_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PartnerAccountLinking(fbid=object_id).api_delete(
+    result = PartnerAccountLinking(fbid=partneraccountlinking_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_partneraccountlinking(
 
 
 @mcp.tool()
-async def get_partneraccountlinking(
-    object_id: str,
+async def api_get_partneraccountlinking(
+    partneraccountlinking_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PartnerAccountLinking(fbid=object_id).api_get(
+    result = PartnerAccountLinking(fbid=partneraccountlinking_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_partneraccountlinking(
 
 
 @mcp.tool()
-async def update_partneraccountlinking(
-    object_id: str,
+async def api_update_partneraccountlinking(
+    partneraccountlinking_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PartnerAccountLinking(fbid=object_id).api_update(
+    result = PartnerAccountLinking(fbid=partneraccountlinking_id).api_update(
         fields=fields,
         params=params,
     )

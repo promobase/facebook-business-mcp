@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adasyncrequestset")
 
 
 @mcp.tool()
-async def create_adasyncrequestset(
-    object_id: str,
+async def api_create_adasyncrequestset(
+    adasyncrequestset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequestSet(fbid=object_id).api_create(
+    result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adasyncrequestset(
 
 
 @mcp.tool()
-async def delete_adasyncrequestset(
-    object_id: str,
+async def api_delete_adasyncrequestset(
+    adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequestSet(fbid=object_id).api_delete(
+    result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adasyncrequestset(
 
 
 @mcp.tool()
-async def get_adasyncrequestset(
-    object_id: str,
+async def api_get_adasyncrequestset(
+    adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequestSet(fbid=object_id).api_get(
+    result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adasyncrequestset(
 
 
 @mcp.tool()
-async def update_adasyncrequestset(
-    object_id: str,
+async def api_update_adasyncrequestset(
+    adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequestSet(fbid=object_id).api_update(
+    result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adasyncrequestset(
 
 
 @mcp.tool()
-async def get_requests_for_adasyncrequestset(
-    object_id: str,
+async def get_requests(
+    adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequestSet(fbid=object_id).get_requests(
+    result = AdAsyncRequestSet(fbid=adasyncrequestset_id).get_requests(
         fields=fields,
         params=params,
     )

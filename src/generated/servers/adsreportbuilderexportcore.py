@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adsreportbuilderexportcore")
 
 
 @mcp.tool()
-async def create_adsreportbuilderexportcore(
-    object_id: str,
+async def api_create_adsreportbuilderexportcore(
+    adsreportbuilderexportcore_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsReportBuilderExportCore(fbid=object_id).api_create(
+    result = AdsReportBuilderExportCore(fbid=adsreportbuilderexportcore_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adsreportbuilderexportcore(
 
 
 @mcp.tool()
-async def delete_adsreportbuilderexportcore(
-    object_id: str,
+async def api_delete_adsreportbuilderexportcore(
+    adsreportbuilderexportcore_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsReportBuilderExportCore(fbid=object_id).api_delete(
+    result = AdsReportBuilderExportCore(fbid=adsreportbuilderexportcore_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adsreportbuilderexportcore(
 
 
 @mcp.tool()
-async def get_adsreportbuilderexportcore(
-    object_id: str,
+async def api_get_adsreportbuilderexportcore(
+    adsreportbuilderexportcore_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsReportBuilderExportCore(fbid=object_id).api_get(
+    result = AdsReportBuilderExportCore(fbid=adsreportbuilderexportcore_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adsreportbuilderexportcore(
 
 
 @mcp.tool()
-async def update_adsreportbuilderexportcore(
-    object_id: str,
+async def api_update_adsreportbuilderexportcore(
+    adsreportbuilderexportcore_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsReportBuilderExportCore(fbid=object_id).api_update(
+    result = AdsReportBuilderExportCore(fbid=adsreportbuilderexportcore_id).api_update(
         fields=fields,
         params=params,
     )

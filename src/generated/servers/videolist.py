@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-videolist")
 
 
 @mcp.tool()
-async def create_videolist(
-    object_id: str,
+async def api_create_videolist(
+    videolist_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoList(fbid=object_id).api_create(
+    result = VideoList(fbid=videolist_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_videolist(
 
 
 @mcp.tool()
-async def delete_videolist(
-    object_id: str,
+async def api_delete_videolist(
+    videolist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoList(fbid=object_id).api_delete(
+    result = VideoList(fbid=videolist_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_videolist(
 
 
 @mcp.tool()
-async def get_videolist(
-    object_id: str,
+async def api_get_videolist(
+    videolist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoList(fbid=object_id).api_get(
+    result = VideoList(fbid=videolist_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_videolist(
 
 
 @mcp.tool()
-async def update_videolist(
-    object_id: str,
+async def api_update_videolist(
+    videolist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoList(fbid=object_id).api_update(
+    result = VideoList(fbid=videolist_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_videolist(
 
 
 @mcp.tool()
-async def get_videos_for_videolist(
-    object_id: str,
+async def get_videos(
+    videolist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoList(fbid=object_id).get_videos(
+    result = VideoList(fbid=videolist_id).get_videos(
         fields=fields,
         params=params,
     )

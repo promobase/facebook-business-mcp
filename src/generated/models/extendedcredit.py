@@ -15,6 +15,14 @@ if TYPE_CHECKING:
     from .extendedcreditallocationconfig import ExtendedCreditAllocationConfigFields
 
 
+class extendedcreditowning_credit_allocation_configs_send_bill_to_enum_param(str, Enum):
+    """extendedcreditowning_credit_allocation_configs_send_bill_to_enum_param enum values."""
+
+    VALUE_EMPTY = ""
+    Advertiser = "Advertiser"
+    Agency = "Agency"
+
+
 class extendedcreditowning_credit_allocation_configs_liability_type_enum_param(str, Enum):
     """extendedcreditowning_credit_allocation_configs_liability_type_enum_param enum values."""
 
@@ -22,14 +30,6 @@ class extendedcreditowning_credit_allocation_configs_liability_type_enum_param(s
     MSA = "MSA"
     Normal = "Normal"
     Sequential = "Sequential"
-
-
-class extendedcreditowning_credit_allocation_configs_send_bill_to_enum_param(str, Enum):
-    """extendedcreditowning_credit_allocation_configs_send_bill_to_enum_param enum values."""
-
-    VALUE_EMPTY = ""
-    Advertiser = "Advertiser"
-    Agency = "Agency"
 
 
 class extendedcreditowning_credit_allocation_configs_partition_type_enum_param(str, Enum):

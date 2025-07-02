@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-personaladspersona")
 
 
 @mcp.tool()
-async def create_personaladspersona(
-    object_id: str,
+async def api_create_personaladspersona(
+    personaladspersona_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PersonalAdsPersona(fbid=object_id).api_create(
+    result = PersonalAdsPersona(fbid=personaladspersona_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_personaladspersona(
 
 
 @mcp.tool()
-async def delete_personaladspersona(
-    object_id: str,
+async def api_delete_personaladspersona(
+    personaladspersona_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PersonalAdsPersona(fbid=object_id).api_delete(
+    result = PersonalAdsPersona(fbid=personaladspersona_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_personaladspersona(
 
 
 @mcp.tool()
-async def get_personaladspersona(
-    object_id: str,
+async def api_get_personaladspersona(
+    personaladspersona_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PersonalAdsPersona(fbid=object_id).api_get(
+    result = PersonalAdsPersona(fbid=personaladspersona_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_personaladspersona(
 
 
 @mcp.tool()
-async def update_personaladspersona(
-    object_id: str,
+async def api_update_personaladspersona(
+    personaladspersona_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PersonalAdsPersona(fbid=object_id).api_update(
+    result = PersonalAdsPersona(fbid=personaladspersona_id).api_update(
         fields=fields,
         params=params,
     )

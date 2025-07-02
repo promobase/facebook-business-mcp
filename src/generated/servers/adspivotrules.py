@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adspivotrules")
 
 
 @mcp.tool()
-async def create_adspivotrules(
-    object_id: str,
+async def api_create_adspivotrules(
+    adspivotrules_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPivotRules(fbid=object_id).api_create(
+    result = AdsPivotRules(fbid=adspivotrules_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adspivotrules(
 
 
 @mcp.tool()
-async def delete_adspivotrules(
-    object_id: str,
+async def api_delete_adspivotrules(
+    adspivotrules_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPivotRules(fbid=object_id).api_delete(
+    result = AdsPivotRules(fbid=adspivotrules_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adspivotrules(
 
 
 @mcp.tool()
-async def get_adspivotrules(
-    object_id: str,
+async def api_get_adspivotrules(
+    adspivotrules_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPivotRules(fbid=object_id).api_get(
+    result = AdsPivotRules(fbid=adspivotrules_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adspivotrules(
 
 
 @mcp.tool()
-async def update_adspivotrules(
-    object_id: str,
+async def api_update_adspivotrules(
+    adspivotrules_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPivotRules(fbid=object_id).api_update(
+    result = AdsPivotRules(fbid=adspivotrules_id).api_update(
         fields=fields,
         params=params,
     )

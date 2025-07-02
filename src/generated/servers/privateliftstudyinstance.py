@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-privateliftstudyinstance")
 
 
 @mcp.tool()
-async def create_privateliftstudyinstance(
-    object_id: str,
+async def api_create_privateliftstudyinstance(
+    privateliftstudyinstance_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PrivateLiftStudyInstance(fbid=object_id).api_create(
+    result = PrivateLiftStudyInstance(fbid=privateliftstudyinstance_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_privateliftstudyinstance(
 
 
 @mcp.tool()
-async def delete_privateliftstudyinstance(
-    object_id: str,
+async def api_delete_privateliftstudyinstance(
+    privateliftstudyinstance_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PrivateLiftStudyInstance(fbid=object_id).api_delete(
+    result = PrivateLiftStudyInstance(fbid=privateliftstudyinstance_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_privateliftstudyinstance(
 
 
 @mcp.tool()
-async def get_privateliftstudyinstance(
-    object_id: str,
+async def api_get_privateliftstudyinstance(
+    privateliftstudyinstance_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PrivateLiftStudyInstance(fbid=object_id).api_get(
+    result = PrivateLiftStudyInstance(fbid=privateliftstudyinstance_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_privateliftstudyinstance(
 
 
 @mcp.tool()
-async def update_privateliftstudyinstance(
-    object_id: str,
+async def api_update_privateliftstudyinstance(
+    privateliftstudyinstance_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PrivateLiftStudyInstance(fbid=object_id).api_update(
+    result = PrivateLiftStudyInstance(fbid=privateliftstudyinstance_id).api_update(
         fields=fields,
         params=params,
     )

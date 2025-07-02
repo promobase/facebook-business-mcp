@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adgroupfacebookfeedback")
 
 
 @mcp.tool()
-async def create_adgroupfacebookfeedback(
-    object_id: str,
+async def api_create_adgroupfacebookfeedback(
+    adgroupfacebookfeedback_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdgroupFacebookFeedback(fbid=object_id).api_create(
+    result = AdgroupFacebookFeedback(fbid=adgroupfacebookfeedback_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adgroupfacebookfeedback(
 
 
 @mcp.tool()
-async def delete_adgroupfacebookfeedback(
-    object_id: str,
+async def api_delete_adgroupfacebookfeedback(
+    adgroupfacebookfeedback_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdgroupFacebookFeedback(fbid=object_id).api_delete(
+    result = AdgroupFacebookFeedback(fbid=adgroupfacebookfeedback_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adgroupfacebookfeedback(
 
 
 @mcp.tool()
-async def get_adgroupfacebookfeedback(
-    object_id: str,
+async def api_get_adgroupfacebookfeedback(
+    adgroupfacebookfeedback_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdgroupFacebookFeedback(fbid=object_id).api_get(
+    result = AdgroupFacebookFeedback(fbid=adgroupfacebookfeedback_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adgroupfacebookfeedback(
 
 
 @mcp.tool()
-async def update_adgroupfacebookfeedback(
-    object_id: str,
+async def api_update_adgroupfacebookfeedback(
+    adgroupfacebookfeedback_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdgroupFacebookFeedback(fbid=object_id).api_update(
+    result = AdgroupFacebookFeedback(fbid=adgroupfacebookfeedback_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adgroupfacebookfeedback(
 
 
 @mcp.tool()
-async def get_comments_for_adgroupfacebookfeedback(
-    object_id: str,
+async def get_comments(
+    adgroupfacebookfeedback_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdgroupFacebookFeedback(fbid=object_id).get_comments(
+    result = AdgroupFacebookFeedback(fbid=adgroupfacebookfeedback_id).get_comments(
         fields=fields,
         params=params,
     )

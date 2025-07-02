@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-advainstance")
 
 
 @mcp.tool()
-async def create_advainstance(
-    object_id: str,
+async def api_create_advainstance(
+    advainstance_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdvAInstance(fbid=object_id).api_create(
+    result = AdvAInstance(fbid=advainstance_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_advainstance(
 
 
 @mcp.tool()
-async def delete_advainstance(
-    object_id: str,
+async def api_delete_advainstance(
+    advainstance_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdvAInstance(fbid=object_id).api_delete(
+    result = AdvAInstance(fbid=advainstance_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_advainstance(
 
 
 @mcp.tool()
-async def get_advainstance(
-    object_id: str,
+async def api_get_advainstance(
+    advainstance_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdvAInstance(fbid=object_id).api_get(
+    result = AdvAInstance(fbid=advainstance_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_advainstance(
 
 
 @mcp.tool()
-async def update_advainstance(
-    object_id: str,
+async def api_update_advainstance(
+    advainstance_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdvAInstance(fbid=object_id).api_update(
+    result = AdvAInstance(fbid=advainstance_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-shadowighashtag")
 
 
 @mcp.tool()
-async def create_shadowighashtag(
-    object_id: str,
+async def api_create_shadowighashtag(
+    shadowighashtag_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGHashtag(fbid=object_id).api_create(
+    result = ShadowIGHashtag(fbid=shadowighashtag_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_shadowighashtag(
 
 
 @mcp.tool()
-async def delete_shadowighashtag(
-    object_id: str,
+async def api_delete_shadowighashtag(
+    shadowighashtag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGHashtag(fbid=object_id).api_delete(
+    result = ShadowIGHashtag(fbid=shadowighashtag_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_shadowighashtag(
 
 
 @mcp.tool()
-async def get_shadowighashtag(
-    object_id: str,
+async def api_get_shadowighashtag(
+    shadowighashtag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGHashtag(fbid=object_id).api_get(
+    result = ShadowIGHashtag(fbid=shadowighashtag_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_shadowighashtag(
 
 
 @mcp.tool()
-async def update_shadowighashtag(
-    object_id: str,
+async def api_update_shadowighashtag(
+    shadowighashtag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGHashtag(fbid=object_id).api_update(
+    result = ShadowIGHashtag(fbid=shadowighashtag_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_shadowighashtag(
 
 
 @mcp.tool()
-async def get_recent_media_for_shadowighashtag(
-    object_id: str,
+async def get_recent_media(
+    shadowighashtag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGHashtag(fbid=object_id).get_recent_media(
+    result = ShadowIGHashtag(fbid=shadowighashtag_id).get_recent_media(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_recent_media_for_shadowighashtag(
 
 
 @mcp.tool()
-async def get_top_media_for_shadowighashtag(
-    object_id: str,
+async def get_top_media(
+    shadowighashtag_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGHashtag(fbid=object_id).get_top_media(
+    result = ShadowIGHashtag(fbid=shadowighashtag_id).get_top_media(
         fields=fields,
         params=params,
     )

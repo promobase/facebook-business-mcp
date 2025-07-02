@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-videopoll")
 
 
 @mcp.tool()
-async def create_videopoll(
-    object_id: str,
+async def api_create_videopoll(
+    videopoll_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoPoll(fbid=object_id).api_create(
+    result = VideoPoll(fbid=videopoll_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_videopoll(
 
 
 @mcp.tool()
-async def delete_videopoll(
-    object_id: str,
+async def api_delete_videopoll(
+    videopoll_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoPoll(fbid=object_id).api_delete(
+    result = VideoPoll(fbid=videopoll_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_videopoll(
 
 
 @mcp.tool()
-async def get_videopoll(
-    object_id: str,
+async def api_get_videopoll(
+    videopoll_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoPoll(fbid=object_id).api_get(
+    result = VideoPoll(fbid=videopoll_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_videopoll(
 
 
 @mcp.tool()
-async def update_videopoll(
-    object_id: str,
+async def api_update_videopoll(
+    videopoll_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoPoll(fbid=object_id).api_update(
+    result = VideoPoll(fbid=videopoll_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_videopoll(
 
 
 @mcp.tool()
-async def get_poll_options_for_videopoll(
-    object_id: str,
+async def get_poll_options(
+    videopoll_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoPoll(fbid=object_id).get_poll_options(
+    result = VideoPoll(fbid=videopoll_id).get_poll_options(
         fields=fields,
         params=params,
     )

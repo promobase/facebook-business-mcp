@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-mediafingerprint")
 
 
 @mcp.tool()
-async def create_mediafingerprint(
-    object_id: str,
+async def api_create_mediafingerprint(
+    mediafingerprint_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaFingerprint(fbid=object_id).api_create(
+    result = MediaFingerprint(fbid=mediafingerprint_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_mediafingerprint(
 
 
 @mcp.tool()
-async def delete_mediafingerprint(
-    object_id: str,
+async def api_delete_mediafingerprint(
+    mediafingerprint_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaFingerprint(fbid=object_id).api_delete(
+    result = MediaFingerprint(fbid=mediafingerprint_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_mediafingerprint(
 
 
 @mcp.tool()
-async def get_mediafingerprint(
-    object_id: str,
+async def api_get_mediafingerprint(
+    mediafingerprint_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaFingerprint(fbid=object_id).api_get(
+    result = MediaFingerprint(fbid=mediafingerprint_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_mediafingerprint(
 
 
 @mcp.tool()
-async def update_mediafingerprint(
-    object_id: str,
+async def api_update_mediafingerprint(
+    mediafingerprint_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MediaFingerprint(fbid=object_id).api_update(
+    result = MediaFingerprint(fbid=mediafingerprint_id).api_update(
         fields=fields,
         params=params,
     )

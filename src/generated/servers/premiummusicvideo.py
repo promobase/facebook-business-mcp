@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-premiummusicvideo")
 
 
 @mcp.tool()
-async def create_premiummusicvideo(
-    object_id: str,
+async def api_create_premiummusicvideo(
+    premiummusicvideo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PremiumMusicVideo(fbid=object_id).api_create(
+    result = PremiumMusicVideo(fbid=premiummusicvideo_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_premiummusicvideo(
 
 
 @mcp.tool()
-async def delete_premiummusicvideo(
-    object_id: str,
+async def api_delete_premiummusicvideo(
+    premiummusicvideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PremiumMusicVideo(fbid=object_id).api_delete(
+    result = PremiumMusicVideo(fbid=premiummusicvideo_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_premiummusicvideo(
 
 
 @mcp.tool()
-async def get_premiummusicvideo(
-    object_id: str,
+async def api_get_premiummusicvideo(
+    premiummusicvideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PremiumMusicVideo(fbid=object_id).api_get(
+    result = PremiumMusicVideo(fbid=premiummusicvideo_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_premiummusicvideo(
 
 
 @mcp.tool()
-async def update_premiummusicvideo(
-    object_id: str,
+async def api_update_premiummusicvideo(
+    premiummusicvideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PremiumMusicVideo(fbid=object_id).api_update(
+    result = PremiumMusicVideo(fbid=premiummusicvideo_id).api_update(
         fields=fields,
         params=params,
     )

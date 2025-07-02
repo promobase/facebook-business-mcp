@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adplacepageset")
 
 
 @mcp.tool()
-async def create_adplacepageset(
-    object_id: str,
+async def api_create_adplacepageset(
+    adplacepageset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacePageSet(fbid=object_id).api_create(
+    result = AdPlacePageSet(fbid=adplacepageset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adplacepageset(
 
 
 @mcp.tool()
-async def delete_adplacepageset(
-    object_id: str,
+async def api_delete_adplacepageset(
+    adplacepageset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacePageSet(fbid=object_id).api_delete(
+    result = AdPlacePageSet(fbid=adplacepageset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adplacepageset(
 
 
 @mcp.tool()
-async def get_adplacepageset(
-    object_id: str,
+async def api_get_adplacepageset(
+    adplacepageset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacePageSet(fbid=object_id).api_get(
+    result = AdPlacePageSet(fbid=adplacepageset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adplacepageset(
 
 
 @mcp.tool()
-async def update_adplacepageset(
-    object_id: str,
+async def api_update_adplacepageset(
+    adplacepageset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacePageSet(fbid=object_id).api_update(
+    result = AdPlacePageSet(fbid=adplacepageset_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productimage")
 
 
 @mcp.tool()
-async def create_productimage(
-    object_id: str,
+async def api_create_productimage(
+    productimage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductImage(fbid=object_id).api_create(
+    result = ProductImage(fbid=productimage_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productimage(
 
 
 @mcp.tool()
-async def delete_productimage(
-    object_id: str,
+async def api_delete_productimage(
+    productimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductImage(fbid=object_id).api_delete(
+    result = ProductImage(fbid=productimage_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productimage(
 
 
 @mcp.tool()
-async def get_productimage(
-    object_id: str,
+async def api_get_productimage(
+    productimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductImage(fbid=object_id).api_get(
+    result = ProductImage(fbid=productimage_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productimage(
 
 
 @mcp.tool()
-async def update_productimage(
-    object_id: str,
+async def api_update_productimage(
+    productimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductImage(fbid=object_id).api_update(
+    result = ProductImage(fbid=productimage_id).api_update(
         fields=fields,
         params=params,
     )

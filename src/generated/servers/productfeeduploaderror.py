@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productfeeduploaderror")
 
 
 @mcp.tool()
-async def create_productfeeduploaderror(
-    object_id: str,
+async def api_create_productfeeduploaderror(
+    productfeeduploaderror_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUploadError(fbid=object_id).api_create(
+    result = ProductFeedUploadError(fbid=productfeeduploaderror_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productfeeduploaderror(
 
 
 @mcp.tool()
-async def delete_productfeeduploaderror(
-    object_id: str,
+async def api_delete_productfeeduploaderror(
+    productfeeduploaderror_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUploadError(fbid=object_id).api_delete(
+    result = ProductFeedUploadError(fbid=productfeeduploaderror_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productfeeduploaderror(
 
 
 @mcp.tool()
-async def get_productfeeduploaderror(
-    object_id: str,
+async def api_get_productfeeduploaderror(
+    productfeeduploaderror_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUploadError(fbid=object_id).api_get(
+    result = ProductFeedUploadError(fbid=productfeeduploaderror_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productfeeduploaderror(
 
 
 @mcp.tool()
-async def update_productfeeduploaderror(
-    object_id: str,
+async def api_update_productfeeduploaderror(
+    productfeeduploaderror_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUploadError(fbid=object_id).api_update(
+    result = ProductFeedUploadError(fbid=productfeeduploaderror_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_productfeeduploaderror(
 
 
 @mcp.tool()
-async def get_samples_for_productfeeduploaderror(
-    object_id: str,
+async def get_samples(
+    productfeeduploaderror_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUploadError(fbid=object_id).get_samples(
+    result = ProductFeedUploadError(fbid=productfeeduploaderror_id).get_samples(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_samples_for_productfeeduploaderror(
 
 
 @mcp.tool()
-async def get_suggested_rules_for_productfeeduploaderror(
-    object_id: str,
+async def get_suggested_rules(
+    productfeeduploaderror_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUploadError(fbid=object_id).get_suggested_rules(
+    result = ProductFeedUploadError(fbid=productfeeduploaderror_id).get_suggested_rules(
         fields=fields,
         params=params,
     )

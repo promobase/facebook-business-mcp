@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-livevideoinputstream")
 
 
 @mcp.tool()
-async def create_livevideoinputstream(
-    object_id: str,
+async def api_create_livevideoinputstream(
+    livevideoinputstream_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideoInputStream(fbid=object_id).api_create(
+    result = LiveVideoInputStream(fbid=livevideoinputstream_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_livevideoinputstream(
 
 
 @mcp.tool()
-async def delete_livevideoinputstream(
-    object_id: str,
+async def api_delete_livevideoinputstream(
+    livevideoinputstream_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideoInputStream(fbid=object_id).api_delete(
+    result = LiveVideoInputStream(fbid=livevideoinputstream_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_livevideoinputstream(
 
 
 @mcp.tool()
-async def get_livevideoinputstream(
-    object_id: str,
+async def api_get_livevideoinputstream(
+    livevideoinputstream_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideoInputStream(fbid=object_id).api_get(
+    result = LiveVideoInputStream(fbid=livevideoinputstream_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_livevideoinputstream(
 
 
 @mcp.tool()
-async def update_livevideoinputstream(
-    object_id: str,
+async def api_update_livevideoinputstream(
+    livevideoinputstream_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideoInputStream(fbid=object_id).api_update(
+    result = LiveVideoInputStream(fbid=livevideoinputstream_id).api_update(
         fields=fields,
         params=params,
     )

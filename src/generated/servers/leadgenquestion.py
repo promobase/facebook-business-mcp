@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-leadgenquestion")
 
 
 @mcp.tool()
-async def create_leadgenquestion(
-    object_id: str,
+async def api_create_leadgenquestion(
+    leadgenquestion_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenQuestion(fbid=object_id).api_create(
+    result = LeadGenQuestion(fbid=leadgenquestion_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_leadgenquestion(
 
 
 @mcp.tool()
-async def delete_leadgenquestion(
-    object_id: str,
+async def api_delete_leadgenquestion(
+    leadgenquestion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenQuestion(fbid=object_id).api_delete(
+    result = LeadGenQuestion(fbid=leadgenquestion_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_leadgenquestion(
 
 
 @mcp.tool()
-async def get_leadgenquestion(
-    object_id: str,
+async def api_get_leadgenquestion(
+    leadgenquestion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenQuestion(fbid=object_id).api_get(
+    result = LeadGenQuestion(fbid=leadgenquestion_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_leadgenquestion(
 
 
 @mcp.tool()
-async def update_leadgenquestion(
-    object_id: str,
+async def api_update_leadgenquestion(
+    leadgenquestion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenQuestion(fbid=object_id).api_update(
+    result = LeadGenQuestion(fbid=leadgenquestion_id).api_update(
         fields=fields,
         params=params,
     )

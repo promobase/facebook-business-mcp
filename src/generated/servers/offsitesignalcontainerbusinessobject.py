@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-offsitesignalcontainerbusinessobject")
 
 
 @mcp.tool()
-async def create_offsitesignalcontainerbusinessobject(
-    object_id: str,
+async def api_create_offsitesignalcontainerbusinessobject(
+    offsitesignalcontainerbusinessobject_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OffsiteSignalContainerBusinessObject(fbid=object_id).api_create(
+    result = OffsiteSignalContainerBusinessObject(
+        fbid=offsitesignalcontainerbusinessobject_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def delete_offsitesignalcontainerbusinessobject(
-    object_id: str,
+async def api_delete_offsitesignalcontainerbusinessobject(
+    offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OffsiteSignalContainerBusinessObject(fbid=object_id).api_delete(
+    result = OffsiteSignalContainerBusinessObject(
+        fbid=offsitesignalcontainerbusinessobject_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,14 @@ async def delete_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def get_offsitesignalcontainerbusinessobject(
-    object_id: str,
+async def api_get_offsitesignalcontainerbusinessobject(
+    offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OffsiteSignalContainerBusinessObject(fbid=object_id).api_get(
+    result = OffsiteSignalContainerBusinessObject(
+        fbid=offsitesignalcontainerbusinessobject_id
+    ).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +68,14 @@ async def get_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def update_offsitesignalcontainerbusinessobject(
-    object_id: str,
+async def api_update_offsitesignalcontainerbusinessobject(
+    offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OffsiteSignalContainerBusinessObject(fbid=object_id).api_update(
+    result = OffsiteSignalContainerBusinessObject(
+        fbid=offsitesignalcontainerbusinessobject_id
+    ).api_update(
         fields=fields,
         params=params,
     )
@@ -79,12 +87,14 @@ async def update_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def get_linked_application_for_offsitesignalcontainerbusinessobject(
-    object_id: str,
+async def get_linked_application(
+    offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OffsiteSignalContainerBusinessObject(fbid=object_id).get_linked_application(
+    result = OffsiteSignalContainerBusinessObject(
+        fbid=offsitesignalcontainerbusinessobject_id
+    ).get_linked_application(
         fields=fields,
         params=params,
     )
@@ -93,12 +103,14 @@ async def get_linked_application_for_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def get_linked_page_for_offsitesignalcontainerbusinessobject(
-    object_id: str,
+async def get_linked_page(
+    offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OffsiteSignalContainerBusinessObject(fbid=object_id).get_linked_page(
+    result = OffsiteSignalContainerBusinessObject(
+        fbid=offsitesignalcontainerbusinessobject_id
+    ).get_linked_page(
         fields=fields,
         params=params,
     )

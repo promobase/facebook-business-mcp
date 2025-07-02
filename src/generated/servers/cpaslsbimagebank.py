@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-cpaslsbimagebank")
 
 
 @mcp.tool()
-async def create_cpaslsbimagebank(
-    object_id: str,
+async def api_create_cpaslsbimagebank(
+    cpaslsbimagebank_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASLsbImageBank(fbid=object_id).api_create(
+    result = CPASLsbImageBank(fbid=cpaslsbimagebank_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_cpaslsbimagebank(
 
 
 @mcp.tool()
-async def delete_cpaslsbimagebank(
-    object_id: str,
+async def api_delete_cpaslsbimagebank(
+    cpaslsbimagebank_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASLsbImageBank(fbid=object_id).api_delete(
+    result = CPASLsbImageBank(fbid=cpaslsbimagebank_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_cpaslsbimagebank(
 
 
 @mcp.tool()
-async def get_cpaslsbimagebank(
-    object_id: str,
+async def api_get_cpaslsbimagebank(
+    cpaslsbimagebank_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASLsbImageBank(fbid=object_id).api_get(
+    result = CPASLsbImageBank(fbid=cpaslsbimagebank_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_cpaslsbimagebank(
 
 
 @mcp.tool()
-async def update_cpaslsbimagebank(
-    object_id: str,
+async def api_update_cpaslsbimagebank(
+    cpaslsbimagebank_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASLsbImageBank(fbid=object_id).api_update(
+    result = CPASLsbImageBank(fbid=cpaslsbimagebank_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_cpaslsbimagebank(
 
 
 @mcp.tool()
-async def get_backup_images_for_cpaslsbimagebank(
-    object_id: str,
+async def get_backup_images(
+    cpaslsbimagebank_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASLsbImageBank(fbid=object_id).get_backup_images(
+    result = CPASLsbImageBank(fbid=cpaslsbimagebank_id).get_backup_images(
         fields=fields,
         params=params,
     )

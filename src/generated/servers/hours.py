@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-hours")
 
 
 @mcp.tool()
-async def create_hours(
-    object_id: str,
+async def api_create_hours(
+    hours_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hours(fbid=object_id).api_create(
+    result = Hours(fbid=hours_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_hours(
 
 
 @mcp.tool()
-async def delete_hours(
-    object_id: str,
+async def api_delete_hours(
+    hours_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hours(fbid=object_id).api_delete(
+    result = Hours(fbid=hours_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_hours(
 
 
 @mcp.tool()
-async def get_hours(
-    object_id: str,
+async def api_get_hours(
+    hours_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hours(fbid=object_id).api_get(
+    result = Hours(fbid=hours_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_hours(
 
 
 @mcp.tool()
-async def update_hours(
-    object_id: str,
+async def api_update_hours(
+    hours_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hours(fbid=object_id).api_update(
+    result = Hours(fbid=hours_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-openbridgeconfiguration")
 
 
 @mcp.tool()
-async def create_openbridgeconfiguration(
-    object_id: str,
+async def api_create_openbridgeconfiguration(
+    openbridgeconfiguration_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OpenBridgeConfiguration(fbid=object_id).api_create(
+    result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_openbridgeconfiguration(
 
 
 @mcp.tool()
-async def delete_openbridgeconfiguration(
-    object_id: str,
+async def api_delete_openbridgeconfiguration(
+    openbridgeconfiguration_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OpenBridgeConfiguration(fbid=object_id).api_delete(
+    result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_openbridgeconfiguration(
 
 
 @mcp.tool()
-async def get_openbridgeconfiguration(
-    object_id: str,
+async def api_get_openbridgeconfiguration(
+    openbridgeconfiguration_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OpenBridgeConfiguration(fbid=object_id).api_get(
+    result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_openbridgeconfiguration(
 
 
 @mcp.tool()
-async def update_openbridgeconfiguration(
-    object_id: str,
+async def api_update_openbridgeconfiguration(
+    openbridgeconfiguration_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = OpenBridgeConfiguration(fbid=object_id).api_update(
+    result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_update(
         fields=fields,
         params=params,
     )

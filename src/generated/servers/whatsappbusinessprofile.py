@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-whatsappbusinessprofile")
 
 
 @mcp.tool()
-async def create_whatsappbusinessprofile(
-    object_id: str,
+async def api_create_whatsappbusinessprofile(
+    whatsappbusinessprofile_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessProfile(fbid=object_id).api_create(
+    result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_whatsappbusinessprofile(
 
 
 @mcp.tool()
-async def delete_whatsappbusinessprofile(
-    object_id: str,
+async def api_delete_whatsappbusinessprofile(
+    whatsappbusinessprofile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessProfile(fbid=object_id).api_delete(
+    result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_whatsappbusinessprofile(
 
 
 @mcp.tool()
-async def get_whatsappbusinessprofile(
-    object_id: str,
+async def api_get_whatsappbusinessprofile(
+    whatsappbusinessprofile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessProfile(fbid=object_id).api_get(
+    result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_whatsappbusinessprofile(
 
 
 @mcp.tool()
-async def update_whatsappbusinessprofile(
-    object_id: str,
+async def api_update_whatsappbusinessprofile(
+    whatsappbusinessprofile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessProfile(fbid=object_id).api_update(
+    result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_update(
         fields=fields,
         params=params,
     )

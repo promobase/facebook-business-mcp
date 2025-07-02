@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-thirdpartymeasurementreportdataset")
 
 
 @mcp.tool()
-async def create_thirdpartymeasurementreportdataset(
-    object_id: str,
+async def api_create_thirdpartymeasurementreportdataset(
+    thirdpartymeasurementreportdataset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyMeasurementReportDataset(fbid=object_id).api_create(
+    result = ThirdPartyMeasurementReportDataset(
+        fbid=thirdpartymeasurementreportdataset_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_thirdpartymeasurementreportdataset(
 
 
 @mcp.tool()
-async def delete_thirdpartymeasurementreportdataset(
-    object_id: str,
+async def api_delete_thirdpartymeasurementreportdataset(
+    thirdpartymeasurementreportdataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyMeasurementReportDataset(fbid=object_id).api_delete(
+    result = ThirdPartyMeasurementReportDataset(
+        fbid=thirdpartymeasurementreportdataset_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,12 @@ async def delete_thirdpartymeasurementreportdataset(
 
 
 @mcp.tool()
-async def get_thirdpartymeasurementreportdataset(
-    object_id: str,
+async def api_get_thirdpartymeasurementreportdataset(
+    thirdpartymeasurementreportdataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyMeasurementReportDataset(fbid=object_id).api_get(
+    result = ThirdPartyMeasurementReportDataset(fbid=thirdpartymeasurementreportdataset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +66,14 @@ async def get_thirdpartymeasurementreportdataset(
 
 
 @mcp.tool()
-async def update_thirdpartymeasurementreportdataset(
-    object_id: str,
+async def api_update_thirdpartymeasurementreportdataset(
+    thirdpartymeasurementreportdataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyMeasurementReportDataset(fbid=object_id).api_update(
+    result = ThirdPartyMeasurementReportDataset(
+        fbid=thirdpartymeasurementreportdataset_id
+    ).api_update(
         fields=fields,
         params=params,
     )

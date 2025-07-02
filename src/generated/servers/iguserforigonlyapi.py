@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-iguserforigonlyapi")
 
 
 @mcp.tool()
-async def create_iguserforigonlyapi(
-    object_id: str,
+async def api_create_iguserforigonlyapi(
+    iguserforigonlyapi_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).api_create(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def delete_iguserforigonlyapi(
-    object_id: str,
+async def api_delete_iguserforigonlyapi(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).api_delete(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_iguserforigonlyapi(
-    object_id: str,
+async def api_get_iguserforigonlyapi(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).api_get(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def update_iguserforigonlyapi(
-    object_id: str,
+async def api_update_iguserforigonlyapi(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).api_update(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_media_for_iguserforigonlyapi(
-    object_id: str,
+async def create_media(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_media(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_media(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_media_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_media_publish_for_iguserforigonlyapi(
-    object_id: str,
+async def create_media_publish(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_media_publish(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_media_publish(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_media_publish_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_mention_for_iguserforigonlyapi(
-    object_id: str,
+async def create_mention(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_mention(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_mention(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_mention_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_message_for_iguserforigonlyapi(
-    object_id: str,
+async def create_message(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_message(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_message(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_message_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_message_attachment_for_iguserforigonlyapi(
-    object_id: str,
+async def create_message_attachment(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_message_attachment(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_message_attachment(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def create_message_attachment_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_messenger_profile_for_iguserforigonlyapi(
-    object_id: str,
+async def create_messenger_profile(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_messenger_profile(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_messenger_profile(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def create_messenger_profile_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_subscribed_app_for_iguserforigonlyapi(
-    object_id: str,
+async def create_subscribed_app(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_subscribed_app(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_subscribed_app(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def create_subscribed_app_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def create_welcome_message_flow_for_iguserforigonlyapi(
-    object_id: str,
+async def create_welcome_message_flow(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).create_welcome_message_flow(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).create_welcome_message_flow(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def create_welcome_message_flow_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def delete_messenger_profile_for_iguserforigonlyapi(
-    object_id: str,
+async def delete_messenger_profile(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).delete_messenger_profile(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).delete_messenger_profile(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def delete_messenger_profile_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def delete_subscribed_apps_for_iguserforigonlyapi(
-    object_id: str,
+async def delete_subscribed_apps(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).delete_subscribed_apps(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).delete_subscribed_apps(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def delete_subscribed_apps_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def delete_welcome_message_flows_for_iguserforigonlyapi(
-    object_id: str,
+async def delete_welcome_message_flows(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).delete_welcome_message_flows(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).delete_welcome_message_flows(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def delete_welcome_message_flows_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_business_messaging_feature_status_for_iguserforigonlyapi(
-    object_id: str,
+async def get_business_messaging_feature_status(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_business_messaging_feature_status(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_business_messaging_feature_status(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def get_business_messaging_feature_status_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_content_publishing_limit_for_iguserforigonlyapi(
-    object_id: str,
+async def get_content_publishing_limit(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_content_publishing_limit(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_content_publishing_limit(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def get_content_publishing_limit_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_conversations_for_iguserforigonlyapi(
-    object_id: str,
+async def get_conversations(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_conversations(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_conversations(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def get_conversations_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_insights_for_iguserforigonlyapi(
-    object_id: str,
+async def get_insights(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_insights(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_insights(
         fields=fields,
         params=params,
     )
@@ -287,12 +287,12 @@ async def get_insights_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_live_media_for_iguserforigonlyapi(
-    object_id: str,
+async def get_live_media(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_live_media(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_live_media(
         fields=fields,
         params=params,
     )
@@ -301,12 +301,12 @@ async def get_live_media_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_media_for_iguserforigonlyapi(
-    object_id: str,
+async def get_media(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_media(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_media(
         fields=fields,
         params=params,
     )
@@ -315,12 +315,12 @@ async def get_media_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_messenger_profile_for_iguserforigonlyapi(
-    object_id: str,
+async def get_messenger_profile(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_messenger_profile(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_messenger_profile(
         fields=fields,
         params=params,
     )
@@ -329,12 +329,12 @@ async def get_messenger_profile_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_stories_for_iguserforigonlyapi(
-    object_id: str,
+async def get_stories(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_stories(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_stories(
         fields=fields,
         params=params,
     )
@@ -343,12 +343,12 @@ async def get_stories_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_subscribed_apps_for_iguserforigonlyapi(
-    object_id: str,
+async def get_subscribed_apps(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_subscribed_apps(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_subscribed_apps(
         fields=fields,
         params=params,
     )
@@ -357,12 +357,12 @@ async def get_subscribed_apps_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_tags_for_iguserforigonlyapi(
-    object_id: str,
+async def get_tags(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_tags(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_tags(
         fields=fields,
         params=params,
     )
@@ -371,12 +371,12 @@ async def get_tags_for_iguserforigonlyapi(
 
 
 @mcp.tool()
-async def get_welcome_message_flows_for_iguserforigonlyapi(
-    object_id: str,
+async def get_welcome_message_flows(
+    iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGUserForIGOnlyAPI(fbid=object_id).get_welcome_message_flows(
+    result = IGUserForIGOnlyAPI(fbid=iguserforigonlyapi_id).get_welcome_message_flows(
         fields=fields,
         params=params,
     )

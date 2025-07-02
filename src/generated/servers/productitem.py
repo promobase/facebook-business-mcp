@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productitem")
 
 
 @mcp.tool()
-async def create_productitem(
-    object_id: str,
+async def api_create_productitem(
+    productitem_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).api_create(
+    result = ProductItem(fbid=productitem_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productitem(
 
 
 @mcp.tool()
-async def delete_productitem(
-    object_id: str,
+async def api_delete_productitem(
+    productitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).api_delete(
+    result = ProductItem(fbid=productitem_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productitem(
 
 
 @mcp.tool()
-async def get_productitem(
-    object_id: str,
+async def api_get_productitem(
+    productitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).api_get(
+    result = ProductItem(fbid=productitem_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productitem(
 
 
 @mcp.tool()
-async def update_productitem(
-    object_id: str,
+async def api_update_productitem(
+    productitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).api_update(
+    result = ProductItem(fbid=productitem_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_productitem(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_productitem(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    productitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).get_channels_to_integrity_status(
+    result = ProductItem(fbid=productitem_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_productitem(
 
 
 @mcp.tool()
-async def get_override_details_for_productitem(
-    object_id: str,
+async def get_override_details(
+    productitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).get_override_details(
+    result = ProductItem(fbid=productitem_id).get_override_details(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_override_details_for_productitem(
 
 
 @mcp.tool()
-async def get_product_sets_for_productitem(
-    object_id: str,
+async def get_product_sets(
+    productitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).get_product_sets(
+    result = ProductItem(fbid=productitem_id).get_product_sets(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_product_sets_for_productitem(
 
 
 @mcp.tool()
-async def get_videos_metadata_for_productitem(
-    object_id: str,
+async def get_videos_metadata(
+    productitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductItem(fbid=object_id).get_videos_metadata(
+    result = ProductItem(fbid=productitem_id).get_videos_metadata(
         fields=fields,
         params=params,
     )

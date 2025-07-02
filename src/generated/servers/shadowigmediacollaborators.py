@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-shadowigmediacollaborators")
 
 
 @mcp.tool()
-async def create_shadowigmediacollaborators(
-    object_id: str,
+async def api_create_shadowigmediacollaborators(
+    shadowigmediacollaborators_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGMediaCollaborators(fbid=object_id).api_create(
+    result = ShadowIGMediaCollaborators(fbid=shadowigmediacollaborators_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_shadowigmediacollaborators(
 
 
 @mcp.tool()
-async def delete_shadowigmediacollaborators(
-    object_id: str,
+async def api_delete_shadowigmediacollaborators(
+    shadowigmediacollaborators_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGMediaCollaborators(fbid=object_id).api_delete(
+    result = ShadowIGMediaCollaborators(fbid=shadowigmediacollaborators_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_shadowigmediacollaborators(
 
 
 @mcp.tool()
-async def get_shadowigmediacollaborators(
-    object_id: str,
+async def api_get_shadowigmediacollaborators(
+    shadowigmediacollaborators_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGMediaCollaborators(fbid=object_id).api_get(
+    result = ShadowIGMediaCollaborators(fbid=shadowigmediacollaborators_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_shadowigmediacollaborators(
 
 
 @mcp.tool()
-async def update_shadowigmediacollaborators(
-    object_id: str,
+async def api_update_shadowigmediacollaborators(
+    shadowigmediacollaborators_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ShadowIGMediaCollaborators(fbid=object_id).api_update(
+    result = ShadowIGMediaCollaborators(fbid=shadowigmediacollaborators_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adlightcampaigngroup")
 
 
 @mcp.tool()
-async def create_adlightcampaigngroup(
-    object_id: str,
+async def api_create_adlightcampaigngroup(
+    adlightcampaigngroup_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLightCampaignGroup(fbid=object_id).api_create(
+    result = AdLightCampaignGroup(fbid=adlightcampaigngroup_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adlightcampaigngroup(
 
 
 @mcp.tool()
-async def delete_adlightcampaigngroup(
-    object_id: str,
+async def api_delete_adlightcampaigngroup(
+    adlightcampaigngroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLightCampaignGroup(fbid=object_id).api_delete(
+    result = AdLightCampaignGroup(fbid=adlightcampaigngroup_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adlightcampaigngroup(
 
 
 @mcp.tool()
-async def get_adlightcampaigngroup(
-    object_id: str,
+async def api_get_adlightcampaigngroup(
+    adlightcampaigngroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLightCampaignGroup(fbid=object_id).api_get(
+    result = AdLightCampaignGroup(fbid=adlightcampaigngroup_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adlightcampaigngroup(
 
 
 @mcp.tool()
-async def update_adlightcampaigngroup(
-    object_id: str,
+async def api_update_adlightcampaigngroup(
+    adlightcampaigngroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLightCampaignGroup(fbid=object_id).api_update(
+    result = AdLightCampaignGroup(fbid=adlightcampaigngroup_id).api_update(
         fields=fields,
         params=params,
     )

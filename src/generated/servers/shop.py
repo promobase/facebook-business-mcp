@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-shop")
 
 
 @mcp.tool()
-async def create_shop(
-    object_id: str,
+async def api_create_shop(
+    shop_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Shop(fbid=object_id).api_create(
+    result = Shop(fbid=shop_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_shop(
 
 
 @mcp.tool()
-async def delete_shop(
-    object_id: str,
+async def api_delete_shop(
+    shop_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Shop(fbid=object_id).api_delete(
+    result = Shop(fbid=shop_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_shop(
 
 
 @mcp.tool()
-async def get_shop(
-    object_id: str,
+async def api_get_shop(
+    shop_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Shop(fbid=object_id).api_get(
+    result = Shop(fbid=shop_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_shop(
 
 
 @mcp.tool()
-async def update_shop(
-    object_id: str,
+async def api_update_shop(
+    shop_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Shop(fbid=object_id).api_update(
+    result = Shop(fbid=shop_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-apppublisher")
 
 
 @mcp.tool()
-async def create_apppublisher(
-    object_id: str,
+async def api_create_apppublisher(
+    apppublisher_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AppPublisher(fbid=object_id).api_create(
+    result = AppPublisher(fbid=apppublisher_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_apppublisher(
 
 
 @mcp.tool()
-async def delete_apppublisher(
-    object_id: str,
+async def api_delete_apppublisher(
+    apppublisher_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AppPublisher(fbid=object_id).api_delete(
+    result = AppPublisher(fbid=apppublisher_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_apppublisher(
 
 
 @mcp.tool()
-async def get_apppublisher(
-    object_id: str,
+async def api_get_apppublisher(
+    apppublisher_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AppPublisher(fbid=object_id).api_get(
+    result = AppPublisher(fbid=apppublisher_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_apppublisher(
 
 
 @mcp.tool()
-async def update_apppublisher(
-    object_id: str,
+async def api_update_apppublisher(
+    apppublisher_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AppPublisher(fbid=object_id).api_update(
+    result = AppPublisher(fbid=apppublisher_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-profile")
 
 
 @mcp.tool()
-async def create_profile(
-    object_id: str,
+async def api_create_profile(
+    profile_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Profile(fbid=object_id).api_create(
+    result = Profile(fbid=profile_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_profile(
 
 
 @mcp.tool()
-async def delete_profile(
-    object_id: str,
+async def api_delete_profile(
+    profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Profile(fbid=object_id).api_delete(
+    result = Profile(fbid=profile_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_profile(
 
 
 @mcp.tool()
-async def get_profile(
-    object_id: str,
+async def api_get_profile(
+    profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Profile(fbid=object_id).api_get(
+    result = Profile(fbid=profile_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_profile(
 
 
 @mcp.tool()
-async def update_profile(
-    object_id: str,
+async def api_update_profile(
+    profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Profile(fbid=object_id).api_update(
+    result = Profile(fbid=profile_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_profile(
 
 
 @mcp.tool()
-async def get_picture_for_profile(
-    object_id: str,
+async def get_picture(
+    profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Profile(fbid=object_id).get_picture(
+    result = Profile(fbid=profile_id).get_picture(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-igaccesstokenforigonlyapi")
 
 
 @mcp.tool()
-async def create_igaccesstokenforigonlyapi(
-    object_id: str,
+async def api_create_igaccesstokenforigonlyapi(
+    igaccesstokenforigonlyapi_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGAccessTokenForIGOnlyAPI(fbid=object_id).api_create(
+    result = IGAccessTokenForIGOnlyAPI(fbid=igaccesstokenforigonlyapi_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_igaccesstokenforigonlyapi(
 
 
 @mcp.tool()
-async def delete_igaccesstokenforigonlyapi(
-    object_id: str,
+async def api_delete_igaccesstokenforigonlyapi(
+    igaccesstokenforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGAccessTokenForIGOnlyAPI(fbid=object_id).api_delete(
+    result = IGAccessTokenForIGOnlyAPI(fbid=igaccesstokenforigonlyapi_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_igaccesstokenforigonlyapi(
 
 
 @mcp.tool()
-async def get_igaccesstokenforigonlyapi(
-    object_id: str,
+async def api_get_igaccesstokenforigonlyapi(
+    igaccesstokenforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGAccessTokenForIGOnlyAPI(fbid=object_id).api_get(
+    result = IGAccessTokenForIGOnlyAPI(fbid=igaccesstokenforigonlyapi_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_igaccesstokenforigonlyapi(
 
 
 @mcp.tool()
-async def update_igaccesstokenforigonlyapi(
-    object_id: str,
+async def api_update_igaccesstokenforigonlyapi(
+    igaccesstokenforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGAccessTokenForIGOnlyAPI(fbid=object_id).api_update(
+    result = IGAccessTokenForIGOnlyAPI(fbid=igaccesstokenforigonlyapi_id).api_update(
         fields=fields,
         params=params,
     )

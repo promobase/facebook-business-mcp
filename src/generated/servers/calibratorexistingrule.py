@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-calibratorexistingrule")
 
 
 @mcp.tool()
-async def create_calibratorexistingrule(
-    object_id: str,
+async def api_create_calibratorexistingrule(
+    calibratorexistingrule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CalibratorExistingRule(fbid=object_id).api_create(
+    result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_calibratorexistingrule(
 
 
 @mcp.tool()
-async def delete_calibratorexistingrule(
-    object_id: str,
+async def api_delete_calibratorexistingrule(
+    calibratorexistingrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CalibratorExistingRule(fbid=object_id).api_delete(
+    result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_calibratorexistingrule(
 
 
 @mcp.tool()
-async def get_calibratorexistingrule(
-    object_id: str,
+async def api_get_calibratorexistingrule(
+    calibratorexistingrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CalibratorExistingRule(fbid=object_id).api_get(
+    result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_calibratorexistingrule(
 
 
 @mcp.tool()
-async def update_calibratorexistingrule(
-    object_id: str,
+async def api_update_calibratorexistingrule(
+    calibratorexistingrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CalibratorExistingRule(fbid=object_id).api_update(
+    result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_update(
         fields=fields,
         params=params,
     )

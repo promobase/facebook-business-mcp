@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-canvasdynamicsetting")
 
 
 @mcp.tool()
-async def create_canvasdynamicsetting(
-    object_id: str,
+async def api_create_canvasdynamicsetting(
+    canvasdynamicsetting_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CanvasDynamicSetting(fbid=object_id).api_create(
+    result = CanvasDynamicSetting(fbid=canvasdynamicsetting_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_canvasdynamicsetting(
 
 
 @mcp.tool()
-async def delete_canvasdynamicsetting(
-    object_id: str,
+async def api_delete_canvasdynamicsetting(
+    canvasdynamicsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CanvasDynamicSetting(fbid=object_id).api_delete(
+    result = CanvasDynamicSetting(fbid=canvasdynamicsetting_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_canvasdynamicsetting(
 
 
 @mcp.tool()
-async def get_canvasdynamicsetting(
-    object_id: str,
+async def api_get_canvasdynamicsetting(
+    canvasdynamicsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CanvasDynamicSetting(fbid=object_id).api_get(
+    result = CanvasDynamicSetting(fbid=canvasdynamicsetting_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_canvasdynamicsetting(
 
 
 @mcp.tool()
-async def update_canvasdynamicsetting(
-    object_id: str,
+async def api_update_canvasdynamicsetting(
+    canvasdynamicsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CanvasDynamicSetting(fbid=object_id).api_update(
+    result = CanvasDynamicSetting(fbid=canvasdynamicsetting_id).api_update(
         fields=fields,
         params=params,
     )

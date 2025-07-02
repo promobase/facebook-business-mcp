@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-savedaudience")
 
 
 @mcp.tool()
-async def create_savedaudience(
-    object_id: str,
+async def api_create_savedaudience(
+    savedaudience_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SavedAudience(fbid=object_id).api_create(
+    result = SavedAudience(fbid=savedaudience_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_savedaudience(
 
 
 @mcp.tool()
-async def delete_savedaudience(
-    object_id: str,
+async def api_delete_savedaudience(
+    savedaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SavedAudience(fbid=object_id).api_delete(
+    result = SavedAudience(fbid=savedaudience_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_savedaudience(
 
 
 @mcp.tool()
-async def get_savedaudience(
-    object_id: str,
+async def api_get_savedaudience(
+    savedaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SavedAudience(fbid=object_id).api_get(
+    result = SavedAudience(fbid=savedaudience_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_savedaudience(
 
 
 @mcp.tool()
-async def update_savedaudience(
-    object_id: str,
+async def api_update_savedaudience(
+    savedaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SavedAudience(fbid=object_id).api_update(
+    result = SavedAudience(fbid=savedaudience_id).api_update(
         fields=fields,
         params=params,
     )

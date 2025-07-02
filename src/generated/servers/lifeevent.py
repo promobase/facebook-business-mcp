@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-lifeevent")
 
 
 @mcp.tool()
-async def create_lifeevent(
-    object_id: str,
+async def api_create_lifeevent(
+    lifeevent_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LifeEvent(fbid=object_id).api_create(
+    result = LifeEvent(fbid=lifeevent_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_lifeevent(
 
 
 @mcp.tool()
-async def delete_lifeevent(
-    object_id: str,
+async def api_delete_lifeevent(
+    lifeevent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LifeEvent(fbid=object_id).api_delete(
+    result = LifeEvent(fbid=lifeevent_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_lifeevent(
 
 
 @mcp.tool()
-async def get_lifeevent(
-    object_id: str,
+async def api_get_lifeevent(
+    lifeevent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LifeEvent(fbid=object_id).api_get(
+    result = LifeEvent(fbid=lifeevent_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_lifeevent(
 
 
 @mcp.tool()
-async def update_lifeevent(
-    object_id: str,
+async def api_update_lifeevent(
+    lifeevent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LifeEvent(fbid=object_id).api_update(
+    result = LifeEvent(fbid=lifeevent_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_lifeevent(
 
 
 @mcp.tool()
-async def get_likes_for_lifeevent(
-    object_id: str,
+async def get_likes(
+    lifeevent_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LifeEvent(fbid=object_id).get_likes(
+    result = LifeEvent(fbid=lifeevent_id).get_likes(
         fields=fields,
         params=params,
     )

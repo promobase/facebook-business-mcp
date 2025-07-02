@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-bidschedule")
 
 
 @mcp.tool()
-async def create_bidschedule(
-    object_id: str,
+async def api_create_bidschedule(
+    bidschedule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BidSchedule(fbid=object_id).api_create(
+    result = BidSchedule(fbid=bidschedule_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_bidschedule(
 
 
 @mcp.tool()
-async def delete_bidschedule(
-    object_id: str,
+async def api_delete_bidschedule(
+    bidschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BidSchedule(fbid=object_id).api_delete(
+    result = BidSchedule(fbid=bidschedule_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_bidschedule(
 
 
 @mcp.tool()
-async def get_bidschedule(
-    object_id: str,
+async def api_get_bidschedule(
+    bidschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BidSchedule(fbid=object_id).api_get(
+    result = BidSchedule(fbid=bidschedule_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_bidschedule(
 
 
 @mcp.tool()
-async def update_bidschedule(
-    object_id: str,
+async def api_update_bidschedule(
+    bidschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BidSchedule(fbid=object_id).api_update(
+    result = BidSchedule(fbid=bidschedule_id).api_update(
         fields=fields,
         params=params,
     )

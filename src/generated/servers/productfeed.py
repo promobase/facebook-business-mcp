@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productfeed")
 
 
 @mcp.tool()
-async def create_productfeed(
-    object_id: str,
+async def api_create_productfeed(
+    productfeed_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).api_create(
+    result = ProductFeed(fbid=productfeed_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productfeed(
 
 
 @mcp.tool()
-async def delete_productfeed(
-    object_id: str,
+async def api_delete_productfeed(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).api_delete(
+    result = ProductFeed(fbid=productfeed_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productfeed(
 
 
 @mcp.tool()
-async def get_productfeed(
-    object_id: str,
+async def api_get_productfeed(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).api_get(
+    result = ProductFeed(fbid=productfeed_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productfeed(
 
 
 @mcp.tool()
-async def update_productfeed(
-    object_id: str,
+async def api_update_productfeed(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).api_update(
+    result = ProductFeed(fbid=productfeed_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_productfeed(
 
 
 @mcp.tool()
-async def create_rule_for_productfeed(
-    object_id: str,
+async def create_rule(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).create_rule(
+    result = ProductFeed(fbid=productfeed_id).create_rule(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_rule_for_productfeed(
 
 
 @mcp.tool()
-async def create_supplementary_feed_assoc_for_productfeed(
-    object_id: str,
+async def create_supplementary_feed_assoc(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).create_supplementary_feed_assoc(
+    result = ProductFeed(fbid=productfeed_id).create_supplementary_feed_assoc(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_supplementary_feed_assoc_for_productfeed(
 
 
 @mcp.tool()
-async def create_upload_for_productfeed(
-    object_id: str,
+async def create_upload(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).create_upload(
+    result = ProductFeed(fbid=productfeed_id).create_upload(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_upload_for_productfeed(
 
 
 @mcp.tool()
-async def create_upload_schedule_for_productfeed(
-    object_id: str,
+async def create_upload_schedule(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).create_upload_schedule(
+    result = ProductFeed(fbid=productfeed_id).create_upload_schedule(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_upload_schedule_for_productfeed(
 
 
 @mcp.tool()
-async def get_automotive_models_for_productfeed(
-    object_id: str,
+async def get_automotive_models(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_automotive_models(
+    result = ProductFeed(fbid=productfeed_id).get_automotive_models(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_automotive_models_for_productfeed(
 
 
 @mcp.tool()
-async def get_destinations_for_productfeed(
-    object_id: str,
+async def get_destinations(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_destinations(
+    result = ProductFeed(fbid=productfeed_id).get_destinations(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_destinations_for_productfeed(
 
 
 @mcp.tool()
-async def get_flights_for_productfeed(
-    object_id: str,
+async def get_flights(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_flights(
+    result = ProductFeed(fbid=productfeed_id).get_flights(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_flights_for_productfeed(
 
 
 @mcp.tool()
-async def get_home_listings_for_productfeed(
-    object_id: str,
+async def get_home_listings(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_home_listings(
+    result = ProductFeed(fbid=productfeed_id).get_home_listings(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_home_listings_for_productfeed(
 
 
 @mcp.tool()
-async def get_hotels_for_productfeed(
-    object_id: str,
+async def get_hotels(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_hotels(
+    result = ProductFeed(fbid=productfeed_id).get_hotels(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_hotels_for_productfeed(
 
 
 @mcp.tool()
-async def get_media_titles_for_productfeed(
-    object_id: str,
+async def get_media_titles(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_media_titles(
+    result = ProductFeed(fbid=productfeed_id).get_media_titles(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_media_titles_for_productfeed(
 
 
 @mcp.tool()
-async def get_products_for_productfeed(
-    object_id: str,
+async def get_products(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_products(
+    result = ProductFeed(fbid=productfeed_id).get_products(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_products_for_productfeed(
 
 
 @mcp.tool()
-async def get_rules_for_productfeed(
-    object_id: str,
+async def get_rules(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_rules(
+    result = ProductFeed(fbid=productfeed_id).get_rules(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def get_rules_for_productfeed(
 
 
 @mcp.tool()
-async def get_upload_schedules_for_productfeed(
-    object_id: str,
+async def get_upload_schedules(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_upload_schedules(
+    result = ProductFeed(fbid=productfeed_id).get_upload_schedules(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def get_upload_schedules_for_productfeed(
 
 
 @mcp.tool()
-async def get_uploads_for_productfeed(
-    object_id: str,
+async def get_uploads(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_uploads(
+    result = ProductFeed(fbid=productfeed_id).get_uploads(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def get_uploads_for_productfeed(
 
 
 @mcp.tool()
-async def get_vehicle_offers_for_productfeed(
-    object_id: str,
+async def get_vehicle_offers(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_vehicle_offers(
+    result = ProductFeed(fbid=productfeed_id).get_vehicle_offers(
         fields=fields,
         params=params,
     )
@@ -287,12 +287,12 @@ async def get_vehicle_offers_for_productfeed(
 
 
 @mcp.tool()
-async def get_vehicles_for_productfeed(
-    object_id: str,
+async def get_vehicles(
+    productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeed(fbid=object_id).get_vehicles(
+    result = ProductFeed(fbid=productfeed_id).get_vehicles(
         fields=fields,
         params=params,
     )

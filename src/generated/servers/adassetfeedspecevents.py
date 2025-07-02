@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adassetfeedspecevents")
 
 
 @mcp.tool()
-async def create_adassetfeedspecevents(
-    object_id: str,
+async def api_create_adassetfeedspecevents(
+    adassetfeedspecevents_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetFeedSpecEvents(fbid=object_id).api_create(
+    result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adassetfeedspecevents(
 
 
 @mcp.tool()
-async def delete_adassetfeedspecevents(
-    object_id: str,
+async def api_delete_adassetfeedspecevents(
+    adassetfeedspecevents_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetFeedSpecEvents(fbid=object_id).api_delete(
+    result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adassetfeedspecevents(
 
 
 @mcp.tool()
-async def get_adassetfeedspecevents(
-    object_id: str,
+async def api_get_adassetfeedspecevents(
+    adassetfeedspecevents_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetFeedSpecEvents(fbid=object_id).api_get(
+    result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adassetfeedspecevents(
 
 
 @mcp.tool()
-async def update_adassetfeedspecevents(
-    object_id: str,
+async def api_update_adassetfeedspecevents(
+    adassetfeedspecevents_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAssetFeedSpecEvents(fbid=object_id).api_update(
+    result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_update(
         fields=fields,
         params=params,
     )

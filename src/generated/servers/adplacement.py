@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adplacement")
 
 
 @mcp.tool()
-async def create_adplacement(
-    object_id: str,
+async def api_create_adplacement(
+    adplacement_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacement(fbid=object_id).api_create(
+    result = AdPlacement(fbid=adplacement_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adplacement(
 
 
 @mcp.tool()
-async def delete_adplacement(
-    object_id: str,
+async def api_delete_adplacement(
+    adplacement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacement(fbid=object_id).api_delete(
+    result = AdPlacement(fbid=adplacement_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adplacement(
 
 
 @mcp.tool()
-async def get_adplacement(
-    object_id: str,
+async def api_get_adplacement(
+    adplacement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacement(fbid=object_id).api_get(
+    result = AdPlacement(fbid=adplacement_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adplacement(
 
 
 @mcp.tool()
-async def update_adplacement(
-    object_id: str,
+async def api_update_adplacement(
+    adplacement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdPlacement(fbid=object_id).api_update(
+    result = AdPlacement(fbid=adplacement_id).api_update(
         fields=fields,
         params=params,
     )

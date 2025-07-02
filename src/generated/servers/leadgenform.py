@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-leadgenform")
 
 
 @mcp.tool()
-async def create_leadgenform(
-    object_id: str,
+async def api_create_leadgenform(
+    leadgenform_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadgenForm(fbid=object_id).api_create(
+    result = LeadgenForm(fbid=leadgenform_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_leadgenform(
 
 
 @mcp.tool()
-async def delete_leadgenform(
-    object_id: str,
+async def api_delete_leadgenform(
+    leadgenform_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadgenForm(fbid=object_id).api_delete(
+    result = LeadgenForm(fbid=leadgenform_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_leadgenform(
 
 
 @mcp.tool()
-async def get_leadgenform(
-    object_id: str,
+async def api_get_leadgenform(
+    leadgenform_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadgenForm(fbid=object_id).api_get(
+    result = LeadgenForm(fbid=leadgenform_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_leadgenform(
 
 
 @mcp.tool()
-async def update_leadgenform(
-    object_id: str,
+async def api_update_leadgenform(
+    leadgenform_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadgenForm(fbid=object_id).api_update(
+    result = LeadgenForm(fbid=leadgenform_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_leadgenform(
 
 
 @mcp.tool()
-async def create_test_lead_for_leadgenform(
-    object_id: str,
+async def create_test_lead(
+    leadgenform_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadgenForm(fbid=object_id).create_test_lead(
+    result = LeadgenForm(fbid=leadgenform_id).create_test_lead(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_test_lead_for_leadgenform(
 
 
 @mcp.tool()
-async def get_leads_for_leadgenform(
-    object_id: str,
+async def get_leads(
+    leadgenform_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadgenForm(fbid=object_id).get_leads(
+    result = LeadgenForm(fbid=leadgenform_id).get_leads(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_leads_for_leadgenform(
 
 
 @mcp.tool()
-async def get_test_leads_for_leadgenform(
-    object_id: str,
+async def get_test_leads(
+    leadgenform_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadgenForm(fbid=object_id).get_test_leads(
+    result = LeadgenForm(fbid=leadgenform_id).get_test_leads(
         fields=fields,
         params=params,
     )

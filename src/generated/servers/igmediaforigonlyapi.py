@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-igmediaforigonlyapi")
 
 
 @mcp.tool()
-async def create_igmediaforigonlyapi(
-    object_id: str,
+async def api_create_igmediaforigonlyapi(
+    igmediaforigonlyapi_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).api_create(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_igmediaforigonlyapi(
 
 
 @mcp.tool()
-async def delete_igmediaforigonlyapi(
-    object_id: str,
+async def api_delete_igmediaforigonlyapi(
+    igmediaforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).api_delete(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_igmediaforigonlyapi(
 
 
 @mcp.tool()
-async def get_igmediaforigonlyapi(
-    object_id: str,
+async def api_get_igmediaforigonlyapi(
+    igmediaforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).api_get(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_igmediaforigonlyapi(
 
 
 @mcp.tool()
-async def update_igmediaforigonlyapi(
-    object_id: str,
+async def api_update_igmediaforigonlyapi(
+    igmediaforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).api_update(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_igmediaforigonlyapi(
 
 
 @mcp.tool()
-async def create_comment_for_igmediaforigonlyapi(
-    object_id: str,
+async def create_comment(
+    igmediaforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).create_comment(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_comment_for_igmediaforigonlyapi(
 
 
 @mcp.tool()
-async def get_children_for_igmediaforigonlyapi(
-    object_id: str,
+async def get_children(
+    igmediaforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).get_children(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).get_children(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_children_for_igmediaforigonlyapi(
 
 
 @mcp.tool()
-async def get_comments_for_igmediaforigonlyapi(
-    object_id: str,
+async def get_comments(
+    igmediaforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).get_comments(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_comments_for_igmediaforigonlyapi(
 
 
 @mcp.tool()
-async def get_insights_for_igmediaforigonlyapi(
-    object_id: str,
+async def get_insights(
+    igmediaforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaForIGOnlyAPI(fbid=object_id).get_insights(
+    result = IGMediaForIGOnlyAPI(fbid=igmediaforigonlyapi_id).get_insights(
         fields=fields,
         params=params,
     )

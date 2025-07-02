@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-cloudgame")
 
 
 @mcp.tool()
-async def create_cloudgame(
-    object_id: str,
+async def api_create_cloudgame(
+    cloudgame_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CloudGame(fbid=object_id).api_create(
+    result = CloudGame(fbid=cloudgame_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_cloudgame(
 
 
 @mcp.tool()
-async def delete_cloudgame(
-    object_id: str,
+async def api_delete_cloudgame(
+    cloudgame_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CloudGame(fbid=object_id).api_delete(
+    result = CloudGame(fbid=cloudgame_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_cloudgame(
 
 
 @mcp.tool()
-async def get_cloudgame(
-    object_id: str,
+async def api_get_cloudgame(
+    cloudgame_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CloudGame(fbid=object_id).api_get(
+    result = CloudGame(fbid=cloudgame_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_cloudgame(
 
 
 @mcp.tool()
-async def update_cloudgame(
-    object_id: str,
+async def api_update_cloudgame(
+    cloudgame_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CloudGame(fbid=object_id).api_update(
+    result = CloudGame(fbid=cloudgame_id).api_update(
         fields=fields,
         params=params,
     )

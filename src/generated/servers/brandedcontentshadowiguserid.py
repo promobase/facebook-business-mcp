@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-brandedcontentshadowiguserid")
 
 
 @mcp.tool()
-async def create_brandedcontentshadowiguserid(
-    object_id: str,
+async def api_create_brandedcontentshadowiguserid(
+    brandedcontentshadowiguserid_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BrandedContentShadowIGUserID(fbid=object_id).api_create(
+    result = BrandedContentShadowIGUserID(fbid=brandedcontentshadowiguserid_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_brandedcontentshadowiguserid(
 
 
 @mcp.tool()
-async def delete_brandedcontentshadowiguserid(
-    object_id: str,
+async def api_delete_brandedcontentshadowiguserid(
+    brandedcontentshadowiguserid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BrandedContentShadowIGUserID(fbid=object_id).api_delete(
+    result = BrandedContentShadowIGUserID(fbid=brandedcontentshadowiguserid_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_brandedcontentshadowiguserid(
 
 
 @mcp.tool()
-async def get_brandedcontentshadowiguserid(
-    object_id: str,
+async def api_get_brandedcontentshadowiguserid(
+    brandedcontentshadowiguserid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BrandedContentShadowIGUserID(fbid=object_id).api_get(
+    result = BrandedContentShadowIGUserID(fbid=brandedcontentshadowiguserid_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_brandedcontentshadowiguserid(
 
 
 @mcp.tool()
-async def update_brandedcontentshadowiguserid(
-    object_id: str,
+async def api_update_brandedcontentshadowiguserid(
+    brandedcontentshadowiguserid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BrandedContentShadowIGUserID(fbid=object_id).api_update(
+    result = BrandedContentShadowIGUserID(fbid=brandedcontentshadowiguserid_id).api_update(
         fields=fields,
         params=params,
     )

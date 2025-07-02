@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adaccountrecommendations")
 
 
 @mcp.tool()
-async def create_adaccountrecommendations(
-    object_id: str,
+async def api_create_adaccountrecommendations(
+    adaccountrecommendations_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountRecommendations(fbid=object_id).api_create(
+    result = AdAccountRecommendations(fbid=adaccountrecommendations_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adaccountrecommendations(
 
 
 @mcp.tool()
-async def delete_adaccountrecommendations(
-    object_id: str,
+async def api_delete_adaccountrecommendations(
+    adaccountrecommendations_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountRecommendations(fbid=object_id).api_delete(
+    result = AdAccountRecommendations(fbid=adaccountrecommendations_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adaccountrecommendations(
 
 
 @mcp.tool()
-async def get_adaccountrecommendations(
-    object_id: str,
+async def api_get_adaccountrecommendations(
+    adaccountrecommendations_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountRecommendations(fbid=object_id).api_get(
+    result = AdAccountRecommendations(fbid=adaccountrecommendations_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adaccountrecommendations(
 
 
 @mcp.tool()
-async def update_adaccountrecommendations(
-    object_id: str,
+async def api_update_adaccountrecommendations(
+    adaccountrecommendations_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountRecommendations(fbid=object_id).api_update(
+    result = AdAccountRecommendations(fbid=adaccountrecommendations_id).api_update(
         fields=fields,
         params=params,
     )

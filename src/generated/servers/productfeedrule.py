@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productfeedrule")
 
 
 @mcp.tool()
-async def create_productfeedrule(
-    object_id: str,
+async def api_create_productfeedrule(
+    productfeedrule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedRule(fbid=object_id).api_create(
+    result = ProductFeedRule(fbid=productfeedrule_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productfeedrule(
 
 
 @mcp.tool()
-async def delete_productfeedrule(
-    object_id: str,
+async def api_delete_productfeedrule(
+    productfeedrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedRule(fbid=object_id).api_delete(
+    result = ProductFeedRule(fbid=productfeedrule_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productfeedrule(
 
 
 @mcp.tool()
-async def get_productfeedrule(
-    object_id: str,
+async def api_get_productfeedrule(
+    productfeedrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedRule(fbid=object_id).api_get(
+    result = ProductFeedRule(fbid=productfeedrule_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productfeedrule(
 
 
 @mcp.tool()
-async def update_productfeedrule(
-    object_id: str,
+async def api_update_productfeedrule(
+    productfeedrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedRule(fbid=object_id).api_update(
+    result = ProductFeedRule(fbid=productfeedrule_id).api_update(
         fields=fields,
         params=params,
     )

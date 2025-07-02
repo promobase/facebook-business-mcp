@@ -18,13 +18,13 @@ mcp = FastMCP("facebook-igrefreshaccesstokenforigonlyapi")
 
 
 @mcp.tool()
-async def create_igrefreshaccesstokenforigonlyapi(
-    object_id: str,
+async def api_create_igrefreshaccesstokenforigonlyapi(
+    igrefreshaccesstokenforigonlyapi_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=object_id).api_create(
+    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=igrefreshaccesstokenforigonlyapi_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +34,12 @@ async def create_igrefreshaccesstokenforigonlyapi(
 
 
 @mcp.tool()
-async def delete_igrefreshaccesstokenforigonlyapi(
-    object_id: str,
+async def api_delete_igrefreshaccesstokenforigonlyapi(
+    igrefreshaccesstokenforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=object_id).api_delete(
+    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=igrefreshaccesstokenforigonlyapi_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +48,12 @@ async def delete_igrefreshaccesstokenforigonlyapi(
 
 
 @mcp.tool()
-async def get_igrefreshaccesstokenforigonlyapi(
-    object_id: str,
+async def api_get_igrefreshaccesstokenforigonlyapi(
+    igrefreshaccesstokenforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=object_id).api_get(
+    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=igrefreshaccesstokenforigonlyapi_id).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +62,12 @@ async def get_igrefreshaccesstokenforigonlyapi(
 
 
 @mcp.tool()
-async def update_igrefreshaccesstokenforigonlyapi(
-    object_id: str,
+async def api_update_igrefreshaccesstokenforigonlyapi(
+    igrefreshaccesstokenforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=object_id).api_update(
+    result = IGRefreshAccessTokenForIGOnlyAPI(fbid=igrefreshaccesstokenforigonlyapi_id).api_update(
         fields=fields,
         params=params,
     )

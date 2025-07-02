@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-vehicleoffer")
 
 
 @mcp.tool()
-async def create_vehicleoffer(
-    object_id: str,
+async def api_create_vehicleoffer(
+    vehicleoffer_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VehicleOffer(fbid=object_id).api_create(
+    result = VehicleOffer(fbid=vehicleoffer_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_vehicleoffer(
 
 
 @mcp.tool()
-async def delete_vehicleoffer(
-    object_id: str,
+async def api_delete_vehicleoffer(
+    vehicleoffer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VehicleOffer(fbid=object_id).api_delete(
+    result = VehicleOffer(fbid=vehicleoffer_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_vehicleoffer(
 
 
 @mcp.tool()
-async def get_vehicleoffer(
-    object_id: str,
+async def api_get_vehicleoffer(
+    vehicleoffer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VehicleOffer(fbid=object_id).api_get(
+    result = VehicleOffer(fbid=vehicleoffer_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_vehicleoffer(
 
 
 @mcp.tool()
-async def update_vehicleoffer(
-    object_id: str,
+async def api_update_vehicleoffer(
+    vehicleoffer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VehicleOffer(fbid=object_id).api_update(
+    result = VehicleOffer(fbid=vehicleoffer_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_vehicleoffer(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_vehicleoffer(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    vehicleoffer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VehicleOffer(fbid=object_id).get_channels_to_integrity_status(
+    result = VehicleOffer(fbid=vehicleoffer_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_vehicleoffer(
 
 
 @mcp.tool()
-async def get_override_details_for_vehicleoffer(
-    object_id: str,
+async def get_override_details(
+    vehicleoffer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VehicleOffer(fbid=object_id).get_override_details(
+    result = VehicleOffer(fbid=vehicleoffer_id).get_override_details(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_override_details_for_vehicleoffer(
 
 
 @mcp.tool()
-async def get_videos_metadata_for_vehicleoffer(
-    object_id: str,
+async def get_videos_metadata(
+    vehicleoffer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VehicleOffer(fbid=object_id).get_videos_metadata(
+    result = VehicleOffer(fbid=vehicleoffer_id).get_videos_metadata(
         fields=fields,
         params=params,
     )

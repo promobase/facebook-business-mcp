@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productfeedupload")
 
 
 @mcp.tool()
-async def create_productfeedupload(
-    object_id: str,
+async def api_create_productfeedupload(
+    productfeedupload_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUpload(fbid=object_id).api_create(
+    result = ProductFeedUpload(fbid=productfeedupload_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productfeedupload(
 
 
 @mcp.tool()
-async def delete_productfeedupload(
-    object_id: str,
+async def api_delete_productfeedupload(
+    productfeedupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUpload(fbid=object_id).api_delete(
+    result = ProductFeedUpload(fbid=productfeedupload_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productfeedupload(
 
 
 @mcp.tool()
-async def get_productfeedupload(
-    object_id: str,
+async def api_get_productfeedupload(
+    productfeedupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUpload(fbid=object_id).api_get(
+    result = ProductFeedUpload(fbid=productfeedupload_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productfeedupload(
 
 
 @mcp.tool()
-async def update_productfeedupload(
-    object_id: str,
+async def api_update_productfeedupload(
+    productfeedupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUpload(fbid=object_id).api_update(
+    result = ProductFeedUpload(fbid=productfeedupload_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_productfeedupload(
 
 
 @mcp.tool()
-async def create_error_report_for_productfeedupload(
-    object_id: str,
+async def create_error_report(
+    productfeedupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUpload(fbid=object_id).create_error_report(
+    result = ProductFeedUpload(fbid=productfeedupload_id).create_error_report(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_error_report_for_productfeedupload(
 
 
 @mcp.tool()
-async def get_errors_for_productfeedupload(
-    object_id: str,
+async def get_errors(
+    productfeedupload_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductFeedUpload(fbid=object_id).get_errors(
+    result = ProductFeedUpload(fbid=productfeedupload_id).get_errors(
         fields=fields,
         params=params,
     )

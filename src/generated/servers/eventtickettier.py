@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-eventtickettier")
 
 
 @mcp.tool()
-async def create_eventtickettier(
-    object_id: str,
+async def api_create_eventtickettier(
+    eventtickettier_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketTier(fbid=object_id).api_create(
+    result = EventTicketTier(fbid=eventtickettier_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_eventtickettier(
 
 
 @mcp.tool()
-async def delete_eventtickettier(
-    object_id: str,
+async def api_delete_eventtickettier(
+    eventtickettier_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketTier(fbid=object_id).api_delete(
+    result = EventTicketTier(fbid=eventtickettier_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_eventtickettier(
 
 
 @mcp.tool()
-async def get_eventtickettier(
-    object_id: str,
+async def api_get_eventtickettier(
+    eventtickettier_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketTier(fbid=object_id).api_get(
+    result = EventTicketTier(fbid=eventtickettier_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_eventtickettier(
 
 
 @mcp.tool()
-async def update_eventtickettier(
-    object_id: str,
+async def api_update_eventtickettier(
+    eventtickettier_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventTicketTier(fbid=object_id).api_update(
+    result = EventTicketTier(fbid=eventtickettier_id).api_update(
         fields=fields,
         params=params,
     )

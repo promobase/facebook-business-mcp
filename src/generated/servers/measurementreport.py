@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-measurementreport")
 
 
 @mcp.tool()
-async def create_measurementreport(
-    object_id: str,
+async def api_create_measurementreport(
+    measurementreport_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MeasurementReport(fbid=object_id).api_create(
+    result = MeasurementReport(fbid=measurementreport_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_measurementreport(
 
 
 @mcp.tool()
-async def delete_measurementreport(
-    object_id: str,
+async def api_delete_measurementreport(
+    measurementreport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MeasurementReport(fbid=object_id).api_delete(
+    result = MeasurementReport(fbid=measurementreport_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_measurementreport(
 
 
 @mcp.tool()
-async def get_measurementreport(
-    object_id: str,
+async def api_get_measurementreport(
+    measurementreport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MeasurementReport(fbid=object_id).api_get(
+    result = MeasurementReport(fbid=measurementreport_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_measurementreport(
 
 
 @mcp.tool()
-async def update_measurementreport(
-    object_id: str,
+async def api_update_measurementreport(
+    measurementreport_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MeasurementReport(fbid=object_id).api_update(
+    result = MeasurementReport(fbid=measurementreport_id).api_update(
         fields=fields,
         params=params,
     )

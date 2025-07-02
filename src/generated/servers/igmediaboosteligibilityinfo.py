@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-igmediaboosteligibilityinfo")
 
 
 @mcp.tool()
-async def create_igmediaboosteligibilityinfo(
-    object_id: str,
+async def api_create_igmediaboosteligibilityinfo(
+    igmediaboosteligibilityinfo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaBoostEligibilityInfo(fbid=object_id).api_create(
+    result = IGMediaBoostEligibilityInfo(fbid=igmediaboosteligibilityinfo_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_igmediaboosteligibilityinfo(
 
 
 @mcp.tool()
-async def delete_igmediaboosteligibilityinfo(
-    object_id: str,
+async def api_delete_igmediaboosteligibilityinfo(
+    igmediaboosteligibilityinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaBoostEligibilityInfo(fbid=object_id).api_delete(
+    result = IGMediaBoostEligibilityInfo(fbid=igmediaboosteligibilityinfo_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_igmediaboosteligibilityinfo(
 
 
 @mcp.tool()
-async def get_igmediaboosteligibilityinfo(
-    object_id: str,
+async def api_get_igmediaboosteligibilityinfo(
+    igmediaboosteligibilityinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaBoostEligibilityInfo(fbid=object_id).api_get(
+    result = IGMediaBoostEligibilityInfo(fbid=igmediaboosteligibilityinfo_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_igmediaboosteligibilityinfo(
 
 
 @mcp.tool()
-async def update_igmediaboosteligibilityinfo(
-    object_id: str,
+async def api_update_igmediaboosteligibilityinfo(
+    igmediaboosteligibilityinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGMediaBoostEligibilityInfo(fbid=object_id).api_update(
+    result = IGMediaBoostEligibilityInfo(fbid=igmediaboosteligibilityinfo_id).api_update(
         fields=fields,
         params=params,
     )

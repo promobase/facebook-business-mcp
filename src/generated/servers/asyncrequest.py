@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-asyncrequest")
 
 
 @mcp.tool()
-async def create_asyncrequest(
-    object_id: str,
+async def api_create_asyncrequest(
+    asyncrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AsyncRequest(fbid=object_id).api_create(
+    result = AsyncRequest(fbid=asyncrequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_asyncrequest(
 
 
 @mcp.tool()
-async def delete_asyncrequest(
-    object_id: str,
+async def api_delete_asyncrequest(
+    asyncrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AsyncRequest(fbid=object_id).api_delete(
+    result = AsyncRequest(fbid=asyncrequest_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_asyncrequest(
 
 
 @mcp.tool()
-async def get_asyncrequest(
-    object_id: str,
+async def api_get_asyncrequest(
+    asyncrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AsyncRequest(fbid=object_id).api_get(
+    result = AsyncRequest(fbid=asyncrequest_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_asyncrequest(
 
 
 @mcp.tool()
-async def update_asyncrequest(
-    object_id: str,
+async def api_update_asyncrequest(
+    asyncrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AsyncRequest(fbid=object_id).api_update(
+    result = AsyncRequest(fbid=asyncrequest_id).api_update(
         fields=fields,
         params=params,
     )

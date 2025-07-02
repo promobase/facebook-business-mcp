@@ -69,17 +69,8 @@ class Ad_status(str, Enum):
     PAUSED = "PAUSED"
 
 
-class adgroupinsights_level_enum_param(str, Enum):
-    """adgroupinsights_level_enum_param enum values."""
-
-    account = "account"
-    ad = "ad"
-    adset = "adset"
-    campaign = "campaign"
-
-
-class adgroupcopies_date_preset_enum_param(str, Enum):
-    """adgroupcopies_date_preset_enum_param enum values."""
+class adgroupinsights_date_preset_enum_param(str, Enum):
+    """adgroupinsights_date_preset_enum_param enum values."""
 
     data_maximum = "data_maximum"
     last_14d = "last_14d"
@@ -103,32 +94,8 @@ class adgroupcopies_date_preset_enum_param(str, Enum):
     yesterday = "yesterday"
 
 
-class adgroupinsights_action_attribution_windows_enum_param(str, Enum):
-    """adgroupinsights_action_attribution_windows_enum_param enum values."""
-
-    VALUE_1D_CLICK = "1d_click"
-    VALUE_1D_EV = "1d_ev"
-    VALUE_1D_VIEW = "1d_view"
-    VALUE_28D_CLICK = "28d_click"
-    VALUE_28D_VIEW = "28d_view"
-    VALUE_28D_VIEW_ALL_CONVERSIONS = "28d_view_all_conversions"
-    VALUE_28D_VIEW_FIRST_CONVERSION = "28d_view_first_conversion"
-    VALUE_7D_CLICK = "7d_click"
-    VALUE_7D_VIEW = "7d_view"
-    VALUE_7D_VIEW_ALL_CONVERSIONS = "7d_view_all_conversions"
-    VALUE_7D_VIEW_FIRST_CONVERSION = "7d_view_first_conversion"
-    dda = "dda"
-    default = "default"
-    skan_click = "skan_click"
-    skan_click_second_postback = "skan_click_second_postback"
-    skan_click_third_postback = "skan_click_third_postback"
-    skan_view = "skan_view"
-    skan_view_second_postback = "skan_view_second_postback"
-    skan_view_third_postback = "skan_view_third_postback"
-
-
-class adgroupinsights_date_preset_enum_param(str, Enum):
-    """adgroupinsights_date_preset_enum_param enum values."""
+class adgroupcopies_date_preset_enum_param(str, Enum):
+    """adgroupcopies_date_preset_enum_param enum values."""
 
     data_maximum = "data_maximum"
     last_14d = "last_14d"
@@ -170,26 +137,6 @@ class adgroupinsights_summary_action_breakdowns_enum_param(str, Enum):
     matched_persona_name = "matched_persona_name"
     signal_source_bucket = "signal_source_bucket"
     standard_event_content_type = "standard_event_content_type"
-
-
-class adgroupcopies_status_option_enum_param(str, Enum):
-    """adgroupcopies_status_option_enum_param enum values."""
-
-    ACTIVE = "ACTIVE"
-    INHERITED_FROM_SOURCE = "INHERITED_FROM_SOURCE"
-    PAUSED = "PAUSED"
-
-
-class adgrouppreviews_render_type_enum_param(str, Enum):
-    """adgrouppreviews_render_type_enum_param enum values."""
-
-    FALLBACK = "FALLBACK"
-
-
-class adgroupadlabels_execution_options_enum_param(str, Enum):
-    """adgroupadlabels_execution_options_enum_param enum values."""
-
-    validate_only = "validate_only"
 
 
 class adgrouppreviews_ad_format_enum_param(str, Enum):
@@ -264,6 +211,18 @@ class adgrouppreviews_ad_format_enum_param(str, Enum):
     WATCH_FEED_MOBILE = "WATCH_FEED_MOBILE"
 
 
+class adgroupadlabels_execution_options_enum_param(str, Enum):
+    """adgroupadlabels_execution_options_enum_param enum values."""
+
+    validate_only = "validate_only"
+
+
+class adgrouppreviews_render_type_enum_param(str, Enum):
+    """adgrouppreviews_render_type_enum_param enum values."""
+
+    FALLBACK = "FALLBACK"
+
+
 class adgroupinsights_action_report_time_enum_param(str, Enum):
     """adgroupinsights_action_report_time_enum_param enum values."""
 
@@ -273,6 +232,50 @@ class adgroupinsights_action_report_time_enum_param(str, Enum):
     mixed = "mixed"
 
 
+class adgroupinsights_action_attribution_windows_enum_param(str, Enum):
+    """adgroupinsights_action_attribution_windows_enum_param enum values."""
+
+    VALUE_1D_CLICK = "1d_click"
+    VALUE_1D_EV = "1d_ev"
+    VALUE_1D_VIEW = "1d_view"
+    VALUE_28D_CLICK = "28d_click"
+    VALUE_28D_VIEW = "28d_view"
+    VALUE_28D_VIEW_ALL_CONVERSIONS = "28d_view_all_conversions"
+    VALUE_28D_VIEW_FIRST_CONVERSION = "28d_view_first_conversion"
+    VALUE_7D_CLICK = "7d_click"
+    VALUE_7D_VIEW = "7d_view"
+    VALUE_7D_VIEW_ALL_CONVERSIONS = "7d_view_all_conversions"
+    VALUE_7D_VIEW_FIRST_CONVERSION = "7d_view_first_conversion"
+    dda = "dda"
+    default = "default"
+    skan_click = "skan_click"
+    skan_click_second_postback = "skan_click_second_postback"
+    skan_click_third_postback = "skan_click_third_postback"
+    skan_view = "skan_view"
+    skan_view_second_postback = "skan_view_second_postback"
+    skan_view_third_postback = "skan_view_third_postback"
+
+
+class adgroupinsights_action_breakdowns_enum_param(str, Enum):
+    """adgroupinsights_action_breakdowns_enum_param enum values."""
+
+    action_canvas_component_name = "action_canvas_component_name"
+    action_carousel_card_id = "action_carousel_card_id"
+    action_carousel_card_name = "action_carousel_card_name"
+    action_destination = "action_destination"
+    action_device = "action_device"
+    action_reaction = "action_reaction"
+    action_target_id = "action_target_id"
+    action_type = "action_type"
+    action_video_sound = "action_video_sound"
+    action_video_type = "action_video_type"
+    conversion_destination = "conversion_destination"
+    matched_persona_id = "matched_persona_id"
+    matched_persona_name = "matched_persona_name"
+    signal_source_bucket = "signal_source_bucket"
+    standard_event_content_type = "standard_event_content_type"
+
+
 class adgrouppreviews_creative_feature_enum_param(str, Enum):
     """adgrouppreviews_creative_feature_enum_param enum values."""
 
@@ -280,6 +283,14 @@ class adgrouppreviews_creative_feature_enum_param(str, Enum):
     profile_card = "profile_card"
     standard_enhancements_catalog = "standard_enhancements_catalog"
     video_to_image = "video_to_image"
+
+
+class adgroupcopies_status_option_enum_param(str, Enum):
+    """adgroupcopies_status_option_enum_param enum values."""
+
+    ACTIVE = "ACTIVE"
+    INHERITED_FROM_SOURCE = "INHERITED_FROM_SOURCE"
+    PAUSED = "PAUSED"
 
 
 class adgroupinsights_breakdowns_enum_param(str, Enum):
@@ -354,24 +365,13 @@ class adgroupinsights_breakdowns_enum_param(str, Enum):
     video_asset = "video_asset"
 
 
-class adgroupinsights_action_breakdowns_enum_param(str, Enum):
-    """adgroupinsights_action_breakdowns_enum_param enum values."""
+class adgroupinsights_level_enum_param(str, Enum):
+    """adgroupinsights_level_enum_param enum values."""
 
-    action_canvas_component_name = "action_canvas_component_name"
-    action_carousel_card_id = "action_carousel_card_id"
-    action_carousel_card_name = "action_carousel_card_name"
-    action_destination = "action_destination"
-    action_device = "action_device"
-    action_reaction = "action_reaction"
-    action_target_id = "action_target_id"
-    action_type = "action_type"
-    action_video_sound = "action_video_sound"
-    action_video_type = "action_video_type"
-    conversion_destination = "conversion_destination"
-    matched_persona_id = "matched_persona_id"
-    matched_persona_name = "matched_persona_name"
-    signal_source_bucket = "signal_source_bucket"
-    standard_event_content_type = "standard_event_content_type"
+    account = "account"
+    ad = "ad"
+    adset = "adset"
+    campaign = "campaign"
 
 
 # Field literal type

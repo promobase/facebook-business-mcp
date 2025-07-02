@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-pageupcomingchange")
 
 
 @mcp.tool()
-async def create_pageupcomingchange(
-    object_id: str,
+async def api_create_pageupcomingchange(
+    pageupcomingchange_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageUpcomingChange(fbid=object_id).api_create(
+    result = PageUpcomingChange(fbid=pageupcomingchange_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_pageupcomingchange(
 
 
 @mcp.tool()
-async def delete_pageupcomingchange(
-    object_id: str,
+async def api_delete_pageupcomingchange(
+    pageupcomingchange_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageUpcomingChange(fbid=object_id).api_delete(
+    result = PageUpcomingChange(fbid=pageupcomingchange_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_pageupcomingchange(
 
 
 @mcp.tool()
-async def get_pageupcomingchange(
-    object_id: str,
+async def api_get_pageupcomingchange(
+    pageupcomingchange_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageUpcomingChange(fbid=object_id).api_get(
+    result = PageUpcomingChange(fbid=pageupcomingchange_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_pageupcomingchange(
 
 
 @mcp.tool()
-async def update_pageupcomingchange(
-    object_id: str,
+async def api_update_pageupcomingchange(
+    pageupcomingchange_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageUpcomingChange(fbid=object_id).api_update(
+    result = PageUpcomingChange(fbid=pageupcomingchange_id).api_update(
         fields=fields,
         params=params,
     )

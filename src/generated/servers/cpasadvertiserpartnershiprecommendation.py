@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-cpasadvertiserpartnershiprecommendation")
 
 
 @mcp.tool()
-async def create_cpasadvertiserpartnershiprecommendation(
-    object_id: str,
+async def api_create_cpasadvertiserpartnershiprecommendation(
+    cpasadvertiserpartnershiprecommendation_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASAdvertiserPartnershipRecommendation(fbid=object_id).api_create(
+    result = CPASAdvertiserPartnershipRecommendation(
+        fbid=cpasadvertiserpartnershiprecommendation_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_cpasadvertiserpartnershiprecommendation(
 
 
 @mcp.tool()
-async def delete_cpasadvertiserpartnershiprecommendation(
-    object_id: str,
+async def api_delete_cpasadvertiserpartnershiprecommendation(
+    cpasadvertiserpartnershiprecommendation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASAdvertiserPartnershipRecommendation(fbid=object_id).api_delete(
+    result = CPASAdvertiserPartnershipRecommendation(
+        fbid=cpasadvertiserpartnershiprecommendation_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,14 @@ async def delete_cpasadvertiserpartnershiprecommendation(
 
 
 @mcp.tool()
-async def get_cpasadvertiserpartnershiprecommendation(
-    object_id: str,
+async def api_get_cpasadvertiserpartnershiprecommendation(
+    cpasadvertiserpartnershiprecommendation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASAdvertiserPartnershipRecommendation(fbid=object_id).api_get(
+    result = CPASAdvertiserPartnershipRecommendation(
+        fbid=cpasadvertiserpartnershiprecommendation_id
+    ).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +68,14 @@ async def get_cpasadvertiserpartnershiprecommendation(
 
 
 @mcp.tool()
-async def update_cpasadvertiserpartnershiprecommendation(
-    object_id: str,
+async def api_update_cpasadvertiserpartnershiprecommendation(
+    cpasadvertiserpartnershiprecommendation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CPASAdvertiserPartnershipRecommendation(fbid=object_id).api_update(
+    result = CPASAdvertiserPartnershipRecommendation(
+        fbid=cpasadvertiserpartnershiprecommendation_id
+    ).api_update(
         fields=fields,
         params=params,
     )

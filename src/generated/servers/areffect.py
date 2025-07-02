@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-areffect")
 
 
 @mcp.tool()
-async def create_areffect(
-    object_id: str,
+async def api_create_areffect(
+    areffect_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AREffect(fbid=object_id).api_create(
+    result = AREffect(fbid=areffect_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_areffect(
 
 
 @mcp.tool()
-async def delete_areffect(
-    object_id: str,
+async def api_delete_areffect(
+    areffect_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AREffect(fbid=object_id).api_delete(
+    result = AREffect(fbid=areffect_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_areffect(
 
 
 @mcp.tool()
-async def get_areffect(
-    object_id: str,
+async def api_get_areffect(
+    areffect_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AREffect(fbid=object_id).api_get(
+    result = AREffect(fbid=areffect_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_areffect(
 
 
 @mcp.tool()
-async def update_areffect(
-    object_id: str,
+async def api_update_areffect(
+    areffect_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AREffect(fbid=object_id).api_update(
+    result = AREffect(fbid=areffect_id).api_update(
         fields=fields,
         params=params,
     )

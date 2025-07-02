@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-messengerdestinationpagewelcomemessage")
 
 
 @mcp.tool()
-async def create_messengerdestinationpagewelcomemessage(
-    object_id: str,
+async def api_create_messengerdestinationpagewelcomemessage(
+    messengerdestinationpagewelcomemessage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerDestinationPageWelcomeMessage(fbid=object_id).api_create(
+    result = MessengerDestinationPageWelcomeMessage(
+        fbid=messengerdestinationpagewelcomemessage_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_messengerdestinationpagewelcomemessage(
 
 
 @mcp.tool()
-async def delete_messengerdestinationpagewelcomemessage(
-    object_id: str,
+async def api_delete_messengerdestinationpagewelcomemessage(
+    messengerdestinationpagewelcomemessage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerDestinationPageWelcomeMessage(fbid=object_id).api_delete(
+    result = MessengerDestinationPageWelcomeMessage(
+        fbid=messengerdestinationpagewelcomemessage_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,14 @@ async def delete_messengerdestinationpagewelcomemessage(
 
 
 @mcp.tool()
-async def get_messengerdestinationpagewelcomemessage(
-    object_id: str,
+async def api_get_messengerdestinationpagewelcomemessage(
+    messengerdestinationpagewelcomemessage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerDestinationPageWelcomeMessage(fbid=object_id).api_get(
+    result = MessengerDestinationPageWelcomeMessage(
+        fbid=messengerdestinationpagewelcomemessage_id
+    ).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +68,14 @@ async def get_messengerdestinationpagewelcomemessage(
 
 
 @mcp.tool()
-async def update_messengerdestinationpagewelcomemessage(
-    object_id: str,
+async def api_update_messengerdestinationpagewelcomemessage(
+    messengerdestinationpagewelcomemessage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MessengerDestinationPageWelcomeMessage(fbid=object_id).api_update(
+    result = MessengerDestinationPageWelcomeMessage(
+        fbid=messengerdestinationpagewelcomemessage_id
+    ).api_update(
         fields=fields,
         params=params,
     )

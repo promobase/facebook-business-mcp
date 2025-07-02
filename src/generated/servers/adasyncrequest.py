@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adasyncrequest")
 
 
 @mcp.tool()
-async def create_adasyncrequest(
-    object_id: str,
+async def api_create_adasyncrequest(
+    adasyncrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequest(fbid=object_id).api_create(
+    result = AdAsyncRequest(fbid=adasyncrequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adasyncrequest(
 
 
 @mcp.tool()
-async def delete_adasyncrequest(
-    object_id: str,
+async def api_delete_adasyncrequest(
+    adasyncrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequest(fbid=object_id).api_delete(
+    result = AdAsyncRequest(fbid=adasyncrequest_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adasyncrequest(
 
 
 @mcp.tool()
-async def get_adasyncrequest(
-    object_id: str,
+async def api_get_adasyncrequest(
+    adasyncrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequest(fbid=object_id).api_get(
+    result = AdAsyncRequest(fbid=adasyncrequest_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adasyncrequest(
 
 
 @mcp.tool()
-async def update_adasyncrequest(
-    object_id: str,
+async def api_update_adasyncrequest(
+    adasyncrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAsyncRequest(fbid=object_id).api_update(
+    result = AdAsyncRequest(fbid=adasyncrequest_id).api_update(
         fields=fields,
         params=params,
     )

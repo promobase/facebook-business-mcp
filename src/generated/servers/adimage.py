@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adimage")
 
 
 @mcp.tool()
-async def create_adimage(
-    object_id: str,
+async def api_create_adimage(
+    adimage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdImage(fbid=object_id).api_create(
+    result = AdImage(fbid=adimage_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adimage(
 
 
 @mcp.tool()
-async def delete_adimage(
-    object_id: str,
+async def api_delete_adimage(
+    adimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdImage(fbid=object_id).api_delete(
+    result = AdImage(fbid=adimage_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adimage(
 
 
 @mcp.tool()
-async def get_adimage(
-    object_id: str,
+async def api_get_adimage(
+    adimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdImage(fbid=object_id).api_get(
+    result = AdImage(fbid=adimage_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adimage(
 
 
 @mcp.tool()
-async def update_adimage(
-    object_id: str,
+async def api_update_adimage(
+    adimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdImage(fbid=object_id).api_update(
+    result = AdImage(fbid=adimage_id).api_update(
         fields=fields,
         params=params,
     )

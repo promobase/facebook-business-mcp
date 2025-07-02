@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productcatalog")
 
 
 @mcp.tool()
-async def create_productcatalog(
-    object_id: str,
+async def api_create_productcatalog(
+    productcatalog_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).api_create(
+    result = ProductCatalog(fbid=productcatalog_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productcatalog(
 
 
 @mcp.tool()
-async def delete_productcatalog(
-    object_id: str,
+async def api_delete_productcatalog(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).api_delete(
+    result = ProductCatalog(fbid=productcatalog_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productcatalog(
 
 
 @mcp.tool()
-async def get_productcatalog(
-    object_id: str,
+async def api_get_productcatalog(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).api_get(
+    result = ProductCatalog(fbid=productcatalog_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productcatalog(
 
 
 @mcp.tool()
-async def update_productcatalog(
-    object_id: str,
+async def api_update_productcatalog(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).api_update(
+    result = ProductCatalog(fbid=productcatalog_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_productcatalog(
 
 
 @mcp.tool()
-async def create_agency_for_productcatalog(
-    object_id: str,
+async def create_agency(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_agency(
+    result = ProductCatalog(fbid=productcatalog_id).create_agency(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_agency_for_productcatalog(
 
 
 @mcp.tool()
-async def create_assigned_user_for_productcatalog(
-    object_id: str,
+async def create_assigned_user(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_assigned_user(
+    result = ProductCatalog(fbid=productcatalog_id).create_assigned_user(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_assigned_user_for_productcatalog(
 
 
 @mcp.tool()
-async def create_batch_for_productcatalog(
-    object_id: str,
+async def create_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_batch(
+    result = ProductCatalog(fbid=productcatalog_id).create_batch(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def create_catalog_store_for_productcatalog(
-    object_id: str,
+async def create_catalog_store(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_catalog_store(
+    result = ProductCatalog(fbid=productcatalog_id).create_catalog_store(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_catalog_store_for_productcatalog(
 
 
 @mcp.tool()
-async def create_category_for_productcatalog(
-    object_id: str,
+async def create_category(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_category(
+    result = ProductCatalog(fbid=productcatalog_id).create_category(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def create_category_for_productcatalog(
 
 
 @mcp.tool()
-async def create_cpas_lsb_image_bank_for_productcatalog(
-    object_id: str,
+async def create_cpas_lsb_image_bank(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_cpas_lsb_image_bank(
+    result = ProductCatalog(fbid=productcatalog_id).create_cpas_lsb_image_bank(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def create_cpas_lsb_image_bank_for_productcatalog(
 
 
 @mcp.tool()
-async def create_external_event_source_for_productcatalog(
-    object_id: str,
+async def create_external_event_source(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_external_event_source(
+    result = ProductCatalog(fbid=productcatalog_id).create_external_event_source(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def create_external_event_source_for_productcatalog(
 
 
 @mcp.tool()
-async def create_geolocated_items_batch_for_productcatalog(
-    object_id: str,
+async def create_geolocated_items_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_geolocated_items_batch(
+    result = ProductCatalog(fbid=productcatalog_id).create_geolocated_items_batch(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def create_geolocated_items_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def create_home_listing_for_productcatalog(
-    object_id: str,
+async def create_home_listing(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_home_listing(
+    result = ProductCatalog(fbid=productcatalog_id).create_home_listing(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def create_home_listing_for_productcatalog(
 
 
 @mcp.tool()
-async def create_hotel_for_productcatalog(
-    object_id: str,
+async def create_hotel(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_hotel(
+    result = ProductCatalog(fbid=productcatalog_id).create_hotel(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def create_hotel_for_productcatalog(
 
 
 @mcp.tool()
-async def create_hotel_rooms_batch_for_productcatalog(
-    object_id: str,
+async def create_hotel_rooms_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_hotel_rooms_batch(
+    result = ProductCatalog(fbid=productcatalog_id).create_hotel_rooms_batch(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def create_hotel_rooms_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def create_items_batch_for_productcatalog(
-    object_id: str,
+async def create_items_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_items_batch(
+    result = ProductCatalog(fbid=productcatalog_id).create_items_batch(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def create_items_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def create_localized_items_batch_for_productcatalog(
-    object_id: str,
+async def create_localized_items_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_localized_items_batch(
+    result = ProductCatalog(fbid=productcatalog_id).create_localized_items_batch(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def create_localized_items_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def create_market_place_partner_sellers_detail_for_productcatalog(
-    object_id: str,
+async def create_market_place_partner_sellers_detail(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_market_place_partner_sellers_detail(
+    result = ProductCatalog(fbid=productcatalog_id).create_market_place_partner_sellers_detail(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def create_market_place_partner_sellers_detail_for_productcatalog(
 
 
 @mcp.tool()
-async def create_market_place_partner_signal_for_productcatalog(
-    object_id: str,
+async def create_market_place_partner_signal(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_market_place_partner_signal(
+    result = ProductCatalog(fbid=productcatalog_id).create_market_place_partner_signal(
         fields=fields,
         params=params,
     )
@@ -287,12 +287,12 @@ async def create_market_place_partner_signal_for_productcatalog(
 
 
 @mcp.tool()
-async def create_pricing_variables_batch_for_productcatalog(
-    object_id: str,
+async def create_pricing_variables_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_pricing_variables_batch(
+    result = ProductCatalog(fbid=productcatalog_id).create_pricing_variables_batch(
         fields=fields,
         params=params,
     )
@@ -301,12 +301,12 @@ async def create_pricing_variables_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def create_product_for_productcatalog(
-    object_id: str,
+async def create_product(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_product(
+    result = ProductCatalog(fbid=productcatalog_id).create_product(
         fields=fields,
         params=params,
     )
@@ -315,12 +315,12 @@ async def create_product_for_productcatalog(
 
 
 @mcp.tool()
-async def create_product_feed_for_productcatalog(
-    object_id: str,
+async def create_product_feed(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_product_feed(
+    result = ProductCatalog(fbid=productcatalog_id).create_product_feed(
         fields=fields,
         params=params,
     )
@@ -329,12 +329,12 @@ async def create_product_feed_for_productcatalog(
 
 
 @mcp.tool()
-async def create_product_group_for_productcatalog(
-    object_id: str,
+async def create_product_group(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_product_group(
+    result = ProductCatalog(fbid=productcatalog_id).create_product_group(
         fields=fields,
         params=params,
     )
@@ -343,12 +343,12 @@ async def create_product_group_for_productcatalog(
 
 
 @mcp.tool()
-async def create_product_set_for_productcatalog(
-    object_id: str,
+async def create_product_set(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_product_set(
+    result = ProductCatalog(fbid=productcatalog_id).create_product_set(
         fields=fields,
         params=params,
     )
@@ -357,12 +357,12 @@ async def create_product_set_for_productcatalog(
 
 
 @mcp.tool()
-async def create_update_generated_image_config_for_productcatalog(
-    object_id: str,
+async def create_update_generated_image_config(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_update_generated_image_config(
+    result = ProductCatalog(fbid=productcatalog_id).create_update_generated_image_config(
         fields=fields,
         params=params,
     )
@@ -371,12 +371,12 @@ async def create_update_generated_image_config_for_productcatalog(
 
 
 @mcp.tool()
-async def create_vehicle_for_productcatalog(
-    object_id: str,
+async def create_vehicle(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_vehicle(
+    result = ProductCatalog(fbid=productcatalog_id).create_vehicle(
         fields=fields,
         params=params,
     )
@@ -385,12 +385,12 @@ async def create_vehicle_for_productcatalog(
 
 
 @mcp.tool()
-async def create_version_items_batch_for_productcatalog(
-    object_id: str,
+async def create_version_items_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).create_version_items_batch(
+    result = ProductCatalog(fbid=productcatalog_id).create_version_items_batch(
         fields=fields,
         params=params,
     )
@@ -399,12 +399,12 @@ async def create_version_items_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def delete_agencies_for_productcatalog(
-    object_id: str,
+async def delete_agencies(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).delete_agencies(
+    result = ProductCatalog(fbid=productcatalog_id).delete_agencies(
         fields=fields,
         params=params,
     )
@@ -413,12 +413,12 @@ async def delete_agencies_for_productcatalog(
 
 
 @mcp.tool()
-async def delete_assigned_users_for_productcatalog(
-    object_id: str,
+async def delete_assigned_users(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).delete_assigned_users(
+    result = ProductCatalog(fbid=productcatalog_id).delete_assigned_users(
         fields=fields,
         params=params,
     )
@@ -427,12 +427,12 @@ async def delete_assigned_users_for_productcatalog(
 
 
 @mcp.tool()
-async def delete_external_event_sources_for_productcatalog(
-    object_id: str,
+async def delete_external_event_sources(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).delete_external_event_sources(
+    result = ProductCatalog(fbid=productcatalog_id).delete_external_event_sources(
         fields=fields,
         params=params,
     )
@@ -441,12 +441,12 @@ async def delete_external_event_sources_for_productcatalog(
 
 
 @mcp.tool()
-async def get_agencies_for_productcatalog(
-    object_id: str,
+async def get_agencies(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_agencies(
+    result = ProductCatalog(fbid=productcatalog_id).get_agencies(
         fields=fields,
         params=params,
     )
@@ -455,12 +455,12 @@ async def get_agencies_for_productcatalog(
 
 
 @mcp.tool()
-async def get_assigned_users_for_productcatalog(
-    object_id: str,
+async def get_assigned_users(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_assigned_users(
+    result = ProductCatalog(fbid=productcatalog_id).get_assigned_users(
         fields=fields,
         params=params,
     )
@@ -469,12 +469,12 @@ async def get_assigned_users_for_productcatalog(
 
 
 @mcp.tool()
-async def get_automotive_models_for_productcatalog(
-    object_id: str,
+async def get_automotive_models(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_automotive_models(
+    result = ProductCatalog(fbid=productcatalog_id).get_automotive_models(
         fields=fields,
         params=params,
     )
@@ -483,12 +483,12 @@ async def get_automotive_models_for_productcatalog(
 
 
 @mcp.tool()
-async def get_categories_for_productcatalog(
-    object_id: str,
+async def get_categories(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_categories(
+    result = ProductCatalog(fbid=productcatalog_id).get_categories(
         fields=fields,
         params=params,
     )
@@ -497,12 +497,12 @@ async def get_categories_for_productcatalog(
 
 
 @mcp.tool()
-async def get_check_batch_request_status_for_productcatalog(
-    object_id: str,
+async def get_check_batch_request_status(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_check_batch_request_status(
+    result = ProductCatalog(fbid=productcatalog_id).get_check_batch_request_status(
         fields=fields,
         params=params,
     )
@@ -511,12 +511,12 @@ async def get_check_batch_request_status_for_productcatalog(
 
 
 @mcp.tool()
-async def get_check_marketplace_partner_sellers_status_for_productcatalog(
-    object_id: str,
+async def get_check_marketplace_partner_sellers_status(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_check_marketplace_partner_sellers_status(
+    result = ProductCatalog(fbid=productcatalog_id).get_check_marketplace_partner_sellers_status(
         fields=fields,
         params=params,
     )
@@ -525,12 +525,12 @@ async def get_check_marketplace_partner_sellers_status_for_productcatalog(
 
 
 @mcp.tool()
-async def get_collaborative_ads_lsb_image_bank_for_productcatalog(
-    object_id: str,
+async def get_collaborative_ads_lsb_image_bank(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_collaborative_ads_lsb_image_bank(
+    result = ProductCatalog(fbid=productcatalog_id).get_collaborative_ads_lsb_image_bank(
         fields=fields,
         params=params,
     )
@@ -539,12 +539,12 @@ async def get_collaborative_ads_lsb_image_bank_for_productcatalog(
 
 
 @mcp.tool()
-async def get_collaborative_ads_share_settings_for_productcatalog(
-    object_id: str,
+async def get_collaborative_ads_share_settings(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_collaborative_ads_share_settings(
+    result = ProductCatalog(fbid=productcatalog_id).get_collaborative_ads_share_settings(
         fields=fields,
         params=params,
     )
@@ -553,12 +553,12 @@ async def get_collaborative_ads_share_settings_for_productcatalog(
 
 
 @mcp.tool()
-async def get_creator_asset_creatives_for_productcatalog(
-    object_id: str,
+async def get_creator_asset_creatives(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_creator_asset_creatives(
+    result = ProductCatalog(fbid=productcatalog_id).get_creator_asset_creatives(
         fields=fields,
         params=params,
     )
@@ -567,12 +567,12 @@ async def get_creator_asset_creatives_for_productcatalog(
 
 
 @mcp.tool()
-async def get_data_sources_for_productcatalog(
-    object_id: str,
+async def get_data_sources(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_data_sources(
+    result = ProductCatalog(fbid=productcatalog_id).get_data_sources(
         fields=fields,
         params=params,
     )
@@ -581,12 +581,12 @@ async def get_data_sources_for_productcatalog(
 
 
 @mcp.tool()
-async def get_destinations_for_productcatalog(
-    object_id: str,
+async def get_destinations(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_destinations(
+    result = ProductCatalog(fbid=productcatalog_id).get_destinations(
         fields=fields,
         params=params,
     )
@@ -595,12 +595,12 @@ async def get_destinations_for_productcatalog(
 
 
 @mcp.tool()
-async def get_diagnostics_for_productcatalog(
-    object_id: str,
+async def get_diagnostics(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_diagnostics(
+    result = ProductCatalog(fbid=productcatalog_id).get_diagnostics(
         fields=fields,
         params=params,
     )
@@ -609,12 +609,12 @@ async def get_diagnostics_for_productcatalog(
 
 
 @mcp.tool()
-async def get_event_stats_for_productcatalog(
-    object_id: str,
+async def get_event_stats(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_event_stats(
+    result = ProductCatalog(fbid=productcatalog_id).get_event_stats(
         fields=fields,
         params=params,
     )
@@ -623,12 +623,12 @@ async def get_event_stats_for_productcatalog(
 
 
 @mcp.tool()
-async def get_external_event_sources_for_productcatalog(
-    object_id: str,
+async def get_external_event_sources(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_external_event_sources(
+    result = ProductCatalog(fbid=productcatalog_id).get_external_event_sources(
         fields=fields,
         params=params,
     )
@@ -637,12 +637,12 @@ async def get_external_event_sources_for_productcatalog(
 
 
 @mcp.tool()
-async def get_flights_for_productcatalog(
-    object_id: str,
+async def get_flights(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_flights(
+    result = ProductCatalog(fbid=productcatalog_id).get_flights(
         fields=fields,
         params=params,
     )
@@ -651,12 +651,12 @@ async def get_flights_for_productcatalog(
 
 
 @mcp.tool()
-async def get_home_listings_for_productcatalog(
-    object_id: str,
+async def get_home_listings(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_home_listings(
+    result = ProductCatalog(fbid=productcatalog_id).get_home_listings(
         fields=fields,
         params=params,
     )
@@ -665,12 +665,12 @@ async def get_home_listings_for_productcatalog(
 
 
 @mcp.tool()
-async def get_hotel_rooms_batch_for_productcatalog(
-    object_id: str,
+async def get_hotel_rooms_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_hotel_rooms_batch(
+    result = ProductCatalog(fbid=productcatalog_id).get_hotel_rooms_batch(
         fields=fields,
         params=params,
     )
@@ -679,12 +679,12 @@ async def get_hotel_rooms_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def get_hotels_for_productcatalog(
-    object_id: str,
+async def get_hotels(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_hotels(
+    result = ProductCatalog(fbid=productcatalog_id).get_hotels(
         fields=fields,
         params=params,
     )
@@ -693,12 +693,12 @@ async def get_hotels_for_productcatalog(
 
 
 @mcp.tool()
-async def get_pricing_variables_batch_for_productcatalog(
-    object_id: str,
+async def get_pricing_variables_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_pricing_variables_batch(
+    result = ProductCatalog(fbid=productcatalog_id).get_pricing_variables_batch(
         fields=fields,
         params=params,
     )
@@ -707,12 +707,12 @@ async def get_pricing_variables_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def get_product_feeds_for_productcatalog(
-    object_id: str,
+async def get_product_feeds(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_product_feeds(
+    result = ProductCatalog(fbid=productcatalog_id).get_product_feeds(
         fields=fields,
         params=params,
     )
@@ -721,12 +721,12 @@ async def get_product_feeds_for_productcatalog(
 
 
 @mcp.tool()
-async def get_product_groups_for_productcatalog(
-    object_id: str,
+async def get_product_groups(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_product_groups(
+    result = ProductCatalog(fbid=productcatalog_id).get_product_groups(
         fields=fields,
         params=params,
     )
@@ -735,12 +735,12 @@ async def get_product_groups_for_productcatalog(
 
 
 @mcp.tool()
-async def get_product_sets_for_productcatalog(
-    object_id: str,
+async def get_product_sets(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_product_sets(
+    result = ProductCatalog(fbid=productcatalog_id).get_product_sets(
         fields=fields,
         params=params,
     )
@@ -749,12 +749,12 @@ async def get_product_sets_for_productcatalog(
 
 
 @mcp.tool()
-async def get_product_sets_batch_for_productcatalog(
-    object_id: str,
+async def get_product_sets_batch(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_product_sets_batch(
+    result = ProductCatalog(fbid=productcatalog_id).get_product_sets_batch(
         fields=fields,
         params=params,
     )
@@ -763,12 +763,12 @@ async def get_product_sets_batch_for_productcatalog(
 
 
 @mcp.tool()
-async def get_products_for_productcatalog(
-    object_id: str,
+async def get_products(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_products(
+    result = ProductCatalog(fbid=productcatalog_id).get_products(
         fields=fields,
         params=params,
     )
@@ -777,12 +777,12 @@ async def get_products_for_productcatalog(
 
 
 @mcp.tool()
-async def get_vehicle_offers_for_productcatalog(
-    object_id: str,
+async def get_vehicle_offers(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_vehicle_offers(
+    result = ProductCatalog(fbid=productcatalog_id).get_vehicle_offers(
         fields=fields,
         params=params,
     )
@@ -791,12 +791,12 @@ async def get_vehicle_offers_for_productcatalog(
 
 
 @mcp.tool()
-async def get_vehicles_for_productcatalog(
-    object_id: str,
+async def get_vehicles(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_vehicles(
+    result = ProductCatalog(fbid=productcatalog_id).get_vehicles(
         fields=fields,
         params=params,
     )
@@ -805,12 +805,12 @@ async def get_vehicles_for_productcatalog(
 
 
 @mcp.tool()
-async def get_version_configs_for_productcatalog(
-    object_id: str,
+async def get_version_configs(
+    productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalog(fbid=object_id).get_version_configs(
+    result = ProductCatalog(fbid=productcatalog_id).get_version_configs(
         fields=fields,
         params=params,
     )

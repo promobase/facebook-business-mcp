@@ -15,8 +15,8 @@ mcp = FastMCP(f"facebook-{{ module_path }}")
 # CRUD Operations
 {% for method in crud_methods %}
 @mcp.tool()
-async def {{ method.name.replace('api_', '') }}_{{ module_path }}(
-    object_id: str,
+async def {{ method.name }}_{{ module_path }}(
+    {{ module_path }}_id: str,
     {%- for param in method.params %}
     {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending'] %}
     {{ param }}: Optional[Any] = None,
@@ -25,7 +25,7 @@ async def {{ method.name.replace('api_', '') }}_{{ module_path }}(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = {{ class_name }}(fbid=object_id).{{ method.name }}(
+    result = {{ class_name }}(fbid={{ module_path }}_id).{{ method.name }}(
         {%- if method.params %}
         {%- for param in method.params %}
         {%- if param == 'fields' %}
@@ -51,8 +51,8 @@ async def {{ method.name.replace('api_', '') }}_{{ module_path }}(
 # Edge Methods
 {% for method in edge_methods %}
 @mcp.tool()
-async def {{ method.name }}_for_{{ module_path }}(
-    object_id: str,
+async def {{ method.name }}(
+{{ module_path }}_id: str,
     {%- for param in method.params %}
     {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending', 'is_async'] %}
     {{ param }}: Optional[Any] = None,
@@ -61,7 +61,7 @@ async def {{ method.name }}_for_{{ module_path }}(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = {{ class_name }}(fbid=object_id).{{ method.name }}(
+    result = {{ class_name }}(fbid={{ module_path }}_id).{{ method.name }}(
         {%- set has_custom_params = false %}
         {%- for param in method.params %}
         {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending', 'is_async'] %}

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adaccountagencyfeeconfig")
 
 
 @mcp.tool()
-async def create_adaccountagencyfeeconfig(
-    object_id: str,
+async def api_create_adaccountagencyfeeconfig(
+    adaccountagencyfeeconfig_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountAgencyFeeConfig(fbid=object_id).api_create(
+    result = AdAccountAgencyFeeConfig(fbid=adaccountagencyfeeconfig_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adaccountagencyfeeconfig(
 
 
 @mcp.tool()
-async def delete_adaccountagencyfeeconfig(
-    object_id: str,
+async def api_delete_adaccountagencyfeeconfig(
+    adaccountagencyfeeconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountAgencyFeeConfig(fbid=object_id).api_delete(
+    result = AdAccountAgencyFeeConfig(fbid=adaccountagencyfeeconfig_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adaccountagencyfeeconfig(
 
 
 @mcp.tool()
-async def get_adaccountagencyfeeconfig(
-    object_id: str,
+async def api_get_adaccountagencyfeeconfig(
+    adaccountagencyfeeconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountAgencyFeeConfig(fbid=object_id).api_get(
+    result = AdAccountAgencyFeeConfig(fbid=adaccountagencyfeeconfig_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adaccountagencyfeeconfig(
 
 
 @mcp.tool()
-async def update_adaccountagencyfeeconfig(
-    object_id: str,
+async def api_update_adaccountagencyfeeconfig(
+    adaccountagencyfeeconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdAccountAgencyFeeConfig(fbid=object_id).api_update(
+    result = AdAccountAgencyFeeConfig(fbid=adaccountagencyfeeconfig_id).api_update(
         fields=fields,
         params=params,
     )

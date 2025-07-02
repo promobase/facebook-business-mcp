@@ -21,6 +21,442 @@ if TYPE_CHECKING:
     from .videouploadlimits import VideoUploadLimitsFields
 
 
+class userphotos_type_enum_param(str, Enum):
+    """userphotos_type_enum_param enum values."""
+
+    tagged = "tagged"
+    uploaded = "uploaded"
+
+
+class uservideos_swap_mode_enum_param(str, Enum):
+    """uservideos_swap_mode_enum_param enum values."""
+
+    replace = "replace"
+
+
+class userphotos_unpublished_content_type_enum_param(str, Enum):
+    """userphotos_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
+class uservideos_unpublished_content_type_enum_param(str, Enum):
+    """uservideos_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
+class userconversations_platform_enum_param(str, Enum):
+    """userconversations_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class userfeed_target_surface_enum_param(str, Enum):
+    """userfeed_target_surface_enum_param enum values."""
+
+    STORY = "STORY"
+    TIMELINE = "TIMELINE"
+
+
+class userfeed_place_attachment_setting_enum_param(str, Enum):
+    """userfeed_place_attachment_setting_enum_param enum values."""
+
+    VALUE_1 = "1"
+    VALUE_2 = "2"
+
+
+class userpermissions_status_enum_param(str, Enum):
+    """userpermissions_status_enum_param enum values."""
+
+    declined = "declined"
+    expired = "expired"
+    granted = "granted"
+
+
+class uservideos_original_projection_type_enum_param(str, Enum):
+    """uservideos_original_projection_type_enum_param enum values."""
+
+    cubemap = "cubemap"
+    equirectangular = "equirectangular"
+    half_equirectangular = "half_equirectangular"
+
+
+class usernotifications_type_enum_param(str, Enum):
+    """usernotifications_type_enum_param enum values."""
+
+    content_update = "content_update"
+    generic = "generic"
+
+
+class uservideos_type_enum_param(str, Enum):
+    """uservideos_type_enum_param enum values."""
+
+    TAGGED = "TAGGED"
+    UPLOADED = "UPLOADED"
+
+
+class userfeed_backdated_time_granularity_enum_param(str, Enum):
+    """userfeed_backdated_time_granularity_enum_param enum values."""
+
+    day = "day"
+    hour = "hour"
+    min = "min"
+    month = "month"
+    none = "none"
+    year = "year"
+
+
+class userfeed_posting_to_redspace_enum_param(str, Enum):
+    """userfeed_posting_to_redspace_enum_param enum values."""
+
+    disabled = "disabled"
+    enabled = "enabled"
+
+
+class userlive_videos_projection_enum_param(str, Enum):
+    """userlive_videos_projection_enum_param enum values."""
+
+    CUBEMAP = "CUBEMAP"
+    EQUIRECTANGULAR = "EQUIRECTANGULAR"
+    HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
+
+
+class uservideos_content_category_enum_param(str, Enum):
+    """uservideos_content_category_enum_param enum values."""
+
+    BEAUTY_FASHION = "BEAUTY_FASHION"
+    BUSINESS = "BUSINESS"
+    CARS_TRUCKS = "CARS_TRUCKS"
+    COMEDY = "COMEDY"
+    CUTE_ANIMALS = "CUTE_ANIMALS"
+    ENTERTAINMENT = "ENTERTAINMENT"
+    FAMILY = "FAMILY"
+    FOOD_HEALTH = "FOOD_HEALTH"
+    HOME = "HOME"
+    LIFESTYLE = "LIFESTYLE"
+    MUSIC = "MUSIC"
+    NEWS = "NEWS"
+    OTHER = "OTHER"
+    POLITICS = "POLITICS"
+    SCIENCE = "SCIENCE"
+    SPORTS = "SPORTS"
+    TECHNOLOGY = "TECHNOLOGY"
+    VIDEO_GAMING = "VIDEO_GAMING"
+
+
+class uservideos_upload_phase_enum_param(str, Enum):
+    """uservideos_upload_phase_enum_param enum values."""
+
+    cancel = "cancel"
+    finish = "finish"
+    start = "start"
+    transfer = "transfer"
+
+
+class usernotifications_filtering_enum_param(str, Enum):
+    """usernotifications_filtering_enum_param enum values."""
+
+    ema = "ema"
+    groups = "groups"
+    groups_social = "groups_social"
+
+
+class userlive_videos_status_enum_param(str, Enum):
+    """userlive_videos_status_enum_param enum values."""
+
+    LIVE_NOW = "LIVE_NOW"
+    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
+    SCHEDULED_LIVE = "SCHEDULED_LIVE"
+    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
+    UNPUBLISHED = "UNPUBLISHED"
+
+
+class userfeed_formatting_enum_param(str, Enum):
+    """userfeed_formatting_enum_param enum values."""
+
+    MARKDOWN = "MARKDOWN"
+    PLAINTEXT = "PLAINTEXT"
+
+
+class userlive_videos_stream_type_enum_param(str, Enum):
+    """userlive_videos_stream_type_enum_param enum values."""
+
+    AMBIENT = "AMBIENT"
+    REGULAR = "REGULAR"
+
+
+class userlive_videos_broadcast_status_enum_param(str, Enum):
+    """userlive_videos_broadcast_status_enum_param enum values."""
+
+    LIVE = "LIVE"
+    LIVE_STOPPED = "LIVE_STOPPED"
+    PROCESSING = "PROCESSING"
+    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
+    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
+    SCHEDULED_LIVE = "SCHEDULED_LIVE"
+    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
+    UNPUBLISHED = "UNPUBLISHED"
+    VOD = "VOD"
+
+
+class userevents_type_enum_param(str, Enum):
+    """userevents_type_enum_param enum values."""
+
+    attending = "attending"
+    created = "created"
+    declined = "declined"
+    maybe = "maybe"
+    not_replied = "not_replied"
+
+
+class userlive_videos_source_enum_param(str, Enum):
+    """userlive_videos_source_enum_param enum values."""
+
+    owner = "owner"
+    target = "target"
+
+
+class userbusinesses_survey_business_type_enum_param(str, Enum):
+    """userbusinesses_survey_business_type_enum_param enum values."""
+
+    ADVERTISER = "ADVERTISER"
+    AGENCY = "AGENCY"
+    APP_DEVELOPER = "APP_DEVELOPER"
+    PUBLISHER = "PUBLISHER"
+
+
+class userlive_videos_stereoscopic_mode_enum_param(str, Enum):
+    """userlive_videos_stereoscopic_mode_enum_param enum values."""
+
+    LEFT_RIGHT = "LEFT_RIGHT"
+    MONO = "MONO"
+    TOP_BOTTOM = "TOP_BOTTOM"
+
+
+class uservideos_formatting_enum_param(str, Enum):
+    """uservideos_formatting_enum_param enum values."""
+
+    MARKDOWN = "MARKDOWN"
+    PLAINTEXT = "PLAINTEXT"
+
+
+class userphotos_backdated_time_granularity_enum_param(str, Enum):
+    """userphotos_backdated_time_granularity_enum_param enum values."""
+
+    day = "day"
+    hour = "hour"
+    min = "min"
+    month = "month"
+    none = "none"
+    year = "year"
+
+
+class userlive_videos_spatial_audio_format_enum_param(str, Enum):
+    """userlive_videos_spatial_audio_format_enum_param enum values."""
+
+    ambiX_4 = "ambiX_4"
+
+
+class uservideos_container_type_enum_param(str, Enum):
+    """uservideos_container_type_enum_param enum values."""
+
+    ACO_VIDEO_VARIATION = "ACO_VIDEO_VARIATION"
+    ADS_AI_GENERATED = "ADS_AI_GENERATED"
+    AD_BREAK_PREVIEW = "AD_BREAK_PREVIEW"
+    AD_DERIVATIVE = "AD_DERIVATIVE"
+    AD_LIBRARY_WATERMARK = "AD_LIBRARY_WATERMARK"
+    ALBUM_MULTIMEDIA_POST = "ALBUM_MULTIMEDIA_POST"
+    ALOHA_SUPERFRAME = "ALOHA_SUPERFRAME"
+    APP_REREVIEW_SCREENCAST = "APP_REREVIEW_SCREENCAST"
+    APP_REVIEW_SCREENCAST = "APP_REVIEW_SCREENCAST"
+    ASSET_MANAGER = "ASSET_MANAGER"
+    ATLAS_VIDEO = "ATLAS_VIDEO"
+    AUDIO_BROADCAST = "AUDIO_BROADCAST"
+    AUDIO_COMMENT = "AUDIO_COMMENT"
+    BROADCAST = "BROADCAST"
+    CANVAS = "CANVAS"
+    CMS_MEDIA_MANAGER = "CMS_MEDIA_MANAGER"
+    CONTAINED_POST_ATTACHMENT = "CONTAINED_POST_ATTACHMENT"
+    CONTAINED_POST_AUDIO_BROADCAST = "CONTAINED_POST_AUDIO_BROADCAST"
+    CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST = "CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST"
+    COPYRIGHT_REFERENCE_BROADCAST = "COPYRIGHT_REFERENCE_BROADCAST"
+    COPYRIGHT_REFERENCE_IG_XPOST_VIDEO = "COPYRIGHT_REFERENCE_IG_XPOST_VIDEO"
+    COPYRIGHT_REFERENCE_VIDEO = "COPYRIGHT_REFERENCE_VIDEO"
+    CREATION_ML_PRECREATION = "CREATION_ML_PRECREATION"
+    CREATOR_FAN_CHALLENGE = "CREATOR_FAN_CHALLENGE"
+    CREATOR_STOREFRONT_PERSONALIZED_VIDEO = "CREATOR_STOREFRONT_PERSONALIZED_VIDEO"
+    DATAGENIX_VIDEO = "DATAGENIX_VIDEO"
+    DCO_AD_ASSET_FEED = "DCO_AD_ASSET_FEED"
+    DCO_AUTOGEN_VIDEO = "DCO_AUTOGEN_VIDEO"
+    DCO_TRIMMED_VIDEO = "DCO_TRIMMED_VIDEO"
+    DIM_SUM = "DIM_SUM"
+    DIRECTED_POST_ATTACHMENT = "DIRECTED_POST_ATTACHMENT"
+    DIRECT_INBOX = "DIRECT_INBOX"
+    DROPS_SHOPPING_EVENT_PAGE = "DROPS_SHOPPING_EVENT_PAGE"
+    DYNAMIC_ITEM_VIDEO = "DYNAMIC_ITEM_VIDEO"
+    DYNAMIC_TEMPLATE_VIDEO = "DYNAMIC_TEMPLATE_VIDEO"
+    EVENT_COVER_VIDEO = "EVENT_COVER_VIDEO"
+    EVENT_TOUR = "EVENT_TOUR"
+    FACECAST_DVR = "FACECAST_DVR"
+    FB_AVATAR_ANIMATED_SATP = "FB_AVATAR_ANIMATED_SATP"
+    FB_COLLECTIBLE_VIDEO = "FB_COLLECTIBLE_VIDEO"
+    FB_SHORTS = "FB_SHORTS"
+    FB_SHORTS_CONTENT_REMIXABLE = "FB_SHORTS_CONTENT_REMIXABLE"
+    FB_SHORTS_GROUP_POST = "FB_SHORTS_GROUP_POST"
+    FB_SHORTS_LINKED_PRODUCT = "FB_SHORTS_LINKED_PRODUCT"
+    FB_SHORTS_PMV_POST = "FB_SHORTS_PMV_POST"
+    FB_SHORTS_POST = "FB_SHORTS_POST"
+    FB_SHORTS_REMIX_POST = "FB_SHORTS_REMIX_POST"
+    FUNDRAISER_COVER_VIDEO = "FUNDRAISER_COVER_VIDEO"
+    GAME_CLIP = "GAME_CLIP"
+    GIF_TO_VIDEO = "GIF_TO_VIDEO"
+    GOODWILL_ANNIVERSARY_DEPRECATED = "GOODWILL_ANNIVERSARY_DEPRECATED"
+    GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED = "GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED"
+    GOODWILL_VIDEO_CONTAINED_SHARE = "GOODWILL_VIDEO_CONTAINED_SHARE"
+    GOODWILL_VIDEO_PROMOTION = "GOODWILL_VIDEO_PROMOTION"
+    GOODWILL_VIDEO_SHARE = "GOODWILL_VIDEO_SHARE"
+    GOODWILL_VIDEO_TOKEN_REQUIRED = "GOODWILL_VIDEO_TOKEN_REQUIRED"
+    GROUP_POST = "GROUP_POST"
+    HEURISTIC_CLUSTER_VIDEO = "HEURISTIC_CLUSTER_VIDEO"
+    HIGHLIGHT_CLIP_VIDEO = "HIGHLIGHT_CLIP_VIDEO"
+    HORIZON_WORLDS_TV = "HORIZON_WORLDS_TV"
+    HUDDLE_BROADCAST = "HUDDLE_BROADCAST"
+    IG_REELS_XPV = "IG_REELS_XPV"
+    IG_STORIES_READER = "IG_STORIES_READER"
+    INJECTABLE = "INJECTABLE"
+    INSPIRATION_VIDEO = "INSPIRATION_VIDEO"
+    INSTAGRAM_VIDEO_COPY = "INSTAGRAM_VIDEO_COPY"
+    INSTANT_APPLICATION_PREVIEW = "INSTANT_APPLICATION_PREVIEW"
+    INSTANT_ARTICLE = "INSTANT_ARTICLE"
+    ISSUE_MODULE = "ISSUE_MODULE"
+    LEARN = "LEARN"
+    LEGACY = "LEGACY"
+    LEGACY_CONTAINED_POST_BROADCAST = "LEGACY_CONTAINED_POST_BROADCAST"
+    LIVE_AUDIO_ROOM_BROADCAST = "LIVE_AUDIO_ROOM_BROADCAST"
+    LIVE_CLIP_PREVIEW = "LIVE_CLIP_PREVIEW"
+    LIVE_CLIP_WORKCHAT = "LIVE_CLIP_WORKCHAT"
+    LIVE_CREATIVE_KIT_VIDEO = "LIVE_CREATIVE_KIT_VIDEO"
+    LIVE_PHOTO = "LIVE_PHOTO"
+    LOOK_NOW_DEPRECATED = "LOOK_NOW_DEPRECATED"
+    MARKETPLACE_LISTING_VIDEO = "MARKETPLACE_LISTING_VIDEO"
+    MARKETPLACE_PRE_RECORDED_VIDEO = "MARKETPLACE_PRE_RECORDED_VIDEO"
+    MOMENTS_VIDEO = "MOMENTS_VIDEO"
+    MUSIC_CLIP = "MUSIC_CLIP"
+    MUSIC_CLIP_IN_COMMENT = "MUSIC_CLIP_IN_COMMENT"
+    MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS = "MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS"
+    MUSIC_CLIP_IN_MSGR_NOTE = "MUSIC_CLIP_IN_MSGR_NOTE"
+    MUSIC_CLIP_IN_POLL_OPTION = "MUSIC_CLIP_IN_POLL_OPTION"
+    MUSIC_CLIP_ON_DATING_PROFILE = "MUSIC_CLIP_ON_DATING_PROFILE"
+    NEO_ASYNC_GAME_VIDEO = "NEO_ASYNC_GAME_VIDEO"
+    NEW_CONTAINED_POST_BROADCAST = "NEW_CONTAINED_POST_BROADCAST"
+    NO_STORY = "NO_STORY"
+    OCULUS_CREATOR_PORTAL = "OCULUS_CREATOR_PORTAL"
+    OCULUS_VENUES_BROADCAST = "OCULUS_VENUES_BROADCAST"
+    ORIGINALITY_SELF_ADVOCACY = "ORIGINALITY_SELF_ADVOCACY"
+    PAGES_COVER_VIDEO = "PAGES_COVER_VIDEO"
+    PAGE_REVIEW_SCREENCAST = "PAGE_REVIEW_SCREENCAST"
+    PAGE_SLIDESHOW_VIDEO = "PAGE_SLIDESHOW_VIDEO"
+    PAID_CONTENT_PREVIEW = "PAID_CONTENT_PREVIEW"
+    PAID_CONTENT_VIDEO = "PAID_CONTENT_VIDEO"
+    PAID_CONTENT_VIDEO__POST = "PAID_CONTENT_VIDEO__POST"
+    PIXELCLOUD = "PIXELCLOUD"
+    PODCAST_HIGHLIGHT = "PODCAST_HIGHLIGHT"
+    PODCAST_ML_PREVIEW = "PODCAST_ML_PREVIEW"
+    PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY = "PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY"
+    PODCAST_RSS = "PODCAST_RSS"
+    PODCAST_RSS_EPHEMERAL = "PODCAST_RSS_EPHEMERAL"
+    PODCAST_RSS_NO_NEWSFEED_STORY = "PODCAST_RSS_NO_NEWSFEED_STORY"
+    PODCAST_VOICES = "PODCAST_VOICES"
+    PODCAST_VOICES_NO_NEWSFEED_STORY = "PODCAST_VOICES_NO_NEWSFEED_STORY"
+    PREMIERE_SOURCE = "PREMIERE_SOURCE"
+    PREMIUM_MUSIC_VIDEO_CLIP = "PREMIUM_MUSIC_VIDEO_CLIP"
+    PREMIUM_MUSIC_VIDEO_CROPPED_CLIP = "PREMIUM_MUSIC_VIDEO_CROPPED_CLIP"
+    PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY"
+    PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY"
+    PRIVATE_GALLERY_VIDEO = "PRIVATE_GALLERY_VIDEO"
+    PRODUCT_VIDEO = "PRODUCT_VIDEO"
+    PROFILE_COVER_VIDEO = "PROFILE_COVER_VIDEO"
+    PROFILE_INTRO_CARD = "PROFILE_INTRO_CARD"
+    PROFILE_VIDEO = "PROFILE_VIDEO"
+    PROTON = "PROTON"
+    QUICK_CLIP_WORKPLACE_POST = "QUICK_CLIP_WORKPLACE_POST"
+    QUICK_PROMOTION = "QUICK_PROMOTION"
+    REPLACE_VIDEO = "REPLACE_VIDEO"
+    SALES_CLIENT_INTERACTION = "SALES_CLIENT_INTERACTION"
+    SHOWREEL_NATIVE_DUMMY_VIDEO = "SHOWREEL_NATIVE_DUMMY_VIDEO"
+    SLIDESHOW_ANIMOTO = "SLIDESHOW_ANIMOTO"
+    SLIDESHOW_SHAKR = "SLIDESHOW_SHAKR"
+    SLIDESHOW_VARIATION_VIDEO = "SLIDESHOW_VARIATION_VIDEO"
+    SOUND_PLATFORM_STREAM = "SOUND_PLATFORM_STREAM"
+    SRT_ATTACHMENT = "SRT_ATTACHMENT"
+    STORIES_VIDEO = "STORIES_VIDEO"
+    STORYLINE = "STORYLINE"
+    STORYLINE_WITH_EXTERNAL_MUSIC = "STORYLINE_WITH_EXTERNAL_MUSIC"
+    STORY_ARCHIVE_VIDEO = "STORY_ARCHIVE_VIDEO"
+    STORY_CARD_TEMPLATE = "STORY_CARD_TEMPLATE"
+    STREAM_HIGHLIGHTS_VIDEO = "STREAM_HIGHLIGHTS_VIDEO"
+    TAROT_DIGEST = "TAROT_DIGEST"
+    TEMPORARY_UNLISTED = "TEMPORARY_UNLISTED"
+    TEMP_VIDEO_COPYRIGHT_SCAN = "TEMP_VIDEO_COPYRIGHT_SCAN"
+    UNLISTED = "UNLISTED"
+    UNLISTED_OCULUS = "UNLISTED_OCULUS"
+    VIDEO_COMMENT = "VIDEO_COMMENT"
+    VIDEO_COMPOSITION_VARIATION = "VIDEO_COMPOSITION_VARIATION"
+    VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO = "VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO"
+    VIDEO_SUPERRES = "VIDEO_SUPERRES"
+    VOICES_ARTICLE_VIDEO = "VOICES_ARTICLE_VIDEO"
+    VU_GENERATED_VIDEO = "VU_GENERATED_VIDEO"
+    WOODHENGE = "WOODHENGE"
+    WORK_KNOWLEDGE_VIDEO = "WORK_KNOWLEDGE_VIDEO"
+    YOUR_DAY = "YOUR_DAY"
+
+
+class userad_studies_type_enum_param(str, Enum):
+    """userad_studies_type_enum_param enum values."""
+
+    BACKEND_AB_TESTING = "BACKEND_AB_TESTING"
+    CONTINUOUS_LIFT_CONFIG = "CONTINUOUS_LIFT_CONFIG"
+    GEO_LIFT = "GEO_LIFT"
+    LIFT = "LIFT"
+    SPLIT_TEST = "SPLIT_TEST"
+
+
+class userfeed_post_surfaces_blacklist_enum_param(str, Enum):
+    """userfeed_post_surfaces_blacklist_enum_param enum values."""
+
+    VALUE_1 = "1"
+    VALUE_2 = "2"
+    VALUE_3 = "3"
+    VALUE_4 = "4"
+    VALUE_5 = "5"
+
+
+class userfeed_unpublished_content_type_enum_param(str, Enum):
+    """userfeed_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
 class userbusinesses_vertical_enum_param(str, Enum):
     """userbusinesses_vertical_enum_param enum values."""
 
@@ -49,100 +485,14 @@ class userbusinesses_vertical_enum_param(str, Enum):
     TRAVEL = "TRAVEL"
 
 
-class userlive_videos_stream_type_enum_param(str, Enum):
-    """userlive_videos_stream_type_enum_param enum values."""
+class userpicture_type_enum_param(str, Enum):
+    """userpicture_type_enum_param enum values."""
 
-    AMBIENT = "AMBIENT"
-    REGULAR = "REGULAR"
-
-
-class userpermissions_status_enum_param(str, Enum):
-    """userpermissions_status_enum_param enum values."""
-
-    declined = "declined"
-    expired = "expired"
-    granted = "granted"
-
-
-class uservideos_formatting_enum_param(str, Enum):
-    """uservideos_formatting_enum_param enum values."""
-
-    MARKDOWN = "MARKDOWN"
-    PLAINTEXT = "PLAINTEXT"
-
-
-class userfeed_unpublished_content_type_enum_param(str, Enum):
-    """userfeed_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class userlive_videos_source_enum_param(str, Enum):
-    """userlive_videos_source_enum_param enum values."""
-
-    owner = "owner"
-    target = "target"
-
-
-class usernotifications_type_enum_param(str, Enum):
-    """usernotifications_type_enum_param enum values."""
-
-    content_update = "content_update"
-    generic = "generic"
-
-
-class uservideos_upload_phase_enum_param(str, Enum):
-    """uservideos_upload_phase_enum_param enum values."""
-
-    cancel = "cancel"
-    finish = "finish"
-    start = "start"
-    transfer = "transfer"
-
-
-class userlive_videos_spatial_audio_format_enum_param(str, Enum):
-    """userlive_videos_spatial_audio_format_enum_param enum values."""
-
-    ambiX_4 = "ambiX_4"
-
-
-class userad_studies_type_enum_param(str, Enum):
-    """userad_studies_type_enum_param enum values."""
-
-    BACKEND_AB_TESTING = "BACKEND_AB_TESTING"
-    CONTINUOUS_LIFT_CONFIG = "CONTINUOUS_LIFT_CONFIG"
-    GEO_LIFT = "GEO_LIFT"
-    LIFT = "LIFT"
-    SPLIT_TEST = "SPLIT_TEST"
-
-
-class userfeed_formatting_enum_param(str, Enum):
-    """userfeed_formatting_enum_param enum values."""
-
-    MARKDOWN = "MARKDOWN"
-    PLAINTEXT = "PLAINTEXT"
-
-
-class userbusinesses_survey_business_type_enum_param(str, Enum):
-    """userbusinesses_survey_business_type_enum_param enum values."""
-
-    ADVERTISER = "ADVERTISER"
-    AGENCY = "AGENCY"
-    APP_DEVELOPER = "APP_DEVELOPER"
-    PUBLISHER = "PUBLISHER"
-
-
-class userconversations_platform_enum_param(str, Enum):
-    """userconversations_platform_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
+    album = "album"
+    large = "large"
+    normal = "normal"
+    small = "small"
+    square = "square"
 
 
 class userbusinesses_timezone_id_enum_param(str, Enum):
@@ -631,360 +981,10 @@ class userbusinesses_timezone_id_enum_param(str, Enum):
     VALUE_480 = "480"
 
 
-class uservideos_swap_mode_enum_param(str, Enum):
-    """uservideos_swap_mode_enum_param enum values."""
-
-    replace = "replace"
-
-
-class userlive_videos_status_enum_param(str, Enum):
-    """userlive_videos_status_enum_param enum values."""
-
-    LIVE_NOW = "LIVE_NOW"
-    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
-    SCHEDULED_LIVE = "SCHEDULED_LIVE"
-    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
-    UNPUBLISHED = "UNPUBLISHED"
-
-
-class userlive_videos_broadcast_status_enum_param(str, Enum):
-    """userlive_videos_broadcast_status_enum_param enum values."""
-
-    LIVE = "LIVE"
-    LIVE_STOPPED = "LIVE_STOPPED"
-    PROCESSING = "PROCESSING"
-    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
-    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
-    SCHEDULED_LIVE = "SCHEDULED_LIVE"
-    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
-    UNPUBLISHED = "UNPUBLISHED"
-    VOD = "VOD"
-
-
-class userfeed_target_surface_enum_param(str, Enum):
-    """userfeed_target_surface_enum_param enum values."""
-
-    STORY = "STORY"
-    TIMELINE = "TIMELINE"
-
-
-class uservideos_content_category_enum_param(str, Enum):
-    """uservideos_content_category_enum_param enum values."""
-
-    BEAUTY_FASHION = "BEAUTY_FASHION"
-    BUSINESS = "BUSINESS"
-    CARS_TRUCKS = "CARS_TRUCKS"
-    COMEDY = "COMEDY"
-    CUTE_ANIMALS = "CUTE_ANIMALS"
-    ENTERTAINMENT = "ENTERTAINMENT"
-    FAMILY = "FAMILY"
-    FOOD_HEALTH = "FOOD_HEALTH"
-    HOME = "HOME"
-    LIFESTYLE = "LIFESTYLE"
-    MUSIC = "MUSIC"
-    NEWS = "NEWS"
-    OTHER = "OTHER"
-    POLITICS = "POLITICS"
-    SCIENCE = "SCIENCE"
-    SPORTS = "SPORTS"
-    TECHNOLOGY = "TECHNOLOGY"
-    VIDEO_GAMING = "VIDEO_GAMING"
-
-
-class userevents_type_enum_param(str, Enum):
-    """userevents_type_enum_param enum values."""
-
-    attending = "attending"
-    created = "created"
-    declined = "declined"
-    maybe = "maybe"
-    not_replied = "not_replied"
-
-
-class userphotos_unpublished_content_type_enum_param(str, Enum):
-    """userphotos_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class userfeed_backdated_time_granularity_enum_param(str, Enum):
-    """userfeed_backdated_time_granularity_enum_param enum values."""
-
-    day = "day"
-    hour = "hour"
-    min = "min"
-    month = "month"
-    none = "none"
-    year = "year"
-
-
-class userphotos_backdated_time_granularity_enum_param(str, Enum):
-    """userphotos_backdated_time_granularity_enum_param enum values."""
-
-    day = "day"
-    hour = "hour"
-    min = "min"
-    month = "month"
-    none = "none"
-    year = "year"
-
-
-class userfeed_post_surfaces_blacklist_enum_param(str, Enum):
-    """userfeed_post_surfaces_blacklist_enum_param enum values."""
-
-    VALUE_1 = "1"
-    VALUE_2 = "2"
-    VALUE_3 = "3"
-    VALUE_4 = "4"
-    VALUE_5 = "5"
-
-
-class userlive_videos_stereoscopic_mode_enum_param(str, Enum):
-    """userlive_videos_stereoscopic_mode_enum_param enum values."""
-
-    LEFT_RIGHT = "LEFT_RIGHT"
-    MONO = "MONO"
-    TOP_BOTTOM = "TOP_BOTTOM"
-
-
-class userfeed_place_attachment_setting_enum_param(str, Enum):
-    """userfeed_place_attachment_setting_enum_param enum values."""
-
-    VALUE_1 = "1"
-    VALUE_2 = "2"
-
-
 class userfundraisers_fundraiser_type_enum_param(str, Enum):
     """userfundraisers_fundraiser_type_enum_param enum values."""
 
     person_for_charity = "person_for_charity"
-
-
-class uservideos_container_type_enum_param(str, Enum):
-    """uservideos_container_type_enum_param enum values."""
-
-    ACO_VIDEO_VARIATION = "ACO_VIDEO_VARIATION"
-    ADS_AI_GENERATED = "ADS_AI_GENERATED"
-    AD_BREAK_PREVIEW = "AD_BREAK_PREVIEW"
-    AD_DERIVATIVE = "AD_DERIVATIVE"
-    AD_LIBRARY_WATERMARK = "AD_LIBRARY_WATERMARK"
-    ALBUM_MULTIMEDIA_POST = "ALBUM_MULTIMEDIA_POST"
-    ALOHA_SUPERFRAME = "ALOHA_SUPERFRAME"
-    APP_REREVIEW_SCREENCAST = "APP_REREVIEW_SCREENCAST"
-    APP_REVIEW_SCREENCAST = "APP_REVIEW_SCREENCAST"
-    ASSET_MANAGER = "ASSET_MANAGER"
-    ATLAS_VIDEO = "ATLAS_VIDEO"
-    AUDIO_BROADCAST = "AUDIO_BROADCAST"
-    AUDIO_COMMENT = "AUDIO_COMMENT"
-    BROADCAST = "BROADCAST"
-    CANVAS = "CANVAS"
-    CMS_MEDIA_MANAGER = "CMS_MEDIA_MANAGER"
-    CONTAINED_POST_ATTACHMENT = "CONTAINED_POST_ATTACHMENT"
-    CONTAINED_POST_AUDIO_BROADCAST = "CONTAINED_POST_AUDIO_BROADCAST"
-    CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST = "CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST"
-    COPYRIGHT_REFERENCE_BROADCAST = "COPYRIGHT_REFERENCE_BROADCAST"
-    COPYRIGHT_REFERENCE_IG_XPOST_VIDEO = "COPYRIGHT_REFERENCE_IG_XPOST_VIDEO"
-    COPYRIGHT_REFERENCE_VIDEO = "COPYRIGHT_REFERENCE_VIDEO"
-    CREATION_ML_PRECREATION = "CREATION_ML_PRECREATION"
-    CREATOR_FAN_CHALLENGE = "CREATOR_FAN_CHALLENGE"
-    CREATOR_STOREFRONT_PERSONALIZED_VIDEO = "CREATOR_STOREFRONT_PERSONALIZED_VIDEO"
-    DATAGENIX_VIDEO = "DATAGENIX_VIDEO"
-    DCO_AD_ASSET_FEED = "DCO_AD_ASSET_FEED"
-    DCO_AUTOGEN_VIDEO = "DCO_AUTOGEN_VIDEO"
-    DCO_TRIMMED_VIDEO = "DCO_TRIMMED_VIDEO"
-    DIM_SUM = "DIM_SUM"
-    DIRECTED_POST_ATTACHMENT = "DIRECTED_POST_ATTACHMENT"
-    DIRECT_INBOX = "DIRECT_INBOX"
-    DROPS_SHOPPING_EVENT_PAGE = "DROPS_SHOPPING_EVENT_PAGE"
-    DYNAMIC_ITEM_VIDEO = "DYNAMIC_ITEM_VIDEO"
-    DYNAMIC_TEMPLATE_VIDEO = "DYNAMIC_TEMPLATE_VIDEO"
-    EVENT_COVER_VIDEO = "EVENT_COVER_VIDEO"
-    EVENT_TOUR = "EVENT_TOUR"
-    FACECAST_DVR = "FACECAST_DVR"
-    FB_AVATAR_ANIMATED_SATP = "FB_AVATAR_ANIMATED_SATP"
-    FB_COLLECTIBLE_VIDEO = "FB_COLLECTIBLE_VIDEO"
-    FB_SHORTS = "FB_SHORTS"
-    FB_SHORTS_CONTENT_REMIXABLE = "FB_SHORTS_CONTENT_REMIXABLE"
-    FB_SHORTS_GROUP_POST = "FB_SHORTS_GROUP_POST"
-    FB_SHORTS_LINKED_PRODUCT = "FB_SHORTS_LINKED_PRODUCT"
-    FB_SHORTS_PMV_POST = "FB_SHORTS_PMV_POST"
-    FB_SHORTS_POST = "FB_SHORTS_POST"
-    FB_SHORTS_REMIX_POST = "FB_SHORTS_REMIX_POST"
-    FUNDRAISER_COVER_VIDEO = "FUNDRAISER_COVER_VIDEO"
-    GAME_CLIP = "GAME_CLIP"
-    GIF_TO_VIDEO = "GIF_TO_VIDEO"
-    GOODWILL_ANNIVERSARY_DEPRECATED = "GOODWILL_ANNIVERSARY_DEPRECATED"
-    GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED = "GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED"
-    GOODWILL_VIDEO_CONTAINED_SHARE = "GOODWILL_VIDEO_CONTAINED_SHARE"
-    GOODWILL_VIDEO_PROMOTION = "GOODWILL_VIDEO_PROMOTION"
-    GOODWILL_VIDEO_SHARE = "GOODWILL_VIDEO_SHARE"
-    GOODWILL_VIDEO_TOKEN_REQUIRED = "GOODWILL_VIDEO_TOKEN_REQUIRED"
-    GROUP_POST = "GROUP_POST"
-    HEURISTIC_CLUSTER_VIDEO = "HEURISTIC_CLUSTER_VIDEO"
-    HIGHLIGHT_CLIP_VIDEO = "HIGHLIGHT_CLIP_VIDEO"
-    HORIZON_WORLDS_TV = "HORIZON_WORLDS_TV"
-    HUDDLE_BROADCAST = "HUDDLE_BROADCAST"
-    IG_REELS_XPV = "IG_REELS_XPV"
-    IG_STORIES_READER = "IG_STORIES_READER"
-    INJECTABLE = "INJECTABLE"
-    INSPIRATION_VIDEO = "INSPIRATION_VIDEO"
-    INSTAGRAM_VIDEO_COPY = "INSTAGRAM_VIDEO_COPY"
-    INSTANT_APPLICATION_PREVIEW = "INSTANT_APPLICATION_PREVIEW"
-    INSTANT_ARTICLE = "INSTANT_ARTICLE"
-    ISSUE_MODULE = "ISSUE_MODULE"
-    LEARN = "LEARN"
-    LEGACY = "LEGACY"
-    LEGACY_CONTAINED_POST_BROADCAST = "LEGACY_CONTAINED_POST_BROADCAST"
-    LIVE_AUDIO_ROOM_BROADCAST = "LIVE_AUDIO_ROOM_BROADCAST"
-    LIVE_CLIP_PREVIEW = "LIVE_CLIP_PREVIEW"
-    LIVE_CLIP_WORKCHAT = "LIVE_CLIP_WORKCHAT"
-    LIVE_CREATIVE_KIT_VIDEO = "LIVE_CREATIVE_KIT_VIDEO"
-    LIVE_PHOTO = "LIVE_PHOTO"
-    LOOK_NOW_DEPRECATED = "LOOK_NOW_DEPRECATED"
-    MARKETPLACE_LISTING_VIDEO = "MARKETPLACE_LISTING_VIDEO"
-    MARKETPLACE_PRE_RECORDED_VIDEO = "MARKETPLACE_PRE_RECORDED_VIDEO"
-    MOMENTS_VIDEO = "MOMENTS_VIDEO"
-    MUSIC_CLIP = "MUSIC_CLIP"
-    MUSIC_CLIP_IN_COMMENT = "MUSIC_CLIP_IN_COMMENT"
-    MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS = "MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS"
-    MUSIC_CLIP_IN_MSGR_NOTE = "MUSIC_CLIP_IN_MSGR_NOTE"
-    MUSIC_CLIP_IN_POLL_OPTION = "MUSIC_CLIP_IN_POLL_OPTION"
-    MUSIC_CLIP_ON_DATING_PROFILE = "MUSIC_CLIP_ON_DATING_PROFILE"
-    NEO_ASYNC_GAME_VIDEO = "NEO_ASYNC_GAME_VIDEO"
-    NEW_CONTAINED_POST_BROADCAST = "NEW_CONTAINED_POST_BROADCAST"
-    NO_STORY = "NO_STORY"
-    OCULUS_CREATOR_PORTAL = "OCULUS_CREATOR_PORTAL"
-    OCULUS_VENUES_BROADCAST = "OCULUS_VENUES_BROADCAST"
-    ORIGINALITY_SELF_ADVOCACY = "ORIGINALITY_SELF_ADVOCACY"
-    PAGES_COVER_VIDEO = "PAGES_COVER_VIDEO"
-    PAGE_REVIEW_SCREENCAST = "PAGE_REVIEW_SCREENCAST"
-    PAGE_SLIDESHOW_VIDEO = "PAGE_SLIDESHOW_VIDEO"
-    PAID_CONTENT_PREVIEW = "PAID_CONTENT_PREVIEW"
-    PAID_CONTENT_VIDEO = "PAID_CONTENT_VIDEO"
-    PAID_CONTENT_VIDEO__POST = "PAID_CONTENT_VIDEO__POST"
-    PIXELCLOUD = "PIXELCLOUD"
-    PODCAST_HIGHLIGHT = "PODCAST_HIGHLIGHT"
-    PODCAST_ML_PREVIEW = "PODCAST_ML_PREVIEW"
-    PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY = "PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY"
-    PODCAST_RSS = "PODCAST_RSS"
-    PODCAST_RSS_EPHEMERAL = "PODCAST_RSS_EPHEMERAL"
-    PODCAST_RSS_NO_NEWSFEED_STORY = "PODCAST_RSS_NO_NEWSFEED_STORY"
-    PODCAST_VOICES = "PODCAST_VOICES"
-    PODCAST_VOICES_NO_NEWSFEED_STORY = "PODCAST_VOICES_NO_NEWSFEED_STORY"
-    PREMIERE_SOURCE = "PREMIERE_SOURCE"
-    PREMIUM_MUSIC_VIDEO_CLIP = "PREMIUM_MUSIC_VIDEO_CLIP"
-    PREMIUM_MUSIC_VIDEO_CROPPED_CLIP = "PREMIUM_MUSIC_VIDEO_CROPPED_CLIP"
-    PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY"
-    PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY"
-    PRIVATE_GALLERY_VIDEO = "PRIVATE_GALLERY_VIDEO"
-    PRODUCT_VIDEO = "PRODUCT_VIDEO"
-    PROFILE_COVER_VIDEO = "PROFILE_COVER_VIDEO"
-    PROFILE_INTRO_CARD = "PROFILE_INTRO_CARD"
-    PROFILE_VIDEO = "PROFILE_VIDEO"
-    PROTON = "PROTON"
-    QUICK_CLIP_WORKPLACE_POST = "QUICK_CLIP_WORKPLACE_POST"
-    QUICK_PROMOTION = "QUICK_PROMOTION"
-    REPLACE_VIDEO = "REPLACE_VIDEO"
-    SALES_CLIENT_INTERACTION = "SALES_CLIENT_INTERACTION"
-    SHOWREEL_NATIVE_DUMMY_VIDEO = "SHOWREEL_NATIVE_DUMMY_VIDEO"
-    SLIDESHOW_ANIMOTO = "SLIDESHOW_ANIMOTO"
-    SLIDESHOW_SHAKR = "SLIDESHOW_SHAKR"
-    SLIDESHOW_VARIATION_VIDEO = "SLIDESHOW_VARIATION_VIDEO"
-    SOUND_PLATFORM_STREAM = "SOUND_PLATFORM_STREAM"
-    SRT_ATTACHMENT = "SRT_ATTACHMENT"
-    STORIES_VIDEO = "STORIES_VIDEO"
-    STORYLINE = "STORYLINE"
-    STORYLINE_WITH_EXTERNAL_MUSIC = "STORYLINE_WITH_EXTERNAL_MUSIC"
-    STORY_ARCHIVE_VIDEO = "STORY_ARCHIVE_VIDEO"
-    STORY_CARD_TEMPLATE = "STORY_CARD_TEMPLATE"
-    STREAM_HIGHLIGHTS_VIDEO = "STREAM_HIGHLIGHTS_VIDEO"
-    TAROT_DIGEST = "TAROT_DIGEST"
-    TEMPORARY_UNLISTED = "TEMPORARY_UNLISTED"
-    TEMP_VIDEO_COPYRIGHT_SCAN = "TEMP_VIDEO_COPYRIGHT_SCAN"
-    UNLISTED = "UNLISTED"
-    UNLISTED_OCULUS = "UNLISTED_OCULUS"
-    VIDEO_COMMENT = "VIDEO_COMMENT"
-    VIDEO_COMPOSITION_VARIATION = "VIDEO_COMPOSITION_VARIATION"
-    VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO = "VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO"
-    VIDEO_SUPERRES = "VIDEO_SUPERRES"
-    VOICES_ARTICLE_VIDEO = "VOICES_ARTICLE_VIDEO"
-    VU_GENERATED_VIDEO = "VU_GENERATED_VIDEO"
-    WOODHENGE = "WOODHENGE"
-    WORK_KNOWLEDGE_VIDEO = "WORK_KNOWLEDGE_VIDEO"
-    YOUR_DAY = "YOUR_DAY"
-
-
-class uservideos_unpublished_content_type_enum_param(str, Enum):
-    """uservideos_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class userpicture_type_enum_param(str, Enum):
-    """userpicture_type_enum_param enum values."""
-
-    album = "album"
-    large = "large"
-    normal = "normal"
-    small = "small"
-    square = "square"
-
-
-class uservideos_original_projection_type_enum_param(str, Enum):
-    """uservideos_original_projection_type_enum_param enum values."""
-
-    cubemap = "cubemap"
-    equirectangular = "equirectangular"
-    half_equirectangular = "half_equirectangular"
-
-
-class uservideos_type_enum_param(str, Enum):
-    """uservideos_type_enum_param enum values."""
-
-    TAGGED = "TAGGED"
-    UPLOADED = "UPLOADED"
-
-
-class userphotos_type_enum_param(str, Enum):
-    """userphotos_type_enum_param enum values."""
-
-    tagged = "tagged"
-    uploaded = "uploaded"
-
-
-class usernotifications_filtering_enum_param(str, Enum):
-    """usernotifications_filtering_enum_param enum values."""
-
-    ema = "ema"
-    groups = "groups"
-    groups_social = "groups_social"
-
-
-class userfeed_posting_to_redspace_enum_param(str, Enum):
-    """userfeed_posting_to_redspace_enum_param enum values."""
-
-    disabled = "disabled"
-    enabled = "enabled"
-
-
-class userlive_videos_projection_enum_param(str, Enum):
-    """userlive_videos_projection_enum_param enum values."""
-
-    CUBEMAP = "CUBEMAP"
-    EQUIRECTANGULAR = "EQUIRECTANGULAR"
-    HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
 
 
 # Field literal type

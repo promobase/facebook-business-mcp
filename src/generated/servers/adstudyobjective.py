@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adstudyobjective")
 
 
 @mcp.tool()
-async def create_adstudyobjective(
-    object_id: str,
+async def api_create_adstudyobjective(
+    adstudyobjective_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).api_create(
+    result = AdStudyObjective(fbid=adstudyobjective_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adstudyobjective(
 
 
 @mcp.tool()
-async def delete_adstudyobjective(
-    object_id: str,
+async def api_delete_adstudyobjective(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).api_delete(
+    result = AdStudyObjective(fbid=adstudyobjective_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adstudyobjective(
 
 
 @mcp.tool()
-async def get_adstudyobjective(
-    object_id: str,
+async def api_get_adstudyobjective(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).api_get(
+    result = AdStudyObjective(fbid=adstudyobjective_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adstudyobjective(
 
 
 @mcp.tool()
-async def update_adstudyobjective(
-    object_id: str,
+async def api_update_adstudyobjective(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).api_update(
+    result = AdStudyObjective(fbid=adstudyobjective_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adstudyobjective(
 
 
 @mcp.tool()
-async def get_ads_pixels_for_adstudyobjective(
-    object_id: str,
+async def get_ads_pixels(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).get_ads_pixels(
+    result = AdStudyObjective(fbid=adstudyobjective_id).get_ads_pixels(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_ads_pixels_for_adstudyobjective(
 
 
 @mcp.tool()
-async def get_applications_for_adstudyobjective(
-    object_id: str,
+async def get_applications(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).get_applications(
+    result = AdStudyObjective(fbid=adstudyobjective_id).get_applications(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_applications_for_adstudyobjective(
 
 
 @mcp.tool()
-async def get_brand_requests_for_adstudyobjective(
-    object_id: str,
+async def get_brand_requests(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).get_brand_requests(
+    result = AdStudyObjective(fbid=adstudyobjective_id).get_brand_requests(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_brand_requests_for_adstudyobjective(
 
 
 @mcp.tool()
-async def get_custom_conversions_for_adstudyobjective(
-    object_id: str,
+async def get_custom_conversions(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).get_custom_conversions(
+    result = AdStudyObjective(fbid=adstudyobjective_id).get_custom_conversions(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_custom_conversions_for_adstudyobjective(
 
 
 @mcp.tool()
-async def get_offline_conversion_data_sets_for_adstudyobjective(
-    object_id: str,
+async def get_offline_conversion_data_sets(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).get_offline_conversion_data_sets(
+    result = AdStudyObjective(fbid=adstudyobjective_id).get_offline_conversion_data_sets(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_offline_conversion_data_sets_for_adstudyobjective(
 
 
 @mcp.tool()
-async def get_partner_private_studies_for_adstudyobjective(
-    object_id: str,
+async def get_partner_private_studies(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).get_partner_private_studies(
+    result = AdStudyObjective(fbid=adstudyobjective_id).get_partner_private_studies(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_partner_private_studies_for_adstudyobjective(
 
 
 @mcp.tool()
-async def get_partner_studies_for_adstudyobjective(
-    object_id: str,
+async def get_partner_studies(
+    adstudyobjective_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjective(fbid=object_id).get_partner_studies(
+    result = AdStudyObjective(fbid=adstudyobjective_id).get_partner_studies(
         fields=fields,
         params=params,
     )

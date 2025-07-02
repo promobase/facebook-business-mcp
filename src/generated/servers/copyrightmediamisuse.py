@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-copyrightmediamisuse")
 
 
 @mcp.tool()
-async def create_copyrightmediamisuse(
-    object_id: str,
+async def api_create_copyrightmediamisuse(
+    copyrightmediamisuse_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightMediaMisuse(fbid=object_id).api_create(
+    result = CopyrightMediaMisuse(fbid=copyrightmediamisuse_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_copyrightmediamisuse(
 
 
 @mcp.tool()
-async def delete_copyrightmediamisuse(
-    object_id: str,
+async def api_delete_copyrightmediamisuse(
+    copyrightmediamisuse_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightMediaMisuse(fbid=object_id).api_delete(
+    result = CopyrightMediaMisuse(fbid=copyrightmediamisuse_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_copyrightmediamisuse(
 
 
 @mcp.tool()
-async def get_copyrightmediamisuse(
-    object_id: str,
+async def api_get_copyrightmediamisuse(
+    copyrightmediamisuse_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightMediaMisuse(fbid=object_id).api_get(
+    result = CopyrightMediaMisuse(fbid=copyrightmediamisuse_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_copyrightmediamisuse(
 
 
 @mcp.tool()
-async def update_copyrightmediamisuse(
-    object_id: str,
+async def api_update_copyrightmediamisuse(
+    copyrightmediamisuse_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CopyrightMediaMisuse(fbid=object_id).api_update(
+    result = CopyrightMediaMisuse(fbid=copyrightmediamisuse_id).api_update(
         fields=fields,
         params=params,
     )

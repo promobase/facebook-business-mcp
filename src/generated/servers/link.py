@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-link")
 
 
 @mcp.tool()
-async def create_link(
-    object_id: str,
+async def api_create_link(
+    link_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Link(fbid=object_id).api_create(
+    result = Link(fbid=link_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_link(
 
 
 @mcp.tool()
-async def delete_link(
-    object_id: str,
+async def api_delete_link(
+    link_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Link(fbid=object_id).api_delete(
+    result = Link(fbid=link_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_link(
 
 
 @mcp.tool()
-async def get_link(
-    object_id: str,
+async def api_get_link(
+    link_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Link(fbid=object_id).api_get(
+    result = Link(fbid=link_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_link(
 
 
 @mcp.tool()
-async def update_link(
-    object_id: str,
+async def api_update_link(
+    link_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Link(fbid=object_id).api_update(
+    result = Link(fbid=link_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_link(
 
 
 @mcp.tool()
-async def create_comment_for_link(
-    object_id: str,
+async def create_comment(
+    link_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Link(fbid=object_id).create_comment(
+    result = Link(fbid=link_id).create_comment(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_comment_for_link(
 
 
 @mcp.tool()
-async def get_likes_for_link(
-    object_id: str,
+async def get_likes(
+    link_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Link(fbid=object_id).get_likes(
+    result = Link(fbid=link_id).get_likes(
         fields=fields,
         params=params,
     )

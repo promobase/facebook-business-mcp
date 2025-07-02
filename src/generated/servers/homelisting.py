@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-homelisting")
 
 
 @mcp.tool()
-async def create_homelisting(
-    object_id: str,
+async def api_create_homelisting(
+    homelisting_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HomeListing(fbid=object_id).api_create(
+    result = HomeListing(fbid=homelisting_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_homelisting(
 
 
 @mcp.tool()
-async def delete_homelisting(
-    object_id: str,
+async def api_delete_homelisting(
+    homelisting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HomeListing(fbid=object_id).api_delete(
+    result = HomeListing(fbid=homelisting_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_homelisting(
 
 
 @mcp.tool()
-async def get_homelisting(
-    object_id: str,
+async def api_get_homelisting(
+    homelisting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HomeListing(fbid=object_id).api_get(
+    result = HomeListing(fbid=homelisting_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_homelisting(
 
 
 @mcp.tool()
-async def update_homelisting(
-    object_id: str,
+async def api_update_homelisting(
+    homelisting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HomeListing(fbid=object_id).api_update(
+    result = HomeListing(fbid=homelisting_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_homelisting(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_homelisting(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    homelisting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HomeListing(fbid=object_id).get_channels_to_integrity_status(
+    result = HomeListing(fbid=homelisting_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_homelisting(
 
 
 @mcp.tool()
-async def get_override_details_for_homelisting(
-    object_id: str,
+async def get_override_details(
+    homelisting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HomeListing(fbid=object_id).get_override_details(
+    result = HomeListing(fbid=homelisting_id).get_override_details(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_override_details_for_homelisting(
 
 
 @mcp.tool()
-async def get_videos_metadata_for_homelisting(
-    object_id: str,
+async def get_videos_metadata(
+    homelisting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = HomeListing(fbid=object_id).get_videos_metadata(
+    result = HomeListing(fbid=homelisting_id).get_videos_metadata(
         fields=fields,
         params=params,
     )

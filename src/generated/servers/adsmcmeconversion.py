@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adsmcmeconversion")
 
 
 @mcp.tool()
-async def create_adsmcmeconversion(
-    object_id: str,
+async def api_create_adsmcmeconversion(
+    adsmcmeconversion_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsMcmeConversion(fbid=object_id).api_create(
+    result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adsmcmeconversion(
 
 
 @mcp.tool()
-async def delete_adsmcmeconversion(
-    object_id: str,
+async def api_delete_adsmcmeconversion(
+    adsmcmeconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsMcmeConversion(fbid=object_id).api_delete(
+    result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adsmcmeconversion(
 
 
 @mcp.tool()
-async def get_adsmcmeconversion(
-    object_id: str,
+async def api_get_adsmcmeconversion(
+    adsmcmeconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsMcmeConversion(fbid=object_id).api_get(
+    result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adsmcmeconversion(
 
 
 @mcp.tool()
-async def update_adsmcmeconversion(
-    object_id: str,
+async def api_update_adsmcmeconversion(
+    adsmcmeconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsMcmeConversion(fbid=object_id).api_update(
+    result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_update(
         fields=fields,
         params=params,
     )

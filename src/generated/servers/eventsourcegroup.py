@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-eventsourcegroup")
 
 
 @mcp.tool()
-async def create_eventsourcegroup(
-    object_id: str,
+async def api_create_eventsourcegroup(
+    eventsourcegroup_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventSourceGroup(fbid=object_id).api_create(
+    result = EventSourceGroup(fbid=eventsourcegroup_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_eventsourcegroup(
 
 
 @mcp.tool()
-async def delete_eventsourcegroup(
-    object_id: str,
+async def api_delete_eventsourcegroup(
+    eventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventSourceGroup(fbid=object_id).api_delete(
+    result = EventSourceGroup(fbid=eventsourcegroup_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_eventsourcegroup(
 
 
 @mcp.tool()
-async def get_eventsourcegroup(
-    object_id: str,
+async def api_get_eventsourcegroup(
+    eventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventSourceGroup(fbid=object_id).api_get(
+    result = EventSourceGroup(fbid=eventsourcegroup_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_eventsourcegroup(
 
 
 @mcp.tool()
-async def update_eventsourcegroup(
-    object_id: str,
+async def api_update_eventsourcegroup(
+    eventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventSourceGroup(fbid=object_id).api_update(
+    result = EventSourceGroup(fbid=eventsourcegroup_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_eventsourcegroup(
 
 
 @mcp.tool()
-async def create_shared_account_for_eventsourcegroup(
-    object_id: str,
+async def create_shared_account(
+    eventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventSourceGroup(fbid=object_id).create_shared_account(
+    result = EventSourceGroup(fbid=eventsourcegroup_id).create_shared_account(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_shared_account_for_eventsourcegroup(
 
 
 @mcp.tool()
-async def get_shared_accounts_for_eventsourcegroup(
-    object_id: str,
+async def get_shared_accounts(
+    eventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventSourceGroup(fbid=object_id).get_shared_accounts(
+    result = EventSourceGroup(fbid=eventsourcegroup_id).get_shared_accounts(
         fields=fields,
         params=params,
     )

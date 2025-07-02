@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adsavedlocation")
 
 
 @mcp.tool()
-async def create_adsavedlocation(
-    object_id: str,
+async def api_create_adsavedlocation(
+    adsavedlocation_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedLocation(fbid=object_id).api_create(
+    result = AdSavedLocation(fbid=adsavedlocation_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adsavedlocation(
 
 
 @mcp.tool()
-async def delete_adsavedlocation(
-    object_id: str,
+async def api_delete_adsavedlocation(
+    adsavedlocation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedLocation(fbid=object_id).api_delete(
+    result = AdSavedLocation(fbid=adsavedlocation_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adsavedlocation(
 
 
 @mcp.tool()
-async def get_adsavedlocation(
-    object_id: str,
+async def api_get_adsavedlocation(
+    adsavedlocation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedLocation(fbid=object_id).api_get(
+    result = AdSavedLocation(fbid=adsavedlocation_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adsavedlocation(
 
 
 @mcp.tool()
-async def update_adsavedlocation(
-    object_id: str,
+async def api_update_adsavedlocation(
+    adsavedlocation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdSavedLocation(fbid=object_id).api_update(
+    result = AdSavedLocation(fbid=adsavedlocation_id).api_update(
         fields=fields,
         params=params,
     )

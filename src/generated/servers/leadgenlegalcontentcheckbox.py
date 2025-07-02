@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-leadgenlegalcontentcheckbox")
 
 
 @mcp.tool()
-async def create_leadgenlegalcontentcheckbox(
-    object_id: str,
+async def api_create_leadgenlegalcontentcheckbox(
+    leadgenlegalcontentcheckbox_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContentCheckbox(fbid=object_id).api_create(
+    result = LeadGenLegalContentCheckbox(fbid=leadgenlegalcontentcheckbox_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_leadgenlegalcontentcheckbox(
 
 
 @mcp.tool()
-async def delete_leadgenlegalcontentcheckbox(
-    object_id: str,
+async def api_delete_leadgenlegalcontentcheckbox(
+    leadgenlegalcontentcheckbox_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContentCheckbox(fbid=object_id).api_delete(
+    result = LeadGenLegalContentCheckbox(fbid=leadgenlegalcontentcheckbox_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_leadgenlegalcontentcheckbox(
 
 
 @mcp.tool()
-async def get_leadgenlegalcontentcheckbox(
-    object_id: str,
+async def api_get_leadgenlegalcontentcheckbox(
+    leadgenlegalcontentcheckbox_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContentCheckbox(fbid=object_id).api_get(
+    result = LeadGenLegalContentCheckbox(fbid=leadgenlegalcontentcheckbox_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_leadgenlegalcontentcheckbox(
 
 
 @mcp.tool()
-async def update_leadgenlegalcontentcheckbox(
-    object_id: str,
+async def api_update_leadgenlegalcontentcheckbox(
+    leadgenlegalcontentcheckbox_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LeadGenLegalContentCheckbox(fbid=object_id).api_update(
+    result = LeadGenLegalContentCheckbox(fbid=leadgenlegalcontentcheckbox_id).api_update(
         fields=fields,
         params=params,
     )

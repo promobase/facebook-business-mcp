@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-extendedcreditemail")
 
 
 @mcp.tool()
-async def create_extendedcreditemail(
-    object_id: str,
+async def api_create_extendedcreditemail(
+    extendedcreditemail_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditEmail(fbid=object_id).api_create(
+    result = ExtendedCreditEmail(fbid=extendedcreditemail_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_extendedcreditemail(
 
 
 @mcp.tool()
-async def delete_extendedcreditemail(
-    object_id: str,
+async def api_delete_extendedcreditemail(
+    extendedcreditemail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditEmail(fbid=object_id).api_delete(
+    result = ExtendedCreditEmail(fbid=extendedcreditemail_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_extendedcreditemail(
 
 
 @mcp.tool()
-async def get_extendedcreditemail(
-    object_id: str,
+async def api_get_extendedcreditemail(
+    extendedcreditemail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditEmail(fbid=object_id).api_get(
+    result = ExtendedCreditEmail(fbid=extendedcreditemail_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_extendedcreditemail(
 
 
 @mcp.tool()
-async def update_extendedcreditemail(
-    object_id: str,
+async def api_update_extendedcreditemail(
+    extendedcreditemail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCreditEmail(fbid=object_id).api_update(
+    result = ExtendedCreditEmail(fbid=extendedcreditemail_id).api_update(
         fields=fields,
         params=params,
     )

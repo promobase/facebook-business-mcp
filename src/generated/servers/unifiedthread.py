@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-unifiedthread")
 
 
 @mcp.tool()
-async def create_unifiedthread(
-    object_id: str,
+async def api_create_unifiedthread(
+    unifiedthread_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UnifiedThread(fbid=object_id).api_create(
+    result = UnifiedThread(fbid=unifiedthread_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_unifiedthread(
 
 
 @mcp.tool()
-async def delete_unifiedthread(
-    object_id: str,
+async def api_delete_unifiedthread(
+    unifiedthread_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UnifiedThread(fbid=object_id).api_delete(
+    result = UnifiedThread(fbid=unifiedthread_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_unifiedthread(
 
 
 @mcp.tool()
-async def get_unifiedthread(
-    object_id: str,
+async def api_get_unifiedthread(
+    unifiedthread_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UnifiedThread(fbid=object_id).api_get(
+    result = UnifiedThread(fbid=unifiedthread_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_unifiedthread(
 
 
 @mcp.tool()
-async def update_unifiedthread(
-    object_id: str,
+async def api_update_unifiedthread(
+    unifiedthread_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UnifiedThread(fbid=object_id).api_update(
+    result = UnifiedThread(fbid=unifiedthread_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_unifiedthread(
 
 
 @mcp.tool()
-async def get_messages_for_unifiedthread(
-    object_id: str,
+async def get_messages(
+    unifiedthread_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UnifiedThread(fbid=object_id).get_messages(
+    result = UnifiedThread(fbid=unifiedthread_id).get_messages(
         fields=fields,
         params=params,
     )

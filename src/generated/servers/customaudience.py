@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-customaudience")
 
 
 @mcp.tool()
-async def create_customaudience(
-    object_id: str,
+async def api_create_customaudience(
+    customaudience_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).api_create(
+    result = CustomAudience(fbid=customaudience_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_customaudience(
 
 
 @mcp.tool()
-async def delete_customaudience(
-    object_id: str,
+async def api_delete_customaudience(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).api_delete(
+    result = CustomAudience(fbid=customaudience_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_customaudience(
 
 
 @mcp.tool()
-async def get_customaudience(
-    object_id: str,
+async def api_get_customaudience(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).api_get(
+    result = CustomAudience(fbid=customaudience_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_customaudience(
 
 
 @mcp.tool()
-async def update_customaudience(
-    object_id: str,
+async def api_update_customaudience(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).api_update(
+    result = CustomAudience(fbid=customaudience_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_customaudience(
 
 
 @mcp.tool()
-async def create_ad_account_for_customaudience(
-    object_id: str,
+async def create_ad_account(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).create_ad_account(
+    result = CustomAudience(fbid=customaudience_id).create_ad_account(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_ad_account_for_customaudience(
 
 
 @mcp.tool()
-async def create_salt_for_customaudience(
-    object_id: str,
+async def create_salt(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).create_salt(
+    result = CustomAudience(fbid=customaudience_id).create_salt(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_salt_for_customaudience(
 
 
 @mcp.tool()
-async def create_user_for_customaudience(
-    object_id: str,
+async def create_user(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).create_user(
+    result = CustomAudience(fbid=customaudience_id).create_user(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_user_for_customaudience(
 
 
 @mcp.tool()
-async def create_users_replace_for_customaudience(
-    object_id: str,
+async def create_users_replace(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).create_users_replace(
+    result = CustomAudience(fbid=customaudience_id).create_users_replace(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_users_replace_for_customaudience(
 
 
 @mcp.tool()
-async def delete_ad_accounts_for_customaudience(
-    object_id: str,
+async def delete_ad_accounts(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).delete_ad_accounts(
+    result = CustomAudience(fbid=customaudience_id).delete_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def delete_ad_accounts_for_customaudience(
 
 
 @mcp.tool()
-async def delete_users_for_customaudience(
-    object_id: str,
+async def delete_users(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).delete_users(
+    result = CustomAudience(fbid=customaudience_id).delete_users(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def delete_users_for_customaudience(
 
 
 @mcp.tool()
-async def get_ad_accounts_for_customaudience(
-    object_id: str,
+async def get_ad_accounts(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).get_ad_accounts(
+    result = CustomAudience(fbid=customaudience_id).get_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_ad_accounts_for_customaudience(
 
 
 @mcp.tool()
-async def get_ads_for_customaudience(
-    object_id: str,
+async def get_ads(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).get_ads(
+    result = CustomAudience(fbid=customaudience_id).get_ads(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_ads_for_customaudience(
 
 
 @mcp.tool()
-async def get_health_for_customaudience(
-    object_id: str,
+async def get_health(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).get_health(
+    result = CustomAudience(fbid=customaudience_id).get_health(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_health_for_customaudience(
 
 
 @mcp.tool()
-async def get_salts_for_customaudience(
-    object_id: str,
+async def get_salts(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).get_salts(
+    result = CustomAudience(fbid=customaudience_id).get_salts(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_salts_for_customaudience(
 
 
 @mcp.tool()
-async def get_sessions_for_customaudience(
-    object_id: str,
+async def get_sessions(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).get_sessions(
+    result = CustomAudience(fbid=customaudience_id).get_sessions(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_sessions_for_customaudience(
 
 
 @mcp.tool()
-async def get_shared_account_info_for_customaudience(
-    object_id: str,
+async def get_shared_account_info(
+    customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CustomAudience(fbid=object_id).get_shared_account_info(
+    result = CustomAudience(fbid=customaudience_id).get_shared_account_info(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-businessuser")
 
 
 @mcp.tool()
-async def create_businessuser(
-    object_id: str,
+async def api_create_businessuser(
+    businessuser_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).api_create(
+    result = BusinessUser(fbid=businessuser_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_businessuser(
 
 
 @mcp.tool()
-async def delete_businessuser(
-    object_id: str,
+async def api_delete_businessuser(
+    businessuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).api_delete(
+    result = BusinessUser(fbid=businessuser_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_businessuser(
 
 
 @mcp.tool()
-async def get_businessuser(
-    object_id: str,
+async def api_get_businessuser(
+    businessuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).api_get(
+    result = BusinessUser(fbid=businessuser_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_businessuser(
 
 
 @mcp.tool()
-async def update_businessuser(
-    object_id: str,
+async def api_update_businessuser(
+    businessuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).api_update(
+    result = BusinessUser(fbid=businessuser_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_businessuser(
 
 
 @mcp.tool()
-async def get_assigned_ad_accounts_for_businessuser(
-    object_id: str,
+async def get_assigned_ad_accounts(
+    businessuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).get_assigned_ad_accounts(
+    result = BusinessUser(fbid=businessuser_id).get_assigned_ad_accounts(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_assigned_ad_accounts_for_businessuser(
 
 
 @mcp.tool()
-async def get_assigned_business_asset_groups_for_businessuser(
-    object_id: str,
+async def get_assigned_business_asset_groups(
+    businessuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).get_assigned_business_asset_groups(
+    result = BusinessUser(fbid=businessuser_id).get_assigned_business_asset_groups(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_assigned_business_asset_groups_for_businessuser(
 
 
 @mcp.tool()
-async def get_assigned_pages_for_businessuser(
-    object_id: str,
+async def get_assigned_pages(
+    businessuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).get_assigned_pages(
+    result = BusinessUser(fbid=businessuser_id).get_assigned_pages(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_assigned_pages_for_businessuser(
 
 
 @mcp.tool()
-async def get_assigned_product_catalogs_for_businessuser(
-    object_id: str,
+async def get_assigned_product_catalogs(
+    businessuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessUser(fbid=object_id).get_assigned_product_catalogs(
+    result = BusinessUser(fbid=businessuser_id).get_assigned_product_catalogs(
         fields=fields,
         params=params,
     )

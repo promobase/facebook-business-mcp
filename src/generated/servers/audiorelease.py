@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-audiorelease")
 
 
 @mcp.tool()
-async def create_audiorelease(
-    object_id: str,
+async def api_create_audiorelease(
+    audiorelease_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioRelease(fbid=object_id).api_create(
+    result = AudioRelease(fbid=audiorelease_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_audiorelease(
 
 
 @mcp.tool()
-async def delete_audiorelease(
-    object_id: str,
+async def api_delete_audiorelease(
+    audiorelease_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioRelease(fbid=object_id).api_delete(
+    result = AudioRelease(fbid=audiorelease_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_audiorelease(
 
 
 @mcp.tool()
-async def get_audiorelease(
-    object_id: str,
+async def api_get_audiorelease(
+    audiorelease_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioRelease(fbid=object_id).api_get(
+    result = AudioRelease(fbid=audiorelease_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_audiorelease(
 
 
 @mcp.tool()
-async def update_audiorelease(
-    object_id: str,
+async def api_update_audiorelease(
+    audiorelease_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AudioRelease(fbid=object_id).api_update(
+    result = AudioRelease(fbid=audiorelease_id).api_update(
         fields=fields,
         params=params,
     )

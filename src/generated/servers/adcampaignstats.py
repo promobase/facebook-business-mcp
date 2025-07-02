@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adcampaignstats")
 
 
 @mcp.tool()
-async def create_adcampaignstats(
-    object_id: str,
+async def api_create_adcampaignstats(
+    adcampaignstats_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCampaignStats(fbid=object_id).api_create(
+    result = AdCampaignStats(fbid=adcampaignstats_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adcampaignstats(
 
 
 @mcp.tool()
-async def delete_adcampaignstats(
-    object_id: str,
+async def api_delete_adcampaignstats(
+    adcampaignstats_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCampaignStats(fbid=object_id).api_delete(
+    result = AdCampaignStats(fbid=adcampaignstats_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adcampaignstats(
 
 
 @mcp.tool()
-async def get_adcampaignstats(
-    object_id: str,
+async def api_get_adcampaignstats(
+    adcampaignstats_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCampaignStats(fbid=object_id).api_get(
+    result = AdCampaignStats(fbid=adcampaignstats_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adcampaignstats(
 
 
 @mcp.tool()
-async def update_adcampaignstats(
-    object_id: str,
+async def api_update_adcampaignstats(
+    adcampaignstats_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCampaignStats(fbid=object_id).api_update(
+    result = AdCampaignStats(fbid=adcampaignstats_id).api_update(
         fields=fields,
         params=params,
     )

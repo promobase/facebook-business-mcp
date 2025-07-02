@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adlabel")
 
 
 @mcp.tool()
-async def create_adlabel(
-    object_id: str,
+async def api_create_adlabel(
+    adlabel_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).api_create(
+    result = AdLabel(fbid=adlabel_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adlabel(
 
 
 @mcp.tool()
-async def delete_adlabel(
-    object_id: str,
+async def api_delete_adlabel(
+    adlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).api_delete(
+    result = AdLabel(fbid=adlabel_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adlabel(
 
 
 @mcp.tool()
-async def get_adlabel(
-    object_id: str,
+async def api_get_adlabel(
+    adlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).api_get(
+    result = AdLabel(fbid=adlabel_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adlabel(
 
 
 @mcp.tool()
-async def update_adlabel(
-    object_id: str,
+async def api_update_adlabel(
+    adlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).api_update(
+    result = AdLabel(fbid=adlabel_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_adlabel(
 
 
 @mcp.tool()
-async def get_ad_creatives_for_adlabel(
-    object_id: str,
+async def get_ad_creatives(
+    adlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).get_ad_creatives(
+    result = AdLabel(fbid=adlabel_id).get_ad_creatives(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_ad_creatives_for_adlabel(
 
 
 @mcp.tool()
-async def get_ad_sets_for_adlabel(
-    object_id: str,
+async def get_ad_sets(
+    adlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).get_ad_sets(
+    result = AdLabel(fbid=adlabel_id).get_ad_sets(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_ad_sets_for_adlabel(
 
 
 @mcp.tool()
-async def get_ads_for_adlabel(
-    object_id: str,
+async def get_ads(
+    adlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).get_ads(
+    result = AdLabel(fbid=adlabel_id).get_ads(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_ads_for_adlabel(
 
 
 @mcp.tool()
-async def get_campaigns_for_adlabel(
-    object_id: str,
+async def get_campaigns(
+    adlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdLabel(fbid=object_id).get_campaigns(
+    result = AdLabel(fbid=adlabel_id).get_campaigns(
         fields=fields,
         params=params,
     )

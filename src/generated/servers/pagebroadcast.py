@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-pagebroadcast")
 
 
 @mcp.tool()
-async def create_pagebroadcast(
-    object_id: str,
+async def api_create_pagebroadcast(
+    pagebroadcast_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageBroadcast(fbid=object_id).api_create(
+    result = PageBroadcast(fbid=pagebroadcast_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_pagebroadcast(
 
 
 @mcp.tool()
-async def delete_pagebroadcast(
-    object_id: str,
+async def api_delete_pagebroadcast(
+    pagebroadcast_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageBroadcast(fbid=object_id).api_delete(
+    result = PageBroadcast(fbid=pagebroadcast_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_pagebroadcast(
 
 
 @mcp.tool()
-async def get_pagebroadcast(
-    object_id: str,
+async def api_get_pagebroadcast(
+    pagebroadcast_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageBroadcast(fbid=object_id).api_get(
+    result = PageBroadcast(fbid=pagebroadcast_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_pagebroadcast(
 
 
 @mcp.tool()
-async def update_pagebroadcast(
-    object_id: str,
+async def api_update_pagebroadcast(
+    pagebroadcast_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageBroadcast(fbid=object_id).api_update(
+    result = PageBroadcast(fbid=pagebroadcast_id).api_update(
         fields=fields,
         params=params,
     )

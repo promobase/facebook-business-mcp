@@ -12,6 +12,26 @@ if TYPE_CHECKING:
     from .business import BusinessFields
 
 
+class applicationaccounts_type_enum_param(str, Enum):
+    """applicationaccounts_type_enum_param enum values."""
+
+    TEST_USERS = "test-users"
+
+
+class applicationmobile_sdk_gk_platform_enum_param(str, Enum):
+    """applicationmobile_sdk_gk_platform_enum_param enum values."""
+
+    ANDROID = "ANDROID"
+    IOS = "IOS"
+
+
+class applicationpermissions_status_enum_param(str, Enum):
+    """applicationpermissions_status_enum_param enum values."""
+
+    live = "live"
+    unapproved = "unapproved"
+
+
 class applicationda_checks_connection_method_enum_param(str, Enum):
     """applicationda_checks_connection_method_enum_param enum values."""
 
@@ -21,38 +41,73 @@ class applicationda_checks_connection_method_enum_param(str, Enum):
     SERVER = "SERVER"
 
 
-class applicationactivities_user_id_type_enum_param(str, Enum):
-    """applicationactivities_user_id_type_enum_param enum values."""
+class applicationadnetworkanalytics_breakdowns_enum_param(str, Enum):
+    """applicationadnetworkanalytics_breakdowns_enum_param enum values."""
 
-    INSTANT_GAMES_PLAYER_ID = "INSTANT_GAMES_PLAYER_ID"
-
-
-class applicationcodeless_event_mappings_mutation_method_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_mutation_method_enum_param enum values."""
-
-    ADD = "ADD"
-    DELETE = "DELETE"
-    REPLACE = "REPLACE"
-
-
-class applicationadnetworkanalytics_aggregation_period_enum_param(str, Enum):
-    """applicationadnetworkanalytics_aggregation_period_enum_param enum values."""
-
-    DAY = "DAY"
-    TOTAL = "TOTAL"
-
-
-class applicationadnetworkanalytics_ordering_type_enum_param(str, Enum):
-    """applicationadnetworkanalytics_ordering_type_enum_param enum values."""
-
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
+    AD_SERVER_CAMPAIGN_ID = "AD_SERVER_CAMPAIGN_ID"
+    AD_SPACE = "AD_SPACE"
+    AGE = "AGE"
+    APP = "APP"
+    CLICKED_VIEW_TAG = "CLICKED_VIEW_TAG"
+    COUNTRY = "COUNTRY"
+    DEAL = "DEAL"
+    DEAL_AD = "DEAL_AD"
+    DEAL_PAGE = "DEAL_PAGE"
+    DELIVERY_METHOD = "DELIVERY_METHOD"
+    DISPLAY_FORMAT = "DISPLAY_FORMAT"
+    FAIL_REASON = "FAIL_REASON"
+    GENDER = "GENDER"
+    INSTANT_ARTICLE_ID = "INSTANT_ARTICLE_ID"
+    INSTANT_ARTICLE_PAGE_ID = "INSTANT_ARTICLE_PAGE_ID"
+    IS_DEAL_BACKFILL = "IS_DEAL_BACKFILL"
+    PLACEMENT = "PLACEMENT"
+    PLACEMENT_NAME = "PLACEMENT_NAME"
+    PLATFORM = "PLATFORM"
+    PROPERTY = "PROPERTY"
+    SDK_VERSION = "SDK_VERSION"
 
 
-class applicationaccounts_type_enum_param(str, Enum):
-    """applicationaccounts_type_enum_param enum values."""
+class applicationwhatsapp_business_solutions_role_enum_param(str, Enum):
+    """applicationwhatsapp_business_solutions_role_enum_param enum values."""
 
-    TEST_USERS = "test-users"
+    OWNER = "OWNER"
+    PARTNER = "PARTNER"
+
+
+class applicationwhatsapp_business_solution_owner_permissions_enum_param(str, Enum):
+    """applicationwhatsapp_business_solution_owner_permissions_enum_param enum values."""
+
+    DEVELOP = "DEVELOP"
+    MANAGE = "MANAGE"
+    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
+    MANAGE_PHONE = "MANAGE_PHONE"
+    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
+    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
+    MESSAGING = "MESSAGING"
+    VIEW_COST = "VIEW_COST"
+    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
+    VIEW_TEMPLATES = "VIEW_TEMPLATES"
+
+
+class applicationcodeless_event_mappings_post_method_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_post_method_enum_param enum values."""
+
+    CODELESS = "CODELESS"
+    EYMT = "EYMT"
+
+
+class applicationuploads_session_type_enum_param(str, Enum):
+    """applicationuploads_session_type_enum_param enum values."""
+
+    attachment = "attachment"
+
+
+class applicationapp_push_device_token_platform_enum_param(str, Enum):
+    """applicationapp_push_device_token_platform_enum_param enum values."""
+
+    ANDROID = "ANDROID"
+    IOS = "IOS"
+    UNKNOWN = "UNKNOWN"
 
 
 class applicationwhatsapp_business_solution_partner_permissions_enum_param(str, Enum):
@@ -70,49 +125,20 @@ class applicationwhatsapp_business_solution_partner_permissions_enum_param(str, 
     VIEW_TEMPLATES = "VIEW_TEMPLATES"
 
 
-class applicationadnetworkanalytics_ordering_column_enum_param(str, Enum):
-    """applicationadnetworkanalytics_ordering_column_enum_param enum values."""
+class applicationapp_indexing_request_type_enum_param(str, Enum):
+    """applicationapp_indexing_request_type_enum_param enum values."""
 
-    METRIC = "METRIC"
-    TIME = "TIME"
-    VALUE = "VALUE"
-
-
-class applicationcodeless_event_mappings_post_method_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_post_method_enum_param enum values."""
-
-    CODELESS = "CODELESS"
-    EYMT = "EYMT"
+    APP_INDEXING = "APP_INDEXING"
+    BUTTON_SAMPLING = "BUTTON_SAMPLING"
+    PLUGIN = "PLUGIN"
 
 
-class applicationapp_indexing_platform_enum_param(str, Enum):
-    """applicationapp_indexing_platform_enum_param enum values."""
+class applicationcodeless_event_mappings_mutation_method_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_mutation_method_enum_param enum values."""
 
-    ANDROID = "ANDROID"
-    IOS = "IOS"
-
-
-class applicationwhatsapp_business_solutions_role_enum_param(str, Enum):
-    """applicationwhatsapp_business_solutions_role_enum_param enum values."""
-
-    OWNER = "OWNER"
-    PARTNER = "PARTNER"
-
-
-class applicationapp_push_device_token_platform_enum_param(str, Enum):
-    """applicationapp_push_device_token_platform_enum_param enum values."""
-
-    ANDROID = "ANDROID"
-    IOS = "IOS"
-    UNKNOWN = "UNKNOWN"
-
-
-class applicationactivities_event_enum_param(str, Enum):
-    """applicationactivities_event_enum_param enum values."""
-
-    CUSTOM_APP_EVENTS = "CUSTOM_APP_EVENTS"
-    DEFERRED_APP_LINK = "DEFERRED_APP_LINK"
-    MOBILE_APP_INSTALL = "MOBILE_APP_INSTALL"
+    ADD = "ADD"
+    DELETE = "DELETE"
+    REPLACE = "REPLACE"
 
 
 class applicationcodeless_event_mappings_platform_enum_param(str, Enum):
@@ -147,73 +173,47 @@ class applicationadnetworkanalytics_metrics_enum_param(str, Enum):
     FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
 
 
-class applicationpermissions_status_enum_param(str, Enum):
-    """applicationpermissions_status_enum_param enum values."""
+class applicationadnetworkanalytics_ordering_column_enum_param(str, Enum):
+    """applicationadnetworkanalytics_ordering_column_enum_param enum values."""
 
-    live = "live"
-    unapproved = "unapproved"
-
-
-class applicationapp_indexing_request_type_enum_param(str, Enum):
-    """applicationapp_indexing_request_type_enum_param enum values."""
-
-    APP_INDEXING = "APP_INDEXING"
-    BUTTON_SAMPLING = "BUTTON_SAMPLING"
-    PLUGIN = "PLUGIN"
+    METRIC = "METRIC"
+    TIME = "TIME"
+    VALUE = "VALUE"
 
 
-class applicationmobile_sdk_gk_platform_enum_param(str, Enum):
-    """applicationmobile_sdk_gk_platform_enum_param enum values."""
+class applicationadnetworkanalytics_aggregation_period_enum_param(str, Enum):
+    """applicationadnetworkanalytics_aggregation_period_enum_param enum values."""
+
+    DAY = "DAY"
+    TOTAL = "TOTAL"
+
+
+class applicationactivities_user_id_type_enum_param(str, Enum):
+    """applicationactivities_user_id_type_enum_param enum values."""
+
+    INSTANT_GAMES_PLAYER_ID = "INSTANT_GAMES_PLAYER_ID"
+
+
+class applicationapp_indexing_platform_enum_param(str, Enum):
+    """applicationapp_indexing_platform_enum_param enum values."""
 
     ANDROID = "ANDROID"
     IOS = "IOS"
 
 
-class applicationadnetworkanalytics_breakdowns_enum_param(str, Enum):
-    """applicationadnetworkanalytics_breakdowns_enum_param enum values."""
+class applicationadnetworkanalytics_ordering_type_enum_param(str, Enum):
+    """applicationadnetworkanalytics_ordering_type_enum_param enum values."""
 
-    AD_SERVER_CAMPAIGN_ID = "AD_SERVER_CAMPAIGN_ID"
-    AD_SPACE = "AD_SPACE"
-    AGE = "AGE"
-    APP = "APP"
-    CLICKED_VIEW_TAG = "CLICKED_VIEW_TAG"
-    COUNTRY = "COUNTRY"
-    DEAL = "DEAL"
-    DEAL_AD = "DEAL_AD"
-    DEAL_PAGE = "DEAL_PAGE"
-    DELIVERY_METHOD = "DELIVERY_METHOD"
-    DISPLAY_FORMAT = "DISPLAY_FORMAT"
-    FAIL_REASON = "FAIL_REASON"
-    GENDER = "GENDER"
-    INSTANT_ARTICLE_ID = "INSTANT_ARTICLE_ID"
-    INSTANT_ARTICLE_PAGE_ID = "INSTANT_ARTICLE_PAGE_ID"
-    IS_DEAL_BACKFILL = "IS_DEAL_BACKFILL"
-    PLACEMENT = "PLACEMENT"
-    PLACEMENT_NAME = "PLACEMENT_NAME"
-    PLATFORM = "PLATFORM"
-    PROPERTY = "PROPERTY"
-    SDK_VERSION = "SDK_VERSION"
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
 
 
-class applicationwhatsapp_business_solution_owner_permissions_enum_param(str, Enum):
-    """applicationwhatsapp_business_solution_owner_permissions_enum_param enum values."""
+class applicationactivities_event_enum_param(str, Enum):
+    """applicationactivities_event_enum_param enum values."""
 
-    DEVELOP = "DEVELOP"
-    MANAGE = "MANAGE"
-    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
-    MANAGE_PHONE = "MANAGE_PHONE"
-    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
-    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
-    MESSAGING = "MESSAGING"
-    VIEW_COST = "VIEW_COST"
-    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
-    VIEW_TEMPLATES = "VIEW_TEMPLATES"
-
-
-class applicationuploads_session_type_enum_param(str, Enum):
-    """applicationuploads_session_type_enum_param enum values."""
-
-    attachment = "attachment"
+    CUSTOM_APP_EVENTS = "CUSTOM_APP_EVENTS"
+    DEFERRED_APP_LINK = "DEFERRED_APP_LINK"
+    MOBILE_APP_INSTALL = "MOBILE_APP_INSTALL"
 
 
 # Field literal type

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-eventregistrationsetting")
 
 
 @mcp.tool()
-async def create_eventregistrationsetting(
-    object_id: str,
+async def api_create_eventregistrationsetting(
+    eventregistrationsetting_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventRegistrationSetting(fbid=object_id).api_create(
+    result = EventRegistrationSetting(fbid=eventregistrationsetting_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_eventregistrationsetting(
 
 
 @mcp.tool()
-async def delete_eventregistrationsetting(
-    object_id: str,
+async def api_delete_eventregistrationsetting(
+    eventregistrationsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventRegistrationSetting(fbid=object_id).api_delete(
+    result = EventRegistrationSetting(fbid=eventregistrationsetting_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_eventregistrationsetting(
 
 
 @mcp.tool()
-async def get_eventregistrationsetting(
-    object_id: str,
+async def api_get_eventregistrationsetting(
+    eventregistrationsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventRegistrationSetting(fbid=object_id).api_get(
+    result = EventRegistrationSetting(fbid=eventregistrationsetting_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_eventregistrationsetting(
 
 
 @mcp.tool()
-async def update_eventregistrationsetting(
-    object_id: str,
+async def api_update_eventregistrationsetting(
+    eventregistrationsetting_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = EventRegistrationSetting(fbid=object_id).api_update(
+    result = EventRegistrationSetting(fbid=eventregistrationsetting_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-collaborativeadssharesettings")
 
 
 @mcp.tool()
-async def create_collaborativeadssharesettings(
-    object_id: str,
+async def api_create_collaborativeadssharesettings(
+    collaborativeadssharesettings_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CollaborativeAdsShareSettings(fbid=object_id).api_create(
+    result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_collaborativeadssharesettings(
 
 
 @mcp.tool()
-async def delete_collaborativeadssharesettings(
-    object_id: str,
+async def api_delete_collaborativeadssharesettings(
+    collaborativeadssharesettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CollaborativeAdsShareSettings(fbid=object_id).api_delete(
+    result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_collaborativeadssharesettings(
 
 
 @mcp.tool()
-async def get_collaborativeadssharesettings(
-    object_id: str,
+async def api_get_collaborativeadssharesettings(
+    collaborativeadssharesettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CollaborativeAdsShareSettings(fbid=object_id).api_get(
+    result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_collaborativeadssharesettings(
 
 
 @mcp.tool()
-async def update_collaborativeadssharesettings(
-    object_id: str,
+async def api_update_collaborativeadssharesettings(
+    collaborativeadssharesettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CollaborativeAdsShareSettings(fbid=object_id).api_update(
+    result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_update(
         fields=fields,
         params=params,
     )

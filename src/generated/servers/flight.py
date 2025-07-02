@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-flight")
 
 
 @mcp.tool()
-async def create_flight(
-    object_id: str,
+async def api_create_flight(
+    flight_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Flight(fbid=object_id).api_create(
+    result = Flight(fbid=flight_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_flight(
 
 
 @mcp.tool()
-async def delete_flight(
-    object_id: str,
+async def api_delete_flight(
+    flight_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Flight(fbid=object_id).api_delete(
+    result = Flight(fbid=flight_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_flight(
 
 
 @mcp.tool()
-async def get_flight(
-    object_id: str,
+async def api_get_flight(
+    flight_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Flight(fbid=object_id).api_get(
+    result = Flight(fbid=flight_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_flight(
 
 
 @mcp.tool()
-async def update_flight(
-    object_id: str,
+async def api_update_flight(
+    flight_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Flight(fbid=object_id).api_update(
+    result = Flight(fbid=flight_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_flight(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_flight(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    flight_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Flight(fbid=object_id).get_channels_to_integrity_status(
+    result = Flight(fbid=flight_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_flight(
 
 
 @mcp.tool()
-async def get_override_details_for_flight(
-    object_id: str,
+async def get_override_details(
+    flight_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Flight(fbid=object_id).get_override_details(
+    result = Flight(fbid=flight_id).get_override_details(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_override_details_for_flight(
 
 
 @mcp.tool()
-async def get_videos_metadata_for_flight(
-    object_id: str,
+async def get_videos_metadata(
+    flight_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Flight(fbid=object_id).get_videos_metadata(
+    result = Flight(fbid=flight_id).get_videos_metadata(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-thirdpartypartnerliftrequest")
 
 
 @mcp.tool()
-async def create_thirdpartypartnerliftrequest(
-    object_id: str,
+async def api_create_thirdpartypartnerliftrequest(
+    thirdpartypartnerliftrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyPartnerLiftRequest(fbid=object_id).api_create(
+    result = ThirdPartyPartnerLiftRequest(fbid=thirdpartypartnerliftrequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_thirdpartypartnerliftrequest(
 
 
 @mcp.tool()
-async def delete_thirdpartypartnerliftrequest(
-    object_id: str,
+async def api_delete_thirdpartypartnerliftrequest(
+    thirdpartypartnerliftrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyPartnerLiftRequest(fbid=object_id).api_delete(
+    result = ThirdPartyPartnerLiftRequest(fbid=thirdpartypartnerliftrequest_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_thirdpartypartnerliftrequest(
 
 
 @mcp.tool()
-async def get_thirdpartypartnerliftrequest(
-    object_id: str,
+async def api_get_thirdpartypartnerliftrequest(
+    thirdpartypartnerliftrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyPartnerLiftRequest(fbid=object_id).api_get(
+    result = ThirdPartyPartnerLiftRequest(fbid=thirdpartypartnerliftrequest_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_thirdpartypartnerliftrequest(
 
 
 @mcp.tool()
-async def update_thirdpartypartnerliftrequest(
-    object_id: str,
+async def api_update_thirdpartypartnerliftrequest(
+    thirdpartypartnerliftrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ThirdPartyPartnerLiftRequest(fbid=object_id).api_update(
+    result = ThirdPartyPartnerLiftRequest(fbid=thirdpartypartnerliftrequest_id).api_update(
         fields=fields,
         params=params,
     )

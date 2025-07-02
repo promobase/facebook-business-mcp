@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-musicvideocopyright")
 
 
 @mcp.tool()
-async def create_musicvideocopyright(
-    object_id: str,
+async def api_create_musicvideocopyright(
+    musicvideocopyright_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MusicVideoCopyright(fbid=object_id).api_create(
+    result = MusicVideoCopyright(fbid=musicvideocopyright_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_musicvideocopyright(
 
 
 @mcp.tool()
-async def delete_musicvideocopyright(
-    object_id: str,
+async def api_delete_musicvideocopyright(
+    musicvideocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MusicVideoCopyright(fbid=object_id).api_delete(
+    result = MusicVideoCopyright(fbid=musicvideocopyright_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_musicvideocopyright(
 
 
 @mcp.tool()
-async def get_musicvideocopyright(
-    object_id: str,
+async def api_get_musicvideocopyright(
+    musicvideocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MusicVideoCopyright(fbid=object_id).api_get(
+    result = MusicVideoCopyright(fbid=musicvideocopyright_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_musicvideocopyright(
 
 
 @mcp.tool()
-async def update_musicvideocopyright(
-    object_id: str,
+async def api_update_musicvideocopyright(
+    musicvideocopyright_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = MusicVideoCopyright(fbid=object_id).api_update(
+    result = MusicVideoCopyright(fbid=musicvideocopyright_id).api_update(
         fields=fields,
         params=params,
     )

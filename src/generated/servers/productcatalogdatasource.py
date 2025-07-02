@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productcatalogdatasource")
 
 
 @mcp.tool()
-async def create_productcatalogdatasource(
-    object_id: str,
+async def api_create_productcatalogdatasource(
+    productcatalogdatasource_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalogDataSource(fbid=object_id).api_create(
+    result = ProductCatalogDataSource(fbid=productcatalogdatasource_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productcatalogdatasource(
 
 
 @mcp.tool()
-async def delete_productcatalogdatasource(
-    object_id: str,
+async def api_delete_productcatalogdatasource(
+    productcatalogdatasource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalogDataSource(fbid=object_id).api_delete(
+    result = ProductCatalogDataSource(fbid=productcatalogdatasource_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productcatalogdatasource(
 
 
 @mcp.tool()
-async def get_productcatalogdatasource(
-    object_id: str,
+async def api_get_productcatalogdatasource(
+    productcatalogdatasource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalogDataSource(fbid=object_id).api_get(
+    result = ProductCatalogDataSource(fbid=productcatalogdatasource_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productcatalogdatasource(
 
 
 @mcp.tool()
-async def update_productcatalogdatasource(
-    object_id: str,
+async def api_update_productcatalogdatasource(
+    productcatalogdatasource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductCatalogDataSource(fbid=object_id).api_update(
+    result = ProductCatalogDataSource(fbid=productcatalogdatasource_id).api_update(
         fields=fields,
         params=params,
     )

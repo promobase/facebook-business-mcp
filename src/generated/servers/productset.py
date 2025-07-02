@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-productset")
 
 
 @mcp.tool()
-async def create_productset(
-    object_id: str,
+async def api_create_productset(
+    productset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).api_create(
+    result = ProductSet(fbid=productset_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_productset(
 
 
 @mcp.tool()
-async def delete_productset(
-    object_id: str,
+async def api_delete_productset(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).api_delete(
+    result = ProductSet(fbid=productset_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_productset(
 
 
 @mcp.tool()
-async def get_productset(
-    object_id: str,
+async def api_get_productset(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).api_get(
+    result = ProductSet(fbid=productset_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_productset(
 
 
 @mcp.tool()
-async def update_productset(
-    object_id: str,
+async def api_update_productset(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).api_update(
+    result = ProductSet(fbid=productset_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_productset(
 
 
 @mcp.tool()
-async def get_automotive_models_for_productset(
-    object_id: str,
+async def get_automotive_models(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_automotive_models(
+    result = ProductSet(fbid=productset_id).get_automotive_models(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_automotive_models_for_productset(
 
 
 @mcp.tool()
-async def get_destinations_for_productset(
-    object_id: str,
+async def get_destinations(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_destinations(
+    result = ProductSet(fbid=productset_id).get_destinations(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_destinations_for_productset(
 
 
 @mcp.tool()
-async def get_flights_for_productset(
-    object_id: str,
+async def get_flights(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_flights(
+    result = ProductSet(fbid=productset_id).get_flights(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_flights_for_productset(
 
 
 @mcp.tool()
-async def get_home_listings_for_productset(
-    object_id: str,
+async def get_home_listings(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_home_listings(
+    result = ProductSet(fbid=productset_id).get_home_listings(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_home_listings_for_productset(
 
 
 @mcp.tool()
-async def get_hotels_for_productset(
-    object_id: str,
+async def get_hotels(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_hotels(
+    result = ProductSet(fbid=productset_id).get_hotels(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_hotels_for_productset(
 
 
 @mcp.tool()
-async def get_media_titles_for_productset(
-    object_id: str,
+async def get_media_titles(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_media_titles(
+    result = ProductSet(fbid=productset_id).get_media_titles(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_media_titles_for_productset(
 
 
 @mcp.tool()
-async def get_products_for_productset(
-    object_id: str,
+async def get_products(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_products(
+    result = ProductSet(fbid=productset_id).get_products(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_products_for_productset(
 
 
 @mcp.tool()
-async def get_vehicle_offers_for_productset(
-    object_id: str,
+async def get_vehicle_offers(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_vehicle_offers(
+    result = ProductSet(fbid=productset_id).get_vehicle_offers(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_vehicle_offers_for_productset(
 
 
 @mcp.tool()
-async def get_vehicles_for_productset(
-    object_id: str,
+async def get_vehicles(
+    productset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ProductSet(fbid=object_id).get_vehicles(
+    result = ProductSet(fbid=productset_id).get_vehicles(
         fields=fields,
         params=params,
     )

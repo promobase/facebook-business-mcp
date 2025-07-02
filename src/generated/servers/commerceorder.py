@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-commerceorder")
 
 
 @mcp.tool()
-async def create_commerceorder(
-    object_id: str,
+async def api_create_commerceorder(
+    commerceorder_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).api_create(
+    result = CommerceOrder(fbid=commerceorder_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_commerceorder(
 
 
 @mcp.tool()
-async def delete_commerceorder(
-    object_id: str,
+async def api_delete_commerceorder(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).api_delete(
+    result = CommerceOrder(fbid=commerceorder_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_commerceorder(
 
 
 @mcp.tool()
-async def get_commerceorder(
-    object_id: str,
+async def api_get_commerceorder(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).api_get(
+    result = CommerceOrder(fbid=commerceorder_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_commerceorder(
 
 
 @mcp.tool()
-async def update_commerceorder(
-    object_id: str,
+async def api_update_commerceorder(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).api_update(
+    result = CommerceOrder(fbid=commerceorder_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_commerceorder(
 
 
 @mcp.tool()
-async def create_acknowledge_order_for_commerceorder(
-    object_id: str,
+async def create_acknowledge_order(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).create_acknowledge_order(
+    result = CommerceOrder(fbid=commerceorder_id).create_acknowledge_order(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_acknowledge_order_for_commerceorder(
 
 
 @mcp.tool()
-async def create_cancellation_for_commerceorder(
-    object_id: str,
+async def create_cancellation(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).create_cancellation(
+    result = CommerceOrder(fbid=commerceorder_id).create_cancellation(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_cancellation_for_commerceorder(
 
 
 @mcp.tool()
-async def create_item_update_for_commerceorder(
-    object_id: str,
+async def create_item_update(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).create_item_update(
+    result = CommerceOrder(fbid=commerceorder_id).create_item_update(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_item_update_for_commerceorder(
 
 
 @mcp.tool()
-async def create_refund_for_commerceorder(
-    object_id: str,
+async def create_refund(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).create_refund(
+    result = CommerceOrder(fbid=commerceorder_id).create_refund(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_refund_for_commerceorder(
 
 
 @mcp.tool()
-async def create_return_for_commerceorder(
-    object_id: str,
+async def create_return(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).create_return(
+    result = CommerceOrder(fbid=commerceorder_id).create_return(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def create_return_for_commerceorder(
 
 
 @mcp.tool()
-async def create_shipment_for_commerceorder(
-    object_id: str,
+async def create_shipment(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).create_shipment(
+    result = CommerceOrder(fbid=commerceorder_id).create_shipment(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def create_shipment_for_commerceorder(
 
 
 @mcp.tool()
-async def create_update_shipment_for_commerceorder(
-    object_id: str,
+async def create_update_shipment(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).create_update_shipment(
+    result = CommerceOrder(fbid=commerceorder_id).create_update_shipment(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def create_update_shipment_for_commerceorder(
 
 
 @mcp.tool()
-async def get_cancellations_for_commerceorder(
-    object_id: str,
+async def get_cancellations(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_cancellations(
+    result = CommerceOrder(fbid=commerceorder_id).get_cancellations(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_cancellations_for_commerceorder(
 
 
 @mcp.tool()
-async def get_items_for_commerceorder(
-    object_id: str,
+async def get_items(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_items(
+    result = CommerceOrder(fbid=commerceorder_id).get_items(
         fields=fields,
         params=params,
     )
@@ -203,12 +203,12 @@ async def get_items_for_commerceorder(
 
 
 @mcp.tool()
-async def get_payments_for_commerceorder(
-    object_id: str,
+async def get_payments(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_payments(
+    result = CommerceOrder(fbid=commerceorder_id).get_payments(
         fields=fields,
         params=params,
     )
@@ -217,12 +217,12 @@ async def get_payments_for_commerceorder(
 
 
 @mcp.tool()
-async def get_promo_t_i_ons_for_commerceorder(
-    object_id: str,
+async def get_promo_t_i_ons(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_promo_t_i_ons(
+    result = CommerceOrder(fbid=commerceorder_id).get_promo_t_i_ons(
         fields=fields,
         params=params,
     )
@@ -231,12 +231,12 @@ async def get_promo_t_i_ons_for_commerceorder(
 
 
 @mcp.tool()
-async def get_promotion_details_for_commerceorder(
-    object_id: str,
+async def get_promotion_details(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_promotion_details(
+    result = CommerceOrder(fbid=commerceorder_id).get_promotion_details(
         fields=fields,
         params=params,
     )
@@ -245,12 +245,12 @@ async def get_promotion_details_for_commerceorder(
 
 
 @mcp.tool()
-async def get_refunds_for_commerceorder(
-    object_id: str,
+async def get_refunds(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_refunds(
+    result = CommerceOrder(fbid=commerceorder_id).get_refunds(
         fields=fields,
         params=params,
     )
@@ -259,12 +259,12 @@ async def get_refunds_for_commerceorder(
 
 
 @mcp.tool()
-async def get_returns_for_commerceorder(
-    object_id: str,
+async def get_returns(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_returns(
+    result = CommerceOrder(fbid=commerceorder_id).get_returns(
         fields=fields,
         params=params,
     )
@@ -273,12 +273,12 @@ async def get_returns_for_commerceorder(
 
 
 @mcp.tool()
-async def get_shipments_for_commerceorder(
-    object_id: str,
+async def get_shipments(
+    commerceorder_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = CommerceOrder(fbid=object_id).get_shipments(
+    result = CommerceOrder(fbid=commerceorder_id).get_shipments(
         fields=fields,
         params=params,
     )

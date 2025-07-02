@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-businessrequest")
 
 
 @mcp.tool()
-async def create_businessrequest(
-    object_id: str,
+async def api_create_businessrequest(
+    businessrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessRequest(fbid=object_id).api_create(
+    result = BusinessRequest(fbid=businessrequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_businessrequest(
 
 
 @mcp.tool()
-async def delete_businessrequest(
-    object_id: str,
+async def api_delete_businessrequest(
+    businessrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessRequest(fbid=object_id).api_delete(
+    result = BusinessRequest(fbid=businessrequest_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_businessrequest(
 
 
 @mcp.tool()
-async def get_businessrequest(
-    object_id: str,
+async def api_get_businessrequest(
+    businessrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessRequest(fbid=object_id).api_get(
+    result = BusinessRequest(fbid=businessrequest_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_businessrequest(
 
 
 @mcp.tool()
-async def update_businessrequest(
-    object_id: str,
+async def api_update_businessrequest(
+    businessrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessRequest(fbid=object_id).api_update(
+    result = BusinessRequest(fbid=businessrequest_id).api_update(
         fields=fields,
         params=params,
     )

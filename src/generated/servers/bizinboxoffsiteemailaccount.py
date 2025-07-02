@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-bizinboxoffsiteemailaccount")
 
 
 @mcp.tool()
-async def create_bizinboxoffsiteemailaccount(
-    object_id: str,
+async def api_create_bizinboxoffsiteemailaccount(
+    bizinboxoffsiteemailaccount_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BizInboxOffsiteEmailAccount(fbid=object_id).api_create(
+    result = BizInboxOffsiteEmailAccount(fbid=bizinboxoffsiteemailaccount_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_bizinboxoffsiteemailaccount(
 
 
 @mcp.tool()
-async def delete_bizinboxoffsiteemailaccount(
-    object_id: str,
+async def api_delete_bizinboxoffsiteemailaccount(
+    bizinboxoffsiteemailaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BizInboxOffsiteEmailAccount(fbid=object_id).api_delete(
+    result = BizInboxOffsiteEmailAccount(fbid=bizinboxoffsiteemailaccount_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_bizinboxoffsiteemailaccount(
 
 
 @mcp.tool()
-async def get_bizinboxoffsiteemailaccount(
-    object_id: str,
+async def api_get_bizinboxoffsiteemailaccount(
+    bizinboxoffsiteemailaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BizInboxOffsiteEmailAccount(fbid=object_id).api_get(
+    result = BizInboxOffsiteEmailAccount(fbid=bizinboxoffsiteemailaccount_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_bizinboxoffsiteemailaccount(
 
 
 @mcp.tool()
-async def update_bizinboxoffsiteemailaccount(
-    object_id: str,
+async def api_update_bizinboxoffsiteemailaccount(
+    bizinboxoffsiteemailaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BizInboxOffsiteEmailAccount(fbid=object_id).api_update(
+    result = BizInboxOffsiteEmailAccount(fbid=bizinboxoffsiteemailaccount_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_bizinboxoffsiteemailaccount(
 
 
 @mcp.tool()
-async def get_assigned_users_for_bizinboxoffsiteemailaccount(
-    object_id: str,
+async def get_assigned_users(
+    bizinboxoffsiteemailaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BizInboxOffsiteEmailAccount(fbid=object_id).get_assigned_users(
+    result = BizInboxOffsiteEmailAccount(fbid=bizinboxoffsiteemailaccount_id).get_assigned_users(
         fields=fields,
         params=params,
     )

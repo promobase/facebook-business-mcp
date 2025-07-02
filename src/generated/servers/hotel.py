@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-hotel")
 
 
 @mcp.tool()
-async def create_hotel(
-    object_id: str,
+async def api_create_hotel(
+    hotel_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).api_create(
+    result = Hotel(fbid=hotel_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_hotel(
 
 
 @mcp.tool()
-async def delete_hotel(
-    object_id: str,
+async def api_delete_hotel(
+    hotel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).api_delete(
+    result = Hotel(fbid=hotel_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_hotel(
 
 
 @mcp.tool()
-async def get_hotel(
-    object_id: str,
+async def api_get_hotel(
+    hotel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).api_get(
+    result = Hotel(fbid=hotel_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_hotel(
 
 
 @mcp.tool()
-async def update_hotel(
-    object_id: str,
+async def api_update_hotel(
+    hotel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).api_update(
+    result = Hotel(fbid=hotel_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_hotel(
 
 
 @mcp.tool()
-async def get_channels_to_integrity_status_for_hotel(
-    object_id: str,
+async def get_channels_to_integrity_status(
+    hotel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).get_channels_to_integrity_status(
+    result = Hotel(fbid=hotel_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def get_channels_to_integrity_status_for_hotel(
 
 
 @mcp.tool()
-async def get_hotel_rooms_for_hotel(
-    object_id: str,
+async def get_hotel_rooms(
+    hotel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).get_hotel_rooms(
+    result = Hotel(fbid=hotel_id).get_hotel_rooms(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def get_hotel_rooms_for_hotel(
 
 
 @mcp.tool()
-async def get_override_details_for_hotel(
-    object_id: str,
+async def get_override_details(
+    hotel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).get_override_details(
+    result = Hotel(fbid=hotel_id).get_override_details(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_override_details_for_hotel(
 
 
 @mcp.tool()
-async def get_videos_metadata_for_hotel(
-    object_id: str,
+async def get_videos_metadata(
+    hotel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = Hotel(fbid=object_id).get_videos_metadata(
+    result = Hotel(fbid=hotel_id).get_videos_metadata(
         fields=fields,
         params=params,
     )

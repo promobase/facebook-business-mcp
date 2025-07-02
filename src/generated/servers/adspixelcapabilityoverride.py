@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adspixelcapabilityoverride")
 
 
 @mcp.tool()
-async def create_adspixelcapabilityoverride(
-    object_id: str,
+async def api_create_adspixelcapabilityoverride(
+    adspixelcapabilityoverride_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixelCapabilityOverride(fbid=object_id).api_create(
+    result = AdsPixelCapabilityOverride(fbid=adspixelcapabilityoverride_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adspixelcapabilityoverride(
 
 
 @mcp.tool()
-async def delete_adspixelcapabilityoverride(
-    object_id: str,
+async def api_delete_adspixelcapabilityoverride(
+    adspixelcapabilityoverride_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixelCapabilityOverride(fbid=object_id).api_delete(
+    result = AdsPixelCapabilityOverride(fbid=adspixelcapabilityoverride_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adspixelcapabilityoverride(
 
 
 @mcp.tool()
-async def get_adspixelcapabilityoverride(
-    object_id: str,
+async def api_get_adspixelcapabilityoverride(
+    adspixelcapabilityoverride_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixelCapabilityOverride(fbid=object_id).api_get(
+    result = AdsPixelCapabilityOverride(fbid=adspixelcapabilityoverride_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adspixelcapabilityoverride(
 
 
 @mcp.tool()
-async def update_adspixelcapabilityoverride(
-    object_id: str,
+async def api_update_adspixelcapabilityoverride(
+    adspixelcapabilityoverride_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsPixelCapabilityOverride(fbid=object_id).api_update(
+    result = AdsPixelCapabilityOverride(fbid=adspixelcapabilityoverride_id).api_update(
         fields=fields,
         params=params,
     )

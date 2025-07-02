@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-wituser")
 
 
 @mcp.tool()
-async def create_wituser(
-    object_id: str,
+async def api_create_wituser(
+    wituser_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WITUser(fbid=object_id).api_create(
+    result = WITUser(fbid=wituser_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_wituser(
 
 
 @mcp.tool()
-async def delete_wituser(
-    object_id: str,
+async def api_delete_wituser(
+    wituser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WITUser(fbid=object_id).api_delete(
+    result = WITUser(fbid=wituser_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_wituser(
 
 
 @mcp.tool()
-async def get_wituser(
-    object_id: str,
+async def api_get_wituser(
+    wituser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WITUser(fbid=object_id).api_get(
+    result = WITUser(fbid=wituser_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_wituser(
 
 
 @mcp.tool()
-async def update_wituser(
-    object_id: str,
+async def api_update_wituser(
+    wituser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WITUser(fbid=object_id).api_update(
+    result = WITUser(fbid=wituser_id).api_update(
         fields=fields,
         params=params,
     )

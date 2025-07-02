@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-woodhengepurchasedpaygreceipt")
 
 
 @mcp.tool()
-async def create_woodhengepurchasedpaygreceipt(
-    object_id: str,
+async def api_create_woodhengepurchasedpaygreceipt(
+    woodhengepurchasedpaygreceipt_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengePurchasedPAYGReceipt(fbid=object_id).api_create(
+    result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_woodhengepurchasedpaygreceipt(
 
 
 @mcp.tool()
-async def delete_woodhengepurchasedpaygreceipt(
-    object_id: str,
+async def api_delete_woodhengepurchasedpaygreceipt(
+    woodhengepurchasedpaygreceipt_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengePurchasedPAYGReceipt(fbid=object_id).api_delete(
+    result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_woodhengepurchasedpaygreceipt(
 
 
 @mcp.tool()
-async def get_woodhengepurchasedpaygreceipt(
-    object_id: str,
+async def api_get_woodhengepurchasedpaygreceipt(
+    woodhengepurchasedpaygreceipt_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengePurchasedPAYGReceipt(fbid=object_id).api_get(
+    result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_woodhengepurchasedpaygreceipt(
 
 
 @mcp.tool()
-async def update_woodhengepurchasedpaygreceipt(
-    object_id: str,
+async def api_update_woodhengepurchasedpaygreceipt(
+    woodhengepurchasedpaygreceipt_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WoodhengePurchasedPAYGReceipt(fbid=object_id).api_update(
+    result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_update(
         fields=fields,
         params=params,
     )

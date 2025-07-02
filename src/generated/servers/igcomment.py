@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-igcomment")
 
 
 @mcp.tool()
-async def create_igcomment(
-    object_id: str,
+async def api_create_igcomment(
+    igcomment_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGComment(fbid=object_id).api_create(
+    result = IGComment(fbid=igcomment_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_igcomment(
 
 
 @mcp.tool()
-async def delete_igcomment(
-    object_id: str,
+async def api_delete_igcomment(
+    igcomment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGComment(fbid=object_id).api_delete(
+    result = IGComment(fbid=igcomment_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_igcomment(
 
 
 @mcp.tool()
-async def get_igcomment(
-    object_id: str,
+async def api_get_igcomment(
+    igcomment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGComment(fbid=object_id).api_get(
+    result = IGComment(fbid=igcomment_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_igcomment(
 
 
 @mcp.tool()
-async def update_igcomment(
-    object_id: str,
+async def api_update_igcomment(
+    igcomment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGComment(fbid=object_id).api_update(
+    result = IGComment(fbid=igcomment_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_igcomment(
 
 
 @mcp.tool()
-async def create_reply_for_igcomment(
-    object_id: str,
+async def create_reply(
+    igcomment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGComment(fbid=object_id).create_reply(
+    result = IGComment(fbid=igcomment_id).create_reply(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_reply_for_igcomment(
 
 
 @mcp.tool()
-async def get_replies_for_igcomment(
-    object_id: str,
+async def get_replies(
+    igcomment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = IGComment(fbid=object_id).get_replies(
+    result = IGComment(fbid=igcomment_id).get_replies(
         fields=fields,
         params=params,
     )

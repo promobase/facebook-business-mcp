@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-extendedcredit")
 
 
 @mcp.tool()
-async def create_extendedcredit(
-    object_id: str,
+async def api_create_extendedcredit(
+    extendedcredit_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).api_create(
+    result = ExtendedCredit(fbid=extendedcredit_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_extendedcredit(
 
 
 @mcp.tool()
-async def delete_extendedcredit(
-    object_id: str,
+async def api_delete_extendedcredit(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).api_delete(
+    result = ExtendedCredit(fbid=extendedcredit_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_extendedcredit(
 
 
 @mcp.tool()
-async def get_extendedcredit(
-    object_id: str,
+async def api_get_extendedcredit(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).api_get(
+    result = ExtendedCredit(fbid=extendedcredit_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_extendedcredit(
 
 
 @mcp.tool()
-async def update_extendedcredit(
-    object_id: str,
+async def api_update_extendedcredit(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).api_update(
+    result = ExtendedCredit(fbid=extendedcredit_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_extendedcredit(
 
 
 @mcp.tool()
-async def create_extended_credit_invoice_group_for_extendedcredit(
-    object_id: str,
+async def create_extended_credit_invoice_group(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).create_extended_credit_invoice_group(
+    result = ExtendedCredit(fbid=extendedcredit_id).create_extended_credit_invoice_group(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_extended_credit_invoice_group_for_extendedcredit(
 
 
 @mcp.tool()
-async def create_owning_credit_allocation_config_for_extendedcredit(
-    object_id: str,
+async def create_owning_credit_allocation_config(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).create_owning_credit_allocation_config(
+    result = ExtendedCredit(fbid=extendedcredit_id).create_owning_credit_allocation_config(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_owning_credit_allocation_config_for_extendedcredit(
 
 
 @mcp.tool()
-async def create_whats_app_credit_attach_for_extendedcredit(
-    object_id: str,
+async def create_whats_app_credit_attach(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).create_whats_app_credit_attach(
+    result = ExtendedCredit(fbid=extendedcredit_id).create_whats_app_credit_attach(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def create_whats_app_credit_attach_for_extendedcredit(
 
 
 @mcp.tool()
-async def create_whats_app_credit_sharing_for_extendedcredit(
-    object_id: str,
+async def create_whats_app_credit_sharing(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).create_whats_app_credit_sharing(
+    result = ExtendedCredit(fbid=extendedcredit_id).create_whats_app_credit_sharing(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def create_whats_app_credit_sharing_for_extendedcredit(
 
 
 @mcp.tool()
-async def create_whats_app_credit_sharing_and_attach_for_extendedcredit(
-    object_id: str,
+async def create_whats_app_credit_sharing_and_attach(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).create_whats_app_credit_sharing_and_attach(
+    result = ExtendedCredit(fbid=extendedcredit_id).create_whats_app_credit_sharing_and_attach(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def create_whats_app_credit_sharing_and_attach_for_extendedcredit(
 
 
 @mcp.tool()
-async def get_extended_credit_invoice_groups_for_extendedcredit(
-    object_id: str,
+async def get_extended_credit_invoice_groups(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).get_extended_credit_invoice_groups(
+    result = ExtendedCredit(fbid=extendedcredit_id).get_extended_credit_invoice_groups(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_extended_credit_invoice_groups_for_extendedcredit(
 
 
 @mcp.tool()
-async def get_owning_credit_allocation_configs_for_extendedcredit(
-    object_id: str,
+async def get_owning_credit_allocation_configs(
+    extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = ExtendedCredit(fbid=object_id).get_owning_credit_allocation_configs(
+    result = ExtendedCredit(fbid=extendedcredit_id).get_owning_credit_allocation_configs(
         fields=fields,
         params=params,
     )

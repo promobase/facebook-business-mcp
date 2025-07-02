@@ -15,25 +15,6 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class offlineconversiondatasetshared_accounts_action_source_enum_param(str, Enum):
-    """offlineconversiondatasetshared_accounts_action_source_enum_param enum values."""
-
-    PHYSICAL_STORE = "PHYSICAL_STORE"
-    WEBSITE = "WEBSITE"
-
-
-class offlineconversiondatasetuploads_sort_by_enum_param(str, Enum):
-    """offlineconversiondatasetuploads_sort_by_enum_param enum values."""
-
-    API_CALLS = "API_CALLS"
-    CREATION_TIME = "CREATION_TIME"
-    EVENT_TIME_MAX = "EVENT_TIME_MAX"
-    EVENT_TIME_MIN = "EVENT_TIME_MIN"
-    FIRST_UPLOAD_TIME = "FIRST_UPLOAD_TIME"
-    IS_EXCLUDED_FOR_LIFT = "IS_EXCLUDED_FOR_LIFT"
-    LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
-
-
 class offlineconversiondatasetstats_granularity_enum_param(str, Enum):
     """offlineconversiondatasetstats_granularity_enum_param enum values."""
 
@@ -56,11 +37,11 @@ class offlineconversiondatasetuploads_order_enum_param(str, Enum):
     DESCENDING = "DESCENDING"
 
 
-class offlineconversiondatasetstats_aggr_time_enum_param(str, Enum):
-    """offlineconversiondatasetstats_aggr_time_enum_param enum values."""
+class offlineconversiondatasetshared_accounts_action_source_enum_param(str, Enum):
+    """offlineconversiondatasetshared_accounts_action_source_enum_param enum values."""
 
-    event_time = "event_time"
-    upload_time = "upload_time"
+    PHYSICAL_STORE = "PHYSICAL_STORE"
+    WEBSITE = "WEBSITE"
 
 
 class offlineconversiondatasetaudiences_action_source_enum_param(str, Enum):
@@ -68,6 +49,25 @@ class offlineconversiondatasetaudiences_action_source_enum_param(str, Enum):
 
     PHYSICAL_STORE = "PHYSICAL_STORE"
     WEBSITE = "WEBSITE"
+
+
+class offlineconversiondatasetstats_aggr_time_enum_param(str, Enum):
+    """offlineconversiondatasetstats_aggr_time_enum_param enum values."""
+
+    event_time = "event_time"
+    upload_time = "upload_time"
+
+
+class offlineconversiondatasetuploads_sort_by_enum_param(str, Enum):
+    """offlineconversiondatasetuploads_sort_by_enum_param enum values."""
+
+    API_CALLS = "API_CALLS"
+    CREATION_TIME = "CREATION_TIME"
+    EVENT_TIME_MAX = "EVENT_TIME_MAX"
+    EVENT_TIME_MIN = "EVENT_TIME_MIN"
+    FIRST_UPLOAD_TIME = "FIRST_UPLOAD_TIME"
+    IS_EXCLUDED_FOR_LIFT = "IS_EXCLUDED_FOR_LIFT"
+    LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
 
 
 # Field literal type

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adcolumnsizes")
 
 
 @mcp.tool()
-async def create_adcolumnsizes(
-    object_id: str,
+async def api_create_adcolumnsizes(
+    adcolumnsizes_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdColumnSizes(fbid=object_id).api_create(
+    result = AdColumnSizes(fbid=adcolumnsizes_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adcolumnsizes(
 
 
 @mcp.tool()
-async def delete_adcolumnsizes(
-    object_id: str,
+async def api_delete_adcolumnsizes(
+    adcolumnsizes_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdColumnSizes(fbid=object_id).api_delete(
+    result = AdColumnSizes(fbid=adcolumnsizes_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adcolumnsizes(
 
 
 @mcp.tool()
-async def get_adcolumnsizes(
-    object_id: str,
+async def api_get_adcolumnsizes(
+    adcolumnsizes_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdColumnSizes(fbid=object_id).api_get(
+    result = AdColumnSizes(fbid=adcolumnsizes_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adcolumnsizes(
 
 
 @mcp.tool()
-async def update_adcolumnsizes(
-    object_id: str,
+async def api_update_adcolumnsizes(
+    adcolumnsizes_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdColumnSizes(fbid=object_id).api_update(
+    result = AdColumnSizes(fbid=adcolumnsizes_id).api_update(
         fields=fields,
         params=params,
     )

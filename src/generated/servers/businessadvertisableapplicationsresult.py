@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-businessadvertisableapplicationsresult")
 
 
 @mcp.tool()
-async def create_businessadvertisableapplicationsresult(
-    object_id: str,
+async def api_create_businessadvertisableapplicationsresult(
+    businessadvertisableapplicationsresult_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdvertisableApplicationsResult(fbid=object_id).api_create(
+    result = BusinessAdvertisableApplicationsResult(
+        fbid=businessadvertisableapplicationsresult_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_businessadvertisableapplicationsresult(
 
 
 @mcp.tool()
-async def delete_businessadvertisableapplicationsresult(
-    object_id: str,
+async def api_delete_businessadvertisableapplicationsresult(
+    businessadvertisableapplicationsresult_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdvertisableApplicationsResult(fbid=object_id).api_delete(
+    result = BusinessAdvertisableApplicationsResult(
+        fbid=businessadvertisableapplicationsresult_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,14 @@ async def delete_businessadvertisableapplicationsresult(
 
 
 @mcp.tool()
-async def get_businessadvertisableapplicationsresult(
-    object_id: str,
+async def api_get_businessadvertisableapplicationsresult(
+    businessadvertisableapplicationsresult_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdvertisableApplicationsResult(fbid=object_id).api_get(
+    result = BusinessAdvertisableApplicationsResult(
+        fbid=businessadvertisableapplicationsresult_id
+    ).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +68,14 @@ async def get_businessadvertisableapplicationsresult(
 
 
 @mcp.tool()
-async def update_businessadvertisableapplicationsresult(
-    object_id: str,
+async def api_update_businessadvertisableapplicationsresult(
+    businessadvertisableapplicationsresult_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = BusinessAdvertisableApplicationsResult(fbid=object_id).api_update(
+    result = BusinessAdvertisableApplicationsResult(
+        fbid=businessadvertisableapplicationsresult_id
+    ).api_update(
         fields=fields,
         params=params,
     )

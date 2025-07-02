@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adcustomderivedmetrics")
 
 
 @mcp.tool()
-async def create_adcustomderivedmetrics(
-    object_id: str,
+async def api_create_adcustomderivedmetrics(
+    adcustomderivedmetrics_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCustomDerivedMetrics(fbid=object_id).api_create(
+    result = AdCustomDerivedMetrics(fbid=adcustomderivedmetrics_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adcustomderivedmetrics(
 
 
 @mcp.tool()
-async def delete_adcustomderivedmetrics(
-    object_id: str,
+async def api_delete_adcustomderivedmetrics(
+    adcustomderivedmetrics_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCustomDerivedMetrics(fbid=object_id).api_delete(
+    result = AdCustomDerivedMetrics(fbid=adcustomderivedmetrics_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adcustomderivedmetrics(
 
 
 @mcp.tool()
-async def get_adcustomderivedmetrics(
-    object_id: str,
+async def api_get_adcustomderivedmetrics(
+    adcustomderivedmetrics_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCustomDerivedMetrics(fbid=object_id).api_get(
+    result = AdCustomDerivedMetrics(fbid=adcustomderivedmetrics_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adcustomderivedmetrics(
 
 
 @mcp.tool()
-async def update_adcustomderivedmetrics(
-    object_id: str,
+async def api_update_adcustomderivedmetrics(
+    adcustomderivedmetrics_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdCustomDerivedMetrics(fbid=object_id).api_update(
+    result = AdCustomDerivedMetrics(fbid=adcustomderivedmetrics_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-placetopic")
 
 
 @mcp.tool()
-async def create_placetopic(
-    object_id: str,
+async def api_create_placetopic(
+    placetopic_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlaceTopic(fbid=object_id).api_create(
+    result = PlaceTopic(fbid=placetopic_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_placetopic(
 
 
 @mcp.tool()
-async def delete_placetopic(
-    object_id: str,
+async def api_delete_placetopic(
+    placetopic_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlaceTopic(fbid=object_id).api_delete(
+    result = PlaceTopic(fbid=placetopic_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_placetopic(
 
 
 @mcp.tool()
-async def get_placetopic(
-    object_id: str,
+async def api_get_placetopic(
+    placetopic_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlaceTopic(fbid=object_id).api_get(
+    result = PlaceTopic(fbid=placetopic_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_placetopic(
 
 
 @mcp.tool()
-async def update_placetopic(
-    object_id: str,
+async def api_update_placetopic(
+    placetopic_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PlaceTopic(fbid=object_id).api_update(
+    result = PlaceTopic(fbid=placetopic_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adstudyobjectiveid")
 
 
 @mcp.tool()
-async def create_adstudyobjectiveid(
-    object_id: str,
+async def api_create_adstudyobjectiveid(
+    adstudyobjectiveid_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjectiveID(fbid=object_id).api_create(
+    result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adstudyobjectiveid(
 
 
 @mcp.tool()
-async def delete_adstudyobjectiveid(
-    object_id: str,
+async def api_delete_adstudyobjectiveid(
+    adstudyobjectiveid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjectiveID(fbid=object_id).api_delete(
+    result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adstudyobjectiveid(
 
 
 @mcp.tool()
-async def get_adstudyobjectiveid(
-    object_id: str,
+async def api_get_adstudyobjectiveid(
+    adstudyobjectiveid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjectiveID(fbid=object_id).api_get(
+    result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adstudyobjectiveid(
 
 
 @mcp.tool()
-async def update_adstudyobjectiveid(
-    object_id: str,
+async def api_update_adstudyobjectiveid(
+    adstudyobjectiveid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdStudyObjectiveID(fbid=object_id).api_update(
+    result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_update(
         fields=fields,
         params=params,
     )

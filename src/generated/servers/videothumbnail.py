@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-videothumbnail")
 
 
 @mcp.tool()
-async def create_videothumbnail(
-    object_id: str,
+async def api_create_videothumbnail(
+    videothumbnail_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoThumbnail(fbid=object_id).api_create(
+    result = VideoThumbnail(fbid=videothumbnail_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_videothumbnail(
 
 
 @mcp.tool()
-async def delete_videothumbnail(
-    object_id: str,
+async def api_delete_videothumbnail(
+    videothumbnail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoThumbnail(fbid=object_id).api_delete(
+    result = VideoThumbnail(fbid=videothumbnail_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_videothumbnail(
 
 
 @mcp.tool()
-async def get_videothumbnail(
-    object_id: str,
+async def api_get_videothumbnail(
+    videothumbnail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoThumbnail(fbid=object_id).api_get(
+    result = VideoThumbnail(fbid=videothumbnail_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_videothumbnail(
 
 
 @mcp.tool()
-async def update_videothumbnail(
-    object_id: str,
+async def api_update_videothumbnail(
+    videothumbnail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = VideoThumbnail(fbid=object_id).api_update(
+    result = VideoThumbnail(fbid=videothumbnail_id).api_update(
         fields=fields,
         params=params,
     )

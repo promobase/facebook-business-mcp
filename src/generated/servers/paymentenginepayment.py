@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-paymentenginepayment")
 
 
 @mcp.tool()
-async def create_paymentenginepayment(
-    object_id: str,
+async def api_create_paymentenginepayment(
+    paymentenginepayment_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentEnginePayment(fbid=object_id).api_create(
+    result = PaymentEnginePayment(fbid=paymentenginepayment_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_paymentenginepayment(
 
 
 @mcp.tool()
-async def delete_paymentenginepayment(
-    object_id: str,
+async def api_delete_paymentenginepayment(
+    paymentenginepayment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentEnginePayment(fbid=object_id).api_delete(
+    result = PaymentEnginePayment(fbid=paymentenginepayment_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_paymentenginepayment(
 
 
 @mcp.tool()
-async def get_paymentenginepayment(
-    object_id: str,
+async def api_get_paymentenginepayment(
+    paymentenginepayment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentEnginePayment(fbid=object_id).api_get(
+    result = PaymentEnginePayment(fbid=paymentenginepayment_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_paymentenginepayment(
 
 
 @mcp.tool()
-async def update_paymentenginepayment(
-    object_id: str,
+async def api_update_paymentenginepayment(
+    paymentenginepayment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentEnginePayment(fbid=object_id).api_update(
+    result = PaymentEnginePayment(fbid=paymentenginepayment_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_paymentenginepayment(
 
 
 @mcp.tool()
-async def create_dispute_for_paymentenginepayment(
-    object_id: str,
+async def create_dispute(
+    paymentenginepayment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentEnginePayment(fbid=object_id).create_dispute(
+    result = PaymentEnginePayment(fbid=paymentenginepayment_id).create_dispute(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_dispute_for_paymentenginepayment(
 
 
 @mcp.tool()
-async def create_refund_for_paymentenginepayment(
-    object_id: str,
+async def create_refund(
+    paymentenginepayment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PaymentEnginePayment(fbid=object_id).create_refund(
+    result = PaymentEnginePayment(fbid=paymentenginepayment_id).create_refund(
         fields=fields,
         params=params,
     )

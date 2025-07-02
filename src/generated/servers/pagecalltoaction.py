@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-pagecalltoaction")
 
 
 @mcp.tool()
-async def create_pagecalltoaction(
-    object_id: str,
+async def api_create_pagecalltoaction(
+    pagecalltoaction_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageCallToAction(fbid=object_id).api_create(
+    result = PageCallToAction(fbid=pagecalltoaction_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_pagecalltoaction(
 
 
 @mcp.tool()
-async def delete_pagecalltoaction(
-    object_id: str,
+async def api_delete_pagecalltoaction(
+    pagecalltoaction_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageCallToAction(fbid=object_id).api_delete(
+    result = PageCallToAction(fbid=pagecalltoaction_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_pagecalltoaction(
 
 
 @mcp.tool()
-async def get_pagecalltoaction(
-    object_id: str,
+async def api_get_pagecalltoaction(
+    pagecalltoaction_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageCallToAction(fbid=object_id).api_get(
+    result = PageCallToAction(fbid=pagecalltoaction_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_pagecalltoaction(
 
 
 @mcp.tool()
-async def update_pagecalltoaction(
-    object_id: str,
+async def api_update_pagecalltoaction(
+    pagecalltoaction_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = PageCallToAction(fbid=object_id).api_update(
+    result = PageCallToAction(fbid=pagecalltoaction_id).api_update(
         fields=fields,
         params=params,
     )

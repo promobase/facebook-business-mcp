@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-signalsiwlextractor")
 
 
 @mcp.tool()
-async def create_signalsiwlextractor(
-    object_id: str,
+async def api_create_signalsiwlextractor(
+    signalsiwlextractor_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SignalsIWLExtractor(fbid=object_id).api_create(
+    result = SignalsIWLExtractor(fbid=signalsiwlextractor_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_signalsiwlextractor(
 
 
 @mcp.tool()
-async def delete_signalsiwlextractor(
-    object_id: str,
+async def api_delete_signalsiwlextractor(
+    signalsiwlextractor_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SignalsIWLExtractor(fbid=object_id).api_delete(
+    result = SignalsIWLExtractor(fbid=signalsiwlextractor_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_signalsiwlextractor(
 
 
 @mcp.tool()
-async def get_signalsiwlextractor(
-    object_id: str,
+async def api_get_signalsiwlextractor(
+    signalsiwlextractor_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SignalsIWLExtractor(fbid=object_id).api_get(
+    result = SignalsIWLExtractor(fbid=signalsiwlextractor_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_signalsiwlextractor(
 
 
 @mcp.tool()
-async def update_signalsiwlextractor(
-    object_id: str,
+async def api_update_signalsiwlextractor(
+    signalsiwlextractor_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = SignalsIWLExtractor(fbid=object_id).api_update(
+    result = SignalsIWLExtractor(fbid=signalsiwlextractor_id).api_update(
         fields=fields,
         params=params,
     )

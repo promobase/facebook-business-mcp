@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-adsquickviews")
 
 
 @mcp.tool()
-async def create_adsquickviews(
-    object_id: str,
+async def api_create_adsquickviews(
+    adsquickviews_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsQuickViews(fbid=object_id).api_create(
+    result = AdsQuickViews(fbid=adsquickviews_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_adsquickviews(
 
 
 @mcp.tool()
-async def delete_adsquickviews(
-    object_id: str,
+async def api_delete_adsquickviews(
+    adsquickviews_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsQuickViews(fbid=object_id).api_delete(
+    result = AdsQuickViews(fbid=adsquickviews_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_adsquickviews(
 
 
 @mcp.tool()
-async def get_adsquickviews(
-    object_id: str,
+async def api_get_adsquickviews(
+    adsquickviews_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsQuickViews(fbid=object_id).api_get(
+    result = AdsQuickViews(fbid=adsquickviews_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_adsquickviews(
 
 
 @mcp.tool()
-async def update_adsquickviews(
-    object_id: str,
+async def api_update_adsquickviews(
+    adsquickviews_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = AdsQuickViews(fbid=object_id).api_update(
+    result = AdsQuickViews(fbid=adsquickviews_id).api_update(
         fields=fields,
         params=params,
     )

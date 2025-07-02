@@ -18,13 +18,15 @@ mcp = FastMCP("facebook-whatsappbusinesspreverifiedphonenumber")
 
 
 @mcp.tool()
-async def create_whatsappbusinesspreverifiedphonenumber(
-    object_id: str,
+async def api_create_whatsappbusinesspreverifiedphonenumber(
+    whatsappbusinesspreverifiedphonenumber_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessPreVerifiedPhoneNumber(fbid=object_id).api_create(
+    result = WhatsAppBusinessPreVerifiedPhoneNumber(
+        fbid=whatsappbusinesspreverifiedphonenumber_id
+    ).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -34,12 +36,14 @@ async def create_whatsappbusinesspreverifiedphonenumber(
 
 
 @mcp.tool()
-async def delete_whatsappbusinesspreverifiedphonenumber(
-    object_id: str,
+async def api_delete_whatsappbusinesspreverifiedphonenumber(
+    whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessPreVerifiedPhoneNumber(fbid=object_id).api_delete(
+    result = WhatsAppBusinessPreVerifiedPhoneNumber(
+        fbid=whatsappbusinesspreverifiedphonenumber_id
+    ).api_delete(
         fields=fields,
         params=params,
     )
@@ -48,12 +52,14 @@ async def delete_whatsappbusinesspreverifiedphonenumber(
 
 
 @mcp.tool()
-async def get_whatsappbusinesspreverifiedphonenumber(
-    object_id: str,
+async def api_get_whatsappbusinesspreverifiedphonenumber(
+    whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessPreVerifiedPhoneNumber(fbid=object_id).api_get(
+    result = WhatsAppBusinessPreVerifiedPhoneNumber(
+        fbid=whatsappbusinesspreverifiedphonenumber_id
+    ).api_get(
         fields=fields,
         params=params,
     )
@@ -62,12 +68,14 @@ async def get_whatsappbusinesspreverifiedphonenumber(
 
 
 @mcp.tool()
-async def update_whatsappbusinesspreverifiedphonenumber(
-    object_id: str,
+async def api_update_whatsappbusinesspreverifiedphonenumber(
+    whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessPreVerifiedPhoneNumber(fbid=object_id).api_update(
+    result = WhatsAppBusinessPreVerifiedPhoneNumber(
+        fbid=whatsappbusinesspreverifiedphonenumber_id
+    ).api_update(
         fields=fields,
         params=params,
     )
@@ -79,12 +87,14 @@ async def update_whatsappbusinesspreverifiedphonenumber(
 
 
 @mcp.tool()
-async def create_request_code_for_whatsappbusinesspreverifiedphonenumber(
-    object_id: str,
+async def create_request_code(
+    whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessPreVerifiedPhoneNumber(fbid=object_id).create_request_code(
+    result = WhatsAppBusinessPreVerifiedPhoneNumber(
+        fbid=whatsappbusinesspreverifiedphonenumber_id
+    ).create_request_code(
         fields=fields,
         params=params,
     )
@@ -93,12 +103,14 @@ async def create_request_code_for_whatsappbusinesspreverifiedphonenumber(
 
 
 @mcp.tool()
-async def create_verify_code_for_whatsappbusinesspreverifiedphonenumber(
-    object_id: str,
+async def create_verify_code(
+    whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessPreVerifiedPhoneNumber(fbid=object_id).create_verify_code(
+    result = WhatsAppBusinessPreVerifiedPhoneNumber(
+        fbid=whatsappbusinesspreverifiedphonenumber_id
+    ).create_verify_code(
         fields=fields,
         params=params,
     )
@@ -107,12 +119,14 @@ async def create_verify_code_for_whatsappbusinesspreverifiedphonenumber(
 
 
 @mcp.tool()
-async def get_partners_for_whatsappbusinesspreverifiedphonenumber(
-    object_id: str,
+async def get_partners(
+    whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = WhatsAppBusinessPreVerifiedPhoneNumber(fbid=object_id).get_partners(
+    result = WhatsAppBusinessPreVerifiedPhoneNumber(
+        fbid=whatsappbusinesspreverifiedphonenumber_id
+    ).get_partners(
         fields=fields,
         params=params,
     )

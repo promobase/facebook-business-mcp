@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-useridforpage")
 
 
 @mcp.tool()
-async def create_useridforpage(
-    object_id: str,
+async def api_create_useridforpage(
+    useridforpage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserIDForPage(fbid=object_id).api_create(
+    result = UserIDForPage(fbid=useridforpage_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_useridforpage(
 
 
 @mcp.tool()
-async def delete_useridforpage(
-    object_id: str,
+async def api_delete_useridforpage(
+    useridforpage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserIDForPage(fbid=object_id).api_delete(
+    result = UserIDForPage(fbid=useridforpage_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_useridforpage(
 
 
 @mcp.tool()
-async def get_useridforpage(
-    object_id: str,
+async def api_get_useridforpage(
+    useridforpage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserIDForPage(fbid=object_id).api_get(
+    result = UserIDForPage(fbid=useridforpage_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_useridforpage(
 
 
 @mcp.tool()
-async def update_useridforpage(
-    object_id: str,
+async def api_update_useridforpage(
+    useridforpage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = UserIDForPage(fbid=object_id).api_update(
+    result = UserIDForPage(fbid=useridforpage_id).api_update(
         fields=fields,
         params=params,
     )

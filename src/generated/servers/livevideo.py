@@ -16,13 +16,13 @@ mcp = FastMCP("facebook-livevideo")
 
 
 @mcp.tool()
-async def create_livevideo(
-    object_id: str,
+async def api_create_livevideo(
+    livevideo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).api_create(
+    result = LiveVideo(fbid=livevideo_id).api_create(
         parent_id=parent_id,
         fields=fields,
         params=params,
@@ -32,12 +32,12 @@ async def create_livevideo(
 
 
 @mcp.tool()
-async def delete_livevideo(
-    object_id: str,
+async def api_delete_livevideo(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).api_delete(
+    result = LiveVideo(fbid=livevideo_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -46,12 +46,12 @@ async def delete_livevideo(
 
 
 @mcp.tool()
-async def get_livevideo(
-    object_id: str,
+async def api_get_livevideo(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).api_get(
+    result = LiveVideo(fbid=livevideo_id).api_get(
         fields=fields,
         params=params,
     )
@@ -60,12 +60,12 @@ async def get_livevideo(
 
 
 @mcp.tool()
-async def update_livevideo(
-    object_id: str,
+async def api_update_livevideo(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).api_update(
+    result = LiveVideo(fbid=livevideo_id).api_update(
         fields=fields,
         params=params,
     )
@@ -77,12 +77,12 @@ async def update_livevideo(
 
 
 @mcp.tool()
-async def create_input_stream_for_livevideo(
-    object_id: str,
+async def create_input_stream(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).create_input_stream(
+    result = LiveVideo(fbid=livevideo_id).create_input_stream(
         fields=fields,
         params=params,
     )
@@ -91,12 +91,12 @@ async def create_input_stream_for_livevideo(
 
 
 @mcp.tool()
-async def create_poll_for_livevideo(
-    object_id: str,
+async def create_poll(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).create_poll(
+    result = LiveVideo(fbid=livevideo_id).create_poll(
         fields=fields,
         params=params,
     )
@@ -105,12 +105,12 @@ async def create_poll_for_livevideo(
 
 
 @mcp.tool()
-async def get_blocked_users_for_livevideo(
-    object_id: str,
+async def get_blocked_users(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).get_blocked_users(
+    result = LiveVideo(fbid=livevideo_id).get_blocked_users(
         fields=fields,
         params=params,
     )
@@ -119,12 +119,12 @@ async def get_blocked_users_for_livevideo(
 
 
 @mcp.tool()
-async def get_comments_for_livevideo(
-    object_id: str,
+async def get_comments(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).get_comments(
+    result = LiveVideo(fbid=livevideo_id).get_comments(
         fields=fields,
         params=params,
     )
@@ -133,12 +133,12 @@ async def get_comments_for_livevideo(
 
 
 @mcp.tool()
-async def get_crosspost_shared_pages_for_livevideo(
-    object_id: str,
+async def get_crosspost_shared_pages(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).get_crosspost_shared_pages(
+    result = LiveVideo(fbid=livevideo_id).get_crosspost_shared_pages(
         fields=fields,
         params=params,
     )
@@ -147,12 +147,12 @@ async def get_crosspost_shared_pages_for_livevideo(
 
 
 @mcp.tool()
-async def get_crossposted_broadcasts_for_livevideo(
-    object_id: str,
+async def get_crossposted_broadcasts(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).get_crossposted_broadcasts(
+    result = LiveVideo(fbid=livevideo_id).get_crossposted_broadcasts(
         fields=fields,
         params=params,
     )
@@ -161,12 +161,12 @@ async def get_crossposted_broadcasts_for_livevideo(
 
 
 @mcp.tool()
-async def get_errors_for_livevideo(
-    object_id: str,
+async def get_errors(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).get_errors(
+    result = LiveVideo(fbid=livevideo_id).get_errors(
         fields=fields,
         params=params,
     )
@@ -175,12 +175,12 @@ async def get_errors_for_livevideo(
 
 
 @mcp.tool()
-async def get_polls_for_livevideo(
-    object_id: str,
+async def get_polls(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).get_polls(
+    result = LiveVideo(fbid=livevideo_id).get_polls(
         fields=fields,
         params=params,
     )
@@ -189,12 +189,12 @@ async def get_polls_for_livevideo(
 
 
 @mcp.tool()
-async def get_reactions_for_livevideo(
-    object_id: str,
+async def get_reactions(
+    livevideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    result = LiveVideo(fbid=object_id).get_reactions(
+    result = LiveVideo(fbid=livevideo_id).get_reactions(
         fields=fields,
         params=params,
     )
