@@ -1,9 +1,10 @@
-"""AnalyticsSegment MCP Server with typed wrappers."""
+"""AnalyticsSegment MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.analyticssegment import AnalyticsSegment
 from fastmcp import FastMCP
 
-from src.generated.models.analyticssegment import AnalyticsSegmentField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ analyticssegment_server = FastMCP(
 @wrapped_fn_tool
 def get_analyticssegment(
     analyticssegment_id: str,
-    fields: list[AnalyticsSegmentField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AnalyticsSegment object by ID.
-
-    Args:
-        analyticssegment_id: The ID of the AnalyticsSegment.
-        fields: Fields to retrieve. Available fields: See AnalyticsSegmentField type.
-    """
     obj = AnalyticsSegment(analyticssegment_id)
     return obj.api_get(fields=fields)

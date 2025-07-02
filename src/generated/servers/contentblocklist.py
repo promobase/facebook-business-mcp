@@ -1,9 +1,10 @@
-"""ContentBlockList MCP Server with typed wrappers."""
+"""ContentBlockList MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.contentblocklist import ContentBlockList
 from fastmcp import FastMCP
 
-from src.generated.models.contentblocklist import ContentBlockListField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ contentblocklist_server = FastMCP(
 @wrapped_fn_tool
 def get_contentblocklist(
     contentblocklist_id: str,
-    fields: list[ContentBlockListField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ContentBlockList object by ID.
-
-    Args:
-        contentblocklist_id: The ID of the ContentBlockList.
-        fields: Fields to retrieve. Available fields: See ContentBlockListField type.
-    """
     obj = ContentBlockList(contentblocklist_id)
     return obj.api_get(fields=fields)

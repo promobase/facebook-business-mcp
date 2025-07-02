@@ -1,14 +1,10 @@
-"""ProductGroup MCP Server with typed wrappers."""
+"""ProductGroup MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productgroup import ProductGroup
 from fastmcp import FastMCP
 
-from src.generated.models.productgroup import (
-    ProductGroupCreateProductParams,
-    ProductGroupField,
-    ProductGroupUpdateParams,
-)
-from src.generated.models.productitem import ProductItemField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ productgroup_server = FastMCP(
 @wrapped_fn_tool
 def get_productgroup(
     productgroup_id: str,
-    fields: list[ProductGroupField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductGroup object by ID.
-
-    Args:
-        productgroup_id: The ID of the ProductGroup.
-        fields: Fields to retrieve. Available fields: See ProductGroupField type.
-    """
     obj = ProductGroup(productgroup_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +36,9 @@ def get_productgroup(
 @wrapped_fn_tool
 def update_productgroup(
     productgroup_id: str,
-    fields: list[ProductGroupField] = [],
-    params: ProductGroupUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a ProductGroup object.
-
-    Args:
-        productgroup_id: The ID of the ProductGroup.
-        fields: Fields to return after update. Available fields: See ProductGroupField type.
-        params: Parameters to update. Available params: See ProductGroupUpdateParams type.
-    """
     return ProductGroup(productgroup_id).api_update(fields=fields, params=params)
 
 
@@ -64,11 +47,6 @@ def update_productgroup(
 def delete_productgroup(
     productgroup_id: str,
 ) -> str:
-    """Delete a ProductGroup object.
-
-    Args:
-        productgroup_id: The ID of the ProductGroup.
-    """
     return ProductGroup(productgroup_id).api_delete()
 
 
@@ -78,13 +56,6 @@ def delete_productgroup(
 def create_product(
     productgroup_id: str,
     fields: list[str] = [],
-    params: ProductGroupCreateProductParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Product for this ProductGroup.
-
-    Args:
-        productgroup_id: The ID of the ProductGroup.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See ProductGroupCreateProductParams type.
-    """
     return ProductGroup(productgroup_id).create_product(fields=fields, params=params)

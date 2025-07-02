@@ -1,9 +1,10 @@
-"""CatalogSmartPixelSettings MCP Server with typed wrappers."""
+"""CatalogSmartPixelSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.catalogsmartpixelsettings import CatalogSmartPixelSettings
 from fastmcp import FastMCP
 
-from src.generated.models.catalogsmartpixelsettings import CatalogSmartPixelSettingsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ catalogsmartpixelsettings_server = FastMCP(
 @wrapped_fn_tool
 def get_catalogsmartpixelsettings(
     catalogsmartpixelsettings_id: str,
-    fields: list[CatalogSmartPixelSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CatalogSmartPixelSettings object by ID.
-
-    Args:
-        catalogsmartpixelsettings_id: The ID of the CatalogSmartPixelSettings.
-        fields: Fields to retrieve. Available fields: See CatalogSmartPixelSettingsField type.
-    """
     obj = CatalogSmartPixelSettings(catalogsmartpixelsettings_id)
     return obj.api_get(fields=fields)

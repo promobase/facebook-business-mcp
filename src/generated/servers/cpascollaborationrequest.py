@@ -1,9 +1,10 @@
-"""CPASCollaborationRequest MCP Server with typed wrappers."""
+"""CPASCollaborationRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.cpascollaborationrequest import CPASCollaborationRequest
 from fastmcp import FastMCP
 
-from src.generated.models.cpascollaborationrequest import CPASCollaborationRequestField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ cpascollaborationrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_cpascollaborationrequest(
     cpascollaborationrequest_id: str,
-    fields: list[CPASCollaborationRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CPASCollaborationRequest object by ID.
-
-    Args:
-        cpascollaborationrequest_id: The ID of the CPASCollaborationRequest.
-        fields: Fields to retrieve. Available fields: See CPASCollaborationRequestField type.
-    """
     obj = CPASCollaborationRequest(cpascollaborationrequest_id)
     return obj.api_get(fields=fields)

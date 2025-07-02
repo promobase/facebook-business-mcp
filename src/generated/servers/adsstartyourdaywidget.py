@@ -1,9 +1,10 @@
-"""AdsStartYourDayWidget MCP Server with typed wrappers."""
+"""AdsStartYourDayWidget MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsstartyourdaywidget import AdsStartYourDayWidget
 from fastmcp import FastMCP
 
-from src.generated.models.adsstartyourdaywidget import AdsStartYourDayWidgetField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsstartyourdaywidget_server = FastMCP(
 @wrapped_fn_tool
 def get_adsstartyourdaywidget(
     adsstartyourdaywidget_id: str,
-    fields: list[AdsStartYourDayWidgetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsStartYourDayWidget object by ID.
-
-    Args:
-        adsstartyourdaywidget_id: The ID of the AdsStartYourDayWidget.
-        fields: Fields to retrieve. Available fields: See AdsStartYourDayWidgetField type.
-    """
     obj = AdsStartYourDayWidget(adsstartyourdaywidget_id)
     return obj.api_get(fields=fields)

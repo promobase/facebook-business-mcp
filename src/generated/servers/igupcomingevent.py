@@ -1,9 +1,10 @@
-"""IGUpcomingEvent MCP Server with typed wrappers."""
+"""IGUpcomingEvent MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.igupcomingevent import IGUpcomingEvent
 from fastmcp import FastMCP
 
-from src.generated.models.igupcomingevent import IGUpcomingEventField, IGUpcomingEventUpdateParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ igupcomingevent_server = FastMCP(
 @wrapped_fn_tool
 def get_igupcomingevent(
     igupcomingevent_id: str,
-    fields: list[IGUpcomingEventField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGUpcomingEvent object by ID.
-
-    Args:
-        igupcomingevent_id: The ID of the IGUpcomingEvent.
-        fields: Fields to retrieve. Available fields: See IGUpcomingEventField type.
-    """
     obj = IGUpcomingEvent(igupcomingevent_id)
     return obj.api_get(fields=fields)
 
@@ -41,14 +36,7 @@ def get_igupcomingevent(
 @wrapped_fn_tool
 def update_igupcomingevent(
     igupcomingevent_id: str,
-    fields: list[IGUpcomingEventField] = [],
-    params: IGUpcomingEventUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a IGUpcomingEvent object.
-
-    Args:
-        igupcomingevent_id: The ID of the IGUpcomingEvent.
-        fields: Fields to return after update. Available fields: See IGUpcomingEventField type.
-        params: Parameters to update. Available params: See IGUpcomingEventUpdateParams type.
-    """
     return IGUpcomingEvent(igupcomingevent_id).api_update(fields=fields, params=params)

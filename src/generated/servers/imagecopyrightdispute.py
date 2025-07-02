@@ -1,9 +1,10 @@
-"""ImageCopyrightDispute MCP Server with typed wrappers."""
+"""ImageCopyrightDispute MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.imagecopyrightdispute import ImageCopyrightDispute
 from fastmcp import FastMCP
 
-from src.generated.models.imagecopyrightdispute import ImageCopyrightDisputeField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ imagecopyrightdispute_server = FastMCP(
 @wrapped_fn_tool
 def get_imagecopyrightdispute(
     imagecopyrightdispute_id: str,
-    fields: list[ImageCopyrightDisputeField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ImageCopyrightDispute object by ID.
-
-    Args:
-        imagecopyrightdispute_id: The ID of the ImageCopyrightDispute.
-        fields: Fields to retrieve. Available fields: See ImageCopyrightDisputeField type.
-    """
     obj = ImageCopyrightDispute(imagecopyrightdispute_id)
     return obj.api_get(fields=fields)

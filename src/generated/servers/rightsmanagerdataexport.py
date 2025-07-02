@@ -1,9 +1,10 @@
-"""RightsManagerDataExport MCP Server with typed wrappers."""
+"""RightsManagerDataExport MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.rightsmanagerdataexport import RightsManagerDataExport
 from fastmcp import FastMCP
 
-from src.generated.models.rightsmanagerdataexport import RightsManagerDataExportField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ rightsmanagerdataexport_server = FastMCP(
 @wrapped_fn_tool
 def get_rightsmanagerdataexport(
     rightsmanagerdataexport_id: str,
-    fields: list[RightsManagerDataExportField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a RightsManagerDataExport object by ID.
-
-    Args:
-        rightsmanagerdataexport_id: The ID of the RightsManagerDataExport.
-        fields: Fields to retrieve. Available fields: See RightsManagerDataExportField type.
-    """
     obj = RightsManagerDataExport(rightsmanagerdataexport_id)
     return obj.api_get(fields=fields)

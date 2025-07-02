@@ -1,9 +1,10 @@
-"""AdToplineDetail MCP Server with typed wrappers."""
+"""AdToplineDetail MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adtoplinedetail import AdToplineDetail
 from fastmcp import FastMCP
 
-from src.generated.models.adtoplinedetail import AdToplineDetailField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adtoplinedetail_server = FastMCP(
 @wrapped_fn_tool
 def get_adtoplinedetail(
     adtoplinedetail_id: str,
-    fields: list[AdToplineDetailField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdToplineDetail object by ID.
-
-    Args:
-        adtoplinedetail_id: The ID of the AdToplineDetail.
-        fields: Fields to retrieve. Available fields: See AdToplineDetailField type.
-    """
     obj = AdToplineDetail(adtoplinedetail_id)
     return obj.api_get(fields=fields)

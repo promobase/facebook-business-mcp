@@ -1,9 +1,10 @@
-"""Robot MCP Server with typed wrappers."""
+"""Robot MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.robot import Robot
 from fastmcp import FastMCP
 
-from src.generated.models.robot import RobotField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ robot_server = FastMCP(
 @wrapped_fn_tool
 def get_robot(
     robot_id: str,
-    fields: list[RobotField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Robot object by ID.
-
-    Args:
-        robot_id: The ID of the Robot.
-        fields: Fields to retrieve. Available fields: See RobotField type.
-    """
     obj = Robot(robot_id)
     return obj.api_get(fields=fields)

@@ -1,13 +1,10 @@
-"""IGComment MCP Server with typed wrappers."""
+"""IGComment MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.igcomment import IGComment
 from fastmcp import FastMCP
 
-from src.generated.models.igcomment import (
-    IGCommentCreateReplyParams,
-    IGCommentField,
-    IGCommentUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,14 +26,8 @@ igcomment_server = FastMCP(
 @wrapped_fn_tool
 def get_igcomment(
     igcomment_id: str,
-    fields: list[IGCommentField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGComment object by ID.
-
-    Args:
-        igcomment_id: The ID of the IGComment.
-        fields: Fields to retrieve. Available fields: See IGCommentField type.
-    """
     obj = IGComment(igcomment_id)
     return obj.api_get(fields=fields)
 
@@ -45,16 +36,9 @@ def get_igcomment(
 @wrapped_fn_tool
 def update_igcomment(
     igcomment_id: str,
-    fields: list[IGCommentField] = [],
-    params: IGCommentUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a IGComment object.
-
-    Args:
-        igcomment_id: The ID of the IGComment.
-        fields: Fields to return after update. Available fields: See IGCommentField type.
-        params: Parameters to update. Available params: See IGCommentUpdateParams type.
-    """
     return IGComment(igcomment_id).api_update(fields=fields, params=params)
 
 
@@ -63,11 +47,6 @@ def update_igcomment(
 def delete_igcomment(
     igcomment_id: str,
 ) -> str:
-    """Delete a IGComment object.
-
-    Args:
-        igcomment_id: The ID of the IGComment.
-    """
     return IGComment(igcomment_id).api_delete()
 
 
@@ -77,13 +56,6 @@ def delete_igcomment(
 def create_reply(
     igcomment_id: str,
     fields: list[str] = [],
-    params: IGCommentCreateReplyParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Reply for this IGComment.
-
-    Args:
-        igcomment_id: The ID of the IGComment.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGCommentCreateReplyParams type.
-    """
     return IGComment(igcomment_id).create_reply(fields=fields, params=params)

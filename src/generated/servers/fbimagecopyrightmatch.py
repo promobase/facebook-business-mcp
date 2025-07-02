@@ -1,9 +1,10 @@
-"""FBImageCopyrightMatch MCP Server with typed wrappers."""
+"""FBImageCopyrightMatch MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.fbimagecopyrightmatch import FBImageCopyrightMatch
 from fastmcp import FastMCP
 
-from src.generated.models.fbimagecopyrightmatch import FBImageCopyrightMatchField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ fbimagecopyrightmatch_server = FastMCP(
 @wrapped_fn_tool
 def get_fbimagecopyrightmatch(
     fbimagecopyrightmatch_id: str,
-    fields: list[FBImageCopyrightMatchField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a FBImageCopyrightMatch object by ID.
-
-    Args:
-        fbimagecopyrightmatch_id: The ID of the FBImageCopyrightMatch.
-        fields: Fields to retrieve. Available fields: See FBImageCopyrightMatchField type.
-    """
     obj = FBImageCopyrightMatch(fbimagecopyrightmatch_id)
     return obj.api_get(fields=fields)

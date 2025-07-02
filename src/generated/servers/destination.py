@@ -1,10 +1,10 @@
-"""Destination MCP Server with typed wrappers."""
+"""Destination MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.destination import Destination
 from fastmcp import FastMCP
 
-from src.generated.models.destination import DestinationField, DestinationGetOverrideDetailsParams
-from src.generated.models.overridedetails import OverrideDetailsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,14 +26,8 @@ destination_server = FastMCP(
 @wrapped_fn_tool
 def get_destination(
     destination_id: str,
-    fields: list[DestinationField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Destination object by ID.
-
-    Args:
-        destination_id: The ID of the Destination.
-        fields: Fields to retrieve. Available fields: See DestinationField type.
-    """
     obj = Destination(destination_id)
     return obj.api_get(fields=fields)
 
@@ -43,14 +37,7 @@ def get_destination(
 @wrapped_fn_tool
 def get_override_details(
     destination_id: str,
-    fields: list[OverrideDetailsField] = [],
-    params: DestinationGetOverrideDetailsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Override Details for this Destination.
-
-    Args:
-        destination_id: The ID of the Destination.
-        fields: Fields to retrieve. Available fields: See OverrideDetailsField type.
-        params: Query parameters. Available params: See DestinationGetOverrideDetailsParams type.
-    """
     return Destination(destination_id).get_override_details(fields=fields, params=params)

@@ -1,49 +1,10 @@
-"""WhatsAppBusinessAccount MCP Server with typed wrappers."""
+"""WhatsAppBusinessAccount MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.whatsappbusinessaccount import WhatsAppBusinessAccount
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.assigneduser import AssignedUserField
-from src.generated.models.ctxpartnerappwelcomemessageflow import (
-    CTXPartnerAppWelcomeMessageFlowField,
-)
-from src.generated.models.dataset import DatasetField
-from src.generated.models.productcatalog import ProductCatalogField
-from src.generated.models.whatsappbusinessaccount import (
-    WhatsAppBusinessAccountCreateAssignedUserParams,
-    WhatsAppBusinessAccountCreateDatasetParams,
-    WhatsAppBusinessAccountCreateFlowParams,
-    WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams,
-    WhatsAppBusinessAccountCreateMessageTemplateParams,
-    WhatsAppBusinessAccountCreateMigrateFlowParams,
-    WhatsAppBusinessAccountCreateMigrateMessageTemplateParams,
-    WhatsAppBusinessAccountCreatePaymentConfigurationParams,
-    WhatsAppBusinessAccountCreatePhoneNumberParams,
-    WhatsAppBusinessAccountCreateProductCatalogParams,
-    WhatsAppBusinessAccountCreateSetOboMobilityIntentParams,
-    WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams,
-    WhatsAppBusinessAccountCreateSubscribedAppParams,
-    WhatsAppBusinessAccountCreateTemplateGroupParams,
-    WhatsAppBusinessAccountCreateUpsertMessageTemplateParams,
-    WhatsAppBusinessAccountDeleteAssignedUsersParams,
-    WhatsAppBusinessAccountDeleteMessageTemplatesParams,
-    WhatsAppBusinessAccountDeletePaymentConfigurationParams,
-    WhatsAppBusinessAccountDeleteProductCatalogsParams,
-    WhatsAppBusinessAccountField,
-    WhatsAppBusinessAccountGetAssignedUsersParams,
-    WhatsAppBusinessAccountGetCallAnalyticsParams,
-    WhatsAppBusinessAccountGetConversationAnalyticsParams,
-    WhatsAppBusinessAccountGetMessageTemplatePreviewsParams,
-    WhatsAppBusinessAccountGetMessageTemplatesParams,
-    WhatsAppBusinessAccountGetPaymentConfigurationParams,
-    WhatsAppBusinessAccountGetPricingAnalyticsParams,
-    WhatsAppBusinessAccountGetTemplateAnalyticsParams,
-    WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams,
-    WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams,
-    WhatsAppBusinessAccountGetWelcomeMessageSequencesParams,
-    WhatsAppBusinessAccountUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -65,14 +26,8 @@ whatsappbusinessaccount_server = FastMCP(
 @wrapped_fn_tool
 def get_whatsappbusinessaccount(
     whatsappbusinessaccount_id: str,
-    fields: list[WhatsAppBusinessAccountField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WhatsAppBusinessAccount object by ID.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See WhatsAppBusinessAccountField type.
-    """
     obj = WhatsAppBusinessAccount(whatsappbusinessaccount_id)
     return obj.api_get(fields=fields)
 
@@ -81,16 +36,9 @@ def get_whatsappbusinessaccount(
 @wrapped_fn_tool
 def update_whatsappbusinessaccount(
     whatsappbusinessaccount_id: str,
-    fields: list[WhatsAppBusinessAccountField] = [],
-    params: WhatsAppBusinessAccountUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a WhatsAppBusinessAccount object.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to return after update. Available fields: See WhatsAppBusinessAccountField type.
-        params: Parameters to update. Available params: See WhatsAppBusinessAccountUpdateParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).api_update(
         fields=fields, params=params
     )
@@ -101,14 +49,8 @@ def update_whatsappbusinessaccount(
 @wrapped_fn_tool
 def delete_assigned_users(
     whatsappbusinessaccount_id: str,
-    params: WhatsAppBusinessAccountDeleteAssignedUsersParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Assigned Users for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountDeleteAssignedUsersParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_assigned_users(params=params)
 
 
@@ -116,16 +58,9 @@ def delete_assigned_users(
 @wrapped_fn_tool
 def get_assigned_users(
     whatsappbusinessaccount_id: str,
-    fields: list[AssignedUserField] = [],
-    params: WhatsAppBusinessAccountGetAssignedUsersParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Assigned Users for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AssignedUserField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetAssignedUsersParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_assigned_users(
         fields=fields, params=params
     )
@@ -136,15 +71,8 @@ def get_assigned_users(
 def create_assigned_user(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateAssignedUserParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Assigned User for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateAssignedUserParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_assigned_user(
         fields=fields, params=params
     )
@@ -154,16 +82,9 @@ def create_assigned_user(
 @wrapped_fn_tool
 def get_call_analytics(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetCallAnalyticsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Call Analytics for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetCallAnalyticsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_call_analytics(
         fields=fields, params=params
     )
@@ -173,16 +94,9 @@ def get_call_analytics(
 @wrapped_fn_tool
 def get_conversation_analytics(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetConversationAnalyticsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Conversation Analytics for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetConversationAnalyticsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_conversation_analytics(
         fields=fields, params=params
     )
@@ -193,15 +107,8 @@ def get_conversation_analytics(
 def create_dataset(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateDatasetParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Dataset for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateDatasetParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_dataset(
         fields=fields, params=params
     )
@@ -212,15 +119,8 @@ def create_dataset(
 def create_flow(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateFlowParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Flow for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateFlowParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_flow(
         fields=fields, params=params
     )
@@ -231,15 +131,8 @@ def create_flow(
 def create_generate_payment_configuration_oauth_link(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Generate Payment Configuration Oauth Link for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams type.
-    """
     return WhatsAppBusinessAccount(
         whatsappbusinessaccount_id
     ).create_generate_payment_configuration_oauth_link(fields=fields, params=params)
@@ -249,16 +142,9 @@ def create_generate_payment_configuration_oauth_link(
 @wrapped_fn_tool
 def get_message_template_previews(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetMessageTemplatePreviewsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Message Template Previews for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetMessageTemplatePreviewsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_message_template_previews(
         fields=fields, params=params
     )
@@ -268,14 +154,8 @@ def get_message_template_previews(
 @wrapped_fn_tool
 def delete_message_templates(
     whatsappbusinessaccount_id: str,
-    params: WhatsAppBusinessAccountDeleteMessageTemplatesParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Message Templates for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountDeleteMessageTemplatesParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_message_templates(
         params=params
     )
@@ -285,16 +165,9 @@ def delete_message_templates(
 @wrapped_fn_tool
 def get_message_templates(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetMessageTemplatesParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Message Templates for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetMessageTemplatesParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_message_templates(
         fields=fields, params=params
     )
@@ -305,15 +178,8 @@ def get_message_templates(
 def create_message_template(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateMessageTemplateParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Message Template for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateMessageTemplateParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_message_template(
         fields=fields, params=params
     )
@@ -324,15 +190,8 @@ def create_message_template(
 def create_migrate_flow(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateMigrateFlowParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Migrate Flow for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateMigrateFlowParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_migrate_flow(
         fields=fields, params=params
     )
@@ -343,15 +202,8 @@ def create_migrate_flow(
 def create_migrate_message_template(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateMigrateMessageTemplateParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Migrate Message Template for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateMigrateMessageTemplateParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_migrate_message_template(
         fields=fields, params=params
     )
@@ -361,14 +213,8 @@ def create_migrate_message_template(
 @wrapped_fn_tool
 def delete_payment_configuration(
     whatsappbusinessaccount_id: str,
-    params: WhatsAppBusinessAccountDeletePaymentConfigurationParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Payment Configuration for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountDeletePaymentConfigurationParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_payment_configuration(
         params=params
     )
@@ -378,16 +224,9 @@ def delete_payment_configuration(
 @wrapped_fn_tool
 def get_payment_configuration(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetPaymentConfigurationParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Payment Configuration for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetPaymentConfigurationParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_payment_configuration(
         fields=fields, params=params
     )
@@ -398,15 +237,8 @@ def get_payment_configuration(
 def create_payment_configuration(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreatePaymentConfigurationParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Payment Configuration for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreatePaymentConfigurationParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_payment_configuration(
         fields=fields, params=params
     )
@@ -417,15 +249,8 @@ def create_payment_configuration(
 def create_phone_number(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreatePhoneNumberParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Phone Number for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreatePhoneNumberParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_phone_number(
         fields=fields, params=params
     )
@@ -435,16 +260,9 @@ def create_phone_number(
 @wrapped_fn_tool
 def get_pricing_analytics(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetPricingAnalyticsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Pricing Analytics for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetPricingAnalyticsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_pricing_analytics(
         fields=fields, params=params
     )
@@ -454,14 +272,8 @@ def get_pricing_analytics(
 @wrapped_fn_tool
 def delete_product_catalogs(
     whatsappbusinessaccount_id: str,
-    params: WhatsAppBusinessAccountDeleteProductCatalogsParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Product Catalogs for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountDeleteProductCatalogsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_product_catalogs(
         params=params
     )
@@ -472,15 +284,8 @@ def delete_product_catalogs(
 def create_product_catalog(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateProductCatalogParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Product Catalog for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateProductCatalogParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_product_catalog(
         fields=fields, params=params
     )
@@ -491,15 +296,8 @@ def create_product_catalog(
 def create_set_obo_mobility_intent(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateSetOboMobilityIntentParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Set Obo Mobility Intent for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateSetOboMobilityIntentParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_set_obo_mobility_intent(
         fields=fields, params=params
     )
@@ -510,15 +308,8 @@ def create_set_obo_mobility_intent(
 def create_set_solution_migration_intent(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Set Solution Migration Intent for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_set_solution_migration_intent(
         fields=fields, params=params
     )
@@ -529,15 +320,8 @@ def create_set_solution_migration_intent(
 def create_subscribed_app(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateSubscribedAppParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Subscribed App for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateSubscribedAppParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_subscribed_app(
         fields=fields, params=params
     )
@@ -547,16 +331,9 @@ def create_subscribed_app(
 @wrapped_fn_tool
 def get_template_analytics(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetTemplateAnalyticsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Template Analytics for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetTemplateAnalyticsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_analytics(
         fields=fields, params=params
     )
@@ -566,16 +343,9 @@ def get_template_analytics(
 @wrapped_fn_tool
 def get_template_group_analytics(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Template Group Analytics for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_group_analytics(
         fields=fields, params=params
     )
@@ -586,15 +356,8 @@ def get_template_group_analytics(
 def create_template_group(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateTemplateGroupParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Template Group for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateTemplateGroupParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_template_group(
         fields=fields, params=params
     )
@@ -604,16 +367,9 @@ def create_template_group(
 @wrapped_fn_tool
 def get_template_performance_metrics(
     whatsappbusinessaccount_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Template Performance Metrics for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_performance_metrics(
         fields=fields, params=params
     )
@@ -624,15 +380,8 @@ def get_template_performance_metrics(
 def create_upsert_message_template(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessAccountCreateUpsertMessageTemplateParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Upsert Message Template for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountCreateUpsertMessageTemplateParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_upsert_message_template(
         fields=fields, params=params
     )
@@ -642,16 +391,9 @@ def create_upsert_message_template(
 @wrapped_fn_tool
 def get_welcome_message_sequences(
     whatsappbusinessaccount_id: str,
-    fields: list[CTXPartnerAppWelcomeMessageFlowField] = [],
-    params: WhatsAppBusinessAccountGetWelcomeMessageSequencesParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Welcome Message Sequences for this WhatsAppBusinessAccount.
-
-    Args:
-        whatsappbusinessaccount_id: The ID of the WhatsAppBusinessAccount.
-        fields: Fields to retrieve. Available fields: See CTXPartnerAppWelcomeMessageFlowField type.
-        params: Query parameters. Available params: See WhatsAppBusinessAccountGetWelcomeMessageSequencesParams type.
-    """
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_welcome_message_sequences(
         fields=fields, params=params
     )

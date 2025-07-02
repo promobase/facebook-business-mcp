@@ -1,9 +1,10 @@
-"""SiteLink MCP Server with typed wrappers."""
+"""SiteLink MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.sitelink import SiteLink
 from fastmcp import FastMCP
 
-from src.generated.models.sitelink import SiteLinkField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ sitelink_server = FastMCP(
 @wrapped_fn_tool
 def get_sitelink(
     sitelink_id: str,
-    fields: list[SiteLinkField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a SiteLink object by ID.
-
-    Args:
-        sitelink_id: The ID of the SiteLink.
-        fields: Fields to retrieve. Available fields: See SiteLinkField type.
-    """
     obj = SiteLink(sitelink_id)
     return obj.api_get(fields=fields)

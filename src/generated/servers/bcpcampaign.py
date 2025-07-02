@@ -1,9 +1,10 @@
-"""BCPCampaign MCP Server with typed wrappers."""
+"""BCPCampaign MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.bcpcampaign import BCPCampaign
 from fastmcp import FastMCP
 
-from src.generated.models.bcpcampaign import BCPCampaignField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ bcpcampaign_server = FastMCP(
 @wrapped_fn_tool
 def get_bcpcampaign(
     bcpcampaign_id: str,
-    fields: list[BCPCampaignField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BCPCampaign object by ID.
-
-    Args:
-        bcpcampaign_id: The ID of the BCPCampaign.
-        fields: Fields to retrieve. Available fields: See BCPCampaignField type.
-    """
     obj = BCPCampaign(bcpcampaign_id)
     return obj.api_get(fields=fields)

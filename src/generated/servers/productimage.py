@@ -1,9 +1,10 @@
-"""ProductImage MCP Server with typed wrappers."""
+"""ProductImage MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productimage import ProductImage
 from fastmcp import FastMCP
 
-from src.generated.models.productimage import ProductImageField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ productimage_server = FastMCP(
 @wrapped_fn_tool
 def get_productimage(
     productimage_id: str,
-    fields: list[ProductImageField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductImage object by ID.
-
-    Args:
-        productimage_id: The ID of the ProductImage.
-        fields: Fields to retrieve. Available fields: See ProductImageField type.
-    """
     obj = ProductImage(productimage_id)
     return obj.api_get(fields=fields)

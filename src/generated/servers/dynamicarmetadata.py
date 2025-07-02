@@ -1,9 +1,10 @@
-"""DynamicARMetadata MCP Server with typed wrappers."""
+"""DynamicARMetadata MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.dynamicarmetadata import DynamicARMetadata
 from fastmcp import FastMCP
 
-from src.generated.models.dynamicarmetadata import DynamicARMetadataField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ dynamicarmetadata_server = FastMCP(
 @wrapped_fn_tool
 def get_dynamicarmetadata(
     dynamicarmetadata_id: str,
-    fields: list[DynamicARMetadataField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a DynamicARMetadata object by ID.
-
-    Args:
-        dynamicarmetadata_id: The ID of the DynamicARMetadata.
-        fields: Fields to retrieve. Available fields: See DynamicARMetadataField type.
-    """
     obj = DynamicARMetadata(dynamicarmetadata_id)
     return obj.api_get(fields=fields)

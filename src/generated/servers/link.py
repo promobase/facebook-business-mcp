@@ -1,10 +1,10 @@
-"""Link MCP Server with typed wrappers."""
+"""Link MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.link import Link
 from fastmcp import FastMCP
 
-from src.generated.models.comment import CommentField
-from src.generated.models.link import LinkCreateCommentParams, LinkField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,14 +26,8 @@ link_server = FastMCP(
 @wrapped_fn_tool
 def get_link(
     link_id: str,
-    fields: list[LinkField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Link object by ID.
-
-    Args:
-        link_id: The ID of the Link.
-        fields: Fields to retrieve. Available fields: See LinkField type.
-    """
     obj = Link(link_id)
     return obj.api_get(fields=fields)
 
@@ -44,13 +38,6 @@ def get_link(
 def create_comment(
     link_id: str,
     fields: list[str] = [],
-    params: LinkCreateCommentParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Comment for this Link.
-
-    Args:
-        link_id: The ID of the Link.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See LinkCreateCommentParams type.
-    """
     return Link(link_id).create_comment(fields=fields, params=params)

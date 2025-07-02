@@ -1,9 +1,10 @@
-"""AdAccountAgencyFeeConfig MCP Server with typed wrappers."""
+"""AdAccountAgencyFeeConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adaccountagencyfeeconfig import AdAccountAgencyFeeConfig
 from fastmcp import FastMCP
 
-from src.generated.models.adaccountagencyfeeconfig import AdAccountAgencyFeeConfigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adaccountagencyfeeconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_adaccountagencyfeeconfig(
     adaccountagencyfeeconfig_id: str,
-    fields: list[AdAccountAgencyFeeConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdAccountAgencyFeeConfig object by ID.
-
-    Args:
-        adaccountagencyfeeconfig_id: The ID of the AdAccountAgencyFeeConfig.
-        fields: Fields to retrieve. Available fields: See AdAccountAgencyFeeConfigField type.
-    """
     obj = AdAccountAgencyFeeConfig(adaccountagencyfeeconfig_id)
     return obj.api_get(fields=fields)

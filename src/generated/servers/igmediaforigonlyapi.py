@@ -1,16 +1,10 @@
-"""IGMediaForIGOnlyAPI MCP Server with typed wrappers."""
+"""IGMediaForIGOnlyAPI MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.igmediaforigonlyapi import IGMediaForIGOnlyAPI
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.igmediaforigonlyapi import (
-    IGMediaForIGOnlyAPICreateCommentParams,
-    IGMediaForIGOnlyAPIField,
-    IGMediaForIGOnlyAPIGetInsightsParams,
-    IGMediaForIGOnlyAPIUpdateParams,
-)
-from src.generated.models.insightsresult import InsightsResultField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -32,14 +26,8 @@ igmediaforigonlyapi_server = FastMCP(
 @wrapped_fn_tool
 def get_igmediaforigonlyapi(
     igmediaforigonlyapi_id: str,
-    fields: list[IGMediaForIGOnlyAPIField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGMediaForIGOnlyAPI object by ID.
-
-    Args:
-        igmediaforigonlyapi_id: The ID of the IGMediaForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See IGMediaForIGOnlyAPIField type.
-    """
     obj = IGMediaForIGOnlyAPI(igmediaforigonlyapi_id)
     return obj.api_get(fields=fields)
 
@@ -48,16 +36,9 @@ def get_igmediaforigonlyapi(
 @wrapped_fn_tool
 def update_igmediaforigonlyapi(
     igmediaforigonlyapi_id: str,
-    fields: list[IGMediaForIGOnlyAPIField] = [],
-    params: IGMediaForIGOnlyAPIUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a IGMediaForIGOnlyAPI object.
-
-    Args:
-        igmediaforigonlyapi_id: The ID of the IGMediaForIGOnlyAPI.
-        fields: Fields to return after update. Available fields: See IGMediaForIGOnlyAPIField type.
-        params: Parameters to update. Available params: See IGMediaForIGOnlyAPIUpdateParams type.
-    """
     return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).api_update(fields=fields, params=params)
 
 
@@ -67,15 +48,8 @@ def update_igmediaforigonlyapi(
 def create_comment(
     igmediaforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGMediaForIGOnlyAPICreateCommentParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Comment for this IGMediaForIGOnlyAPI.
-
-    Args:
-        igmediaforigonlyapi_id: The ID of the IGMediaForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGMediaForIGOnlyAPICreateCommentParams type.
-    """
     return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).create_comment(fields=fields, params=params)
 
 
@@ -83,14 +57,7 @@ def create_comment(
 @wrapped_fn_tool
 def get_insights(
     igmediaforigonlyapi_id: str,
-    fields: list[InsightsResultField] = [],
-    params: IGMediaForIGOnlyAPIGetInsightsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Insights for this IGMediaForIGOnlyAPI.
-
-    Args:
-        igmediaforigonlyapi_id: The ID of the IGMediaForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See InsightsResultField type.
-        params: Query parameters. Available params: See IGMediaForIGOnlyAPIGetInsightsParams type.
-    """
     return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).get_insights(fields=fields, params=params)

@@ -1,9 +1,10 @@
-"""MusicVideoCopyright MCP Server with typed wrappers."""
+"""MusicVideoCopyright MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.musicvideocopyright import MusicVideoCopyright
 from fastmcp import FastMCP
 
-from src.generated.models.musicvideocopyright import MusicVideoCopyrightField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ musicvideocopyright_server = FastMCP(
 @wrapped_fn_tool
 def get_musicvideocopyright(
     musicvideocopyright_id: str,
-    fields: list[MusicVideoCopyrightField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MusicVideoCopyright object by ID.
-
-    Args:
-        musicvideocopyright_id: The ID of the MusicVideoCopyright.
-        fields: Fields to retrieve. Available fields: See MusicVideoCopyrightField type.
-    """
     obj = MusicVideoCopyright(musicvideocopyright_id)
     return obj.api_get(fields=fields)

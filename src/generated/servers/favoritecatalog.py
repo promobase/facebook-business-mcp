@@ -1,9 +1,10 @@
-"""FavoriteCatalog MCP Server with typed wrappers."""
+"""FavoriteCatalog MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.favoritecatalog import FavoriteCatalog
 from fastmcp import FastMCP
 
-from src.generated.models.favoritecatalog import FavoriteCatalogField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ favoritecatalog_server = FastMCP(
 @wrapped_fn_tool
 def get_favoritecatalog(
     favoritecatalog_id: str,
-    fields: list[FavoriteCatalogField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a FavoriteCatalog object by ID.
-
-    Args:
-        favoritecatalog_id: The ID of the FavoriteCatalog.
-        fields: Fields to retrieve. Available fields: See FavoriteCatalogField type.
-    """
     obj = FavoriteCatalog(favoritecatalog_id)
     return obj.api_get(fields=fields)

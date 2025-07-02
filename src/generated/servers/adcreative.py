@@ -1,15 +1,10 @@
-"""AdCreative MCP Server with typed wrappers."""
+"""AdCreative MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adcreative import AdCreative
 from fastmcp import FastMCP
 
-from src.generated.models.adcreative import (
-    AdCreativeCreateAdLabelParams,
-    AdCreativeField,
-    AdCreativeGetPreviewsParams,
-    AdCreativeUpdateParams,
-)
-from src.generated.models.adpreview import AdPreviewField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -31,14 +26,8 @@ adcreative_server = FastMCP(
 @wrapped_fn_tool
 def get_adcreative(
     adcreative_id: str,
-    fields: list[AdCreativeField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdCreative object by ID.
-
-    Args:
-        adcreative_id: The ID of the AdCreative.
-        fields: Fields to retrieve. Available fields: See AdCreativeField type.
-    """
     obj = AdCreative(adcreative_id)
     return obj.api_get(fields=fields)
 
@@ -47,16 +36,9 @@ def get_adcreative(
 @wrapped_fn_tool
 def update_adcreative(
     adcreative_id: str,
-    fields: list[AdCreativeField] = [],
-    params: AdCreativeUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a AdCreative object.
-
-    Args:
-        adcreative_id: The ID of the AdCreative.
-        fields: Fields to return after update. Available fields: See AdCreativeField type.
-        params: Parameters to update. Available params: See AdCreativeUpdateParams type.
-    """
     return AdCreative(adcreative_id).api_update(fields=fields, params=params)
 
 
@@ -65,11 +47,6 @@ def update_adcreative(
 def delete_adcreative(
     adcreative_id: str,
 ) -> str:
-    """Delete a AdCreative object.
-
-    Args:
-        adcreative_id: The ID of the AdCreative.
-    """
     return AdCreative(adcreative_id).api_delete()
 
 
@@ -79,15 +56,8 @@ def delete_adcreative(
 def create_ad_label(
     adcreative_id: str,
     fields: list[str] = [],
-    params: AdCreativeCreateAdLabelParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Ad Label for this AdCreative.
-
-    Args:
-        adcreative_id: The ID of the AdCreative.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdCreativeCreateAdLabelParams type.
-    """
     return AdCreative(adcreative_id).create_ad_label(fields=fields, params=params)
 
 
@@ -95,14 +65,7 @@ def create_ad_label(
 @wrapped_fn_tool
 def get_previews(
     adcreative_id: str,
-    fields: list[AdPreviewField] = [],
-    params: AdCreativeGetPreviewsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Previews for this AdCreative.
-
-    Args:
-        adcreative_id: The ID of the AdCreative.
-        fields: Fields to retrieve. Available fields: See AdPreviewField type.
-        params: Query parameters. Available params: See AdCreativeGetPreviewsParams type.
-    """
     return AdCreative(adcreative_id).get_previews(fields=fields, params=params)

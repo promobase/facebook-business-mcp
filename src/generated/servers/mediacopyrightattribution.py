@@ -1,9 +1,10 @@
-"""MediaCopyrightAttribution MCP Server with typed wrappers."""
+"""MediaCopyrightAttribution MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.mediacopyrightattribution import MediaCopyrightAttribution
 from fastmcp import FastMCP
 
-from src.generated.models.mediacopyrightattribution import MediaCopyrightAttributionField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ mediacopyrightattribution_server = FastMCP(
 @wrapped_fn_tool
 def get_mediacopyrightattribution(
     mediacopyrightattribution_id: str,
-    fields: list[MediaCopyrightAttributionField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MediaCopyrightAttribution object by ID.
-
-    Args:
-        mediacopyrightattribution_id: The ID of the MediaCopyrightAttribution.
-        fields: Fields to retrieve. Available fields: See MediaCopyrightAttributionField type.
-    """
     obj = MediaCopyrightAttribution(mediacopyrightattribution_id)
     return obj.api_get(fields=fields)

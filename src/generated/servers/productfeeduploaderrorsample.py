@@ -1,9 +1,10 @@
-"""ProductFeedUploadErrorSample MCP Server with typed wrappers."""
+"""ProductFeedUploadErrorSample MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productfeeduploaderrorsample import ProductFeedUploadErrorSample
 from fastmcp import FastMCP
 
-from src.generated.models.productfeeduploaderrorsample import ProductFeedUploadErrorSampleField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ productfeeduploaderrorsample_server = FastMCP(
 @wrapped_fn_tool
 def get_productfeeduploaderrorsample(
     productfeeduploaderrorsample_id: str,
-    fields: list[ProductFeedUploadErrorSampleField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductFeedUploadErrorSample object by ID.
-
-    Args:
-        productfeeduploaderrorsample_id: The ID of the ProductFeedUploadErrorSample.
-        fields: Fields to retrieve. Available fields: See ProductFeedUploadErrorSampleField type.
-    """
     obj = ProductFeedUploadErrorSample(productfeeduploaderrorsample_id)
     return obj.api_get(fields=fields)

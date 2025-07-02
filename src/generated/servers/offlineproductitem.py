@@ -1,13 +1,10 @@
-"""OfflineProductItem MCP Server with typed wrappers."""
+"""OfflineProductItem MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.offlineproductitem import OfflineProductItem
 from fastmcp import FastMCP
 
-from src.generated.models.offlineproductitem import (
-    OfflineProductItemField,
-    OfflineProductItemGetOverrideDetailsParams,
-)
-from src.generated.models.overridedetails import OverrideDetailsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,14 +26,8 @@ offlineproductitem_server = FastMCP(
 @wrapped_fn_tool
 def get_offlineproductitem(
     offlineproductitem_id: str,
-    fields: list[OfflineProductItemField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OfflineProductItem object by ID.
-
-    Args:
-        offlineproductitem_id: The ID of the OfflineProductItem.
-        fields: Fields to retrieve. Available fields: See OfflineProductItemField type.
-    """
     obj = OfflineProductItem(offlineproductitem_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +37,9 @@ def get_offlineproductitem(
 @wrapped_fn_tool
 def get_override_details(
     offlineproductitem_id: str,
-    fields: list[OverrideDetailsField] = [],
-    params: OfflineProductItemGetOverrideDetailsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Override Details for this OfflineProductItem.
-
-    Args:
-        offlineproductitem_id: The ID of the OfflineProductItem.
-        fields: Fields to retrieve. Available fields: See OverrideDetailsField type.
-        params: Query parameters. Available params: See OfflineProductItemGetOverrideDetailsParams type.
-    """
     return OfflineProductItem(offlineproductitem_id).get_override_details(
         fields=fields, params=params
     )

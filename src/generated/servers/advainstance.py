@@ -1,9 +1,10 @@
-"""AdvAInstance MCP Server with typed wrappers."""
+"""AdvAInstance MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.advainstance import AdvAInstance
 from fastmcp import FastMCP
 
-from src.generated.models.advainstance import AdvAInstanceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ advainstance_server = FastMCP(
 @wrapped_fn_tool
 def get_advainstance(
     advainstance_id: str,
-    fields: list[AdvAInstanceField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdvAInstance object by ID.
-
-    Args:
-        advainstance_id: The ID of the AdvAInstance.
-        fields: Fields to retrieve. Available fields: See AdvAInstanceField type.
-    """
     obj = AdvAInstance(advainstance_id)
     return obj.api_get(fields=fields)

@@ -1,13 +1,12 @@
-"""AdsReportBuilderMMMReportScheduler MCP Server with typed wrappers."""
+"""AdsReportBuilderMMMReportScheduler MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsreportbuildermmmreportscheduler import (
     AdsReportBuilderMMMReportScheduler,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.adsreportbuildermmmreportscheduler import (
-    AdsReportBuilderMMMReportSchedulerField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ adsreportbuildermmmreportscheduler_server = FastMCP(
 @wrapped_fn_tool
 def get_adsreportbuildermmmreportscheduler(
     adsreportbuildermmmreportscheduler_id: str,
-    fields: list[AdsReportBuilderMMMReportSchedulerField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsReportBuilderMMMReportScheduler object by ID.
-
-    Args:
-        adsreportbuildermmmreportscheduler_id: The ID of the AdsReportBuilderMMMReportScheduler.
-        fields: Fields to retrieve. Available fields: See AdsReportBuilderMMMReportSchedulerField type.
-    """
     obj = AdsReportBuilderMMMReportScheduler(adsreportbuildermmmreportscheduler_id)
     return obj.api_get(fields=fields)

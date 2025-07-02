@@ -1,9 +1,10 @@
-"""ProductSetUsage MCP Server with typed wrappers."""
+"""ProductSetUsage MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productsetusage import ProductSetUsage
 from fastmcp import FastMCP
 
-from src.generated.models.productsetusage import ProductSetUsageField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ productsetusage_server = FastMCP(
 @wrapped_fn_tool
 def get_productsetusage(
     productsetusage_id: str,
-    fields: list[ProductSetUsageField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductSetUsage object by ID.
-
-    Args:
-        productsetusage_id: The ID of the ProductSetUsage.
-        fields: Fields to retrieve. Available fields: See ProductSetUsageField type.
-    """
     obj = ProductSetUsage(productsetusage_id)
     return obj.api_get(fields=fields)

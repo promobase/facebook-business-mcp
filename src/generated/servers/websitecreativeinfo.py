@@ -1,9 +1,10 @@
-"""WebsiteCreativeInfo MCP Server with typed wrappers."""
+"""WebsiteCreativeInfo MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.websitecreativeinfo import WebsiteCreativeInfo
 from fastmcp import FastMCP
 
-from src.generated.models.websitecreativeinfo import WebsiteCreativeInfoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ websitecreativeinfo_server = FastMCP(
 @wrapped_fn_tool
 def get_websitecreativeinfo(
     websitecreativeinfo_id: str,
-    fields: list[WebsiteCreativeInfoField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WebsiteCreativeInfo object by ID.
-
-    Args:
-        websitecreativeinfo_id: The ID of the WebsiteCreativeInfo.
-        fields: Fields to retrieve. Available fields: See WebsiteCreativeInfoField type.
-    """
     obj = WebsiteCreativeInfo(websitecreativeinfo_id)
     return obj.api_get(fields=fields)

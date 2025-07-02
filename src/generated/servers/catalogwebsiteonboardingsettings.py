@@ -1,13 +1,12 @@
-"""CatalogWebsiteOnboardingSettings MCP Server with typed wrappers."""
+"""CatalogWebsiteOnboardingSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.catalogwebsiteonboardingsettings import (
     CatalogWebsiteOnboardingSettings,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.catalogwebsiteonboardingsettings import (
-    CatalogWebsiteOnboardingSettingsField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ catalogwebsiteonboardingsettings_server = FastMCP(
 @wrapped_fn_tool
 def get_catalogwebsiteonboardingsettings(
     catalogwebsiteonboardingsettings_id: str,
-    fields: list[CatalogWebsiteOnboardingSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CatalogWebsiteOnboardingSettings object by ID.
-
-    Args:
-        catalogwebsiteonboardingsettings_id: The ID of the CatalogWebsiteOnboardingSettings.
-        fields: Fields to retrieve. Available fields: See CatalogWebsiteOnboardingSettingsField type.
-    """
     obj = CatalogWebsiteOnboardingSettings(catalogwebsiteonboardingsettings_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""StoreLocation MCP Server with typed wrappers."""
+"""StoreLocation MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.storelocation import StoreLocation
 from fastmcp import FastMCP
 
-from src.generated.models.storelocation import StoreLocationField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ storelocation_server = FastMCP(
 @wrapped_fn_tool
 def get_storelocation(
     storelocation_id: str,
-    fields: list[StoreLocationField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a StoreLocation object by ID.
-
-    Args:
-        storelocation_id: The ID of the StoreLocation.
-        fields: Fields to retrieve. Available fields: See StoreLocationField type.
-    """
     obj = StoreLocation(storelocation_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""Hours MCP Server with typed wrappers."""
+"""Hours MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.hours import Hours
 from fastmcp import FastMCP
 
-from src.generated.models.hours import HoursField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ hours_server = FastMCP(
 @wrapped_fn_tool
 def get_hours(
     hours_id: str,
-    fields: list[HoursField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Hours object by ID.
-
-    Args:
-        hours_id: The ID of the Hours.
-        fields: Fields to retrieve. Available fields: See HoursField type.
-    """
     obj = Hours(hours_id)
     return obj.api_get(fields=fields)

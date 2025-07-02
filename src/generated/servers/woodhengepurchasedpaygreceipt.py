@@ -1,9 +1,10 @@
-"""WoodhengePurchasedPAYGReceipt MCP Server with typed wrappers."""
+"""WoodhengePurchasedPAYGReceipt MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.woodhengepurchasedpaygreceipt import WoodhengePurchasedPAYGReceipt
 from fastmcp import FastMCP
 
-from src.generated.models.woodhengepurchasedpaygreceipt import WoodhengePurchasedPAYGReceiptField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ woodhengepurchasedpaygreceipt_server = FastMCP(
 @wrapped_fn_tool
 def get_woodhengepurchasedpaygreceipt(
     woodhengepurchasedpaygreceipt_id: str,
-    fields: list[WoodhengePurchasedPAYGReceiptField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WoodhengePurchasedPAYGReceipt object by ID.
-
-    Args:
-        woodhengepurchasedpaygreceipt_id: The ID of the WoodhengePurchasedPAYGReceipt.
-        fields: Fields to retrieve. Available fields: See WoodhengePurchasedPAYGReceiptField type.
-    """
     obj = WoodhengePurchasedPAYGReceipt(woodhengepurchasedpaygreceipt_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""PageInsightsAsyncExportRun MCP Server with typed wrappers."""
+"""PageInsightsAsyncExportRun MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.pageinsightsasyncexportrun import PageInsightsAsyncExportRun
 from fastmcp import FastMCP
 
-from src.generated.models.pageinsightsasyncexportrun import PageInsightsAsyncExportRunField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ pageinsightsasyncexportrun_server = FastMCP(
 @wrapped_fn_tool
 def get_pageinsightsasyncexportrun(
     pageinsightsasyncexportrun_id: str,
-    fields: list[PageInsightsAsyncExportRunField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PageInsightsAsyncExportRun object by ID.
-
-    Args:
-        pageinsightsasyncexportrun_id: The ID of the PageInsightsAsyncExportRun.
-        fields: Fields to retrieve. Available fields: See PageInsightsAsyncExportRunField type.
-    """
     obj = PageInsightsAsyncExportRun(pageinsightsasyncexportrun_id)
     return obj.api_get(fields=fields)

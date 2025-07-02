@@ -1,9 +1,10 @@
-"""ProductFeedSchedule MCP Server with typed wrappers."""
+"""ProductFeedSchedule MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productfeedschedule import ProductFeedSchedule
 from fastmcp import FastMCP
 
-from src.generated.models.productfeedschedule import ProductFeedScheduleField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ productfeedschedule_server = FastMCP(
 @wrapped_fn_tool
 def get_productfeedschedule(
     productfeedschedule_id: str,
-    fields: list[ProductFeedScheduleField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductFeedSchedule object by ID.
-
-    Args:
-        productfeedschedule_id: The ID of the ProductFeedSchedule.
-        fields: Fields to retrieve. Available fields: See ProductFeedScheduleField type.
-    """
     obj = ProductFeedSchedule(productfeedschedule_id)
     return obj.api_get(fields=fields)

@@ -1,13 +1,12 @@
-"""UserPageOneTimeOptInTokenSettings MCP Server with typed wrappers."""
+"""UserPageOneTimeOptInTokenSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.userpageonetimeoptintokensettings import (
     UserPageOneTimeOptInTokenSettings,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.userpageonetimeoptintokensettings import (
-    UserPageOneTimeOptInTokenSettingsField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ userpageonetimeoptintokensettings_server = FastMCP(
 @wrapped_fn_tool
 def get_userpageonetimeoptintokensettings(
     userpageonetimeoptintokensettings_id: str,
-    fields: list[UserPageOneTimeOptInTokenSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a UserPageOneTimeOptInTokenSettings object by ID.
-
-    Args:
-        userpageonetimeoptintokensettings_id: The ID of the UserPageOneTimeOptInTokenSettings.
-        fields: Fields to retrieve. Available fields: See UserPageOneTimeOptInTokenSettingsField type.
-    """
     obj = UserPageOneTimeOptInTokenSettings(userpageonetimeoptintokensettings_id)
     return obj.api_get(fields=fields)

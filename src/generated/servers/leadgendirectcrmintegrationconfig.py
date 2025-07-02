@@ -1,13 +1,12 @@
-"""LeadGenDirectCRMIntegrationConfig MCP Server with typed wrappers."""
+"""LeadGenDirectCRMIntegrationConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.leadgendirectcrmintegrationconfig import (
     LeadGenDirectCRMIntegrationConfig,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.leadgendirectcrmintegrationconfig import (
-    LeadGenDirectCRMIntegrationConfigField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ leadgendirectcrmintegrationconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_leadgendirectcrmintegrationconfig(
     leadgendirectcrmintegrationconfig_id: str,
-    fields: list[LeadGenDirectCRMIntegrationConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a LeadGenDirectCRMIntegrationConfig object by ID.
-
-    Args:
-        leadgendirectcrmintegrationconfig_id: The ID of the LeadGenDirectCRMIntegrationConfig.
-        fields: Fields to retrieve. Available fields: See LeadGenDirectCRMIntegrationConfigField type.
-    """
     obj = LeadGenDirectCRMIntegrationConfig(leadgendirectcrmintegrationconfig_id)
     return obj.api_get(fields=fields)

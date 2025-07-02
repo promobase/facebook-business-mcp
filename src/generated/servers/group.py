@@ -1,31 +1,10 @@
-"""Group MCP Server with typed wrappers."""
+"""Group MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.group import Group
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.advideo import AdVideoField
-from src.generated.models.group import (
-    GroupCreateAdminParams,
-    GroupCreateFeedParams,
-    GroupCreateGroupParams,
-    GroupCreateLiveVideoParams,
-    GroupCreateMemberParams,
-    GroupCreatePhotoParams,
-    GroupCreateVideoParams,
-    GroupDeleteAdminsParams,
-    GroupDeleteMembersParams,
-    GroupField,
-    GroupGetFeedParams,
-    GroupGetLiveVideosParams,
-    GroupGetPictureParams,
-    GroupGetVideosParams,
-    GroupUpdateParams,
-)
-from src.generated.models.livevideo import LiveVideoField
-from src.generated.models.photo import PhotoField
-from src.generated.models.post import PostField
-from src.generated.models.profilepicturesource import ProfilePictureSourceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -47,14 +26,8 @@ group_server = FastMCP(
 @wrapped_fn_tool
 def get_group(
     group_id: str,
-    fields: list[GroupField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Group object by ID.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve. Available fields: See GroupField type.
-    """
     obj = Group(group_id)
     return obj.api_get(fields=fields)
 
@@ -63,16 +36,9 @@ def get_group(
 @wrapped_fn_tool
 def update_group(
     group_id: str,
-    fields: list[GroupField] = [],
-    params: GroupUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a Group object.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to return after update. Available fields: See GroupField type.
-        params: Parameters to update. Available params: See GroupUpdateParams type.
-    """
     return Group(group_id).api_update(fields=fields, params=params)
 
 
@@ -81,14 +47,8 @@ def update_group(
 @wrapped_fn_tool
 def delete_admins(
     group_id: str,
-    params: GroupDeleteAdminsParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Admins for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        params: Query parameters. Available params: See GroupDeleteAdminsParams type.
-    """
     return Group(group_id).delete_admins(params=params)
 
 
@@ -97,15 +57,8 @@ def delete_admins(
 def create_admin(
     group_id: str,
     fields: list[str] = [],
-    params: GroupCreateAdminParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Admin for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See GroupCreateAdminParams type.
-    """
     return Group(group_id).create_admin(fields=fields, params=params)
 
 
@@ -113,16 +66,9 @@ def create_admin(
 @wrapped_fn_tool
 def get_feed(
     group_id: str,
-    fields: list[PostField] = [],
-    params: GroupGetFeedParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Feed for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve. Available fields: See PostField type.
-        params: Query parameters. Available params: See GroupGetFeedParams type.
-    """
     return Group(group_id).get_feed(fields=fields, params=params)
 
 
@@ -131,15 +77,8 @@ def get_feed(
 def create_feed(
     group_id: str,
     fields: list[str] = [],
-    params: GroupCreateFeedParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Feed for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See GroupCreateFeedParams type.
-    """
     return Group(group_id).create_feed(fields=fields, params=params)
 
 
@@ -148,15 +87,8 @@ def create_feed(
 def create_group(
     group_id: str,
     fields: list[str] = [],
-    params: GroupCreateGroupParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Group for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See GroupCreateGroupParams type.
-    """
     return Group(group_id).create_group(fields=fields, params=params)
 
 
@@ -164,16 +96,9 @@ def create_group(
 @wrapped_fn_tool
 def get_live_videos(
     group_id: str,
-    fields: list[LiveVideoField] = [],
-    params: GroupGetLiveVideosParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Live Videos for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve. Available fields: See LiveVideoField type.
-        params: Query parameters. Available params: See GroupGetLiveVideosParams type.
-    """
     return Group(group_id).get_live_videos(fields=fields, params=params)
 
 
@@ -182,15 +107,8 @@ def get_live_videos(
 def create_live_video(
     group_id: str,
     fields: list[str] = [],
-    params: GroupCreateLiveVideoParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Live Video for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See GroupCreateLiveVideoParams type.
-    """
     return Group(group_id).create_live_video(fields=fields, params=params)
 
 
@@ -198,14 +116,8 @@ def create_live_video(
 @wrapped_fn_tool
 def delete_members(
     group_id: str,
-    params: GroupDeleteMembersParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Members for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        params: Query parameters. Available params: See GroupDeleteMembersParams type.
-    """
     return Group(group_id).delete_members(params=params)
 
 
@@ -214,15 +126,8 @@ def delete_members(
 def create_member(
     group_id: str,
     fields: list[str] = [],
-    params: GroupCreateMemberParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Member for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See GroupCreateMemberParams type.
-    """
     return Group(group_id).create_member(fields=fields, params=params)
 
 
@@ -231,15 +136,8 @@ def create_member(
 def create_photo(
     group_id: str,
     fields: list[str] = [],
-    params: GroupCreatePhotoParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Photo for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See GroupCreatePhotoParams type.
-    """
     return Group(group_id).create_photo(fields=fields, params=params)
 
 
@@ -247,16 +145,9 @@ def create_photo(
 @wrapped_fn_tool
 def get_picture(
     group_id: str,
-    fields: list[ProfilePictureSourceField] = [],
-    params: GroupGetPictureParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Picture for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve. Available fields: See ProfilePictureSourceField type.
-        params: Query parameters. Available params: See GroupGetPictureParams type.
-    """
     return Group(group_id).get_picture(fields=fields, params=params)
 
 
@@ -264,16 +155,9 @@ def get_picture(
 @wrapped_fn_tool
 def get_videos(
     group_id: str,
-    fields: list[AdVideoField] = [],
-    params: GroupGetVideosParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Videos for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve. Available fields: See AdVideoField type.
-        params: Query parameters. Available params: See GroupGetVideosParams type.
-    """
     return Group(group_id).get_videos(fields=fields, params=params)
 
 
@@ -282,13 +166,6 @@ def get_videos(
 def create_video(
     group_id: str,
     fields: list[str] = [],
-    params: GroupCreateVideoParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Video for this Group.
-
-    Args:
-        group_id: The ID of the Group.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See GroupCreateVideoParams type.
-    """
     return Group(group_id).create_video(fields=fields, params=params)

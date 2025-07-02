@@ -1,9 +1,10 @@
-"""CRMAddress MCP Server with typed wrappers."""
+"""CRMAddress MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.crmaddress import CRMAddress
 from fastmcp import FastMCP
 
-from src.generated.models.crmaddress import CRMAddressField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ crmaddress_server = FastMCP(
 @wrapped_fn_tool
 def get_crmaddress(
     crmaddress_id: str,
-    fields: list[CRMAddressField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CRMAddress object by ID.
-
-    Args:
-        crmaddress_id: The ID of the CRMAddress.
-        fields: Fields to retrieve. Available fields: See CRMAddressField type.
-    """
     obj = CRMAddress(crmaddress_id)
     return obj.api_get(fields=fields)

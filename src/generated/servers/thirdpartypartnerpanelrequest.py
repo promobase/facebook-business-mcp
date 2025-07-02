@@ -1,9 +1,10 @@
-"""ThirdPartyPartnerPanelRequest MCP Server with typed wrappers."""
+"""ThirdPartyPartnerPanelRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.thirdpartypartnerpanelrequest import ThirdPartyPartnerPanelRequest
 from fastmcp import FastMCP
 
-from src.generated.models.thirdpartypartnerpanelrequest import ThirdPartyPartnerPanelRequestField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ thirdpartypartnerpanelrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_thirdpartypartnerpanelrequest(
     thirdpartypartnerpanelrequest_id: str,
-    fields: list[ThirdPartyPartnerPanelRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ThirdPartyPartnerPanelRequest object by ID.
-
-    Args:
-        thirdpartypartnerpanelrequest_id: The ID of the ThirdPartyPartnerPanelRequest.
-        fields: Fields to retrieve. Available fields: See ThirdPartyPartnerPanelRequestField type.
-    """
     obj = ThirdPartyPartnerPanelRequest(thirdpartypartnerpanelrequest_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""OwnedDomain MCP Server with typed wrappers."""
+"""OwnedDomain MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.owneddomain import OwnedDomain
 from fastmcp import FastMCP
 
-from src.generated.models.owneddomain import OwnedDomainField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ owneddomain_server = FastMCP(
 @wrapped_fn_tool
 def get_owneddomain(
     owneddomain_id: str,
-    fields: list[OwnedDomainField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OwnedDomain object by ID.
-
-    Args:
-        owneddomain_id: The ID of the OwnedDomain.
-        fields: Fields to retrieve. Available fields: See OwnedDomainField type.
-    """
     obj = OwnedDomain(owneddomain_id)
     return obj.api_get(fields=fields)

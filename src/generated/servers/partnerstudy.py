@@ -1,9 +1,10 @@
-"""PartnerStudy MCP Server with typed wrappers."""
+"""PartnerStudy MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.partnerstudy import PartnerStudy
 from fastmcp import FastMCP
 
-from src.generated.models.partnerstudy import PartnerStudyField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ partnerstudy_server = FastMCP(
 @wrapped_fn_tool
 def get_partnerstudy(
     partnerstudy_id: str,
-    fields: list[PartnerStudyField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PartnerStudy object by ID.
-
-    Args:
-        partnerstudy_id: The ID of the PartnerStudy.
-        fields: Fields to retrieve. Available fields: See PartnerStudyField type.
-    """
     obj = PartnerStudy(partnerstudy_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""AdSavedKeywords MCP Server with typed wrappers."""
+"""AdSavedKeywords MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsavedkeywords import AdSavedKeywords
 from fastmcp import FastMCP
 
-from src.generated.models.adsavedkeywords import AdSavedKeywordsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsavedkeywords_server = FastMCP(
 @wrapped_fn_tool
 def get_adsavedkeywords(
     adsavedkeywords_id: str,
-    fields: list[AdSavedKeywordsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdSavedKeywords object by ID.
-
-    Args:
-        adsavedkeywords_id: The ID of the AdSavedKeywords.
-        fields: Fields to retrieve. Available fields: See AdSavedKeywordsField type.
-    """
     obj = AdSavedKeywords(adsavedkeywords_id)
     return obj.api_get(fields=fields)

@@ -1,13 +1,12 @@
-"""IGRefreshAccessTokenForIGOnlyAPI MCP Server with typed wrappers."""
+"""IGRefreshAccessTokenForIGOnlyAPI MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.igrefreshaccesstokenforigonlyapi import (
     IGRefreshAccessTokenForIGOnlyAPI,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.igrefreshaccesstokenforigonlyapi import (
-    IGRefreshAccessTokenForIGOnlyAPIField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ igrefreshaccesstokenforigonlyapi_server = FastMCP(
 @wrapped_fn_tool
 def get_igrefreshaccesstokenforigonlyapi(
     igrefreshaccesstokenforigonlyapi_id: str,
-    fields: list[IGRefreshAccessTokenForIGOnlyAPIField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGRefreshAccessTokenForIGOnlyAPI object by ID.
-
-    Args:
-        igrefreshaccesstokenforigonlyapi_id: The ID of the IGRefreshAccessTokenForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See IGRefreshAccessTokenForIGOnlyAPIField type.
-    """
     obj = IGRefreshAccessTokenForIGOnlyAPI(igrefreshaccesstokenforigonlyapi_id)
     return obj.api_get(fields=fields)

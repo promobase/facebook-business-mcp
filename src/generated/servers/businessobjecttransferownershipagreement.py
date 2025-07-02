@@ -1,13 +1,12 @@
-"""BusinessObjectTransferOwnershipAgreement MCP Server with typed wrappers."""
+"""BusinessObjectTransferOwnershipAgreement MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businessobjecttransferownershipagreement import (
     BusinessObjectTransferOwnershipAgreement,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.businessobjecttransferownershipagreement import (
-    BusinessObjectTransferOwnershipAgreementField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ businessobjecttransferownershipagreement_server = FastMCP(
 @wrapped_fn_tool
 def get_businessobjecttransferownershipagreement(
     businessobjecttransferownershipagreement_id: str,
-    fields: list[BusinessObjectTransferOwnershipAgreementField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessObjectTransferOwnershipAgreement object by ID.
-
-    Args:
-        businessobjecttransferownershipagreement_id: The ID of the BusinessObjectTransferOwnershipAgreement.
-        fields: Fields to retrieve. Available fields: See BusinessObjectTransferOwnershipAgreementField type.
-    """
     obj = BusinessObjectTransferOwnershipAgreement(businessobjecttransferownershipagreement_id)
     return obj.api_get(fields=fields)

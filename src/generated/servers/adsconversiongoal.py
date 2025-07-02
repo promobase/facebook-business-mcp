@@ -1,9 +1,10 @@
-"""AdsConversionGoal MCP Server with typed wrappers."""
+"""AdsConversionGoal MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsconversiongoal import AdsConversionGoal
 from fastmcp import FastMCP
 
-from src.generated.models.adsconversiongoal import AdsConversionGoalField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsconversiongoal_server = FastMCP(
 @wrapped_fn_tool
 def get_adsconversiongoal(
     adsconversiongoal_id: str,
-    fields: list[AdsConversionGoalField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsConversionGoal object by ID.
-
-    Args:
-        adsconversiongoal_id: The ID of the AdsConversionGoal.
-        fields: Fields to retrieve. Available fields: See AdsConversionGoalField type.
-    """
     obj = AdsConversionGoal(adsconversiongoal_id)
     return obj.api_get(fields=fields)

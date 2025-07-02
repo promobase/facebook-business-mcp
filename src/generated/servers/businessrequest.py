@@ -1,9 +1,10 @@
-"""BusinessRequest MCP Server with typed wrappers."""
+"""BusinessRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businessrequest import BusinessRequest
 from fastmcp import FastMCP
 
-from src.generated.models.businessrequest import BusinessRequestField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ businessrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_businessrequest(
     businessrequest_id: str,
-    fields: list[BusinessRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessRequest object by ID.
-
-    Args:
-        businessrequest_id: The ID of the BusinessRequest.
-        fields: Fields to retrieve. Available fields: See BusinessRequestField type.
-    """
     obj = BusinessRequest(businessrequest_id)
     return obj.api_get(fields=fields)

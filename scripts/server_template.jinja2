@@ -1,0 +1,79 @@
+"""{{ object_name }} MCP Server."""
+
+from typing import Any
+
+from facebook_business.adobjects.{{ module_path }} import {{ object_name }}
+from fastmcp import FastMCP
+
+from src.utils import wrapped_fn_tool
+# Server setup
+server_name = "Facebook{{ object_name }}"
+instructions = """
+{{ object_name }} MCP Server for Facebook Business API.
+
+Provides typed access to all {{ object_name }} operations.
+"""
+
+{{ module_path }}_server = FastMCP(
+    name=server_name,
+    instructions=instructions,
+)
+
+{% if crud_operations %}
+
+# ---- CRUD Operations ({{ crud_count }}) ----
+{%- if has_api_get %}
+@{{ module_path }}_server.tool
+@wrapped_fn_tool
+def get_{{ module_path }}(
+    {{ module_path }}_id: str,
+    fields: list[str] = [],
+) -> str:
+    obj = {{ object_name }}({{ module_path }}_id)
+    return obj.api_get(fields=fields)
+
+{% endif %}
+{%- if has_api_update %}
+@{{ module_path }}_server.tool
+@wrapped_fn_tool
+def update_{{ module_path }}(
+    {{ module_path }}_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> str:
+    return {{ object_name }}({{ module_path }}_id).api_update(fields=fields, params=params)
+
+{% endif %}
+{%- if has_api_delete %}
+@{{ module_path }}_server.tool
+@wrapped_fn_tool
+def delete_{{ module_path }}(
+    {{ module_path }}_id: str,
+) -> str:
+    return {{ object_name }}({{ module_path }}_id).api_delete()
+
+{% endif %}
+{%- endif %}
+{% if edge_methods %}
+
+# ---- Edge Methods ({{ edge_methods|length }}) ----
+{%- for method in edge_methods %}
+@{{ module_path }}_server.tool
+@wrapped_fn_tool
+def {{ method.name }}(
+    {{ module_path }}_id: str,
+{%- if method.http_method == "GET" or method.name.startswith("get_") %}
+    fields: list[str] = [],
+{%- elif method.http_method == "POST" and method.name.startswith("create_") %}
+    fields: list[str] = [],
+{%- endif %}
+    params: dict[str, Any] = {},
+):
+{%- if method.http_method == "GET" or method.name.startswith("get_") or (method.http_method == "POST" and method.name.startswith("create_")) %}
+    return {{ object_name }}({{ module_path }}_id).{{ method.name }}(fields=fields, params=params)
+{%- else %}
+    return {{ object_name }}({{ module_path }}_id).{{ method.name }}(params=params)
+{%- endif %}
+
+{% endfor %}
+{%- endif %}

@@ -1,9 +1,10 @@
-"""ALMAdAccountInfo MCP Server with typed wrappers."""
+"""ALMAdAccountInfo MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.almadaccountinfo import ALMAdAccountInfo
 from fastmcp import FastMCP
 
-from src.generated.models.almadaccountinfo import ALMAdAccountInfoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ almadaccountinfo_server = FastMCP(
 @wrapped_fn_tool
 def get_almadaccountinfo(
     almadaccountinfo_id: str,
-    fields: list[ALMAdAccountInfoField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ALMAdAccountInfo object by ID.
-
-    Args:
-        almadaccountinfo_id: The ID of the ALMAdAccountInfo.
-        fields: Fields to retrieve. Available fields: See ALMAdAccountInfoField type.
-    """
     obj = ALMAdAccountInfo(almadaccountinfo_id)
     return obj.api_get(fields=fields)

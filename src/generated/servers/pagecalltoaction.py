@@ -1,12 +1,10 @@
-"""PageCallToAction MCP Server with typed wrappers."""
+"""PageCallToAction MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.pagecalltoaction import PageCallToAction
 from fastmcp import FastMCP
 
-from src.generated.models.pagecalltoaction import (
-    PageCallToActionField,
-    PageCallToActionUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ pagecalltoaction_server = FastMCP(
 @wrapped_fn_tool
 def get_pagecalltoaction(
     pagecalltoaction_id: str,
-    fields: list[PageCallToActionField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PageCallToAction object by ID.
-
-    Args:
-        pagecalltoaction_id: The ID of the PageCallToAction.
-        fields: Fields to retrieve. Available fields: See PageCallToActionField type.
-    """
     obj = PageCallToAction(pagecalltoaction_id)
     return obj.api_get(fields=fields)
 
@@ -44,16 +36,9 @@ def get_pagecalltoaction(
 @wrapped_fn_tool
 def update_pagecalltoaction(
     pagecalltoaction_id: str,
-    fields: list[PageCallToActionField] = [],
-    params: PageCallToActionUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a PageCallToAction object.
-
-    Args:
-        pagecalltoaction_id: The ID of the PageCallToAction.
-        fields: Fields to return after update. Available fields: See PageCallToActionField type.
-        params: Parameters to update. Available params: See PageCallToActionUpdateParams type.
-    """
     return PageCallToAction(pagecalltoaction_id).api_update(fields=fields, params=params)
 
 
@@ -62,9 +47,4 @@ def update_pagecalltoaction(
 def delete_pagecalltoaction(
     pagecalltoaction_id: str,
 ) -> str:
-    """Delete a PageCallToAction object.
-
-    Args:
-        pagecalltoaction_id: The ID of the PageCallToAction.
-    """
     return PageCallToAction(pagecalltoaction_id).api_delete()

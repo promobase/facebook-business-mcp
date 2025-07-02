@@ -1,9 +1,10 @@
-"""PersonalAdsPersona MCP Server with typed wrappers."""
+"""PersonalAdsPersona MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.personaladspersona import PersonalAdsPersona
 from fastmcp import FastMCP
 
-from src.generated.models.personaladspersona import PersonalAdsPersonaField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ personaladspersona_server = FastMCP(
 @wrapped_fn_tool
 def get_personaladspersona(
     personaladspersona_id: str,
-    fields: list[PersonalAdsPersonaField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PersonalAdsPersona object by ID.
-
-    Args:
-        personaladspersona_id: The ID of the PersonalAdsPersona.
-        fields: Fields to retrieve. Available fields: See PersonalAdsPersonaField type.
-    """
     obj = PersonalAdsPersona(personaladspersona_id)
     return obj.api_get(fields=fields)

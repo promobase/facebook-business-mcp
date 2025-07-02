@@ -1,9 +1,10 @@
-"""VideoList MCP Server with typed wrappers."""
+"""VideoList MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.videolist import VideoList
 from fastmcp import FastMCP
 
-from src.generated.models.videolist import VideoListField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ videolist_server = FastMCP(
 @wrapped_fn_tool
 def get_videolist(
     videolist_id: str,
-    fields: list[VideoListField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a VideoList object by ID.
-
-    Args:
-        videolist_id: The ID of the VideoList.
-        fields: Fields to retrieve. Available fields: See VideoListField type.
-    """
     obj = VideoList(videolist_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""AnalyticsUserConfig MCP Server with typed wrappers."""
+"""AnalyticsUserConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.analyticsuserconfig import AnalyticsUserConfig
 from fastmcp import FastMCP
 
-from src.generated.models.analyticsuserconfig import AnalyticsUserConfigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ analyticsuserconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_analyticsuserconfig(
     analyticsuserconfig_id: str,
-    fields: list[AnalyticsUserConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AnalyticsUserConfig object by ID.
-
-    Args:
-        analyticsuserconfig_id: The ID of the AnalyticsUserConfig.
-        fields: Fields to retrieve. Available fields: See AnalyticsUserConfigField type.
-    """
     obj = AnalyticsUserConfig(analyticsuserconfig_id)
     return obj.api_get(fields=fields)

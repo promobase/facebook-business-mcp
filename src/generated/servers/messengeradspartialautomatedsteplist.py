@@ -1,13 +1,12 @@
-"""MessengerAdsPartialAutomatedStepList MCP Server with typed wrappers."""
+"""MessengerAdsPartialAutomatedStepList MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.messengeradspartialautomatedsteplist import (
     MessengerAdsPartialAutomatedStepList,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.messengeradspartialautomatedsteplist import (
-    MessengerAdsPartialAutomatedStepListField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ messengeradspartialautomatedsteplist_server = FastMCP(
 @wrapped_fn_tool
 def get_messengeradspartialautomatedsteplist(
     messengeradspartialautomatedsteplist_id: str,
-    fields: list[MessengerAdsPartialAutomatedStepListField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MessengerAdsPartialAutomatedStepList object by ID.
-
-    Args:
-        messengeradspartialautomatedsteplist_id: The ID of the MessengerAdsPartialAutomatedStepList.
-        fields: Fields to retrieve. Available fields: See MessengerAdsPartialAutomatedStepListField type.
-    """
     obj = MessengerAdsPartialAutomatedStepList(messengeradspartialautomatedsteplist_id)
     return obj.api_get(fields=fields)

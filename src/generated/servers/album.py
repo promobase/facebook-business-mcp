@@ -1,19 +1,10 @@
-"""Album MCP Server with typed wrappers."""
+"""Album MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.album import Album
 from fastmcp import FastMCP
 
-from src.generated.models.album import (
-    AlbumCreateCommentParams,
-    AlbumCreateLikeParams,
-    AlbumCreatePhotoParams,
-    AlbumField,
-    AlbumGetCommentsParams,
-    AlbumGetPictureParams,
-)
-from src.generated.models.comment import CommentField
-from src.generated.models.photo import PhotoField
-from src.generated.models.profilepicturesource import ProfilePictureSourceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -35,14 +26,8 @@ album_server = FastMCP(
 @wrapped_fn_tool
 def get_album(
     album_id: str,
-    fields: list[AlbumField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Album object by ID.
-
-    Args:
-        album_id: The ID of the Album.
-        fields: Fields to retrieve. Available fields: See AlbumField type.
-    """
     obj = Album(album_id)
     return obj.api_get(fields=fields)
 
@@ -52,16 +37,9 @@ def get_album(
 @wrapped_fn_tool
 def get_comments(
     album_id: str,
-    fields: list[CommentField] = [],
-    params: AlbumGetCommentsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Comments for this Album.
-
-    Args:
-        album_id: The ID of the Album.
-        fields: Fields to retrieve. Available fields: See CommentField type.
-        params: Query parameters. Available params: See AlbumGetCommentsParams type.
-    """
     return Album(album_id).get_comments(fields=fields, params=params)
 
 
@@ -70,15 +48,8 @@ def get_comments(
 def create_comment(
     album_id: str,
     fields: list[str] = [],
-    params: AlbumCreateCommentParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Comment for this Album.
-
-    Args:
-        album_id: The ID of the Album.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AlbumCreateCommentParams type.
-    """
     return Album(album_id).create_comment(fields=fields, params=params)
 
 
@@ -87,15 +58,8 @@ def create_comment(
 def create_like(
     album_id: str,
     fields: list[str] = [],
-    params: AlbumCreateLikeParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Like for this Album.
-
-    Args:
-        album_id: The ID of the Album.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AlbumCreateLikeParams type.
-    """
     return Album(album_id).create_like(fields=fields, params=params)
 
 
@@ -104,15 +68,8 @@ def create_like(
 def create_photo(
     album_id: str,
     fields: list[str] = [],
-    params: AlbumCreatePhotoParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Photo for this Album.
-
-    Args:
-        album_id: The ID of the Album.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AlbumCreatePhotoParams type.
-    """
     return Album(album_id).create_photo(fields=fields, params=params)
 
 
@@ -120,14 +77,7 @@ def create_photo(
 @wrapped_fn_tool
 def get_picture(
     album_id: str,
-    fields: list[ProfilePictureSourceField] = [],
-    params: AlbumGetPictureParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Picture for this Album.
-
-    Args:
-        album_id: The ID of the Album.
-        fields: Fields to retrieve. Available fields: See ProfilePictureSourceField type.
-        params: Query parameters. Available params: See AlbumGetPictureParams type.
-    """
     return Album(album_id).get_picture(fields=fields, params=params)

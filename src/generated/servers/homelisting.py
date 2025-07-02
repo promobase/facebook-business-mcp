@@ -1,14 +1,10 @@
-"""HomeListing MCP Server with typed wrappers."""
+"""HomeListing MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.homelisting import HomeListing
 from fastmcp import FastMCP
 
-from src.generated.models.homelisting import (
-    HomeListingField,
-    HomeListingGetOverrideDetailsParams,
-    HomeListingUpdateParams,
-)
-from src.generated.models.overridedetails import OverrideDetailsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ homelisting_server = FastMCP(
 @wrapped_fn_tool
 def get_homelisting(
     homelisting_id: str,
-    fields: list[HomeListingField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a HomeListing object by ID.
-
-    Args:
-        homelisting_id: The ID of the HomeListing.
-        fields: Fields to retrieve. Available fields: See HomeListingField type.
-    """
     obj = HomeListing(homelisting_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +36,9 @@ def get_homelisting(
 @wrapped_fn_tool
 def update_homelisting(
     homelisting_id: str,
-    fields: list[HomeListingField] = [],
-    params: HomeListingUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a HomeListing object.
-
-    Args:
-        homelisting_id: The ID of the HomeListing.
-        fields: Fields to return after update. Available fields: See HomeListingField type.
-        params: Parameters to update. Available params: See HomeListingUpdateParams type.
-    """
     return HomeListing(homelisting_id).api_update(fields=fields, params=params)
 
 
@@ -64,11 +47,6 @@ def update_homelisting(
 def delete_homelisting(
     homelisting_id: str,
 ) -> str:
-    """Delete a HomeListing object.
-
-    Args:
-        homelisting_id: The ID of the HomeListing.
-    """
     return HomeListing(homelisting_id).api_delete()
 
 
@@ -77,14 +55,7 @@ def delete_homelisting(
 @wrapped_fn_tool
 def get_override_details(
     homelisting_id: str,
-    fields: list[OverrideDetailsField] = [],
-    params: HomeListingGetOverrideDetailsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Override Details for this HomeListing.
-
-    Args:
-        homelisting_id: The ID of the HomeListing.
-        fields: Fields to retrieve. Available fields: See OverrideDetailsField type.
-        params: Query parameters. Available params: See HomeListingGetOverrideDetailsParams type.
-    """
     return HomeListing(homelisting_id).get_override_details(fields=fields, params=params)

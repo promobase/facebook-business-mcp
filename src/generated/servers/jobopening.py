@@ -1,9 +1,10 @@
-"""JobOpening MCP Server with typed wrappers."""
+"""JobOpening MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.jobopening import JobOpening
 from fastmcp import FastMCP
 
-from src.generated.models.jobopening import JobOpeningField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ jobopening_server = FastMCP(
 @wrapped_fn_tool
 def get_jobopening(
     jobopening_id: str,
-    fields: list[JobOpeningField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a JobOpening object by ID.
-
-    Args:
-        jobopening_id: The ID of the JobOpening.
-        fields: Fields to retrieve. Available fields: See JobOpeningField type.
-    """
     obj = JobOpening(jobopening_id)
     return obj.api_get(fields=fields)

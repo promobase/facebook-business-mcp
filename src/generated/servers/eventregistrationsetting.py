@@ -1,9 +1,10 @@
-"""EventRegistrationSetting MCP Server with typed wrappers."""
+"""EventRegistrationSetting MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.eventregistrationsetting import EventRegistrationSetting
 from fastmcp import FastMCP
 
-from src.generated.models.eventregistrationsetting import EventRegistrationSettingField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ eventregistrationsetting_server = FastMCP(
 @wrapped_fn_tool
 def get_eventregistrationsetting(
     eventregistrationsetting_id: str,
-    fields: list[EventRegistrationSettingField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a EventRegistrationSetting object by ID.
-
-    Args:
-        eventregistrationsetting_id: The ID of the EventRegistrationSetting.
-        fields: Fields to retrieve. Available fields: See EventRegistrationSettingField type.
-    """
     obj = EventRegistrationSetting(eventregistrationsetting_id)
     return obj.api_get(fields=fields)

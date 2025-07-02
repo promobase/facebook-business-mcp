@@ -1,14 +1,12 @@
-"""ExtendedCreditAllocationConfig MCP Server with typed wrappers."""
+"""ExtendedCreditAllocationConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.extendedcreditallocationconfig import (
     ExtendedCreditAllocationConfig,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.extendedcreditallocationconfig import (
-    ExtendedCreditAllocationConfigField,
-    ExtendedCreditAllocationConfigUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +28,8 @@ extendedcreditallocationconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_extendedcreditallocationconfig(
     extendedcreditallocationconfig_id: str,
-    fields: list[ExtendedCreditAllocationConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ExtendedCreditAllocationConfig object by ID.
-
-    Args:
-        extendedcreditallocationconfig_id: The ID of the ExtendedCreditAllocationConfig.
-        fields: Fields to retrieve. Available fields: See ExtendedCreditAllocationConfigField type.
-    """
     obj = ExtendedCreditAllocationConfig(extendedcreditallocationconfig_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +38,9 @@ def get_extendedcreditallocationconfig(
 @wrapped_fn_tool
 def update_extendedcreditallocationconfig(
     extendedcreditallocationconfig_id: str,
-    fields: list[ExtendedCreditAllocationConfigField] = [],
-    params: ExtendedCreditAllocationConfigUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a ExtendedCreditAllocationConfig object.
-
-    Args:
-        extendedcreditallocationconfig_id: The ID of the ExtendedCreditAllocationConfig.
-        fields: Fields to return after update. Available fields: See ExtendedCreditAllocationConfigField type.
-        params: Parameters to update. Available params: See ExtendedCreditAllocationConfigUpdateParams type.
-    """
     return ExtendedCreditAllocationConfig(extendedcreditallocationconfig_id).api_update(
         fields=fields, params=params
     )
@@ -66,9 +51,4 @@ def update_extendedcreditallocationconfig(
 def delete_extendedcreditallocationconfig(
     extendedcreditallocationconfig_id: str,
 ) -> str:
-    """Delete a ExtendedCreditAllocationConfig object.
-
-    Args:
-        extendedcreditallocationconfig_id: The ID of the ExtendedCreditAllocationConfig.
-    """
     return ExtendedCreditAllocationConfig(extendedcreditallocationconfig_id).api_delete()

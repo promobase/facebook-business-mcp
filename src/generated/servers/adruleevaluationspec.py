@@ -1,9 +1,10 @@
-"""AdRuleEvaluationSpec MCP Server with typed wrappers."""
+"""AdRuleEvaluationSpec MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adruleevaluationspec import AdRuleEvaluationSpec
 from fastmcp import FastMCP
 
-from src.generated.models.adruleevaluationspec import AdRuleEvaluationSpecField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adruleevaluationspec_server = FastMCP(
 @wrapped_fn_tool
 def get_adruleevaluationspec(
     adruleevaluationspec_id: str,
-    fields: list[AdRuleEvaluationSpecField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdRuleEvaluationSpec object by ID.
-
-    Args:
-        adruleevaluationspec_id: The ID of the AdRuleEvaluationSpec.
-        fields: Fields to retrieve. Available fields: See AdRuleEvaluationSpecField type.
-    """
     obj = AdRuleEvaluationSpec(adruleevaluationspec_id)
     return obj.api_get(fields=fields)

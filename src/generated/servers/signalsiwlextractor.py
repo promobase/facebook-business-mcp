@@ -1,9 +1,10 @@
-"""SignalsIWLExtractor MCP Server with typed wrappers."""
+"""SignalsIWLExtractor MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.signalsiwlextractor import SignalsIWLExtractor
 from fastmcp import FastMCP
 
-from src.generated.models.signalsiwlextractor import SignalsIWLExtractorField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ signalsiwlextractor_server = FastMCP(
 @wrapped_fn_tool
 def get_signalsiwlextractor(
     signalsiwlextractor_id: str,
-    fields: list[SignalsIWLExtractorField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a SignalsIWLExtractor object by ID.
-
-    Args:
-        signalsiwlextractor_id: The ID of the SignalsIWLExtractor.
-        fields: Fields to retrieve. Available fields: See SignalsIWLExtractorField type.
-    """
     obj = SignalsIWLExtractor(signalsiwlextractor_id)
     return obj.api_get(fields=fields)

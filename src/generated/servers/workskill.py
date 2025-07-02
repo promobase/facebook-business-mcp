@@ -1,9 +1,10 @@
-"""WorkSkill MCP Server with typed wrappers."""
+"""WorkSkill MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.workskill import WorkSkill
 from fastmcp import FastMCP
 
-from src.generated.models.workskill import WorkSkillField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ workskill_server = FastMCP(
 @wrapped_fn_tool
 def get_workskill(
     workskill_id: str,
-    fields: list[WorkSkillField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WorkSkill object by ID.
-
-    Args:
-        workskill_id: The ID of the WorkSkill.
-        fields: Fields to retrieve. Available fields: See WorkSkillField type.
-    """
     obj = WorkSkill(workskill_id)
     return obj.api_get(fields=fields)

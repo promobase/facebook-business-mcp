@@ -1,9 +1,10 @@
-"""AppRequest MCP Server with typed wrappers."""
+"""AppRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.apprequest import AppRequest
 from fastmcp import FastMCP
 
-from src.generated.models.apprequest import AppRequestField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ apprequest_server = FastMCP(
 @wrapped_fn_tool
 def get_apprequest(
     apprequest_id: str,
-    fields: list[AppRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AppRequest object by ID.
-
-    Args:
-        apprequest_id: The ID of the AppRequest.
-        fields: Fields to retrieve. Available fields: See AppRequestField type.
-    """
     obj = AppRequest(apprequest_id)
     return obj.api_get(fields=fields)
 
@@ -42,9 +37,4 @@ def get_apprequest(
 def delete_apprequest(
     apprequest_id: str,
 ) -> str:
-    """Delete a AppRequest object.
-
-    Args:
-        apprequest_id: The ID of the AppRequest.
-    """
     return AppRequest(apprequest_id).api_delete()

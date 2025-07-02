@@ -1,9 +1,10 @@
-"""AdsReportBuilderExportCore MCP Server with typed wrappers."""
+"""AdsReportBuilderExportCore MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsreportbuilderexportcore import AdsReportBuilderExportCore
 from fastmcp import FastMCP
 
-from src.generated.models.adsreportbuilderexportcore import AdsReportBuilderExportCoreField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsreportbuilderexportcore_server = FastMCP(
 @wrapped_fn_tool
 def get_adsreportbuilderexportcore(
     adsreportbuilderexportcore_id: str,
-    fields: list[AdsReportBuilderExportCoreField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsReportBuilderExportCore object by ID.
-
-    Args:
-        adsreportbuilderexportcore_id: The ID of the AdsReportBuilderExportCore.
-        fields: Fields to retrieve. Available fields: See AdsReportBuilderExportCoreField type.
-    """
     obj = AdsReportBuilderExportCore(adsreportbuilderexportcore_id)
     return obj.api_get(fields=fields)

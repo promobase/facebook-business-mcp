@@ -1,12 +1,10 @@
-"""OpenBridgeConfiguration MCP Server with typed wrappers."""
+"""OpenBridgeConfiguration MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.openbridgeconfiguration import OpenBridgeConfiguration
 from fastmcp import FastMCP
 
-from src.generated.models.openbridgeconfiguration import (
-    OpenBridgeConfigurationField,
-    OpenBridgeConfigurationUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ openbridgeconfiguration_server = FastMCP(
 @wrapped_fn_tool
 def get_openbridgeconfiguration(
     openbridgeconfiguration_id: str,
-    fields: list[OpenBridgeConfigurationField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OpenBridgeConfiguration object by ID.
-
-    Args:
-        openbridgeconfiguration_id: The ID of the OpenBridgeConfiguration.
-        fields: Fields to retrieve. Available fields: See OpenBridgeConfigurationField type.
-    """
     obj = OpenBridgeConfiguration(openbridgeconfiguration_id)
     return obj.api_get(fields=fields)
 
@@ -44,16 +36,9 @@ def get_openbridgeconfiguration(
 @wrapped_fn_tool
 def update_openbridgeconfiguration(
     openbridgeconfiguration_id: str,
-    fields: list[OpenBridgeConfigurationField] = [],
-    params: OpenBridgeConfigurationUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a OpenBridgeConfiguration object.
-
-    Args:
-        openbridgeconfiguration_id: The ID of the OpenBridgeConfiguration.
-        fields: Fields to return after update. Available fields: See OpenBridgeConfigurationField type.
-        params: Parameters to update. Available params: See OpenBridgeConfigurationUpdateParams type.
-    """
     return OpenBridgeConfiguration(openbridgeconfiguration_id).api_update(
         fields=fields, params=params
     )
@@ -64,9 +49,4 @@ def update_openbridgeconfiguration(
 def delete_openbridgeconfiguration(
     openbridgeconfiguration_id: str,
 ) -> str:
-    """Delete a OpenBridgeConfiguration object.
-
-    Args:
-        openbridgeconfiguration_id: The ID of the OpenBridgeConfiguration.
-    """
     return OpenBridgeConfiguration(openbridgeconfiguration_id).api_delete()

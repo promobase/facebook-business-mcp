@@ -1,13 +1,10 @@
-"""AutomotiveModel MCP Server with typed wrappers."""
+"""AutomotiveModel MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.automotivemodel import AutomotiveModel
 from fastmcp import FastMCP
 
-from src.generated.models.automotivemodel import (
-    AutomotiveModelField,
-    AutomotiveModelGetOverrideDetailsParams,
-)
-from src.generated.models.overridedetails import OverrideDetailsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,14 +26,8 @@ automotivemodel_server = FastMCP(
 @wrapped_fn_tool
 def get_automotivemodel(
     automotivemodel_id: str,
-    fields: list[AutomotiveModelField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AutomotiveModel object by ID.
-
-    Args:
-        automotivemodel_id: The ID of the AutomotiveModel.
-        fields: Fields to retrieve. Available fields: See AutomotiveModelField type.
-    """
     obj = AutomotiveModel(automotivemodel_id)
     return obj.api_get(fields=fields)
 
@@ -46,14 +37,7 @@ def get_automotivemodel(
 @wrapped_fn_tool
 def get_override_details(
     automotivemodel_id: str,
-    fields: list[OverrideDetailsField] = [],
-    params: AutomotiveModelGetOverrideDetailsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Override Details for this AutomotiveModel.
-
-    Args:
-        automotivemodel_id: The ID of the AutomotiveModel.
-        fields: Fields to retrieve. Available fields: See OverrideDetailsField type.
-        params: Query parameters. Available params: See AutomotiveModelGetOverrideDetailsParams type.
-    """
     return AutomotiveModel(automotivemodel_id).get_override_details(fields=fields, params=params)

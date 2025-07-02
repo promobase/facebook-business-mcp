@@ -1,14 +1,12 @@
-"""AdsValueAdjustmentRuleCollection MCP Server with typed wrappers."""
+"""AdsValueAdjustmentRuleCollection MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsvalueadjustmentrulecollection import (
     AdsValueAdjustmentRuleCollection,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.adsvalueadjustmentrulecollection import (
-    AdsValueAdjustmentRuleCollectionField,
-    AdsValueAdjustmentRuleCollectionUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +28,8 @@ adsvalueadjustmentrulecollection_server = FastMCP(
 @wrapped_fn_tool
 def get_adsvalueadjustmentrulecollection(
     adsvalueadjustmentrulecollection_id: str,
-    fields: list[AdsValueAdjustmentRuleCollectionField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsValueAdjustmentRuleCollection object by ID.
-
-    Args:
-        adsvalueadjustmentrulecollection_id: The ID of the AdsValueAdjustmentRuleCollection.
-        fields: Fields to retrieve. Available fields: See AdsValueAdjustmentRuleCollectionField type.
-    """
     obj = AdsValueAdjustmentRuleCollection(adsvalueadjustmentrulecollection_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +38,9 @@ def get_adsvalueadjustmentrulecollection(
 @wrapped_fn_tool
 def update_adsvalueadjustmentrulecollection(
     adsvalueadjustmentrulecollection_id: str,
-    fields: list[AdsValueAdjustmentRuleCollectionField] = [],
-    params: AdsValueAdjustmentRuleCollectionUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a AdsValueAdjustmentRuleCollection object.
-
-    Args:
-        adsvalueadjustmentrulecollection_id: The ID of the AdsValueAdjustmentRuleCollection.
-        fields: Fields to return after update. Available fields: See AdsValueAdjustmentRuleCollectionField type.
-        params: Parameters to update. Available params: See AdsValueAdjustmentRuleCollectionUpdateParams type.
-    """
     return AdsValueAdjustmentRuleCollection(adsvalueadjustmentrulecollection_id).api_update(
         fields=fields, params=params
     )

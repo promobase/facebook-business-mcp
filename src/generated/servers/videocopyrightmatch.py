@@ -1,9 +1,10 @@
-"""VideoCopyrightMatch MCP Server with typed wrappers."""
+"""VideoCopyrightMatch MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.videocopyrightmatch import VideoCopyrightMatch
 from fastmcp import FastMCP
 
-from src.generated.models.videocopyrightmatch import VideoCopyrightMatchField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ videocopyrightmatch_server = FastMCP(
 @wrapped_fn_tool
 def get_videocopyrightmatch(
     videocopyrightmatch_id: str,
-    fields: list[VideoCopyrightMatchField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a VideoCopyrightMatch object by ID.
-
-    Args:
-        videocopyrightmatch_id: The ID of the VideoCopyrightMatch.
-        fields: Fields to retrieve. Available fields: See VideoCopyrightMatchField type.
-    """
     obj = VideoCopyrightMatch(videocopyrightmatch_id)
     return obj.api_get(fields=fields)

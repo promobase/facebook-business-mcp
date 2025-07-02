@@ -1,10 +1,10 @@
-"""RTBDynamicPost MCP Server with typed wrappers."""
+"""RTBDynamicPost MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.rtbdynamicpost import RTBDynamicPost
 from fastmcp import FastMCP
 
-from src.generated.models.comment import CommentField
-from src.generated.models.rtbdynamicpost import RTBDynamicPostField, RTBDynamicPostGetCommentsParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,14 +26,8 @@ rtbdynamicpost_server = FastMCP(
 @wrapped_fn_tool
 def get_rtbdynamicpost(
     rtbdynamicpost_id: str,
-    fields: list[RTBDynamicPostField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a RTBDynamicPost object by ID.
-
-    Args:
-        rtbdynamicpost_id: The ID of the RTBDynamicPost.
-        fields: Fields to retrieve. Available fields: See RTBDynamicPostField type.
-    """
     obj = RTBDynamicPost(rtbdynamicpost_id)
     return obj.api_get(fields=fields)
 
@@ -43,14 +37,7 @@ def get_rtbdynamicpost(
 @wrapped_fn_tool
 def get_comments(
     rtbdynamicpost_id: str,
-    fields: list[CommentField] = [],
-    params: RTBDynamicPostGetCommentsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Comments for this RTBDynamicPost.
-
-    Args:
-        rtbdynamicpost_id: The ID of the RTBDynamicPost.
-        fields: Fields to retrieve. Available fields: See CommentField type.
-        params: Query parameters. Available params: See RTBDynamicPostGetCommentsParams type.
-    """
     return RTBDynamicPost(rtbdynamicpost_id).get_comments(fields=fields, params=params)

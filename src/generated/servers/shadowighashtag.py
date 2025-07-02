@@ -1,14 +1,10 @@
-"""ShadowIGHashtag MCP Server with typed wrappers."""
+"""ShadowIGHashtag MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.shadowighashtag import ShadowIGHashtag
 from fastmcp import FastMCP
 
-from src.generated.models.igmedia import IGMediaField
-from src.generated.models.shadowighashtag import (
-    ShadowIGHashtagField,
-    ShadowIGHashtagGetRecentMediaParams,
-    ShadowIGHashtagGetTopMediaParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ shadowighashtag_server = FastMCP(
 @wrapped_fn_tool
 def get_shadowighashtag(
     shadowighashtag_id: str,
-    fields: list[ShadowIGHashtagField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ShadowIGHashtag object by ID.
-
-    Args:
-        shadowighashtag_id: The ID of the ShadowIGHashtag.
-        fields: Fields to retrieve. Available fields: See ShadowIGHashtagField type.
-    """
     obj = ShadowIGHashtag(shadowighashtag_id)
     return obj.api_get(fields=fields)
 
@@ -47,16 +37,9 @@ def get_shadowighashtag(
 @wrapped_fn_tool
 def get_recent_media(
     shadowighashtag_id: str,
-    fields: list[IGMediaField] = [],
-    params: ShadowIGHashtagGetRecentMediaParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Recent Media for this ShadowIGHashtag.
-
-    Args:
-        shadowighashtag_id: The ID of the ShadowIGHashtag.
-        fields: Fields to retrieve. Available fields: See IGMediaField type.
-        params: Query parameters. Available params: See ShadowIGHashtagGetRecentMediaParams type.
-    """
     return ShadowIGHashtag(shadowighashtag_id).get_recent_media(fields=fields, params=params)
 
 
@@ -64,14 +47,7 @@ def get_recent_media(
 @wrapped_fn_tool
 def get_top_media(
     shadowighashtag_id: str,
-    fields: list[IGMediaField] = [],
-    params: ShadowIGHashtagGetTopMediaParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Top Media for this ShadowIGHashtag.
-
-    Args:
-        shadowighashtag_id: The ID of the ShadowIGHashtag.
-        fields: Fields to retrieve. Available fields: See IGMediaField type.
-        params: Query parameters. Available params: See ShadowIGHashtagGetTopMediaParams type.
-    """
     return ShadowIGHashtag(shadowighashtag_id).get_top_media(fields=fields, params=params)

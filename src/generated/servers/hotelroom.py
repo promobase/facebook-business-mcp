@@ -1,9 +1,10 @@
-"""HotelRoom MCP Server with typed wrappers."""
+"""HotelRoom MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.hotelroom import HotelRoom
 from fastmcp import FastMCP
 
-from src.generated.models.hotelroom import HotelRoomField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ hotelroom_server = FastMCP(
 @wrapped_fn_tool
 def get_hotelroom(
     hotelroom_id: str,
-    fields: list[HotelRoomField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a HotelRoom object by ID.
-
-    Args:
-        hotelroom_id: The ID of the HotelRoom.
-        fields: Fields to retrieve. Available fields: See HotelRoomField type.
-    """
     obj = HotelRoom(hotelroom_id)
     return obj.api_get(fields=fields)

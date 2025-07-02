@@ -1,10 +1,10 @@
-"""Event MCP Server with typed wrappers."""
+"""Event MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.event import Event
 from fastmcp import FastMCP
 
-from src.generated.models.event import EventCreateLiveVideoParams, EventField
-from src.generated.models.livevideo import LiveVideoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,14 +26,8 @@ event_server = FastMCP(
 @wrapped_fn_tool
 def get_event(
     event_id: str,
-    fields: list[EventField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Event object by ID.
-
-    Args:
-        event_id: The ID of the Event.
-        fields: Fields to retrieve. Available fields: See EventField type.
-    """
     obj = Event(event_id)
     return obj.api_get(fields=fields)
 
@@ -44,13 +38,6 @@ def get_event(
 def create_live_video(
     event_id: str,
     fields: list[str] = [],
-    params: EventCreateLiveVideoParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Live Video for this Event.
-
-    Args:
-        event_id: The ID of the Event.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See EventCreateLiveVideoParams type.
-    """
     return Event(event_id).create_live_video(fields=fields, params=params)

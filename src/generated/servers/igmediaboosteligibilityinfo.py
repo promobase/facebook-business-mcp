@@ -1,9 +1,10 @@
-"""IGMediaBoostEligibilityInfo MCP Server with typed wrappers."""
+"""IGMediaBoostEligibilityInfo MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfo
 from fastmcp import FastMCP
 
-from src.generated.models.igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ igmediaboosteligibilityinfo_server = FastMCP(
 @wrapped_fn_tool
 def get_igmediaboosteligibilityinfo(
     igmediaboosteligibilityinfo_id: str,
-    fields: list[IGMediaBoostEligibilityInfoField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGMediaBoostEligibilityInfo object by ID.
-
-    Args:
-        igmediaboosteligibilityinfo_id: The ID of the IGMediaBoostEligibilityInfo.
-        fields: Fields to retrieve. Available fields: See IGMediaBoostEligibilityInfoField type.
-    """
     obj = IGMediaBoostEligibilityInfo(igmediaboosteligibilityinfo_id)
     return obj.api_get(fields=fields)

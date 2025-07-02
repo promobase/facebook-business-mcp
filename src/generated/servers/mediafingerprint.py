@@ -1,12 +1,10 @@
-"""MediaFingerprint MCP Server with typed wrappers."""
+"""MediaFingerprint MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.mediafingerprint import MediaFingerprint
 from fastmcp import FastMCP
 
-from src.generated.models.mediafingerprint import (
-    MediaFingerprintField,
-    MediaFingerprintUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ mediafingerprint_server = FastMCP(
 @wrapped_fn_tool
 def get_mediafingerprint(
     mediafingerprint_id: str,
-    fields: list[MediaFingerprintField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MediaFingerprint object by ID.
-
-    Args:
-        mediafingerprint_id: The ID of the MediaFingerprint.
-        fields: Fields to retrieve. Available fields: See MediaFingerprintField type.
-    """
     obj = MediaFingerprint(mediafingerprint_id)
     return obj.api_get(fields=fields)
 
@@ -44,14 +36,7 @@ def get_mediafingerprint(
 @wrapped_fn_tool
 def update_mediafingerprint(
     mediafingerprint_id: str,
-    fields: list[MediaFingerprintField] = [],
-    params: MediaFingerprintUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a MediaFingerprint object.
-
-    Args:
-        mediafingerprint_id: The ID of the MediaFingerprint.
-        fields: Fields to return after update. Available fields: See MediaFingerprintField type.
-        params: Parameters to update. Available params: See MediaFingerprintUpdateParams type.
-    """
     return MediaFingerprint(mediafingerprint_id).api_update(fields=fields, params=params)

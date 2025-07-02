@@ -1,19 +1,10 @@
-"""Comment MCP Server with typed wrappers."""
+"""Comment MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.comment import Comment
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.comment import (
-    CommentCreateCommentParams,
-    CommentCreateLikeParams,
-    CommentDeleteLikesParams,
-    CommentField,
-    CommentGetCommentsParams,
-    CommentGetReactionsParams,
-    CommentUpdateParams,
-)
-from src.generated.models.profile import ProfileField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -35,14 +26,8 @@ comment_server = FastMCP(
 @wrapped_fn_tool
 def get_comment(
     comment_id: str,
-    fields: list[CommentField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Comment object by ID.
-
-    Args:
-        comment_id: The ID of the Comment.
-        fields: Fields to retrieve. Available fields: See CommentField type.
-    """
     obj = Comment(comment_id)
     return obj.api_get(fields=fields)
 
@@ -51,16 +36,9 @@ def get_comment(
 @wrapped_fn_tool
 def update_comment(
     comment_id: str,
-    fields: list[CommentField] = [],
-    params: CommentUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a Comment object.
-
-    Args:
-        comment_id: The ID of the Comment.
-        fields: Fields to return after update. Available fields: See CommentField type.
-        params: Parameters to update. Available params: See CommentUpdateParams type.
-    """
     return Comment(comment_id).api_update(fields=fields, params=params)
 
 
@@ -69,11 +47,6 @@ def update_comment(
 def delete_comment(
     comment_id: str,
 ) -> str:
-    """Delete a Comment object.
-
-    Args:
-        comment_id: The ID of the Comment.
-    """
     return Comment(comment_id).api_delete()
 
 
@@ -82,16 +55,9 @@ def delete_comment(
 @wrapped_fn_tool
 def get_comments(
     comment_id: str,
-    fields: list[CommentField] = [],
-    params: CommentGetCommentsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Comments for this Comment.
-
-    Args:
-        comment_id: The ID of the Comment.
-        fields: Fields to retrieve. Available fields: See CommentField type.
-        params: Query parameters. Available params: See CommentGetCommentsParams type.
-    """
     return Comment(comment_id).get_comments(fields=fields, params=params)
 
 
@@ -100,15 +66,8 @@ def get_comments(
 def create_comment(
     comment_id: str,
     fields: list[str] = [],
-    params: CommentCreateCommentParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Comment for this Comment.
-
-    Args:
-        comment_id: The ID of the Comment.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See CommentCreateCommentParams type.
-    """
     return Comment(comment_id).create_comment(fields=fields, params=params)
 
 
@@ -116,14 +75,8 @@ def create_comment(
 @wrapped_fn_tool
 def delete_likes(
     comment_id: str,
-    params: CommentDeleteLikesParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Likes for this Comment.
-
-    Args:
-        comment_id: The ID of the Comment.
-        params: Query parameters. Available params: See CommentDeleteLikesParams type.
-    """
     return Comment(comment_id).delete_likes(params=params)
 
 
@@ -132,15 +85,8 @@ def delete_likes(
 def create_like(
     comment_id: str,
     fields: list[str] = [],
-    params: CommentCreateLikeParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Like for this Comment.
-
-    Args:
-        comment_id: The ID of the Comment.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See CommentCreateLikeParams type.
-    """
     return Comment(comment_id).create_like(fields=fields, params=params)
 
 
@@ -148,14 +94,7 @@ def create_like(
 @wrapped_fn_tool
 def get_reactions(
     comment_id: str,
-    fields: list[ProfileField] = [],
-    params: CommentGetReactionsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Reactions for this Comment.
-
-    Args:
-        comment_id: The ID of the Comment.
-        fields: Fields to retrieve. Available fields: See ProfileField type.
-        params: Query parameters. Available params: See CommentGetReactionsParams type.
-    """
     return Comment(comment_id).get_reactions(fields=fields, params=params)

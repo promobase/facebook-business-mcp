@@ -1,9 +1,10 @@
-"""BusinessImage MCP Server with typed wrappers."""
+"""BusinessImage MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businessimage import BusinessImage
 from fastmcp import FastMCP
 
-from src.generated.models.businessimage import BusinessImageField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ businessimage_server = FastMCP(
 @wrapped_fn_tool
 def get_businessimage(
     businessimage_id: str,
-    fields: list[BusinessImageField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessImage object by ID.
-
-    Args:
-        businessimage_id: The ID of the BusinessImage.
-        fields: Fields to retrieve. Available fields: See BusinessImageField type.
-    """
     obj = BusinessImage(businessimage_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""EventExternalTicketInfo MCP Server with typed wrappers."""
+"""EventExternalTicketInfo MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.eventexternalticketinfo import EventExternalTicketInfo
 from fastmcp import FastMCP
 
-from src.generated.models.eventexternalticketinfo import EventExternalTicketInfoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ eventexternalticketinfo_server = FastMCP(
 @wrapped_fn_tool
 def get_eventexternalticketinfo(
     eventexternalticketinfo_id: str,
-    fields: list[EventExternalTicketInfoField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a EventExternalTicketInfo object by ID.
-
-    Args:
-        eventexternalticketinfo_id: The ID of the EventExternalTicketInfo.
-        fields: Fields to retrieve. Available fields: See EventExternalTicketInfoField type.
-    """
     obj = EventExternalTicketInfo(eventexternalticketinfo_id)
     return obj.api_get(fields=fields)

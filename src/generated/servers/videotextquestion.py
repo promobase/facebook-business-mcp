@@ -1,9 +1,10 @@
-"""VideoTextQuestion MCP Server with typed wrappers."""
+"""VideoTextQuestion MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.videotextquestion import VideoTextQuestion
 from fastmcp import FastMCP
 
-from src.generated.models.videotextquestion import VideoTextQuestionField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ videotextquestion_server = FastMCP(
 @wrapped_fn_tool
 def get_videotextquestion(
     videotextquestion_id: str,
-    fields: list[VideoTextQuestionField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a VideoTextQuestion object by ID.
-
-    Args:
-        videotextquestion_id: The ID of the VideoTextQuestion.
-        fields: Fields to retrieve. Available fields: See VideoTextQuestionField type.
-    """
     obj = VideoTextQuestion(videotextquestion_id)
     return obj.api_get(fields=fields)

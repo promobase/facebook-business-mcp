@@ -1,9 +1,10 @@
-"""WebsiteCreativeAssetSource MCP Server with typed wrappers."""
+"""WebsiteCreativeAssetSource MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.websitecreativeassetsource import WebsiteCreativeAssetSource
 from fastmcp import FastMCP
 
-from src.generated.models.websitecreativeassetsource import WebsiteCreativeAssetSourceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ websitecreativeassetsource_server = FastMCP(
 @wrapped_fn_tool
 def get_websitecreativeassetsource(
     websitecreativeassetsource_id: str,
-    fields: list[WebsiteCreativeAssetSourceField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WebsiteCreativeAssetSource object by ID.
-
-    Args:
-        websitecreativeassetsource_id: The ID of the WebsiteCreativeAssetSource.
-        fields: Fields to retrieve. Available fields: See WebsiteCreativeAssetSourceField type.
-    """
     obj = WebsiteCreativeAssetSource(websitecreativeassetsource_id)
     return obj.api_get(fields=fields)

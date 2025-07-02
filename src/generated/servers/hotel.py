@@ -1,10 +1,10 @@
-"""Hotel MCP Server with typed wrappers."""
+"""Hotel MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.hotel import Hotel
 from fastmcp import FastMCP
 
-from src.generated.models.hotel import HotelField, HotelGetOverrideDetailsParams, HotelUpdateParams
-from src.generated.models.overridedetails import OverrideDetailsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,14 +26,8 @@ hotel_server = FastMCP(
 @wrapped_fn_tool
 def get_hotel(
     hotel_id: str,
-    fields: list[HotelField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Hotel object by ID.
-
-    Args:
-        hotel_id: The ID of the Hotel.
-        fields: Fields to retrieve. Available fields: See HotelField type.
-    """
     obj = Hotel(hotel_id)
     return obj.api_get(fields=fields)
 
@@ -42,16 +36,9 @@ def get_hotel(
 @wrapped_fn_tool
 def update_hotel(
     hotel_id: str,
-    fields: list[HotelField] = [],
-    params: HotelUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a Hotel object.
-
-    Args:
-        hotel_id: The ID of the Hotel.
-        fields: Fields to return after update. Available fields: See HotelField type.
-        params: Parameters to update. Available params: See HotelUpdateParams type.
-    """
     return Hotel(hotel_id).api_update(fields=fields, params=params)
 
 
@@ -60,11 +47,6 @@ def update_hotel(
 def delete_hotel(
     hotel_id: str,
 ) -> str:
-    """Delete a Hotel object.
-
-    Args:
-        hotel_id: The ID of the Hotel.
-    """
     return Hotel(hotel_id).api_delete()
 
 
@@ -73,14 +55,7 @@ def delete_hotel(
 @wrapped_fn_tool
 def get_override_details(
     hotel_id: str,
-    fields: list[OverrideDetailsField] = [],
-    params: HotelGetOverrideDetailsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Override Details for this Hotel.
-
-    Args:
-        hotel_id: The ID of the Hotel.
-        fields: Fields to retrieve. Available fields: See OverrideDetailsField type.
-        params: Query parameters. Available params: See HotelGetOverrideDetailsParams type.
-    """
     return Hotel(hotel_id).get_override_details(fields=fields, params=params)

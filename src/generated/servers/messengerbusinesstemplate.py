@@ -1,12 +1,10 @@
-"""MessengerBusinessTemplate MCP Server with typed wrappers."""
+"""MessengerBusinessTemplate MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.messengerbusinesstemplate import MessengerBusinessTemplate
 from fastmcp import FastMCP
 
-from src.generated.models.messengerbusinesstemplate import (
-    MessengerBusinessTemplateField,
-    MessengerBusinessTemplateUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ messengerbusinesstemplate_server = FastMCP(
 @wrapped_fn_tool
 def get_messengerbusinesstemplate(
     messengerbusinesstemplate_id: str,
-    fields: list[MessengerBusinessTemplateField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MessengerBusinessTemplate object by ID.
-
-    Args:
-        messengerbusinesstemplate_id: The ID of the MessengerBusinessTemplate.
-        fields: Fields to retrieve. Available fields: See MessengerBusinessTemplateField type.
-    """
     obj = MessengerBusinessTemplate(messengerbusinesstemplate_id)
     return obj.api_get(fields=fields)
 
@@ -44,16 +36,9 @@ def get_messengerbusinesstemplate(
 @wrapped_fn_tool
 def update_messengerbusinesstemplate(
     messengerbusinesstemplate_id: str,
-    fields: list[MessengerBusinessTemplateField] = [],
-    params: MessengerBusinessTemplateUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a MessengerBusinessTemplate object.
-
-    Args:
-        messengerbusinesstemplate_id: The ID of the MessengerBusinessTemplate.
-        fields: Fields to return after update. Available fields: See MessengerBusinessTemplateField type.
-        params: Parameters to update. Available params: See MessengerBusinessTemplateUpdateParams type.
-    """
     return MessengerBusinessTemplate(messengerbusinesstemplate_id).api_update(
         fields=fields, params=params
     )

@@ -1,9 +1,10 @@
-"""ProductFeedUploadError MCP Server with typed wrappers."""
+"""ProductFeedUploadError MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productfeeduploaderror import ProductFeedUploadError
 from fastmcp import FastMCP
 
-from src.generated.models.productfeeduploaderror import ProductFeedUploadErrorField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ productfeeduploaderror_server = FastMCP(
 @wrapped_fn_tool
 def get_productfeeduploaderror(
     productfeeduploaderror_id: str,
-    fields: list[ProductFeedUploadErrorField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductFeedUploadError object by ID.
-
-    Args:
-        productfeeduploaderror_id: The ID of the ProductFeedUploadError.
-        fields: Fields to retrieve. Available fields: See ProductFeedUploadErrorField type.
-    """
     obj = ProductFeedUploadError(productfeeduploaderror_id)
     return obj.api_get(fields=fields)

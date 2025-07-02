@@ -1,13 +1,12 @@
-"""ThirdPartyPartnerPanelScheduled MCP Server with typed wrappers."""
+"""ThirdPartyPartnerPanelScheduled MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.thirdpartypartnerpanelscheduled import (
     ThirdPartyPartnerPanelScheduled,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.thirdpartypartnerpanelscheduled import (
-    ThirdPartyPartnerPanelScheduledField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ thirdpartypartnerpanelscheduled_server = FastMCP(
 @wrapped_fn_tool
 def get_thirdpartypartnerpanelscheduled(
     thirdpartypartnerpanelscheduled_id: str,
-    fields: list[ThirdPartyPartnerPanelScheduledField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ThirdPartyPartnerPanelScheduled object by ID.
-
-    Args:
-        thirdpartypartnerpanelscheduled_id: The ID of the ThirdPartyPartnerPanelScheduled.
-        fields: Fields to retrieve. Available fields: See ThirdPartyPartnerPanelScheduledField type.
-    """
     obj = ThirdPartyPartnerPanelScheduled(thirdpartypartnerpanelscheduled_id)
     return obj.api_get(fields=fields)

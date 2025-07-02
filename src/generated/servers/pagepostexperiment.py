@@ -1,9 +1,10 @@
-"""PagePostExperiment MCP Server with typed wrappers."""
+"""PagePostExperiment MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.pagepostexperiment import PagePostExperiment
 from fastmcp import FastMCP
 
-from src.generated.models.pagepostexperiment import PagePostExperimentField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ pagepostexperiment_server = FastMCP(
 @wrapped_fn_tool
 def get_pagepostexperiment(
     pagepostexperiment_id: str,
-    fields: list[PagePostExperimentField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PagePostExperiment object by ID.
-
-    Args:
-        pagepostexperiment_id: The ID of the PagePostExperiment.
-        fields: Fields to retrieve. Available fields: See PagePostExperimentField type.
-    """
     obj = PagePostExperiment(pagepostexperiment_id)
     return obj.api_get(fields=fields)
 
@@ -42,9 +37,4 @@ def get_pagepostexperiment(
 def delete_pagepostexperiment(
     pagepostexperiment_id: str,
 ) -> str:
-    """Delete a PagePostExperiment object.
-
-    Args:
-        pagepostexperiment_id: The ID of the PagePostExperiment.
-    """
     return PagePostExperiment(pagepostexperiment_id).api_delete()

@@ -1,9 +1,10 @@
-"""AdsQuickViews MCP Server with typed wrappers."""
+"""AdsQuickViews MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsquickviews import AdsQuickViews
 from fastmcp import FastMCP
 
-from src.generated.models.adsquickviews import AdsQuickViewsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsquickviews_server = FastMCP(
 @wrapped_fn_tool
 def get_adsquickviews(
     adsquickviews_id: str,
-    fields: list[AdsQuickViewsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsQuickViews object by ID.
-
-    Args:
-        adsquickviews_id: The ID of the AdsQuickViews.
-        fields: Fields to retrieve. Available fields: See AdsQuickViewsField type.
-    """
     obj = AdsQuickViews(adsquickviews_id)
     return obj.api_get(fields=fields)

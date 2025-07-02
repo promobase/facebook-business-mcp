@@ -1,9 +1,10 @@
-"""AdExportPreset MCP Server with typed wrappers."""
+"""AdExportPreset MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adexportpreset import AdExportPreset
 from fastmcp import FastMCP
 
-from src.generated.models.adexportpreset import AdExportPresetField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adexportpreset_server = FastMCP(
 @wrapped_fn_tool
 def get_adexportpreset(
     adexportpreset_id: str,
-    fields: list[AdExportPresetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdExportPreset object by ID.
-
-    Args:
-        adexportpreset_id: The ID of the AdExportPreset.
-        fields: Fields to retrieve. Available fields: See AdExportPresetField type.
-    """
     obj = AdExportPreset(adexportpreset_id)
     return obj.api_get(fields=fields)

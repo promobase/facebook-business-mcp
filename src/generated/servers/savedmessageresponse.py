@@ -1,9 +1,10 @@
-"""SavedMessageResponse MCP Server with typed wrappers."""
+"""SavedMessageResponse MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.savedmessageresponse import SavedMessageResponse
 from fastmcp import FastMCP
 
-from src.generated.models.savedmessageresponse import SavedMessageResponseField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ savedmessageresponse_server = FastMCP(
 @wrapped_fn_tool
 def get_savedmessageresponse(
     savedmessageresponse_id: str,
-    fields: list[SavedMessageResponseField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a SavedMessageResponse object by ID.
-
-    Args:
-        savedmessageresponse_id: The ID of the SavedMessageResponse.
-        fields: Fields to retrieve. Available fields: See SavedMessageResponseField type.
-    """
     obj = SavedMessageResponse(savedmessageresponse_id)
     return obj.api_get(fields=fields)

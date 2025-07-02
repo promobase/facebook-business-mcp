@@ -1,9 +1,10 @@
-"""Persona MCP Server with typed wrappers."""
+"""Persona MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.persona import Persona
 from fastmcp import FastMCP
 
-from src.generated.models.persona import PersonaField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ persona_server = FastMCP(
 @wrapped_fn_tool
 def get_persona(
     persona_id: str,
-    fields: list[PersonaField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Persona object by ID.
-
-    Args:
-        persona_id: The ID of the Persona.
-        fields: Fields to retrieve. Available fields: See PersonaField type.
-    """
     obj = Persona(persona_id)
     return obj.api_get(fields=fields)
 
@@ -42,9 +37,4 @@ def get_persona(
 def delete_persona(
     persona_id: str,
 ) -> str:
-    """Delete a Persona object.
-
-    Args:
-        persona_id: The ID of the Persona.
-    """
     return Persona(persona_id).api_delete()

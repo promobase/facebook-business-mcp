@@ -1,9 +1,10 @@
-"""ResearchPollStudy MCP Server with typed wrappers."""
+"""ResearchPollStudy MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.researchpollstudy import ResearchPollStudy
 from fastmcp import FastMCP
 
-from src.generated.models.researchpollstudy import ResearchPollStudyField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ researchpollstudy_server = FastMCP(
 @wrapped_fn_tool
 def get_researchpollstudy(
     researchpollstudy_id: str,
-    fields: list[ResearchPollStudyField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ResearchPollStudy object by ID.
-
-    Args:
-        researchpollstudy_id: The ID of the ResearchPollStudy.
-        fields: Fields to retrieve. Available fields: See ResearchPollStudyField type.
-    """
     obj = ResearchPollStudy(researchpollstudy_id)
     return obj.api_get(fields=fields)

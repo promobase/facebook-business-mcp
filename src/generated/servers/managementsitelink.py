@@ -1,9 +1,10 @@
-"""ManagementSiteLink MCP Server with typed wrappers."""
+"""ManagementSiteLink MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.managementsitelink import ManagementSiteLink
 from fastmcp import FastMCP
 
-from src.generated.models.managementsitelink import ManagementSiteLinkField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ managementsitelink_server = FastMCP(
 @wrapped_fn_tool
 def get_managementsitelink(
     managementsitelink_id: str,
-    fields: list[ManagementSiteLinkField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ManagementSiteLink object by ID.
-
-    Args:
-        managementsitelink_id: The ID of the ManagementSiteLink.
-        fields: Fields to retrieve. Available fields: See ManagementSiteLinkField type.
-    """
     obj = ManagementSiteLink(managementsitelink_id)
     return obj.api_get(fields=fields)

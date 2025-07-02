@@ -1,9 +1,10 @@
-"""FranchiseProgram MCP Server with typed wrappers."""
+"""FranchiseProgram MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.franchiseprogram import FranchiseProgram
 from fastmcp import FastMCP
 
-from src.generated.models.franchiseprogram import FranchiseProgramField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ franchiseprogram_server = FastMCP(
 @wrapped_fn_tool
 def get_franchiseprogram(
     franchiseprogram_id: str,
-    fields: list[FranchiseProgramField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a FranchiseProgram object by ID.
-
-    Args:
-        franchiseprogram_id: The ID of the FranchiseProgram.
-        fields: Fields to retrieve. Available fields: See FranchiseProgramField type.
-    """
     obj = FranchiseProgram(franchiseprogram_id)
     return obj.api_get(fields=fields)

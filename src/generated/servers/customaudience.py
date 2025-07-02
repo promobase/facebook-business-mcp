@@ -1,29 +1,10 @@
-"""CustomAudience MCP Server with typed wrappers."""
+"""CustomAudience MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.customaudience import CustomAudience
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.ad import AdField
-from src.generated.models.adaccount import AdAccountField
-from src.generated.models.customaudience import (
-    CustomAudienceCreateAdAccountParams,
-    CustomAudienceCreateSaltParams,
-    CustomAudienceCreateUserParams,
-    CustomAudienceCreateUsersReplaceParams,
-    CustomAudienceDeleteAdAccountsParams,
-    CustomAudienceDeleteUsersParams,
-    CustomAudienceField,
-    CustomAudienceGetAdAccountsParams,
-    CustomAudienceGetAdsParams,
-    CustomAudienceGetHealthParams,
-    CustomAudienceGetSaltsParams,
-    CustomAudienceGetSessionsParams,
-    CustomAudienceUpdateParams,
-)
-from src.generated.models.customaudiencehealth import CustomAudienceHealthField
-from src.generated.models.customaudiencesalts import CustomAudienceSaltsField
-from src.generated.models.customaudiencesession import CustomAudienceSessionField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -45,14 +26,8 @@ customaudience_server = FastMCP(
 @wrapped_fn_tool
 def get_customaudience(
     customaudience_id: str,
-    fields: list[CustomAudienceField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CustomAudience object by ID.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve. Available fields: See CustomAudienceField type.
-    """
     obj = CustomAudience(customaudience_id)
     return obj.api_get(fields=fields)
 
@@ -61,16 +36,9 @@ def get_customaudience(
 @wrapped_fn_tool
 def update_customaudience(
     customaudience_id: str,
-    fields: list[CustomAudienceField] = [],
-    params: CustomAudienceUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a CustomAudience object.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to return after update. Available fields: See CustomAudienceField type.
-        params: Parameters to update. Available params: See CustomAudienceUpdateParams type.
-    """
     return CustomAudience(customaudience_id).api_update(fields=fields, params=params)
 
 
@@ -79,11 +47,6 @@ def update_customaudience(
 def delete_customaudience(
     customaudience_id: str,
 ) -> str:
-    """Delete a CustomAudience object.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-    """
     return CustomAudience(customaudience_id).api_delete()
 
 
@@ -92,14 +55,8 @@ def delete_customaudience(
 @wrapped_fn_tool
 def delete_ad_accounts(
     customaudience_id: str,
-    params: CustomAudienceDeleteAdAccountsParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Ad Accounts for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        params: Query parameters. Available params: See CustomAudienceDeleteAdAccountsParams type.
-    """
     return CustomAudience(customaudience_id).delete_ad_accounts(params=params)
 
 
@@ -107,16 +64,9 @@ def delete_ad_accounts(
 @wrapped_fn_tool
 def get_ad_accounts(
     customaudience_id: str,
-    fields: list[AdAccountField] = [],
-    params: CustomAudienceGetAdAccountsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Ad Accounts for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve. Available fields: See AdAccountField type.
-        params: Query parameters. Available params: See CustomAudienceGetAdAccountsParams type.
-    """
     return CustomAudience(customaudience_id).get_ad_accounts(fields=fields, params=params)
 
 
@@ -125,15 +75,8 @@ def get_ad_accounts(
 def create_ad_account(
     customaudience_id: str,
     fields: list[str] = [],
-    params: CustomAudienceCreateAdAccountParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Ad Account for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See CustomAudienceCreateAdAccountParams type.
-    """
     return CustomAudience(customaudience_id).create_ad_account(fields=fields, params=params)
 
 
@@ -141,16 +84,9 @@ def create_ad_account(
 @wrapped_fn_tool
 def get_ads(
     customaudience_id: str,
-    fields: list[AdField] = [],
-    params: CustomAudienceGetAdsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Ads for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve. Available fields: See AdField type.
-        params: Query parameters. Available params: See CustomAudienceGetAdsParams type.
-    """
     return CustomAudience(customaudience_id).get_ads(fields=fields, params=params)
 
 
@@ -158,16 +94,9 @@ def get_ads(
 @wrapped_fn_tool
 def get_health(
     customaudience_id: str,
-    fields: list[CustomAudienceHealthField] = [],
-    params: CustomAudienceGetHealthParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Health for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve. Available fields: See CustomAudienceHealthField type.
-        params: Query parameters. Available params: See CustomAudienceGetHealthParams type.
-    """
     return CustomAudience(customaudience_id).get_health(fields=fields, params=params)
 
 
@@ -175,16 +104,9 @@ def get_health(
 @wrapped_fn_tool
 def get_salts(
     customaudience_id: str,
-    fields: list[CustomAudienceSaltsField] = [],
-    params: CustomAudienceGetSaltsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Salts for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve. Available fields: See CustomAudienceSaltsField type.
-        params: Query parameters. Available params: See CustomAudienceGetSaltsParams type.
-    """
     return CustomAudience(customaudience_id).get_salts(fields=fields, params=params)
 
 
@@ -193,15 +115,8 @@ def get_salts(
 def create_salt(
     customaudience_id: str,
     fields: list[str] = [],
-    params: CustomAudienceCreateSaltParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Salt for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See CustomAudienceCreateSaltParams type.
-    """
     return CustomAudience(customaudience_id).create_salt(fields=fields, params=params)
 
 
@@ -209,16 +124,9 @@ def create_salt(
 @wrapped_fn_tool
 def get_sessions(
     customaudience_id: str,
-    fields: list[CustomAudienceSessionField] = [],
-    params: CustomAudienceGetSessionsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Sessions for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve. Available fields: See CustomAudienceSessionField type.
-        params: Query parameters. Available params: See CustomAudienceGetSessionsParams type.
-    """
     return CustomAudience(customaudience_id).get_sessions(fields=fields, params=params)
 
 
@@ -226,14 +134,8 @@ def get_sessions(
 @wrapped_fn_tool
 def delete_users(
     customaudience_id: str,
-    params: CustomAudienceDeleteUsersParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Users for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        params: Query parameters. Available params: See CustomAudienceDeleteUsersParams type.
-    """
     return CustomAudience(customaudience_id).delete_users(params=params)
 
 
@@ -242,15 +144,8 @@ def delete_users(
 def create_user(
     customaudience_id: str,
     fields: list[str] = [],
-    params: CustomAudienceCreateUserParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create User for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See CustomAudienceCreateUserParams type.
-    """
     return CustomAudience(customaudience_id).create_user(fields=fields, params=params)
 
 
@@ -259,13 +154,6 @@ def create_user(
 def create_users_replace(
     customaudience_id: str,
     fields: list[str] = [],
-    params: CustomAudienceCreateUsersReplaceParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Users Replace for this CustomAudience.
-
-    Args:
-        customaudience_id: The ID of the CustomAudience.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See CustomAudienceCreateUsersReplaceParams type.
-    """
     return CustomAudience(customaudience_id).create_users_replace(fields=fields, params=params)

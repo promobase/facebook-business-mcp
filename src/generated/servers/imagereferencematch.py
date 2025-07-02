@@ -1,9 +1,10 @@
-"""ImageReferenceMatch MCP Server with typed wrappers."""
+"""ImageReferenceMatch MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.imagereferencematch import ImageReferenceMatch
 from fastmcp import FastMCP
 
-from src.generated.models.imagereferencematch import ImageReferenceMatchField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ imagereferencematch_server = FastMCP(
 @wrapped_fn_tool
 def get_imagereferencematch(
     imagereferencematch_id: str,
-    fields: list[ImageReferenceMatchField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ImageReferenceMatch object by ID.
-
-    Args:
-        imagereferencematch_id: The ID of the ImageReferenceMatch.
-        fields: Fields to retrieve. Available fields: See ImageReferenceMatchField type.
-    """
     obj = ImageReferenceMatch(imagereferencematch_id)
     return obj.api_get(fields=fields)

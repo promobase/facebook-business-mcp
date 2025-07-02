@@ -1,14 +1,10 @@
-"""Flight MCP Server with typed wrappers."""
+"""Flight MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.flight import Flight
 from fastmcp import FastMCP
 
-from src.generated.models.flight import (
-    FlightField,
-    FlightGetOverrideDetailsParams,
-    FlightUpdateParams,
-)
-from src.generated.models.overridedetails import OverrideDetailsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ flight_server = FastMCP(
 @wrapped_fn_tool
 def get_flight(
     flight_id: str,
-    fields: list[FlightField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Flight object by ID.
-
-    Args:
-        flight_id: The ID of the Flight.
-        fields: Fields to retrieve. Available fields: See FlightField type.
-    """
     obj = Flight(flight_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +36,9 @@ def get_flight(
 @wrapped_fn_tool
 def update_flight(
     flight_id: str,
-    fields: list[FlightField] = [],
-    params: FlightUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a Flight object.
-
-    Args:
-        flight_id: The ID of the Flight.
-        fields: Fields to return after update. Available fields: See FlightField type.
-        params: Parameters to update. Available params: See FlightUpdateParams type.
-    """
     return Flight(flight_id).api_update(fields=fields, params=params)
 
 
@@ -64,14 +47,7 @@ def update_flight(
 @wrapped_fn_tool
 def get_override_details(
     flight_id: str,
-    fields: list[OverrideDetailsField] = [],
-    params: FlightGetOverrideDetailsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Override Details for this Flight.
-
-    Args:
-        flight_id: The ID of the Flight.
-        fields: Fields to retrieve. Available fields: See OverrideDetailsField type.
-        params: Query parameters. Available params: See FlightGetOverrideDetailsParams type.
-    """
     return Flight(flight_id).get_override_details(fields=fields, params=params)

@@ -1,15 +1,10 @@
-"""AdStudy MCP Server with typed wrappers."""
+"""AdStudy MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adstudy import AdStudy
 from fastmcp import FastMCP
 
-from src.generated.models.adstudy import (
-    AdStudyCreateCheckPointParams,
-    AdStudyCreateInstanceParams,
-    AdStudyField,
-    AdStudyUpdateParams,
-)
-from src.generated.models.privateliftstudyinstance import PrivateLiftStudyInstanceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -31,14 +26,8 @@ adstudy_server = FastMCP(
 @wrapped_fn_tool
 def get_adstudy(
     adstudy_id: str,
-    fields: list[AdStudyField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdStudy object by ID.
-
-    Args:
-        adstudy_id: The ID of the AdStudy.
-        fields: Fields to retrieve. Available fields: See AdStudyField type.
-    """
     obj = AdStudy(adstudy_id)
     return obj.api_get(fields=fields)
 
@@ -47,16 +36,9 @@ def get_adstudy(
 @wrapped_fn_tool
 def update_adstudy(
     adstudy_id: str,
-    fields: list[AdStudyField] = [],
-    params: AdStudyUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a AdStudy object.
-
-    Args:
-        adstudy_id: The ID of the AdStudy.
-        fields: Fields to return after update. Available fields: See AdStudyField type.
-        params: Parameters to update. Available params: See AdStudyUpdateParams type.
-    """
     return AdStudy(adstudy_id).api_update(fields=fields, params=params)
 
 
@@ -65,11 +47,6 @@ def update_adstudy(
 def delete_adstudy(
     adstudy_id: str,
 ) -> str:
-    """Delete a AdStudy object.
-
-    Args:
-        adstudy_id: The ID of the AdStudy.
-    """
     return AdStudy(adstudy_id).api_delete()
 
 
@@ -79,15 +56,8 @@ def delete_adstudy(
 def create_check_point(
     adstudy_id: str,
     fields: list[str] = [],
-    params: AdStudyCreateCheckPointParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Check Point for this AdStudy.
-
-    Args:
-        adstudy_id: The ID of the AdStudy.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdStudyCreateCheckPointParams type.
-    """
     return AdStudy(adstudy_id).create_check_point(fields=fields, params=params)
 
 
@@ -96,13 +66,6 @@ def create_check_point(
 def create_instance(
     adstudy_id: str,
     fields: list[str] = [],
-    params: AdStudyCreateInstanceParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Instance for this AdStudy.
-
-    Args:
-        adstudy_id: The ID of the AdStudy.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdStudyCreateInstanceParams type.
-    """
     return AdStudy(adstudy_id).create_instance(fields=fields, params=params)

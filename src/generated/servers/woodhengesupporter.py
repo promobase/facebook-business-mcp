@@ -1,9 +1,10 @@
-"""WoodhengeSupporter MCP Server with typed wrappers."""
+"""WoodhengeSupporter MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.woodhengesupporter import WoodhengeSupporter
 from fastmcp import FastMCP
 
-from src.generated.models.woodhengesupporter import WoodhengeSupporterField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ woodhengesupporter_server = FastMCP(
 @wrapped_fn_tool
 def get_woodhengesupporter(
     woodhengesupporter_id: str,
-    fields: list[WoodhengeSupporterField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WoodhengeSupporter object by ID.
-
-    Args:
-        woodhengesupporter_id: The ID of the WoodhengeSupporter.
-        fields: Fields to retrieve. Available fields: See WoodhengeSupporterField type.
-    """
     obj = WoodhengeSupporter(woodhengesupporter_id)
     return obj.api_get(fields=fields)

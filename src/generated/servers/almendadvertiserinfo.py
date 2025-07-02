@@ -1,9 +1,10 @@
-"""ALMEndAdvertiserInfo MCP Server with typed wrappers."""
+"""ALMEndAdvertiserInfo MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.almendadvertiserinfo import ALMEndAdvertiserInfo
 from fastmcp import FastMCP
 
-from src.generated.models.almendadvertiserinfo import ALMEndAdvertiserInfoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ almendadvertiserinfo_server = FastMCP(
 @wrapped_fn_tool
 def get_almendadvertiserinfo(
     almendadvertiserinfo_id: str,
-    fields: list[ALMEndAdvertiserInfoField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ALMEndAdvertiserInfo object by ID.
-
-    Args:
-        almendadvertiserinfo_id: The ID of the ALMEndAdvertiserInfo.
-        fields: Fields to retrieve. Available fields: See ALMEndAdvertiserInfoField type.
-    """
     obj = ALMEndAdvertiserInfo(almendadvertiserinfo_id)
     return obj.api_get(fields=fields)

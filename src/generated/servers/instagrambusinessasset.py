@@ -1,9 +1,10 @@
-"""InstagramBusinessAsset MCP Server with typed wrappers."""
+"""InstagramBusinessAsset MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.instagrambusinessasset import InstagramBusinessAsset
 from fastmcp import FastMCP
 
-from src.generated.models.instagrambusinessasset import InstagramBusinessAssetField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ instagrambusinessasset_server = FastMCP(
 @wrapped_fn_tool
 def get_instagrambusinessasset(
     instagrambusinessasset_id: str,
-    fields: list[InstagramBusinessAssetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a InstagramBusinessAsset object by ID.
-
-    Args:
-        instagrambusinessasset_id: The ID of the InstagramBusinessAsset.
-        fields: Fields to retrieve. Available fields: See InstagramBusinessAssetField type.
-    """
     obj = InstagramBusinessAsset(instagrambusinessasset_id)
     return obj.api_get(fields=fields)

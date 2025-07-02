@@ -1,9 +1,10 @@
-"""OffsitePixel MCP Server with typed wrappers."""
+"""OffsitePixel MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.offsitepixel import OffsitePixel
 from fastmcp import FastMCP
 
-from src.generated.models.offsitepixel import OffsitePixelField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ offsitepixel_server = FastMCP(
 @wrapped_fn_tool
 def get_offsitepixel(
     offsitepixel_id: str,
-    fields: list[OffsitePixelField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OffsitePixel object by ID.
-
-    Args:
-        offsitepixel_id: The ID of the OffsitePixel.
-        fields: Fields to retrieve. Available fields: See OffsitePixelField type.
-    """
     obj = OffsitePixel(offsitepixel_id)
     return obj.api_get(fields=fields)

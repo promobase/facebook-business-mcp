@@ -1,13 +1,12 @@
-"""CTXPartnerAppWelcomeMessageFlow MCP Server with typed wrappers."""
+"""CTXPartnerAppWelcomeMessageFlow MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.ctxpartnerappwelcomemessageflow import (
     CTXPartnerAppWelcomeMessageFlow,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.ctxpartnerappwelcomemessageflow import (
-    CTXPartnerAppWelcomeMessageFlowField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ ctxpartnerappwelcomemessageflow_server = FastMCP(
 @wrapped_fn_tool
 def get_ctxpartnerappwelcomemessageflow(
     ctxpartnerappwelcomemessageflow_id: str,
-    fields: list[CTXPartnerAppWelcomeMessageFlowField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CTXPartnerAppWelcomeMessageFlow object by ID.
-
-    Args:
-        ctxpartnerappwelcomemessageflow_id: The ID of the CTXPartnerAppWelcomeMessageFlow.
-        fields: Fields to retrieve. Available fields: See CTXPartnerAppWelcomeMessageFlowField type.
-    """
     obj = CTXPartnerAppWelcomeMessageFlow(ctxpartnerappwelcomemessageflow_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""ExtendedCreditApplication MCP Server with typed wrappers."""
+"""ExtendedCreditApplication MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.extendedcreditapplication import ExtendedCreditApplication
 from fastmcp import FastMCP
 
-from src.generated.models.extendedcreditapplication import ExtendedCreditApplicationField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ extendedcreditapplication_server = FastMCP(
 @wrapped_fn_tool
 def get_extendedcreditapplication(
     extendedcreditapplication_id: str,
-    fields: list[ExtendedCreditApplicationField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ExtendedCreditApplication object by ID.
-
-    Args:
-        extendedcreditapplication_id: The ID of the ExtendedCreditApplication.
-        fields: Fields to retrieve. Available fields: See ExtendedCreditApplicationField type.
-    """
     obj = ExtendedCreditApplication(extendedcreditapplication_id)
     return obj.api_get(fields=fields)

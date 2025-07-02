@@ -1,9 +1,10 @@
-"""AudioAsset MCP Server with typed wrappers."""
+"""AudioAsset MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.audioasset import AudioAsset
 from fastmcp import FastMCP
 
-from src.generated.models.audioasset import AudioAssetField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ audioasset_server = FastMCP(
 @wrapped_fn_tool
 def get_audioasset(
     audioasset_id: str,
-    fields: list[AudioAssetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AudioAsset object by ID.
-
-    Args:
-        audioasset_id: The ID of the AudioAsset.
-        fields: Fields to retrieve. Available fields: See AudioAssetField type.
-    """
     obj = AudioAsset(audioasset_id)
     return obj.api_get(fields=fields)

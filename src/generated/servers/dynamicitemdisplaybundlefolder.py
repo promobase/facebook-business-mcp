@@ -1,11 +1,12 @@
-"""DynamicItemDisplayBundleFolder MCP Server with typed wrappers."""
+"""DynamicItemDisplayBundleFolder MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.dynamicitemdisplaybundlefolder import (
     DynamicItemDisplayBundleFolder,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.dynamicitemdisplaybundlefolder import DynamicItemDisplayBundleFolderField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -27,13 +28,7 @@ dynamicitemdisplaybundlefolder_server = FastMCP(
 @wrapped_fn_tool
 def get_dynamicitemdisplaybundlefolder(
     dynamicitemdisplaybundlefolder_id: str,
-    fields: list[DynamicItemDisplayBundleFolderField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a DynamicItemDisplayBundleFolder object by ID.
-
-    Args:
-        dynamicitemdisplaybundlefolder_id: The ID of the DynamicItemDisplayBundleFolder.
-        fields: Fields to retrieve. Available fields: See DynamicItemDisplayBundleFolderField type.
-    """
     obj = DynamicItemDisplayBundleFolder(dynamicitemdisplaybundlefolder_id)
     return obj.api_get(fields=fields)

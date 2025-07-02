@@ -1,13 +1,10 @@
-"""IGUserExportForCAM MCP Server with typed wrappers."""
+"""IGUserExportForCAM MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.iguserexportforcam import IGUserExportForCAM
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.iguserexportforcam import (
-    IGUserExportForCAMField,
-    IGUserExportForCAMGetInsightsParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,14 +26,8 @@ iguserexportforcam_server = FastMCP(
 @wrapped_fn_tool
 def get_iguserexportforcam(
     iguserexportforcam_id: str,
-    fields: list[IGUserExportForCAMField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGUserExportForCAM object by ID.
-
-    Args:
-        iguserexportforcam_id: The ID of the IGUserExportForCAM.
-        fields: Fields to retrieve. Available fields: See IGUserExportForCAMField type.
-    """
     obj = IGUserExportForCAM(iguserexportforcam_id)
     return obj.api_get(fields=fields)
 
@@ -46,14 +37,7 @@ def get_iguserexportforcam(
 @wrapped_fn_tool
 def get_insights(
     iguserexportforcam_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: IGUserExportForCAMGetInsightsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Insights for this IGUserExportForCAM.
-
-    Args:
-        iguserexportforcam_id: The ID of the IGUserExportForCAM.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See IGUserExportForCAMGetInsightsParams type.
-    """
     return IGUserExportForCAM(iguserexportforcam_id).get_insights(fields=fields, params=params)

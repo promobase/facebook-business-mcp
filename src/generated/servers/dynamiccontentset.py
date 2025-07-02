@@ -1,9 +1,10 @@
-"""DynamicContentSet MCP Server with typed wrappers."""
+"""DynamicContentSet MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.dynamiccontentset import DynamicContentSet
 from fastmcp import FastMCP
 
-from src.generated.models.dynamiccontentset import DynamicContentSetField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ dynamiccontentset_server = FastMCP(
 @wrapped_fn_tool
 def get_dynamiccontentset(
     dynamiccontentset_id: str,
-    fields: list[DynamicContentSetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a DynamicContentSet object by ID.
-
-    Args:
-        dynamiccontentset_id: The ID of the DynamicContentSet.
-        fields: Fields to retrieve. Available fields: See DynamicContentSetField type.
-    """
     obj = DynamicContentSet(dynamiccontentset_id)
     return obj.api_get(fields=fields)

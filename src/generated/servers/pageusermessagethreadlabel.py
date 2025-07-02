@@ -1,14 +1,10 @@
-"""PageUserMessageThreadLabel MCP Server with typed wrappers."""
+"""PageUserMessageThreadLabel MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.pageusermessagethreadlabel import PageUserMessageThreadLabel
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.pageusermessagethreadlabel import (
-    PageUserMessageThreadLabelCreateLabelParams,
-    PageUserMessageThreadLabelDeleteLabelParams,
-    PageUserMessageThreadLabelField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ pageusermessagethreadlabel_server = FastMCP(
 @wrapped_fn_tool
 def get_pageusermessagethreadlabel(
     pageusermessagethreadlabel_id: str,
-    fields: list[PageUserMessageThreadLabelField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PageUserMessageThreadLabel object by ID.
-
-    Args:
-        pageusermessagethreadlabel_id: The ID of the PageUserMessageThreadLabel.
-        fields: Fields to retrieve. Available fields: See PageUserMessageThreadLabelField type.
-    """
     obj = PageUserMessageThreadLabel(pageusermessagethreadlabel_id)
     return obj.api_get(fields=fields)
 
@@ -47,11 +37,6 @@ def get_pageusermessagethreadlabel(
 def delete_pageusermessagethreadlabel(
     pageusermessagethreadlabel_id: str,
 ) -> str:
-    """Delete a PageUserMessageThreadLabel object.
-
-    Args:
-        pageusermessagethreadlabel_id: The ID of the PageUserMessageThreadLabel.
-    """
     return PageUserMessageThreadLabel(pageusermessagethreadlabel_id).api_delete()
 
 
@@ -60,14 +45,8 @@ def delete_pageusermessagethreadlabel(
 @wrapped_fn_tool
 def delete_label(
     pageusermessagethreadlabel_id: str,
-    params: PageUserMessageThreadLabelDeleteLabelParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Label for this PageUserMessageThreadLabel.
-
-    Args:
-        pageusermessagethreadlabel_id: The ID of the PageUserMessageThreadLabel.
-        params: Query parameters. Available params: See PageUserMessageThreadLabelDeleteLabelParams type.
-    """
     return PageUserMessageThreadLabel(pageusermessagethreadlabel_id).delete_label(params=params)
 
 
@@ -76,15 +55,8 @@ def delete_label(
 def create_label(
     pageusermessagethreadlabel_id: str,
     fields: list[str] = [],
-    params: PageUserMessageThreadLabelCreateLabelParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Label for this PageUserMessageThreadLabel.
-
-    Args:
-        pageusermessagethreadlabel_id: The ID of the PageUserMessageThreadLabel.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See PageUserMessageThreadLabelCreateLabelParams type.
-    """
     return PageUserMessageThreadLabel(pageusermessagethreadlabel_id).create_label(
         fields=fields, params=params
     )

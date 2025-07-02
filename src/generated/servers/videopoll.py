@@ -1,9 +1,10 @@
-"""VideoPoll MCP Server with typed wrappers."""
+"""VideoPoll MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.videopoll import VideoPoll
 from fastmcp import FastMCP
 
-from src.generated.models.videopoll import VideoPollField, VideoPollUpdateParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ videopoll_server = FastMCP(
 @wrapped_fn_tool
 def get_videopoll(
     videopoll_id: str,
-    fields: list[VideoPollField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a VideoPoll object by ID.
-
-    Args:
-        videopoll_id: The ID of the VideoPoll.
-        fields: Fields to retrieve. Available fields: See VideoPollField type.
-    """
     obj = VideoPoll(videopoll_id)
     return obj.api_get(fields=fields)
 
@@ -41,14 +36,7 @@ def get_videopoll(
 @wrapped_fn_tool
 def update_videopoll(
     videopoll_id: str,
-    fields: list[VideoPollField] = [],
-    params: VideoPollUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a VideoPoll object.
-
-    Args:
-        videopoll_id: The ID of the VideoPoll.
-        fields: Fields to return after update. Available fields: See VideoPollField type.
-        params: Parameters to update. Available params: See VideoPollUpdateParams type.
-    """
     return VideoPoll(videopoll_id).api_update(fields=fields, params=params)

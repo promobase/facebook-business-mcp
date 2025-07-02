@@ -1,9 +1,10 @@
-"""ThirdPartyPartnerLiftRequest MCP Server with typed wrappers."""
+"""ThirdPartyPartnerLiftRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.thirdpartypartnerliftrequest import ThirdPartyPartnerLiftRequest
 from fastmcp import FastMCP
 
-from src.generated.models.thirdpartypartnerliftrequest import ThirdPartyPartnerLiftRequestField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ thirdpartypartnerliftrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_thirdpartypartnerliftrequest(
     thirdpartypartnerliftrequest_id: str,
-    fields: list[ThirdPartyPartnerLiftRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ThirdPartyPartnerLiftRequest object by ID.
-
-    Args:
-        thirdpartypartnerliftrequest_id: The ID of the ThirdPartyPartnerLiftRequest.
-        fields: Fields to retrieve. Available fields: See ThirdPartyPartnerLiftRequestField type.
-    """
     obj = ThirdPartyPartnerLiftRequest(thirdpartypartnerliftrequest_id)
     return obj.api_get(fields=fields)

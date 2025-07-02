@@ -1,9 +1,10 @@
-"""AdsCreationSavedState MCP Server with typed wrappers."""
+"""AdsCreationSavedState MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adscreationsavedstate import AdsCreationSavedState
 from fastmcp import FastMCP
 
-from src.generated.models.adscreationsavedstate import AdsCreationSavedStateField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adscreationsavedstate_server = FastMCP(
 @wrapped_fn_tool
 def get_adscreationsavedstate(
     adscreationsavedstate_id: str,
-    fields: list[AdsCreationSavedStateField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsCreationSavedState object by ID.
-
-    Args:
-        adscreationsavedstate_id: The ID of the AdsCreationSavedState.
-        fields: Fields to retrieve. Available fields: See AdsCreationSavedStateField type.
-    """
     obj = AdsCreationSavedState(adscreationsavedstate_id)
     return obj.api_get(fields=fields)

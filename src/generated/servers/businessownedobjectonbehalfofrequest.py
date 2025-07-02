@@ -1,13 +1,12 @@
-"""BusinessOwnedObjectOnBehalfOfRequest MCP Server with typed wrappers."""
+"""BusinessOwnedObjectOnBehalfOfRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businessownedobjectonbehalfofrequest import (
     BusinessOwnedObjectOnBehalfOfRequest,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.businessownedobjectonbehalfofrequest import (
-    BusinessOwnedObjectOnBehalfOfRequestField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ businessownedobjectonbehalfofrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_businessownedobjectonbehalfofrequest(
     businessownedobjectonbehalfofrequest_id: str,
-    fields: list[BusinessOwnedObjectOnBehalfOfRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessOwnedObjectOnBehalfOfRequest object by ID.
-
-    Args:
-        businessownedobjectonbehalfofrequest_id: The ID of the BusinessOwnedObjectOnBehalfOfRequest.
-        fields: Fields to retrieve. Available fields: See BusinessOwnedObjectOnBehalfOfRequestField type.
-    """
     obj = BusinessOwnedObjectOnBehalfOfRequest(businessownedobjectonbehalfofrequest_id)
     return obj.api_get(fields=fields)

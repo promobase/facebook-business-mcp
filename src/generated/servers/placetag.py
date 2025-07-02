@@ -1,9 +1,10 @@
-"""PlaceTag MCP Server with typed wrappers."""
+"""PlaceTag MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.placetag import PlaceTag
 from fastmcp import FastMCP
 
-from src.generated.models.placetag import PlaceTagField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ placetag_server = FastMCP(
 @wrapped_fn_tool
 def get_placetag(
     placetag_id: str,
-    fields: list[PlaceTagField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PlaceTag object by ID.
-
-    Args:
-        placetag_id: The ID of the PlaceTag.
-        fields: Fields to retrieve. Available fields: See PlaceTagField type.
-    """
     obj = PlaceTag(placetag_id)
     return obj.api_get(fields=fields)

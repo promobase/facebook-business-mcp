@@ -1,9 +1,10 @@
-"""PageLeadsAccessConfig MCP Server with typed wrappers."""
+"""PageLeadsAccessConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.pageleadsaccessconfig import PageLeadsAccessConfig
 from fastmcp import FastMCP
 
-from src.generated.models.pageleadsaccessconfig import PageLeadsAccessConfigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ pageleadsaccessconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_pageleadsaccessconfig(
     pageleadsaccessconfig_id: str,
-    fields: list[PageLeadsAccessConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PageLeadsAccessConfig object by ID.
-
-    Args:
-        pageleadsaccessconfig_id: The ID of the PageLeadsAccessConfig.
-        fields: Fields to retrieve. Available fields: See PageLeadsAccessConfigField type.
-    """
     obj = PageLeadsAccessConfig(pageleadsaccessconfig_id)
     return obj.api_get(fields=fields)

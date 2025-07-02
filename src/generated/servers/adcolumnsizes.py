@@ -1,9 +1,10 @@
-"""AdColumnSizes MCP Server with typed wrappers."""
+"""AdColumnSizes MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adcolumnsizes import AdColumnSizes
 from fastmcp import FastMCP
 
-from src.generated.models.adcolumnsizes import AdColumnSizesField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adcolumnsizes_server = FastMCP(
 @wrapped_fn_tool
 def get_adcolumnsizes(
     adcolumnsizes_id: str,
-    fields: list[AdColumnSizesField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdColumnSizes object by ID.
-
-    Args:
-        adcolumnsizes_id: The ID of the AdColumnSizes.
-        fields: Fields to retrieve. Available fields: See AdColumnSizesField type.
-    """
     obj = AdColumnSizes(adcolumnsizes_id)
     return obj.api_get(fields=fields)

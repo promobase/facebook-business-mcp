@@ -1,9 +1,10 @@
-"""AdAccountCreationRequest MCP Server with typed wrappers."""
+"""AdAccountCreationRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adaccountcreationrequest import AdAccountCreationRequest
 from fastmcp import FastMCP
 
-from src.generated.models.adaccountcreationrequest import AdAccountCreationRequestField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adaccountcreationrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_adaccountcreationrequest(
     adaccountcreationrequest_id: str,
-    fields: list[AdAccountCreationRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdAccountCreationRequest object by ID.
-
-    Args:
-        adaccountcreationrequest_id: The ID of the AdAccountCreationRequest.
-        fields: Fields to retrieve. Available fields: See AdAccountCreationRequestField type.
-    """
     obj = AdAccountCreationRequest(adaccountcreationrequest_id)
     return obj.api_get(fields=fields)

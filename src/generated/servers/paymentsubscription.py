@@ -1,9 +1,10 @@
-"""PaymentSubscription MCP Server with typed wrappers."""
+"""PaymentSubscription MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.paymentsubscription import PaymentSubscription
 from fastmcp import FastMCP
 
-from src.generated.models.paymentsubscription import PaymentSubscriptionField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ paymentsubscription_server = FastMCP(
 @wrapped_fn_tool
 def get_paymentsubscription(
     paymentsubscription_id: str,
-    fields: list[PaymentSubscriptionField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PaymentSubscription object by ID.
-
-    Args:
-        paymentsubscription_id: The ID of the PaymentSubscription.
-        fields: Fields to retrieve. Available fields: See PaymentSubscriptionField type.
-    """
     obj = PaymentSubscription(paymentsubscription_id)
     return obj.api_get(fields=fields)

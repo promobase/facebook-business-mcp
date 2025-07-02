@@ -1,9 +1,10 @@
-"""AdSavedReport MCP Server with typed wrappers."""
+"""AdSavedReport MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsavedreport import AdSavedReport
 from fastmcp import FastMCP
 
-from src.generated.models.adsavedreport import AdSavedReportField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsavedreport_server = FastMCP(
 @wrapped_fn_tool
 def get_adsavedreport(
     adsavedreport_id: str,
-    fields: list[AdSavedReportField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdSavedReport object by ID.
-
-    Args:
-        adsavedreport_id: The ID of the AdSavedReport.
-        fields: Fields to retrieve. Available fields: See AdSavedReportField type.
-    """
     obj = AdSavedReport(adsavedreport_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""EventTicketTier MCP Server with typed wrappers."""
+"""EventTicketTier MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.eventtickettier import EventTicketTier
 from fastmcp import FastMCP
 
-from src.generated.models.eventtickettier import EventTicketTierField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ eventtickettier_server = FastMCP(
 @wrapped_fn_tool
 def get_eventtickettier(
     eventtickettier_id: str,
-    fields: list[EventTicketTierField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a EventTicketTier object by ID.
-
-    Args:
-        eventtickettier_id: The ID of the EventTicketTier.
-        fields: Fields to retrieve. Available fields: See EventTicketTierField type.
-    """
     obj = EventTicketTier(eventtickettier_id)
     return obj.api_get(fields=fields)

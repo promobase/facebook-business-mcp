@@ -1,9 +1,10 @@
-"""BlindPig MCP Server with typed wrappers."""
+"""BlindPig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.blindpig import BlindPig
 from fastmcp import FastMCP
 
-from src.generated.models.blindpig import BlindPigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ blindpig_server = FastMCP(
 @wrapped_fn_tool
 def get_blindpig(
     blindpig_id: str,
-    fields: list[BlindPigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BlindPig object by ID.
-
-    Args:
-        blindpig_id: The ID of the BlindPig.
-        fields: Fields to retrieve. Available fields: See BlindPigField type.
-    """
     obj = BlindPig(blindpig_id)
     return obj.api_get(fields=fields)

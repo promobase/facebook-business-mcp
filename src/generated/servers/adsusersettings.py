@@ -1,9 +1,10 @@
-"""AdsUserSettings MCP Server with typed wrappers."""
+"""AdsUserSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsusersettings import AdsUserSettings
 from fastmcp import FastMCP
 
-from src.generated.models.adsusersettings import AdsUserSettingsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsusersettings_server = FastMCP(
 @wrapped_fn_tool
 def get_adsusersettings(
     adsusersettings_id: str,
-    fields: list[AdsUserSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsUserSettings object by ID.
-
-    Args:
-        adsusersettings_id: The ID of the AdsUserSettings.
-        fields: Fields to retrieve. Available fields: See AdsUserSettingsField type.
-    """
     obj = AdsUserSettings(adsusersettings_id)
     return obj.api_get(fields=fields)

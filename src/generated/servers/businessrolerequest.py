@@ -1,12 +1,10 @@
-"""BusinessRoleRequest MCP Server with typed wrappers."""
+"""BusinessRoleRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businessrolerequest import BusinessRoleRequest
 from fastmcp import FastMCP
 
-from src.generated.models.businessrolerequest import (
-    BusinessRoleRequestField,
-    BusinessRoleRequestUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ businessrolerequest_server = FastMCP(
 @wrapped_fn_tool
 def get_businessrolerequest(
     businessrolerequest_id: str,
-    fields: list[BusinessRoleRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessRoleRequest object by ID.
-
-    Args:
-        businessrolerequest_id: The ID of the BusinessRoleRequest.
-        fields: Fields to retrieve. Available fields: See BusinessRoleRequestField type.
-    """
     obj = BusinessRoleRequest(businessrolerequest_id)
     return obj.api_get(fields=fields)
 
@@ -44,16 +36,9 @@ def get_businessrolerequest(
 @wrapped_fn_tool
 def update_businessrolerequest(
     businessrolerequest_id: str,
-    fields: list[BusinessRoleRequestField] = [],
-    params: BusinessRoleRequestUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a BusinessRoleRequest object.
-
-    Args:
-        businessrolerequest_id: The ID of the BusinessRoleRequest.
-        fields: Fields to return after update. Available fields: See BusinessRoleRequestField type.
-        params: Parameters to update. Available params: See BusinessRoleRequestUpdateParams type.
-    """
     return BusinessRoleRequest(businessrolerequest_id).api_update(fields=fields, params=params)
 
 
@@ -62,9 +47,4 @@ def update_businessrolerequest(
 def delete_businessrolerequest(
     businessrolerequest_id: str,
 ) -> str:
-    """Delete a BusinessRoleRequest object.
-
-    Args:
-        businessrolerequest_id: The ID of the BusinessRoleRequest.
-    """
     return BusinessRoleRequest(businessrolerequest_id).api_delete()

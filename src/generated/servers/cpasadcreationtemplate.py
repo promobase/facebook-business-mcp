@@ -1,9 +1,10 @@
-"""CPASAdCreationTemplate MCP Server with typed wrappers."""
+"""CPASAdCreationTemplate MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.cpasadcreationtemplate import CPASAdCreationTemplate
 from fastmcp import FastMCP
 
-from src.generated.models.cpasadcreationtemplate import CPASAdCreationTemplateField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ cpasadcreationtemplate_server = FastMCP(
 @wrapped_fn_tool
 def get_cpasadcreationtemplate(
     cpasadcreationtemplate_id: str,
-    fields: list[CPASAdCreationTemplateField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CPASAdCreationTemplate object by ID.
-
-    Args:
-        cpasadcreationtemplate_id: The ID of the CPASAdCreationTemplate.
-        fields: Fields to retrieve. Available fields: See CPASAdCreationTemplateField type.
-    """
     obj = CPASAdCreationTemplate(cpasadcreationtemplate_id)
     return obj.api_get(fields=fields)

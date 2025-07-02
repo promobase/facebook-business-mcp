@@ -1,9 +1,10 @@
-"""AdPlacePageSet MCP Server with typed wrappers."""
+"""AdPlacePageSet MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adplacepageset import AdPlacePageSet
 from fastmcp import FastMCP
 
-from src.generated.models.adplacepageset import AdPlacePageSetField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adplacepageset_server = FastMCP(
 @wrapped_fn_tool
 def get_adplacepageset(
     adplacepageset_id: str,
-    fields: list[AdPlacePageSetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdPlacePageSet object by ID.
-
-    Args:
-        adplacepageset_id: The ID of the AdPlacePageSet.
-        fields: Fields to retrieve. Available fields: See AdPlacePageSetField type.
-    """
     obj = AdPlacePageSet(adplacepageset_id)
     return obj.api_get(fields=fields)

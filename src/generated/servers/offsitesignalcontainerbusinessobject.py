@@ -1,13 +1,12 @@
-"""OffsiteSignalContainerBusinessObject MCP Server with typed wrappers."""
+"""OffsiteSignalContainerBusinessObject MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.offsitesignalcontainerbusinessobject import (
     OffsiteSignalContainerBusinessObject,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.offsitesignalcontainerbusinessobject import (
-    OffsiteSignalContainerBusinessObjectField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ offsitesignalcontainerbusinessobject_server = FastMCP(
 @wrapped_fn_tool
 def get_offsitesignalcontainerbusinessobject(
     offsitesignalcontainerbusinessobject_id: str,
-    fields: list[OffsiteSignalContainerBusinessObjectField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OffsiteSignalContainerBusinessObject object by ID.
-
-    Args:
-        offsitesignalcontainerbusinessobject_id: The ID of the OffsiteSignalContainerBusinessObject.
-        fields: Fields to retrieve. Available fields: See OffsiteSignalContainerBusinessObjectField type.
-    """
     obj = OffsiteSignalContainerBusinessObject(offsitesignalcontainerbusinessobject_id)
     return obj.api_get(fields=fields)

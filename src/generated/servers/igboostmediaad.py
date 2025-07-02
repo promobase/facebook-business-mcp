@@ -1,9 +1,10 @@
-"""IGBoostMediaAd MCP Server with typed wrappers."""
+"""IGBoostMediaAd MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.igboostmediaad import IGBoostMediaAd
 from fastmcp import FastMCP
 
-from src.generated.models.igboostmediaad import IGBoostMediaAdField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ igboostmediaad_server = FastMCP(
 @wrapped_fn_tool
 def get_igboostmediaad(
     igboostmediaad_id: str,
-    fields: list[IGBoostMediaAdField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGBoostMediaAd object by ID.
-
-    Args:
-        igboostmediaad_id: The ID of the IGBoostMediaAd.
-        fields: Fields to retrieve. Available fields: See IGBoostMediaAdField type.
-    """
     obj = IGBoostMediaAd(igboostmediaad_id)
     return obj.api_get(fields=fields)

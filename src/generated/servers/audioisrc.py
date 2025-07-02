@@ -1,9 +1,10 @@
-"""AudioIsrc MCP Server with typed wrappers."""
+"""AudioIsrc MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.audioisrc import AudioIsrc
 from fastmcp import FastMCP
 
-from src.generated.models.audioisrc import AudioIsrcField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ audioisrc_server = FastMCP(
 @wrapped_fn_tool
 def get_audioisrc(
     audioisrc_id: str,
-    fields: list[AudioIsrcField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AudioIsrc object by ID.
-
-    Args:
-        audioisrc_id: The ID of the AudioIsrc.
-        fields: Fields to retrieve. Available fields: See AudioIsrcField type.
-    """
     obj = AudioIsrc(audioisrc_id)
     return obj.api_get(fields=fields)

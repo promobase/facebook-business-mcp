@@ -1,9 +1,10 @@
-"""AudioSubLabel MCP Server with typed wrappers."""
+"""AudioSubLabel MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.audiosublabel import AudioSubLabel
 from fastmcp import FastMCP
 
-from src.generated.models.audiosublabel import AudioSubLabelField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ audiosublabel_server = FastMCP(
 @wrapped_fn_tool
 def get_audiosublabel(
     audiosublabel_id: str,
-    fields: list[AudioSubLabelField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AudioSubLabel object by ID.
-
-    Args:
-        audiosublabel_id: The ID of the AudioSubLabel.
-        fields: Fields to retrieve. Available fields: See AudioSubLabelField type.
-    """
     obj = AudioSubLabel(audiosublabel_id)
     return obj.api_get(fields=fields)

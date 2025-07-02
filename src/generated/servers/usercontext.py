@@ -1,9 +1,10 @@
-"""UserContext MCP Server with typed wrappers."""
+"""UserContext MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.usercontext import UserContext
 from fastmcp import FastMCP
 
-from src.generated.models.usercontext import UserContextField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ usercontext_server = FastMCP(
 @wrapped_fn_tool
 def get_usercontext(
     usercontext_id: str,
-    fields: list[UserContextField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a UserContext object by ID.
-
-    Args:
-        usercontext_id: The ID of the UserContext.
-        fields: Fields to retrieve. Available fields: See UserContextField type.
-    """
     obj = UserContext(usercontext_id)
     return obj.api_get(fields=fields)

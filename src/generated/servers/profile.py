@@ -1,10 +1,10 @@
-"""Profile MCP Server with typed wrappers."""
+"""Profile MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.profile import Profile
 from fastmcp import FastMCP
 
-from src.generated.models.profile import ProfileField, ProfileGetPictureParams
-from src.generated.models.profilepicturesource import ProfilePictureSourceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,14 +26,8 @@ profile_server = FastMCP(
 @wrapped_fn_tool
 def get_profile(
     profile_id: str,
-    fields: list[ProfileField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Profile object by ID.
-
-    Args:
-        profile_id: The ID of the Profile.
-        fields: Fields to retrieve. Available fields: See ProfileField type.
-    """
     obj = Profile(profile_id)
     return obj.api_get(fields=fields)
 
@@ -43,14 +37,7 @@ def get_profile(
 @wrapped_fn_tool
 def get_picture(
     profile_id: str,
-    fields: list[ProfilePictureSourceField] = [],
-    params: ProfileGetPictureParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Picture for this Profile.
-
-    Args:
-        profile_id: The ID of the Profile.
-        fields: Fields to retrieve. Available fields: See ProfilePictureSourceField type.
-        params: Query parameters. Available params: See ProfileGetPictureParams type.
-    """
     return Profile(profile_id).get_picture(fields=fields, params=params)

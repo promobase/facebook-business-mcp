@@ -1,14 +1,10 @@
-"""AdAsyncRequestSet MCP Server with typed wrappers."""
+"""AdAsyncRequestSet MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adasyncrequestset import AdAsyncRequestSet
 from fastmcp import FastMCP
 
-from src.generated.models.adasyncrequest import AdAsyncRequestField
-from src.generated.models.adasyncrequestset import (
-    AdAsyncRequestSetField,
-    AdAsyncRequestSetGetRequestsParams,
-    AdAsyncRequestSetUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ adasyncrequestset_server = FastMCP(
 @wrapped_fn_tool
 def get_adasyncrequestset(
     adasyncrequestset_id: str,
-    fields: list[AdAsyncRequestSetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdAsyncRequestSet object by ID.
-
-    Args:
-        adasyncrequestset_id: The ID of the AdAsyncRequestSet.
-        fields: Fields to retrieve. Available fields: See AdAsyncRequestSetField type.
-    """
     obj = AdAsyncRequestSet(adasyncrequestset_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +36,9 @@ def get_adasyncrequestset(
 @wrapped_fn_tool
 def update_adasyncrequestset(
     adasyncrequestset_id: str,
-    fields: list[AdAsyncRequestSetField] = [],
-    params: AdAsyncRequestSetUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a AdAsyncRequestSet object.
-
-    Args:
-        adasyncrequestset_id: The ID of the AdAsyncRequestSet.
-        fields: Fields to return after update. Available fields: See AdAsyncRequestSetField type.
-        params: Parameters to update. Available params: See AdAsyncRequestSetUpdateParams type.
-    """
     return AdAsyncRequestSet(adasyncrequestset_id).api_update(fields=fields, params=params)
 
 
@@ -64,11 +47,6 @@ def update_adasyncrequestset(
 def delete_adasyncrequestset(
     adasyncrequestset_id: str,
 ) -> str:
-    """Delete a AdAsyncRequestSet object.
-
-    Args:
-        adasyncrequestset_id: The ID of the AdAsyncRequestSet.
-    """
     return AdAsyncRequestSet(adasyncrequestset_id).api_delete()
 
 
@@ -77,14 +55,7 @@ def delete_adasyncrequestset(
 @wrapped_fn_tool
 def get_requests(
     adasyncrequestset_id: str,
-    fields: list[AdAsyncRequestField] = [],
-    params: AdAsyncRequestSetGetRequestsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Requests for this AdAsyncRequestSet.
-
-    Args:
-        adasyncrequestset_id: The ID of the AdAsyncRequestSet.
-        fields: Fields to retrieve. Available fields: See AdAsyncRequestField type.
-        params: Query parameters. Available params: See AdAsyncRequestSetGetRequestsParams type.
-    """
     return AdAsyncRequestSet(adasyncrequestset_id).get_requests(fields=fields, params=params)

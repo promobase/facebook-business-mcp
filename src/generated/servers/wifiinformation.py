@@ -1,9 +1,10 @@
-"""WifiInformation MCP Server with typed wrappers."""
+"""WifiInformation MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.wifiinformation import WifiInformation
 from fastmcp import FastMCP
 
-from src.generated.models.wifiinformation import WifiInformationField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ wifiinformation_server = FastMCP(
 @wrapped_fn_tool
 def get_wifiinformation(
     wifiinformation_id: str,
-    fields: list[WifiInformationField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WifiInformation object by ID.
-
-    Args:
-        wifiinformation_id: The ID of the WifiInformation.
-        fields: Fields to retrieve. Available fields: See WifiInformationField type.
-    """
     obj = WifiInformation(wifiinformation_id)
     return obj.api_get(fields=fields)

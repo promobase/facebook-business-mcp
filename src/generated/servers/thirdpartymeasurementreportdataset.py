@@ -1,13 +1,12 @@
-"""ThirdPartyMeasurementReportDataset MCP Server with typed wrappers."""
+"""ThirdPartyMeasurementReportDataset MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.thirdpartymeasurementreportdataset import (
     ThirdPartyMeasurementReportDataset,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.thirdpartymeasurementreportdataset import (
-    ThirdPartyMeasurementReportDatasetField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ thirdpartymeasurementreportdataset_server = FastMCP(
 @wrapped_fn_tool
 def get_thirdpartymeasurementreportdataset(
     thirdpartymeasurementreportdataset_id: str,
-    fields: list[ThirdPartyMeasurementReportDatasetField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ThirdPartyMeasurementReportDataset object by ID.
-
-    Args:
-        thirdpartymeasurementreportdataset_id: The ID of the ThirdPartyMeasurementReportDataset.
-        fields: Fields to retrieve. Available fields: See ThirdPartyMeasurementReportDatasetField type.
-    """
     obj = ThirdPartyMeasurementReportDataset(thirdpartymeasurementreportdataset_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""InstagramThread MCP Server with typed wrappers."""
+"""InstagramThread MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.instagramthread import InstagramThread
 from fastmcp import FastMCP
 
-from src.generated.models.instagramthread import InstagramThreadField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ instagramthread_server = FastMCP(
 @wrapped_fn_tool
 def get_instagramthread(
     instagramthread_id: str,
-    fields: list[InstagramThreadField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a InstagramThread object by ID.
-
-    Args:
-        instagramthread_id: The ID of the InstagramThread.
-        fields: Fields to retrieve. Available fields: See InstagramThreadField type.
-    """
     obj = InstagramThread(instagramthread_id)
     return obj.api_get(fields=fields)

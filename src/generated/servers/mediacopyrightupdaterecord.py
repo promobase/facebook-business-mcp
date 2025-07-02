@@ -1,9 +1,10 @@
-"""MediaCopyrightUpdateRecord MCP Server with typed wrappers."""
+"""MediaCopyrightUpdateRecord MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.mediacopyrightupdaterecord import MediaCopyrightUpdateRecord
 from fastmcp import FastMCP
 
-from src.generated.models.mediacopyrightupdaterecord import MediaCopyrightUpdateRecordField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ mediacopyrightupdaterecord_server = FastMCP(
 @wrapped_fn_tool
 def get_mediacopyrightupdaterecord(
     mediacopyrightupdaterecord_id: str,
-    fields: list[MediaCopyrightUpdateRecordField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MediaCopyrightUpdateRecord object by ID.
-
-    Args:
-        mediacopyrightupdaterecord_id: The ID of the MediaCopyrightUpdateRecord.
-        fields: Fields to retrieve. Available fields: See MediaCopyrightUpdateRecordField type.
-    """
     obj = MediaCopyrightUpdateRecord(mediacopyrightupdaterecord_id)
     return obj.api_get(fields=fields)

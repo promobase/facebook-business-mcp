@@ -1,9 +1,10 @@
-"""OmegaCustomerTrx MCP Server with typed wrappers."""
+"""OmegaCustomerTrx MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.omegacustomertrx import OmegaCustomerTrx
 from fastmcp import FastMCP
 
-from src.generated.models.omegacustomertrx import OmegaCustomerTrxField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ omegacustomertrx_server = FastMCP(
 @wrapped_fn_tool
 def get_omegacustomertrx(
     omegacustomertrx_id: str,
-    fields: list[OmegaCustomerTrxField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OmegaCustomerTrx object by ID.
-
-    Args:
-        omegacustomertrx_id: The ID of the OmegaCustomerTrx.
-        fields: Fields to retrieve. Available fields: See OmegaCustomerTrxField type.
-    """
     obj = OmegaCustomerTrx(omegacustomertrx_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""AdsPivotRules MCP Server with typed wrappers."""
+"""AdsPivotRules MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adspivotrules import AdsPivotRules
 from fastmcp import FastMCP
 
-from src.generated.models.adspivotrules import AdsPivotRulesField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adspivotrules_server = FastMCP(
 @wrapped_fn_tool
 def get_adspivotrules(
     adspivotrules_id: str,
-    fields: list[AdsPivotRulesField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsPivotRules object by ID.
-
-    Args:
-        adspivotrules_id: The ID of the AdsPivotRules.
-        fields: Fields to retrieve. Available fields: See AdsPivotRulesField type.
-    """
     obj = AdsPivotRules(adspivotrules_id)
     return obj.api_get(fields=fields)

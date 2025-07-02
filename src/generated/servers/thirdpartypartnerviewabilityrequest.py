@@ -1,13 +1,12 @@
-"""ThirdPartyPartnerViewabilityRequest MCP Server with typed wrappers."""
+"""ThirdPartyPartnerViewabilityRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.thirdpartypartnerviewabilityrequest import (
     ThirdPartyPartnerViewabilityRequest,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.thirdpartypartnerviewabilityrequest import (
-    ThirdPartyPartnerViewabilityRequestField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ thirdpartypartnerviewabilityrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_thirdpartypartnerviewabilityrequest(
     thirdpartypartnerviewabilityrequest_id: str,
-    fields: list[ThirdPartyPartnerViewabilityRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ThirdPartyPartnerViewabilityRequest object by ID.
-
-    Args:
-        thirdpartypartnerviewabilityrequest_id: The ID of the ThirdPartyPartnerViewabilityRequest.
-        fields: Fields to retrieve. Available fields: See ThirdPartyPartnerViewabilityRequestField type.
-    """
     obj = ThirdPartyPartnerViewabilityRequest(thirdpartypartnerviewabilityrequest_id)
     return obj.api_get(fields=fields)

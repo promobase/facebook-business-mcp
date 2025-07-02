@@ -1,9 +1,10 @@
-"""BizInboxOffsiteEmailAccount MCP Server with typed wrappers."""
+"""BizInboxOffsiteEmailAccount MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.bizinboxoffsiteemailaccount import BizInboxOffsiteEmailAccount
 from fastmcp import FastMCP
 
-from src.generated.models.bizinboxoffsiteemailaccount import BizInboxOffsiteEmailAccountField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ bizinboxoffsiteemailaccount_server = FastMCP(
 @wrapped_fn_tool
 def get_bizinboxoffsiteemailaccount(
     bizinboxoffsiteemailaccount_id: str,
-    fields: list[BizInboxOffsiteEmailAccountField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BizInboxOffsiteEmailAccount object by ID.
-
-    Args:
-        bizinboxoffsiteemailaccount_id: The ID of the BizInboxOffsiteEmailAccount.
-        fields: Fields to retrieve. Available fields: See BizInboxOffsiteEmailAccountField type.
-    """
     obj = BizInboxOffsiteEmailAccount(bizinboxoffsiteemailaccount_id)
     return obj.api_get(fields=fields)

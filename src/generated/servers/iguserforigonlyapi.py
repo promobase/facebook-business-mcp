@@ -1,34 +1,10 @@
-"""IGUserForIGOnlyAPI MCP Server with typed wrappers."""
+"""IGUserForIGOnlyAPI MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.iguserforigonlyapi import IGUserForIGOnlyAPI
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.contentpublishinglimitresponse import ContentPublishingLimitResponseField
-from src.generated.models.ctxpartnerappwelcomemessageflow import (
-    CTXPartnerAppWelcomeMessageFlowField,
-)
-from src.generated.models.iguserforigonlyapi import (
-    IGUserForIGOnlyAPICreateMediaParams,
-    IGUserForIGOnlyAPICreateMediaPublishParams,
-    IGUserForIGOnlyAPICreateMentionParams,
-    IGUserForIGOnlyAPICreateMessageAttachmentParams,
-    IGUserForIGOnlyAPICreateMessageParams,
-    IGUserForIGOnlyAPICreateMessengerProfileParams,
-    IGUserForIGOnlyAPICreateSubscribedAppParams,
-    IGUserForIGOnlyAPICreateWelcomeMessageFlowParams,
-    IGUserForIGOnlyAPIDeleteMessengerProfileParams,
-    IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams,
-    IGUserForIGOnlyAPIField,
-    IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams,
-    IGUserForIGOnlyAPIGetContentPublishingLimitParams,
-    IGUserForIGOnlyAPIGetConversationsParams,
-    IGUserForIGOnlyAPIGetInsightsParams,
-    IGUserForIGOnlyAPIGetMediaParams,
-    IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams,
-)
-from src.generated.models.insightsresult import InsightsResultField
-from src.generated.models.unifiedthread import UnifiedThreadField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -50,14 +26,8 @@ iguserforigonlyapi_server = FastMCP(
 @wrapped_fn_tool
 def get_iguserforigonlyapi(
     iguserforigonlyapi_id: str,
-    fields: list[IGUserForIGOnlyAPIField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a IGUserForIGOnlyAPI object by ID.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See IGUserForIGOnlyAPIField type.
-    """
     obj = IGUserForIGOnlyAPI(iguserforigonlyapi_id)
     return obj.api_get(fields=fields)
 
@@ -67,16 +37,9 @@ def get_iguserforigonlyapi(
 @wrapped_fn_tool
 def get_business_messaging_feature_status(
     iguserforigonlyapi_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Business Messaging Feature Status for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_business_messaging_feature_status(
         fields=fields, params=params
     )
@@ -86,16 +49,9 @@ def get_business_messaging_feature_status(
 @wrapped_fn_tool
 def get_content_publishing_limit(
     iguserforigonlyapi_id: str,
-    fields: list[ContentPublishingLimitResponseField] = [],
-    params: IGUserForIGOnlyAPIGetContentPublishingLimitParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Content Publishing Limit for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See ContentPublishingLimitResponseField type.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIGetContentPublishingLimitParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_content_publishing_limit(
         fields=fields, params=params
     )
@@ -105,16 +61,9 @@ def get_content_publishing_limit(
 @wrapped_fn_tool
 def get_conversations(
     iguserforigonlyapi_id: str,
-    fields: list[UnifiedThreadField] = [],
-    params: IGUserForIGOnlyAPIGetConversationsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Conversations for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See UnifiedThreadField type.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIGetConversationsParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_conversations(fields=fields, params=params)
 
 
@@ -122,16 +71,9 @@ def get_conversations(
 @wrapped_fn_tool
 def get_insights(
     iguserforigonlyapi_id: str,
-    fields: list[InsightsResultField] = [],
-    params: IGUserForIGOnlyAPIGetInsightsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Insights for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See InsightsResultField type.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIGetInsightsParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_insights(fields=fields, params=params)
 
 
@@ -139,16 +81,9 @@ def get_insights(
 @wrapped_fn_tool
 def get_media(
     iguserforigonlyapi_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: IGUserForIGOnlyAPIGetMediaParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Media for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIGetMediaParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_media(fields=fields, params=params)
 
 
@@ -157,15 +92,8 @@ def get_media(
 def create_media(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateMediaParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Media for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateMediaParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_media(fields=fields, params=params)
 
 
@@ -174,15 +102,8 @@ def create_media(
 def create_media_publish(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateMediaPublishParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Media Publish for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateMediaPublishParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_media_publish(
         fields=fields, params=params
     )
@@ -193,15 +114,8 @@ def create_media_publish(
 def create_mention(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateMentionParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Mention for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateMentionParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_mention(fields=fields, params=params)
 
 
@@ -210,15 +124,8 @@ def create_mention(
 def create_message_attachment(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateMessageAttachmentParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Message Attachment for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateMessageAttachmentParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_message_attachment(
         fields=fields, params=params
     )
@@ -229,15 +136,8 @@ def create_message_attachment(
 def create_message(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateMessageParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Message for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateMessageParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_message(fields=fields, params=params)
 
 
@@ -245,14 +145,8 @@ def create_message(
 @wrapped_fn_tool
 def delete_messenger_profile(
     iguserforigonlyapi_id: str,
-    params: IGUserForIGOnlyAPIDeleteMessengerProfileParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Messenger Profile for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIDeleteMessengerProfileParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).delete_messenger_profile(params=params)
 
 
@@ -261,15 +155,8 @@ def delete_messenger_profile(
 def create_messenger_profile(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateMessengerProfileParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Messenger Profile for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateMessengerProfileParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_messenger_profile(
         fields=fields, params=params
     )
@@ -280,15 +167,8 @@ def create_messenger_profile(
 def create_subscribed_app(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateSubscribedAppParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Subscribed App for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateSubscribedAppParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_subscribed_app(
         fields=fields, params=params
     )
@@ -298,14 +178,8 @@ def create_subscribed_app(
 @wrapped_fn_tool
 def delete_welcome_message_flows(
     iguserforigonlyapi_id: str,
-    params: IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Welcome Message Flows for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).delete_welcome_message_flows(params=params)
 
 
@@ -313,16 +187,9 @@ def delete_welcome_message_flows(
 @wrapped_fn_tool
 def get_welcome_message_flows(
     iguserforigonlyapi_id: str,
-    fields: list[CTXPartnerAppWelcomeMessageFlowField] = [],
-    params: IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Welcome Message Flows for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve. Available fields: See CTXPartnerAppWelcomeMessageFlowField type.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_welcome_message_flows(
         fields=fields, params=params
     )
@@ -333,15 +200,8 @@ def get_welcome_message_flows(
 def create_welcome_message_flow(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
-    params: IGUserForIGOnlyAPICreateWelcomeMessageFlowParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Welcome Message Flow for this IGUserForIGOnlyAPI.
-
-    Args:
-        iguserforigonlyapi_id: The ID of the IGUserForIGOnlyAPI.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See IGUserForIGOnlyAPICreateWelcomeMessageFlowParams type.
-    """
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_welcome_message_flow(
         fields=fields, params=params
     )

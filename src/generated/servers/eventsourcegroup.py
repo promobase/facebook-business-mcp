@@ -1,13 +1,10 @@
-"""EventSourceGroup MCP Server with typed wrappers."""
+"""EventSourceGroup MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.eventsourcegroup import EventSourceGroup
 from fastmcp import FastMCP
 
-from src.generated.models.eventsourcegroup import (
-    EventSourceGroupCreateSharedAccountParams,
-    EventSourceGroupField,
-    EventSourceGroupUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,14 +26,8 @@ eventsourcegroup_server = FastMCP(
 @wrapped_fn_tool
 def get_eventsourcegroup(
     eventsourcegroup_id: str,
-    fields: list[EventSourceGroupField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a EventSourceGroup object by ID.
-
-    Args:
-        eventsourcegroup_id: The ID of the EventSourceGroup.
-        fields: Fields to retrieve. Available fields: See EventSourceGroupField type.
-    """
     obj = EventSourceGroup(eventsourcegroup_id)
     return obj.api_get(fields=fields)
 
@@ -45,16 +36,9 @@ def get_eventsourcegroup(
 @wrapped_fn_tool
 def update_eventsourcegroup(
     eventsourcegroup_id: str,
-    fields: list[EventSourceGroupField] = [],
-    params: EventSourceGroupUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a EventSourceGroup object.
-
-    Args:
-        eventsourcegroup_id: The ID of the EventSourceGroup.
-        fields: Fields to return after update. Available fields: See EventSourceGroupField type.
-        params: Parameters to update. Available params: See EventSourceGroupUpdateParams type.
-    """
     return EventSourceGroup(eventsourcegroup_id).api_update(fields=fields, params=params)
 
 
@@ -64,13 +48,6 @@ def update_eventsourcegroup(
 def create_shared_account(
     eventsourcegroup_id: str,
     fields: list[str] = [],
-    params: EventSourceGroupCreateSharedAccountParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Shared Account for this EventSourceGroup.
-
-    Args:
-        eventsourcegroup_id: The ID of the EventSourceGroup.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See EventSourceGroupCreateSharedAccountParams type.
-    """
     return EventSourceGroup(eventsourcegroup_id).create_shared_account(fields=fields, params=params)

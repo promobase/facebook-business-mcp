@@ -1,9 +1,10 @@
-"""CloudGame MCP Server with typed wrappers."""
+"""CloudGame MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.cloudgame import CloudGame
 from fastmcp import FastMCP
 
-from src.generated.models.cloudgame import CloudGameField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ cloudgame_server = FastMCP(
 @wrapped_fn_tool
 def get_cloudgame(
     cloudgame_id: str,
-    fields: list[CloudGameField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CloudGame object by ID.
-
-    Args:
-        cloudgame_id: The ID of the CloudGame.
-        fields: Fields to retrieve. Available fields: See CloudGameField type.
-    """
     obj = CloudGame(cloudgame_id)
     return obj.api_get(fields=fields)

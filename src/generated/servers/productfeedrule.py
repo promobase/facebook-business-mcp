@@ -1,9 +1,10 @@
-"""ProductFeedRule MCP Server with typed wrappers."""
+"""ProductFeedRule MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productfeedrule import ProductFeedRule
 from fastmcp import FastMCP
 
-from src.generated.models.productfeedrule import ProductFeedRuleField, ProductFeedRuleUpdateParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ productfeedrule_server = FastMCP(
 @wrapped_fn_tool
 def get_productfeedrule(
     productfeedrule_id: str,
-    fields: list[ProductFeedRuleField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductFeedRule object by ID.
-
-    Args:
-        productfeedrule_id: The ID of the ProductFeedRule.
-        fields: Fields to retrieve. Available fields: See ProductFeedRuleField type.
-    """
     obj = ProductFeedRule(productfeedrule_id)
     return obj.api_get(fields=fields)
 
@@ -41,16 +36,9 @@ def get_productfeedrule(
 @wrapped_fn_tool
 def update_productfeedrule(
     productfeedrule_id: str,
-    fields: list[ProductFeedRuleField] = [],
-    params: ProductFeedRuleUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a ProductFeedRule object.
-
-    Args:
-        productfeedrule_id: The ID of the ProductFeedRule.
-        fields: Fields to return after update. Available fields: See ProductFeedRuleField type.
-        params: Parameters to update. Available params: See ProductFeedRuleUpdateParams type.
-    """
     return ProductFeedRule(productfeedrule_id).api_update(fields=fields, params=params)
 
 
@@ -59,9 +47,4 @@ def update_productfeedrule(
 def delete_productfeedrule(
     productfeedrule_id: str,
 ) -> str:
-    """Delete a ProductFeedRule object.
-
-    Args:
-        productfeedrule_id: The ID of the ProductFeedRule.
-    """
     return ProductFeedRule(productfeedrule_id).api_delete()

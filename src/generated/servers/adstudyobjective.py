@@ -1,12 +1,10 @@
-"""AdStudyObjective MCP Server with typed wrappers."""
+"""AdStudyObjective MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adstudyobjective import AdStudyObjective
 from fastmcp import FastMCP
 
-from src.generated.models.adstudyobjective import (
-    AdStudyObjectiveField,
-    AdStudyObjectiveUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ adstudyobjective_server = FastMCP(
 @wrapped_fn_tool
 def get_adstudyobjective(
     adstudyobjective_id: str,
-    fields: list[AdStudyObjectiveField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdStudyObjective object by ID.
-
-    Args:
-        adstudyobjective_id: The ID of the AdStudyObjective.
-        fields: Fields to retrieve. Available fields: See AdStudyObjectiveField type.
-    """
     obj = AdStudyObjective(adstudyobjective_id)
     return obj.api_get(fields=fields)
 
@@ -44,14 +36,7 @@ def get_adstudyobjective(
 @wrapped_fn_tool
 def update_adstudyobjective(
     adstudyobjective_id: str,
-    fields: list[AdStudyObjectiveField] = [],
-    params: AdStudyObjectiveUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a AdStudyObjective object.
-
-    Args:
-        adstudyobjective_id: The ID of the AdStudyObjective.
-        fields: Fields to return after update. Available fields: See AdStudyObjectiveField type.
-        params: Parameters to update. Available params: See AdStudyObjectiveUpdateParams type.
-    """
     return AdStudyObjective(adstudyobjective_id).api_update(fields=fields, params=params)

@@ -1,9 +1,10 @@
-"""WearableDevicePublicKey MCP Server with typed wrappers."""
+"""WearableDevicePublicKey MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.wearabledevicepublickey import WearableDevicePublicKey
 from fastmcp import FastMCP
 
-from src.generated.models.wearabledevicepublickey import WearableDevicePublicKeyField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ wearabledevicepublickey_server = FastMCP(
 @wrapped_fn_tool
 def get_wearabledevicepublickey(
     wearabledevicepublickey_id: str,
-    fields: list[WearableDevicePublicKeyField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WearableDevicePublicKey object by ID.
-
-    Args:
-        wearabledevicepublickey_id: The ID of the WearableDevicePublicKey.
-        fields: Fields to retrieve. Available fields: See WearableDevicePublicKeyField type.
-    """
     obj = WearableDevicePublicKey(wearabledevicepublickey_id)
     return obj.api_get(fields=fields)

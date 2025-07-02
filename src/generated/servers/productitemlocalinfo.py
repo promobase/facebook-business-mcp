@@ -1,9 +1,10 @@
-"""ProductItemLocalInfo MCP Server with typed wrappers."""
+"""ProductItemLocalInfo MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.productitemlocalinfo import ProductItemLocalInfo
 from fastmcp import FastMCP
 
-from src.generated.models.productitemlocalinfo import ProductItemLocalInfoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ productitemlocalinfo_server = FastMCP(
 @wrapped_fn_tool
 def get_productitemlocalinfo(
     productitemlocalinfo_id: str,
-    fields: list[ProductItemLocalInfoField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ProductItemLocalInfo object by ID.
-
-    Args:
-        productitemlocalinfo_id: The ID of the ProductItemLocalInfo.
-        fields: Fields to retrieve. Available fields: See ProductItemLocalInfoField type.
-    """
     obj = ProductItemLocalInfo(productitemlocalinfo_id)
     return obj.api_get(fields=fields)

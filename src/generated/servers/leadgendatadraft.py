@@ -1,9 +1,10 @@
-"""LeadGenDataDraft MCP Server with typed wrappers."""
+"""LeadGenDataDraft MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.leadgendatadraft import LeadGenDataDraft
 from fastmcp import FastMCP
 
-from src.generated.models.leadgendatadraft import LeadGenDataDraftField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ leadgendatadraft_server = FastMCP(
 @wrapped_fn_tool
 def get_leadgendatadraft(
     leadgendatadraft_id: str,
-    fields: list[LeadGenDataDraftField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a LeadGenDataDraft object by ID.
-
-    Args:
-        leadgendatadraft_id: The ID of the LeadGenDataDraft.
-        fields: Fields to retrieve. Available fields: See LeadGenDataDraftField type.
-    """
     obj = LeadGenDataDraft(leadgendatadraft_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""BrandSafetyDownloadable MCP Server with typed wrappers."""
+"""BrandSafetyDownloadable MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.brandsafetydownloadable import BrandSafetyDownloadable
 from fastmcp import FastMCP
 
-from src.generated.models.brandsafetydownloadable import BrandSafetyDownloadableField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ brandsafetydownloadable_server = FastMCP(
 @wrapped_fn_tool
 def get_brandsafetydownloadable(
     brandsafetydownloadable_id: str,
-    fields: list[BrandSafetyDownloadableField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BrandSafetyDownloadable object by ID.
-
-    Args:
-        brandsafetydownloadable_id: The ID of the BrandSafetyDownloadable.
-        fields: Fields to retrieve. Available fields: See BrandSafetyDownloadableField type.
-    """
     obj = BrandSafetyDownloadable(brandsafetydownloadable_id)
     return obj.api_get(fields=fields)

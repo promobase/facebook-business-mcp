@@ -1,9 +1,10 @@
-"""AdPlacement MCP Server with typed wrappers."""
+"""AdPlacement MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adplacement import AdPlacement
 from fastmcp import FastMCP
 
-from src.generated.models.adplacement import AdPlacementField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adplacement_server = FastMCP(
 @wrapped_fn_tool
 def get_adplacement(
     adplacement_id: str,
-    fields: list[AdPlacementField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdPlacement object by ID.
-
-    Args:
-        adplacement_id: The ID of the AdPlacement.
-        fields: Fields to retrieve. Available fields: See AdPlacementField type.
-    """
     obj = AdPlacement(adplacement_id)
     return obj.api_get(fields=fields)

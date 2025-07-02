@@ -1,9 +1,10 @@
-"""MeasurementReport MCP Server with typed wrappers."""
+"""MeasurementReport MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.measurementreport import MeasurementReport
 from fastmcp import FastMCP
 
-from src.generated.models.measurementreport import MeasurementReportField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ measurementreport_server = FastMCP(
 @wrapped_fn_tool
 def get_measurementreport(
     measurementreport_id: str,
-    fields: list[MeasurementReportField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MeasurementReport object by ID.
-
-    Args:
-        measurementreport_id: The ID of the MeasurementReport.
-        fields: Fields to retrieve. Available fields: See MeasurementReportField type.
-    """
     obj = MeasurementReport(measurementreport_id)
     return obj.api_get(fields=fields)

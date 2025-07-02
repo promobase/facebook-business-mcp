@@ -1,9 +1,10 @@
-"""AdsNamingTemplate MCP Server with typed wrappers."""
+"""AdsNamingTemplate MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsnamingtemplate import AdsNamingTemplate
 from fastmcp import FastMCP
 
-from src.generated.models.adsnamingtemplate import AdsNamingTemplateField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsnamingtemplate_server = FastMCP(
 @wrapped_fn_tool
 def get_adsnamingtemplate(
     adsnamingtemplate_id: str,
-    fields: list[AdsNamingTemplateField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsNamingTemplate object by ID.
-
-    Args:
-        adsnamingtemplate_id: The ID of the AdsNamingTemplate.
-        fields: Fields to retrieve. Available fields: See AdsNamingTemplateField type.
-    """
     obj = AdsNamingTemplate(adsnamingtemplate_id)
     return obj.api_get(fields=fields)

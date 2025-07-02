@@ -1,9 +1,10 @@
-"""EducationExperience MCP Server with typed wrappers."""
+"""EducationExperience MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.educationexperience import EducationExperience
 from fastmcp import FastMCP
 
-from src.generated.models.educationexperience import EducationExperienceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ educationexperience_server = FastMCP(
 @wrapped_fn_tool
 def get_educationexperience(
     educationexperience_id: str,
-    fields: list[EducationExperienceField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a EducationExperience object by ID.
-
-    Args:
-        educationexperience_id: The ID of the EducationExperience.
-        fields: Fields to retrieve. Available fields: See EducationExperienceField type.
-    """
     obj = EducationExperience(educationexperience_id)
     return obj.api_get(fields=fields)

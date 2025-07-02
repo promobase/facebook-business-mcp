@@ -1,9 +1,10 @@
-"""VideoCopyright MCP Server with typed wrappers."""
+"""VideoCopyright MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.videocopyright import VideoCopyright
 from fastmcp import FastMCP
 
-from src.generated.models.videocopyright import VideoCopyrightField, VideoCopyrightUpdateParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ videocopyright_server = FastMCP(
 @wrapped_fn_tool
 def get_videocopyright(
     videocopyright_id: str,
-    fields: list[VideoCopyrightField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a VideoCopyright object by ID.
-
-    Args:
-        videocopyright_id: The ID of the VideoCopyright.
-        fields: Fields to retrieve. Available fields: See VideoCopyrightField type.
-    """
     obj = VideoCopyright(videocopyright_id)
     return obj.api_get(fields=fields)
 
@@ -41,14 +36,7 @@ def get_videocopyright(
 @wrapped_fn_tool
 def update_videocopyright(
     videocopyright_id: str,
-    fields: list[VideoCopyrightField] = [],
-    params: VideoCopyrightUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a VideoCopyright object.
-
-    Args:
-        videocopyright_id: The ID of the VideoCopyright.
-        fields: Fields to return after update. Available fields: See VideoCopyrightField type.
-        params: Parameters to update. Available params: See VideoCopyrightUpdateParams type.
-    """
     return VideoCopyright(videocopyright_id).api_update(fields=fields, params=params)

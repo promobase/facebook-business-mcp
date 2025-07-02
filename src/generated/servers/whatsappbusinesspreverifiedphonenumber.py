@@ -1,16 +1,12 @@
-"""WhatsAppBusinessPreVerifiedPhoneNumber MCP Server with typed wrappers."""
+"""WhatsAppBusinessPreVerifiedPhoneNumber MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.whatsappbusinesspreverifiedphonenumber import (
     WhatsAppBusinessPreVerifiedPhoneNumber,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.whatsappbusinesspreverifiedphonenumber import (
-    WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams,
-    WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams,
-    WhatsAppBusinessPreVerifiedPhoneNumberField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -32,14 +28,8 @@ whatsappbusinesspreverifiedphonenumber_server = FastMCP(
 @wrapped_fn_tool
 def get_whatsappbusinesspreverifiedphonenumber(
     whatsappbusinesspreverifiedphonenumber_id: str,
-    fields: list[WhatsAppBusinessPreVerifiedPhoneNumberField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WhatsAppBusinessPreVerifiedPhoneNumber object by ID.
-
-    Args:
-        whatsappbusinesspreverifiedphonenumber_id: The ID of the WhatsAppBusinessPreVerifiedPhoneNumber.
-        fields: Fields to retrieve. Available fields: See WhatsAppBusinessPreVerifiedPhoneNumberField type.
-    """
     obj = WhatsAppBusinessPreVerifiedPhoneNumber(whatsappbusinesspreverifiedphonenumber_id)
     return obj.api_get(fields=fields)
 
@@ -49,11 +39,6 @@ def get_whatsappbusinesspreverifiedphonenumber(
 def delete_whatsappbusinesspreverifiedphonenumber(
     whatsappbusinesspreverifiedphonenumber_id: str,
 ) -> str:
-    """Delete a WhatsAppBusinessPreVerifiedPhoneNumber object.
-
-    Args:
-        whatsappbusinesspreverifiedphonenumber_id: The ID of the WhatsAppBusinessPreVerifiedPhoneNumber.
-    """
     return WhatsAppBusinessPreVerifiedPhoneNumber(
         whatsappbusinesspreverifiedphonenumber_id
     ).api_delete()
@@ -65,15 +50,8 @@ def delete_whatsappbusinesspreverifiedphonenumber(
 def create_request_code(
     whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Request Code for this WhatsAppBusinessPreVerifiedPhoneNumber.
-
-    Args:
-        whatsappbusinesspreverifiedphonenumber_id: The ID of the WhatsAppBusinessPreVerifiedPhoneNumber.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams type.
-    """
     return WhatsAppBusinessPreVerifiedPhoneNumber(
         whatsappbusinesspreverifiedphonenumber_id
     ).create_request_code(fields=fields, params=params)
@@ -84,15 +62,8 @@ def create_request_code(
 def create_verify_code(
     whatsappbusinesspreverifiedphonenumber_id: str,
     fields: list[str] = [],
-    params: WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Verify Code for this WhatsAppBusinessPreVerifiedPhoneNumber.
-
-    Args:
-        whatsappbusinesspreverifiedphonenumber_id: The ID of the WhatsAppBusinessPreVerifiedPhoneNumber.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams type.
-    """
     return WhatsAppBusinessPreVerifiedPhoneNumber(
         whatsappbusinesspreverifiedphonenumber_id
     ).create_verify_code(fields=fields, params=params)

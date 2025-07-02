@@ -1,9 +1,10 @@
-"""LifeEvent MCP Server with typed wrappers."""
+"""LifeEvent MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.lifeevent import LifeEvent
 from fastmcp import FastMCP
 
-from src.generated.models.lifeevent import LifeEventField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ lifeevent_server = FastMCP(
 @wrapped_fn_tool
 def get_lifeevent(
     lifeevent_id: str,
-    fields: list[LifeEventField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a LifeEvent object by ID.
-
-    Args:
-        lifeevent_id: The ID of the LifeEvent.
-        fields: Fields to retrieve. Available fields: See LifeEventField type.
-    """
     obj = LifeEvent(lifeevent_id)
     return obj.api_get(fields=fields)

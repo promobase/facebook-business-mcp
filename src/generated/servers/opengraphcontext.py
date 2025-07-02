@@ -1,9 +1,10 @@
-"""OpenGraphContext MCP Server with typed wrappers."""
+"""OpenGraphContext MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.opengraphcontext import OpenGraphContext
 from fastmcp import FastMCP
 
-from src.generated.models.opengraphcontext import OpenGraphContextField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ opengraphcontext_server = FastMCP(
 @wrapped_fn_tool
 def get_opengraphcontext(
     opengraphcontext_id: str,
-    fields: list[OpenGraphContextField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OpenGraphContext object by ID.
-
-    Args:
-        opengraphcontext_id: The ID of the OpenGraphContext.
-        fields: Fields to retrieve. Available fields: See OpenGraphContextField type.
-    """
     obj = OpenGraphContext(opengraphcontext_id)
     return obj.api_get(fields=fields)

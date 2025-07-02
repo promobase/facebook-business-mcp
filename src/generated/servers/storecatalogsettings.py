@@ -1,9 +1,10 @@
-"""StoreCatalogSettings MCP Server with typed wrappers."""
+"""StoreCatalogSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.storecatalogsettings import StoreCatalogSettings
 from fastmcp import FastMCP
 
-from src.generated.models.storecatalogsettings import StoreCatalogSettingsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ storecatalogsettings_server = FastMCP(
 @wrapped_fn_tool
 def get_storecatalogsettings(
     storecatalogsettings_id: str,
-    fields: list[StoreCatalogSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a StoreCatalogSettings object by ID.
-
-    Args:
-        storecatalogsettings_id: The ID of the StoreCatalogSettings.
-        fields: Fields to retrieve. Available fields: See StoreCatalogSettingsField type.
-    """
     obj = StoreCatalogSettings(storecatalogsettings_id)
     return obj.api_get(fields=fields)
 
@@ -42,9 +37,4 @@ def get_storecatalogsettings(
 def delete_storecatalogsettings(
     storecatalogsettings_id: str,
 ) -> str:
-    """Delete a StoreCatalogSettings object.
-
-    Args:
-        storecatalogsettings_id: The ID of the StoreCatalogSettings.
-    """
     return StoreCatalogSettings(storecatalogsettings_id).api_delete()

@@ -1,12 +1,10 @@
-"""PrivateLiftStudyInstance MCP Server with typed wrappers."""
+"""PrivateLiftStudyInstance MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.privateliftstudyinstance import PrivateLiftStudyInstance
 from fastmcp import FastMCP
 
-from src.generated.models.privateliftstudyinstance import (
-    PrivateLiftStudyInstanceField,
-    PrivateLiftStudyInstanceUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ privateliftstudyinstance_server = FastMCP(
 @wrapped_fn_tool
 def get_privateliftstudyinstance(
     privateliftstudyinstance_id: str,
-    fields: list[PrivateLiftStudyInstanceField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PrivateLiftStudyInstance object by ID.
-
-    Args:
-        privateliftstudyinstance_id: The ID of the PrivateLiftStudyInstance.
-        fields: Fields to retrieve. Available fields: See PrivateLiftStudyInstanceField type.
-    """
     obj = PrivateLiftStudyInstance(privateliftstudyinstance_id)
     return obj.api_get(fields=fields)
 
@@ -44,16 +36,9 @@ def get_privateliftstudyinstance(
 @wrapped_fn_tool
 def update_privateliftstudyinstance(
     privateliftstudyinstance_id: str,
-    fields: list[PrivateLiftStudyInstanceField] = [],
-    params: PrivateLiftStudyInstanceUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a PrivateLiftStudyInstance object.
-
-    Args:
-        privateliftstudyinstance_id: The ID of the PrivateLiftStudyInstance.
-        fields: Fields to return after update. Available fields: See PrivateLiftStudyInstanceField type.
-        params: Parameters to update. Available params: See PrivateLiftStudyInstanceUpdateParams type.
-    """
     return PrivateLiftStudyInstance(privateliftstudyinstance_id).api_update(
         fields=fields, params=params
     )

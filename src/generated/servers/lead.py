@@ -1,9 +1,10 @@
-"""Lead MCP Server with typed wrappers."""
+"""Lead MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.lead import Lead
 from fastmcp import FastMCP
 
-from src.generated.models.lead import LeadField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ lead_server = FastMCP(
 @wrapped_fn_tool
 def get_lead(
     lead_id: str,
-    fields: list[LeadField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Lead object by ID.
-
-    Args:
-        lead_id: The ID of the Lead.
-        fields: Fields to retrieve. Available fields: See LeadField type.
-    """
     obj = Lead(lead_id)
     return obj.api_get(fields=fields)
 
@@ -42,9 +37,4 @@ def get_lead(
 def delete_lead(
     lead_id: str,
 ) -> str:
-    """Delete a Lead object.
-
-    Args:
-        lead_id: The ID of the Lead.
-    """
     return Lead(lead_id).api_delete()

@@ -1,9 +1,10 @@
-"""PublisherWhiteList MCP Server with typed wrappers."""
+"""PublisherWhiteList MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.publisherwhitelist import PublisherWhiteList
 from fastmcp import FastMCP
 
-from src.generated.models.publisherwhitelist import PublisherWhiteListField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ publisherwhitelist_server = FastMCP(
 @wrapped_fn_tool
 def get_publisherwhitelist(
     publisherwhitelist_id: str,
-    fields: list[PublisherWhiteListField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PublisherWhiteList object by ID.
-
-    Args:
-        publisherwhitelist_id: The ID of the PublisherWhiteList.
-        fields: Fields to retrieve. Available fields: See PublisherWhiteListField type.
-    """
     obj = PublisherWhiteList(publisherwhitelist_id)
     return obj.api_get(fields=fields)

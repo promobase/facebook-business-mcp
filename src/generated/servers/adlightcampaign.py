@@ -1,9 +1,10 @@
-"""AdLightCampaign MCP Server with typed wrappers."""
+"""AdLightCampaign MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adlightcampaign import AdLightCampaign
 from fastmcp import FastMCP
 
-from src.generated.models.adlightcampaign import AdLightCampaignField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adlightcampaign_server = FastMCP(
 @wrapped_fn_tool
 def get_adlightcampaign(
     adlightcampaign_id: str,
-    fields: list[AdLightCampaignField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdLightCampaign object by ID.
-
-    Args:
-        adlightcampaign_id: The ID of the AdLightCampaign.
-        fields: Fields to retrieve. Available fields: See AdLightCampaignField type.
-    """
     obj = AdLightCampaign(adlightcampaign_id)
     return obj.api_get(fields=fields)

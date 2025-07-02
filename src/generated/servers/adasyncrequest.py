@@ -1,9 +1,10 @@
-"""AdAsyncRequest MCP Server with typed wrappers."""
+"""AdAsyncRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adasyncrequest import AdAsyncRequest
 from fastmcp import FastMCP
 
-from src.generated.models.adasyncrequest import AdAsyncRequestField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ adasyncrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_adasyncrequest(
     adasyncrequest_id: str,
-    fields: list[AdAsyncRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdAsyncRequest object by ID.
-
-    Args:
-        adasyncrequest_id: The ID of the AdAsyncRequest.
-        fields: Fields to retrieve. Available fields: See AdAsyncRequestField type.
-    """
     obj = AdAsyncRequest(adasyncrequest_id)
     return obj.api_get(fields=fields)
 
@@ -42,9 +37,4 @@ def get_adasyncrequest(
 def delete_adasyncrequest(
     adasyncrequest_id: str,
 ) -> str:
-    """Delete a AdAsyncRequest object.
-
-    Args:
-        adasyncrequest_id: The ID of the AdAsyncRequest.
-    """
     return AdAsyncRequest(adasyncrequest_id).api_delete()

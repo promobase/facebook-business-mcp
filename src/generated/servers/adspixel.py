@@ -1,31 +1,10 @@
-"""AdsPixel MCP Server with typed wrappers."""
+"""AdsPixel MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adspixel import AdsPixel
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.adaccount import AdAccountField
-from src.generated.models.adspixel import (
-    AdsPixelCreateAgencyParams,
-    AdsPixelCreateAhpConfigParams,
-    AdsPixelCreateAssignedUserParams,
-    AdsPixelCreateEventParams,
-    AdsPixelCreateSharedAccountParams,
-    AdsPixelDeleteAgenciesParams,
-    AdsPixelDeleteSharedAccountsParams,
-    AdsPixelField,
-    AdsPixelGetAdAccountsParams,
-    AdsPixelGetAssignedUsersParams,
-    AdsPixelGetDaChecksParams,
-    AdsPixelGetOfflineEventUploadsParams,
-    AdsPixelGetSharedAccountsParams,
-    AdsPixelGetStatsParams,
-    AdsPixelUpdateParams,
-)
-from src.generated.models.adspixelstatsresult import AdsPixelStatsResultField
-from src.generated.models.assigneduser import AssignedUserField
-from src.generated.models.dacheck import DACheckField
-from src.generated.models.offlineconversiondatasetupload import OfflineConversionDataSetUploadField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -47,14 +26,8 @@ adspixel_server = FastMCP(
 @wrapped_fn_tool
 def get_adspixel(
     adspixel_id: str,
-    fields: list[AdsPixelField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdsPixel object by ID.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve. Available fields: See AdsPixelField type.
-    """
     obj = AdsPixel(adspixel_id)
     return obj.api_get(fields=fields)
 
@@ -63,16 +36,9 @@ def get_adspixel(
 @wrapped_fn_tool
 def update_adspixel(
     adspixel_id: str,
-    fields: list[AdsPixelField] = [],
-    params: AdsPixelUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a AdsPixel object.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to return after update. Available fields: See AdsPixelField type.
-        params: Parameters to update. Available params: See AdsPixelUpdateParams type.
-    """
     return AdsPixel(adspixel_id).api_update(fields=fields, params=params)
 
 
@@ -81,16 +47,9 @@ def update_adspixel(
 @wrapped_fn_tool
 def get_ad_accounts(
     adspixel_id: str,
-    fields: list[AdAccountField] = [],
-    params: AdsPixelGetAdAccountsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Ad Accounts for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve. Available fields: See AdAccountField type.
-        params: Query parameters. Available params: See AdsPixelGetAdAccountsParams type.
-    """
     return AdsPixel(adspixel_id).get_ad_accounts(fields=fields, params=params)
 
 
@@ -98,14 +57,8 @@ def get_ad_accounts(
 @wrapped_fn_tool
 def delete_agencies(
     adspixel_id: str,
-    params: AdsPixelDeleteAgenciesParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Agencies for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        params: Query parameters. Available params: See AdsPixelDeleteAgenciesParams type.
-    """
     return AdsPixel(adspixel_id).delete_agencies(params=params)
 
 
@@ -114,15 +67,8 @@ def delete_agencies(
 def create_agency(
     adspixel_id: str,
     fields: list[str] = [],
-    params: AdsPixelCreateAgencyParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Agency for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdsPixelCreateAgencyParams type.
-    """
     return AdsPixel(adspixel_id).create_agency(fields=fields, params=params)
 
 
@@ -131,15 +77,8 @@ def create_agency(
 def create_ahp_config(
     adspixel_id: str,
     fields: list[str] = [],
-    params: AdsPixelCreateAhpConfigParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Ahp Config for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdsPixelCreateAhpConfigParams type.
-    """
     return AdsPixel(adspixel_id).create_ahp_config(fields=fields, params=params)
 
 
@@ -147,16 +86,9 @@ def create_ahp_config(
 @wrapped_fn_tool
 def get_assigned_users(
     adspixel_id: str,
-    fields: list[AssignedUserField] = [],
-    params: AdsPixelGetAssignedUsersParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Assigned Users for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve. Available fields: See AssignedUserField type.
-        params: Query parameters. Available params: See AdsPixelGetAssignedUsersParams type.
-    """
     return AdsPixel(adspixel_id).get_assigned_users(fields=fields, params=params)
 
 
@@ -165,15 +97,8 @@ def get_assigned_users(
 def create_assigned_user(
     adspixel_id: str,
     fields: list[str] = [],
-    params: AdsPixelCreateAssignedUserParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Assigned User for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdsPixelCreateAssignedUserParams type.
-    """
     return AdsPixel(adspixel_id).create_assigned_user(fields=fields, params=params)
 
 
@@ -181,16 +106,9 @@ def create_assigned_user(
 @wrapped_fn_tool
 def get_da_checks(
     adspixel_id: str,
-    fields: list[DACheckField] = [],
-    params: AdsPixelGetDaChecksParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Da Checks for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve. Available fields: See DACheckField type.
-        params: Query parameters. Available params: See AdsPixelGetDaChecksParams type.
-    """
     return AdsPixel(adspixel_id).get_da_checks(fields=fields, params=params)
 
 
@@ -199,15 +117,8 @@ def get_da_checks(
 def create_event(
     adspixel_id: str,
     fields: list[str] = [],
-    params: AdsPixelCreateEventParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Event for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdsPixelCreateEventParams type.
-    """
     return AdsPixel(adspixel_id).create_event(fields=fields, params=params)
 
 
@@ -215,16 +126,9 @@ def create_event(
 @wrapped_fn_tool
 def get_offline_event_uploads(
     adspixel_id: str,
-    fields: list[OfflineConversionDataSetUploadField] = [],
-    params: AdsPixelGetOfflineEventUploadsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Offline Event Uploads for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve. Available fields: See OfflineConversionDataSetUploadField type.
-        params: Query parameters. Available params: See AdsPixelGetOfflineEventUploadsParams type.
-    """
     return AdsPixel(adspixel_id).get_offline_event_uploads(fields=fields, params=params)
 
 
@@ -232,14 +136,8 @@ def get_offline_event_uploads(
 @wrapped_fn_tool
 def delete_shared_accounts(
     adspixel_id: str,
-    params: AdsPixelDeleteSharedAccountsParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Shared Accounts for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        params: Query parameters. Available params: See AdsPixelDeleteSharedAccountsParams type.
-    """
     return AdsPixel(adspixel_id).delete_shared_accounts(params=params)
 
 
@@ -247,16 +145,9 @@ def delete_shared_accounts(
 @wrapped_fn_tool
 def get_shared_accounts(
     adspixel_id: str,
-    fields: list[AdAccountField] = [],
-    params: AdsPixelGetSharedAccountsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Shared Accounts for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve. Available fields: See AdAccountField type.
-        params: Query parameters. Available params: See AdsPixelGetSharedAccountsParams type.
-    """
     return AdsPixel(adspixel_id).get_shared_accounts(fields=fields, params=params)
 
 
@@ -265,15 +156,8 @@ def get_shared_accounts(
 def create_shared_account(
     adspixel_id: str,
     fields: list[str] = [],
-    params: AdsPixelCreateSharedAccountParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Shared Account for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See AdsPixelCreateSharedAccountParams type.
-    """
     return AdsPixel(adspixel_id).create_shared_account(fields=fields, params=params)
 
 
@@ -281,14 +165,7 @@ def create_shared_account(
 @wrapped_fn_tool
 def get_stats(
     adspixel_id: str,
-    fields: list[AdsPixelStatsResultField] = [],
-    params: AdsPixelGetStatsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Stats for this AdsPixel.
-
-    Args:
-        adspixel_id: The ID of the AdsPixel.
-        fields: Fields to retrieve. Available fields: See AdsPixelStatsResultField type.
-        params: Query parameters. Available params: See AdsPixelGetStatsParams type.
-    """
     return AdsPixel(adspixel_id).get_stats(fields=fields, params=params)

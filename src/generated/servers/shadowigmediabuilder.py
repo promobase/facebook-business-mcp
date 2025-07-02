@@ -1,9 +1,10 @@
-"""ShadowIGMediaBuilder MCP Server with typed wrappers."""
+"""ShadowIGMediaBuilder MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.shadowigmediabuilder import ShadowIGMediaBuilder
 from fastmcp import FastMCP
 
-from src.generated.models.shadowigmediabuilder import ShadowIGMediaBuilderField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ shadowigmediabuilder_server = FastMCP(
 @wrapped_fn_tool
 def get_shadowigmediabuilder(
     shadowigmediabuilder_id: str,
-    fields: list[ShadowIGMediaBuilderField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ShadowIGMediaBuilder object by ID.
-
-    Args:
-        shadowigmediabuilder_id: The ID of the ShadowIGMediaBuilder.
-        fields: Fields to retrieve. Available fields: See ShadowIGMediaBuilderField type.
-    """
     obj = ShadowIGMediaBuilder(shadowigmediabuilder_id)
     return obj.api_get(fields=fields)

@@ -1,13 +1,12 @@
-"""WebsiteCreativeAssetSuggestions MCP Server with typed wrappers."""
+"""WebsiteCreativeAssetSuggestions MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.websitecreativeassetsuggestions import (
     WebsiteCreativeAssetSuggestions,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.websitecreativeassetsuggestions import (
-    WebsiteCreativeAssetSuggestionsField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ websitecreativeassetsuggestions_server = FastMCP(
 @wrapped_fn_tool
 def get_websitecreativeassetsuggestions(
     websitecreativeassetsuggestions_id: str,
-    fields: list[WebsiteCreativeAssetSuggestionsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WebsiteCreativeAssetSuggestions object by ID.
-
-    Args:
-        websitecreativeassetsuggestions_id: The ID of the WebsiteCreativeAssetSuggestions.
-        fields: Fields to retrieve. Available fields: See WebsiteCreativeAssetSuggestionsField type.
-    """
     obj = WebsiteCreativeAssetSuggestions(websitecreativeassetsuggestions_id)
     return obj.api_get(fields=fields)

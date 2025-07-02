@@ -1,9 +1,10 @@
-"""PartnerAccountLinking MCP Server with typed wrappers."""
+"""PartnerAccountLinking MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.partneraccountlinking import PartnerAccountLinking
 from fastmcp import FastMCP
 
-from src.generated.models.partneraccountlinking import PartnerAccountLinkingField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ partneraccountlinking_server = FastMCP(
 @wrapped_fn_tool
 def get_partneraccountlinking(
     partneraccountlinking_id: str,
-    fields: list[PartnerAccountLinkingField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PartnerAccountLinking object by ID.
-
-    Args:
-        partneraccountlinking_id: The ID of the PartnerAccountLinking.
-        fields: Fields to retrieve. Available fields: See PartnerAccountLinkingField type.
-    """
     obj = PartnerAccountLinking(partneraccountlinking_id)
     return obj.api_get(fields=fields)

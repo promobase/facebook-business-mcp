@@ -1,9 +1,10 @@
-"""ReachFrequencyPrediction MCP Server with typed wrappers."""
+"""ReachFrequencyPrediction MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.reachfrequencyprediction import ReachFrequencyPrediction
 from fastmcp import FastMCP
 
-from src.generated.models.reachfrequencyprediction import ReachFrequencyPredictionField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ reachfrequencyprediction_server = FastMCP(
 @wrapped_fn_tool
 def get_reachfrequencyprediction(
     reachfrequencyprediction_id: str,
-    fields: list[ReachFrequencyPredictionField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ReachFrequencyPrediction object by ID.
-
-    Args:
-        reachfrequencyprediction_id: The ID of the ReachFrequencyPrediction.
-        fields: Fields to retrieve. Available fields: See ReachFrequencyPredictionField type.
-    """
     obj = ReachFrequencyPrediction(reachfrequencyprediction_id)
     return obj.api_get(fields=fields)

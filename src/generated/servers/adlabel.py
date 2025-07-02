@@ -1,9 +1,10 @@
-"""AdLabel MCP Server with typed wrappers."""
+"""AdLabel MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adlabel import AdLabel
 from fastmcp import FastMCP
 
-from src.generated.models.adlabel import AdLabelField, AdLabelUpdateParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ adlabel_server = FastMCP(
 @wrapped_fn_tool
 def get_adlabel(
     adlabel_id: str,
-    fields: list[AdLabelField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdLabel object by ID.
-
-    Args:
-        adlabel_id: The ID of the AdLabel.
-        fields: Fields to retrieve. Available fields: See AdLabelField type.
-    """
     obj = AdLabel(adlabel_id)
     return obj.api_get(fields=fields)
 
@@ -41,16 +36,9 @@ def get_adlabel(
 @wrapped_fn_tool
 def update_adlabel(
     adlabel_id: str,
-    fields: list[AdLabelField] = [],
-    params: AdLabelUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a AdLabel object.
-
-    Args:
-        adlabel_id: The ID of the AdLabel.
-        fields: Fields to return after update. Available fields: See AdLabelField type.
-        params: Parameters to update. Available params: See AdLabelUpdateParams type.
-    """
     return AdLabel(adlabel_id).api_update(fields=fields, params=params)
 
 
@@ -59,9 +47,4 @@ def update_adlabel(
 def delete_adlabel(
     adlabel_id: str,
 ) -> str:
-    """Delete a AdLabel object.
-
-    Args:
-        adlabel_id: The ID of the AdLabel.
-    """
     return AdLabel(adlabel_id).api_delete()

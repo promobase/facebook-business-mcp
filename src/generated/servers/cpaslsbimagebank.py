@@ -1,12 +1,10 @@
-"""CPASLsbImageBank MCP Server with typed wrappers."""
+"""CPASLsbImageBank MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.cpaslsbimagebank import CPASLsbImageBank
 from fastmcp import FastMCP
 
-from src.generated.models.cpaslsbimagebank import (
-    CPASLsbImageBankField,
-    CPASLsbImageBankUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ cpaslsbimagebank_server = FastMCP(
 @wrapped_fn_tool
 def get_cpaslsbimagebank(
     cpaslsbimagebank_id: str,
-    fields: list[CPASLsbImageBankField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CPASLsbImageBank object by ID.
-
-    Args:
-        cpaslsbimagebank_id: The ID of the CPASLsbImageBank.
-        fields: Fields to retrieve. Available fields: See CPASLsbImageBankField type.
-    """
     obj = CPASLsbImageBank(cpaslsbimagebank_id)
     return obj.api_get(fields=fields)
 
@@ -44,14 +36,7 @@ def get_cpaslsbimagebank(
 @wrapped_fn_tool
 def update_cpaslsbimagebank(
     cpaslsbimagebank_id: str,
-    fields: list[CPASLsbImageBankField] = [],
-    params: CPASLsbImageBankUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a CPASLsbImageBank object.
-
-    Args:
-        cpaslsbimagebank_id: The ID of the CPASLsbImageBank.
-        fields: Fields to return after update. Available fields: See CPASLsbImageBankField type.
-        params: Parameters to update. Available params: See CPASLsbImageBankUpdateParams type.
-    """
     return CPASLsbImageBank(cpaslsbimagebank_id).api_update(fields=fields, params=params)

@@ -1,14 +1,10 @@
-"""MediaTitle MCP Server with typed wrappers."""
+"""MediaTitle MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.mediatitle import MediaTitle
 from fastmcp import FastMCP
 
-from src.generated.models.mediatitle import (
-    MediaTitleField,
-    MediaTitleGetOverrideDetailsParams,
-    MediaTitleUpdateParams,
-)
-from src.generated.models.overridedetails import OverrideDetailsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ mediatitle_server = FastMCP(
 @wrapped_fn_tool
 def get_mediatitle(
     mediatitle_id: str,
-    fields: list[MediaTitleField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a MediaTitle object by ID.
-
-    Args:
-        mediatitle_id: The ID of the MediaTitle.
-        fields: Fields to retrieve. Available fields: See MediaTitleField type.
-    """
     obj = MediaTitle(mediatitle_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +36,9 @@ def get_mediatitle(
 @wrapped_fn_tool
 def update_mediatitle(
     mediatitle_id: str,
-    fields: list[MediaTitleField] = [],
-    params: MediaTitleUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a MediaTitle object.
-
-    Args:
-        mediatitle_id: The ID of the MediaTitle.
-        fields: Fields to return after update. Available fields: See MediaTitleField type.
-        params: Parameters to update. Available params: See MediaTitleUpdateParams type.
-    """
     return MediaTitle(mediatitle_id).api_update(fields=fields, params=params)
 
 
@@ -64,11 +47,6 @@ def update_mediatitle(
 def delete_mediatitle(
     mediatitle_id: str,
 ) -> str:
-    """Delete a MediaTitle object.
-
-    Args:
-        mediatitle_id: The ID of the MediaTitle.
-    """
     return MediaTitle(mediatitle_id).api_delete()
 
 
@@ -77,14 +55,7 @@ def delete_mediatitle(
 @wrapped_fn_tool
 def get_override_details(
     mediatitle_id: str,
-    fields: list[OverrideDetailsField] = [],
-    params: MediaTitleGetOverrideDetailsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Override Details for this MediaTitle.
-
-    Args:
-        mediatitle_id: The ID of the MediaTitle.
-        fields: Fields to retrieve. Available fields: See OverrideDetailsField type.
-        params: Query parameters. Available params: See MediaTitleGetOverrideDetailsParams type.
-    """
     return MediaTitle(mediatitle_id).get_override_details(fields=fields, params=params)

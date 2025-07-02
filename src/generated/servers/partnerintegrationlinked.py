@@ -1,9 +1,10 @@
-"""PartnerIntegrationLinked MCP Server with typed wrappers."""
+"""PartnerIntegrationLinked MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.partnerintegrationlinked import PartnerIntegrationLinked
 from fastmcp import FastMCP
 
-from src.generated.models.partnerintegrationlinked import PartnerIntegrationLinkedField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ partnerintegrationlinked_server = FastMCP(
 @wrapped_fn_tool
 def get_partnerintegrationlinked(
     partnerintegrationlinked_id: str,
-    fields: list[PartnerIntegrationLinkedField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PartnerIntegrationLinked object by ID.
-
-    Args:
-        partnerintegrationlinked_id: The ID of the PartnerIntegrationLinked.
-        fields: Fields to retrieve. Available fields: See PartnerIntegrationLinkedField type.
-    """
     obj = PartnerIntegrationLinked(partnerintegrationlinked_id)
     return obj.api_get(fields=fields)

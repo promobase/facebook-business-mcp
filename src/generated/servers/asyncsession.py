@@ -1,9 +1,10 @@
-"""AsyncSession MCP Server with typed wrappers."""
+"""AsyncSession MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.asyncsession import AsyncSession
 from fastmcp import FastMCP
 
-from src.generated.models.asyncsession import AsyncSessionField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ asyncsession_server = FastMCP(
 @wrapped_fn_tool
 def get_asyncsession(
     asyncsession_id: str,
-    fields: list[AsyncSessionField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AsyncSession object by ID.
-
-    Args:
-        asyncsession_id: The ID of the AsyncSession.
-        fields: Fields to retrieve. Available fields: See AsyncSessionField type.
-    """
     obj = AsyncSession(asyncsession_id)
     return obj.api_get(fields=fields)

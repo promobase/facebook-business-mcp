@@ -1,9 +1,10 @@
-"""CatalogItemOverride MCP Server with typed wrappers."""
+"""CatalogItemOverride MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.catalogitemoverride import CatalogItemOverride
 from fastmcp import FastMCP
 
-from src.generated.models.catalogitemoverride import CatalogItemOverrideField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ catalogitemoverride_server = FastMCP(
 @wrapped_fn_tool
 def get_catalogitemoverride(
     catalogitemoverride_id: str,
-    fields: list[CatalogItemOverrideField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CatalogItemOverride object by ID.
-
-    Args:
-        catalogitemoverride_id: The ID of the CatalogItemOverride.
-        fields: Fields to retrieve. Available fields: See CatalogItemOverrideField type.
-    """
     obj = CatalogItemOverride(catalogitemoverride_id)
     return obj.api_get(fields=fields)

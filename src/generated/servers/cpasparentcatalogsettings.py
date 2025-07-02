@@ -1,9 +1,10 @@
-"""CPASParentCatalogSettings MCP Server with typed wrappers."""
+"""CPASParentCatalogSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.cpasparentcatalogsettings import CPASParentCatalogSettings
 from fastmcp import FastMCP
 
-from src.generated.models.cpasparentcatalogsettings import CPASParentCatalogSettingsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ cpasparentcatalogsettings_server = FastMCP(
 @wrapped_fn_tool
 def get_cpasparentcatalogsettings(
     cpasparentcatalogsettings_id: str,
-    fields: list[CPASParentCatalogSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CPASParentCatalogSettings object by ID.
-
-    Args:
-        cpasparentcatalogsettings_id: The ID of the CPASParentCatalogSettings.
-        fields: Fields to retrieve. Available fields: See CPASParentCatalogSettingsField type.
-    """
     obj = CPASParentCatalogSettings(cpasparentcatalogsettings_id)
     return obj.api_get(fields=fields)

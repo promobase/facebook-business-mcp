@@ -1,9 +1,10 @@
-"""AdProposal MCP Server with typed wrappers."""
+"""AdProposal MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adproposal import AdProposal
 from fastmcp import FastMCP
 
-from src.generated.models.adproposal import AdProposalField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adproposal_server = FastMCP(
 @wrapped_fn_tool
 def get_adproposal(
     adproposal_id: str,
-    fields: list[AdProposalField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdProposal object by ID.
-
-    Args:
-        adproposal_id: The ID of the AdProposal.
-        fields: Fields to retrieve. Available fields: See AdProposalField type.
-    """
     obj = AdProposal(adproposal_id)
     return obj.api_get(fields=fields)

@@ -1,13 +1,10 @@
-"""InstagramUser MCP Server with typed wrappers."""
+"""InstagramUser MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.instagramuser import InstagramUser
 from fastmcp import FastMCP
 
-from src.generated.models.adaccount import AdAccountField
-from src.generated.models.instagramuser import (
-    InstagramUserField,
-    InstagramUserGetAuthorizedAdAccountsParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,14 +26,8 @@ instagramuser_server = FastMCP(
 @wrapped_fn_tool
 def get_instagramuser(
     instagramuser_id: str,
-    fields: list[InstagramUserField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a InstagramUser object by ID.
-
-    Args:
-        instagramuser_id: The ID of the InstagramUser.
-        fields: Fields to retrieve. Available fields: See InstagramUserField type.
-    """
     obj = InstagramUser(instagramuser_id)
     return obj.api_get(fields=fields)
 
@@ -46,14 +37,7 @@ def get_instagramuser(
 @wrapped_fn_tool
 def get_authorized_ad_accounts(
     instagramuser_id: str,
-    fields: list[AdAccountField] = [],
-    params: InstagramUserGetAuthorizedAdAccountsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Authorized Ad Accounts for this InstagramUser.
-
-    Args:
-        instagramuser_id: The ID of the InstagramUser.
-        fields: Fields to retrieve. Available fields: See AdAccountField type.
-        params: Query parameters. Available params: See InstagramUserGetAuthorizedAdAccountsParams type.
-    """
     return InstagramUser(instagramuser_id).get_authorized_ad_accounts(fields=fields, params=params)

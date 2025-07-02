@@ -1,9 +1,10 @@
-"""CollaborativeAdsShareSettings MCP Server with typed wrappers."""
+"""CollaborativeAdsShareSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.collaborativeadssharesettings import CollaborativeAdsShareSettings
 from fastmcp import FastMCP
 
-from src.generated.models.collaborativeadssharesettings import CollaborativeAdsShareSettingsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ collaborativeadssharesettings_server = FastMCP(
 @wrapped_fn_tool
 def get_collaborativeadssharesettings(
     collaborativeadssharesettings_id: str,
-    fields: list[CollaborativeAdsShareSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CollaborativeAdsShareSettings object by ID.
-
-    Args:
-        collaborativeadssharesettings_id: The ID of the CollaborativeAdsShareSettings.
-        fields: Fields to retrieve. Available fields: See CollaborativeAdsShareSettingsField type.
-    """
     obj = CollaborativeAdsShareSettings(collaborativeadssharesettings_id)
     return obj.api_get(fields=fields)

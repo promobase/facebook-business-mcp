@@ -1,9 +1,10 @@
-"""CanvasTemplate MCP Server with typed wrappers."""
+"""CanvasTemplate MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.canvastemplate import CanvasTemplate
 from fastmcp import FastMCP
 
-from src.generated.models.canvastemplate import CanvasTemplateField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ canvastemplate_server = FastMCP(
 @wrapped_fn_tool
 def get_canvastemplate(
     canvastemplate_id: str,
-    fields: list[CanvasTemplateField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CanvasTemplate object by ID.
-
-    Args:
-        canvastemplate_id: The ID of the CanvasTemplate.
-        fields: Fields to retrieve. Available fields: See CanvasTemplateField type.
-    """
     obj = CanvasTemplate(canvastemplate_id)
     return obj.api_get(fields=fields)

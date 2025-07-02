@@ -1,9 +1,10 @@
-"""PlayableContent MCP Server with typed wrappers."""
+"""PlayableContent MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.playablecontent import PlayableContent
 from fastmcp import FastMCP
 
-from src.generated.models.playablecontent import PlayableContentField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ playablecontent_server = FastMCP(
 @wrapped_fn_tool
 def get_playablecontent(
     playablecontent_id: str,
-    fields: list[PlayableContentField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PlayableContent object by ID.
-
-    Args:
-        playablecontent_id: The ID of the PlayableContent.
-        fields: Fields to retrieve. Available fields: See PlayableContentField type.
-    """
     obj = PlayableContent(playablecontent_id)
     return obj.api_get(fields=fields)

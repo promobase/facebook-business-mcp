@@ -1,9 +1,10 @@
-"""CallAdsPhoneData MCP Server with typed wrappers."""
+"""CallAdsPhoneData MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.calladsphonedata import CallAdsPhoneData
 from fastmcp import FastMCP
 
-from src.generated.models.calladsphonedata import CallAdsPhoneDataField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ calladsphonedata_server = FastMCP(
 @wrapped_fn_tool
 def get_calladsphonedata(
     calladsphonedata_id: str,
-    fields: list[CallAdsPhoneDataField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CallAdsPhoneData object by ID.
-
-    Args:
-        calladsphonedata_id: The ID of the CallAdsPhoneData.
-        fields: Fields to retrieve. Available fields: See CallAdsPhoneDataField type.
-    """
     obj = CallAdsPhoneData(calladsphonedata_id)
     return obj.api_get(fields=fields)

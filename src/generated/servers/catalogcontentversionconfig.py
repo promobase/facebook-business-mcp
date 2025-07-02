@@ -1,9 +1,10 @@
-"""CatalogContentVersionConfig MCP Server with typed wrappers."""
+"""CatalogContentVersionConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.catalogcontentversionconfig import CatalogContentVersionConfig
 from fastmcp import FastMCP
 
-from src.generated.models.catalogcontentversionconfig import CatalogContentVersionConfigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ catalogcontentversionconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_catalogcontentversionconfig(
     catalogcontentversionconfig_id: str,
-    fields: list[CatalogContentVersionConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CatalogContentVersionConfig object by ID.
-
-    Args:
-        catalogcontentversionconfig_id: The ID of the CatalogContentVersionConfig.
-        fields: Fields to retrieve. Available fields: See CatalogContentVersionConfigField type.
-    """
     obj = CatalogContentVersionConfig(catalogcontentversionconfig_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""ExternalMerchantSettings MCP Server with typed wrappers."""
+"""ExternalMerchantSettings MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.externalmerchantsettings import ExternalMerchantSettings
 from fastmcp import FastMCP
 
-from src.generated.models.externalmerchantsettings import ExternalMerchantSettingsField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ externalmerchantsettings_server = FastMCP(
 @wrapped_fn_tool
 def get_externalmerchantsettings(
     externalmerchantsettings_id: str,
-    fields: list[ExternalMerchantSettingsField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ExternalMerchantSettings object by ID.
-
-    Args:
-        externalmerchantsettings_id: The ID of the ExternalMerchantSettings.
-        fields: Fields to retrieve. Available fields: See ExternalMerchantSettingsField type.
-    """
     obj = ExternalMerchantSettings(externalmerchantsettings_id)
     return obj.api_get(fields=fields)

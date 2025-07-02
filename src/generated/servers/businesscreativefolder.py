@@ -1,9 +1,10 @@
-"""BusinessCreativeFolder MCP Server with typed wrappers."""
+"""BusinessCreativeFolder MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businesscreativefolder import BusinessCreativeFolder
 from fastmcp import FastMCP
 
-from src.generated.models.businesscreativefolder import BusinessCreativeFolderField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ businesscreativefolder_server = FastMCP(
 @wrapped_fn_tool
 def get_businesscreativefolder(
     businesscreativefolder_id: str,
-    fields: list[BusinessCreativeFolderField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessCreativeFolder object by ID.
-
-    Args:
-        businesscreativefolder_id: The ID of the BusinessCreativeFolder.
-        fields: Fields to retrieve. Available fields: See BusinessCreativeFolderField type.
-    """
     obj = BusinessCreativeFolder(businesscreativefolder_id)
     return obj.api_get(fields=fields)

@@ -1,13 +1,12 @@
-"""ChinaBusinessOnboardingVettingRequest MCP Server with typed wrappers."""
+"""ChinaBusinessOnboardingVettingRequest MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.chinabusinessonboardingvettingrequest import (
     ChinaBusinessOnboardingVettingRequest,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.chinabusinessonboardingvettingrequest import (
-    ChinaBusinessOnboardingVettingRequestField,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -29,13 +28,7 @@ chinabusinessonboardingvettingrequest_server = FastMCP(
 @wrapped_fn_tool
 def get_chinabusinessonboardingvettingrequest(
     chinabusinessonboardingvettingrequest_id: str,
-    fields: list[ChinaBusinessOnboardingVettingRequestField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ChinaBusinessOnboardingVettingRequest object by ID.
-
-    Args:
-        chinabusinessonboardingvettingrequest_id: The ID of the ChinaBusinessOnboardingVettingRequest.
-        fields: Fields to retrieve. Available fields: See ChinaBusinessOnboardingVettingRequestField type.
-    """
     obj = ChinaBusinessOnboardingVettingRequest(chinabusinessonboardingvettingrequest_id)
     return obj.api_get(fields=fields)

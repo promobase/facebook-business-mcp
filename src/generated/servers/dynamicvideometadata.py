@@ -1,9 +1,10 @@
-"""DynamicVideoMetadata MCP Server with typed wrappers."""
+"""DynamicVideoMetadata MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.dynamicvideometadata import DynamicVideoMetadata
 from fastmcp import FastMCP
 
-from src.generated.models.dynamicvideometadata import DynamicVideoMetadataField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ dynamicvideometadata_server = FastMCP(
 @wrapped_fn_tool
 def get_dynamicvideometadata(
     dynamicvideometadata_id: str,
-    fields: list[DynamicVideoMetadataField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a DynamicVideoMetadata object by ID.
-
-    Args:
-        dynamicvideometadata_id: The ID of the DynamicVideoMetadata.
-        fields: Fields to retrieve. Available fields: See DynamicVideoMetadataField type.
-    """
     obj = DynamicVideoMetadata(dynamicvideometadata_id)
     return obj.api_get(fields=fields)

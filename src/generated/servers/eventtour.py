@@ -1,9 +1,10 @@
-"""EventTour MCP Server with typed wrappers."""
+"""EventTour MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.eventtour import EventTour
 from fastmcp import FastMCP
 
-from src.generated.models.eventtour import EventTourField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ eventtour_server = FastMCP(
 @wrapped_fn_tool
 def get_eventtour(
     eventtour_id: str,
-    fields: list[EventTourField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a EventTour object by ID.
-
-    Args:
-        eventtour_id: The ID of the EventTour.
-        fields: Fields to retrieve. Available fields: See EventTourField type.
-    """
     obj = EventTour(eventtour_id)
     return obj.api_get(fields=fields)

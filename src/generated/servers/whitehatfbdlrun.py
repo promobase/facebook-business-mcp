@@ -1,9 +1,10 @@
-"""WhitehatFBDLRun MCP Server with typed wrappers."""
+"""WhitehatFBDLRun MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.whitehatfbdlrun import WhitehatFBDLRun
 from fastmcp import FastMCP
 
-from src.generated.models.whitehatfbdlrun import WhitehatFBDLRunField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ whitehatfbdlrun_server = FastMCP(
 @wrapped_fn_tool
 def get_whitehatfbdlrun(
     whitehatfbdlrun_id: str,
-    fields: list[WhitehatFBDLRunField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WhitehatFBDLRun object by ID.
-
-    Args:
-        whitehatfbdlrun_id: The ID of the WhitehatFBDLRun.
-        fields: Fields to retrieve. Available fields: See WhitehatFBDLRunField type.
-    """
     obj = WhitehatFBDLRun(whitehatfbdlrun_id)
     return obj.api_get(fields=fields)

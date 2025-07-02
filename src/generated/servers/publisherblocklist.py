@@ -1,16 +1,10 @@
-"""PublisherBlockList MCP Server with typed wrappers."""
+"""PublisherBlockList MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.publisherblocklist import PublisherBlockList
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.publisherblocklist import (
-    PublisherBlockListCreateAppendPublisherUrlParams,
-    PublisherBlockListField,
-    PublisherBlockListGetPagedWebPublishersParams,
-    PublisherBlockListUpdateParams,
-)
-from src.generated.models.webpublisher import WebPublisherField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -32,14 +26,8 @@ publisherblocklist_server = FastMCP(
 @wrapped_fn_tool
 def get_publisherblocklist(
     publisherblocklist_id: str,
-    fields: list[PublisherBlockListField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a PublisherBlockList object by ID.
-
-    Args:
-        publisherblocklist_id: The ID of the PublisherBlockList.
-        fields: Fields to retrieve. Available fields: See PublisherBlockListField type.
-    """
     obj = PublisherBlockList(publisherblocklist_id)
     return obj.api_get(fields=fields)
 
@@ -48,16 +36,9 @@ def get_publisherblocklist(
 @wrapped_fn_tool
 def update_publisherblocklist(
     publisherblocklist_id: str,
-    fields: list[PublisherBlockListField] = [],
-    params: PublisherBlockListUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a PublisherBlockList object.
-
-    Args:
-        publisherblocklist_id: The ID of the PublisherBlockList.
-        fields: Fields to return after update. Available fields: See PublisherBlockListField type.
-        params: Parameters to update. Available params: See PublisherBlockListUpdateParams type.
-    """
     return PublisherBlockList(publisherblocklist_id).api_update(fields=fields, params=params)
 
 
@@ -66,11 +47,6 @@ def update_publisherblocklist(
 def delete_publisherblocklist(
     publisherblocklist_id: str,
 ) -> str:
-    """Delete a PublisherBlockList object.
-
-    Args:
-        publisherblocklist_id: The ID of the PublisherBlockList.
-    """
     return PublisherBlockList(publisherblocklist_id).api_delete()
 
 
@@ -80,15 +56,8 @@ def delete_publisherblocklist(
 def create_append_publisher_url(
     publisherblocklist_id: str,
     fields: list[str] = [],
-    params: PublisherBlockListCreateAppendPublisherUrlParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Append Publisher Url for this PublisherBlockList.
-
-    Args:
-        publisherblocklist_id: The ID of the PublisherBlockList.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See PublisherBlockListCreateAppendPublisherUrlParams type.
-    """
     return PublisherBlockList(publisherblocklist_id).create_append_publisher_url(
         fields=fields, params=params
     )
@@ -98,16 +67,9 @@ def create_append_publisher_url(
 @wrapped_fn_tool
 def get_paged_web_publishers(
     publisherblocklist_id: str,
-    fields: list[WebPublisherField] = [],
-    params: PublisherBlockListGetPagedWebPublishersParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Paged Web Publishers for this PublisherBlockList.
-
-    Args:
-        publisherblocklist_id: The ID of the PublisherBlockList.
-        fields: Fields to retrieve. Available fields: See WebPublisherField type.
-        params: Query parameters. Available params: See PublisherBlockListGetPagedWebPublishersParams type.
-    """
     return PublisherBlockList(publisherblocklist_id).get_paged_web_publishers(
         fields=fields, params=params
     )

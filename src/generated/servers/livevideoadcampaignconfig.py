@@ -1,9 +1,10 @@
-"""LiveVideoAdCampaignConfig MCP Server with typed wrappers."""
+"""LiveVideoAdCampaignConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.livevideoadcampaignconfig import LiveVideoAdCampaignConfig
 from fastmcp import FastMCP
 
-from src.generated.models.livevideoadcampaignconfig import LiveVideoAdCampaignConfigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ livevideoadcampaignconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_livevideoadcampaignconfig(
     livevideoadcampaignconfig_id: str,
-    fields: list[LiveVideoAdCampaignConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a LiveVideoAdCampaignConfig object by ID.
-
-    Args:
-        livevideoadcampaignconfig_id: The ID of the LiveVideoAdCampaignConfig.
-        fields: Fields to retrieve. Available fields: See LiveVideoAdCampaignConfigField type.
-    """
     obj = LiveVideoAdCampaignConfig(livevideoadcampaignconfig_id)
     return obj.api_get(fields=fields)

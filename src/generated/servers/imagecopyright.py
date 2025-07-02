@@ -1,9 +1,10 @@
-"""ImageCopyright MCP Server with typed wrappers."""
+"""ImageCopyright MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.imagecopyright import ImageCopyright
 from fastmcp import FastMCP
 
-from src.generated.models.imagecopyright import ImageCopyrightField, ImageCopyrightUpdateParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ imagecopyright_server = FastMCP(
 @wrapped_fn_tool
 def get_imagecopyright(
     imagecopyright_id: str,
-    fields: list[ImageCopyrightField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ImageCopyright object by ID.
-
-    Args:
-        imagecopyright_id: The ID of the ImageCopyright.
-        fields: Fields to retrieve. Available fields: See ImageCopyrightField type.
-    """
     obj = ImageCopyright(imagecopyright_id)
     return obj.api_get(fields=fields)
 
@@ -41,14 +36,7 @@ def get_imagecopyright(
 @wrapped_fn_tool
 def update_imagecopyright(
     imagecopyright_id: str,
-    fields: list[ImageCopyrightField] = [],
-    params: ImageCopyrightUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a ImageCopyright object.
-
-    Args:
-        imagecopyright_id: The ID of the ImageCopyright.
-        fields: Fields to return after update. Available fields: See ImageCopyrightField type.
-        params: Parameters to update. Available params: See ImageCopyrightUpdateParams type.
-    """
     return ImageCopyright(imagecopyright_id).api_update(fields=fields, params=params)

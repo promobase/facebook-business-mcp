@@ -1,12 +1,10 @@
-"""BusinessAssetSharingAgreement MCP Server with typed wrappers."""
+"""BusinessAssetSharingAgreement MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businessassetsharingagreement import BusinessAssetSharingAgreement
 from fastmcp import FastMCP
 
-from src.generated.models.businessassetsharingagreement import (
-    BusinessAssetSharingAgreementField,
-    BusinessAssetSharingAgreementUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -28,14 +26,8 @@ businessassetsharingagreement_server = FastMCP(
 @wrapped_fn_tool
 def get_businessassetsharingagreement(
     businessassetsharingagreement_id: str,
-    fields: list[BusinessAssetSharingAgreementField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessAssetSharingAgreement object by ID.
-
-    Args:
-        businessassetsharingagreement_id: The ID of the BusinessAssetSharingAgreement.
-        fields: Fields to retrieve. Available fields: See BusinessAssetSharingAgreementField type.
-    """
     obj = BusinessAssetSharingAgreement(businessassetsharingagreement_id)
     return obj.api_get(fields=fields)
 
@@ -44,16 +36,9 @@ def get_businessassetsharingagreement(
 @wrapped_fn_tool
 def update_businessassetsharingagreement(
     businessassetsharingagreement_id: str,
-    fields: list[BusinessAssetSharingAgreementField] = [],
-    params: BusinessAssetSharingAgreementUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a BusinessAssetSharingAgreement object.
-
-    Args:
-        businessassetsharingagreement_id: The ID of the BusinessAssetSharingAgreement.
-        fields: Fields to return after update. Available fields: See BusinessAssetSharingAgreementField type.
-        params: Parameters to update. Available params: See BusinessAssetSharingAgreementUpdateParams type.
-    """
     return BusinessAssetSharingAgreement(businessassetsharingagreement_id).api_update(
         fields=fields, params=params
     )

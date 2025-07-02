@@ -1,10 +1,10 @@
-"""Avatar MCP Server with typed wrappers."""
+"""Avatar MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.avatar import Avatar
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.avatar import AvatarField, AvatarGetModelsParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -26,14 +26,8 @@ avatar_server = FastMCP(
 @wrapped_fn_tool
 def get_avatar(
     avatar_id: str,
-    fields: list[AvatarField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Avatar object by ID.
-
-    Args:
-        avatar_id: The ID of the Avatar.
-        fields: Fields to retrieve. Available fields: See AvatarField type.
-    """
     obj = Avatar(avatar_id)
     return obj.api_get(fields=fields)
 
@@ -43,14 +37,7 @@ def get_avatar(
 @wrapped_fn_tool
 def get_models(
     avatar_id: str,
-    fields: list[AbstractCrudObjectField] = [],
-    params: AvatarGetModelsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Models for this Avatar.
-
-    Args:
-        avatar_id: The ID of the Avatar.
-        fields: Fields to retrieve. Available fields: See AbstractCrudObjectField type.
-        params: Query parameters. Available params: See AvatarGetModelsParams type.
-    """
     return Avatar(avatar_id).get_models(fields=fields, params=params)

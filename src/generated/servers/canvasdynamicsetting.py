@@ -1,9 +1,10 @@
-"""CanvasDynamicSetting MCP Server with typed wrappers."""
+"""CanvasDynamicSetting MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.canvasdynamicsetting import CanvasDynamicSetting
 from fastmcp import FastMCP
 
-from src.generated.models.canvasdynamicsetting import CanvasDynamicSettingField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ canvasdynamicsetting_server = FastMCP(
 @wrapped_fn_tool
 def get_canvasdynamicsetting(
     canvasdynamicsetting_id: str,
-    fields: list[CanvasDynamicSettingField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a CanvasDynamicSetting object by ID.
-
-    Args:
-        canvasdynamicsetting_id: The ID of the CanvasDynamicSetting.
-        fields: Fields to retrieve. Available fields: See CanvasDynamicSettingField type.
-    """
     obj = CanvasDynamicSetting(canvasdynamicsetting_id)
     return obj.api_get(fields=fields)

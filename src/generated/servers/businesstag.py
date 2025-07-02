@@ -1,9 +1,10 @@
-"""BusinessTag MCP Server with typed wrappers."""
+"""BusinessTag MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businesstag import BusinessTag
 from fastmcp import FastMCP
 
-from src.generated.models.businesstag import BusinessTagField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ businesstag_server = FastMCP(
 @wrapped_fn_tool
 def get_businesstag(
     businesstag_id: str,
-    fields: list[BusinessTagField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessTag object by ID.
-
-    Args:
-        businesstag_id: The ID of the BusinessTag.
-        fields: Fields to retrieve. Available fields: See BusinessTagField type.
-    """
     obj = BusinessTag(businesstag_id)
     return obj.api_get(fields=fields)

@@ -1,9 +1,10 @@
-"""AppLinks MCP Server with typed wrappers."""
+"""AppLinks MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.applinks import AppLinks
 from fastmcp import FastMCP
 
-from src.generated.models.applinks import AppLinksField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ applinks_server = FastMCP(
 @wrapped_fn_tool
 def get_applinks(
     applinks_id: str,
-    fields: list[AppLinksField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AppLinks object by ID.
-
-    Args:
-        applinks_id: The ID of the AppLinks.
-        fields: Fields to retrieve. Available fields: See AppLinksField type.
-    """
     obj = AppLinks(applinks_id)
     return obj.api_get(fields=fields)

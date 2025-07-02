@@ -1,16 +1,10 @@
-"""BusinessUser MCP Server with typed wrappers."""
+"""BusinessUser MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.businessuser import BusinessUser
 from fastmcp import FastMCP
 
-from src.generated.models.businessassetgroup import BusinessAssetGroupField
-from src.generated.models.businessuser import (
-    BusinessUserField,
-    BusinessUserGetAssignedBusinessAssetGroupsParams,
-    BusinessUserGetAssignedPagesParams,
-    BusinessUserUpdateParams,
-)
-from src.generated.models.page import PageField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -32,14 +26,8 @@ businessuser_server = FastMCP(
 @wrapped_fn_tool
 def get_businessuser(
     businessuser_id: str,
-    fields: list[BusinessUserField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a BusinessUser object by ID.
-
-    Args:
-        businessuser_id: The ID of the BusinessUser.
-        fields: Fields to retrieve. Available fields: See BusinessUserField type.
-    """
     obj = BusinessUser(businessuser_id)
     return obj.api_get(fields=fields)
 
@@ -48,16 +36,9 @@ def get_businessuser(
 @wrapped_fn_tool
 def update_businessuser(
     businessuser_id: str,
-    fields: list[BusinessUserField] = [],
-    params: BusinessUserUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a BusinessUser object.
-
-    Args:
-        businessuser_id: The ID of the BusinessUser.
-        fields: Fields to return after update. Available fields: See BusinessUserField type.
-        params: Parameters to update. Available params: See BusinessUserUpdateParams type.
-    """
     return BusinessUser(businessuser_id).api_update(fields=fields, params=params)
 
 
@@ -66,11 +47,6 @@ def update_businessuser(
 def delete_businessuser(
     businessuser_id: str,
 ) -> str:
-    """Delete a BusinessUser object.
-
-    Args:
-        businessuser_id: The ID of the BusinessUser.
-    """
     return BusinessUser(businessuser_id).api_delete()
 
 
@@ -79,16 +55,9 @@ def delete_businessuser(
 @wrapped_fn_tool
 def get_assigned_business_asset_groups(
     businessuser_id: str,
-    fields: list[BusinessAssetGroupField] = [],
-    params: BusinessUserGetAssignedBusinessAssetGroupsParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Assigned Business Asset Groups for this BusinessUser.
-
-    Args:
-        businessuser_id: The ID of the BusinessUser.
-        fields: Fields to retrieve. Available fields: See BusinessAssetGroupField type.
-        params: Query parameters. Available params: See BusinessUserGetAssignedBusinessAssetGroupsParams type.
-    """
     return BusinessUser(businessuser_id).get_assigned_business_asset_groups(
         fields=fields, params=params
     )
@@ -98,14 +67,7 @@ def get_assigned_business_asset_groups(
 @wrapped_fn_tool
 def get_assigned_pages(
     businessuser_id: str,
-    fields: list[PageField] = [],
-    params: BusinessUserGetAssignedPagesParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ):
-    """Get Assigned Pages for this BusinessUser.
-
-    Args:
-        businessuser_id: The ID of the BusinessUser.
-        fields: Fields to retrieve. Available fields: See PageField type.
-        params: Query parameters. Available params: See BusinessUserGetAssignedPagesParams type.
-    """
     return BusinessUser(businessuser_id).get_assigned_pages(fields=fields, params=params)

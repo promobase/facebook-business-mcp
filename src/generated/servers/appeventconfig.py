@@ -1,9 +1,10 @@
-"""AppEventConfig MCP Server with typed wrappers."""
+"""AppEventConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.appeventconfig import AppEventConfig
 from fastmcp import FastMCP
 
-from src.generated.models.appeventconfig import AppEventConfigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ appeventconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_appeventconfig(
     appeventconfig_id: str,
-    fields: list[AppEventConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AppEventConfig object by ID.
-
-    Args:
-        appeventconfig_id: The ID of the AppEventConfig.
-        fields: Fields to retrieve. Available fields: See AppEventConfigField type.
-    """
     obj = AppEventConfig(appeventconfig_id)
     return obj.api_get(fields=fields)

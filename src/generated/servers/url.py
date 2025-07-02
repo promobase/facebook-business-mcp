@@ -1,9 +1,10 @@
-"""URL MCP Server with typed wrappers."""
+"""URL MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.url import URL
 from fastmcp import FastMCP
 
-from src.generated.models.url import URLField, URLUpdateParams
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,14 +26,8 @@ url_server = FastMCP(
 @wrapped_fn_tool
 def get_url(
     url_id: str,
-    fields: list[URLField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a URL object by ID.
-
-    Args:
-        url_id: The ID of the URL.
-        fields: Fields to retrieve. Available fields: See URLField type.
-    """
     obj = URL(url_id)
     return obj.api_get(fields=fields)
 
@@ -41,14 +36,7 @@ def get_url(
 @wrapped_fn_tool
 def update_url(
     url_id: str,
-    fields: list[URLField] = [],
-    params: URLUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a URL object.
-
-    Args:
-        url_id: The ID of the URL.
-        fields: Fields to return after update. Available fields: See URLField type.
-        params: Parameters to update. Available params: See URLUpdateParams type.
-    """
     return URL(url_id).api_update(fields=fields, params=params)

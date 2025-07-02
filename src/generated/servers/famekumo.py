@@ -1,9 +1,10 @@
-"""FAMEKumo MCP Server with typed wrappers."""
+"""FAMEKumo MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.famekumo import FAMEKumo
 from fastmcp import FastMCP
 
-from src.generated.models.famekumo import FAMEKumoField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ famekumo_server = FastMCP(
 @wrapped_fn_tool
 def get_famekumo(
     famekumo_id: str,
-    fields: list[FAMEKumoField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a FAMEKumo object by ID.
-
-    Args:
-        famekumo_id: The ID of the FAMEKumo.
-        fields: Fields to retrieve. Available fields: See FAMEKumoField type.
-    """
     obj = FAMEKumo(famekumo_id)
     return obj.api_get(fields=fields)

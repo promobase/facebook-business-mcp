@@ -1,9 +1,10 @@
-"""AdSavedLocation MCP Server with typed wrappers."""
+"""AdSavedLocation MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adsavedlocation import AdSavedLocation
 from fastmcp import FastMCP
 
-from src.generated.models.adsavedlocation import AdSavedLocationField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adsavedlocation_server = FastMCP(
 @wrapped_fn_tool
 def get_adsavedlocation(
     adsavedlocation_id: str,
-    fields: list[AdSavedLocationField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdSavedLocation object by ID.
-
-    Args:
-        adsavedlocation_id: The ID of the AdSavedLocation.
-        fields: Fields to retrieve. Available fields: See AdSavedLocationField type.
-    """
     obj = AdSavedLocation(adsavedlocation_id)
     return obj.api_get(fields=fields)

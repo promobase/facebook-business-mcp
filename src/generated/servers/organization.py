@@ -1,9 +1,10 @@
-"""Organization MCP Server with typed wrappers."""
+"""Organization MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.organization import Organization
 from fastmcp import FastMCP
 
-from src.generated.models.organization import OrganizationField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ organization_server = FastMCP(
 @wrapped_fn_tool
 def get_organization(
     organization_id: str,
-    fields: list[OrganizationField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a Organization object by ID.
-
-    Args:
-        organization_id: The ID of the Organization.
-        fields: Fields to retrieve. Available fields: See OrganizationField type.
-    """
     obj = Organization(organization_id)
     return obj.api_get(fields=fields)

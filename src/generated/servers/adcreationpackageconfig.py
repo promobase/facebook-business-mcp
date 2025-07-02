@@ -1,9 +1,10 @@
-"""AdCreationPackageConfig MCP Server with typed wrappers."""
+"""AdCreationPackageConfig MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.adcreationpackageconfig import AdCreationPackageConfig
 from fastmcp import FastMCP
 
-from src.generated.models.adcreationpackageconfig import AdCreationPackageConfigField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ adcreationpackageconfig_server = FastMCP(
 @wrapped_fn_tool
 def get_adcreationpackageconfig(
     adcreationpackageconfig_id: str,
-    fields: list[AdCreationPackageConfigField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a AdCreationPackageConfig object by ID.
-
-    Args:
-        adcreationpackageconfig_id: The ID of the AdCreationPackageConfig.
-        fields: Fields to retrieve. Available fields: See AdCreationPackageConfigField type.
-    """
     obj = AdCreationPackageConfig(adcreationpackageconfig_id)
     return obj.api_get(fields=fields)

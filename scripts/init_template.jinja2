@@ -1,0 +1,10 @@
+"""MCP servers for Facebook Business SDK resources."""
+
+{% for server in servers -%}
+from .{{ server.module_path }} import {{ server.module_path }}_server
+{% endfor %}
+__all__ = [
+{%- for server in servers %}
+    "{{ server.module_path }}_server",
+{%- endfor %}
+]

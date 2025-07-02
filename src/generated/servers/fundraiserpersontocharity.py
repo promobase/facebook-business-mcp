@@ -1,14 +1,10 @@
-"""FundraiserPersonToCharity MCP Server with typed wrappers."""
+"""FundraiserPersonToCharity MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.fundraiserpersontocharity import FundraiserPersonToCharity
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.fundraiserpersontocharity import (
-    FundraiserPersonToCharityCreateExternalDonationParams,
-    FundraiserPersonToCharityField,
-    FundraiserPersonToCharityUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -30,14 +26,8 @@ fundraiserpersontocharity_server = FastMCP(
 @wrapped_fn_tool
 def get_fundraiserpersontocharity(
     fundraiserpersontocharity_id: str,
-    fields: list[FundraiserPersonToCharityField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a FundraiserPersonToCharity object by ID.
-
-    Args:
-        fundraiserpersontocharity_id: The ID of the FundraiserPersonToCharity.
-        fields: Fields to retrieve. Available fields: See FundraiserPersonToCharityField type.
-    """
     obj = FundraiserPersonToCharity(fundraiserpersontocharity_id)
     return obj.api_get(fields=fields)
 
@@ -46,16 +36,9 @@ def get_fundraiserpersontocharity(
 @wrapped_fn_tool
 def update_fundraiserpersontocharity(
     fundraiserpersontocharity_id: str,
-    fields: list[FundraiserPersonToCharityField] = [],
-    params: FundraiserPersonToCharityUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a FundraiserPersonToCharity object.
-
-    Args:
-        fundraiserpersontocharity_id: The ID of the FundraiserPersonToCharity.
-        fields: Fields to return after update. Available fields: See FundraiserPersonToCharityField type.
-        params: Parameters to update. Available params: See FundraiserPersonToCharityUpdateParams type.
-    """
     return FundraiserPersonToCharity(fundraiserpersontocharity_id).api_update(
         fields=fields, params=params
     )
@@ -67,15 +50,8 @@ def update_fundraiserpersontocharity(
 def create_external_donation(
     fundraiserpersontocharity_id: str,
     fields: list[str] = [],
-    params: FundraiserPersonToCharityCreateExternalDonationParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create External Donation for this FundraiserPersonToCharity.
-
-    Args:
-        fundraiserpersontocharity_id: The ID of the FundraiserPersonToCharity.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See FundraiserPersonToCharityCreateExternalDonationParams type.
-    """
     return FundraiserPersonToCharity(fundraiserpersontocharity_id).create_external_donation(
         fields=fields, params=params
     )

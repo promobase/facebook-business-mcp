@@ -1,9 +1,10 @@
-"""OfflineTermsOfService MCP Server with typed wrappers."""
+"""OfflineTermsOfService MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.offlinetermsofservice import OfflineTermsOfService
 from fastmcp import FastMCP
 
-from src.generated.models.offlinetermsofservice import OfflineTermsOfServiceField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ offlinetermsofservice_server = FastMCP(
 @wrapped_fn_tool
 def get_offlinetermsofservice(
     offlinetermsofservice_id: str,
-    fields: list[OfflineTermsOfServiceField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OfflineTermsOfService object by ID.
-
-    Args:
-        offlinetermsofservice_id: The ID of the OfflineTermsOfService.
-        fields: Fields to retrieve. Available fields: See OfflineTermsOfServiceField type.
-    """
     obj = OfflineTermsOfService(offlinetermsofservice_id)
     return obj.api_get(fields=fields)

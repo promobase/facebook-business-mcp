@@ -1,11 +1,12 @@
-"""OfflineConversionDataSetUpload MCP Server with typed wrappers."""
+"""OfflineConversionDataSetUpload MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.offlineconversiondatasetupload import (
     OfflineConversionDataSetUpload,
 )
 from fastmcp import FastMCP
 
-from src.generated.models.offlineconversiondatasetupload import OfflineConversionDataSetUploadField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -27,13 +28,7 @@ offlineconversiondatasetupload_server = FastMCP(
 @wrapped_fn_tool
 def get_offlineconversiondatasetupload(
     offlineconversiondatasetupload_id: str,
-    fields: list[OfflineConversionDataSetUploadField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a OfflineConversionDataSetUpload object by ID.
-
-    Args:
-        offlineconversiondatasetupload_id: The ID of the OfflineConversionDataSetUpload.
-        fields: Fields to retrieve. Available fields: See OfflineConversionDataSetUploadField type.
-    """
     obj = OfflineConversionDataSetUpload(offlineconversiondatasetupload_id)
     return obj.api_get(fields=fields)

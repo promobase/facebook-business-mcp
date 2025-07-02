@@ -1,16 +1,10 @@
-"""ExtendedCreditInvoiceGroup MCP Server with typed wrappers."""
+"""ExtendedCreditInvoiceGroup MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.extendedcreditinvoicegroup import ExtendedCreditInvoiceGroup
 from fastmcp import FastMCP
 
-from src.generated.models.abstractcrudobject import AbstractCrudObjectField
-from src.generated.models.adaccount import AdAccountField
-from src.generated.models.extendedcreditinvoicegroup import (
-    ExtendedCreditInvoiceGroupCreateAdAccountParams,
-    ExtendedCreditInvoiceGroupDeleteAdAccountsParams,
-    ExtendedCreditInvoiceGroupField,
-    ExtendedCreditInvoiceGroupUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -32,14 +26,8 @@ extendedcreditinvoicegroup_server = FastMCP(
 @wrapped_fn_tool
 def get_extendedcreditinvoicegroup(
     extendedcreditinvoicegroup_id: str,
-    fields: list[ExtendedCreditInvoiceGroupField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a ExtendedCreditInvoiceGroup object by ID.
-
-    Args:
-        extendedcreditinvoicegroup_id: The ID of the ExtendedCreditInvoiceGroup.
-        fields: Fields to retrieve. Available fields: See ExtendedCreditInvoiceGroupField type.
-    """
     obj = ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id)
     return obj.api_get(fields=fields)
 
@@ -48,16 +36,9 @@ def get_extendedcreditinvoicegroup(
 @wrapped_fn_tool
 def update_extendedcreditinvoicegroup(
     extendedcreditinvoicegroup_id: str,
-    fields: list[ExtendedCreditInvoiceGroupField] = [],
-    params: ExtendedCreditInvoiceGroupUpdateParams | dict = {},
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
 ) -> str:
-    """Update a ExtendedCreditInvoiceGroup object.
-
-    Args:
-        extendedcreditinvoicegroup_id: The ID of the ExtendedCreditInvoiceGroup.
-        fields: Fields to return after update. Available fields: See ExtendedCreditInvoiceGroupField type.
-        params: Parameters to update. Available params: See ExtendedCreditInvoiceGroupUpdateParams type.
-    """
     return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).api_update(
         fields=fields, params=params
     )
@@ -68,11 +49,6 @@ def update_extendedcreditinvoicegroup(
 def delete_extendedcreditinvoicegroup(
     extendedcreditinvoicegroup_id: str,
 ) -> str:
-    """Delete a ExtendedCreditInvoiceGroup object.
-
-    Args:
-        extendedcreditinvoicegroup_id: The ID of the ExtendedCreditInvoiceGroup.
-    """
     return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).api_delete()
 
 
@@ -81,14 +57,8 @@ def delete_extendedcreditinvoicegroup(
 @wrapped_fn_tool
 def delete_ad_accounts(
     extendedcreditinvoicegroup_id: str,
-    params: ExtendedCreditInvoiceGroupDeleteAdAccountsParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Delete Ad Accounts for this ExtendedCreditInvoiceGroup.
-
-    Args:
-        extendedcreditinvoicegroup_id: The ID of the ExtendedCreditInvoiceGroup.
-        params: Query parameters. Available params: See ExtendedCreditInvoiceGroupDeleteAdAccountsParams type.
-    """
     return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).delete_ad_accounts(
         params=params
     )
@@ -99,15 +69,8 @@ def delete_ad_accounts(
 def create_ad_account(
     extendedcreditinvoicegroup_id: str,
     fields: list[str] = [],
-    params: ExtendedCreditInvoiceGroupCreateAdAccountParams | dict = {},
+    params: dict[str, Any] = {},
 ):
-    """Create Ad Account for this ExtendedCreditInvoiceGroup.
-
-    Args:
-        extendedcreditinvoicegroup_id: The ID of the ExtendedCreditInvoiceGroup.
-        fields: Fields to retrieve.
-        params: Query parameters. Available params: See ExtendedCreditInvoiceGroupCreateAdAccountParams type.
-    """
     return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).create_ad_account(
         fields=fields, params=params
     )

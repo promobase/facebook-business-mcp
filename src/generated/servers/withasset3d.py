@@ -1,9 +1,10 @@
-"""WithAsset3D MCP Server with typed wrappers."""
+"""WithAsset3D MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.withasset3d import WithAsset3D
 from fastmcp import FastMCP
 
-from src.generated.models.withasset3d import WithAsset3DField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ withasset3d_server = FastMCP(
 @wrapped_fn_tool
 def get_withasset3d(
     withasset3d_id: str,
-    fields: list[WithAsset3DField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a WithAsset3D object by ID.
-
-    Args:
-        withasset3d_id: The ID of the WithAsset3D.
-        fields: Fields to retrieve. Available fields: See WithAsset3DField type.
-    """
     obj = WithAsset3D(withasset3d_id)
     return obj.api_get(fields=fields)

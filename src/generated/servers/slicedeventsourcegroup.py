@@ -1,9 +1,10 @@
-"""SlicedEventSourceGroup MCP Server with typed wrappers."""
+"""SlicedEventSourceGroup MCP Server."""
+
+from typing import Any
 
 from facebook_business.adobjects.slicedeventsourcegroup import SlicedEventSourceGroup
 from fastmcp import FastMCP
 
-from src.generated.models.slicedeventsourcegroup import SlicedEventSourceGroupField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,13 +26,7 @@ slicedeventsourcegroup_server = FastMCP(
 @wrapped_fn_tool
 def get_slicedeventsourcegroup(
     slicedeventsourcegroup_id: str,
-    fields: list[SlicedEventSourceGroupField] = [],
+    fields: list[str] = [],
 ) -> str:
-    """Get a SlicedEventSourceGroup object by ID.
-
-    Args:
-        slicedeventsourcegroup_id: The ID of the SlicedEventSourceGroup.
-        fields: Fields to retrieve. Available fields: See SlicedEventSourceGroupField type.
-    """
     obj = SlicedEventSourceGroup(slicedeventsourcegroup_id)
     return obj.api_get(fields=fields)
