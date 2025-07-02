@@ -2,29 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from facebook_business.adobjects.campaign import Campaign
 from fastmcp import FastMCP
 
-from src.generated.models.ad import AdField
-from src.generated.models.adreportrun import AdReportRunField
-from src.generated.models.adrule import AdRuleField
-from src.generated.models.adset import AdSetField
-from src.generated.models.adsinsights import AdsInsightsField
-from src.generated.models.campaign import (
-    CampaignCreateAdLabelParams,
-    CampaignCreateBudgetScheduleParams,
-    CampaignCreateCopyParams,
-    CampaignField,
-    CampaignGetAdRulesGovernedParams,
-    CampaignGetAdSetsParams,
-    CampaignGetAdsParams,
-    CampaignGetCopiesParams,
-    CampaignGetInsightsAsyncParams,
-    CampaignGetInsightsParams,
-    CampaignUpdateParams,
-)
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -42,43 +22,40 @@ campaign_server = FastMCP(
 
 
 # ---- CRUD Operations (3) ----
+@campaign_server.tool
 @wrapped_fn_tool
 def get_campaign(
     campaign_id: str,
-    fields: list[CampaignField] = [],
+    fields: list[str] = [],
 ) -> str:
     """Get a Campaign object by ID.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve.
+        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
     """
     obj = Campaign(campaign_id)
     return obj.api_get(fields=fields)
 
 
-campaign_server.tool(get_campaign)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def update_campaign(
     campaign_id: str,
-    fields: list[CampaignField] = [],
-    params: CampaignUpdateParams | dict[str, Any] = {},
+    fields: list[str] = [],
+    params: dict = {},
 ) -> str:
     """Update a Campaign object.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to return after update.
-        params: Parameters to update.
+        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        params: Parameters to update. Available params: See CampaignUpdateParams type.
     """
     return Campaign(campaign_id).api_update(fields=fields, params=params)
 
 
-campaign_server.tool(update_campaign)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def delete_campaign(
     campaign_id: str,
@@ -91,176 +68,155 @@ def delete_campaign(
     return Campaign(campaign_id).api_delete()
 
 
-campaign_server.tool(delete_campaign)
-
-
 # ---- Edge Methods (9) ----
+@campaign_server.tool
 @wrapped_fn_tool
 def create_ad_label(
     campaign_id: str,
     fields: list[str] = [],
-    params: CampaignCreateAdLabelParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Label for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See CampaignCreateAdLabelParams type.
     """
     return Campaign(campaign_id).create_ad_label(fields=fields, params=params)
 
 
-campaign_server.tool(create_ad_label)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def get_ad_rules_governed(
     campaign_id: str,
-    fields: list[AdRuleField] = [],
-    params: CampaignGetAdRulesGovernedParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Rules Governed for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdRuleField type.
+        params: Query parameters. Available params: See CampaignGetAdRulesGovernedParams type.
     """
     return Campaign(campaign_id).get_ad_rules_governed(fields=fields, params=params)
 
 
-campaign_server.tool(get_ad_rules_governed)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def get_ads(
     campaign_id: str,
-    fields: list[AdField] = [],
-    params: CampaignGetAdsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ads for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdField type.
+        params: Query parameters. Available params: See CampaignGetAdsParams type.
     """
     return Campaign(campaign_id).get_ads(fields=fields, params=params)
 
 
-campaign_server.tool(get_ads)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def get_ad_sets(
     campaign_id: str,
-    fields: list[AdSetField] = [],
-    params: CampaignGetAdSetsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Sets for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdSetField type.
+        params: Query parameters. Available params: See CampaignGetAdSetsParams type.
     """
     return Campaign(campaign_id).get_ad_sets(fields=fields, params=params)
 
 
-campaign_server.tool(get_ad_sets)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def create_budget_schedule(
     campaign_id: str,
     fields: list[str] = [],
-    params: CampaignCreateBudgetScheduleParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Budget Schedule for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See CampaignCreateBudgetScheduleParams type.
     """
     return Campaign(campaign_id).create_budget_schedule(fields=fields, params=params)
 
 
-campaign_server.tool(create_budget_schedule)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def get_copies(
     campaign_id: str,
-    fields: list[CampaignField] = [],
-    params: CampaignGetCopiesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Copies for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See CampaignField type.
+        params: Query parameters. Available params: See CampaignGetCopiesParams type.
     """
     return Campaign(campaign_id).get_copies(fields=fields, params=params)
 
 
-campaign_server.tool(get_copies)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def create_copy(
     campaign_id: str,
     fields: list[str] = [],
-    params: CampaignCreateCopyParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Copy for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See CampaignCreateCopyParams type.
     """
     return Campaign(campaign_id).create_copy(fields=fields, params=params)
 
 
-campaign_server.tool(create_copy)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def get_insights(
     campaign_id: str,
-    fields: list[AdsInsightsField] = [],
-    params: CampaignGetInsightsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Insights for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdsInsightsField type.
+        params: Query parameters. Available params: See CampaignGetInsightsParams type.
     """
     return Campaign(campaign_id).get_insights(fields=fields, params=params)
 
 
-campaign_server.tool(get_insights)
-
-
+@campaign_server.tool
 @wrapped_fn_tool
 def get_insights_async(
     campaign_id: str,
-    fields: list[AdReportRunField] = [],
-    params: CampaignGetInsightsAsyncParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Insights Async for this Campaign.
 
     Args:
         campaign_id: The ID of the Campaign.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdReportRunField type.
+        params: Query parameters. Available params: See CampaignGetInsightsAsyncParams type.
     """
     return Campaign(campaign_id).get_insights_async(fields=fields, params=params)
-
-
-campaign_server.tool(get_insights_async)

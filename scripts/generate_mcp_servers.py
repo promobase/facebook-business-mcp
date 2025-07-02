@@ -46,6 +46,11 @@ class MCPServerInfo:
         return f"Facebook{self.object_name}"
 
     @property
+    def variable_name(self) -> str:
+        """Get the server variable name."""
+        return f"{self.module_path}_server"
+
+    @property
     def filename(self) -> str:
         """Get the output filename."""
         return f"{self.module_path}.py"
@@ -92,48 +97,9 @@ class MCPServerGenerator:
         """Generate an MCP server file for an AdObject."""
         lines = []
 
-        # Header
-        lines.append(f'"""{server_info.object_name} MCP Server with typed wrappers."""')
-        lines.append("")
-        lines.append("from __future__ import annotations")
-        lines.append("")
-        lines.append("from typing import Any")
-        lines.append("")
-        lines.append(
-            f"from facebook_business.adobjects.{server_info.module_path} import {server_info.object_name}"
-        )
-        lines.append("from fastmcp import FastMCP")
-        lines.append("")
-
-        # Import models
-        lines.append(
-            f"from src.generated.models.{server_info.module_path} import {server_info.object_name}Field"
-        )
-        if server_info.has_update_params:
-            lines.append(
-                f"from src.generated.models.{server_info.module_path} import {server_info.object_name}UpdateParams"
-            )
-
-        # Import param models for edge methods
-        param_model_imports = set()
-        for method in server_info.edge_methods:
-            param_model_name = f"{server_info.object_name}{''.join(word.capitalize() for word in method.name.split('_'))}Params"
-            param_model_imports.add(param_model_name)
-
-        if param_model_imports:
-            lines.append(f"from src.generated.models.{server_info.module_path} import (")
-            for i, model_name in enumerate(sorted(param_model_imports)):
-                comma = "," if i < len(param_model_imports) - 1 else ""
-                lines.append(f"    {model_name}{comma}")
-            lines.append(")")
-
-        # Import field types for edge methods that return different objects
-        field_imports = self._get_field_imports_for_edge_methods(server_info, adobject_info)
-        for module, field_type in sorted(field_imports):
-            lines.append(f"from src.generated.models.{module} import {field_type}")
-
-        lines.append("from src.utils import wrapped_fn_tool")
-        lines.append("")
+        # Generate imports section
+        imports = self._generate_imports(server_info, adobject_info)
+        lines.extend(imports.split("\n"))
 
         # Server setup
         lines.append("# Server setup")
@@ -159,24 +125,15 @@ class MCPServerGenerator:
             lines.append(f"# ---- CRUD Operations ({crud_count}) ----")
 
             if server_info.has_api_get:
-                lines.extend(self._generate_get_method(server_info))
-                lines.append(
-                    f"{server_info.module_path}_server.tool(get_{server_info.module_path})"
-                )
+                lines.extend(self._generate_get_method(server_info, use_decorator=True))
                 lines.append("")
 
             if server_info.has_api_update:
-                lines.extend(self._generate_update_method(server_info))
-                lines.append(
-                    f"{server_info.module_path}_server.tool(update_{server_info.module_path})"
-                )
+                lines.extend(self._generate_update_method(server_info, use_decorator=True))
                 lines.append("")
 
             if server_info.has_api_delete:
-                lines.extend(self._generate_delete_method(server_info))
-                lines.append(
-                    f"{server_info.module_path}_server.tool(delete_{server_info.module_path})"
-                )
+                lines.extend(self._generate_delete_method(server_info, use_decorator=True))
                 lines.append("")
 
         # Edge methods
@@ -186,8 +143,11 @@ class MCPServerGenerator:
             lines.append(f"# ---- Edge Methods ({edge_count}) ----")
 
             for method in server_info.edge_methods:
-                lines.extend(self._generate_edge_method(server_info, method, adobject_info))
-                lines.append(f"{server_info.module_path}_server.tool({method.name})")
+                lines.extend(
+                    self._generate_edge_method(
+                        server_info, method, adobject_info, use_decorator=True
+                    )
+                )
                 lines.append("")
 
         # Write file
@@ -219,13 +179,33 @@ class MCPServerGenerator:
 
         return imports
 
-    def _generate_get_method(self, server_info: MCPServerInfo) -> list[str]:
+    def _generate_imports(self, server_info: MCPServerInfo, adobject_info: AdObjectInfo) -> str:
+        """Generate imports section for the server file."""
+        # Build imports section
+        imports = [
+            f'"""{server_info.object_name} MCP Server with typed wrappers."""',
+            "",
+            "from __future__ import annotations",
+            "",
+            f"from facebook_business.adobjects.{server_info.module_path} import {server_info.object_name}",
+            "from fastmcp import FastMCP",
+            "",
+            "from src.utils import wrapped_fn_tool",
+        ]
+
+        return "\n".join(imports)
+
+    def _generate_get_method(
+        self, server_info: MCPServerInfo, use_decorator: bool = False
+    ) -> list[str]:
         """Generate a get method for an object."""
         lines = []
+        if use_decorator:
+            lines.append(f"@{server_info.variable_name}.tool")
         lines.append("@wrapped_fn_tool")
         lines.append(f"def get_{server_info.module_path}(")
         lines.append(f"    {server_info.module_path}_id: str,")
-        lines.append(f"    fields: list[{server_info.object_name}Field] = [],")
+        lines.append("    fields: list[str] = [],")
         lines.append(") -> str:")
         lines.append(f'    """Get a {server_info.object_name} object by ID.')
         lines.append("    ")
@@ -233,28 +213,27 @@ class MCPServerGenerator:
         lines.append(
             f"        {server_info.module_path}_id: The ID of the {server_info.object_name}."
         )
-        lines.append("        fields: Fields to retrieve.")
+        lines.append(
+            "        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type."
+        )
         lines.append('    """')
         lines.append(f"    obj = {server_info.object_name}({server_info.module_path}_id)")
         lines.append("    return obj.api_get(fields=fields)")
         lines.append("")
         return lines
 
-    def _generate_update_method(self, server_info: MCPServerInfo) -> list[str]:
+    def _generate_update_method(
+        self, server_info: MCPServerInfo, use_decorator: bool = False
+    ) -> list[str]:
         """Generate an update method for an object."""
         lines = []
-
-        # Determine params type
-        if server_info.has_update_params:
-            params_type = f"{server_info.object_name}UpdateParams | dict[str, Any]"
-        else:
-            params_type = "dict[str, Any]"
-
+        if use_decorator:
+            lines.append(f"@{server_info.variable_name}.tool")
         lines.append("@wrapped_fn_tool")
         lines.append(f"def update_{server_info.module_path}(")
         lines.append(f"    {server_info.module_path}_id: str,")
-        lines.append(f"    fields: list[{server_info.object_name}Field] = [],")
-        lines.append(f"    params: {params_type} = {{}},")
+        lines.append("    fields: list[str] = [],")
+        lines.append("    params: dict = {},")
         lines.append(") -> str:")
         lines.append(f'    """Update a {server_info.object_name} object.')
         lines.append("    ")
@@ -262,8 +241,15 @@ class MCPServerGenerator:
         lines.append(
             f"        {server_info.module_path}_id: The ID of the {server_info.object_name}."
         )
-        lines.append("        fields: Fields to return after update.")
-        lines.append("        params: Parameters to update.")
+        lines.append(
+            "        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type."
+        )
+        if server_info.has_update_params:
+            lines.append(
+                f"        params: Parameters to update. Available params: See {server_info.object_name}UpdateParams type."
+            )
+        else:
+            lines.append("        params: Parameters to update.")
         lines.append('    """')
         lines.append(
             f"    return {server_info.object_name}({server_info.module_path}_id).api_update(fields=fields, params=params)"
@@ -271,9 +257,13 @@ class MCPServerGenerator:
         lines.append("")
         return lines
 
-    def _generate_delete_method(self, server_info: MCPServerInfo) -> list[str]:
+    def _generate_delete_method(
+        self, server_info: MCPServerInfo, use_decorator: bool = False
+    ) -> list[str]:
         """Generate a delete method for an object."""
         lines = []
+        if use_decorator:
+            lines.append(f"@{server_info.variable_name}.tool")
         lines.append("@wrapped_fn_tool")
         lines.append(f"def delete_{server_info.module_path}(")
         lines.append(f"    {server_info.module_path}_id: str,")
@@ -292,33 +282,34 @@ class MCPServerGenerator:
         return lines
 
     def _generate_edge_method(
-        self, server_info: MCPServerInfo, method: ApiMethodInfo, adobject_info: AdObjectInfo
+        self,
+        server_info: MCPServerInfo,
+        method: ApiMethodInfo,
+        adobject_info: AdObjectInfo,
+        use_decorator: bool = False,
     ) -> list[str]:
         """Generate an edge method wrapper."""
         lines = []
 
-        # Generate param model name
+        # Generate param model name - simple name without module prefix
         param_model_name = f"{server_info.object_name}{''.join(word.capitalize() for word in method.name.split('_'))}Params"
 
-        # Determine return field type
-        field_type = f"{server_info.object_name}Field"
-        if method.target_class and method.target_class != server_info.object_name:
-            field_type = f"{method.target_class}Field"
-
+        if use_decorator:
+            lines.append(f"@{server_info.variable_name}.tool")
         lines.append("@wrapped_fn_tool")
         lines.append(f"def {method.name}(")
         lines.append(f"    {server_info.module_path}_id: str,")
 
         # Add fields parameter for GET methods or methods that return data
         if method.http_method == "GET" or method.name.startswith("get_"):
-            lines.append(f"    fields: list[{field_type}] = [],")
+            lines.append("    fields: list[str] = [],")
         elif method.http_method == "POST" and method.name.startswith("create_"):
             # Some create methods also return fields
             lines.append("    fields: list[str] = [],")
 
         # Add params parameter
-        lines.append(f"    params: {param_model_name} = {{}},")
-        lines.append(") -> Any:")
+        lines.append("    params: dict = {},")
+        lines.append("):")
 
         # Generate docstring
         method_title = " ".join(word.capitalize() for word in method.name.split("_"))
@@ -330,11 +321,21 @@ class MCPServerGenerator:
         )
 
         if method.http_method == "GET" or method.name.startswith("get_"):
-            lines.append("        fields: Fields to retrieve.")
+            # Determine return type for documentation
+            if method.target_class and method.target_class != server_info.object_name:
+                lines.append(
+                    f"        fields: Fields to retrieve. Available fields: See {method.target_class}Field type."
+                )
+            else:
+                lines.append(
+                    f"        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type."
+                )
         elif method.http_method == "POST" and method.name.startswith("create_"):
             lines.append("        fields: Fields to retrieve.")
 
-        lines.append("        params: Query parameters.")
+        lines.append(
+            f"        params: Query parameters. Available params: See {param_model_name} type."
+        )
         lines.append('    """')
 
         # Generate method call

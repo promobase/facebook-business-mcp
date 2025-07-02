@@ -3,23 +3,7 @@ from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 from src.config import get_config_from_env
-
-# Foundation layer
-from src.servers.foundation.universal_server import higher_order_server
-
-# Legacy imports (to be phased out)
-from src.servers.marketing_api.insights import insights_server
-from src.servers.resources.ad import ad_server
-
-# Resources layer
-from src.servers.resources.ad_account import ad_account_server
-from src.servers.resources.adset import adset_server
-from src.servers.resources.campaign import campaign_server
-from src.servers.workflows.audience_server import audience_server
-
-# Workflows layer
-from src.servers.workflows.campaign_management_server import campaign_management_server
-from src.servers.workflows.reporting_server import reporting_server
+from src.generated.servers.adaccount import adaccount_server
 from src.utils import handle_facebook_errors
 
 instructions = """
@@ -73,21 +57,6 @@ def create_root_mcp() -> FastMCP:
         config = get_config_from_env()
         return config.get("ad_account_id", "No default ad account configured")
 
-    # Mount workflow servers (high-level operations)
-    # mcp.mount(campaign_management_server, "campaign_management")
-    # mcp.mount(reporting_server, "reporting")
-    # mcp.mount(audience_server, "audience")
-
-    # Mount resource servers (core operations)
-    mcp.mount(ad_account_server, "ad_account")
-    # mcp.mount(campaign_server, "campaign")
-    # mcp.mount(adset_server, "adset")
-    # mcp.mount(ad_server, "ad")
-
-    # Mount insights server (to be refactored)
-    # mcp.mount(insights_server, "insights")
-
-    # Mount universal server (foundation layer)
-    # mcp.mount(higher_order_server, "universal")
+    mcp.mount(adaccount_server, "adaccount")
 
     return mcp

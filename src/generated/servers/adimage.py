@@ -2,12 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from facebook_business.adobjects.adimage import AdImage
 from fastmcp import FastMCP
 
-from src.generated.models.adimage import AdImageField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -25,19 +22,17 @@ adimage_server = FastMCP(
 
 
 # ---- CRUD Operations (1) ----
+@adimage_server.tool
 @wrapped_fn_tool
 def get_adimage(
     adimage_id: str,
-    fields: list[AdImageField] = [],
+    fields: list[str] = [],
 ) -> str:
     """Get a AdImage object by ID.
 
     Args:
         adimage_id: The ID of the AdImage.
-        fields: Fields to retrieve.
+        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
     """
     obj = AdImage(adimage_id)
     return obj.api_get(fields=fields)
-
-
-adimage_server.tool(get_adimage)

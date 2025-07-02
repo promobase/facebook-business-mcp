@@ -2,85 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from facebook_business.adobjects.productcatalog import ProductCatalog
 from fastmcp import FastMCP
 
-from src.generated.models.assigneduser import AssignedUserField
-from src.generated.models.automotivemodel import AutomotiveModelField
-from src.generated.models.checkbatchrequeststatus import CheckBatchRequestStatusField
-from src.generated.models.creatorassetcreative import CreatorAssetCreativeField
-from src.generated.models.destination import DestinationField
-from src.generated.models.flight import FlightField
-from src.generated.models.homelisting import HomeListingField
-from src.generated.models.hotel import HotelField
-from src.generated.models.productcatalog import (
-    ProductCatalogCreateAgencyParams,
-    ProductCatalogCreateAssignedUserParams,
-    ProductCatalogCreateBatchParams,
-    ProductCatalogCreateCatalogStoreParams,
-    ProductCatalogCreateCategoryParams,
-    ProductCatalogCreateCpasLsbImageBankParams,
-    ProductCatalogCreateExternalEventSourceParams,
-    ProductCatalogCreateGeolocatedItemsBatchParams,
-    ProductCatalogCreateHomeListingParams,
-    ProductCatalogCreateHotelParams,
-    ProductCatalogCreateHotelRoomsBatchParams,
-    ProductCatalogCreateItemsBatchParams,
-    ProductCatalogCreateLocalizedItemsBatchParams,
-    ProductCatalogCreateMarketPlacePartnerSellersDetailParams,
-    ProductCatalogCreateMarketPlacePartnerSignalParams,
-    ProductCatalogCreatePricingVariablesBatchParams,
-    ProductCatalogCreateProductFeedParams,
-    ProductCatalogCreateProductGroupParams,
-    ProductCatalogCreateProductParams,
-    ProductCatalogCreateProductSetParams,
-    ProductCatalogCreateUpdateGeneratedImageConfigParams,
-    ProductCatalogCreateVehicleParams,
-    ProductCatalogCreateVersionItemsBatchParams,
-    ProductCatalogDeleteAgenciesParams,
-    ProductCatalogDeleteAssignedUsersParams,
-    ProductCatalogDeleteExternalEventSourcesParams,
-    ProductCatalogField,
-    ProductCatalogGetAssignedUsersParams,
-    ProductCatalogGetAutomotiveModelsParams,
-    ProductCatalogGetCategoriesParams,
-    ProductCatalogGetCheckBatchRequestStatusParams,
-    ProductCatalogGetCheckMarketplacePartnerSellersStatusParams,
-    ProductCatalogGetCreatorAssetCreativesParams,
-    ProductCatalogGetDataSourcesParams,
-    ProductCatalogGetDestinationsParams,
-    ProductCatalogGetDiagnosticsParams,
-    ProductCatalogGetEventStatsParams,
-    ProductCatalogGetFlightsParams,
-    ProductCatalogGetHomeListingsParams,
-    ProductCatalogGetHotelRoomsBatchParams,
-    ProductCatalogGetHotelsParams,
-    ProductCatalogGetPricingVariablesBatchParams,
-    ProductCatalogGetProductSetsBatchParams,
-    ProductCatalogGetProductSetsParams,
-    ProductCatalogGetProductsParams,
-    ProductCatalogGetVehicleOffersParams,
-    ProductCatalogGetVehiclesParams,
-    ProductCatalogUpdateParams,
-)
-from src.generated.models.productcatalogcategory import ProductCatalogCategoryField
-from src.generated.models.productcatalogcheckmarketplacepartnersellersstatus import (
-    ProductCatalogCheckMarketplacePartnerSellersStatusField,
-)
-from src.generated.models.productcatalogdatasource import ProductCatalogDataSourceField
-from src.generated.models.productcatalogdiagnosticgroup import ProductCatalogDiagnosticGroupField
-from src.generated.models.productcataloghotelroomsbatch import ProductCatalogHotelRoomsBatchField
-from src.generated.models.productcatalogpricingvariablesbatch import (
-    ProductCatalogPricingVariablesBatchField,
-)
-from src.generated.models.productcatalogproductsetsbatch import ProductCatalogProductSetsBatchField
-from src.generated.models.producteventstat import ProductEventStatField
-from src.generated.models.productitem import ProductItemField
-from src.generated.models.productset import ProductSetField
-from src.generated.models.vehicle import VehicleField
-from src.generated.models.vehicleoffer import VehicleOfferField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -98,43 +22,40 @@ productcatalog_server = FastMCP(
 
 
 # ---- CRUD Operations (3) ----
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_productcatalog(
     productcatalog_id: str,
-    fields: list[ProductCatalogField] = [],
+    fields: list[str] = [],
 ) -> str:
     """Get a ProductCatalog object by ID.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
+        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
     """
     obj = ProductCatalog(productcatalog_id)
     return obj.api_get(fields=fields)
 
 
-productcatalog_server.tool(get_productcatalog)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def update_productcatalog(
     productcatalog_id: str,
-    fields: list[ProductCatalogField] = [],
-    params: ProductCatalogUpdateParams | dict[str, Any] = {},
+    fields: list[str] = [],
+    params: dict = {},
 ) -> str:
     """Update a ProductCatalog object.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to return after update.
-        params: Parameters to update.
+        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        params: Parameters to update. Available params: See ProductCatalogUpdateParams type.
     """
     return ProductCatalog(productcatalog_id).api_update(fields=fields, params=params)
 
 
-productcatalog_server.tool(update_productcatalog)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def delete_productcatalog(
     productcatalog_id: str,
@@ -147,899 +68,804 @@ def delete_productcatalog(
     return ProductCatalog(productcatalog_id).api_delete()
 
 
-productcatalog_server.tool(delete_productcatalog)
-
-
 # ---- Edge Methods (46) ----
+@productcatalog_server.tool
 @wrapped_fn_tool
 def delete_agencies(
     productcatalog_id: str,
-    params: ProductCatalogDeleteAgenciesParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Agencies for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogDeleteAgenciesParams type.
     """
     return ProductCatalog(productcatalog_id).delete_agencies(params=params)
 
 
-productcatalog_server.tool(delete_agencies)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_agency(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateAgencyParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Agency for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateAgencyParams type.
     """
     return ProductCatalog(productcatalog_id).create_agency(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_agency)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def delete_assigned_users(
     productcatalog_id: str,
-    params: ProductCatalogDeleteAssignedUsersParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Assigned Users for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogDeleteAssignedUsersParams type.
     """
     return ProductCatalog(productcatalog_id).delete_assigned_users(params=params)
 
 
-productcatalog_server.tool(delete_assigned_users)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_assigned_users(
     productcatalog_id: str,
-    fields: list[AssignedUserField] = [],
-    params: ProductCatalogGetAssignedUsersParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Assigned Users for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AssignedUserField type.
+        params: Query parameters. Available params: See ProductCatalogGetAssignedUsersParams type.
     """
     return ProductCatalog(productcatalog_id).get_assigned_users(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_assigned_users)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_assigned_user(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateAssignedUserParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Assigned User for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateAssignedUserParams type.
     """
     return ProductCatalog(productcatalog_id).create_assigned_user(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_assigned_user)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_automotive_models(
     productcatalog_id: str,
-    fields: list[AutomotiveModelField] = [],
-    params: ProductCatalogGetAutomotiveModelsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Automotive Models for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AutomotiveModelField type.
+        params: Query parameters. Available params: See ProductCatalogGetAutomotiveModelsParams type.
     """
     return ProductCatalog(productcatalog_id).get_automotive_models(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_automotive_models)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateBatchParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateBatchParams type.
     """
     return ProductCatalog(productcatalog_id).create_batch(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_catalog_store(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateCatalogStoreParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Catalog Store for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateCatalogStoreParams type.
     """
     return ProductCatalog(productcatalog_id).create_catalog_store(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_catalog_store)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_categories(
     productcatalog_id: str,
-    fields: list[ProductCatalogCategoryField] = [],
-    params: ProductCatalogGetCategoriesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Categories for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductCatalogCategoryField type.
+        params: Query parameters. Available params: See ProductCatalogGetCategoriesParams type.
     """
     return ProductCatalog(productcatalog_id).get_categories(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_categories)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_category(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateCategoryParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Category for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateCategoryParams type.
     """
     return ProductCatalog(productcatalog_id).create_category(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_category)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_check_batch_request_status(
     productcatalog_id: str,
-    fields: list[CheckBatchRequestStatusField] = [],
-    params: ProductCatalogGetCheckBatchRequestStatusParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Check Batch Request Status for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See CheckBatchRequestStatusField type.
+        params: Query parameters. Available params: See ProductCatalogGetCheckBatchRequestStatusParams type.
     """
     return ProductCatalog(productcatalog_id).get_check_batch_request_status(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(get_check_batch_request_status)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_check_marketplace_partner_sellers_status(
     productcatalog_id: str,
-    fields: list[ProductCatalogCheckMarketplacePartnerSellersStatusField] = [],
-    params: ProductCatalogGetCheckMarketplacePartnerSellersStatusParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Check Marketplace Partner Sellers Status for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductCatalogCheckMarketplacePartnerSellersStatusField type.
+        params: Query parameters. Available params: See ProductCatalogGetCheckMarketplacePartnerSellersStatusParams type.
     """
     return ProductCatalog(productcatalog_id).get_check_marketplace_partner_sellers_status(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(get_check_marketplace_partner_sellers_status)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_cpas_lsb_image_bank(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateCpasLsbImageBankParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Cpas Lsb Image Bank for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateCpasLsbImageBankParams type.
     """
     return ProductCatalog(productcatalog_id).create_cpas_lsb_image_bank(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_cpas_lsb_image_bank)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_creator_asset_creatives(
     productcatalog_id: str,
-    fields: list[CreatorAssetCreativeField] = [],
-    params: ProductCatalogGetCreatorAssetCreativesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Creator Asset Creatives for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See CreatorAssetCreativeField type.
+        params: Query parameters. Available params: See ProductCatalogGetCreatorAssetCreativesParams type.
     """
     return ProductCatalog(productcatalog_id).get_creator_asset_creatives(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(get_creator_asset_creatives)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_data_sources(
     productcatalog_id: str,
-    fields: list[ProductCatalogDataSourceField] = [],
-    params: ProductCatalogGetDataSourcesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Data Sources for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductCatalogDataSourceField type.
+        params: Query parameters. Available params: See ProductCatalogGetDataSourcesParams type.
     """
     return ProductCatalog(productcatalog_id).get_data_sources(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_data_sources)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_destinations(
     productcatalog_id: str,
-    fields: list[DestinationField] = [],
-    params: ProductCatalogGetDestinationsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Destinations for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See DestinationField type.
+        params: Query parameters. Available params: See ProductCatalogGetDestinationsParams type.
     """
     return ProductCatalog(productcatalog_id).get_destinations(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_destinations)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_diagnostics(
     productcatalog_id: str,
-    fields: list[ProductCatalogDiagnosticGroupField] = [],
-    params: ProductCatalogGetDiagnosticsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Diagnostics for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductCatalogDiagnosticGroupField type.
+        params: Query parameters. Available params: See ProductCatalogGetDiagnosticsParams type.
     """
     return ProductCatalog(productcatalog_id).get_diagnostics(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_diagnostics)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_event_stats(
     productcatalog_id: str,
-    fields: list[ProductEventStatField] = [],
-    params: ProductCatalogGetEventStatsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Event Stats for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductEventStatField type.
+        params: Query parameters. Available params: See ProductCatalogGetEventStatsParams type.
     """
     return ProductCatalog(productcatalog_id).get_event_stats(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_event_stats)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def delete_external_event_sources(
     productcatalog_id: str,
-    params: ProductCatalogDeleteExternalEventSourcesParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete External Event Sources for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogDeleteExternalEventSourcesParams type.
     """
     return ProductCatalog(productcatalog_id).delete_external_event_sources(params=params)
 
 
-productcatalog_server.tool(delete_external_event_sources)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_external_event_source(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateExternalEventSourceParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create External Event Source for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateExternalEventSourceParams type.
     """
     return ProductCatalog(productcatalog_id).create_external_event_source(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_external_event_source)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_flights(
     productcatalog_id: str,
-    fields: list[FlightField] = [],
-    params: ProductCatalogGetFlightsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Flights for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See FlightField type.
+        params: Query parameters. Available params: See ProductCatalogGetFlightsParams type.
     """
     return ProductCatalog(productcatalog_id).get_flights(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_flights)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_geolocated_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateGeolocatedItemsBatchParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Geolocated Items Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateGeolocatedItemsBatchParams type.
     """
     return ProductCatalog(productcatalog_id).create_geolocated_items_batch(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_geolocated_items_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_home_listings(
     productcatalog_id: str,
-    fields: list[HomeListingField] = [],
-    params: ProductCatalogGetHomeListingsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Home Listings for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See HomeListingField type.
+        params: Query parameters. Available params: See ProductCatalogGetHomeListingsParams type.
     """
     return ProductCatalog(productcatalog_id).get_home_listings(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_home_listings)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_home_listing(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateHomeListingParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Home Listing for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateHomeListingParams type.
     """
     return ProductCatalog(productcatalog_id).create_home_listing(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_home_listing)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_hotel_rooms_batch(
     productcatalog_id: str,
-    fields: list[ProductCatalogHotelRoomsBatchField] = [],
-    params: ProductCatalogGetHotelRoomsBatchParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Hotel Rooms Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductCatalogHotelRoomsBatchField type.
+        params: Query parameters. Available params: See ProductCatalogGetHotelRoomsBatchParams type.
     """
     return ProductCatalog(productcatalog_id).get_hotel_rooms_batch(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_hotel_rooms_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_hotel_rooms_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateHotelRoomsBatchParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Hotel Rooms Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateHotelRoomsBatchParams type.
     """
     return ProductCatalog(productcatalog_id).create_hotel_rooms_batch(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_hotel_rooms_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_hotels(
     productcatalog_id: str,
-    fields: list[HotelField] = [],
-    params: ProductCatalogGetHotelsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Hotels for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See HotelField type.
+        params: Query parameters. Available params: See ProductCatalogGetHotelsParams type.
     """
     return ProductCatalog(productcatalog_id).get_hotels(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_hotels)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_hotel(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateHotelParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Hotel for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateHotelParams type.
     """
     return ProductCatalog(productcatalog_id).create_hotel(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_hotel)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateItemsBatchParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Items Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateItemsBatchParams type.
     """
     return ProductCatalog(productcatalog_id).create_items_batch(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_items_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_localized_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateLocalizedItemsBatchParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Localized Items Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateLocalizedItemsBatchParams type.
     """
     return ProductCatalog(productcatalog_id).create_localized_items_batch(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_localized_items_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_market_place_partner_sellers_detail(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateMarketPlacePartnerSellersDetailParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Market Place Partner Sellers Detail for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateMarketPlacePartnerSellersDetailParams type.
     """
     return ProductCatalog(productcatalog_id).create_market_place_partner_sellers_detail(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_market_place_partner_sellers_detail)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_market_place_partner_signal(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateMarketPlacePartnerSignalParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Market Place Partner Signal for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateMarketPlacePartnerSignalParams type.
     """
     return ProductCatalog(productcatalog_id).create_market_place_partner_signal(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_market_place_partner_signal)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_pricing_variables_batch(
     productcatalog_id: str,
-    fields: list[ProductCatalogPricingVariablesBatchField] = [],
-    params: ProductCatalogGetPricingVariablesBatchParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Pricing Variables Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductCatalogPricingVariablesBatchField type.
+        params: Query parameters. Available params: See ProductCatalogGetPricingVariablesBatchParams type.
     """
     return ProductCatalog(productcatalog_id).get_pricing_variables_batch(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(get_pricing_variables_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_pricing_variables_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreatePricingVariablesBatchParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Pricing Variables Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreatePricingVariablesBatchParams type.
     """
     return ProductCatalog(productcatalog_id).create_pricing_variables_batch(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_pricing_variables_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_product_feed(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateProductFeedParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Product Feed for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateProductFeedParams type.
     """
     return ProductCatalog(productcatalog_id).create_product_feed(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_product_feed)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_product_group(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateProductGroupParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Product Group for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateProductGroupParams type.
     """
     return ProductCatalog(productcatalog_id).create_product_group(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_product_group)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_product_sets(
     productcatalog_id: str,
-    fields: list[ProductSetField] = [],
-    params: ProductCatalogGetProductSetsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Product Sets for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductSetField type.
+        params: Query parameters. Available params: See ProductCatalogGetProductSetsParams type.
     """
     return ProductCatalog(productcatalog_id).get_product_sets(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_product_sets)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_product_set(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateProductSetParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Product Set for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateProductSetParams type.
     """
     return ProductCatalog(productcatalog_id).create_product_set(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_product_set)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_product_sets_batch(
     productcatalog_id: str,
-    fields: list[ProductCatalogProductSetsBatchField] = [],
-    params: ProductCatalogGetProductSetsBatchParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Product Sets Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductCatalogProductSetsBatchField type.
+        params: Query parameters. Available params: See ProductCatalogGetProductSetsBatchParams type.
     """
     return ProductCatalog(productcatalog_id).get_product_sets_batch(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_product_sets_batch)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_products(
     productcatalog_id: str,
-    fields: list[ProductItemField] = [],
-    params: ProductCatalogGetProductsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Products for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ProductItemField type.
+        params: Query parameters. Available params: See ProductCatalogGetProductsParams type.
     """
     return ProductCatalog(productcatalog_id).get_products(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_products)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_product(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateProductParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Product for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateProductParams type.
     """
     return ProductCatalog(productcatalog_id).create_product(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_product)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_update_generated_image_config(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateUpdateGeneratedImageConfigParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Update Generated Image Config for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateUpdateGeneratedImageConfigParams type.
     """
     return ProductCatalog(productcatalog_id).create_update_generated_image_config(
         fields=fields, params=params
     )
 
 
-productcatalog_server.tool(create_update_generated_image_config)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_vehicle_offers(
     productcatalog_id: str,
-    fields: list[VehicleOfferField] = [],
-    params: ProductCatalogGetVehicleOffersParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Vehicle Offers for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See VehicleOfferField type.
+        params: Query parameters. Available params: See ProductCatalogGetVehicleOffersParams type.
     """
     return ProductCatalog(productcatalog_id).get_vehicle_offers(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_vehicle_offers)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def get_vehicles(
     productcatalog_id: str,
-    fields: list[VehicleField] = [],
-    params: ProductCatalogGetVehiclesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Vehicles for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See VehicleField type.
+        params: Query parameters. Available params: See ProductCatalogGetVehiclesParams type.
     """
     return ProductCatalog(productcatalog_id).get_vehicles(fields=fields, params=params)
 
 
-productcatalog_server.tool(get_vehicles)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_vehicle(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateVehicleParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Vehicle for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateVehicleParams type.
     """
     return ProductCatalog(productcatalog_id).create_vehicle(fields=fields, params=params)
 
 
-productcatalog_server.tool(create_vehicle)
-
-
+@productcatalog_server.tool
 @wrapped_fn_tool
 def create_version_items_batch(
     productcatalog_id: str,
     fields: list[str] = [],
-    params: ProductCatalogCreateVersionItemsBatchParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Version Items Batch for this ProductCatalog.
 
     Args:
         productcatalog_id: The ID of the ProductCatalog.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See ProductCatalogCreateVersionItemsBatchParams type.
     """
     return ProductCatalog(productcatalog_id).create_version_items_batch(
         fields=fields, params=params
     )
-
-
-productcatalog_server.tool(create_version_items_batch)

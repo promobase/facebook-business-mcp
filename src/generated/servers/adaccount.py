@@ -2,136 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 
-from src.generated.models.ad import AdField
-from src.generated.models.adaccount import (
-    AdAccountCreateAccountControlParams,
-    AdAccountCreateAdCreativeParams,
-    AdAccountCreateAdImageParams,
-    AdAccountCreateAdLabelParams,
-    AdAccountCreateAdParams,
-    AdAccountCreateAdPlacePageSetParams,
-    AdAccountCreateAdPlacePageSetsAsyncParams,
-    AdAccountCreateAdPlayableParams,
-    AdAccountCreateAdRulesLibraryParams,
-    AdAccountCreateAdSetParams,
-    AdAccountCreateAdsPixelParams,
-    AdAccountCreateAdVideoParams,
-    AdAccountCreateAgencyParams,
-    AdAccountCreateAssignedUserParams,
-    AdAccountCreateAsyncAdCreativeParams,
-    AdAccountCreateAsyncAdRequestSetParams,
-    AdAccountCreateAsyncBatchRequestParams,
-    AdAccountCreateBlockListDraftParams,
-    AdAccountCreateBrandSafetyContentFilterLevelParams,
-    AdAccountCreateCampaignParams,
-    AdAccountCreateCustomAudienceParams,
-    AdAccountCreateCustomAudiencesToParams,
-    AdAccountCreateCustomConversionParams,
-    AdAccountCreateProductAudienceParams,
-    AdAccountCreatePublisherBlockListParams,
-    AdAccountCreateReachFrequencyPredictionParams,
-    AdAccountCreateRecommendationParams,
-    AdAccountCreateSubscribedAppParams,
-    AdAccountCreateTrackingParams,
-    AdAccountCreateValueRuleSetParams,
-    AdAccountCreateVideoAdParams,
-    AdAccountDeleteAdImagesParams,
-    AdAccountDeleteAdVideosParams,
-    AdAccountDeleteAgenciesParams,
-    AdAccountDeleteAssignedUsersParams,
-    AdAccountDeleteCampaignsParams,
-    AdAccountDeleteSubscribedAppsParams,
-    AdAccountDeleteUsersOfAnyAudienceParams,
-    AdAccountField,
-    AdAccountGetActivitiesParams,
-    AdAccountGetAdCreativesByLabelsParams,
-    AdAccountGetAdImagesParams,
-    AdAccountGetAdRulesHistoryParams,
-    AdAccountGetAdSavedKeywordsParams,
-    AdAccountGetAdsByLabelsParams,
-    AdAccountGetAdSetsByLabelsParams,
-    AdAccountGetAdSetsParams,
-    AdAccountGetAdsParams,
-    AdAccountGetAdsPixelsParams,
-    AdAccountGetAdsReportingMmmReportsParams,
-    AdAccountGetAdsVolumeParams,
-    AdAccountGetAdvertisableApplicationsParams,
-    AdAccountGetAdVideosParams,
-    AdAccountGetAssignedUsersParams,
-    AdAccountGetAsyncAdCreativesParams,
-    AdAccountGetAsyncAdRequestSetsParams,
-    AdAccountGetAsyncRequestsParams,
-    AdAccountGetBroadTargetingCategoriesParams,
-    AdAccountGetBusinessProjectsParams,
-    AdAccountGetCampaignsByLabelsParams,
-    AdAccountGetCampaignsParams,
-    AdAccountGetConnectedInstagramAccountsWithIabpParams,
-    AdAccountGetCustomAudiencesParams,
-    AdAccountGetDeliveryEstimateParams,
-    AdAccountGetDeprecatedTargetingAdSetsParams,
-    AdAccountGetGeneratePreviewsParams,
-    AdAccountGetInsightsAsyncParams,
-    AdAccountGetInsightsParams,
-    AdAccountGetIosFourteenCampaignLimitsParams,
-    AdAccountGetMatchedSearchApplicationsParams,
-    AdAccountGetMinimumBudgetsParams,
-    AdAccountGetOnBehalfRequestsParams,
-    AdAccountGetReachEstimateParams,
-    AdAccountGetSavedAudiencesParams,
-    AdAccountGetTargetingBrowseParams,
-    AdAccountGetTargetingSearchParams,
-    AdAccountGetTargetingSentenceLinesParams,
-    AdAccountGetTargetingSuggestionsParams,
-    AdAccountGetTargetingValidATIOnParams,
-    AdAccountGetValueRuleSetParams,
-    AdAccountGetVideoAdsParams,
-    AdAccountUpdateParams,
-)
-from src.generated.models.adaccountadruleshistory import AdAccountAdRulesHistoryField
-from src.generated.models.adaccountadvolume import AdAccountAdVolumeField
-from src.generated.models.adaccountdeliveryestimate import AdAccountDeliveryEstimateField
-from src.generated.models.adaccountiosfourteencampaignlimits import (
-    AdAccountIosFourteenCampaignLimitsField,
-)
-from src.generated.models.adaccountmatchedsearchapplicationsedgedata import (
-    AdAccountMatchedSearchApplicationsEdgeDataField,
-)
-from src.generated.models.adaccountreachestimate import AdAccountReachEstimateField
-from src.generated.models.adaccounttargetingunified import AdAccountTargetingUnifiedField
-from src.generated.models.adactivity import AdActivityField
-from src.generated.models.adasyncrequestset import AdAsyncRequestSetField
-from src.generated.models.adcreative import AdCreativeField
-from src.generated.models.adimage import AdImageField
-from src.generated.models.adpreview import AdPreviewField
-from src.generated.models.adreportrun import AdReportRunField
-from src.generated.models.adsavedkeywords import AdSavedKeywordsField
-from src.generated.models.adset import AdSetField
-from src.generated.models.adsinsights import AdsInsightsField
-from src.generated.models.adspixel import AdsPixelField
-from src.generated.models.adsreportbuildermmmreport import AdsReportBuilderMMMReportField
-from src.generated.models.adsvalueadjustmentrulecollection import (
-    AdsValueAdjustmentRuleCollectionField,
-)
-from src.generated.models.advideo import AdVideoField
-from src.generated.models.application import ApplicationField
-from src.generated.models.assigneduser import AssignedUserField
-from src.generated.models.asyncrequest import AsyncRequestField
-from src.generated.models.broadtargetingcategories import BroadTargetingCategoriesField
-from src.generated.models.businessownedobjectonbehalfofrequest import (
-    BusinessOwnedObjectOnBehalfOfRequestField,
-)
-from src.generated.models.businessproject import BusinessProjectField
-from src.generated.models.campaign import CampaignField
-from src.generated.models.customaudience import CustomAudienceField
-from src.generated.models.iguser import IGUserField
-from src.generated.models.minimumbudget import MinimumBudgetField
-from src.generated.models.savedaudience import SavedAudienceField
-from src.generated.models.targetingsentenceline import TargetingSentenceLineField
 from src.utils import wrapped_fn_tool
 
 # Server setup
@@ -149,1549 +22,1385 @@ adaccount_server = FastMCP(
 
 
 # ---- CRUD Operations (2) ----
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_adaccount(
     adaccount_id: str,
-    fields: list[AdAccountField] = [],
+    fields: list[str] = [],
 ) -> str:
     """Get a AdAccount object by ID.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
+        fields: Fields to retrieve. Available fields: See {server_info.object_name}Field type.
     """
     obj = AdAccount(adaccount_id)
     return obj.api_get(fields=fields)
 
 
-adaccount_server.tool(get_adaccount)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def update_adaccount(
     adaccount_id: str,
-    fields: list[AdAccountField] = [],
-    params: AdAccountUpdateParams | dict[str, Any] = {},
+    fields: list[str] = [],
+    params: dict = {},
 ) -> str:
     """Update a AdAccount object.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to return after update.
-        params: Parameters to update.
+        fields: Fields to return after update. Available fields: See {server_info.object_name}Field type.
+        params: Parameters to update. Available params: See AdAccountUpdateParams type.
     """
     return AdAccount(adaccount_id).api_update(fields=fields, params=params)
 
 
-adaccount_server.tool(update_adaccount)
-
-
 # ---- Edge Methods (80) ----
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_account_control(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAccountControlParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Account Control for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAccountControlParams type.
     """
     return AdAccount(adaccount_id).create_account_control(fields=fields, params=params)
 
 
-adaccount_server.tool(create_account_control)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_activities(
     adaccount_id: str,
-    fields: list[AdActivityField] = [],
-    params: AdAccountGetActivitiesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Activities for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdActivityField type.
+        params: Query parameters. Available params: See AdAccountGetActivitiesParams type.
     """
     return AdAccount(adaccount_id).get_activities(fields=fields, params=params)
 
 
-adaccount_server.tool(get_activities)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_place_page_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdPlacePageSetParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Place Page Set for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdPlacePageSetParams type.
     """
     return AdAccount(adaccount_id).create_ad_place_page_set(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_place_page_set)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_place_page_sets_async(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdPlacePageSetsAsyncParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Place Page Sets Async for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdPlacePageSetsAsyncParams type.
     """
     return AdAccount(adaccount_id).create_ad_place_page_sets_async(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_place_page_sets_async)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ad_saved_keywords(
     adaccount_id: str,
-    fields: list[AdSavedKeywordsField] = [],
-    params: AdAccountGetAdSavedKeywordsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Saved Keywords for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdSavedKeywordsField type.
+        params: Query parameters. Available params: See AdAccountGetAdSavedKeywordsParams type.
     """
     return AdAccount(adaccount_id).get_ad_saved_keywords(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ad_saved_keywords)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_creative(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdCreativeParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Creative for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdCreativeParams type.
     """
     return AdAccount(adaccount_id).create_ad_creative(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_creative)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ad_creatives_by_labels(
     adaccount_id: str,
-    fields: list[AdCreativeField] = [],
-    params: AdAccountGetAdCreativesByLabelsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Creatives By Labels for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdCreativeField type.
+        params: Query parameters. Available params: See AdAccountGetAdCreativesByLabelsParams type.
     """
     return AdAccount(adaccount_id).get_ad_creatives_by_labels(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ad_creatives_by_labels)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def delete_ad_images(
     adaccount_id: str,
-    params: AdAccountDeleteAdImagesParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Ad Images for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountDeleteAdImagesParams type.
     """
     return AdAccount(adaccount_id).delete_ad_images(params=params)
 
 
-adaccount_server.tool(delete_ad_images)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ad_images(
     adaccount_id: str,
-    fields: list[AdImageField] = [],
-    params: AdAccountGetAdImagesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Images for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdImageField type.
+        params: Query parameters. Available params: See AdAccountGetAdImagesParams type.
     """
     return AdAccount(adaccount_id).get_ad_images(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ad_images)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_image(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdImageParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Image for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdImageParams type.
     """
     return AdAccount(adaccount_id).create_ad_image(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_image)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_label(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdLabelParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Label for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdLabelParams type.
     """
     return AdAccount(adaccount_id).create_ad_label(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_label)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_playable(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdPlayableParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Playable for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdPlayableParams type.
     """
     return AdAccount(adaccount_id).create_ad_playable(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_playable)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ad_rules_history(
     adaccount_id: str,
-    fields: list[AdAccountAdRulesHistoryField] = [],
-    params: AdAccountGetAdRulesHistoryParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Rules History for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountAdRulesHistoryField type.
+        params: Query parameters. Available params: See AdAccountGetAdRulesHistoryParams type.
     """
     return AdAccount(adaccount_id).get_ad_rules_history(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ad_rules_history)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_rules_library(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdRulesLibraryParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Rules Library for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdRulesLibraryParams type.
     """
     return AdAccount(adaccount_id).create_ad_rules_library(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_rules_library)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ads(
     adaccount_id: str,
-    fields: list[AdField] = [],
-    params: AdAccountGetAdsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ads for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdField type.
+        params: Query parameters. Available params: See AdAccountGetAdsParams type.
     """
     return AdAccount(adaccount_id).get_ads(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ads)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdParams type.
     """
     return AdAccount(adaccount_id).create_ad(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ads_reporting_mmm_reports(
     adaccount_id: str,
-    fields: list[AdsReportBuilderMMMReportField] = [],
-    params: AdAccountGetAdsReportingMmmReportsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ads Reporting Mmm Reports for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdsReportBuilderMMMReportField type.
+        params: Query parameters. Available params: See AdAccountGetAdsReportingMmmReportsParams type.
     """
     return AdAccount(adaccount_id).get_ads_reporting_mmm_reports(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ads_reporting_mmm_reports)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ads_volume(
     adaccount_id: str,
-    fields: list[AdAccountAdVolumeField] = [],
-    params: AdAccountGetAdsVolumeParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ads Volume for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountAdVolumeField type.
+        params: Query parameters. Available params: See AdAccountGetAdsVolumeParams type.
     """
     return AdAccount(adaccount_id).get_ads_volume(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ads_volume)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ads_by_labels(
     adaccount_id: str,
-    fields: list[AdField] = [],
-    params: AdAccountGetAdsByLabelsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ads By Labels for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdField type.
+        params: Query parameters. Available params: See AdAccountGetAdsByLabelsParams type.
     """
     return AdAccount(adaccount_id).get_ads_by_labels(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ads_by_labels)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ad_sets(
     adaccount_id: str,
-    fields: list[AdSetField] = [],
-    params: AdAccountGetAdSetsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Sets for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdSetField type.
+        params: Query parameters. Available params: See AdAccountGetAdSetsParams type.
     """
     return AdAccount(adaccount_id).get_ad_sets(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ad_sets)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdSetParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Set for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdSetParams type.
     """
     return AdAccount(adaccount_id).create_ad_set(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_set)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ad_sets_by_labels(
     adaccount_id: str,
-    fields: list[AdSetField] = [],
-    params: AdAccountGetAdSetsByLabelsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Sets By Labels for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdSetField type.
+        params: Query parameters. Available params: See AdAccountGetAdSetsByLabelsParams type.
     """
     return AdAccount(adaccount_id).get_ad_sets_by_labels(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ad_sets_by_labels)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ads_pixels(
     adaccount_id: str,
-    fields: list[AdsPixelField] = [],
-    params: AdAccountGetAdsPixelsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ads Pixels for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdsPixelField type.
+        params: Query parameters. Available params: See AdAccountGetAdsPixelsParams type.
     """
     return AdAccount(adaccount_id).get_ads_pixels(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ads_pixels)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ads_pixel(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdsPixelParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ads Pixel for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdsPixelParams type.
     """
     return AdAccount(adaccount_id).create_ads_pixel(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ads_pixel)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_advertisable_applications(
     adaccount_id: str,
-    fields: list[ApplicationField] = [],
-    params: AdAccountGetAdvertisableApplicationsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Advertisable Applications for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See ApplicationField type.
+        params: Query parameters. Available params: See AdAccountGetAdvertisableApplicationsParams type.
     """
     return AdAccount(adaccount_id).get_advertisable_applications(fields=fields, params=params)
 
 
-adaccount_server.tool(get_advertisable_applications)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def delete_ad_videos(
     adaccount_id: str,
-    params: AdAccountDeleteAdVideosParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Ad Videos for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountDeleteAdVideosParams type.
     """
     return AdAccount(adaccount_id).delete_ad_videos(params=params)
 
 
-adaccount_server.tool(delete_ad_videos)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ad_videos(
     adaccount_id: str,
-    fields: list[AdVideoField] = [],
-    params: AdAccountGetAdVideosParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ad Videos for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdVideoField type.
+        params: Query parameters. Available params: See AdAccountGetAdVideosParams type.
     """
     return AdAccount(adaccount_id).get_ad_videos(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ad_videos)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_ad_video(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAdVideoParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Ad Video for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAdVideoParams type.
     """
     return AdAccount(adaccount_id).create_ad_video(fields=fields, params=params)
 
 
-adaccount_server.tool(create_ad_video)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def delete_agencies(
     adaccount_id: str,
-    params: AdAccountDeleteAgenciesParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Agencies for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountDeleteAgenciesParams type.
     """
     return AdAccount(adaccount_id).delete_agencies(params=params)
 
 
-adaccount_server.tool(delete_agencies)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_agency(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAgencyParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Agency for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAgencyParams type.
     """
     return AdAccount(adaccount_id).create_agency(fields=fields, params=params)
 
 
-adaccount_server.tool(create_agency)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def delete_assigned_users(
     adaccount_id: str,
-    params: AdAccountDeleteAssignedUsersParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Assigned Users for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountDeleteAssignedUsersParams type.
     """
     return AdAccount(adaccount_id).delete_assigned_users(params=params)
 
 
-adaccount_server.tool(delete_assigned_users)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_assigned_users(
     adaccount_id: str,
-    fields: list[AssignedUserField] = [],
-    params: AdAccountGetAssignedUsersParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Assigned Users for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AssignedUserField type.
+        params: Query parameters. Available params: See AdAccountGetAssignedUsersParams type.
     """
     return AdAccount(adaccount_id).get_assigned_users(fields=fields, params=params)
 
 
-adaccount_server.tool(get_assigned_users)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_assigned_user(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAssignedUserParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Assigned User for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAssignedUserParams type.
     """
     return AdAccount(adaccount_id).create_assigned_user(fields=fields, params=params)
 
 
-adaccount_server.tool(create_assigned_user)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_async_batch_request(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAsyncBatchRequestParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Async Batch Request for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAsyncBatchRequestParams type.
     """
     return AdAccount(adaccount_id).create_async_batch_request(fields=fields, params=params)
 
 
-adaccount_server.tool(create_async_batch_request)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_async_requests(
     adaccount_id: str,
-    fields: list[AsyncRequestField] = [],
-    params: AdAccountGetAsyncRequestsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Async Requests for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AsyncRequestField type.
+        params: Query parameters. Available params: See AdAccountGetAsyncRequestsParams type.
     """
     return AdAccount(adaccount_id).get_async_requests(fields=fields, params=params)
 
 
-adaccount_server.tool(get_async_requests)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_async_ad_creatives(
     adaccount_id: str,
-    fields: list[AdAsyncRequestSetField] = [],
-    params: AdAccountGetAsyncAdCreativesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Async Ad Creatives for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAsyncRequestSetField type.
+        params: Query parameters. Available params: See AdAccountGetAsyncAdCreativesParams type.
     """
     return AdAccount(adaccount_id).get_async_ad_creatives(fields=fields, params=params)
 
 
-adaccount_server.tool(get_async_ad_creatives)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_async_ad_creative(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAsyncAdCreativeParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Async Ad Creative for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAsyncAdCreativeParams type.
     """
     return AdAccount(adaccount_id).create_async_ad_creative(fields=fields, params=params)
 
 
-adaccount_server.tool(create_async_ad_creative)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_async_ad_request_sets(
     adaccount_id: str,
-    fields: list[AdAsyncRequestSetField] = [],
-    params: AdAccountGetAsyncAdRequestSetsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Async Ad Request Sets for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAsyncRequestSetField type.
+        params: Query parameters. Available params: See AdAccountGetAsyncAdRequestSetsParams type.
     """
     return AdAccount(adaccount_id).get_async_ad_request_sets(fields=fields, params=params)
 
 
-adaccount_server.tool(get_async_ad_request_sets)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_async_ad_request_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateAsyncAdRequestSetParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Async Ad Request Set for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateAsyncAdRequestSetParams type.
     """
     return AdAccount(adaccount_id).create_async_ad_request_set(fields=fields, params=params)
 
 
-adaccount_server.tool(create_async_ad_request_set)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_block_list_draft(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateBlockListDraftParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Block List Draft for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateBlockListDraftParams type.
     """
     return AdAccount(adaccount_id).create_block_list_draft(fields=fields, params=params)
 
 
-adaccount_server.tool(create_block_list_draft)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_brand_safety_content_filter_level(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateBrandSafetyContentFilterLevelParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Brand Safety Content Filter Level for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateBrandSafetyContentFilterLevelParams type.
     """
     return AdAccount(adaccount_id).create_brand_safety_content_filter_level(
         fields=fields, params=params
     )
 
 
-adaccount_server.tool(create_brand_safety_content_filter_level)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_broad_targeting_categories(
     adaccount_id: str,
-    fields: list[BroadTargetingCategoriesField] = [],
-    params: AdAccountGetBroadTargetingCategoriesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Broad Targeting Categories for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See BroadTargetingCategoriesField type.
+        params: Query parameters. Available params: See AdAccountGetBroadTargetingCategoriesParams type.
     """
     return AdAccount(adaccount_id).get_broad_targeting_categories(fields=fields, params=params)
 
 
-adaccount_server.tool(get_broad_targeting_categories)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_business_projects(
     adaccount_id: str,
-    fields: list[BusinessProjectField] = [],
-    params: AdAccountGetBusinessProjectsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Business Projects for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See BusinessProjectField type.
+        params: Query parameters. Available params: See AdAccountGetBusinessProjectsParams type.
     """
     return AdAccount(adaccount_id).get_business_projects(fields=fields, params=params)
 
 
-adaccount_server.tool(get_business_projects)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def delete_campaigns(
     adaccount_id: str,
-    params: AdAccountDeleteCampaignsParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Campaigns for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountDeleteCampaignsParams type.
     """
     return AdAccount(adaccount_id).delete_campaigns(params=params)
 
 
-adaccount_server.tool(delete_campaigns)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_campaigns(
     adaccount_id: str,
-    fields: list[CampaignField] = [],
-    params: AdAccountGetCampaignsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Campaigns for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See CampaignField type.
+        params: Query parameters. Available params: See AdAccountGetCampaignsParams type.
     """
     return AdAccount(adaccount_id).get_campaigns(fields=fields, params=params)
 
 
-adaccount_server.tool(get_campaigns)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_campaign(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateCampaignParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Campaign for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateCampaignParams type.
     """
     return AdAccount(adaccount_id).create_campaign(fields=fields, params=params)
 
 
-adaccount_server.tool(create_campaign)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_campaigns_by_labels(
     adaccount_id: str,
-    fields: list[CampaignField] = [],
-    params: AdAccountGetCampaignsByLabelsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Campaigns By Labels for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See CampaignField type.
+        params: Query parameters. Available params: See AdAccountGetCampaignsByLabelsParams type.
     """
     return AdAccount(adaccount_id).get_campaigns_by_labels(fields=fields, params=params)
 
 
-adaccount_server.tool(get_campaigns_by_labels)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_connected_instagram_accounts_with_iabp(
     adaccount_id: str,
-    fields: list[IGUserField] = [],
-    params: AdAccountGetConnectedInstagramAccountsWithIabpParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Connected Instagram Accounts With Iabp for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See IGUserField type.
+        params: Query parameters. Available params: See AdAccountGetConnectedInstagramAccountsWithIabpParams type.
     """
     return AdAccount(adaccount_id).get_connected_instagram_accounts_with_iabp(
         fields=fields, params=params
     )
 
 
-adaccount_server.tool(get_connected_instagram_accounts_with_iabp)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_custom_audiences(
     adaccount_id: str,
-    fields: list[CustomAudienceField] = [],
-    params: AdAccountGetCustomAudiencesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Custom Audiences for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See CustomAudienceField type.
+        params: Query parameters. Available params: See AdAccountGetCustomAudiencesParams type.
     """
     return AdAccount(adaccount_id).get_custom_audiences(fields=fields, params=params)
 
 
-adaccount_server.tool(get_custom_audiences)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_custom_audience(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateCustomAudienceParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Custom Audience for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateCustomAudienceParams type.
     """
     return AdAccount(adaccount_id).create_custom_audience(fields=fields, params=params)
 
 
-adaccount_server.tool(create_custom_audience)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_custom_audiences_to(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateCustomAudiencesToParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Custom Audiences To for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateCustomAudiencesToParams type.
     """
     return AdAccount(adaccount_id).create_custom_audiences_to(fields=fields, params=params)
 
 
-adaccount_server.tool(create_custom_audiences_to)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_custom_conversion(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateCustomConversionParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Custom Conversion for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateCustomConversionParams type.
     """
     return AdAccount(adaccount_id).create_custom_conversion(fields=fields, params=params)
 
 
-adaccount_server.tool(create_custom_conversion)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_delivery_estimate(
     adaccount_id: str,
-    fields: list[AdAccountDeliveryEstimateField] = [],
-    params: AdAccountGetDeliveryEstimateParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Delivery Estimate for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountDeliveryEstimateField type.
+        params: Query parameters. Available params: See AdAccountGetDeliveryEstimateParams type.
     """
     return AdAccount(adaccount_id).get_delivery_estimate(fields=fields, params=params)
 
 
-adaccount_server.tool(get_delivery_estimate)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_deprecated_targeting_ad_sets(
     adaccount_id: str,
-    fields: list[AdSetField] = [],
-    params: AdAccountGetDeprecatedTargetingAdSetsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Deprecated Targeting Ad Sets for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdSetField type.
+        params: Query parameters. Available params: See AdAccountGetDeprecatedTargetingAdSetsParams type.
     """
     return AdAccount(adaccount_id).get_deprecated_targeting_ad_sets(fields=fields, params=params)
 
 
-adaccount_server.tool(get_deprecated_targeting_ad_sets)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_generate_previews(
     adaccount_id: str,
-    fields: list[AdPreviewField] = [],
-    params: AdAccountGetGeneratePreviewsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Generate Previews for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdPreviewField type.
+        params: Query parameters. Available params: See AdAccountGetGeneratePreviewsParams type.
     """
     return AdAccount(adaccount_id).get_generate_previews(fields=fields, params=params)
 
 
-adaccount_server.tool(get_generate_previews)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_insights(
     adaccount_id: str,
-    fields: list[AdsInsightsField] = [],
-    params: AdAccountGetInsightsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Insights for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdsInsightsField type.
+        params: Query parameters. Available params: See AdAccountGetInsightsParams type.
     """
     return AdAccount(adaccount_id).get_insights(fields=fields, params=params)
 
 
-adaccount_server.tool(get_insights)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_insights_async(
     adaccount_id: str,
-    fields: list[AdReportRunField] = [],
-    params: AdAccountGetInsightsAsyncParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Insights Async for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdReportRunField type.
+        params: Query parameters. Available params: See AdAccountGetInsightsAsyncParams type.
     """
     return AdAccount(adaccount_id).get_insights_async(fields=fields, params=params)
 
 
-adaccount_server.tool(get_insights_async)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_ios_fourteen_campaign_limits(
     adaccount_id: str,
-    fields: list[AdAccountIosFourteenCampaignLimitsField] = [],
-    params: AdAccountGetIosFourteenCampaignLimitsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Ios Fourteen Campaign Limits for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountIosFourteenCampaignLimitsField type.
+        params: Query parameters. Available params: See AdAccountGetIosFourteenCampaignLimitsParams type.
     """
     return AdAccount(adaccount_id).get_ios_fourteen_campaign_limits(fields=fields, params=params)
 
 
-adaccount_server.tool(get_ios_fourteen_campaign_limits)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_matched_search_applications(
     adaccount_id: str,
-    fields: list[AdAccountMatchedSearchApplicationsEdgeDataField] = [],
-    params: AdAccountGetMatchedSearchApplicationsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Matched Search Applications for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountMatchedSearchApplicationsEdgeDataField type.
+        params: Query parameters. Available params: See AdAccountGetMatchedSearchApplicationsParams type.
     """
     return AdAccount(adaccount_id).get_matched_search_applications(fields=fields, params=params)
 
 
-adaccount_server.tool(get_matched_search_applications)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_minimum_budgets(
     adaccount_id: str,
-    fields: list[MinimumBudgetField] = [],
-    params: AdAccountGetMinimumBudgetsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Minimum Budgets for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See MinimumBudgetField type.
+        params: Query parameters. Available params: See AdAccountGetMinimumBudgetsParams type.
     """
     return AdAccount(adaccount_id).get_minimum_budgets(fields=fields, params=params)
 
 
-adaccount_server.tool(get_minimum_budgets)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_on_behalf_requests(
     adaccount_id: str,
-    fields: list[BusinessOwnedObjectOnBehalfOfRequestField] = [],
-    params: AdAccountGetOnBehalfRequestsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get On Behalf Requests for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See BusinessOwnedObjectOnBehalfOfRequestField type.
+        params: Query parameters. Available params: See AdAccountGetOnBehalfRequestsParams type.
     """
     return AdAccount(adaccount_id).get_on_behalf_requests(fields=fields, params=params)
 
 
-adaccount_server.tool(get_on_behalf_requests)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_product_audience(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateProductAudienceParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Product Audience for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateProductAudienceParams type.
     """
     return AdAccount(adaccount_id).create_product_audience(fields=fields, params=params)
 
 
-adaccount_server.tool(create_product_audience)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_publisher_block_list(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreatePublisherBlockListParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Publisher Block List for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreatePublisherBlockListParams type.
     """
     return AdAccount(adaccount_id).create_publisher_block_list(fields=fields, params=params)
 
 
-adaccount_server.tool(create_publisher_block_list)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_reach_estimate(
     adaccount_id: str,
-    fields: list[AdAccountReachEstimateField] = [],
-    params: AdAccountGetReachEstimateParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Reach Estimate for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountReachEstimateField type.
+        params: Query parameters. Available params: See AdAccountGetReachEstimateParams type.
     """
     return AdAccount(adaccount_id).get_reach_estimate(fields=fields, params=params)
 
 
-adaccount_server.tool(get_reach_estimate)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_reach_frequency_prediction(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateReachFrequencyPredictionParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Reach Frequency Prediction for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateReachFrequencyPredictionParams type.
     """
     return AdAccount(adaccount_id).create_reach_frequency_prediction(fields=fields, params=params)
 
 
-adaccount_server.tool(create_reach_frequency_prediction)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_recommendation(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateRecommendationParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Recommendation for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateRecommendationParams type.
     """
     return AdAccount(adaccount_id).create_recommendation(fields=fields, params=params)
 
 
-adaccount_server.tool(create_recommendation)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_saved_audiences(
     adaccount_id: str,
-    fields: list[SavedAudienceField] = [],
-    params: AdAccountGetSavedAudiencesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Saved Audiences for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See SavedAudienceField type.
+        params: Query parameters. Available params: See AdAccountGetSavedAudiencesParams type.
     """
     return AdAccount(adaccount_id).get_saved_audiences(fields=fields, params=params)
 
 
-adaccount_server.tool(get_saved_audiences)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def delete_subscribed_apps(
     adaccount_id: str,
-    params: AdAccountDeleteSubscribedAppsParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Subscribed Apps for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountDeleteSubscribedAppsParams type.
     """
     return AdAccount(adaccount_id).delete_subscribed_apps(params=params)
 
 
-adaccount_server.tool(delete_subscribed_apps)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_subscribed_app(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateSubscribedAppParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Subscribed App for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateSubscribedAppParams type.
     """
     return AdAccount(adaccount_id).create_subscribed_app(fields=fields, params=params)
 
 
-adaccount_server.tool(create_subscribed_app)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_targeting_browse(
     adaccount_id: str,
-    fields: list[AdAccountTargetingUnifiedField] = [],
-    params: AdAccountGetTargetingBrowseParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Targeting Browse for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountTargetingUnifiedField type.
+        params: Query parameters. Available params: See AdAccountGetTargetingBrowseParams type.
     """
     return AdAccount(adaccount_id).get_targeting_browse(fields=fields, params=params)
 
 
-adaccount_server.tool(get_targeting_browse)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_targeting_search(
     adaccount_id: str,
-    fields: list[AdAccountTargetingUnifiedField] = [],
-    params: AdAccountGetTargetingSearchParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Targeting Search for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountTargetingUnifiedField type.
+        params: Query parameters. Available params: See AdAccountGetTargetingSearchParams type.
     """
     return AdAccount(adaccount_id).get_targeting_search(fields=fields, params=params)
 
 
-adaccount_server.tool(get_targeting_search)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_targeting_sentence_lines(
     adaccount_id: str,
-    fields: list[TargetingSentenceLineField] = [],
-    params: AdAccountGetTargetingSentenceLinesParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Targeting Sentence Lines for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See TargetingSentenceLineField type.
+        params: Query parameters. Available params: See AdAccountGetTargetingSentenceLinesParams type.
     """
     return AdAccount(adaccount_id).get_targeting_sentence_lines(fields=fields, params=params)
 
 
-adaccount_server.tool(get_targeting_sentence_lines)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_targeting_suggestions(
     adaccount_id: str,
-    fields: list[AdAccountTargetingUnifiedField] = [],
-    params: AdAccountGetTargetingSuggestionsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Targeting Suggestions for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountTargetingUnifiedField type.
+        params: Query parameters. Available params: See AdAccountGetTargetingSuggestionsParams type.
     """
     return AdAccount(adaccount_id).get_targeting_suggestions(fields=fields, params=params)
 
 
-adaccount_server.tool(get_targeting_suggestions)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_targeting_valid_a_t_i_on(
     adaccount_id: str,
-    fields: list[AdAccountTargetingUnifiedField] = [],
-    params: AdAccountGetTargetingValidATIOnParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Targeting Valid A T I On for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdAccountTargetingUnifiedField type.
+        params: Query parameters. Available params: See AdAccountGetTargetingValidATIOnParams type.
     """
     return AdAccount(adaccount_id).get_targeting_valid_a_t_i_on(fields=fields, params=params)
 
 
-adaccount_server.tool(get_targeting_valid_a_t_i_on)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_tracking(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateTrackingParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Tracking for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateTrackingParams type.
     """
     return AdAccount(adaccount_id).create_tracking(fields=fields, params=params)
 
 
-adaccount_server.tool(create_tracking)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def delete_users_of_any_audience(
     adaccount_id: str,
-    params: AdAccountDeleteUsersOfAnyAudienceParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Delete Users Of Any Audience for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountDeleteUsersOfAnyAudienceParams type.
     """
     return AdAccount(adaccount_id).delete_users_of_any_audience(params=params)
 
 
-adaccount_server.tool(delete_users_of_any_audience)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_value_rule_set(
     adaccount_id: str,
-    fields: list[AdsValueAdjustmentRuleCollectionField] = [],
-    params: AdAccountGetValueRuleSetParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Value Rule Set for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdsValueAdjustmentRuleCollectionField type.
+        params: Query parameters. Available params: See AdAccountGetValueRuleSetParams type.
     """
     return AdAccount(adaccount_id).get_value_rule_set(fields=fields, params=params)
 
 
-adaccount_server.tool(get_value_rule_set)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_value_rule_set(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateValueRuleSetParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Value Rule Set for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateValueRuleSetParams type.
     """
     return AdAccount(adaccount_id).create_value_rule_set(fields=fields, params=params)
 
 
-adaccount_server.tool(create_value_rule_set)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def get_video_ads(
     adaccount_id: str,
-    fields: list[AdVideoField] = [],
-    params: AdAccountGetVideoAdsParams = {},
-) -> Any:
+    fields: list[str] = [],
+    params: dict = {},
+):
     """Get Video Ads for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve.
-        params: Query parameters.
+        fields: Fields to retrieve. Available fields: See AdVideoField type.
+        params: Query parameters. Available params: See AdAccountGetVideoAdsParams type.
     """
     return AdAccount(adaccount_id).get_video_ads(fields=fields, params=params)
 
 
-adaccount_server.tool(get_video_ads)
-
-
+@adaccount_server.tool
 @wrapped_fn_tool
 def create_video_ad(
     adaccount_id: str,
     fields: list[str] = [],
-    params: AdAccountCreateVideoAdParams = {},
-) -> Any:
+    params: dict = {},
+):
     """Create Video Ad for this AdAccount.
 
     Args:
         adaccount_id: The ID of the AdAccount.
         fields: Fields to retrieve.
-        params: Query parameters.
+        params: Query parameters. Available params: See AdAccountCreateVideoAdParams type.
     """
     return AdAccount(adaccount_id).create_video_ad(fields=fields, params=params)
-
-
-adaccount_server.tool(create_video_ad)

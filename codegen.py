@@ -1,9 +1,7 @@
 """
-Main code generation script for Facebook Business MCP.
+Main codegen script for Facebook Business MCP.
 
-This script runs all code generation steps in the correct order:
-1. Generate Pydantic models from Facebook SDK AdObjects
-2. Generate type-safe wrapper functions for API methods
+It generates pydantic models and MCP tool servers from the Facebook SDK.
 """
 
 import subprocess
@@ -78,30 +76,6 @@ def main():
         print(f"\n{'=' * 60}")
         print("Running code formatting...")
         print(f"{'=' * 60}\n")
-
-        # Directories to format
-        generated_dirs = [
-            project_root / "src/generated/models",
-            project_root / "src/generated/wrappers",
-            project_root / "src/generated/servers",
-        ]
-
-        # Run ruff format
-        print("Running ruff format...")
-        for directory in generated_dirs:
-            if directory.exists():
-                try:
-                    result = subprocess.run(
-                        ["uv", "run", "ruff", "format", str(directory)],
-                        capture_output=True,
-                        text=True,
-                        check=True,
-                    )
-                    print(f"✓ Formatted {directory.relative_to(project_root)}")
-                except subprocess.CalledProcessError as e:
-                    print(f"✗ Failed to format {directory.relative_to(project_root)}: {e.stderr}")
-                    all_success = False
-
         print("\nRunning ruff check...")
         cmd = "uv run ruff check . --fix && uv run ruff format ."
         subprocess.run(cmd, check=True, shell=True)
