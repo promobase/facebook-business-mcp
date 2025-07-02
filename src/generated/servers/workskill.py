@@ -30,3 +30,14 @@ def get_workskill(
 ) -> str:
     obj = WorkSkill(workskill_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@workskill_server.tool
+@wrapped_fn_tool
+def get_users(
+    workskill_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WorkSkill(workskill_id).get_users(fields=fields, params=params)

@@ -30,3 +30,16 @@ def get_adsconversiongoal(
 ) -> str:
     obj = AdsConversionGoal(adsconversiongoal_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@adsconversiongoal_server.tool
+@wrapped_fn_tool
+def get_conversion_events(
+    adsconversiongoal_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdsConversionGoal(adsconversiongoal_id).get_conversion_events(
+        fields=fields, params=params
+    )

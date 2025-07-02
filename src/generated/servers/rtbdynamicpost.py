@@ -32,7 +32,7 @@ def get_rtbdynamicpost(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
 @rtbdynamicpost_server.tool
 @wrapped_fn_tool
 def get_comments(
@@ -41,3 +41,13 @@ def get_comments(
     params: dict[str, Any] = {},
 ):
     return RTBDynamicPost(rtbdynamicpost_id).get_comments(fields=fields, params=params)
+
+
+@rtbdynamicpost_server.tool
+@wrapped_fn_tool
+def get_likes(
+    rtbdynamicpost_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return RTBDynamicPost(rtbdynamicpost_id).get_likes(fields=fields, params=params)

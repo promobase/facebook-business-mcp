@@ -32,7 +32,7 @@ def get_iguserforigonlyapi(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (16) ----
+# ---- Edge Methods (22) ----
 @iguserforigonlyapi_server.tool
 @wrapped_fn_tool
 def get_business_messaging_feature_status(
@@ -79,6 +79,16 @@ def get_insights(
 
 @iguserforigonlyapi_server.tool
 @wrapped_fn_tool
+def get_live_media(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_live_media(fields=fields, params=params)
+
+
+@iguserforigonlyapi_server.tool
+@wrapped_fn_tool
 def get_media(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
@@ -99,12 +109,12 @@ def create_media(
 
 @iguserforigonlyapi_server.tool
 @wrapped_fn_tool
-def create_media_publish(
+def create_mediapublish(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_media_publish(
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_mediapublish(
         fields=fields, params=params
     )
 
@@ -121,12 +131,12 @@ def create_mention(
 
 @iguserforigonlyapi_server.tool
 @wrapped_fn_tool
-def create_message_attachment(
+def create_messageattachment(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_message_attachment(
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_messageattachment(
         fields=fields, params=params
     )
 
@@ -152,12 +162,55 @@ def delete_messenger_profile(
 
 @iguserforigonlyapi_server.tool
 @wrapped_fn_tool
+def get_messenger_profile(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_messenger_profile(
+        fields=fields, params=params
+    )
+
+
+@iguserforigonlyapi_server.tool
+@wrapped_fn_tool
 def create_messenger_profile(
     iguserforigonlyapi_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_messenger_profile(
+        fields=fields, params=params
+    )
+
+
+@iguserforigonlyapi_server.tool
+@wrapped_fn_tool
+def get_stories(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_stories(fields=fields, params=params)
+
+
+@iguserforigonlyapi_server.tool
+@wrapped_fn_tool
+def delete_subscribed_apps(
+    iguserforigonlyapi_id: str,
+    params: dict[str, Any] = {},
+):
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).delete_subscribed_apps(params=params)
+
+
+@iguserforigonlyapi_server.tool
+@wrapped_fn_tool
+def get_subscribed_apps(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_subscribed_apps(
         fields=fields, params=params
     )
 
@@ -172,6 +225,16 @@ def create_subscribed_app(
     return IGUserForIGOnlyAPI(iguserforigonlyapi_id).create_subscribed_app(
         fields=fields, params=params
     )
+
+
+@iguserforigonlyapi_server.tool
+@wrapped_fn_tool
+def get_tags(
+    iguserforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGUserForIGOnlyAPI(iguserforigonlyapi_id).get_tags(fields=fields, params=params)
 
 
 @iguserforigonlyapi_server.tool

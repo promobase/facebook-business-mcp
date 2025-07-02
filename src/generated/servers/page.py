@@ -42,7 +42,17 @@ def update_page(
     return Page(page_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (88) ----
+# ---- Edge Methods (124) ----
+@page_server.tool
+@wrapped_fn_tool
+def get_ab_tests(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_ab_tests(fields=fields, params=params)
+
+
 @page_server.tool
 @wrapped_fn_tool
 def create_ab_test(
@@ -84,12 +94,42 @@ def delete_agencies(
 
 @page_server.tool
 @wrapped_fn_tool
-def create_agency(
+def get_agencies(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Page(page_id).create_agency(fields=fields, params=params)
+    return Page(page_id).get_agencies(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def create_agencie(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).create_agencie(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_albums(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_albums(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_ar_experience(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_ar_experience(fields=fields, params=params)
 
 
 @page_server.tool
@@ -152,22 +192,32 @@ def create_blocked(
 
 @page_server.tool
 @wrapped_fn_tool
-def create_business_datum(
+def create_business_data(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Page(page_id).create_business_datum(fields=fields, params=params)
+    return Page(page_id).create_business_data(fields=fields, params=params)
 
 
 @page_server.tool
 @wrapped_fn_tool
-def get_business_projects(
+def get_businessprojects(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Page(page_id).get_business_projects(fields=fields, params=params)
+    return Page(page_id).get_businessprojects(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_call_to_actions(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_call_to_actions(fields=fields, params=params)
 
 
 @page_server.tool
@@ -178,6 +228,16 @@ def create_call(
     params: dict[str, Any] = {},
 ):
     return Page(page_id).create_call(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_canvas_elements(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_canvas_elements(fields=fields, params=params)
 
 
 @page_server.tool
@@ -208,6 +268,26 @@ def create_canvase(
     params: dict[str, Any] = {},
 ):
     return Page(page_id).create_canvase(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_chat_plugin(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_chat_plugin(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_commerce_merchant_settings(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_commerce_merchant_settings(fields=fields, params=params)
 
 
 @page_server.tool
@@ -262,6 +342,36 @@ def create_copyright_manual_claim(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_crosspost_whitelisted_pages(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_crosspost_whitelisted_pages(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_ctx_optimization_eligibility(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_ctx_optimization_eligibility(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_custom_labels(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_custom_labels(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def create_custom_label(
     page_id: str,
     fields: list[str] = [],
@@ -301,6 +411,16 @@ def create_custom_user_setting(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_dataset(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_dataset(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def create_dataset(
     page_id: str,
     fields: list[str] = [],
@@ -331,6 +451,16 @@ def create_extend_thread_control(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_fantasy_games(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_fantasy_games(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def get_feed(
     page_id: str,
     fields: list[str] = [],
@@ -351,12 +481,42 @@ def create_feed(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_global_brand_children(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_global_brand_children(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_image_copyrights(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_image_copyrights(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def create_image_copyright(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Page(page_id).create_image_copyright(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_indexed_videos(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_indexed_videos(fields=fields, params=params)
 
 
 @page_server.tool
@@ -371,12 +531,32 @@ def get_insights(
 
 @page_server.tool
 @wrapped_fn_tool
-def create_lead_gen_form(
+def get_instagram_accounts(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Page(page_id).create_lead_gen_form(fields=fields, params=params)
+    return Page(page_id).get_instagram_accounts(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_leadgen_forms(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_leadgen_forms(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def create_leadgen_form(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).create_leadgen_form(fields=fields, params=params)
 
 
 @page_server.tool
@@ -416,6 +596,16 @@ def delete_locations(
     params: dict[str, Any] = {},
 ):
     return Page(page_id).delete_locations(params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_locations(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_locations(fields=fields, params=params)
 
 
 @page_server.tool
@@ -499,12 +689,42 @@ def create_message(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_messaging_feature_review(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_messaging_feature_review(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_messenger_call_settings(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_messenger_call_settings(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def create_messenger_call_setting(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Page(page_id).create_messenger_call_setting(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_messenger_lead_forms(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_messenger_lead_forms(fields=fields, params=params)
 
 
 @page_server.tool
@@ -568,6 +788,16 @@ def create_nlp_config(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_notification_message_tokens(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_notification_message_tokens(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def create_notification_messages_dev_support(
     page_id: str,
     fields: list[str] = [],
@@ -578,12 +808,32 @@ def create_notification_messages_dev_support(
 
 @page_server.tool
 @wrapped_fn_tool
-def create_page_whats_app_number_verification(
+def get_page_backed_instagram_accounts(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Page(page_id).create_page_whats_app_number_verification(fields=fields, params=params)
+    return Page(page_id).get_page_backed_instagram_accounts(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def create_page_backed_instagram_account(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).create_page_backed_instagram_account(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def create_page_whatsapp_number_verification(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).create_page_whatsapp_number_verification(fields=fields, params=params)
 
 
 @page_server.tool
@@ -598,6 +848,16 @@ def create_pass_thread_control(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_personas(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_personas(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def create_persona(
     page_id: str,
     fields: list[str] = [],
@@ -608,12 +868,12 @@ def create_persona(
 
 @page_server.tool
 @wrapped_fn_tool
-def create_photo_story(
+def create_photo_storie(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Page(page_id).create_photo_story(fields=fields, params=params)
+    return Page(page_id).create_photo_storie(fields=fields, params=params)
 
 
 @page_server.tool
@@ -668,6 +928,16 @@ def get_posts(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_product_catalogs(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_product_catalogs(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def get_published_posts(
     page_id: str,
     fields: list[str] = [],
@@ -708,12 +978,42 @@ def get_roles(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_rtb_dynamic_posts(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_rtb_dynamic_posts(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_scheduled_posts(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_scheduled_posts(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def get_secondary_receivers(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Page(page_id).get_secondary_receivers(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_settings(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_settings(fields=fields, params=params)
 
 
 @page_server.tool
@@ -728,12 +1028,51 @@ def create_setting(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_shop_setup_status(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_shop_setup_status(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_store_locations(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_store_locations(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def get_stories(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Page(page_id).get_stories(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def delete_subscribed_apps(
+    page_id: str,
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).delete_subscribed_apps(params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_subscribed_apps(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_subscribed_apps(fields=fields, params=params)
 
 
 @page_server.tool
@@ -754,6 +1093,16 @@ def get_tabs(
     params: dict[str, Any] = {},
 ):
     return Page(page_id).get_tabs(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
+def get_tagged(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_tagged(fields=fields, params=params)
 
 
 @page_server.tool
@@ -828,6 +1177,16 @@ def create_video_copyright(
 
 @page_server.tool
 @wrapped_fn_tool
+def get_video_lists(
+    page_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Page(page_id).get_video_lists(fields=fields, params=params)
+
+
+@page_server.tool
+@wrapped_fn_tool
 def get_video_reels(
     page_id: str,
     fields: list[str] = [],
@@ -848,12 +1207,12 @@ def create_video_reel(
 
 @page_server.tool
 @wrapped_fn_tool
-def create_video_story(
+def create_video_storie(
     page_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Page(page_id).create_video_story(fields=fields, params=params)
+    return Page(page_id).create_video_storie(fields=fields, params=params)
 
 
 @page_server.tool

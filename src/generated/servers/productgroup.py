@@ -50,7 +50,17 @@ def delete_productgroup(
     return ProductGroup(productgroup_id).api_delete()
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
+@productgroup_server.tool
+@wrapped_fn_tool
+def get_products(
+    productgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductGroup(productgroup_id).get_products(fields=fields, params=params)
+
+
 @productgroup_server.tool
 @wrapped_fn_tool
 def create_product(

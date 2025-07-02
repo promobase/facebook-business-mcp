@@ -50,7 +50,27 @@ def delete_hotel(
     return Hotel(hotel_id).api_delete()
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (4) ----
+@hotel_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    hotel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Hotel(hotel_id).get_channels_to_integrity_status(fields=fields, params=params)
+
+
+@hotel_server.tool
+@wrapped_fn_tool
+def get_hotel_rooms(
+    hotel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Hotel(hotel_id).get_hotel_rooms(fields=fields, params=params)
+
+
 @hotel_server.tool
 @wrapped_fn_tool
 def get_override_details(
@@ -59,3 +79,13 @@ def get_override_details(
     params: dict[str, Any] = {},
 ):
     return Hotel(hotel_id).get_override_details(fields=fields, params=params)
+
+
+@hotel_server.tool
+@wrapped_fn_tool
+def get_videos_metadata(
+    hotel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Hotel(hotel_id).get_videos_metadata(fields=fields, params=params)

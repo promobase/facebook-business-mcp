@@ -32,3 +32,28 @@ def get_offlineconversiondatasetupload(
 ) -> str:
     obj = OfflineConversionDataSetUpload(offlineconversiondatasetupload_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (2) ----
+@offlineconversiondatasetupload_server.tool
+@wrapped_fn_tool
+def get_progress(
+    offlineconversiondatasetupload_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return OfflineConversionDataSetUpload(offlineconversiondatasetupload_id).get_progress(
+        fields=fields, params=params
+    )
+
+
+@offlineconversiondatasetupload_server.tool
+@wrapped_fn_tool
+def get_pull_sessions(
+    offlineconversiondatasetupload_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return OfflineConversionDataSetUpload(offlineconversiondatasetupload_id).get_pull_sessions(
+        fields=fields, params=params
+    )

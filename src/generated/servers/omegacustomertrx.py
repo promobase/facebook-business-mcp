@@ -30,3 +30,14 @@ def get_omegacustomertrx(
 ) -> str:
     obj = OmegaCustomerTrx(omegacustomertrx_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@omegacustomertrx_server.tool
+@wrapped_fn_tool
+def get_campaigns(
+    omegacustomertrx_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return OmegaCustomerTrx(omegacustomertrx_id).get_campaigns(fields=fields, params=params)

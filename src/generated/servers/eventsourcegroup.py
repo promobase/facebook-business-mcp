@@ -42,7 +42,17 @@ def update_eventsourcegroup(
     return EventSourceGroup(eventsourcegroup_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
+@eventsourcegroup_server.tool
+@wrapped_fn_tool
+def get_shared_accounts(
+    eventsourcegroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return EventSourceGroup(eventsourcegroup_id).get_shared_accounts(fields=fields, params=params)
+
+
 @eventsourcegroup_server.tool
 @wrapped_fn_tool
 def create_shared_account(

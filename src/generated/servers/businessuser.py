@@ -50,7 +50,17 @@ def delete_businessuser(
     return BusinessUser(businessuser_id).api_delete()
 
 
-# ---- Edge Methods (2) ----
+# ---- Edge Methods (4) ----
+@businessuser_server.tool
+@wrapped_fn_tool
+def get_assigned_ad_accounts(
+    businessuser_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessUser(businessuser_id).get_assigned_ad_accounts(fields=fields, params=params)
+
+
 @businessuser_server.tool
 @wrapped_fn_tool
 def get_assigned_business_asset_groups(
@@ -71,3 +81,13 @@ def get_assigned_pages(
     params: dict[str, Any] = {},
 ):
     return BusinessUser(businessuser_id).get_assigned_pages(fields=fields, params=params)
+
+
+@businessuser_server.tool
+@wrapped_fn_tool
+def get_assigned_product_catalogs(
+    businessuser_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessUser(businessuser_id).get_assigned_product_catalogs(fields=fields, params=params)

@@ -32,7 +32,19 @@ def get_automotivemodel(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (3) ----
+@automotivemodel_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    automotivemodel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AutomotiveModel(automotivemodel_id).get_channels_to_integrity_status(
+        fields=fields, params=params
+    )
+
+
 @automotivemodel_server.tool
 @wrapped_fn_tool
 def get_override_details(
@@ -41,3 +53,13 @@ def get_override_details(
     params: dict[str, Any] = {},
 ):
     return AutomotiveModel(automotivemodel_id).get_override_details(fields=fields, params=params)
+
+
+@automotivemodel_server.tool
+@wrapped_fn_tool
+def get_videos_metadata(
+    automotivemodel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AutomotiveModel(automotivemodel_id).get_videos_metadata(fields=fields, params=params)

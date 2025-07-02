@@ -50,12 +50,22 @@ def delete_igcomment(
     return IGComment(igcomment_id).api_delete()
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
 @igcomment_server.tool
 @wrapped_fn_tool
-def create_reply(
+def get_replies(
     igcomment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return IGComment(igcomment_id).create_reply(fields=fields, params=params)
+    return IGComment(igcomment_id).get_replies(fields=fields, params=params)
+
+
+@igcomment_server.tool
+@wrapped_fn_tool
+def create_replie(
+    igcomment_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGComment(igcomment_id).create_replie(fields=fields, params=params)

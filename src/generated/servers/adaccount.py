@@ -42,7 +42,17 @@ def update_adaccount(
     return AdAccount(adaccount_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (80) ----
+# ---- Edge Methods (109) ----
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_account_controls(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_account_controls(fields=fields, params=params)
+
+
 @adaccount_server.tool
 @wrapped_fn_tool
 def create_account_control(
@@ -61,6 +71,16 @@ def get_activities(
     params: dict[str, Any] = {},
 ):
     return AdAccount(adaccount_id).get_activities(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_ad_place_page_sets(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_ad_place_page_sets(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -95,91 +115,151 @@ def get_ad_saved_keywords(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ad_creative(
+def get_ad_studies(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ad_creative(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_ad_studies(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_ad_creatives_by_labels(
+def get_adcloudplayables(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ad_creatives_by_labels(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adcloudplayables(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def delete_ad_images(
-    adaccount_id: str,
-    params: dict[str, Any] = {},
-):
-    return AdAccount(adaccount_id).delete_ad_images(params=params)
-
-
-@adaccount_server.tool
-@wrapped_fn_tool
-def get_ad_images(
+def get_adcreatives(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ad_images(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adcreatives(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ad_image(
+def create_adcreative(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ad_image(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_adcreative(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ad_label(
+def get_adcreativesbylabels(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ad_label(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adcreativesbylabels(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ad_playable(
+def delete_adimages(
     adaccount_id: str,
-    fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ad_playable(fields=fields, params=params)
+    return AdAccount(adaccount_id).delete_adimages(params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_ad_rules_history(
+def get_adimages(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ad_rules_history(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adimages(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ad_rules_library(
+def create_adimage(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ad_rules_library(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_adimage(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_adlabels(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_adlabels(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def create_adlabel(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).create_adlabel(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_adplayables(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_adplayables(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def create_adplayable(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).create_adplayable(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_adrules_history(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_adrules_history(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_adrules_library(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_adrules_library(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def create_adrules_library(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).create_adrules_library(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -214,6 +294,16 @@ def get_ads_reporting_mmm_reports(
 
 @adaccount_server.tool
 @wrapped_fn_tool
+def get_ads_reporting_mmm_schedulers(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_ads_reporting_mmm_schedulers(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
 def get_ads_volume(
     adaccount_id: str,
     fields: list[str] = [],
@@ -224,62 +314,62 @@ def get_ads_volume(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_ads_by_labels(
+def get_adsbylabels(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ads_by_labels(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adsbylabels(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_ad_sets(
+def get_adsets(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ad_sets(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adsets(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ad_set(
+def create_adset(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ad_set(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_adset(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_ad_sets_by_labels(
+def get_adsetsbylabels(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ad_sets_by_labels(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adsetsbylabels(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_ads_pixels(
+def get_adspixels(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ads_pixels(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_adspixels(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ads_pixel(
+def create_adspixel(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ads_pixel(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_adspixel(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -294,31 +384,41 @@ def get_advertisable_applications(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def delete_ad_videos(
+def delete_advideos(
     adaccount_id: str,
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).delete_ad_videos(params=params)
+    return AdAccount(adaccount_id).delete_advideos(params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_ad_videos(
+def get_advideos(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_ad_videos(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_advideos(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_ad_video(
+def create_advideo(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_ad_video(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_advideo(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_affectedadsets(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_affectedadsets(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -332,12 +432,32 @@ def delete_agencies(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_agency(
+def get_agencies(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_agency(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_agencies(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def create_agencie(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).create_agencie(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_applications(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_applications(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -391,42 +511,52 @@ def get_async_requests(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_async_ad_creatives(
+def get_asyncadcreatives(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_async_ad_creatives(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_asyncadcreatives(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_async_ad_creative(
+def create_asyncadcreative(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_async_ad_creative(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_asyncadcreative(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_async_ad_request_sets(
+def get_asyncadrequestsets(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_async_ad_request_sets(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_asyncadrequestsets(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_async_ad_request_set(
+def create_asyncadrequestset(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_async_ad_request_set(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_asyncadrequestset(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_audience_funnel(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_audience_funnel(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -453,22 +583,22 @@ def create_brand_safety_content_filter_level(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_broad_targeting_categories(
+def get_broadtargetingcategories(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_broad_targeting_categories(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_broadtargetingcategories(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_business_projects(
+def get_businessprojects(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_business_projects(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_businessprojects(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -502,12 +632,22 @@ def create_campaign(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_campaigns_by_labels(
+def get_campaignsbylabels(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_campaigns_by_labels(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_campaignsbylabels(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_connected_instagram_accounts(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_connected_instagram_accounts(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -524,42 +664,72 @@ def get_connected_instagram_accounts_with_iabp(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_custom_audiences(
+def get_conversion_goals(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_custom_audiences(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_conversion_goals(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_custom_audience(
+def get_customaudiences(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_custom_audience(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_customaudiences(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_custom_audiences_to(
+def create_customaudience(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_custom_audiences_to(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_customaudience(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_custom_conversion(
+def get_customaudiencestos(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_custom_conversion(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_customaudiencestos(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def create_customaudiencesto(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).create_customaudiencesto(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_customconversions(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_customconversions(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def create_customconversion(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).create_customconversion(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -574,22 +744,42 @@ def get_delivery_estimate(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_deprecated_targeting_ad_sets(
+def get_deprecatedtargetingadsets(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_deprecated_targeting_ad_sets(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_deprecatedtargetingadsets(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_generate_previews(
+def get_dsa_recommendations(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_generate_previews(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_dsa_recommendations(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_generatepreviews(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_generatepreviews(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_impacting_ad_studies(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_impacting_ad_studies(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -604,12 +794,22 @@ def get_insights(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_insights_async(
+def create_insight(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_insights_async(fields=fields, params=params)
+    return AdAccount(adaccount_id).create_insight(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_instagram_accounts(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_instagram_accounts(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -634,6 +834,26 @@ def get_matched_search_applications(
 
 @adaccount_server.tool
 @wrapped_fn_tool
+def get_max_bid(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_max_bid(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_mcmeconversions(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_mcmeconversions(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
 def get_minimum_budgets(
     adaccount_id: str,
     fields: list[str] = [],
@@ -644,12 +864,12 @@ def get_minimum_budgets(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_on_behalf_requests(
+def get_onbehalf_requests(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_on_behalf_requests(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_onbehalf_requests(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -664,6 +884,26 @@ def create_product_audience(
 
 @adaccount_server.tool
 @wrapped_fn_tool
+def get_promote_pages(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_promote_pages(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_publisher_block_lists(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_publisher_block_lists(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
 def create_publisher_block_list(
     adaccount_id: str,
     fields: list[str] = [],
@@ -674,22 +914,42 @@ def create_publisher_block_list(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_reach_estimate(
+def get_reachestimate(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_reach_estimate(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_reachestimate(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def create_reach_frequency_prediction(
+def get_reachfrequencypredictions(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).create_reach_frequency_prediction(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_reachfrequencypredictions(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def create_reachfrequencyprediction(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).create_reachfrequencyprediction(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_recommendations(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_recommendations(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -723,6 +983,16 @@ def delete_subscribed_apps(
 
 @adaccount_server.tool
 @wrapped_fn_tool
+def get_subscribed_apps(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_subscribed_apps(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
 def create_subscribed_app(
     adaccount_id: str,
     fields: list[str] = [],
@@ -733,52 +1003,62 @@ def create_subscribed_app(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_targeting_browse(
+def get_targetingbrowse(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_targeting_browse(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_targetingbrowse(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_targeting_search(
+def get_targetingsearch(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_targeting_search(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_targetingsearch(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_targeting_sentence_lines(
+def get_targetingsentencelines(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_targeting_sentence_lines(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_targetingsentencelines(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_targeting_suggestions(
+def get_targetingsuggestions(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_targeting_suggestions(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_targetingsuggestions(fields=fields, params=params)
 
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def get_targeting_valid_a_t_i_on(
+def get_targetingvalidation(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).get_targeting_valid_a_t_i_on(fields=fields, params=params)
+    return AdAccount(adaccount_id).get_targetingvalidation(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def get_tracking(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_tracking(fields=fields, params=params)
 
 
 @adaccount_server.tool
@@ -793,11 +1073,21 @@ def create_tracking(
 
 @adaccount_server.tool
 @wrapped_fn_tool
-def delete_users_of_any_audience(
+def get_users(
+    adaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccount(adaccount_id).get_users(fields=fields, params=params)
+
+
+@adaccount_server.tool
+@wrapped_fn_tool
+def delete_usersofanyaudience(
     adaccount_id: str,
     params: dict[str, Any] = {},
 ):
-    return AdAccount(adaccount_id).delete_users_of_any_audience(params=params)
+    return AdAccount(adaccount_id).delete_usersofanyaudience(params=params)
 
 
 @adaccount_server.tool

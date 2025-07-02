@@ -30,3 +30,16 @@ def get_cpasbusinesssetupconfig(
 ) -> str:
     obj = CPASBusinessSetupConfig(cpasbusinesssetupconfig_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@cpasbusinesssetupconfig_server.tool
+@wrapped_fn_tool
+def get_ad_accounts(
+    cpasbusinesssetupconfig_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CPASBusinessSetupConfig(cpasbusinesssetupconfig_id).get_ad_accounts(
+        fields=fields, params=params
+    )

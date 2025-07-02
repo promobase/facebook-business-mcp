@@ -42,7 +42,7 @@ def update_businessassetgroup(
     return BusinessAssetGroup(businessassetgroup_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (17) ----
+# ---- Edge Methods (24) ----
 @businessassetgroup_server.tool
 @wrapped_fn_tool
 def delete_assigned_users(
@@ -78,21 +78,33 @@ def create_assigned_user(
 
 @businessassetgroup_server.tool
 @wrapped_fn_tool
-def delete_contained_ad_accounts(
+def delete_contained_adaccounts(
     businessassetgroup_id: str,
     params: dict[str, Any] = {},
 ):
-    return BusinessAssetGroup(businessassetgroup_id).delete_contained_ad_accounts(params=params)
+    return BusinessAssetGroup(businessassetgroup_id).delete_contained_adaccounts(params=params)
 
 
 @businessassetgroup_server.tool
 @wrapped_fn_tool
-def create_contained_ad_account(
+def get_contained_adaccounts(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return BusinessAssetGroup(businessassetgroup_id).create_contained_ad_account(
+    return BusinessAssetGroup(businessassetgroup_id).get_contained_adaccounts(
+        fields=fields, params=params
+    )
+
+
+@businessassetgroup_server.tool
+@wrapped_fn_tool
+def create_contained_adaccount(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessAssetGroup(businessassetgroup_id).create_contained_adaccount(
         fields=fields, params=params
     )
 
@@ -104,6 +116,18 @@ def delete_contained_applications(
     params: dict[str, Any] = {},
 ):
     return BusinessAssetGroup(businessassetgroup_id).delete_contained_applications(params=params)
+
+
+@businessassetgroup_server.tool
+@wrapped_fn_tool
+def get_contained_applications(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessAssetGroup(businessassetgroup_id).get_contained_applications(
+        fields=fields, params=params
+    )
 
 
 @businessassetgroup_server.tool
@@ -126,6 +150,18 @@ def delete_contained_custom_conversions(
 ):
     return BusinessAssetGroup(businessassetgroup_id).delete_contained_custom_conversions(
         params=params
+    )
+
+
+@businessassetgroup_server.tool
+@wrapped_fn_tool
+def get_contained_custom_conversions(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessAssetGroup(businessassetgroup_id).get_contained_custom_conversions(
+        fields=fields, params=params
     )
 
 
@@ -154,6 +190,18 @@ def delete_contained_instagram_accounts(
 
 @businessassetgroup_server.tool
 @wrapped_fn_tool
+def get_contained_instagram_accounts(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessAssetGroup(businessassetgroup_id).get_contained_instagram_accounts(
+        fields=fields, params=params
+    )
+
+
+@businessassetgroup_server.tool
+@wrapped_fn_tool
 def create_contained_instagram_account(
     businessassetgroup_id: str,
     fields: list[str] = [],
@@ -171,6 +219,18 @@ def delete_contained_pages(
     params: dict[str, Any] = {},
 ):
     return BusinessAssetGroup(businessassetgroup_id).delete_contained_pages(params=params)
+
+
+@businessassetgroup_server.tool
+@wrapped_fn_tool
+def get_contained_pages(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessAssetGroup(businessassetgroup_id).get_contained_pages(
+        fields=fields, params=params
+    )
 
 
 @businessassetgroup_server.tool
@@ -196,6 +256,18 @@ def delete_contained_pixels(
 
 @businessassetgroup_server.tool
 @wrapped_fn_tool
+def get_contained_pixels(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessAssetGroup(businessassetgroup_id).get_contained_pixels(
+        fields=fields, params=params
+    )
+
+
+@businessassetgroup_server.tool
+@wrapped_fn_tool
 def create_contained_pixel(
     businessassetgroup_id: str,
     fields: list[str] = [],
@@ -214,6 +286,18 @@ def delete_contained_product_catalogs(
 ):
     return BusinessAssetGroup(businessassetgroup_id).delete_contained_product_catalogs(
         params=params
+    )
+
+
+@businessassetgroup_server.tool
+@wrapped_fn_tool
+def get_contained_product_catalogs(
+    businessassetgroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BusinessAssetGroup(businessassetgroup_id).get_contained_product_catalogs(
+        fields=fields, params=params
     )
 
 

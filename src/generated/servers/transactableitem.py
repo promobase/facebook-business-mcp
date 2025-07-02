@@ -32,7 +32,19 @@ def get_transactableitem(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
+@transactableitem_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    transactableitem_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return TransactableItem(transactableitem_id).get_channels_to_integrity_status(
+        fields=fields, params=params
+    )
+
+
 @transactableitem_server.tool
 @wrapped_fn_tool
 def get_override_details(

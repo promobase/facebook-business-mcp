@@ -42,7 +42,7 @@ def update_application(
     return Application(application_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (41) ----
+# ---- Edge Methods (60) ----
 @application_server.tool
 @wrapped_fn_tool
 def delete_accounts(
@@ -74,54 +74,62 @@ def create_account(
 
 @application_server.tool
 @wrapped_fn_tool
-def create_activity(
+def create_activitie(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).create_activity(fields=fields, params=params)
+    return Application(application_id).create_activitie(fields=fields, params=params)
 
 
 @application_server.tool
 @wrapped_fn_tool
-def get_ad_network_placements(
+def get_ad_placement_groups(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).get_ad_network_placements(fields=fields, params=params)
+    return Application(application_id).get_ad_placement_groups(fields=fields, params=params)
 
 
 @application_server.tool
 @wrapped_fn_tool
-def get_ad_network_analytics(
+def get_adnetwork_placements(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).get_ad_network_analytics(fields=fields, params=params)
+    return Application(application_id).get_adnetwork_placements(fields=fields, params=params)
 
 
 @application_server.tool
 @wrapped_fn_tool
-def create_ad_network_analytic(
+def get_adnetworkanalytics(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).create_ad_network_analytic(fields=fields, params=params)
+    return Application(application_id).get_adnetworkanalytics(fields=fields, params=params)
 
 
 @application_server.tool
 @wrapped_fn_tool
-def get_ad_network_analytics_results(
+def create_adnetworkanalytic(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).get_ad_network_analytics_results(
-        fields=fields, params=params
-    )
+    return Application(application_id).create_adnetworkanalytic(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_adnetworkanalytics_results(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_adnetworkanalytics_results(fields=fields, params=params)
 
 
 @application_server.tool
@@ -166,12 +174,22 @@ def create_aem_conversion(
 
 @application_server.tool
 @wrapped_fn_tool
-def create_aem_skan_readiness(
+def create_aem_skan_readine(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).create_aem_skan_readiness(fields=fields, params=params)
+    return Application(application_id).create_aem_skan_readine(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_agencies(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_agencies(fields=fields, params=params)
 
 
 @application_server.tool
@@ -182,6 +200,36 @@ def create_aggregate_revenue(
     params: dict[str, Any] = {},
 ):
     return Application(application_id).create_aggregate_revenue(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_android_dialog_configs(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_android_dialog_configs(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_app_capi_settings(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_app_capi_settings(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_app_event_types(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_app_event_types(fields=fields, params=params)
 
 
 @application_server.tool
@@ -226,6 +274,16 @@ def create_app_push_device_token(
 
 @application_server.tool
 @wrapped_fn_tool
+def get_appassets(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_appassets(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
 def create_asset(
     application_id: str,
     fields: list[str] = [],
@@ -236,12 +294,12 @@ def create_asset(
 
 @application_server.tool
 @wrapped_fn_tool
-def get_authorized_ad_accounts(
+def get_authorized_adaccounts(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).get_authorized_ad_accounts(fields=fields, params=params)
+    return Application(application_id).get_authorized_adaccounts(fields=fields, params=params)
 
 
 @application_server.tool
@@ -258,12 +316,32 @@ def get_button_auto_detection_device_selection(
 
 @application_server.tool
 @wrapped_fn_tool
+def get_cloudbridge_settings(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_cloudbridge_settings(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
 def create_codeless_event_mapping(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Application(application_id).create_codeless_event_mapping(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_connected_client_businesses(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_connected_client_businesses(fields=fields, params=params)
 
 
 @application_server.tool
@@ -298,6 +376,26 @@ def get_iap_purchases(
 
 @application_server.tool
 @wrapped_fn_tool
+def get_ios_dialog_configs(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_ios_dialog_configs(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_linked_dataset(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_linked_dataset(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
 def get_message_templates(
     application_id: str,
     fields: list[str] = [],
@@ -328,6 +426,18 @@ def get_mobile_sdk_gk(
 
 @application_server.tool
 @wrapped_fn_tool
+def get_monetized_digital_store_objects(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_monetized_digital_store_objects(
+        fields=fields, params=params
+    )
+
+
+@application_server.tool
+@wrapped_fn_tool
 def create_monetized_digital_store_object(
     application_id: str,
     fields: list[str] = [],
@@ -340,12 +450,32 @@ def create_monetized_digital_store_object(
 
 @application_server.tool
 @wrapped_fn_tool
-def create_occludes_popup(
+def get_object_types(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).create_occludes_popup(fields=fields, params=params)
+    return Application(application_id).get_object_types(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_objects(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_objects(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def create_occludespopup(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).create_occludespopup(fields=fields, params=params)
 
 
 @application_server.tool
@@ -370,6 +500,36 @@ def get_products(
 
 @application_server.tool
 @wrapped_fn_tool
+def get_purchases(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_purchases(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_roles(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_roles(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_server_domain_infos(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_server_domain_infos(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
 def get_sgw_dataset_status(
     application_id: str,
     fields: list[str] = [],
@@ -390,12 +550,32 @@ def get_sgw_install_deferral_link(
 
 @application_server.tool
 @wrapped_fn_tool
+def get_subscribed_domains(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_subscribed_domains(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
 def create_subscribed_domain(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Application(application_id).create_subscribed_domain(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
+def get_subscribed_domains_phishing(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_subscribed_domains_phishing(fields=fields, params=params)
 
 
 @application_server.tool
@@ -421,6 +601,16 @@ def delete_subscriptions(
 
 @application_server.tool
 @wrapped_fn_tool
+def get_subscriptions(
+    application_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Application(application_id).get_subscriptions(fields=fields, params=params)
+
+
+@application_server.tool
+@wrapped_fn_tool
 def create_subscription(
     application_id: str,
     fields: list[str] = [],
@@ -441,23 +631,21 @@ def create_upload(
 
 @application_server.tool
 @wrapped_fn_tool
-def create_whats_app_business_solution(
+def create_whatsapp_business_solution(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).create_whats_app_business_solution(
+    return Application(application_id).create_whatsapp_business_solution(
         fields=fields, params=params
     )
 
 
 @application_server.tool
 @wrapped_fn_tool
-def get_whats_app_business_solutions(
+def get_whatsapp_business_solutions(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Application(application_id).get_whats_app_business_solutions(
-        fields=fields, params=params
-    )
+    return Application(application_id).get_whatsapp_business_solutions(fields=fields, params=params)

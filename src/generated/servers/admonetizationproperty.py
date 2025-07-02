@@ -35,35 +35,35 @@ def get_admonetizationproperty(
 # ---- Edge Methods (3) ----
 @admonetizationproperty_server.tool
 @wrapped_fn_tool
-def get_ad_network_analytics(
+def get_adnetworkanalytics(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdMonetizationProperty(admonetizationproperty_id).get_ad_network_analytics(
+    return AdMonetizationProperty(admonetizationproperty_id).get_adnetworkanalytics(
         fields=fields, params=params
     )
 
 
 @admonetizationproperty_server.tool
 @wrapped_fn_tool
-def create_ad_network_analytic(
+def create_adnetworkanalytic(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdMonetizationProperty(admonetizationproperty_id).create_ad_network_analytic(
+    return AdMonetizationProperty(admonetizationproperty_id).create_adnetworkanalytic(
         fields=fields, params=params
     )
 
 
 @admonetizationproperty_server.tool
 @wrapped_fn_tool
-def get_ad_network_analytics_results(
+def get_adnetworkanalytics_results(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdMonetizationProperty(admonetizationproperty_id).get_ad_network_analytics_results(
+    return AdMonetizationProperty(admonetizationproperty_id).get_adnetworkanalytics_results(
         fields=fields, params=params
     )

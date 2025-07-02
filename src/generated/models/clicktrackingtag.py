@@ -13,11 +13,13 @@ from pydantic import BaseModel, ConfigDict, Field
 # ---- END MANUAL SECTION: imports ----
 
 
-ClickTrackingTagField = Literal["add_template_param", "ad_id", "id", "url"]
+ClickTrackingTagField = Literal[""]  # No fields defined
 
 
 class ClickTrackingTagFields(BaseModel):
     """Pydantic model for ClickTrackingTag fields."""
+
+    pass  # No fields defined
 
     model_config = ConfigDict(populate_by_alias=True, extra="forbid")
 

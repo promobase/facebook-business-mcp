@@ -30,3 +30,28 @@ def get_productfeeduploaderror(
 ) -> str:
     obj = ProductFeedUploadError(productfeeduploaderror_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (2) ----
+@productfeeduploaderror_server.tool
+@wrapped_fn_tool
+def get_samples(
+    productfeeduploaderror_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductFeedUploadError(productfeeduploaderror_id).get_samples(
+        fields=fields, params=params
+    )
+
+
+@productfeeduploaderror_server.tool
+@wrapped_fn_tool
+def get_suggested_rules(
+    productfeeduploaderror_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductFeedUploadError(productfeeduploaderror_id).get_suggested_rules(
+        fields=fields, params=params
+    )

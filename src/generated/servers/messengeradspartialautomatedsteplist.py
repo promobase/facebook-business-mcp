@@ -32,3 +32,16 @@ def get_messengeradspartialautomatedsteplist(
 ) -> str:
     obj = MessengerAdsPartialAutomatedStepList(messengeradspartialautomatedsteplist_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@messengeradspartialautomatedsteplist_server.tool
+@wrapped_fn_tool
+def get_steps(
+    messengeradspartialautomatedsteplist_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return MessengerAdsPartialAutomatedStepList(messengeradspartialautomatedsteplist_id).get_steps(
+        fields=fields, params=params
+    )

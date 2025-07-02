@@ -30,3 +30,16 @@ def get_adaccountcreationrequest(
 ) -> str:
     obj = AdAccountCreationRequest(adaccountcreationrequest_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@adaccountcreationrequest_server.tool
+@wrapped_fn_tool
+def get_adaccounts(
+    adaccountcreationrequest_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdAccountCreationRequest(adaccountcreationrequest_id).get_adaccounts(
+        fields=fields, params=params
+    )

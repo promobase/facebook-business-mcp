@@ -32,3 +32,28 @@ def get_offsitesignalcontainerbusinessobject(
 ) -> str:
     obj = OffsiteSignalContainerBusinessObject(offsitesignalcontainerbusinessobject_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (2) ----
+@offsitesignalcontainerbusinessobject_server.tool
+@wrapped_fn_tool
+def get_linked_application(
+    offsitesignalcontainerbusinessobject_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return OffsiteSignalContainerBusinessObject(
+        offsitesignalcontainerbusinessobject_id
+    ).get_linked_application(fields=fields, params=params)
+
+
+@offsitesignalcontainerbusinessobject_server.tool
+@wrapped_fn_tool
+def get_linked_page(
+    offsitesignalcontainerbusinessobject_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return OffsiteSignalContainerBusinessObject(
+        offsitesignalcontainerbusinessobject_id
+    ).get_linked_page(fields=fields, params=params)

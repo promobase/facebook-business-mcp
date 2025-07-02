@@ -32,7 +32,7 @@ def get_link(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
 @link_server.tool
 @wrapped_fn_tool
 def create_comment(
@@ -41,3 +41,13 @@ def create_comment(
     params: dict[str, Any] = {},
 ):
     return Link(link_id).create_comment(fields=fields, params=params)
+
+
+@link_server.tool
+@wrapped_fn_tool
+def get_likes(
+    link_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Link(link_id).get_likes(fields=fields, params=params)

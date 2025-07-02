@@ -50,7 +50,17 @@ def delete_mediatitle(
     return MediaTitle(mediatitle_id).api_delete()
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (3) ----
+@mediatitle_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    mediatitle_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return MediaTitle(mediatitle_id).get_channels_to_integrity_status(fields=fields, params=params)
+
+
 @mediatitle_server.tool
 @wrapped_fn_tool
 def get_override_details(
@@ -59,3 +69,13 @@ def get_override_details(
     params: dict[str, Any] = {},
 ):
     return MediaTitle(mediatitle_id).get_override_details(fields=fields, params=params)
+
+
+@mediatitle_server.tool
+@wrapped_fn_tool
+def get_videos_metadata(
+    mediatitle_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return MediaTitle(mediatitle_id).get_videos_metadata(fields=fields, params=params)

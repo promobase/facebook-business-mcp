@@ -40,7 +40,7 @@ def delete_photo(
     return Photo(photo_id).api_delete()
 
 
-# ---- Edge Methods (4) ----
+# ---- Edge Methods (6) ----
 @photo_server.tool
 @wrapped_fn_tool
 def get_comments(
@@ -73,9 +73,29 @@ def get_insights(
 
 @photo_server.tool
 @wrapped_fn_tool
+def get_likes(
+    photo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Photo(photo_id).get_likes(fields=fields, params=params)
+
+
+@photo_server.tool
+@wrapped_fn_tool
 def create_like(
     photo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Photo(photo_id).create_like(fields=fields, params=params)
+
+
+@photo_server.tool
+@wrapped_fn_tool
+def get_sponsor_tags(
+    photo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Photo(photo_id).get_sponsor_tags(fields=fields, params=params)

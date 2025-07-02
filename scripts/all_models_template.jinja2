@@ -1,0 +1,154 @@
+"""
+Code generated from Facebook API specs - DO NOT EDIT MANUALLY.
+This file contains all models and enums from the Facebook Business API.
+"""
+
+from __future__ import annotations
+from datetime import datetime
+from enum import Enum
+from typing import Any, Literal, Union, TYPE_CHECKING
+
+from pydantic import BaseModel, ConfigDict, Field, field_serializer
+
+
+# ============================================================================
+# ENUMS
+# ============================================================================
+
+{% for enum_name, enum_info in enums.items() %}
+class {{ enum_name }}(str, Enum):
+    """{{ enum_name }} enum values."""
+{%- for python_name, value in enum_info.values %}
+{%- if python_name == "value_try" %}
+    TRY_ = "{{ value }}"
+{%- else %}
+    {{ python_name }} = "{{ value }}"
+{%- endif %}
+{%- endfor %}
+
+
+{% endfor %}
+
+# ============================================================================
+# FIELD LITERALS
+# ============================================================================
+
+{% for spec_name, spec in specs.items() %}
+{%- set field_literals = spec.fields|map(attribute='name')|map('tojson')|list %}
+{%- if field_literals %}
+{%- if field_literals|length > 5 %}
+{{ spec_name }}Field = Literal[
+{%- for literal in field_literals %}
+    {{ literal }}{{ "," if not loop.last else "" }}
+{%- endfor %}
+]
+{%- else %}
+{{ spec_name }}Field = Literal[{{ field_literals|join(", ") }}]
+{%- endif %}
+{%- else %}
+{{ spec_name }}Field = Literal['']  # No fields defined
+{%- endif %}
+
+{% endfor %}
+
+# ============================================================================
+# FIELD MODELS
+# ============================================================================
+
+{% for spec_name, spec in specs.items() %}
+class {{ spec_name }}Fields(BaseModel):
+    """Pydantic model for {{ spec_name }} fields."""
+    model_config = ConfigDict(
+        populate_by_alias=True,
+        extra='forbid'
+    )
+{%- if spec.fields %}
+    
+{%- for field in spec.fields %}
+    {{ field.python_name }}: {{ field.python_type }} | None = Field(None, alias="{{ field.name }}")
+{%- endfor %}
+{%- else %}
+    pass  # No fields defined
+{%- endif %}
+
+
+{% endfor %}
+
+# ============================================================================
+# API PARAMETER MODELS
+# ============================================================================
+
+{% for spec_name, spec in specs.items() %}
+{%- for api in spec.apis %}
+{%- if api.params %}
+{%- set method_name = api.method_name %}
+{%- set model_name = spec_name + method_name.split('_')|map('capitalize')|join('') + 'Params' %}
+class {{ model_name }}(BaseModel):
+    """Parameters for {{ spec_name }}.{{ method_name }}()."""
+    model_config = ConfigDict(extra='forbid')
+    
+{%- for param in api.params %}
+{%- set param_name = param.name %}
+{%- set python_name = param_name %}
+{%- if param_name in ['from', 'class', 'return', 'import', 'pass', 'def', 'if', 'else', 'elif', 'while', 'for', 'try', 'except', 'finally', 'with', 'as', 'yield', 'lambda', 'del', 'global', 'nonlocal', 'assert', 'True', 'False', 'None', 'and', 'or', 'not', 'in', 'is', 'async', 'await'] %}
+{%- set python_name = 'field_' + param_name %}
+{%- endif %}
+{%- set param_type = param.type|default('Any') %}
+{%- if param_type in enums %}
+{%- set python_type = param_type %}
+{%- elif param_type == 'string' %}
+{%- set python_type = 'str' %}
+{%- elif param_type == 'int' or param_type == 'unsigned int' %}
+{%- set python_type = 'int' %}
+{%- elif param_type == 'bool' %}
+{%- set python_type = 'bool' %}
+{%- elif param_type == 'float' or param_type == 'double' %}
+{%- set python_type = 'float' %}
+{%- elif param_type == 'datetime' %}
+{%- set python_type = 'datetime' %}
+{%- elif param_type.startswith('list<') %}
+{%- set inner_type = param_type[5:-1] %}
+{%- if inner_type == 'string' %}
+{%- set python_type = 'list[str]' %}
+{%- elif inner_type == 'int' %}
+{%- set python_type = 'list[int]' %}
+{%- else %}
+{%- set python_type = 'list[Any]' %}
+{%- endif %}
+{%- elif param_type == 'Object' or param_type.startswith('map') %}
+{%- set python_type = 'dict[str, Any]' %}
+{%- else %}
+{%- set python_type = 'Any' %}
+{%- endif %}
+{%- if python_name != param_name %}
+    {{ python_name }}: {{ python_type }}{{ "" if param.required else " | None" }} = Field({{ "..." if param.required else "None" }}, alias="{{ param_name }}")
+{%- else %}
+    {{ param_name }}: {{ python_type }}{{ "" if param.required else " | None" }} = Field({{ "..." if param.required else "None" }})
+{%- endif %}
+{%- endfor %}
+
+
+{% endif %}
+{%- endfor %}
+{%- endfor %}
+
+# ============================================================================
+# EXPORTS
+# ============================================================================
+
+__all__ = [
+    # Enums
+{%- for enum_name in enums.keys()|sort %}
+    "{{ enum_name }}",
+{%- endfor %}
+    
+    # Field Literals
+{%- for spec_name in specs.keys()|sort %}
+    "{{ spec_name }}Field",
+{%- endfor %}
+    
+    # Field Models
+{%- for spec_name in specs.keys()|sort %}
+    "{{ spec_name }}Fields",
+{%- endfor %}
+]

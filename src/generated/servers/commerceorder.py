@@ -32,7 +32,7 @@ def get_commerceorder(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (8) ----
+# ---- Edge Methods (15) ----
 @commerceorder_server.tool
 @wrapped_fn_tool
 def create_acknowledge_order(
@@ -41,6 +41,16 @@ def create_acknowledge_order(
     params: dict[str, Any] = {},
 ):
     return CommerceOrder(commerceorder_id).create_acknowledge_order(fields=fields, params=params)
+
+
+@commerceorder_server.tool
+@wrapped_fn_tool
+def get_cancellations(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CommerceOrder(commerceorder_id).get_cancellations(fields=fields, params=params)
 
 
 @commerceorder_server.tool
@@ -61,6 +71,56 @@ def create_item_update(
     params: dict[str, Any] = {},
 ):
     return CommerceOrder(commerceorder_id).create_item_update(fields=fields, params=params)
+
+
+@commerceorder_server.tool
+@wrapped_fn_tool
+def get_items(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CommerceOrder(commerceorder_id).get_items(fields=fields, params=params)
+
+
+@commerceorder_server.tool
+@wrapped_fn_tool
+def get_payments(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CommerceOrder(commerceorder_id).get_payments(fields=fields, params=params)
+
+
+@commerceorder_server.tool
+@wrapped_fn_tool
+def get_promotion_details(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CommerceOrder(commerceorder_id).get_promotion_details(fields=fields, params=params)
+
+
+@commerceorder_server.tool
+@wrapped_fn_tool
+def get_promotions(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CommerceOrder(commerceorder_id).get_promotions(fields=fields, params=params)
+
+
+@commerceorder_server.tool
+@wrapped_fn_tool
+def get_refunds(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CommerceOrder(commerceorder_id).get_refunds(fields=fields, params=params)
 
 
 @commerceorder_server.tool
@@ -91,6 +151,16 @@ def create_return(
     params: dict[str, Any] = {},
 ):
     return CommerceOrder(commerceorder_id).create_return(fields=fields, params=params)
+
+
+@commerceorder_server.tool
+@wrapped_fn_tool
+def get_shipments(
+    commerceorder_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CommerceOrder(commerceorder_id).get_shipments(fields=fields, params=params)
 
 
 @commerceorder_server.tool

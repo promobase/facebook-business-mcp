@@ -50,7 +50,7 @@ def delete_comment(
     return Comment(comment_id).api_delete()
 
 
-# ---- Edge Methods (5) ----
+# ---- Edge Methods (6) ----
 @comment_server.tool
 @wrapped_fn_tool
 def get_comments(
@@ -78,6 +78,16 @@ def delete_likes(
     params: dict[str, Any] = {},
 ):
     return Comment(comment_id).delete_likes(params=params)
+
+
+@comment_server.tool
+@wrapped_fn_tool
+def get_likes(
+    comment_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Comment(comment_id).get_likes(fields=fields, params=params)
 
 
 @comment_server.tool

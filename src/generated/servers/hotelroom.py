@@ -30,3 +30,14 @@ def get_hotelroom(
 ) -> str:
     obj = HotelRoom(hotelroom_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@hotelroom_server.tool
+@wrapped_fn_tool
+def get_pricing_variables(
+    hotelroom_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return HotelRoom(hotelroom_id).get_pricing_variables(fields=fields, params=params)

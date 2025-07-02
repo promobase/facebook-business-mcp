@@ -50,15 +50,35 @@ def delete_adstudy(
     return AdStudy(adstudy_id).api_delete()
 
 
-# ---- Edge Methods (2) ----
+# ---- Edge Methods (5) ----
 @adstudy_server.tool
 @wrapped_fn_tool
-def create_check_point(
+def get_cells(
     adstudy_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdStudy(adstudy_id).create_check_point(fields=fields, params=params)
+    return AdStudy(adstudy_id).get_cells(fields=fields, params=params)
+
+
+@adstudy_server.tool
+@wrapped_fn_tool
+def create_checkpoint(
+    adstudy_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudy(adstudy_id).create_checkpoint(fields=fields, params=params)
+
+
+@adstudy_server.tool
+@wrapped_fn_tool
+def get_instances(
+    adstudy_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudy(adstudy_id).get_instances(fields=fields, params=params)
 
 
 @adstudy_server.tool
@@ -69,3 +89,13 @@ def create_instance(
     params: dict[str, Any] = {},
 ):
     return AdStudy(adstudy_id).create_instance(fields=fields, params=params)
+
+
+@adstudy_server.tool
+@wrapped_fn_tool
+def get_objectives(
+    adstudy_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudy(adstudy_id).get_objectives(fields=fields, params=params)

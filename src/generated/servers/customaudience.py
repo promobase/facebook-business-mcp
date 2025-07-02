@@ -50,34 +50,34 @@ def delete_customaudience(
     return CustomAudience(customaudience_id).api_delete()
 
 
-# ---- Edge Methods (11) ----
+# ---- Edge Methods (12) ----
 @customaudience_server.tool
 @wrapped_fn_tool
-def delete_ad_accounts(
+def delete_adaccounts(
     customaudience_id: str,
     params: dict[str, Any] = {},
 ):
-    return CustomAudience(customaudience_id).delete_ad_accounts(params=params)
+    return CustomAudience(customaudience_id).delete_adaccounts(params=params)
 
 
 @customaudience_server.tool
 @wrapped_fn_tool
-def get_ad_accounts(
-    customaudience_id: str,
-    fields: list[str] = [],
-    params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).get_ad_accounts(fields=fields, params=params)
-
-
-@customaudience_server.tool
-@wrapped_fn_tool
-def create_ad_account(
+def get_adaccounts(
     customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return CustomAudience(customaudience_id).create_ad_account(fields=fields, params=params)
+    return CustomAudience(customaudience_id).get_adaccounts(fields=fields, params=params)
+
+
+@customaudience_server.tool
+@wrapped_fn_tool
+def create_adaccount(
+    customaudience_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CustomAudience(customaudience_id).create_adaccount(fields=fields, params=params)
 
 
 @customaudience_server.tool
@@ -132,6 +132,16 @@ def get_sessions(
 
 @customaudience_server.tool
 @wrapped_fn_tool
+def get_shared_account_info(
+    customaudience_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CustomAudience(customaudience_id).get_shared_account_info(fields=fields, params=params)
+
+
+@customaudience_server.tool
+@wrapped_fn_tool
 def delete_users(
     customaudience_id: str,
     params: dict[str, Any] = {},
@@ -151,9 +161,9 @@ def create_user(
 
 @customaudience_server.tool
 @wrapped_fn_tool
-def create_users_replace(
+def create_usersreplace(
     customaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return CustomAudience(customaudience_id).create_users_replace(fields=fields, params=params)
+    return CustomAudience(customaudience_id).create_usersreplace(fields=fields, params=params)

@@ -32,7 +32,17 @@ def get_systemuser(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (2) ----
+# ---- Edge Methods (4) ----
+@systemuser_server.tool
+@wrapped_fn_tool
+def get_assigned_ad_accounts(
+    systemuser_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return SystemUser(systemuser_id).get_assigned_ad_accounts(fields=fields, params=params)
+
+
 @systemuser_server.tool
 @wrapped_fn_tool
 def get_assigned_business_asset_groups(
@@ -53,3 +63,13 @@ def get_assigned_pages(
     params: dict[str, Any] = {},
 ):
     return SystemUser(systemuser_id).get_assigned_pages(fields=fields, params=params)
+
+
+@systemuser_server.tool
+@wrapped_fn_tool
+def get_assigned_product_catalogs(
+    systemuser_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return SystemUser(systemuser_id).get_assigned_product_catalogs(fields=fields, params=params)

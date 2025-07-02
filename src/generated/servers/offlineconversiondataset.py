@@ -32,15 +32,27 @@ def get_offlineconversiondataset(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (7) ----
+# ---- Edge Methods (9) ----
 @offlineconversiondataset_server.tool
 @wrapped_fn_tool
-def get_ad_accounts(
+def get_adaccounts(
     offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return OfflineConversionDataSet(offlineconversiondataset_id).get_ad_accounts(
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_adaccounts(
+        fields=fields, params=params
+    )
+
+
+@offlineconversiondataset_server.tool
+@wrapped_fn_tool
+def get_agencies(
+    offlineconversiondataset_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_agencies(
         fields=fields, params=params
     )
 
@@ -59,14 +71,26 @@ def get_audiences(
 
 @offlineconversiondataset_server.tool
 @wrapped_fn_tool
-def get_custom_conversions(
+def get_customconversions(
     offlineconversiondataset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return OfflineConversionDataSet(offlineconversiondataset_id).get_custom_conversions(
+    return OfflineConversionDataSet(offlineconversiondataset_id).get_customconversions(
         fields=fields, params=params
     )
+
+
+@offlineconversiondataset_server.tool
+@wrapped_fn_tool
+def get_server_events_permitted_business(
+    offlineconversiondataset_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return OfflineConversionDataSet(
+        offlineconversiondataset_id
+    ).get_server_events_permitted_business(fields=fields, params=params)
 
 
 @offlineconversiondataset_server.tool

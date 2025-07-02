@@ -32,7 +32,19 @@ def get_iguserexportforcam(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (3) ----
+@iguserexportforcam_server.tool
+@wrapped_fn_tool
+def get_branded_content_media(
+    iguserexportforcam_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGUserExportForCAM(iguserexportforcam_id).get_branded_content_media(
+        fields=fields, params=params
+    )
+
+
 @iguserexportforcam_server.tool
 @wrapped_fn_tool
 def get_insights(
@@ -41,3 +53,13 @@ def get_insights(
     params: dict[str, Any] = {},
 ):
     return IGUserExportForCAM(iguserexportforcam_id).get_insights(fields=fields, params=params)
+
+
+@iguserexportforcam_server.tool
+@wrapped_fn_tool
+def get_recent_media(
+    iguserexportforcam_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGUserExportForCAM(iguserexportforcam_id).get_recent_media(fields=fields, params=params)

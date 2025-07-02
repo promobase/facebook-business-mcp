@@ -48,3 +48,44 @@ def delete_adlabel(
     adlabel_id: str,
 ) -> str:
     return AdLabel(adlabel_id).api_delete()
+
+
+# ---- Edge Methods (4) ----
+@adlabel_server.tool
+@wrapped_fn_tool
+def get_adcreatives(
+    adlabel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdLabel(adlabel_id).get_adcreatives(fields=fields, params=params)
+
+
+@adlabel_server.tool
+@wrapped_fn_tool
+def get_ads(
+    adlabel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdLabel(adlabel_id).get_ads(fields=fields, params=params)
+
+
+@adlabel_server.tool
+@wrapped_fn_tool
+def get_adsets(
+    adlabel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdLabel(adlabel_id).get_adsets(fields=fields, params=params)
+
+
+@adlabel_server.tool
+@wrapped_fn_tool
+def get_campaigns(
+    adlabel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdLabel(adlabel_id).get_campaigns(fields=fields, params=params)

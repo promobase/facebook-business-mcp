@@ -50,7 +50,17 @@ def delete_adrule(
     return AdRule(adrule_id).api_delete()
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (3) ----
+@adrule_server.tool
+@wrapped_fn_tool
+def create_execute(
+    adrule_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdRule(adrule_id).create_execute(fields=fields, params=params)
+
+
 @adrule_server.tool
 @wrapped_fn_tool
 def get_history(
@@ -59,3 +69,13 @@ def get_history(
     params: dict[str, Any] = {},
 ):
     return AdRule(adrule_id).get_history(fields=fields, params=params)
+
+
+@adrule_server.tool
+@wrapped_fn_tool
+def create_preview(
+    adrule_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdRule(adrule_id).create_preview(fields=fields, params=params)

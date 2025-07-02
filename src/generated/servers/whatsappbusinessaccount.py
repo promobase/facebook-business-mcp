@@ -44,7 +44,19 @@ def update_whatsappbusinessaccount(
     )
 
 
-# ---- Edge Methods (30) ----
+# ---- Edge Methods (43) ----
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_activities(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_activities(
+        fields=fields, params=params
+    )
+
+
 @whatsappbusinessaccount_server.tool
 @wrapped_fn_tool
 def delete_assigned_users(
@@ -80,6 +92,18 @@ def create_assigned_user(
 
 @whatsappbusinessaccount_server.tool
 @wrapped_fn_tool
+def get_audiences(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_audiences(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
 def get_call_analytics(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
@@ -104,12 +128,36 @@ def get_conversation_analytics(
 
 @whatsappbusinessaccount_server.tool
 @wrapped_fn_tool
+def get_dataset(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_dataset(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
 def create_dataset(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_dataset(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_flows(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_flows(
         fields=fields, params=params
     )
 
@@ -136,6 +184,18 @@ def create_generate_payment_configuration_oauth_link(
     return WhatsAppBusinessAccount(
         whatsappbusinessaccount_id
     ).create_generate_payment_configuration_oauth_link(fields=fields, params=params)
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_message_campaigns(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_message_campaigns(
+        fields=fields, params=params
+    )
 
 
 @whatsappbusinessaccount_server.tool
@@ -246,6 +306,30 @@ def create_payment_configuration(
 
 @whatsappbusinessaccount_server.tool
 @wrapped_fn_tool
+def get_payment_configurations(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_payment_configurations(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_phone_numbers(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_phone_numbers(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
 def create_phone_number(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
@@ -281,12 +365,36 @@ def delete_product_catalogs(
 
 @whatsappbusinessaccount_server.tool
 @wrapped_fn_tool
+def get_product_catalogs(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_product_catalogs(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
 def create_product_catalog(
     whatsappbusinessaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_product_catalog(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_schedules(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_schedules(
         fields=fields, params=params
     )
 
@@ -311,6 +419,39 @@ def create_set_solution_migration_intent(
     params: dict[str, Any] = {},
 ):
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).create_set_solution_migration_intent(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_solutions(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_solutions(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def delete_subscribed_apps(
+    whatsappbusinessaccount_id: str,
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).delete_subscribed_apps(params=params)
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_subscribed_apps(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_subscribed_apps(
         fields=fields, params=params
     )
 
@@ -347,6 +488,18 @@ def get_template_group_analytics(
     params: dict[str, Any] = {},
 ):
     return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_group_analytics(
+        fields=fields, params=params
+    )
+
+
+@whatsappbusinessaccount_server.tool
+@wrapped_fn_tool
+def get_template_groups(
+    whatsappbusinessaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessAccount(whatsappbusinessaccount_id).get_template_groups(
         fields=fields, params=params
     )
 

@@ -52,7 +52,7 @@ def delete_extendedcreditinvoicegroup(
     return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).api_delete()
 
 
-# ---- Edge Methods (2) ----
+# ---- Edge Methods (3) ----
 @extendedcreditinvoicegroup_server.tool
 @wrapped_fn_tool
 def delete_ad_accounts(
@@ -61,6 +61,18 @@ def delete_ad_accounts(
 ):
     return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).delete_ad_accounts(
         params=params
+    )
+
+
+@extendedcreditinvoicegroup_server.tool
+@wrapped_fn_tool
+def get_ad_accounts(
+    extendedcreditinvoicegroup_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ExtendedCreditInvoiceGroup(extendedcreditinvoicegroup_id).get_ad_accounts(
+        fields=fields, params=params
     )
 
 

@@ -50,7 +50,7 @@ def delete_productcatalog(
     return ProductCatalog(productcatalog_id).api_delete()
 
 
-# ---- Edge Methods (46) ----
+# ---- Edge Methods (53) ----
 @productcatalog_server.tool
 @wrapped_fn_tool
 def delete_agencies(
@@ -62,12 +62,22 @@ def delete_agencies(
 
 @productcatalog_server.tool
 @wrapped_fn_tool
-def create_agency(
+def get_agencies(
     productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return ProductCatalog(productcatalog_id).create_agency(fields=fields, params=params)
+    return ProductCatalog(productcatalog_id).get_agencies(fields=fields, params=params)
+
+
+@productcatalog_server.tool
+@wrapped_fn_tool
+def create_agencie(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductCatalog(productcatalog_id).create_agencie(fields=fields, params=params)
 
 
 @productcatalog_server.tool
@@ -141,12 +151,12 @@ def get_categories(
 
 @productcatalog_server.tool
 @wrapped_fn_tool
-def create_category(
+def create_categorie(
     productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return ProductCatalog(productcatalog_id).create_category(fields=fields, params=params)
+    return ProductCatalog(productcatalog_id).create_categorie(fields=fields, params=params)
 
 
 @productcatalog_server.tool
@@ -169,6 +179,30 @@ def get_check_marketplace_partner_sellers_status(
     params: dict[str, Any] = {},
 ):
     return ProductCatalog(productcatalog_id).get_check_marketplace_partner_sellers_status(
+        fields=fields, params=params
+    )
+
+
+@productcatalog_server.tool
+@wrapped_fn_tool
+def get_collaborative_ads_lsb_image_bank(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductCatalog(productcatalog_id).get_collaborative_ads_lsb_image_bank(
+        fields=fields, params=params
+    )
+
+
+@productcatalog_server.tool
+@wrapped_fn_tool
+def get_collaborative_ads_share_settings(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductCatalog(productcatalog_id).get_collaborative_ads_share_settings(
         fields=fields, params=params
     )
 
@@ -244,6 +278,18 @@ def delete_external_event_sources(
     params: dict[str, Any] = {},
 ):
     return ProductCatalog(productcatalog_id).delete_external_event_sources(params=params)
+
+
+@productcatalog_server.tool
+@wrapped_fn_tool
+def get_external_event_sources(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductCatalog(productcatalog_id).get_external_event_sources(
+        fields=fields, params=params
+    )
 
 
 @productcatalog_server.tool
@@ -364,24 +410,24 @@ def create_localized_items_batch(
 
 @productcatalog_server.tool
 @wrapped_fn_tool
-def create_market_place_partner_sellers_detail(
+def create_marketplace_partner_sellers_detail(
     productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return ProductCatalog(productcatalog_id).create_market_place_partner_sellers_detail(
+    return ProductCatalog(productcatalog_id).create_marketplace_partner_sellers_detail(
         fields=fields, params=params
     )
 
 
 @productcatalog_server.tool
 @wrapped_fn_tool
-def create_market_place_partner_signal(
+def create_marketplace_partner_signal(
     productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return ProductCatalog(productcatalog_id).create_market_place_partner_signal(
+    return ProductCatalog(productcatalog_id).create_marketplace_partner_signal(
         fields=fields, params=params
     )
 
@@ -412,12 +458,32 @@ def create_pricing_variables_batch(
 
 @productcatalog_server.tool
 @wrapped_fn_tool
+def get_product_feeds(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductCatalog(productcatalog_id).get_product_feeds(fields=fields, params=params)
+
+
+@productcatalog_server.tool
+@wrapped_fn_tool
 def create_product_feed(
     productcatalog_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return ProductCatalog(productcatalog_id).create_product_feed(fields=fields, params=params)
+
+
+@productcatalog_server.tool
+@wrapped_fn_tool
+def get_product_groups(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductCatalog(productcatalog_id).get_product_groups(fields=fields, params=params)
 
 
 @productcatalog_server.tool
@@ -520,6 +586,16 @@ def create_vehicle(
     params: dict[str, Any] = {},
 ):
     return ProductCatalog(productcatalog_id).create_vehicle(fields=fields, params=params)
+
+
+@productcatalog_server.tool
+@wrapped_fn_tool
+def get_version_configs(
+    productcatalog_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductCatalog(productcatalog_id).get_version_configs(fields=fields, params=params)
 
 
 @productcatalog_server.tool

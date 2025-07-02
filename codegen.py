@@ -275,8 +275,8 @@ def create_generation_steps() -> list[GenerationStep]:
     return [
         GenerationStep(
             name="models",
-            script_path="scripts/generate_models.py",
-            description="Generate Pydantic models from Facebook SDK",
+            script_path="scripts/generate_models_unified.py",
+            description="Generate Pydantic models from Facebook API specs",
             required=True,
         ),
         GenerationStep(

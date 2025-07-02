@@ -30,3 +30,14 @@ def get_adreportrun(
 ) -> str:
     obj = AdReportRun(adreportrun_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@adreportrun_server.tool
+@wrapped_fn_tool
+def get_insights(
+    adreportrun_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdReportRun(adreportrun_id).get_insights(fields=fields, params=params)

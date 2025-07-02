@@ -1,0 +1,80 @@
+"""Code generated from Facebook API specs - DO NOT EDIT MANUALLY."""
+
+from __future__ import annotations
+from datetime import datetime
+from enum import Enum
+from typing import Any, Literal, TYPE_CHECKING
+
+from pydantic import BaseModel, ConfigDict, Field
+{%- if local_imports %}
+
+{%- for import in local_imports %}
+{{ import }}
+{%- endfor %}
+{%- endif %}
+{%- if type_checking_imports %}
+
+if TYPE_CHECKING:
+{%- for import in type_checking_imports %}
+    {{ import }}
+{%- endfor %}
+{%- endif %}
+
+{% for enum in enums %}
+
+class {{ enum.name }}(str, Enum):
+    """{{ enum.name }} enum values."""
+{%- for python_name, value in enum.values %}
+{%- if python_name == "value_try" %}
+    TRY_ = "{{ value }}"
+{%- else %}
+    {{ python_name }} = "{{ value }}"
+{%- endif %}
+{%- endfor %}
+{% endfor %}
+
+# Field literal type
+{%- if field_literals %}
+{%- if field_literals|length > 10 %}
+{{ class_name }}Field = Literal[
+{%- for literal in field_literals %}
+    {{ literal }}{{ "," if not loop.last else "" }}
+{%- endfor %}
+]
+{%- else %}
+{{ class_name }}Field = Literal[{{ field_literals|join(", ") }}]
+{%- endif %}
+{%- else %}
+{{ class_name }}Field = Literal['']  # No fields defined
+{%- endif %}
+
+
+class {{ class_name }}Fields(BaseModel):
+    """Pydantic model for {{ class_name }} fields."""
+    model_config = ConfigDict(
+        populate_by_alias=True,
+        extra='forbid'
+    )
+{% if fields %}
+    
+{%- for field_name, field_info in fields.items() %}
+    {{ field_info.python_name }}: {{ field_info.python_type }} = Field(None, alias="{{ field_info.name }}")
+{%- endfor %}
+{%- else %}
+    pass  # No fields defined
+{%- endif %}
+
+{% for param_model in param_models %}
+
+class {{ param_model.name }}(BaseModel):
+    """Parameters for {{ class_name }}.{{ param_model.method_name }}()."""
+    model_config = ConfigDict(extra='forbid')
+    
+{%- for field_name, field_type, field_alias in param_model.fields %}
+{%- if field_alias %}
+    {{ field_name }}: {{ field_type }} | None = Field(None, alias="{{ field_alias }}", description="{{ field_alias }} parameter")
+{%- else %}
+    {{ field_name }}: {{ field_type }} | None = Field(None, description="{{ field_name }} parameter")
+{%- endif %}
+{%- endfor %}
+{% endfor %}

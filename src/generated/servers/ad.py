@@ -50,25 +50,35 @@ def delete_ad(
     return Ad(ad_id).api_delete()
 
 
-# ---- Edge Methods (7) ----
+# ---- Edge Methods (10) ----
 @ad_server.tool
 @wrapped_fn_tool
-def create_ad_label(
+def get_adcreatives(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Ad(ad_id).create_ad_label(fields=fields, params=params)
+    return Ad(ad_id).get_adcreatives(fields=fields, params=params)
 
 
 @ad_server.tool
 @wrapped_fn_tool
-def get_ad_rules_governed(
+def create_adlabel(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Ad(ad_id).get_ad_rules_governed(fields=fields, params=params)
+    return Ad(ad_id).create_adlabel(fields=fields, params=params)
+
+
+@ad_server.tool
+@wrapped_fn_tool
+def get_adrules_governed(
+    ad_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Ad(ad_id).get_adrules_governed(fields=fields, params=params)
 
 
 @ad_server.tool
@@ -83,12 +93,12 @@ def get_copies(
 
 @ad_server.tool
 @wrapped_fn_tool
-def create_copy(
+def create_copie(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Ad(ad_id).create_copy(fields=fields, params=params)
+    return Ad(ad_id).create_copie(fields=fields, params=params)
 
 
 @ad_server.tool
@@ -103,12 +113,22 @@ def get_insights(
 
 @ad_server.tool
 @wrapped_fn_tool
-def get_insights_async(
+def create_insight(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Ad(ad_id).get_insights_async(fields=fields, params=params)
+    return Ad(ad_id).create_insight(fields=fields, params=params)
+
+
+@ad_server.tool
+@wrapped_fn_tool
+def get_leads(
+    ad_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Ad(ad_id).get_leads(fields=fields, params=params)
 
 
 @ad_server.tool
@@ -119,3 +139,13 @@ def get_previews(
     params: dict[str, Any] = {},
 ):
     return Ad(ad_id).get_previews(fields=fields, params=params)
+
+
+@ad_server.tool
+@wrapped_fn_tool
+def get_targetingsentencelines(
+    ad_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Ad(ad_id).get_targetingsentencelines(fields=fields, params=params)

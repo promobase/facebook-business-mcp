@@ -30,3 +30,14 @@ def get_audiocopyright(
 ) -> str:
     obj = AudioCopyright(audiocopyright_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@audiocopyright_server.tool
+@wrapped_fn_tool
+def get_update_records(
+    audiocopyright_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AudioCopyright(audiocopyright_id).get_update_records(fields=fields, params=params)

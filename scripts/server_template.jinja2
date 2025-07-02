@@ -60,19 +60,19 @@ def delete_{{ module_path }}(
 {%- for method in edge_methods %}
 @{{ module_path }}_server.tool
 @wrapped_fn_tool
-def {{ method.name }}(
+def {{ method.method_name }}(
     {{ module_path }}_id: str,
-{%- if method.http_method == "GET" or method.name.startswith("get_") %}
+{%- if method.method == "GET" or method.method_name.startswith("get_") %}
     fields: list[str] = [],
-{%- elif method.http_method == "POST" and method.name.startswith("create_") %}
+{%- elif method.method == "POST" and method.method_name.startswith("create_") %}
     fields: list[str] = [],
 {%- endif %}
     params: dict[str, Any] = {},
 ):
-{%- if method.http_method == "GET" or method.name.startswith("get_") or (method.http_method == "POST" and method.name.startswith("create_")) %}
-    return {{ object_name }}({{ module_path }}_id).{{ method.name }}(fields=fields, params=params)
+{%- if method.method == "GET" or method.method_name.startswith("get_") or (method.method == "POST" and method.method_name.startswith("create_")) %}
+    return {{ object_name }}({{ module_path }}_id).{{ method.method_name }}(fields=fields, params=params)
 {%- else %}
-    return {{ object_name }}({{ module_path }}_id).{{ method.name }}(params=params)
+    return {{ object_name }}({{ module_path }}_id).{{ method.method_name }}(params=params)
 {%- endif %}
 
 {% endfor %}

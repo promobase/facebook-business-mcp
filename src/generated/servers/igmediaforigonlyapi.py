@@ -42,7 +42,27 @@ def update_igmediaforigonlyapi(
     return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (2) ----
+# ---- Edge Methods (4) ----
+@igmediaforigonlyapi_server.tool
+@wrapped_fn_tool
+def get_children(
+    igmediaforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).get_children(fields=fields, params=params)
+
+
+@igmediaforigonlyapi_server.tool
+@wrapped_fn_tool
+def get_comments(
+    igmediaforigonlyapi_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).get_comments(fields=fields, params=params)
+
+
 @igmediaforigonlyapi_server.tool
 @wrapped_fn_tool
 def create_comment(

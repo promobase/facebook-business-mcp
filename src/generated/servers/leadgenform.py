@@ -42,7 +42,27 @@ def update_leadgenform(
     return LeadgenForm(leadgenform_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (3) ----
+@leadgenform_server.tool
+@wrapped_fn_tool
+def get_leads(
+    leadgenform_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return LeadgenForm(leadgenform_id).get_leads(fields=fields, params=params)
+
+
+@leadgenform_server.tool
+@wrapped_fn_tool
+def get_test_leads(
+    leadgenform_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return LeadgenForm(leadgenform_id).get_test_leads(fields=fields, params=params)
+
+
 @leadgenform_server.tool
 @wrapped_fn_tool
 def create_test_lead(

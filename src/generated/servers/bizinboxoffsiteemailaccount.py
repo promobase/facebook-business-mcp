@@ -30,3 +30,16 @@ def get_bizinboxoffsiteemailaccount(
 ) -> str:
     obj = BizInboxOffsiteEmailAccount(bizinboxoffsiteemailaccount_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@bizinboxoffsiteemailaccount_server.tool
+@wrapped_fn_tool
+def get_assigned_users(
+    bizinboxoffsiteemailaccount_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return BizInboxOffsiteEmailAccount(bizinboxoffsiteemailaccount_id).get_assigned_users(
+        fields=fields, params=params
+    )

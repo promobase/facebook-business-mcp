@@ -30,3 +30,14 @@ def get_videolist(
 ) -> str:
     obj = VideoList(videolist_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@videolist_server.tool
+@wrapped_fn_tool
+def get_videos(
+    videolist_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return VideoList(videolist_id).get_videos(fields=fields, params=params)

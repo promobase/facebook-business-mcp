@@ -32,7 +32,7 @@ def get_album(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (5) ----
+# ---- Edge Methods (7) ----
 @album_server.tool
 @wrapped_fn_tool
 def get_comments(
@@ -55,12 +55,32 @@ def create_comment(
 
 @album_server.tool
 @wrapped_fn_tool
+def get_likes(
+    album_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Album(album_id).get_likes(fields=fields, params=params)
+
+
+@album_server.tool
+@wrapped_fn_tool
 def create_like(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return Album(album_id).create_like(fields=fields, params=params)
+
+
+@album_server.tool
+@wrapped_fn_tool
+def get_photos(
+    album_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Album(album_id).get_photos(fields=fields, params=params)
 
 
 @album_server.tool

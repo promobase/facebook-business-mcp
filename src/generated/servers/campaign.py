@@ -50,25 +50,35 @@ def delete_campaign(
     return Campaign(campaign_id).api_delete()
 
 
-# ---- Edge Methods (9) ----
+# ---- Edge Methods (10) ----
 @campaign_server.tool
 @wrapped_fn_tool
-def create_ad_label(
+def get_ad_studies(
     campaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Campaign(campaign_id).create_ad_label(fields=fields, params=params)
+    return Campaign(campaign_id).get_ad_studies(fields=fields, params=params)
 
 
 @campaign_server.tool
 @wrapped_fn_tool
-def get_ad_rules_governed(
+def create_adlabel(
     campaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Campaign(campaign_id).get_ad_rules_governed(fields=fields, params=params)
+    return Campaign(campaign_id).create_adlabel(fields=fields, params=params)
+
+
+@campaign_server.tool
+@wrapped_fn_tool
+def get_adrules_governed(
+    campaign_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Campaign(campaign_id).get_adrules_governed(fields=fields, params=params)
 
 
 @campaign_server.tool
@@ -83,12 +93,12 @@ def get_ads(
 
 @campaign_server.tool
 @wrapped_fn_tool
-def get_ad_sets(
+def get_adsets(
     campaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Campaign(campaign_id).get_ad_sets(fields=fields, params=params)
+    return Campaign(campaign_id).get_adsets(fields=fields, params=params)
 
 
 @campaign_server.tool
@@ -113,12 +123,12 @@ def get_copies(
 
 @campaign_server.tool
 @wrapped_fn_tool
-def create_copy(
+def create_copie(
     campaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Campaign(campaign_id).create_copy(fields=fields, params=params)
+    return Campaign(campaign_id).create_copie(fields=fields, params=params)
 
 
 @campaign_server.tool
@@ -133,9 +143,9 @@ def get_insights(
 
 @campaign_server.tool
 @wrapped_fn_tool
-def get_insights_async(
+def create_insight(
     campaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Campaign(campaign_id).get_insights_async(fields=fields, params=params)
+    return Campaign(campaign_id).create_insight(fields=fields, params=params)

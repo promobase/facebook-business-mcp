@@ -44,7 +44,43 @@ def update_fundraiserpersontocharity(
     )
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (4) ----
+@fundraiserpersontocharity_server.tool
+@wrapped_fn_tool
+def get_donations(
+    fundraiserpersontocharity_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return FundraiserPersonToCharity(fundraiserpersontocharity_id).get_donations(
+        fields=fields, params=params
+    )
+
+
+@fundraiserpersontocharity_server.tool
+@wrapped_fn_tool
+def create_end_fundraiser(
+    fundraiserpersontocharity_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return FundraiserPersonToCharity(fundraiserpersontocharity_id).create_end_fundraiser(
+        fields=fields, params=params
+    )
+
+
+@fundraiserpersontocharity_server.tool
+@wrapped_fn_tool
+def get_external_donations(
+    fundraiserpersontocharity_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return FundraiserPersonToCharity(fundraiserpersontocharity_id).get_external_donations(
+        fields=fields, params=params
+    )
+
+
 @fundraiserpersontocharity_server.tool
 @wrapped_fn_tool
 def create_external_donation(

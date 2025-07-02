@@ -40,3 +40,34 @@ def update_adstudycell(
     params: dict[str, Any] = {},
 ) -> str:
     return AdStudyCell(adstudycell_id).api_update(fields=fields, params=params)
+
+
+# ---- Edge Methods (3) ----
+@adstudycell_server.tool
+@wrapped_fn_tool
+def get_adaccounts(
+    adstudycell_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyCell(adstudycell_id).get_adaccounts(fields=fields, params=params)
+
+
+@adstudycell_server.tool
+@wrapped_fn_tool
+def get_adsets(
+    adstudycell_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyCell(adstudycell_id).get_adsets(fields=fields, params=params)
+
+
+@adstudycell_server.tool
+@wrapped_fn_tool
+def get_campaigns(
+    adstudycell_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyCell(adstudycell_id).get_campaigns(fields=fields, params=params)

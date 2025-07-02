@@ -42,15 +42,15 @@ def update_adspixel(
     return AdsPixel(adspixel_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (13) ----
+# ---- Edge Methods (17) ----
 @adspixel_server.tool
 @wrapped_fn_tool
-def get_ad_accounts(
+def get_adaccounts(
     adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdsPixel(adspixel_id).get_ad_accounts(fields=fields, params=params)
+    return AdsPixel(adspixel_id).get_adaccounts(fields=fields, params=params)
 
 
 @adspixel_server.tool
@@ -64,12 +64,22 @@ def delete_agencies(
 
 @adspixel_server.tool
 @wrapped_fn_tool
-def create_agency(
+def get_agencies(
     adspixel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdsPixel(adspixel_id).create_agency(fields=fields, params=params)
+    return AdsPixel(adspixel_id).get_agencies(fields=fields, params=params)
+
+
+@adspixel_server.tool
+@wrapped_fn_tool
+def create_agencie(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdsPixel(adspixel_id).create_agencie(fields=fields, params=params)
 
 
 @adspixel_server.tool
@@ -134,6 +144,26 @@ def get_offline_event_uploads(
 
 @adspixel_server.tool
 @wrapped_fn_tool
+def get_openbridge_configurations(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdsPixel(adspixel_id).get_openbridge_configurations(fields=fields, params=params)
+
+
+@adspixel_server.tool
+@wrapped_fn_tool
+def create_shadowtraffichelper(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdsPixel(adspixel_id).create_shadowtraffichelper(fields=fields, params=params)
+
+
+@adspixel_server.tool
+@wrapped_fn_tool
 def delete_shared_accounts(
     adspixel_id: str,
     params: dict[str, Any] = {},
@@ -159,6 +189,16 @@ def create_shared_account(
     params: dict[str, Any] = {},
 ):
     return AdsPixel(adspixel_id).create_shared_account(fields=fields, params=params)
+
+
+@adspixel_server.tool
+@wrapped_fn_tool
+def get_shared_agencies(
+    adspixel_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdsPixel(adspixel_id).get_shared_agencies(fields=fields, params=params)
 
 
 @adspixel_server.tool

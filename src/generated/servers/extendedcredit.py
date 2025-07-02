@@ -32,7 +32,19 @@ def get_extendedcredit(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (6) ----
+# ---- Edge Methods (7) ----
+@extendedcredit_server.tool
+@wrapped_fn_tool
+def get_extended_credit_invoice_groups(
+    extendedcredit_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ExtendedCredit(extendedcredit_id).get_extended_credit_invoice_groups(
+        fields=fields, params=params
+    )
+
+
 @extendedcredit_server.tool
 @wrapped_fn_tool
 def create_extended_credit_invoice_group(
@@ -71,35 +83,35 @@ def create_owning_credit_allocation_config(
 
 @extendedcredit_server.tool
 @wrapped_fn_tool
-def create_whats_app_credit_attach(
+def create_whatsapp_credit_attach(
     extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return ExtendedCredit(extendedcredit_id).create_whats_app_credit_attach(
+    return ExtendedCredit(extendedcredit_id).create_whatsapp_credit_attach(
         fields=fields, params=params
     )
 
 
 @extendedcredit_server.tool
 @wrapped_fn_tool
-def create_whats_app_credit_sharing(
+def create_whatsapp_credit_sharing(
     extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return ExtendedCredit(extendedcredit_id).create_whats_app_credit_sharing(
+    return ExtendedCredit(extendedcredit_id).create_whatsapp_credit_sharing(
         fields=fields, params=params
     )
 
 
 @extendedcredit_server.tool
 @wrapped_fn_tool
-def create_whats_app_credit_sharing_and_attach(
+def create_whatsapp_credit_sharing_and_attach(
     extendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return ExtendedCredit(extendedcredit_id).create_whats_app_credit_sharing_and_attach(
+    return ExtendedCredit(extendedcredit_id).create_whatsapp_credit_sharing_and_attach(
         fields=fields, params=params
     )

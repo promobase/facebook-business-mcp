@@ -50,7 +50,17 @@ def delete_pagepost(
     return PagePost(pagepost_id).api_delete()
 
 
-# ---- Edge Methods (6) ----
+# ---- Edge Methods (12) ----
+@pagepost_server.tool
+@wrapped_fn_tool
+def get_attachments(
+    pagepost_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return PagePost(pagepost_id).get_attachments(fields=fields, params=params)
+
+
 @pagepost_server.tool
 @wrapped_fn_tool
 def get_comments(
@@ -69,6 +79,16 @@ def create_comment(
     params: dict[str, Any] = {},
 ):
     return PagePost(pagepost_id).create_comment(fields=fields, params=params)
+
+
+@pagepost_server.tool
+@wrapped_fn_tool
+def get_dynamic_posts(
+    pagepost_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return PagePost(pagepost_id).get_dynamic_posts(fields=fields, params=params)
 
 
 @pagepost_server.tool
@@ -92,6 +112,16 @@ def delete_likes(
 
 @pagepost_server.tool
 @wrapped_fn_tool
+def get_likes(
+    pagepost_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return PagePost(pagepost_id).get_likes(fields=fields, params=params)
+
+
+@pagepost_server.tool
+@wrapped_fn_tool
 def create_like(
     pagepost_id: str,
     fields: list[str] = [],
@@ -108,3 +138,33 @@ def get_reactions(
     params: dict[str, Any] = {},
 ):
     return PagePost(pagepost_id).get_reactions(fields=fields, params=params)
+
+
+@pagepost_server.tool
+@wrapped_fn_tool
+def get_sharedposts(
+    pagepost_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return PagePost(pagepost_id).get_sharedposts(fields=fields, params=params)
+
+
+@pagepost_server.tool
+@wrapped_fn_tool
+def get_sponsor_tags(
+    pagepost_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return PagePost(pagepost_id).get_sponsor_tags(fields=fields, params=params)
+
+
+@pagepost_server.tool
+@wrapped_fn_tool
+def get_to(
+    pagepost_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return PagePost(pagepost_id).get_to(fields=fields, params=params)

@@ -44,7 +44,19 @@ def delete_whatsappbusinesspreverifiedphonenumber(
     ).api_delete()
 
 
-# ---- Edge Methods (2) ----
+# ---- Edge Methods (3) ----
+@whatsappbusinesspreverifiedphonenumber_server.tool
+@wrapped_fn_tool
+def get_partners(
+    whatsappbusinesspreverifiedphonenumber_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return WhatsAppBusinessPreVerifiedPhoneNumber(
+        whatsappbusinesspreverifiedphonenumber_id
+    ).get_partners(fields=fields, params=params)
+
+
 @whatsappbusinesspreverifiedphonenumber_server.tool
 @wrapped_fn_tool
 def create_request_code(

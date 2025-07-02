@@ -32,12 +32,42 @@ def get_instagramuser(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (4) ----
 @instagramuser_server.tool
 @wrapped_fn_tool
-def get_authorized_ad_accounts(
+def get_agencies(
     instagramuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return InstagramUser(instagramuser_id).get_authorized_ad_accounts(fields=fields, params=params)
+    return InstagramUser(instagramuser_id).get_agencies(fields=fields, params=params)
+
+
+@instagramuser_server.tool
+@wrapped_fn_tool
+def get_ar_effects(
+    instagramuser_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return InstagramUser(instagramuser_id).get_ar_effects(fields=fields, params=params)
+
+
+@instagramuser_server.tool
+@wrapped_fn_tool
+def get_authorized_adaccounts(
+    instagramuser_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return InstagramUser(instagramuser_id).get_authorized_adaccounts(fields=fields, params=params)
+
+
+@instagramuser_server.tool
+@wrapped_fn_tool
+def get_upcoming_events(
+    instagramuser_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return InstagramUser(instagramuser_id).get_upcoming_events(fields=fields, params=params)

@@ -40,3 +40,14 @@ def update_cpaslsbimagebank(
     params: dict[str, Any] = {},
 ) -> str:
     return CPASLsbImageBank(cpaslsbimagebank_id).api_update(fields=fields, params=params)
+
+
+# ---- Edge Methods (1) ----
+@cpaslsbimagebank_server.tool
+@wrapped_fn_tool
+def get_backup_images(
+    cpaslsbimagebank_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return CPASLsbImageBank(cpaslsbimagebank_id).get_backup_images(fields=fields, params=params)

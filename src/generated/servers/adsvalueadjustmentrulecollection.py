@@ -44,3 +44,28 @@ def update_adsvalueadjustmentrulecollection(
     return AdsValueAdjustmentRuleCollection(adsvalueadjustmentrulecollection_id).api_update(
         fields=fields, params=params
     )
+
+
+# ---- Edge Methods (2) ----
+@adsvalueadjustmentrulecollection_server.tool
+@wrapped_fn_tool
+def create_delete_rule_set(
+    adsvalueadjustmentrulecollection_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdsValueAdjustmentRuleCollection(
+        adsvalueadjustmentrulecollection_id
+    ).create_delete_rule_set(fields=fields, params=params)
+
+
+@adsvalueadjustmentrulecollection_server.tool
+@wrapped_fn_tool
+def get_rules(
+    adsvalueadjustmentrulecollection_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdsValueAdjustmentRuleCollection(adsvalueadjustmentrulecollection_id).get_rules(
+        fields=fields, params=params
+    )

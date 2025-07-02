@@ -32,7 +32,17 @@ def get_productfeedupload(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
+@productfeedupload_server.tool
+@wrapped_fn_tool
+def create_error_report(
+    productfeedupload_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductFeedUpload(productfeedupload_id).create_error_report(fields=fields, params=params)
+
+
 @productfeedupload_server.tool
 @wrapped_fn_tool
 def get_errors(

@@ -50,15 +50,25 @@ def delete_adcreative(
     return AdCreative(adcreative_id).api_delete()
 
 
-# ---- Edge Methods (2) ----
+# ---- Edge Methods (3) ----
 @adcreative_server.tool
 @wrapped_fn_tool
-def create_ad_label(
+def create_adlabel(
     adcreative_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdCreative(adcreative_id).create_ad_label(fields=fields, params=params)
+    return AdCreative(adcreative_id).create_adlabel(fields=fields, params=params)
+
+
+@adcreative_server.tool
+@wrapped_fn_tool
+def get_creative_insights(
+    adcreative_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdCreative(adcreative_id).get_creative_insights(fields=fields, params=params)
 
 
 @adcreative_server.tool

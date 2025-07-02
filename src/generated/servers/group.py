@@ -42,7 +42,7 @@ def update_group(
     return Group(group_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (13) ----
+# ---- Edge Methods (19) ----
 @group_server.tool
 @wrapped_fn_tool
 def delete_admins(
@@ -64,6 +64,36 @@ def create_admin(
 
 @group_server.tool
 @wrapped_fn_tool
+def get_albums(
+    group_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Group(group_id).get_albums(fields=fields, params=params)
+
+
+@group_server.tool
+@wrapped_fn_tool
+def get_docs(
+    group_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Group(group_id).get_docs(fields=fields, params=params)
+
+
+@group_server.tool
+@wrapped_fn_tool
+def get_events(
+    group_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Group(group_id).get_events(fields=fields, params=params)
+
+
+@group_server.tool
+@wrapped_fn_tool
 def get_feed(
     group_id: str,
     fields: list[str] = [],
@@ -80,6 +110,26 @@ def create_feed(
     params: dict[str, Any] = {},
 ):
     return Group(group_id).create_feed(fields=fields, params=params)
+
+
+@group_server.tool
+@wrapped_fn_tool
+def get_files(
+    group_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Group(group_id).get_files(fields=fields, params=params)
+
+
+@group_server.tool
+@wrapped_fn_tool
+def get_groups(
+    group_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Group(group_id).get_groups(fields=fields, params=params)
 
 
 @group_server.tool
@@ -129,6 +179,16 @@ def create_member(
     params: dict[str, Any] = {},
 ):
     return Group(group_id).create_member(fields=fields, params=params)
+
+
+@group_server.tool
+@wrapped_fn_tool
+def get_opted_in_members(
+    group_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Group(group_id).get_opted_in_members(fields=fields, params=params)
 
 
 @group_server.tool

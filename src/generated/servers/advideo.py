@@ -50,15 +50,45 @@ def delete_advideo(
     return AdVideo(advideo_id).api_delete()
 
 
-# ---- Edge Methods (9) ----
+# ---- Edge Methods (19) ----
 @advideo_server.tool
 @wrapped_fn_tool
-def create_cap_t_i_on(
+def get_boost_ads_list(
     advideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdVideo(advideo_id).create_cap_t_i_on(fields=fields, params=params)
+    return AdVideo(advideo_id).get_boost_ads_list(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def get_captions(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_captions(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def create_caption(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).create_caption(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def get_collaborators(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_collaborators(fields=fields, params=params)
 
 
 @advideo_server.tool
@@ -93,12 +123,32 @@ def create_comment(
 
 @advideo_server.tool
 @wrapped_fn_tool
+def get_crosspost_shared_pages(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_crosspost_shared_pages(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
 def create_gaming_clip_create(
     advideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return AdVideo(advideo_id).create_gaming_clip_create(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def get_likes(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_likes(fields=fields, params=params)
 
 
 @advideo_server.tool
@@ -113,12 +163,62 @@ def create_like(
 
 @advideo_server.tool
 @wrapped_fn_tool
+def get_poll_settings(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_poll_settings(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def get_polls(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_polls(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
 def create_poll(
     advideo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return AdVideo(advideo_id).create_poll(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def get_sponsor_tags(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_sponsor_tags(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def get_tags(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_tags(fields=fields, params=params)
+
+
+@advideo_server.tool
+@wrapped_fn_tool
+def get_thumbnails(
+    advideo_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdVideo(advideo_id).get_thumbnails(fields=fields, params=params)
 
 
 @advideo_server.tool

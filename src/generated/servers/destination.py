@@ -32,7 +32,19 @@ def get_destination(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (3) ----
+@destination_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    destination_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Destination(destination_id).get_channels_to_integrity_status(
+        fields=fields, params=params
+    )
+
+
 @destination_server.tool
 @wrapped_fn_tool
 def get_override_details(
@@ -41,3 +53,13 @@ def get_override_details(
     params: dict[str, Any] = {},
 ):
     return Destination(destination_id).get_override_details(fields=fields, params=params)
+
+
+@destination_server.tool
+@wrapped_fn_tool
+def get_videos_metadata(
+    destination_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Destination(destination_id).get_videos_metadata(fields=fields, params=params)

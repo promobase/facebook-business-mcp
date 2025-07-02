@@ -50,7 +50,17 @@ def delete_post(
     return Post(post_id).api_delete()
 
 
-# ---- Edge Methods (6) ----
+# ---- Edge Methods (11) ----
+@post_server.tool
+@wrapped_fn_tool
+def get_attachments(
+    post_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Post(post_id).get_attachments(fields=fields, params=params)
+
+
 @post_server.tool
 @wrapped_fn_tool
 def get_comments(
@@ -69,6 +79,16 @@ def create_comment(
     params: dict[str, Any] = {},
 ):
     return Post(post_id).create_comment(fields=fields, params=params)
+
+
+@post_server.tool
+@wrapped_fn_tool
+def get_dynamic_posts(
+    post_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Post(post_id).get_dynamic_posts(fields=fields, params=params)
 
 
 @post_server.tool
@@ -108,3 +128,33 @@ def get_reactions(
     params: dict[str, Any] = {},
 ):
     return Post(post_id).get_reactions(fields=fields, params=params)
+
+
+@post_server.tool
+@wrapped_fn_tool
+def get_sharedposts(
+    post_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Post(post_id).get_sharedposts(fields=fields, params=params)
+
+
+@post_server.tool
+@wrapped_fn_tool
+def get_sponsor_tags(
+    post_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Post(post_id).get_sponsor_tags(fields=fields, params=params)
+
+
+@post_server.tool
+@wrapped_fn_tool
+def get_to(
+    post_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Post(post_id).get_to(fields=fields, params=params)

@@ -50,7 +50,19 @@ def delete_productitem(
     return ProductItem(productitem_id).api_delete()
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (4) ----
+@productitem_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    productitem_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductItem(productitem_id).get_channels_to_integrity_status(
+        fields=fields, params=params
+    )
+
+
 @productitem_server.tool
 @wrapped_fn_tool
 def get_override_details(
@@ -59,3 +71,23 @@ def get_override_details(
     params: dict[str, Any] = {},
 ):
     return ProductItem(productitem_id).get_override_details(fields=fields, params=params)
+
+
+@productitem_server.tool
+@wrapped_fn_tool
+def get_product_sets(
+    productitem_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductItem(productitem_id).get_product_sets(fields=fields, params=params)
+
+
+@productitem_server.tool
+@wrapped_fn_tool
+def get_videos_metadata(
+    productitem_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductItem(productitem_id).get_videos_metadata(fields=fields, params=params)

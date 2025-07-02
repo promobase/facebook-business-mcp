@@ -1,0 +1,71 @@
+"""Code generated from Facebook API specs - DO NOT EDIT MANUALLY."""
+
+from __future__ import annotations
+from datetime import datetime
+from enum import Enum
+from typing import Any, Literal, TYPE_CHECKING
+
+from pydantic import BaseModel, ConfigDict, Field
+
+{%- if model_enums %}
+
+# Enums for this model
+{%- for enum in model_enums %}
+class {{ enum.name }}(str, Enum):
+    """{{ enum.name }} enum values."""
+{%- for python_name, value in enum.values %}
+{%- if python_name == "value_try" %}
+    TRY_ = "{{ value }}"
+{%- else %}
+    {{ python_name }} = "{{ value }}"
+{%- endif %}
+{%- endfor %}
+
+{% endfor %}
+{%- endif %}
+
+# Field literal type
+{%- if field_literals %}
+{%- if field_literals|length > 5 %}
+{{ spec.name }}Field = Literal[
+{%- for literal in field_literals %}
+    {{ literal }}{{ "," if not loop.last else "" }}
+{%- endfor %}
+]
+{%- else %}
+{{ spec.name }}Field = Literal[{{ field_literals|join(", ") }}]
+{%- endif %}
+{%- else %}
+{{ spec.name }}Field = Literal['']  # No fields defined
+{%- endif %}
+
+
+class {{ spec.name }}Fields(BaseModel):
+    """Pydantic model for {{ spec.name }} fields."""
+{%- if spec.fields %}
+{%- for field in spec.fields %}
+    {{ field.python_name }}: {{ field.python_type }} | None = Field(None, alias="{{ field.name }}"{{ ', description="' + field.description + '"' if field.description else '' }})
+{%- endfor %}
+{%- else %}
+    pass  # No fields defined
+{%- endif %}
+
+    model_config = ConfigDict(
+        populate_by_alias=True,
+        extra='forbid'
+    )
+
+{% for param_model in param_models %}
+
+class {{ param_model.name }}(BaseModel):
+    """Parameters for {{ spec.name }}.{{ param_model.method_name }}()."""
+{%- for field in param_model.fields %}
+{%- if field.python_name != field.name %}
+    {{ field.python_name }}: {{ enums[field.enum_type].name if field.enum_type else field.type }}{{ "" if field.required else " | None" }} = Field({{ "..." if field.required else "None" }}, alias="{{ field.name }}", description="{{ field.name }} parameter")
+{%- else %}
+    {{ field.python_name }}: {{ enums[field.enum_type].name if field.enum_type else field.type }}{{ "" if field.required else " | None" }} = Field({{ "..." if field.required else "None" }}, description="{{ field.name }} parameter")
+{%- endif %}
+{%- endfor %}
+
+    model_config = ConfigDict(extra='forbid')
+{% endfor %}

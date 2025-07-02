@@ -42,12 +42,22 @@ def update_canvas(
     return Canvas(canvas_id).api_update(fields=fields, params=params)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
 @canvas_server.tool
 @wrapped_fn_tool
-def get_pre_views(
+def get_preview(
     canvas_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return Canvas(canvas_id).get_pre_views(fields=fields, params=params)
+    return Canvas(canvas_id).get_preview(fields=fields, params=params)
+
+
+@canvas_server.tool
+@wrapped_fn_tool
+def get_previews(
+    canvas_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return Canvas(canvas_id).get_previews(fields=fields, params=params)

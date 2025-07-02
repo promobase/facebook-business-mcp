@@ -40,3 +40,78 @@ def update_adstudyobjective(
     params: dict[str, Any] = {},
 ) -> str:
     return AdStudyObjective(adstudyobjective_id).api_update(fields=fields, params=params)
+
+
+# ---- Edge Methods (7) ----
+@adstudyobjective_server.tool
+@wrapped_fn_tool
+def get_adspixels(
+    adstudyobjective_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyObjective(adstudyobjective_id).get_adspixels(fields=fields, params=params)
+
+
+@adstudyobjective_server.tool
+@wrapped_fn_tool
+def get_applications(
+    adstudyobjective_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyObjective(adstudyobjective_id).get_applications(fields=fields, params=params)
+
+
+@adstudyobjective_server.tool
+@wrapped_fn_tool
+def get_brand_requests(
+    adstudyobjective_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyObjective(adstudyobjective_id).get_brand_requests(fields=fields, params=params)
+
+
+@adstudyobjective_server.tool
+@wrapped_fn_tool
+def get_customconversions(
+    adstudyobjective_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyObjective(adstudyobjective_id).get_customconversions(fields=fields, params=params)
+
+
+@adstudyobjective_server.tool
+@wrapped_fn_tool
+def get_offline_conversion_data_sets(
+    adstudyobjective_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyObjective(adstudyobjective_id).get_offline_conversion_data_sets(
+        fields=fields, params=params
+    )
+
+
+@adstudyobjective_server.tool
+@wrapped_fn_tool
+def get_partner_private_studies(
+    adstudyobjective_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyObjective(adstudyobjective_id).get_partner_private_studies(
+        fields=fields, params=params
+    )
+
+
+@adstudyobjective_server.tool
+@wrapped_fn_tool
+def get_partnerstudies(
+    adstudyobjective_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdStudyObjective(adstudyobjective_id).get_partnerstudies(fields=fields, params=params)

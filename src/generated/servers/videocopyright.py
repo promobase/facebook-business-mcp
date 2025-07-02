@@ -40,3 +40,14 @@ def update_videocopyright(
     params: dict[str, Any] = {},
 ) -> str:
     return VideoCopyright(videocopyright_id).api_update(fields=fields, params=params)
+
+
+# ---- Edge Methods (1) ----
+@videocopyright_server.tool
+@wrapped_fn_tool
+def get_update_records(
+    videocopyright_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return VideoCopyright(videocopyright_id).get_update_records(fields=fields, params=params)

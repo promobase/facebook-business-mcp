@@ -30,3 +30,14 @@ def get_lifeevent(
 ) -> str:
     obj = LifeEvent(lifeevent_id)
     return obj.api_get(fields=fields)
+
+
+# ---- Edge Methods (1) ----
+@lifeevent_server.tool
+@wrapped_fn_tool
+def get_likes(
+    lifeevent_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return LifeEvent(lifeevent_id).get_likes(fields=fields, params=params)

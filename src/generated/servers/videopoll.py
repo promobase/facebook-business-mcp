@@ -40,3 +40,14 @@ def update_videopoll(
     params: dict[str, Any] = {},
 ) -> str:
     return VideoPoll(videopoll_id).api_update(fields=fields, params=params)
+
+
+# ---- Edge Methods (1) ----
+@videopoll_server.tool
+@wrapped_fn_tool
+def get_poll_options(
+    videopoll_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return VideoPoll(videopoll_id).get_poll_options(fields=fields, params=params)

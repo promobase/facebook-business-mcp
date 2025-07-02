@@ -50,7 +50,16 @@ def delete_user(
     return User(user_id).api_delete()
 
 
-# ---- Edge Methods (35) ----
+# ---- Edge Methods (52) ----
+@user_server.tool
+@wrapped_fn_tool
+def delete_access_tokens(
+    user_id: str,
+    params: dict[str, Any] = {},
+):
+    return User(user_id).delete_access_tokens(params=params)
+
+
 @user_server.tool
 @wrapped_fn_tool
 def create_access_token(
@@ -83,12 +92,42 @@ def create_account(
 
 @user_server.tool
 @wrapped_fn_tool
-def create_ad_study(
+def get_ad_studies(
     user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return User(user_id).create_ad_study(fields=fields, params=params)
+    return User(user_id).get_ad_studies(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def create_ad_studie(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).create_ad_studie(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_adaccounts(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_adaccounts(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_albums(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_albums(fields=fields, params=params)
 
 
 @user_server.tool
@@ -99,6 +138,46 @@ def create_application(
     params: dict[str, Any] = {},
 ):
     return User(user_id).create_application(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_apprequestformerrecipients(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_apprequestformerrecipients(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_apprequests(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_apprequests(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_assigned_ad_accounts(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_assigned_ad_accounts(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_assigned_applications(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_assigned_applications(fields=fields, params=params)
 
 
 @user_server.tool
@@ -123,6 +202,36 @@ def get_assigned_pages(
 
 @user_server.tool
 @wrapped_fn_tool
+def get_assigned_product_catalogs(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_assigned_product_catalogs(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_avatars(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_avatars(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_business_users(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_business_users(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
 def delete_businesses(
     user_id: str,
     params: dict[str, Any] = {},
@@ -132,12 +241,22 @@ def delete_businesses(
 
 @user_server.tool
 @wrapped_fn_tool
-def create_business(
+def get_businesses(
     user_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return User(user_id).create_business(fields=fields, params=params)
+    return User(user_id).get_businesses(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def create_businesse(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).create_businesse(fields=fields, params=params)
 
 
 @user_server.tool
@@ -148,6 +267,16 @@ def get_conversations(
     params: dict[str, Any] = {},
 ):
     return User(user_id).get_conversations(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_custom_labels(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_custom_labels(fields=fields, params=params)
 
 
 @user_server.tool
@@ -188,6 +317,16 @@ def get_friends(
     params: dict[str, Any] = {},
 ):
     return User(user_id).get_friends(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_fundraisers(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_fundraisers(fields=fields, params=params)
 
 
 @user_server.tool
@@ -272,6 +411,16 @@ def create_live_video(
 
 @user_server.tool
 @wrapped_fn_tool
+def create_messenger_desktop_performance_trace(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).create_messenger_desktop_performance_trace(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
 def create_messenger_kids_accounts_unread_badge(
     user_id: str,
     fields: list[str] = [],
@@ -302,6 +451,16 @@ def create_notification(
 
 @user_server.tool
 @wrapped_fn_tool
+def get_payment_transactions(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_payment_transactions(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
 def delete_permissions(
     user_id: str,
     params: dict[str, Any] = {},
@@ -317,6 +476,16 @@ def get_permissions(
     params: dict[str, Any] = {},
 ):
     return User(user_id).get_permissions(fields=fields, params=params)
+
+
+@user_server.tool
+@wrapped_fn_tool
+def get_personal_ad_accounts(
+    user_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return User(user_id).get_personal_ad_accounts(fields=fields, params=params)
 
 
 @user_server.tool

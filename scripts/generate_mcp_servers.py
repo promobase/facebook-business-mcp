@@ -6,12 +6,86 @@ with full type safety using the generated Pydantic models.
 """
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from generate_models import AdObjectInfo, ApiMethodInfo, FacebookSDKParser
+from generate_models_unified import AdObjectSpec, ApiMethodInfo, load_spec_file
 from jinja2 import Template
+
+
+@dataclass
+class AdObjectInfo:
+    """Information about a Facebook AdObject extracted from API specs."""
+
+    name: str  # e.g., "Campaign"
+    module_path: str  # e.g., "campaign"
+    has_api_get: bool = False
+    has_api_update: bool = False
+    has_api_delete: bool = False
+    api_methods: list[ApiMethodInfo] = field(default_factory=list)  # Edge methods
+
+
+class APISpecParser:
+    """Parser for API spec JSON files to extract AdObject information."""
+
+    def __init__(self):
+        # Path to the API specs
+        self.specs_path = Path("api_specs/specs")
+        # Path to SDK to check which AdObjects have CRUD methods
+        self.sdk_path = Path("/Users/ruizeli/dev/promobase/facebook-python-business-sdk")
+        self.adobjects_path = self.sdk_path / "facebook_business" / "adobjects"
+
+    def find_spec_files(self) -> list[Path]:
+        """Find all spec JSON files."""
+        if not self.specs_path.exists():
+            return []
+        return [f for f in self.specs_path.glob("*.json") if f.name != "enum_types.json"]
+
+    def check_crud_methods(self, module_path: str) -> tuple[bool, bool, bool]:
+        """Check if the AdObject has CRUD methods in the SDK."""
+        sdk_file = self.adobjects_path / f"{module_path}.py"
+        if not sdk_file.exists():
+            return False, False, False
+
+        try:
+            with open(sdk_file) as f:
+                content = f.read()
+
+            has_get = bool(re.search(r"def\s+api_get\s*\(", content))
+            has_update = bool(re.search(r"def\s+api_update\s*\(", content))
+            has_delete = bool(re.search(r"def\s+api_delete\s*\(", content))
+
+            return has_get, has_update, has_delete
+        except:
+            return False, False, False
+
+    def parse_spec_file(self, file_path: Path) -> Optional[AdObjectInfo]:
+        """Parse a single spec file to extract AdObject information."""
+        try:
+            # Load spec using the unified loader
+            spec = load_spec_file(file_path, set())
+            if not spec:
+                return None
+
+            # Check for CRUD methods in SDK
+            has_get, has_update, has_delete = self.check_crud_methods(spec.module_path)
+
+            # Create AdObjectInfo
+            info = AdObjectInfo(
+                name=spec.name,
+                module_path=spec.module_path,
+                has_api_get=has_get,
+                has_api_update=has_update,
+                has_api_delete=has_delete,
+                api_methods=spec.apis,
+            )
+
+            return info
+
+        except Exception as e:
+            print(f"Error parsing {file_path}: {e}")
+            return None
 
 
 @dataclass
@@ -61,7 +135,7 @@ class MCPServerGenerator:
     """Generate MCP servers with typed wrappers for AdObjects."""
 
     def __init__(self):
-        self.parser = FacebookSDKParser()
+        self.parser = APISpecParser()
         # Load the Jinja templates
         template_path = Path(__file__).parent / "server_template.jinja2"
         with open(template_path) as f:
@@ -77,26 +151,13 @@ class MCPServerGenerator:
             return None
 
         server_info = MCPServerInfo(
-            object_name=adobject_info.name, module_path=adobject_info.module_path
+            object_name=adobject_info.name,
+            module_path=adobject_info.module_path,
+            has_api_get=adobject_info.has_api_get,
+            has_api_update=adobject_info.has_api_update,
+            has_api_delete=adobject_info.has_api_delete,
+            edge_methods=adobject_info.api_methods,
         )
-
-        # Check for CRUD operations
-        for method in adobject_info.instance_methods:
-            if method == "api_get":
-                server_info.has_api_get = True
-            elif method == "api_update":
-                server_info.has_api_update = True
-                # Check if we have update_params
-                if adobject_info.update_params:
-                    server_info.has_update_params = True
-            elif method == "api_delete":
-                server_info.has_api_delete = True
-
-        # Then check for edge methods (API methods)
-        for method in adobject_info.api_methods:
-            if method.http_method and method.endpoint:
-                # Edge methods (get_*, create_*, delete_*)
-                server_info.edge_methods.append(method)
 
         return server_info if server_info.needs_server else None
 
@@ -152,8 +213,8 @@ def main():
     output_dir = Path("src/generated/servers")
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Process all AdObject files
-    adobject_files = parser.find_adobject_files()
+    # Process all spec files
+    spec_files = parser.find_spec_files()
 
     # Filter and analyze
     server_infos = []
@@ -161,18 +222,10 @@ def main():
     total_crud_objects = 0
     total_edge_methods = 0
 
-    print("Analyzing AdObjects for MCP server generation...")
+    print("Analyzing API specs for MCP server generation...")
 
-    for file_path in adobject_files:
-        # Skip special files
-        if file_path.stem.startswith("__") or file_path.stem in [
-            "abstractobject",
-            "abstractcrudobject",
-            "apispecfile",
-        ]:
-            continue
-
-        adobject_info = parser.parse_file(file_path)
+    for spec_file in spec_files:
+        adobject_info = parser.parse_spec_file(spec_file)
         if adobject_info:
             server_info = generator.analyze_adobject(adobject_info)
             if server_info:

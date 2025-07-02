@@ -114,6 +114,7 @@ from .collaborativeadssharesettings import collaborativeadssharesettings_server
 from .comment import comment_server
 from .commercemerchantsettings import commercemerchantsettings_server
 from .commerceorder import commerceorder_server
+from .commerceordertransactiondetail import commerceordertransactiondetail_server
 from .contentblocklist import contentblocklist_server
 from .copyrightmediamisuse import copyrightmediamisuse_server
 from .copyrightownershiptransfer import copyrightownershiptransfer_server
@@ -424,6 +425,7 @@ __all__ = [
     "comment_server",
     "commercemerchantsettings_server",
     "commerceorder_server",
+    "commerceordertransactiondetail_server",
     "contentblocklist_server",
     "copyrightmediamisuse_server",
     "copyrightownershiptransfer_server",

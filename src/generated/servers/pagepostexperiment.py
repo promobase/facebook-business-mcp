@@ -38,3 +38,16 @@ def delete_pagepostexperiment(
     pagepostexperiment_id: str,
 ) -> str:
     return PagePostExperiment(pagepostexperiment_id).api_delete()
+
+
+# ---- Edge Methods (1) ----
+@pagepostexperiment_server.tool
+@wrapped_fn_tool
+def get_video_insights(
+    pagepostexperiment_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return PagePostExperiment(pagepostexperiment_id).get_video_insights(
+        fields=fields, params=params
+    )

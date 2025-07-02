@@ -50,7 +50,19 @@ def delete_homelisting(
     return HomeListing(homelisting_id).api_delete()
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (3) ----
+@homelisting_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    homelisting_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return HomeListing(homelisting_id).get_channels_to_integrity_status(
+        fields=fields, params=params
+    )
+
+
 @homelisting_server.tool
 @wrapped_fn_tool
 def get_override_details(
@@ -59,3 +71,13 @@ def get_override_details(
     params: dict[str, Any] = {},
 ):
     return HomeListing(homelisting_id).get_override_details(fields=fields, params=params)
+
+
+@homelisting_server.tool
+@wrapped_fn_tool
+def get_videos_metadata(
+    homelisting_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return HomeListing(homelisting_id).get_videos_metadata(fields=fields, params=params)

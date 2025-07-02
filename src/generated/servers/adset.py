@@ -50,7 +50,7 @@ def delete_adset(
     return AdSet(adset_id).api_delete()
 
 
-# ---- Edge Methods (13) ----
+# ---- Edge Methods (16) ----
 @adset_server.tool
 @wrapped_fn_tool
 def get_activities(
@@ -63,31 +63,51 @@ def get_activities(
 
 @adset_server.tool
 @wrapped_fn_tool
-def delete_ad_labels(
-    adset_id: str,
-    params: dict[str, Any] = {},
-):
-    return AdSet(adset_id).delete_ad_labels(params=params)
-
-
-@adset_server.tool
-@wrapped_fn_tool
-def create_ad_label(
+def get_ad_studies(
     adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdSet(adset_id).create_ad_label(fields=fields, params=params)
+    return AdSet(adset_id).get_ad_studies(fields=fields, params=params)
 
 
 @adset_server.tool
 @wrapped_fn_tool
-def get_ad_rules_governed(
+def get_adcreatives(
     adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdSet(adset_id).get_ad_rules_governed(fields=fields, params=params)
+    return AdSet(adset_id).get_adcreatives(fields=fields, params=params)
+
+
+@adset_server.tool
+@wrapped_fn_tool
+def delete_adlabels(
+    adset_id: str,
+    params: dict[str, Any] = {},
+):
+    return AdSet(adset_id).delete_adlabels(params=params)
+
+
+@adset_server.tool
+@wrapped_fn_tool
+def create_adlabel(
+    adset_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdSet(adset_id).create_adlabel(fields=fields, params=params)
+
+
+@adset_server.tool
+@wrapped_fn_tool
+def get_adrules_governed(
+    adset_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdSet(adset_id).get_adrules_governed(fields=fields, params=params)
 
 
 @adset_server.tool
@@ -102,12 +122,12 @@ def get_ads(
 
 @adset_server.tool
 @wrapped_fn_tool
-def get_async_ad_requests(
+def get_asyncadrequests(
     adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdSet(adset_id).get_async_ad_requests(fields=fields, params=params)
+    return AdSet(adset_id).get_asyncadrequests(fields=fields, params=params)
 
 
 @adset_server.tool
@@ -132,12 +152,12 @@ def get_copies(
 
 @adset_server.tool
 @wrapped_fn_tool
-def create_copy(
+def create_copie(
     adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdSet(adset_id).create_copy(fields=fields, params=params)
+    return AdSet(adset_id).create_copie(fields=fields, params=params)
 
 
 @adset_server.tool
@@ -162,12 +182,12 @@ def get_insights(
 
 @adset_server.tool
 @wrapped_fn_tool
-def get_insights_async(
+def create_insight(
     adset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
-    return AdSet(adset_id).get_insights_async(fields=fields, params=params)
+    return AdSet(adset_id).create_insight(fields=fields, params=params)
 
 
 @adset_server.tool
@@ -178,3 +198,13 @@ def get_message_delivery_estimate(
     params: dict[str, Any] = {},
 ):
     return AdSet(adset_id).get_message_delivery_estimate(fields=fields, params=params)
+
+
+@adset_server.tool
+@wrapped_fn_tool
+def get_targetingsentencelines(
+    adset_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return AdSet(adset_id).get_targetingsentencelines(fields=fields, params=params)

@@ -50,7 +50,7 @@ def delete_productfeed(
     return ProductFeed(productfeed_id).api_delete()
 
 
-# ---- Edge Methods (13) ----
+# ---- Edge Methods (16) ----
 @productfeed_server.tool
 @wrapped_fn_tool
 def get_automotive_models(
@@ -123,6 +123,16 @@ def get_products(
 
 @productfeed_server.tool
 @wrapped_fn_tool
+def get_rules(
+    productfeed_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductFeed(productfeed_id).get_rules(fields=fields, params=params)
+
+
+@productfeed_server.tool
+@wrapped_fn_tool
 def create_rule(
     productfeed_id: str,
     fields: list[str] = [],
@@ -143,12 +153,32 @@ def create_supplementary_feed_assoc(
 
 @productfeed_server.tool
 @wrapped_fn_tool
+def get_upload_schedules(
+    productfeed_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductFeed(productfeed_id).get_upload_schedules(fields=fields, params=params)
+
+
+@productfeed_server.tool
+@wrapped_fn_tool
 def create_upload_schedule(
     productfeed_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ):
     return ProductFeed(productfeed_id).create_upload_schedule(fields=fields, params=params)
+
+
+@productfeed_server.tool
+@wrapped_fn_tool
+def get_uploads(
+    productfeed_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return ProductFeed(productfeed_id).get_uploads(fields=fields, params=params)
 
 
 @productfeed_server.tool

@@ -126,9 +126,17 @@ from .adaccountadsrecommendedaudios import (
 )
 from .adaccountadvolume import AdaccountadvolumeField, AdaccountadvolumeFields
 from .adaccountagencyfeeconfig import AdaccountagencyfeeconfigField, AdaccountagencyfeeconfigFields
+from .adaccountallpaymentmethods import (
+    AdaccountallpaymentmethodsField,
+    AdaccountallpaymentmethodsFields,
+)
 from .adaccountamountspenthistory import (
     AdaccountamountspenthistoryField,
     AdaccountamountspenthistoryFields,
+)
+from .adaccountappsetuprequirements import (
+    AdaccountappsetuprequirementsField,
+    AdaccountappsetuprequirementsFields,
 )
 from .adaccountaslschedule import AdaccountaslscheduleField, AdaccountaslscheduleFields
 from .adaccountbankinfolist import AdaccountbankinfolistField, AdaccountbankinfolistFields
@@ -199,6 +207,7 @@ from .adaccountrecommendedcamapaignbudget import (
     AdaccountrecommendedcamapaignbudgetField,
     AdaccountrecommendedcamapaignbudgetFields,
 )
+from .adaccountrelatedicostudy import AdaccountrelatedicostudyField, AdaccountrelatedicostudyFields
 from .adaccountsmartsuggestedads import (
     AdaccountsmartsuggestedadsField,
     AdaccountsmartsuggestedadsFields,
@@ -414,6 +423,14 @@ from .adcreativeformattransformationspec import (
     AdcreativeformattransformationspecField,
     AdcreativeformattransformationspecFields,
 )
+from .adcreativegenerativeassetspec import (
+    AdcreativegenerativeassetspecField,
+    AdcreativegenerativeassetspecFields,
+)
+from .adcreativehouseshopsadssellercontent import (
+    AdcreativehouseshopsadssellercontentField,
+    AdcreativehouseshopsadssellercontentFields,
+)
 from .adcreativeimagedatamediaelements import (
     AdcreativeimagedatamediaelementsField,
     AdcreativeimagedatamediaelementsFields,
@@ -468,6 +485,10 @@ from .adcreativelinkdatatemplatevideospec import (
 from .adcreativemarketingmessagestructuredspec import (
     AdcreativemarketingmessagestructuredspecField,
     AdcreativemarketingmessagestructuredspecFields,
+)
+from .adcreativemediasourcingspec import (
+    AdcreativemediasourcingspecField,
+    AdcreativemediasourcingspecFields,
 )
 from .adcreativeobjectstoryspec import (
     AdcreativeobjectstoryspecField,
@@ -801,6 +822,7 @@ from .almendadvertiserinfo import AlmendadvertiserinfoField, Almendadvertiserinf
 from .almevent import AlmeventField, AlmeventFields
 from .almguidance import AlmguidanceField, AlmguidanceFields
 from .almguidancemetrics import AlmguidancemetricsField, AlmguidancemetricsFields
+from .amoneshopsettings import AmoneshopsettingsField, AmoneshopsettingsFields
 from .analyticsconfig import AnalyticsconfigField, AnalyticsconfigFields
 from .analyticsentityuserconfig import (
     AnalyticsentityuserconfigField,
@@ -819,6 +841,10 @@ from .analyticssegment import AnalyticssegmentField, AnalyticssegmentFields
 from .analyticsuserconfig import AnalyticsuserconfigField, AnalyticsuserconfigFields
 from .anblockedbicategory import AnblockedbicategoryField, AnblockedbicategoryFields
 from .androidapplink import AndroidapplinkField, AndroidapplinkFields
+from .apacmonsellerstatusapicontainer import (
+    ApacmonsellerstatusapicontainerField,
+    ApacmonsellerstatusapicontainerFields,
+)
 from .appeventconfig import AppeventconfigField, AppeventconfigFields
 from .application import (
     ApplicationCreateAccountParams,
@@ -1138,9 +1164,14 @@ from .campaign import (
     CampaignGetInsightsParams,
     CampaignUpdateParams,
 )
+from .campaignactionsdata import CampaignactionsdataField, CampaignactionsdataFields
 from .campaigngroupbrandconfiguration import (
     CampaigngroupbrandconfigurationField,
     CampaigngroupbrandconfigurationFields,
+)
+from .campaigngroupcollaborativeadspartnerinfo import (
+    CampaigngroupcollaborativeadspartnerinfoField,
+    CampaigngroupcollaborativeadspartnerinfoFields,
 )
 from .canvas import CanvasField, CanvasFields, CanvasGetPreViewsParams, CanvasUpdateParams
 from .canvasadsettings import CanvasadsettingsField, CanvasadsettingsFields
@@ -2784,7 +2815,9 @@ AnyField = Union[
     AdaccountadsrecommendedaudiosField,
     AdaccountadvolumeField,
     AdaccountagencyfeeconfigField,
+    AdaccountallpaymentmethodsField,
     AdaccountamountspenthistoryField,
+    AdaccountappsetuprequirementsField,
     AdaccountaslscheduleField,
     AdaccountbankinfolistField,
     AdaccountbillingdatepreferenceField,
@@ -2809,6 +2842,7 @@ AnyField = Union[
     AdaccountreachestimateField,
     AdaccountrecommendationsField,
     AdaccountrecommendedcamapaignbudgetField,
+    AdaccountrelatedicostudyField,
     AdaccountsmartsuggestedadsField,
     AdaccountspendcapchangehistoryField,
     AdaccountspendlimitField,
@@ -2893,6 +2927,8 @@ AnyField = Union[
     AdcreativefeaturedetailsField,
     AdcreativefeaturesspecField,
     AdcreativeformattransformationspecField,
+    AdcreativegenerativeassetspecField,
+    AdcreativehouseshopsadssellercontentField,
     AdcreativeimagedatamediaelementsField,
     AdcreativeinsightsField,
     AdcreativeinstagrambrandedcontentField,
@@ -2909,6 +2945,7 @@ AnyField = Union[
     AdcreativelinkdatasponsorshipinfospecField,
     AdcreativelinkdatatemplatevideospecField,
     AdcreativemarketingmessagestructuredspecField,
+    AdcreativemediasourcingspecField,
     AdcreativeobjectstoryspecField,
     AdcreativeomnichannellinkspecField,
     AdcreativephotodataField,
@@ -3051,6 +3088,7 @@ AnyField = Union[
     AlmeventField,
     AlmguidanceField,
     AlmguidancemetricsField,
+    AmoneshopsettingsField,
     AnalyticsconfigField,
     AnalyticsentityuserconfigField,
     AnalyticsfunnelqueryresultField,
@@ -3060,6 +3098,7 @@ AnyField = Union[
     AnalyticsuserconfigField,
     AnblockedbicategoryField,
     AndroidapplinkField,
+    ApacmonsellerstatusapicontainerField,
     AppeventconfigField,
     ApplicationField,
     ApplinksField,
@@ -3138,7 +3177,9 @@ AnyField = Union[
     CalibratorexistingruleField,
     CalladsphonedataField,
     CampaignField,
+    CampaignactionsdataField,
     CampaigngroupbrandconfigurationField,
+    CampaigngroupcollaborativeadspartnerinfoField,
     CanvasField,
     CanvasadsettingsField,
     CanvasbodyelementField,
@@ -3708,7 +3749,9 @@ AnyFieldModel = Union[
     AdaccountadsrecommendedaudiosFields,
     AdaccountadvolumeFields,
     AdaccountagencyfeeconfigFields,
+    AdaccountallpaymentmethodsFields,
     AdaccountamountspenthistoryFields,
+    AdaccountappsetuprequirementsFields,
     AdaccountaslscheduleFields,
     AdaccountbankinfolistFields,
     AdaccountbillingdatepreferenceFields,
@@ -3733,6 +3776,7 @@ AnyFieldModel = Union[
     AdaccountreachestimateFields,
     AdaccountrecommendationsFields,
     AdaccountrecommendedcamapaignbudgetFields,
+    AdaccountrelatedicostudyFields,
     AdaccountsmartsuggestedadsFields,
     AdaccountspendcapchangehistoryFields,
     AdaccountspendlimitFields,
@@ -3817,6 +3861,8 @@ AnyFieldModel = Union[
     AdcreativefeaturedetailsFields,
     AdcreativefeaturesspecFields,
     AdcreativeformattransformationspecFields,
+    AdcreativegenerativeassetspecFields,
+    AdcreativehouseshopsadssellercontentFields,
     AdcreativeimagedatamediaelementsFields,
     AdcreativeinsightsFields,
     AdcreativeinstagrambrandedcontentFields,
@@ -3833,6 +3879,7 @@ AnyFieldModel = Union[
     AdcreativelinkdatasponsorshipinfospecFields,
     AdcreativelinkdatatemplatevideospecFields,
     AdcreativemarketingmessagestructuredspecFields,
+    AdcreativemediasourcingspecFields,
     AdcreativeobjectstoryspecFields,
     AdcreativeomnichannellinkspecFields,
     AdcreativephotodataFields,
@@ -3975,6 +4022,7 @@ AnyFieldModel = Union[
     AlmeventFields,
     AlmguidanceFields,
     AlmguidancemetricsFields,
+    AmoneshopsettingsFields,
     AnalyticsconfigFields,
     AnalyticsentityuserconfigFields,
     AnalyticsfunnelqueryresultFields,
@@ -3984,6 +4032,7 @@ AnyFieldModel = Union[
     AnalyticsuserconfigFields,
     AnblockedbicategoryFields,
     AndroidapplinkFields,
+    ApacmonsellerstatusapicontainerFields,
     AppeventconfigFields,
     ApplicationFields,
     ApplinksFields,
@@ -4062,7 +4111,9 @@ AnyFieldModel = Union[
     CalibratorexistingruleFields,
     CalladsphonedataFields,
     CampaignFields,
+    CampaignactionsdataFields,
     CampaigngroupbrandconfigurationFields,
+    CampaigngroupcollaborativeadspartnerinfoFields,
     CanvasFields,
     CanvasadsettingsFields,
     CanvasbodyelementFields,
@@ -4634,7 +4685,9 @@ __all__ = [
     "AdaccountadsrecommendedaudiosField",
     "AdaccountadvolumeField",
     "AdaccountagencyfeeconfigField",
+    "AdaccountallpaymentmethodsField",
     "AdaccountamountspenthistoryField",
+    "AdaccountappsetuprequirementsField",
     "AdaccountaslscheduleField",
     "AdaccountbankinfolistField",
     "AdaccountbillingdatepreferenceField",
@@ -4659,6 +4712,7 @@ __all__ = [
     "AdaccountreachestimateField",
     "AdaccountrecommendationsField",
     "AdaccountrecommendedcamapaignbudgetField",
+    "AdaccountrelatedicostudyField",
     "AdaccountsmartsuggestedadsField",
     "AdaccountspendcapchangehistoryField",
     "AdaccountspendlimitField",
@@ -4743,6 +4797,8 @@ __all__ = [
     "AdcreativefeaturedetailsField",
     "AdcreativefeaturesspecField",
     "AdcreativeformattransformationspecField",
+    "AdcreativegenerativeassetspecField",
+    "AdcreativehouseshopsadssellercontentField",
     "AdcreativeimagedatamediaelementsField",
     "AdcreativeinsightsField",
     "AdcreativeinstagrambrandedcontentField",
@@ -4759,6 +4815,7 @@ __all__ = [
     "AdcreativelinkdatasponsorshipinfospecField",
     "AdcreativelinkdatatemplatevideospecField",
     "AdcreativemarketingmessagestructuredspecField",
+    "AdcreativemediasourcingspecField",
     "AdcreativeobjectstoryspecField",
     "AdcreativeomnichannellinkspecField",
     "AdcreativephotodataField",
@@ -4901,6 +4958,7 @@ __all__ = [
     "AlmeventField",
     "AlmguidanceField",
     "AlmguidancemetricsField",
+    "AmoneshopsettingsField",
     "AnalyticsconfigField",
     "AnalyticsentityuserconfigField",
     "AnalyticsfunnelqueryresultField",
@@ -4910,6 +4968,7 @@ __all__ = [
     "AnalyticsuserconfigField",
     "AnblockedbicategoryField",
     "AndroidapplinkField",
+    "ApacmonsellerstatusapicontainerField",
     "AppeventconfigField",
     "ApplicationField",
     "ApplinksField",
@@ -4988,7 +5047,9 @@ __all__ = [
     "CalibratorexistingruleField",
     "CalladsphonedataField",
     "CampaignField",
+    "CampaignactionsdataField",
     "CampaigngroupbrandconfigurationField",
+    "CampaigngroupcollaborativeadspartnerinfoField",
     "CanvasField",
     "CanvasadsettingsField",
     "CanvasbodyelementField",
@@ -5554,7 +5615,9 @@ __all__ = [
     "AdaccountadsrecommendedaudiosFields",
     "AdaccountadvolumeFields",
     "AdaccountagencyfeeconfigFields",
+    "AdaccountallpaymentmethodsFields",
     "AdaccountamountspenthistoryFields",
+    "AdaccountappsetuprequirementsFields",
     "AdaccountaslscheduleFields",
     "AdaccountbankinfolistFields",
     "AdaccountbillingdatepreferenceFields",
@@ -5579,6 +5642,7 @@ __all__ = [
     "AdaccountreachestimateFields",
     "AdaccountrecommendationsFields",
     "AdaccountrecommendedcamapaignbudgetFields",
+    "AdaccountrelatedicostudyFields",
     "AdaccountsmartsuggestedadsFields",
     "AdaccountspendcapchangehistoryFields",
     "AdaccountspendlimitFields",
@@ -5663,6 +5727,8 @@ __all__ = [
     "AdcreativefeaturedetailsFields",
     "AdcreativefeaturesspecFields",
     "AdcreativeformattransformationspecFields",
+    "AdcreativegenerativeassetspecFields",
+    "AdcreativehouseshopsadssellercontentFields",
     "AdcreativeimagedatamediaelementsFields",
     "AdcreativeinsightsFields",
     "AdcreativeinstagrambrandedcontentFields",
@@ -5679,6 +5745,7 @@ __all__ = [
     "AdcreativelinkdatasponsorshipinfospecFields",
     "AdcreativelinkdatatemplatevideospecFields",
     "AdcreativemarketingmessagestructuredspecFields",
+    "AdcreativemediasourcingspecFields",
     "AdcreativeobjectstoryspecFields",
     "AdcreativeomnichannellinkspecFields",
     "AdcreativephotodataFields",
@@ -5821,6 +5888,7 @@ __all__ = [
     "AlmeventFields",
     "AlmguidanceFields",
     "AlmguidancemetricsFields",
+    "AmoneshopsettingsFields",
     "AnalyticsconfigFields",
     "AnalyticsentityuserconfigFields",
     "AnalyticsfunnelqueryresultFields",
@@ -5830,6 +5898,7 @@ __all__ = [
     "AnalyticsuserconfigFields",
     "AnblockedbicategoryFields",
     "AndroidapplinkFields",
+    "ApacmonsellerstatusapicontainerFields",
     "AppeventconfigFields",
     "ApplicationFields",
     "ApplinksFields",
@@ -5908,7 +5977,9 @@ __all__ = [
     "CalibratorexistingruleFields",
     "CalladsphonedataFields",
     "CampaignFields",
+    "CampaignactionsdataFields",
     "CampaigngroupbrandconfigurationFields",
+    "CampaigngroupcollaborativeadspartnerinfoFields",
     "CanvasFields",
     "CanvasadsettingsFields",
     "CanvasbodyelementFields",

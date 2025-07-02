@@ -32,7 +32,19 @@ def get_localservicebusiness(
     return obj.api_get(fields=fields)
 
 
-# ---- Edge Methods (1) ----
+# ---- Edge Methods (2) ----
+@localservicebusiness_server.tool
+@wrapped_fn_tool
+def get_channels_to_integrity_status(
+    localservicebusiness_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+):
+    return LocalServiceBusiness(localservicebusiness_id).get_channels_to_integrity_status(
+        fields=fields, params=params
+    )
+
+
 @localservicebusiness_server.tool
 @wrapped_fn_tool
 def get_override_details(
