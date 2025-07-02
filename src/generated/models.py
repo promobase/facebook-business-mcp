@@ -30565,8 +30565,8 @@ class whatsappbusinesspreverifiedphonenumberrequest_code_code_method_enum_param(
 # Models
 
 
-class Whatsappbusinesshealthstatus(BaseModel):
-    """Whatsappbusinesshealthstatus model"""
+class WhatsAppBusinessHealthStatus(BaseModel):
+    """WhatsAppBusinessHealthStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -30588,7 +30588,7 @@ class Whatsappbusinesshealthstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whatsappbusinesshealthstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "WhatsAppBusinessHealthStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -30597,8 +30597,8 @@ class Whatsappbusinesshealthstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Advolume(BaseModel):
-    """Advolume model"""
+class AdVolume(BaseModel):
+    """AdVolume model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -30644,7 +30644,7 @@ class Advolume(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Advolume":
+    def from_dict(cls, data: dict[str, Any]) -> "AdVolume":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -30653,8 +30653,8 @@ class Advolume(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dynamicpostchildattachment(BaseModel):
-    """Dynamicpostchildattachment model"""
+class DynamicPostChildAttachment(BaseModel):
+    """DynamicPostChildAttachment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -30678,7 +30678,7 @@ class Dynamicpostchildattachment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dynamicpostchildattachment":
+    def from_dict(cls, data: dict[str, Any]) -> "DynamicPostChildAttachment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -30687,20 +30687,20 @@ class Dynamicpostchildattachment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspec(BaseModel):
-    """Adassetfeedspec model"""
+class AdAssetFeedSpec(BaseModel):
+    """AdAssetFeedSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     ad_formats: Optional[list[str]] = Field(None, description="Ad Formats")
 
-    additional_data: Optional["Adassetfeedadditionaldata"] = Field(
+    additional_data: Optional["AdAssetFeedAdditionalData"] = Field(
         None, description="Additional Data"
     )
 
     app_product_page_id: Optional[str] = Field(None, description="App Product Page Id")
 
-    asset_customization_rules: Optional[list["Adassetfeedspecassetcustomizationrule"]] = Field(
+    asset_customization_rules: Optional[list["AdAssetFeedSpecAssetCustomizationRule"]] = Field(
         None, description="Asset Customization Rules"
     )
 
@@ -30708,7 +30708,7 @@ class Adassetfeedspec(BaseModel):
 
     autotranslate: Optional[list[str]] = Field(None, description="Autotranslate")
 
-    bodies: Optional[list["Adassetfeedspecbody"]] = Field(None, description="Bodies")
+    bodies: Optional[list["AdAssetFeedSpecBody"]] = Field(None, description="Bodies")
 
     call_ads_configuration: Optional[dict[str, Any]] = Field(
         None, description="Call Ads Configuration"
@@ -30718,33 +30718,33 @@ class Adassetfeedspec(BaseModel):
         None, description="Call To Action Types"
     )
 
-    call_to_actions: Optional[list["Adassetfeedspeccalltoaction"]] = Field(
+    call_to_actions: Optional[list["AdAssetFeedSpecCallToAction"]] = Field(
         None, description="Call To Actions"
     )
 
-    captions: Optional[list["Adassetfeedspeccaption"]] = Field(None, description="Captions")
+    captions: Optional[list["AdAssetFeedSpecCaption"]] = Field(None, description="Captions")
 
-    carousels: Optional[list["Adassetfeedspeccarousel"]] = Field(None, description="Carousels")
+    carousels: Optional[list["AdAssetFeedSpecCarousel"]] = Field(None, description="Carousels")
 
     ctwa_consent_data: Optional[list[dict[str, Any]]] = Field(None, description="Ctwa Consent Data")
 
-    descriptions: Optional[list["Adassetfeedspecdescription"]] = Field(
+    descriptions: Optional[list["AdAssetFeedSpecDescription"]] = Field(
         None, description="Descriptions"
     )
 
-    events: Optional[list["Adassetfeedspecevents"]] = Field(None, description="Events")
+    events: Optional[list["AdAssetFeedSpecEvents"]] = Field(None, description="Events")
 
-    groups: Optional[list["Adassetfeedspecgrouprule"]] = Field(None, description="Groups")
+    groups: Optional[list["AdAssetFeedSpecGroupRule"]] = Field(None, description="Groups")
 
-    images: Optional[list["Adassetfeedspecimage"]] = Field(None, description="Images")
+    images: Optional[list["AdAssetFeedSpecImage"]] = Field(None, description="Images")
 
-    link_urls: Optional[list["Adassetfeedspeclinkurl"]] = Field(None, description="Link Urls")
+    link_urls: Optional[list["AdAssetFeedSpecLinkURL"]] = Field(None, description="Link Urls")
 
-    message_extensions: Optional[list["Adassetmessageextensions"]] = Field(
+    message_extensions: Optional[list["AdAssetMessageExtensions"]] = Field(
         None, description="Message Extensions"
     )
 
-    onsite_destinations: Optional[list["Adassetonsitedestinations"]] = Field(
+    onsite_destinations: Optional[list["AdAssetOnsiteDestinations"]] = Field(
         None, description="Onsite Destinations"
     )
 
@@ -30756,13 +30756,13 @@ class Adassetfeedspec(BaseModel):
 
     shops_bundle: Optional[bool] = Field(None, description="Shops Bundle")
 
-    titles: Optional[list["Adassetfeedspectitle"]] = Field(None, description="Titles")
+    titles: Optional[list["AdAssetFeedSpecTitle"]] = Field(None, description="Titles")
 
     translations: Optional[list[dict[str, Any]]] = Field(None, description="Translations")
 
     upcoming_events: Optional[list[dict[str, Any]]] = Field(None, description="Upcoming Events")
 
-    videos: Optional[list["Adassetfeedspecvideo"]] = Field(None, description="Videos")
+    videos: Optional[list["AdAssetFeedSpecVideo"]] = Field(None, description="Videos")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -30772,7 +30772,7 @@ class Adassetfeedspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -30781,18 +30781,18 @@ class Adassetfeedspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlineproductitem(BaseModel):
-    """Offlineproductitem model"""
+class OfflineProductItem(BaseModel):
+    """OfflineProductItem model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     brand: Optional[str] = Field(None, description="Brand")
 
     category: Optional[str] = Field(None, description="Category")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -30830,7 +30830,7 @@ class Offlineproductitem(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlineproductitem":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineProductItem":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -30839,8 +30839,8 @@ class Offlineproductitem(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdatacalltoactionvalue(BaseModel):
-    """Adcreativelinkdatacalltoactionvalue model"""
+class AdCreativeLinkDataCallToActionValue(BaseModel):
+    """AdCreativeLinkDataCallToActionValue model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -30876,7 +30876,7 @@ class Adcreativelinkdatacalltoactionvalue(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdatacalltoactionvalue":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataCallToActionValue":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -30885,8 +30885,8 @@ class Adcreativelinkdatacalltoactionvalue(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessfranchiseconfig(BaseModel):
-    """Businessfranchiseconfig model"""
+class BusinessFranchiseConfig(BaseModel):
+    """BusinessFranchiseConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -30894,7 +30894,7 @@ class Businessfranchiseconfig(BaseModel):
 
     agency_business: Optional["Business"] = Field(None, description="Agency Business")
 
-    agency_business_asset_group: Optional["Businessassetgroup"] = Field(
+    agency_business_asset_group: Optional["BusinessAssetGroup"] = Field(
         None, description="Agency Business Asset Group"
     )
 
@@ -30912,7 +30912,7 @@ class Businessfranchiseconfig(BaseModel):
 
     program_count: Optional[int] = Field(None, description="Program Count")
 
-    shared_business_asset_group: Optional["Businessassetgroup"] = Field(
+    shared_business_asset_group: Optional["BusinessAssetGroup"] = Field(
         None, description="Shared Business Asset Group"
     )
 
@@ -30932,7 +30932,7 @@ class Businessfranchiseconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessfranchiseconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessFranchiseConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31009,14 +31009,14 @@ class Transaction(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igmedia(BaseModel):
-    """Igmedia model"""
+class IGMedia(BaseModel):
+    """IGMedia model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     alt_text: Optional[str] = Field(None, description="Alt Text")
 
-    boost_eligibility_info: Optional["Igmediaboosteligibilityinfo"] = Field(
+    boost_eligibility_info: Optional["IGMediaBoostEligibilityInfo"] = Field(
         None, description="Boost Eligibility Info"
     )
 
@@ -31024,7 +31024,7 @@ class Igmedia(BaseModel):
 
     comments_count: Optional[int] = Field(None, description="Comments Count")
 
-    copyright_check_information: Optional["Igvideocopyrightcheckmatchesinformation"] = Field(
+    copyright_check_information: Optional["IGVideoCopyrightCheckMatchesInformation"] = Field(
         None, description="Copyright Check Information"
     )
 
@@ -31046,7 +31046,7 @@ class Igmedia(BaseModel):
 
     media_url: Optional[str] = Field(None, description="Media Url")
 
-    owner: Optional["Iguser"] = Field(None, description="Owner")
+    owner: Optional["IGUser"] = Field(None, description="Owner")
 
     permalink: Optional[str] = Field(None, description="Permalink")
 
@@ -31068,7 +31068,7 @@ class Igmedia(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igmedia":
+    def from_dict(cls, data: dict[str, Any]) -> "IGMedia":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31077,8 +31077,8 @@ class Igmedia(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igbcadspermission(BaseModel):
-    """Igbcadspermission model"""
+class IGBCAdsPermission(BaseModel):
+    """IGBCAdsPermission model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31096,7 +31096,7 @@ class Igbcadspermission(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igbcadspermission":
+    def from_dict(cls, data: dict[str, Any]) -> "IGBCAdsPermission":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31105,8 +31105,8 @@ class Igbcadspermission(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adplacepageset(BaseModel):
-    """Adplacepageset model"""
+class AdPlacePageSet(BaseModel):
+    """AdPlacePageSet model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31130,7 +31130,7 @@ class Adplacepageset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adplacepageset":
+    def from_dict(cls, data: dict[str, Any]) -> "AdPlacePageSet":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31139,8 +31139,8 @@ class Adplacepageset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Rightsmanagerinsights(BaseModel):
-    """Rightsmanagerinsights model"""
+class RightsManagerInsights(BaseModel):
+    """RightsManagerInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31164,7 +31164,7 @@ class Rightsmanagerinsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Rightsmanagerinsights":
+    def from_dict(cls, data: dict[str, Any]) -> "RightsManagerInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31173,8 +31173,8 @@ class Rightsmanagerinsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstextsuggestions(BaseModel):
-    """Adstextsuggestions model"""
+class AdsTextSuggestions(BaseModel):
+    """AdsTextSuggestions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31200,7 +31200,7 @@ class Adstextsuggestions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstextsuggestions":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsTextSuggestions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31209,12 +31209,12 @@ class Adstextsuggestions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigngroupstructuretree(BaseModel):
-    """Adcampaigngroupstructuretree model"""
+class AdCampaignGroupStructureTree(BaseModel):
+    """AdCampaignGroupStructureTree model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    children: Optional[list["Adcampaigngroupstructuretree"]] = Field(None, description="Children")
+    children: Optional[list["AdCampaignGroupStructureTree"]] = Field(None, description="Children")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -31230,7 +31230,7 @@ class Adcampaigngroupstructuretree(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigngroupstructuretree":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignGroupStructureTree":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31239,8 +31239,8 @@ class Adcampaigngroupstructuretree(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationregion(BaseModel):
-    """Targetinggeolocationregion model"""
+class TargetingGeoLocationRegion(BaseModel):
+    """TargetingGeoLocationRegion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31258,7 +31258,7 @@ class Targetinggeolocationregion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationregion":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationRegion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31267,8 +31267,8 @@ class Targetinggeolocationregion(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Canvastemplate(BaseModel):
-    """Canvastemplate model"""
+class CanvasTemplate(BaseModel):
+    """CanvasTemplate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31310,7 +31310,7 @@ class Canvastemplate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Canvastemplate":
+    def from_dict(cls, data: dict[str, Any]) -> "CanvasTemplate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31319,8 +31319,8 @@ class Canvastemplate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingsentenceline(BaseModel):
-    """Targetingsentenceline model"""
+class TargetingSentenceLine(BaseModel):
+    """TargetingSentenceLine model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31338,7 +31338,7 @@ class Targetingsentenceline(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingsentenceline":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingSentenceLine":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31347,12 +31347,12 @@ class Targetingsentenceline(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adruleschedulespec(BaseModel):
-    """Adruleschedulespec model"""
+class AdRuleScheduleSpec(BaseModel):
+    """AdRuleScheduleSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    schedule: Optional[list["Adruleschedule"]] = Field(None, description="Schedule")
+    schedule: Optional[list["AdRuleSchedule"]] = Field(None, description="Schedule")
 
     schedule_type: Optional[str] = Field(None, description="Schedule Type")
 
@@ -31364,7 +31364,7 @@ class Adruleschedulespec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adruleschedulespec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleScheduleSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31373,8 +31373,8 @@ class Adruleschedulespec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencestos(BaseModel):
-    """Customaudiencestos model"""
+class CustomAudiencesTOS(BaseModel):
+    """CustomAudiencesTOS model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31392,7 +31392,7 @@ class Customaudiencestos(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencestos":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudiencesTOS":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31408,9 +31408,9 @@ class Campaign(BaseModel):
 
     account_id: Optional[str] = Field(None, description="Account Id")
 
-    adlabels: Optional[list["Adlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdLabel"]] = Field(None, description="Adlabels")
 
-    advantage_state_info: Optional["Adcampaigngroupadvantagestate"] = Field(
+    advantage_state_info: Optional["AdCampaignGroupAdvantageState"] = Field(
         None, description="Advantage State Info"
     )
 
@@ -31418,7 +31418,7 @@ class Campaign(BaseModel):
 
     boosted_object_id: Optional[str] = Field(None, description="Boosted Object Id")
 
-    brand_lift_studies: Optional[list["Adstudy"]] = Field(None, description="Brand Lift Studies")
+    brand_lift_studies: Optional[list["AdStudy"]] = Field(None, description="Brand Lift Studies")
 
     budget_rebalance_flag: Optional[bool] = Field(None, description="Budget Rebalance Flag")
 
@@ -31462,7 +31462,7 @@ class Campaign(BaseModel):
         None, description="Is Skadnetwork Attribution"
     )
 
-    issues_info: Optional[list["Adcampaignissuesinfo"]] = Field(None, description="Issues Info")
+    issues_info: Optional[list["AdCampaignIssuesInfo"]] = Field(None, description="Issues Info")
 
     last_budget_toggling_time: Optional[datetime] = Field(
         None, description="Last Budget Toggling Time"
@@ -31478,9 +31478,9 @@ class Campaign(BaseModel):
 
     primary_attribution: Optional[str] = Field(None, description="Primary Attribution")
 
-    promoted_object: Optional["Adpromotedobject"] = Field(None, description="Promoted Object")
+    promoted_object: Optional["AdPromotedObject"] = Field(None, description="Promoted Object")
 
-    recommendations: Optional[list["Adrecommendation"]] = Field(None, description="Recommendations")
+    recommendations: Optional[list["AdRecommendation"]] = Field(None, description="Recommendations")
 
     smart_promotion_type: Optional[str] = Field(None, description="Smart Promotion Type")
 
@@ -31529,8 +31529,8 @@ class Campaign(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Eventtickettier(BaseModel):
-    """Eventtickettier model"""
+class EventTicketTier(BaseModel):
+    """EventTicketTier model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31578,7 +31578,7 @@ class Eventtickettier(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Eventtickettier":
+    def from_dict(cls, data: dict[str, Any]) -> "EventTicketTier":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31587,8 +31587,8 @@ class Eventtickettier(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dynamiccontentset(BaseModel):
-    """Dynamiccontentset model"""
+class DynamicContentSet(BaseModel):
+    """DynamicContentSet model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31606,7 +31606,7 @@ class Dynamiccontentset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dynamiccontentset":
+    def from_dict(cls, data: dict[str, Any]) -> "DynamicContentSet":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31615,8 +31615,8 @@ class Dynamiccontentset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Musicvideocopyright(BaseModel):
-    """Musicvideocopyright model"""
+class MusicVideoCopyright(BaseModel):
+    """MusicVideoCopyright model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31630,7 +31630,7 @@ class Musicvideocopyright(BaseModel):
 
     isrc: Optional[str] = Field(None, description="Isrc")
 
-    match_rule: Optional["Videocopyrightrule"] = Field(None, description="Match Rule")
+    match_rule: Optional["VideoCopyrightRule"] = Field(None, description="Match Rule")
 
     ownership_countries: Optional[list[str]] = Field(None, description="Ownership Countries")
 
@@ -31642,7 +31642,7 @@ class Musicvideocopyright(BaseModel):
 
     update_time: Optional[datetime] = Field(None, description="Update Time")
 
-    video_asset: Optional["Copyrightreferencecontainer"] = Field(None, description="Video Asset")
+    video_asset: Optional["CopyrightReferenceContainer"] = Field(None, description="Video Asset")
 
     whitelisted_fb_users: Optional[list[dict[str, Any]]] = Field(
         None, description="Whitelisted Fb Users"
@@ -31658,7 +31658,7 @@ class Musicvideocopyright(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Musicvideocopyright":
+    def from_dict(cls, data: dict[str, Any]) -> "MusicVideoCopyright":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31667,8 +31667,8 @@ class Musicvideocopyright(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Smartpixelinsights(BaseModel):
-    """Smartpixelinsights model"""
+class SmartPixelInsights(BaseModel):
+    """SmartPixelInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31684,7 +31684,7 @@ class Smartpixelinsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Smartpixelinsights":
+    def from_dict(cls, data: dict[str, Any]) -> "SmartPixelInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31693,8 +31693,8 @@ class Smartpixelinsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencesharedaccountinfo(BaseModel):
-    """Customaudiencesharedaccountinfo model"""
+class CustomAudiencesharedAccountInfo(BaseModel):
+    """CustomAudiencesharedAccountInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31716,7 +31716,7 @@ class Customaudiencesharedaccountinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencesharedaccountinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudiencesharedAccountInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31725,48 +31725,48 @@ class Customaudiencesharedaccountinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecassetcustomizationrule(BaseModel):
-    """Adassetfeedspecassetcustomizationrule model"""
+class AdAssetFeedSpecAssetCustomizationRule(BaseModel):
+    """AdAssetFeedSpecAssetCustomizationRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    body_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Body Label")
+    body_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Body Label")
 
-    call_to_action_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    call_to_action_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Call To Action Label"
     )
 
-    call_to_action_type_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    call_to_action_type_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Call To Action Type Label"
     )
 
-    caption_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Caption Label")
+    caption_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Caption Label")
 
-    carousel_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    carousel_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Carousel Label"
     )
 
-    customization_spec: Optional["Adassetcustomizationrulecustomizationspec"] = Field(
+    customization_spec: Optional["AdAssetCustomizationRuleCustomizationSpec"] = Field(
         None, description="Customization Spec"
     )
 
-    description_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    description_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Description Label"
     )
 
-    image_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Image Label")
+    image_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Image Label")
 
     is_default: Optional[bool] = Field(None, description="Is Default")
 
-    link_url_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    link_url_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Link Url Label"
     )
 
     priority: Optional[int] = Field(None, description="Priority")
 
-    title_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Title Label")
+    title_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Title Label")
 
-    video_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Video Label")
+    video_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Video Label")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -31776,7 +31776,7 @@ class Adassetfeedspecassetcustomizationrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecassetcustomizationrule":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecAssetCustomizationRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31785,8 +31785,8 @@ class Adassetfeedspecassetcustomizationrule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelrealtimeeventlogresult(BaseModel):
-    """Adspixelrealtimeeventlogresult model"""
+class AdsPixelRealTimeEventLogResult(BaseModel):
+    """AdsPixelRealTimeEventLogResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31826,7 +31826,7 @@ class Adspixelrealtimeeventlogresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelrealtimeeventlogresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelRealTimeEventLogResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31835,8 +31835,8 @@ class Adspixelrealtimeeventlogresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Advainstance(BaseModel):
-    """Advainstance model"""
+class AdvAInstance(BaseModel):
+    """AdvAInstance model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31856,7 +31856,7 @@ class Advainstance(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Advainstance":
+    def from_dict(cls, data: dict[str, Any]) -> "AdvAInstance":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31865,8 +31865,8 @@ class Advainstance(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Keyvalue(BaseModel):
-    """Keyvalue model"""
+class KeyValue(BaseModel):
+    """KeyValue model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31882,7 +31882,7 @@ class Keyvalue(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Keyvalue":
+    def from_dict(cls, data: dict[str, Any]) -> "KeyValue":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31891,8 +31891,8 @@ class Keyvalue(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Directdebit(BaseModel):
-    """Directdebit model"""
+class DirectDebit(BaseModel):
+    """DirectDebit model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31926,7 +31926,7 @@ class Directdebit(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Directdebit":
+    def from_dict(cls, data: dict[str, Any]) -> "DirectDebit":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31935,8 +31935,8 @@ class Directdebit(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageupcomingchange(BaseModel):
-    """Pageupcomingchange model"""
+class PageUpcomingChange(BaseModel):
+    """PageUpcomingChange model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -31948,7 +31948,7 @@ class Pageupcomingchange(BaseModel):
 
     page: Optional["Page"] = Field(None, description="Page")
 
-    proposal: Optional["Pagechangeproposal"] = Field(None, description="Proposal")
+    proposal: Optional["PageChangeProposal"] = Field(None, description="Proposal")
 
     timer_status: Optional[str] = Field(None, description="Timer Status")
 
@@ -31960,7 +31960,7 @@ class Pageupcomingchange(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageupcomingchange":
+    def from_dict(cls, data: dict[str, Any]) -> "PageUpcomingChange":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -31969,8 +31969,8 @@ class Pageupcomingchange(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencyestimatesplacementbreakdown(BaseModel):
-    """Reachfrequencyestimatesplacementbreakdown model"""
+class ReachFrequencyEstimatesPlacementBreakdown(BaseModel):
+    """ReachFrequencyEstimatesPlacementBreakdown model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32014,7 +32014,7 @@ class Reachfrequencyestimatesplacementbreakdown(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencyestimatesplacementbreakdown":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyEstimatesPlacementBreakdown":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32023,8 +32023,8 @@ class Reachfrequencyestimatesplacementbreakdown(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Analyticssegment(BaseModel):
-    """Analyticssegment model"""
+class AnalyticsSegment(BaseModel):
+    """AnalyticsSegment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32078,7 +32078,7 @@ class Analyticssegment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Analyticssegment":
+    def from_dict(cls, data: dict[str, Any]) -> "AnalyticsSegment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32087,8 +32087,8 @@ class Analyticssegment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Contactsmessengersyncconfig(BaseModel):
-    """Contactsmessengersyncconfig model"""
+class ContactsMessengerSyncConfig(BaseModel):
+    """ContactsMessengerSyncConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32102,7 +32102,7 @@ class Contactsmessengersyncconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Contactsmessengersyncconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "ContactsMessengerSyncConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32111,8 +32111,8 @@ class Contactsmessengersyncconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Childevent(BaseModel):
-    """Childevent model"""
+class ChildEvent(BaseModel):
+    """ChildEvent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32132,7 +32132,7 @@ class Childevent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Childevent":
+    def from_dict(cls, data: dict[str, Any]) -> "ChildEvent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32141,8 +32141,8 @@ class Childevent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationelectoraldistrict(BaseModel):
-    """Targetinggeolocationelectoraldistrict model"""
+class TargetingGeoLocationElectoralDistrict(BaseModel):
+    """TargetingGeoLocationElectoralDistrict model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32164,7 +32164,7 @@ class Targetinggeolocationelectoraldistrict(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationelectoraldistrict":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationElectoralDistrict":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32173,8 +32173,8 @@ class Targetinggeolocationelectoraldistrict(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecevents(BaseModel):
-    """Adassetfeedspecevents model"""
+class AdAssetFeedSpecEvents(BaseModel):
+    """AdAssetFeedSpecEvents model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32188,7 +32188,7 @@ class Adassetfeedspecevents(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecevents":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecEvents":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32197,8 +32197,8 @@ class Adassetfeedspecevents(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiencefunnel(BaseModel):
-    """Audiencefunnel model"""
+class AudienceFunnel(BaseModel):
+    """AudienceFunnel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32220,7 +32220,7 @@ class Audiencefunnel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiencefunnel":
+    def from_dict(cls, data: dict[str, Any]) -> "AudienceFunnel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32229,8 +32229,8 @@ class Audiencefunnel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adssegments(BaseModel):
-    """Adssegments model"""
+class AdsSegments(BaseModel):
+    """AdsSegments model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32260,7 +32260,7 @@ class Adssegments(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adssegments":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsSegments":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32269,8 +32269,8 @@ class Adssegments(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adexportpreset(BaseModel):
-    """Adexportpreset model"""
+class AdExportPreset(BaseModel):
+    """AdExportPreset model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32294,7 +32294,7 @@ class Adexportpreset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adexportpreset":
+    def from_dict(cls, data: dict[str, Any]) -> "AdExportPreset":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32303,8 +32303,8 @@ class Adexportpreset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Imagereferencematch(BaseModel):
-    """Imagereferencematch model"""
+class ImageReferenceMatch(BaseModel):
+    """ImageReferenceMatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32332,7 +32332,7 @@ class Imagereferencematch(BaseModel):
 
     match_state: Optional[str] = Field(None, description="Match State")
 
-    matched_reference_copyright: Optional["Imagecopyright"] = Field(
+    matched_reference_copyright: Optional["ImageCopyright"] = Field(
         None, description="Matched Reference Copyright"
     )
 
@@ -32344,7 +32344,7 @@ class Imagereferencematch(BaseModel):
         None, description="Modification History"
     )
 
-    reference_copyright: Optional["Imagecopyright"] = Field(None, description="Reference Copyright")
+    reference_copyright: Optional["ImageCopyright"] = Field(None, description="Reference Copyright")
 
     reference_owner: Optional["Profile"] = Field(None, description="Reference Owner")
 
@@ -32364,7 +32364,7 @@ class Imagereferencematch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Imagereferencematch":
+    def from_dict(cls, data: dict[str, Any]) -> "ImageReferenceMatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32373,8 +32373,8 @@ class Imagereferencematch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenquestionoption(BaseModel):
-    """Leadgenquestionoption model"""
+class LeadGenQuestionOption(BaseModel):
+    """LeadGenQuestionOption model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32390,7 +32390,7 @@ class Leadgenquestionoption(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenquestionoption":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenQuestionOption":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32399,8 +32399,8 @@ class Leadgenquestionoption(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Collaborativeadssharesettings(BaseModel):
-    """Collaborativeadssharesettings model"""
+class CollaborativeAdsShareSettings(BaseModel):
+    """CollaborativeAdsShareSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32424,7 +32424,7 @@ class Collaborativeadssharesettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Collaborativeadssharesettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CollaborativeAdsShareSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32433,8 +32433,8 @@ class Collaborativeadssharesettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Livevideotargeting(BaseModel):
-    """Livevideotargeting model"""
+class LiveVideoTargeting(BaseModel):
+    """LiveVideoTargeting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32444,7 +32444,7 @@ class Livevideotargeting(BaseModel):
 
     excluded_countries: Optional[list[str]] = Field(None, description="Excluded Countries")
 
-    geo_locations: Optional["Targetinggeolocation"] = Field(None, description="Geo Locations")
+    geo_locations: Optional["TargetingGeoLocation"] = Field(None, description="Geo Locations")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -32454,7 +32454,7 @@ class Livevideotargeting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Livevideotargeting":
+    def from_dict(cls, data: dict[str, Any]) -> "LiveVideoTargeting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32463,8 +32463,8 @@ class Livevideotargeting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativetextdata(BaseModel):
-    """Adcreativetextdata model"""
+class AdCreativeTextData(BaseModel):
+    """AdCreativeTextData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32478,7 +32478,7 @@ class Adcreativetextdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativetextdata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeTextData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32487,8 +32487,8 @@ class Adcreativetextdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Analyticsentityuserconfig(BaseModel):
-    """Analyticsentityuserconfig model"""
+class AnalyticsEntityUserConfig(BaseModel):
+    """AnalyticsEntityUserConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32502,7 +32502,7 @@ class Analyticsentityuserconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Analyticsentityuserconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "AnalyticsEntityUserConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32511,8 +32511,8 @@ class Analyticsentityuserconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igmediaforigonlyapi(BaseModel):
-    """Igmediaforigonlyapi model"""
+class IGMediaForIGOnlyAPI(BaseModel):
+    """IGMediaForIGOnlyAPI model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32556,7 +32556,7 @@ class Igmediaforigonlyapi(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igmediaforigonlyapi":
+    def from_dict(cls, data: dict[str, Any]) -> "IGMediaForIGOnlyAPI":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32565,8 +32565,8 @@ class Igmediaforigonlyapi(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignoptimizationevent(BaseModel):
-    """Adcampaignoptimizationevent model"""
+class AdCampaignOptimizationEvent(BaseModel):
+    """AdCampaignOptimizationEvent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32584,7 +32584,7 @@ class Adcampaignoptimizationevent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignoptimizationevent":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignOptimizationEvent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32627,8 +32627,8 @@ class Privacy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Blindpig(BaseModel):
-    """Blindpig model"""
+class BlindPig(BaseModel):
+    """BlindPig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32644,7 +32644,7 @@ class Blindpig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Blindpig":
+    def from_dict(cls, data: dict[str, Any]) -> "BlindPig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32653,8 +32653,8 @@ class Blindpig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Attributionspec(BaseModel):
-    """Attributionspec model"""
+class AttributionSpec(BaseModel):
+    """AttributionSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32670,7 +32670,7 @@ class Attributionspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Attributionspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AttributionSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32679,8 +32679,8 @@ class Attributionspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsoptimaldeliverygrowthopportunity(BaseModel):
-    """Adsoptimaldeliverygrowthopportunity model"""
+class AdsOptimalDeliveryGrowthOpportunity(BaseModel):
+    """AdsOptimalDeliveryGrowthOpportunity model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32700,7 +32700,7 @@ class Adsoptimaldeliverygrowthopportunity(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsoptimaldeliverygrowthopportunity":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsOptimalDeliveryGrowthOpportunity":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32709,8 +32709,8 @@ class Adsoptimaldeliverygrowthopportunity(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Almguidance(BaseModel):
-    """Almguidance model"""
+class ALMGuidance(BaseModel):
+    """ALMGuidance model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32732,7 +32732,7 @@ class Almguidance(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Almguidance":
+    def from_dict(cls, data: dict[str, Any]) -> "ALMGuidance":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32741,8 +32741,8 @@ class Almguidance(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Useridforpage(BaseModel):
-    """Useridforpage model"""
+class UserIDForPage(BaseModel):
+    """UserIDForPage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32758,7 +32758,7 @@ class Useridforpage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Useridforpage":
+    def from_dict(cls, data: dict[str, Any]) -> "UserIDForPage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32767,8 +32767,8 @@ class Useridforpage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccount(BaseModel):
-    """Adaccount model"""
+class AdAccount(BaseModel):
+    """AdAccount model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32776,13 +32776,13 @@ class Adaccount(BaseModel):
 
     account_status: Optional[int] = Field(None, description="Account Status")
 
-    ad_account_promotable_objects: Optional["Adaccountpromotableobjects"] = Field(
+    ad_account_promotable_objects: Optional["AdAccountPromotableObjects"] = Field(
         None, description="Ad Account Promotable Objects"
     )
 
     age: Optional[float] = Field(None, description="Age")
 
-    agency_client_declaration: Optional["Agencyclientdeclaration"] = Field(
+    agency_client_declaration: Optional["AgencyClientDeclaration"] = Field(
         None, description="Agency Client Declaration"
     )
 
@@ -32790,7 +32790,7 @@ class Adaccount(BaseModel):
 
     amount_spent: Optional[str] = Field(None, description="Amount Spent")
 
-    attribution_spec: Optional[list["Attributionspec"]] = Field(
+    attribution_spec: Optional[list["AttributionSpec"]] = Field(
         None, description="Attribution Spec"
     )
 
@@ -32826,7 +32826,7 @@ class Adaccount(BaseModel):
 
     currency: Optional[str] = Field(None, description="Currency")
 
-    custom_audience_info: Optional["Customaudiencegroup"] = Field(
+    custom_audience_info: Optional["CustomAudienceGroup"] = Field(
         None, description="Custom Audience Info"
     )
 
@@ -32842,15 +32842,15 @@ class Adaccount(BaseModel):
 
     existing_customers: Optional[list[str]] = Field(None, description="Existing Customers")
 
-    expired_funding_source_details: Optional["Fundingsourcedetails"] = Field(
+    expired_funding_source_details: Optional["FundingSourceDetails"] = Field(
         None, description="Expired Funding Source Details"
     )
 
-    extended_credit_invoice_group: Optional["Extendedcreditinvoicegroup"] = Field(
+    extended_credit_invoice_group: Optional["ExtendedCreditInvoiceGroup"] = Field(
         None, description="Extended Credit Invoice Group"
     )
 
-    failed_delivery_checks: Optional[list["Deliverycheck"]] = Field(
+    failed_delivery_checks: Optional[list["DeliveryCheck"]] = Field(
         None, description="Failed Delivery Checks"
     )
 
@@ -32858,7 +32858,7 @@ class Adaccount(BaseModel):
 
     funding_source: Optional[str] = Field(None, description="Funding Source")
 
-    funding_source_details: Optional["Fundingsourcedetails"] = Field(
+    funding_source_details: Optional["FundingSourceDetails"] = Field(
         None, description="Funding Source Details"
     )
 
@@ -32894,7 +32894,7 @@ class Adaccount(BaseModel):
 
     is_tax_id_required: Optional[bool] = Field(None, description="Is Tax Id Required")
 
-    liable_address: Optional["Crmaddress"] = Field(None, description="Liable Address")
+    liable_address: Optional["CRMAddress"] = Field(None, description="Liable Address")
 
     line_numbers: Optional[list[int]] = Field(None, description="Line Numbers")
 
@@ -32918,13 +32918,13 @@ class Adaccount(BaseModel):
 
     partner: Optional[str] = Field(None, description="Partner")
 
-    rf_spec: Optional["Reachfrequencyspec"] = Field(None, description="Rf Spec")
+    rf_spec: Optional["ReachFrequencySpec"] = Field(None, description="Rf Spec")
 
-    send_bill_to_address: Optional["Crmaddress"] = Field(None, description="Send Bill To Address")
+    send_bill_to_address: Optional["CRMAddress"] = Field(None, description="Send Bill To Address")
 
     show_checkout_experience: Optional[bool] = Field(None, description="Show Checkout Experience")
 
-    sold_to_address: Optional["Crmaddress"] = Field(None, description="Sold To Address")
+    sold_to_address: Optional["CRMAddress"] = Field(None, description="Sold To Address")
 
     spend_cap: Optional[str] = Field(None, description="Spend Cap")
 
@@ -32960,7 +32960,7 @@ class Adaccount(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccount":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccount":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -32969,8 +32969,8 @@ class Adaccount(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgendirectcrmintegrationconfig(BaseModel):
-    """Leadgendirectcrmintegrationconfig model"""
+class LeadGenDirectCRMIntegrationConfig(BaseModel):
+    """LeadGenDirectCRMIntegrationConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -32980,7 +32980,7 @@ class Leadgendirectcrmintegrationconfig(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    lead_gen_data: Optional["Leadgenform"] = Field(None, description="Lead Gen Data")
+    lead_gen_data: Optional["LeadgenForm"] = Field(None, description="Lead Gen Data")
 
     matched_fields: Optional[list[dict[str, str]]] = Field(None, description="Matched Fields")
 
@@ -33000,7 +33000,7 @@ class Leadgendirectcrmintegrationconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgendirectcrmintegrationconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenDirectCRMIntegrationConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33009,8 +33009,8 @@ class Leadgendirectcrmintegrationconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Signalsiwlextractor(BaseModel):
-    """Signalsiwlextractor model"""
+class SignalsIWLExtractor(BaseModel):
+    """SignalsIWLExtractor model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33030,7 +33030,7 @@ class Signalsiwlextractor(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Signalsiwlextractor":
+    def from_dict(cls, data: dict[str, Any]) -> "SignalsIWLExtractor":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33039,8 +33039,8 @@ class Signalsiwlextractor(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Singleowneradditionalprofile(BaseModel):
-    """Singleowneradditionalprofile model"""
+class SingleOwnerAdditionalProfile(BaseModel):
+    """SingleOwnerAdditionalProfile model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33058,7 +33058,7 @@ class Singleowneradditionalprofile(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Singleowneradditionalprofile":
+    def from_dict(cls, data: dict[str, Any]) -> "SingleOwnerAdditionalProfile":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33067,8 +33067,8 @@ class Singleowneradditionalprofile(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dynamicarmetadata(BaseModel):
-    """Dynamicarmetadata model"""
+class DynamicARMetadata(BaseModel):
+    """DynamicARMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33104,7 +33104,7 @@ class Dynamicarmetadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dynamicarmetadata":
+    def from_dict(cls, data: dict[str, Any]) -> "DynamicARMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33113,8 +33113,8 @@ class Dynamicarmetadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemlandingpagedata(BaseModel):
-    """Productitemlandingpagedata model"""
+class ProductItemLandingPageData(BaseModel):
+    """ProductItemLandingPageData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33130,7 +33130,7 @@ class Productitemlandingpagedata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemlandingpagedata":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemLandingPageData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33139,12 +33139,12 @@ class Productitemlandingpagedata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessadaccountrequest(BaseModel):
-    """Businessadaccountrequest model"""
+class BusinessAdAccountRequest(BaseModel):
+    """BusinessAdAccountRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_account: Optional["Adaccount"] = Field(None, description="Ad Account")
+    ad_account: Optional["AdAccount"] = Field(None, description="Ad Account")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -33156,7 +33156,7 @@ class Businessadaccountrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessadaccountrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessAdAccountRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33170,9 +33170,9 @@ class Flight(BaseModel):
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -33261,8 +33261,8 @@ class Flight(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customconversionactivities(BaseModel):
-    """Customconversionactivities model"""
+class CustomConversionActivities(BaseModel):
+    """CustomConversionActivities model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33282,7 +33282,7 @@ class Customconversionactivities(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customconversionactivities":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomConversionActivities":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33300,7 +33300,7 @@ class Ad(BaseModel):
 
     ad_active_time: Optional[str] = Field(None, description="Ad Active Time")
 
-    ad_review_feedback: Optional["Adgroupreviewfeedback"] = Field(
+    ad_review_feedback: Optional["AdgroupReviewFeedback"] = Field(
         None, description="Ad Review Feedback"
     )
 
@@ -33308,9 +33308,9 @@ class Ad(BaseModel):
 
     ad_schedule_start_time: Optional[datetime] = Field(None, description="Ad Schedule Start Time")
 
-    adlabels: Optional[list["Adlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdLabel"]] = Field(None, description="Adlabels")
 
-    adset: Optional["Adset"] = Field(None, description="Adset")
+    adset: Optional["AdSet"] = Field(None, description="Adset")
 
     adset_id: Optional[str] = Field(None, description="Adset Id")
 
@@ -33328,15 +33328,15 @@ class Ad(BaseModel):
 
     conversion_domain: Optional[str] = Field(None, description="Conversion Domain")
 
-    conversion_specs: Optional[list["Conversionactionquery"]] = Field(
+    conversion_specs: Optional[list["ConversionActionQuery"]] = Field(
         None, description="Conversion Specs"
     )
 
     created_time: Optional[datetime] = Field(None, description="Created Time")
 
-    creative: Optional["Adcreative"] = Field(None, description="Creative")
+    creative: Optional["AdCreative"] = Field(None, description="Creative")
 
-    creative_asset_groups_spec: Optional["Adcreativeassetgroupsspec"] = Field(
+    creative_asset_groups_spec: Optional["AdCreativeAssetGroupsSpec"] = Field(
         None, description="Creative Asset Groups Spec"
     )
 
@@ -33348,13 +33348,13 @@ class Ad(BaseModel):
 
     engagement_audience: Optional[bool] = Field(None, description="Engagement Audience")
 
-    failed_delivery_checks: Optional[list["Deliverycheck"]] = Field(
+    failed_delivery_checks: Optional[list["DeliveryCheck"]] = Field(
         None, description="Failed Delivery Checks"
     )
 
     id: Optional[str] = Field(None, description="Id")
 
-    issues_info: Optional[list["Adgroupissuesinfo"]] = Field(None, description="Issues Info")
+    issues_info: Optional[list["AdgroupIssuesInfo"]] = Field(None, description="Issues Info")
 
     last_updated_by_app_id: Optional[str] = Field(None, description="Last Updated By App Id")
 
@@ -33366,7 +33366,7 @@ class Ad(BaseModel):
 
     priority: Optional[int] = Field(None, description="Priority")
 
-    recommendations: Optional[list["Adrecommendation"]] = Field(None, description="Recommendations")
+    recommendations: Optional[list["AdRecommendation"]] = Field(None, description="Recommendations")
 
     source_ad: Optional["Ad"] = Field(None, description="Source Ad")
 
@@ -33376,11 +33376,11 @@ class Ad(BaseModel):
 
     targeting: Optional["Targeting"] = Field(None, description="Targeting")
 
-    tracking_and_conversion_with_defaults: Optional["Trackingandconversionwithdefaults"] = Field(
+    tracking_and_conversion_with_defaults: Optional["TrackingAndConversionWithDefaults"] = Field(
         None, description="Tracking And Conversion With Defaults"
     )
 
-    tracking_specs: Optional[list["Conversionactionquery"]] = Field(
+    tracking_specs: Optional[list["ConversionActionQuery"]] = Field(
         None, description="Tracking Specs"
     )
 
@@ -33403,12 +33403,12 @@ class Ad(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Hotelroom(BaseModel):
-    """Hotelroom model"""
+class HotelRoom(BaseModel):
+    """HotelRoom model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     base_price: Optional[str] = Field(None, description="Base Price")
 
@@ -33438,7 +33438,7 @@ class Hotelroom(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Hotelroom":
+    def from_dict(cls, data: dict[str, Any]) -> "HotelRoom":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33447,8 +33447,8 @@ class Hotelroom(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeomnichannellinkspec(BaseModel):
-    """Adcreativeomnichannellinkspec model"""
+class AdCreativeOmnichannelLinkSpec(BaseModel):
+    """AdCreativeOmnichannelLinkSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33464,7 +33464,7 @@ class Adcreativeomnichannellinkspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeomnichannellinkspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeOmnichannelLinkSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33473,8 +33473,8 @@ class Adcreativeomnichannellinkspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Livevideoadbreakconfig(BaseModel):
-    """Livevideoadbreakconfig model"""
+class LiveVideoAdBreakConfig(BaseModel):
+    """LiveVideoAdBreakConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33510,7 +33510,7 @@ class Livevideoadbreakconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Livevideoadbreakconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "LiveVideoAdBreakConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33519,8 +33519,8 @@ class Livevideoadbreakconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Splittestwinner(BaseModel):
-    """Splittestwinner model"""
+class SplitTestWinner(BaseModel):
+    """SplitTestWinner model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33538,7 +33538,7 @@ class Splittestwinner(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Splittestwinner":
+    def from_dict(cls, data: dict[str, Any]) -> "SplitTestWinner":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33547,8 +33547,8 @@ class Splittestwinner(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Campaignactionsdata(BaseModel):
-    """Campaignactionsdata model"""
+class CampaignActionsData(BaseModel):
+    """CampaignActionsData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33560,7 +33560,7 @@ class Campaignactionsdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Campaignactionsdata":
+    def from_dict(cls, data: dict[str, Any]) -> "CampaignActionsData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33569,8 +33569,8 @@ class Campaignactionsdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Idname(BaseModel):
-    """Idname model"""
+class IDName(BaseModel):
+    """IDName model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33586,7 +33586,7 @@ class Idname(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Idname":
+    def from_dict(cls, data: dict[str, Any]) -> "IDName":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33595,8 +33595,8 @@ class Idname(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelrawfiresresult(BaseModel):
-    """Adspixelrawfiresresult model"""
+class AdsPixelRawFiresResult(BaseModel):
+    """AdsPixelRawFiresResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33624,7 +33624,7 @@ class Adspixelrawfiresresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelrawfiresresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelRawFiresResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33633,8 +33633,8 @@ class Adspixelrawfiresresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Recommendedpagepost(BaseModel):
-    """Recommendedpagepost model"""
+class RecommendedPagePost(BaseModel):
+    """RecommendedPagePost model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33652,7 +33652,7 @@ class Recommendedpagepost(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Recommendedpagepost":
+    def from_dict(cls, data: dict[str, Any]) -> "RecommendedPagePost":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33661,8 +33661,8 @@ class Recommendedpagepost(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Copyrightreferencecontainer(BaseModel):
-    """Copyrightreferencecontainer model"""
+class CopyrightReferenceContainer(BaseModel):
+    """CopyrightReferenceContainer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33700,7 +33700,7 @@ class Copyrightreferencecontainer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Copyrightreferencecontainer":
+    def from_dict(cls, data: dict[str, Any]) -> "CopyrightReferenceContainer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33709,8 +33709,8 @@ class Copyrightreferencecontainer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesscreativefolder(BaseModel):
-    """Businesscreativefolder model"""
+class BusinessCreativeFolder(BaseModel):
+    """BusinessCreativeFolder model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33740,7 +33740,7 @@ class Businesscreativefolder(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesscreativefolder":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessCreativeFolder":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33749,8 +33749,8 @@ class Businesscreativefolder(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Useridforapp(BaseModel):
-    """Useridforapp model"""
+class UserIDForApp(BaseModel):
+    """UserIDForApp model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33766,7 +33766,7 @@ class Useridforapp(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Useridforapp":
+    def from_dict(cls, data: dict[str, Any]) -> "UserIDForApp":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33775,8 +33775,8 @@ class Useridforapp(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Amoneshopsettings(BaseModel):
-    """Amoneshopsettings model"""
+class AMOneshopSettings(BaseModel):
+    """AMOneshopSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33788,7 +33788,7 @@ class Amoneshopsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Amoneshopsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "AMOneshopSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33797,8 +33797,8 @@ class Amoneshopsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigndeliverystatsunsupportedreasons(BaseModel):
-    """Adcampaigndeliverystatsunsupportedreasons model"""
+class AdCampaignDeliveryStatsUnsupportedReasons(BaseModel):
+    """AdCampaignDeliveryStatsUnsupportedReasons model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33814,7 +33814,7 @@ class Adcampaigndeliverystatsunsupportedreasons(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigndeliverystatsunsupportedreasons":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignDeliveryStatsUnsupportedReasons":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33823,8 +33823,8 @@ class Adcampaigndeliverystatsunsupportedreasons(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adrecommendation(BaseModel):
-    """Adrecommendation model"""
+class AdRecommendation(BaseModel):
+    """AdRecommendation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33838,7 +33838,7 @@ class Adrecommendation(BaseModel):
 
     message: Optional[str] = Field(None, description="Message")
 
-    recommendation_data: Optional["Adrecommendationdata"] = Field(
+    recommendation_data: Optional["AdRecommendationData"] = Field(
         None, description="Recommendation Data"
     )
 
@@ -33854,7 +33854,7 @@ class Adrecommendation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adrecommendation":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRecommendation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33863,8 +33863,8 @@ class Adrecommendation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageappwithleadsaccess(BaseModel):
-    """Pageappwithleadsaccess model"""
+class PageAppWithLeadsAccess(BaseModel):
+    """PageAppWithLeadsAccess model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33880,7 +33880,7 @@ class Pageappwithleadsaccess(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageappwithleadsaccess":
+    def from_dict(cls, data: dict[str, Any]) -> "PageAppWithLeadsAccess":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33889,28 +33889,28 @@ class Pageappwithleadsaccess(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecgrouprule(BaseModel):
-    """Adassetfeedspecgrouprule model"""
+class AdAssetFeedSpecGroupRule(BaseModel):
+    """AdAssetFeedSpecGroupRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    body_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Body Label")
+    body_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Body Label")
 
-    caption_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Caption Label")
+    caption_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Caption Label")
 
-    description_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    description_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Description Label"
     )
 
-    image_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Image Label")
+    image_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Image Label")
 
-    link_url_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    link_url_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Link Url Label"
     )
 
-    title_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Title Label")
+    title_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Title Label")
 
-    video_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Video Label")
+    video_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Video Label")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -33920,7 +33920,7 @@ class Adassetfeedspecgrouprule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecgrouprule":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecGroupRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33929,8 +33929,8 @@ class Adassetfeedspecgrouprule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagecrmswithleadsaccess(BaseModel):
-    """Pagecrmswithleadsaccess model"""
+class PageCrmsWithLeadsAccess(BaseModel):
+    """PageCrmsWithLeadsAccess model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33950,7 +33950,7 @@ class Pagecrmswithleadsaccess(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagecrmswithleadsaccess":
+    def from_dict(cls, data: dict[str, Any]) -> "PageCrmsWithLeadsAccess":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33959,8 +33959,8 @@ class Pagecrmswithleadsaccess(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessobjecttransferownershipagreement(BaseModel):
-    """Businessobjecttransferownershipagreement model"""
+class BusinessObjectTransferOwnershipAgreement(BaseModel):
+    """BusinessObjectTransferOwnershipAgreement model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -33980,7 +33980,7 @@ class Businessobjecttransferownershipagreement(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessobjecttransferownershipagreement":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessObjectTransferOwnershipAgreement":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -33989,8 +33989,8 @@ class Businessobjecttransferownershipagreement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Livevideorecommendedencodersettings(BaseModel):
-    """Livevideorecommendedencodersettings model"""
+class LiveVideoRecommendedEncoderSettings(BaseModel):
+    """LiveVideoRecommendedEncoderSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34008,7 +34008,7 @@ class Livevideorecommendedencodersettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Livevideorecommendedencodersettings":
+    def from_dict(cls, data: dict[str, Any]) -> "LiveVideoRecommendedEncoderSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34017,8 +34017,8 @@ class Livevideorecommendedencodersettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagecalltoaction(BaseModel):
-    """Pagecalltoaction model"""
+class PageCallToAction(BaseModel):
+    """PageCallToAction model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34068,7 +34068,7 @@ class Pagecalltoaction(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagecalltoaction":
+    def from_dict(cls, data: dict[str, Any]) -> "PageCallToAction":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34077,8 +34077,8 @@ class Pagecalltoaction(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigngroupstats(BaseModel):
-    """Adcampaigngroupstats model"""
+class AdCampaignGroupStats(BaseModel):
+    """AdCampaignGroupStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34120,7 +34120,7 @@ class Adcampaigngroupstats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigngroupstats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignGroupStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34129,8 +34129,8 @@ class Adcampaigngroupstats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessrolerequest(BaseModel):
-    """Businessrolerequest model"""
+class BusinessRoleRequest(BaseModel):
+    """BusinessRoleRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34174,7 +34174,7 @@ class Businessrolerequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessrolerequest":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessRoleRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34183,8 +34183,8 @@ class Businessrolerequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlinetermsofservice(BaseModel):
-    """Offlinetermsofservice model"""
+class OfflineTermsOfService(BaseModel):
+    """OfflineTermsOfService model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34202,7 +34202,7 @@ class Offlinetermsofservice(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlinetermsofservice":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineTermsOfService":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34211,8 +34211,8 @@ class Offlinetermsofservice(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountadlimitsinsights(BaseModel):
-    """Adaccountadlimitsinsights model"""
+class AdAccountAdLimitsInsights(BaseModel):
+    """AdAccountAdLimitsInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34228,7 +34228,7 @@ class Adaccountadlimitsinsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountadlimitsinsights":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAdLimitsInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34237,8 +34237,8 @@ class Adaccountadlimitsinsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativerecommendersettings(BaseModel):
-    """Adcreativerecommendersettings model"""
+class AdCreativeRecommenderSettings(BaseModel):
+    """AdCreativeRecommenderSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34254,7 +34254,7 @@ class Adcreativerecommendersettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativerecommendersettings":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeRecommenderSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34263,8 +34263,8 @@ class Adcreativerecommendersettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Extendedcreditapplication(BaseModel):
-    """Extendedcreditapplication model"""
+class ExtendedCreditApplication(BaseModel):
+    """ExtendedCreditApplication model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34288,7 +34288,7 @@ class Extendedcreditapplication(BaseModel):
 
     legal_entity_name: Optional[str] = Field(None, description="Legal Entity Name")
 
-    original_online_limit: Optional["Currencyamount"] = Field(
+    original_online_limit: Optional["CurrencyAmount"] = Field(
         None, description="Original Online Limit"
     )
 
@@ -34298,7 +34298,7 @@ class Extendedcreditapplication(BaseModel):
 
     product_types: Optional[list[str]] = Field(None, description="Product Types")
 
-    proposed_credit_limit: Optional["Currencyamount"] = Field(
+    proposed_credit_limit: Optional["CurrencyAmount"] = Field(
         None, description="Proposed Credit Limit"
     )
 
@@ -34330,7 +34330,7 @@ class Extendedcreditapplication(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Extendedcreditapplication":
+    def from_dict(cls, data: dict[str, Any]) -> "ExtendedCreditApplication":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34339,8 +34339,8 @@ class Extendedcreditapplication(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeformattransformationspec(BaseModel):
-    """Adcreativeformattransformationspec model"""
+class AdCreativeFormatTransformationSpec(BaseModel):
+    """AdCreativeFormatTransformationSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34356,7 +34356,7 @@ class Adcreativeformattransformationspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeformattransformationspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeFormatTransformationSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34365,12 +34365,12 @@ class Adcreativeformattransformationspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productvisualvariant(BaseModel):
-    """Productvisualvariant model"""
+class ProductVisualVariant(BaseModel):
+    """ProductVisualVariant model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    items: Optional[list["Productitem"]] = Field(None, description="Items")
+    items: Optional[list["ProductItem"]] = Field(None, description="Items")
 
     unique_key: Optional[str] = Field(None, description="Unique Key")
 
@@ -34382,7 +34382,7 @@ class Productvisualvariant(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productvisualvariant":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductVisualVariant":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34391,8 +34391,8 @@ class Productvisualvariant(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiencepermissionforactions(BaseModel):
-    """Audiencepermissionforactions model"""
+class AudiencePermissionForActions(BaseModel):
+    """AudiencePermissionForActions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34418,7 +34418,7 @@ class Audiencepermissionforactions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiencepermissionforactions":
+    def from_dict(cls, data: dict[str, Any]) -> "AudiencePermissionForActions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34427,12 +34427,12 @@ class Audiencepermissionforactions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adscreationsavedstate(BaseModel):
-    """Adscreationsavedstate model"""
+class AdsCreationSavedState(BaseModel):
+    """AdsCreationSavedState model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_account: Optional["Adaccount"] = Field(None, description="Ad Account")
+    ad_account: Optional["AdAccount"] = Field(None, description="Ad Account")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -34450,7 +34450,7 @@ class Adscreationsavedstate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adscreationsavedstate":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsCreationSavedState":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34459,8 +34459,8 @@ class Adscreationsavedstate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Educationexperience(BaseModel):
-    """Educationexperience model"""
+class EducationExperience(BaseModel):
+    """EducationExperience model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34488,7 +34488,7 @@ class Educationexperience(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Educationexperience":
+    def from_dict(cls, data: dict[str, Any]) -> "EducationExperience":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34497,12 +34497,12 @@ class Educationexperience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messengeradspartialautomatedsteplist(BaseModel):
-    """Messengeradspartialautomatedsteplist model"""
+class MessengerAdsPartialAutomatedStepList(BaseModel):
+    """MessengerAdsPartialAutomatedStepList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    fblead_form: Optional["Leadgenform"] = Field(None, description="Fblead Form")
+    fblead_form: Optional["LeadgenForm"] = Field(None, description="Fblead Form")
 
     first_step_id: Optional[str] = Field(None, description="First Step Id")
 
@@ -34524,7 +34524,7 @@ class Messengeradspartialautomatedsteplist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messengeradspartialautomatedsteplist":
+    def from_dict(cls, data: dict[str, Any]) -> "MessengerAdsPartialAutomatedStepList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34577,8 +34577,8 @@ class Tab(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiocopyright(BaseModel):
-    """Audiocopyright model"""
+class AudioCopyright(BaseModel):
+    """AudioCopyright model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34592,7 +34592,7 @@ class Audiocopyright(BaseModel):
 
     isrc: Optional[str] = Field(None, description="Isrc")
 
-    match_rule: Optional["Videocopyrightrule"] = Field(None, description="Match Rule")
+    match_rule: Optional["VideoCopyrightRule"] = Field(None, description="Match Rule")
 
     ownership_countries: Optional[list[str]] = Field(None, description="Ownership Countries")
 
@@ -34622,7 +34622,7 @@ class Audiocopyright(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiocopyright":
+    def from_dict(cls, data: dict[str, Any]) -> "AudioCopyright":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34631,8 +34631,8 @@ class Audiocopyright(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandedcontentaderror(BaseModel):
-    """Brandedcontentaderror model"""
+class BrandedContentAdError(BaseModel):
+    """BrandedContentAdError model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34658,7 +34658,7 @@ class Brandedcontentaderror(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandedcontentaderror":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandedContentAdError":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34667,8 +34667,8 @@ class Brandedcontentaderror(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Withasset3d(BaseModel):
-    """Withasset3d model"""
+class WithAsset3D(BaseModel):
+    """WithAsset3D model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34682,7 +34682,7 @@ class Withasset3d(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Withasset3d":
+    def from_dict(cls, data: dict[str, Any]) -> "WithAsset3D":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34691,8 +34691,8 @@ class Withasset3d(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativedestinationspec(BaseModel):
-    """Adcreativedestinationspec model"""
+class AdCreativeDestinationSpec(BaseModel):
+    """AdCreativeDestinationSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34706,7 +34706,7 @@ class Adcreativedestinationspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativedestinationspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeDestinationSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34715,8 +34715,8 @@ class Adcreativedestinationspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Woodhengepurchasedpaygreceipt(BaseModel):
-    """Woodhengepurchasedpaygreceipt model"""
+class WoodhengePurchasedPAYGReceipt(BaseModel):
+    """WoodhengePurchasedPAYGReceipt model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34738,7 +34738,7 @@ class Woodhengepurchasedpaygreceipt(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Woodhengepurchasedpaygreceipt":
+    def from_dict(cls, data: dict[str, Any]) -> "WoodhengePurchasedPAYGReceipt":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34747,8 +34747,8 @@ class Woodhengepurchasedpaygreceipt(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productsettaxoncategory(BaseModel):
-    """Productsettaxoncategory model"""
+class ProductSetTaxonCategory(BaseModel):
+    """ProductSetTaxonCategory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34766,7 +34766,7 @@ class Productsettaxoncategory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productsettaxoncategory":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductSetTaxonCategory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34790,17 +34790,17 @@ class Canvas(BaseModel):
 
     collection_hero_image: Optional["Photo"] = Field(None, description="Collection Hero Image")
 
-    collection_hero_video: Optional["Advideo"] = Field(None, description="Collection Hero Video")
+    collection_hero_video: Optional["AdVideo"] = Field(None, description="Collection Hero Video")
 
-    collection_thumbnails: Optional[list["Canvascollectionthumbnail"]] = Field(
+    collection_thumbnails: Optional[list["CanvasCollectionThumbnail"]] = Field(
         None, description="Collection Thumbnails"
     )
 
-    dynamic_setting: Optional["Canvasdynamicsetting"] = Field(None, description="Dynamic Setting")
+    dynamic_setting: Optional["CanvasDynamicSetting"] = Field(None, description="Dynamic Setting")
 
     element_payload: Optional[str] = Field(None, description="Element Payload")
 
-    elements: Optional[list["Richmediaelement"]] = Field(None, description="Elements")
+    elements: Optional[list["RichMediaElement"]] = Field(None, description="Elements")
 
     fb_body_elements: Optional[list[dict[str, Any]]] = Field(None, description="Fb Body Elements")
 
@@ -34820,7 +34820,7 @@ class Canvas(BaseModel):
 
     property_list: Optional[list[str]] = Field(None, description="Property List")
 
-    source_template: Optional["Canvastemplate"] = Field(None, description="Source Template")
+    source_template: Optional["CanvasTemplate"] = Field(None, description="Source Template")
 
     store_url: Optional[str] = Field(None, description="Store Url")
 
@@ -34855,8 +34855,8 @@ class Canvas(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adconversionvalues(BaseModel):
-    """Adconversionvalues model"""
+class AdConversionValues(BaseModel):
+    """AdConversionValues model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34874,7 +34874,7 @@ class Adconversionvalues(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adconversionvalues":
+    def from_dict(cls, data: dict[str, Any]) -> "AdConversionValues":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34883,8 +34883,8 @@ class Adconversionvalues(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogcontentversionconfig(BaseModel):
-    """Catalogcontentversionconfig model"""
+class CatalogContentVersionConfig(BaseModel):
+    """CatalogContentVersionConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34902,7 +34902,7 @@ class Catalogcontentversionconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogcontentversionconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogContentVersionConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34911,8 +34911,8 @@ class Catalogcontentversionconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customconversionstatsresult(BaseModel):
-    """Customconversionstatsresult model"""
+class CustomConversionStatsResult(BaseModel):
+    """CustomConversionStatsResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34932,7 +34932,7 @@ class Customconversionstatsresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customconversionstatsresult":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomConversionStatsResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34941,8 +34941,8 @@ class Customconversionstatsresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowigusercatalogproductsearch(BaseModel):
-    """Shadowigusercatalogproductsearch model"""
+class ShadowIGUserCatalogProductSearch(BaseModel):
+    """ShadowIGUserCatalogProductSearch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34956,7 +34956,7 @@ class Shadowigusercatalogproductsearch(BaseModel):
 
     product_name: Optional[str] = Field(None, description="Product Name")
 
-    product_variants: Optional[list["Shadowigusercatalogproductvariant"]] = Field(
+    product_variants: Optional[list["ShadowIGUserCatalogProductVariant"]] = Field(
         None, description="Product Variants"
     )
 
@@ -34972,7 +34972,7 @@ class Shadowigusercatalogproductsearch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowigusercatalogproductsearch":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGUserCatalogProductSearch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -34981,8 +34981,8 @@ class Shadowigusercatalogproductsearch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativehouseshopsadssellercontent(BaseModel):
-    """Adcreativehouseshopsadssellercontent model"""
+class AdCreativeHouseShopsAdsSellerContent(BaseModel):
+    """AdCreativeHouseShopsAdsSellerContent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -34994,7 +34994,7 @@ class Adcreativehouseshopsadssellercontent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativehouseshopsadssellercontent":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeHouseShopsAdsSellerContent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35003,8 +35003,8 @@ class Adcreativehouseshopsadssellercontent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productvariant(BaseModel):
-    """Productvariant model"""
+class ProductVariant(BaseModel):
+    """ProductVariant model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35022,7 +35022,7 @@ class Productvariant(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productvariant":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductVariant":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35031,8 +35031,8 @@ class Productvariant(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mcominvoicestatus(BaseModel):
-    """Mcominvoicestatus model"""
+class McomInvoiceStatus(BaseModel):
+    """McomInvoiceStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35068,7 +35068,7 @@ class Mcominvoicestatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mcominvoicestatus":
+    def from_dict(cls, data: dict[str, Any]) -> "McomInvoiceStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35077,8 +35077,8 @@ class Mcominvoicestatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Deliveryinfo(BaseModel):
-    """Deliveryinfo model"""
+class DeliveryInfo(BaseModel):
+    """DeliveryInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35200,7 +35200,7 @@ class Deliveryinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Deliveryinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "DeliveryInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35209,14 +35209,14 @@ class Deliveryinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Eventsourcegroup(BaseModel):
-    """Eventsourcegroup model"""
+class EventSourceGroup(BaseModel):
+    """EventSourceGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     business: Optional["Business"] = Field(None, description="Business")
 
-    event_sources: Optional[list["Externaleventsource"]] = Field(None, description="Event Sources")
+    event_sources: Optional[list["ExternalEventSource"]] = Field(None, description="Event Sources")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -35232,7 +35232,7 @@ class Eventsourcegroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Eventsourcegroup":
+    def from_dict(cls, data: dict[str, Any]) -> "EventSourceGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35241,8 +35241,8 @@ class Eventsourcegroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Analyticsplatformmetricsconfig(BaseModel):
-    """Analyticsplatformmetricsconfig model"""
+class AnalyticsPlatformMetricsConfig(BaseModel):
+    """AnalyticsPlatformMetricsConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35272,7 +35272,7 @@ class Analyticsplatformmetricsconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Analyticsplatformmetricsconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "AnalyticsPlatformMetricsConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35281,8 +35281,8 @@ class Analyticsplatformmetricsconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstudyobjectiveoffsitedatasets(BaseModel):
-    """Adstudyobjectiveoffsitedatasets model"""
+class AdStudyObjectiveOffsiteDatasets(BaseModel):
+    """AdStudyObjectiveOffsiteDatasets model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35298,7 +35298,7 @@ class Adstudyobjectiveoffsitedatasets(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstudyobjectiveoffsitedatasets":
+    def from_dict(cls, data: dict[str, Any]) -> "AdStudyObjectiveOffsiteDatasets":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35307,8 +35307,8 @@ class Adstudyobjectiveoffsitedatasets(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandsafetycampaignconfig(BaseModel):
-    """Brandsafetycampaignconfig model"""
+class BrandSafetyCampaignConfig(BaseModel):
+    """BrandSafetyCampaignConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35322,7 +35322,7 @@ class Brandsafetycampaignconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandsafetycampaignconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandSafetyCampaignConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35331,8 +35331,8 @@ class Brandsafetycampaignconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Platformimagesource(BaseModel):
-    """Platformimagesource model"""
+class PlatformImageSource(BaseModel):
+    """PlatformImageSource model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35350,7 +35350,7 @@ class Platformimagesource(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Platformimagesource":
+    def from_dict(cls, data: dict[str, Any]) -> "PlatformImageSource":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35359,8 +35359,8 @@ class Platformimagesource(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagemessageresponsivenessmetrics(BaseModel):
-    """Pagemessageresponsivenessmetrics model"""
+class PageMessageResponsivenessMetrics(BaseModel):
+    """PageMessageResponsivenessMetrics model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35378,7 +35378,7 @@ class Pagemessageresponsivenessmetrics(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagemessageresponsivenessmetrics":
+    def from_dict(cls, data: dict[str, Any]) -> "PageMessageResponsivenessMetrics":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35387,8 +35387,8 @@ class Pagemessageresponsivenessmetrics(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagectxmessagingfeaturelimit(BaseModel):
-    """Pagectxmessagingfeaturelimit model"""
+class PageCTXMessagingFeatureLimit(BaseModel):
+    """PageCTXMessagingFeatureLimit model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35410,7 +35410,7 @@ class Pagectxmessagingfeaturelimit(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagectxmessagingfeaturelimit":
+    def from_dict(cls, data: dict[str, Any]) -> "PageCTXMessagingFeatureLimit":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35419,8 +35419,8 @@ class Pagectxmessagingfeaturelimit(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Personaladspersona(BaseModel):
-    """Personaladspersona model"""
+class PersonalAdsPersona(BaseModel):
+    """PersonalAdsPersona model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35442,7 +35442,7 @@ class Personaladspersona(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Personaladspersona":
+    def from_dict(cls, data: dict[str, Any]) -> "PersonalAdsPersona":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35451,8 +35451,8 @@ class Personaladspersona(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccounttargetingunified(BaseModel):
-    """Adaccounttargetingunified model"""
+class AdAccountTargetingUnified(BaseModel):
+    """AdAccountTargetingUnified model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35510,7 +35510,7 @@ class Adaccounttargetingunified(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccounttargetingunified":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountTargetingUnified":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35519,8 +35519,8 @@ class Adaccounttargetingunified(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Deliverycheck(BaseModel):
-    """Deliverycheck model"""
+class DeliveryCheck(BaseModel):
+    """DeliveryCheck model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35528,7 +35528,7 @@ class Deliverycheck(BaseModel):
 
     description: Optional[str] = Field(None, description="Description")
 
-    extra_info: Optional["Deliverycheckextrainfo"] = Field(None, description="Extra Info")
+    extra_info: Optional["DeliveryCheckExtraInfo"] = Field(None, description="Extra Info")
 
     summary: Optional[str] = Field(None, description="Summary")
 
@@ -35540,7 +35540,7 @@ class Deliverycheck(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Deliverycheck":
+    def from_dict(cls, data: dict[str, Any]) -> "DeliveryCheck":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35549,12 +35549,12 @@ class Deliverycheck(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Slicedeventsourcegroup(BaseModel):
-    """Slicedeventsourcegroup model"""
+class SlicedEventSourceGroup(BaseModel):
+    """SlicedEventSourceGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    event_source_group: Optional["Eventsourcegroup"] = Field(None, description="Event Source Group")
+    event_source_group: Optional["EventSourceGroup"] = Field(None, description="Event Source Group")
 
     filter: Optional[str] = Field(None, description="Filter")
 
@@ -35570,7 +35570,7 @@ class Slicedeventsourcegroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Slicedeventsourcegroup":
+    def from_dict(cls, data: dict[str, Any]) -> "SlicedEventSourceGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35579,8 +35579,8 @@ class Slicedeventsourcegroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencesession(BaseModel):
-    """Customaudiencesession model"""
+class CustomAudienceSession(BaseModel):
+    """CustomAudienceSession model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35608,7 +35608,7 @@ class Customaudiencesession(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencesession":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceSession":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35617,8 +35617,8 @@ class Customaudiencesession(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Canvaspreview(BaseModel):
-    """Canvaspreview model"""
+class CanvasPreview(BaseModel):
+    """CanvasPreview model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35632,7 +35632,7 @@ class Canvaspreview(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Canvaspreview":
+    def from_dict(cls, data: dict[str, Any]) -> "CanvasPreview":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35641,8 +35641,8 @@ class Canvaspreview(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dacheck(BaseModel):
-    """Dacheck model"""
+class DACheck(BaseModel):
+    """DACheck model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35666,7 +35666,7 @@ class Dacheck(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dacheck":
+    def from_dict(cls, data: dict[str, Any]) -> "DACheck":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35675,8 +35675,8 @@ class Dacheck(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiencesharingaccountvalid(BaseModel):
-    """Audiencesharingaccountvalid model"""
+class AudienceSharingAccountValid(BaseModel):
+    """AudienceSharingAccountValid model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35702,7 +35702,7 @@ class Audiencesharingaccountvalid(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiencesharingaccountvalid":
+    def from_dict(cls, data: dict[str, Any]) -> "AudienceSharingAccountValid":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35711,8 +35711,8 @@ class Audiencesharingaccountvalid(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelsignalsiwlfeedbacknux(BaseModel):
-    """Adspixelsignalsiwlfeedbacknux model"""
+class AdsPixelSignalsIWLFeedbackNux(BaseModel):
+    """AdsPixelSignalsIWLFeedbackNux model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35726,7 +35726,7 @@ class Adspixelsignalsiwlfeedbacknux(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelsignalsiwlfeedbacknux":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelSignalsIWLFeedbackNux":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35735,16 +35735,16 @@ class Adspixelsignalsiwlfeedbacknux(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Eventexternalticketinfo(BaseModel):
-    """Eventexternalticketinfo model"""
+class EventExternalTicketInfo(BaseModel):
+    """EventExternalTicketInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     id: Optional[str] = Field(None, description="Id")
 
-    max_sales_price: Optional["Currencyamount"] = Field(None, description="Max Sales Price")
+    max_sales_price: Optional["CurrencyAmount"] = Field(None, description="Max Sales Price")
 
-    min_sales_price: Optional["Currencyamount"] = Field(None, description="Min Sales Price")
+    min_sales_price: Optional["CurrencyAmount"] = Field(None, description="Min Sales Price")
 
     sales_status: Optional[str] = Field(None, description="Sales Status")
 
@@ -35756,7 +35756,7 @@ class Eventexternalticketinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Eventexternalticketinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "EventExternalTicketInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35765,12 +35765,12 @@ class Eventexternalticketinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Researchpollstudy(BaseModel):
-    """Researchpollstudy model"""
+class ResearchPollStudy(BaseModel):
+    """ResearchPollStudy model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    account: Optional["Adaccount"] = Field(None, description="Account")
+    account: Optional["AdAccount"] = Field(None, description="Account")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -35784,7 +35784,7 @@ class Researchpollstudy(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Researchpollstudy":
+    def from_dict(cls, data: dict[str, Any]) -> "ResearchPollStudy":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35793,8 +35793,8 @@ class Researchpollstudy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Usercontext(BaseModel):
-    """Usercontext model"""
+class UserContext(BaseModel):
+    """UserContext model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35808,7 +35808,7 @@ class Usercontext(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Usercontext":
+    def from_dict(cls, data: dict[str, Any]) -> "UserContext":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35817,8 +35817,8 @@ class Usercontext(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Almendadvertiserinfo(BaseModel):
-    """Almendadvertiserinfo model"""
+class ALMEndAdvertiserInfo(BaseModel):
+    """ALMEndAdvertiserInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35840,7 +35840,7 @@ class Almendadvertiserinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Almendadvertiserinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "ALMEndAdvertiserInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35849,8 +35849,8 @@ class Almendadvertiserinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Premiummusicvideo(BaseModel):
-    """Premiummusicvideo model"""
+class PremiumMusicVideo(BaseModel):
+    """PremiumMusicVideo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35884,7 +35884,7 @@ class Premiummusicvideo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Premiummusicvideo":
+    def from_dict(cls, data: dict[str, Any]) -> "PremiumMusicVideo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35921,8 +35921,8 @@ class Persona(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Creditpartitionactionoptions(BaseModel):
-    """Creditpartitionactionoptions model"""
+class CreditPartitionActionOptions(BaseModel):
+    """CreditPartitionActionOptions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35940,7 +35940,7 @@ class Creditpartitionactionoptions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Creditpartitionactionoptions":
+    def from_dict(cls, data: dict[str, Any]) -> "CreditPartitionActionOptions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35949,8 +35949,8 @@ class Creditpartitionactionoptions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Canvasbodyelement(BaseModel):
-    """Canvasbodyelement model"""
+class CanvasBodyElement(BaseModel):
+    """CanvasBodyElement model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -35964,7 +35964,7 @@ class Canvasbodyelement(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Canvasbodyelement":
+    def from_dict(cls, data: dict[str, Any]) -> "CanvasBodyElement":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -35973,16 +35973,16 @@ class Canvasbodyelement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountsubsidyamountdetails(BaseModel):
-    """Adaccountsubsidyamountdetails model"""
+class AdAccountSubsidyAmountDetails(BaseModel):
+    """AdAccountSubsidyAmountDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    entered_amount: Optional["Currencyamount"] = Field(None, description="Entered Amount")
+    entered_amount: Optional["CurrencyAmount"] = Field(None, description="Entered Amount")
 
-    fee_amount: Optional["Currencyamount"] = Field(None, description="Fee Amount")
+    fee_amount: Optional["CurrencyAmount"] = Field(None, description="Fee Amount")
 
-    total_amount: Optional["Currencyamount"] = Field(None, description="Total Amount")
+    total_amount: Optional["CurrencyAmount"] = Field(None, description="Total Amount")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -35992,7 +35992,7 @@ class Adaccountsubsidyamountdetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountsubsidyamountdetails":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountSubsidyAmountDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36001,8 +36001,8 @@ class Adaccountsubsidyamountdetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigndeliverystats(BaseModel):
-    """Adcampaigndeliverystats model"""
+class AdCampaignDeliveryStats(BaseModel):
+    """AdCampaignDeliveryStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36016,11 +36016,11 @@ class Adcampaigndeliverystats(BaseModel):
         None, description="Learning Stage Exit Info"
     )
 
-    learning_stage_info: Optional["Adcampaignlearningstageinfo"] = Field(
+    learning_stage_info: Optional["AdCampaignLearningStageInfo"] = Field(
         None, description="Learning Stage Info"
     )
 
-    unsupported_features: Optional[list[dict[str, "Adcampaigndeliverystatsunsupportedreasons"]]] = (
+    unsupported_features: Optional[list[dict[str, "AdCampaignDeliveryStatsUnsupportedReasons"]]] = (
         Field(None, description="Unsupported Features")
     )
 
@@ -36032,7 +36032,7 @@ class Adcampaigndeliverystats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigndeliverystats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignDeliveryStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36041,8 +36041,8 @@ class Adcampaigndeliverystats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instagraminsightsvalue(BaseModel):
-    """Instagraminsightsvalue model"""
+class InstagramInsightsValue(BaseModel):
+    """InstagramInsightsValue model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36058,7 +36058,7 @@ class Instagraminsightsvalue(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instagraminsightsvalue":
+    def from_dict(cls, data: dict[str, Any]) -> "InstagramInsightsValue":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36067,8 +36067,8 @@ class Instagraminsightsvalue(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fantasygame(BaseModel):
-    """Fantasygame model"""
+class FantasyGame(BaseModel):
+    """FantasyGame model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36084,7 +36084,7 @@ class Fantasygame(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fantasygame":
+    def from_dict(cls, data: dict[str, Any]) -> "FantasyGame":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36093,8 +36093,8 @@ class Fantasygame(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igvideocopyrightcheckstatus(BaseModel):
-    """Igvideocopyrightcheckstatus model"""
+class IGVideoCopyrightCheckStatus(BaseModel):
+    """IGVideoCopyrightCheckStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36110,7 +36110,7 @@ class Igvideocopyrightcheckstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igvideocopyrightcheckstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "IGVideoCopyrightCheckStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36119,8 +36119,8 @@ class Igvideocopyrightcheckstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mcompayouts(BaseModel):
-    """Mcompayouts model"""
+class McomPayouts(BaseModel):
+    """McomPayouts model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36148,7 +36148,7 @@ class Mcompayouts(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mcompayouts":
+    def from_dict(cls, data: dict[str, Any]) -> "McomPayouts":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36157,8 +36157,8 @@ class Mcompayouts(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudience(BaseModel):
-    """Customaudience model"""
+class CustomAudience(BaseModel):
+    """CustomAudience model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36174,7 +36174,7 @@ class Customaudience(BaseModel):
 
     customer_file_source: Optional[str] = Field(None, description="Customer File Source")
 
-    data_source: Optional["Customaudiencedatasource"] = Field(None, description="Data Source")
+    data_source: Optional["CustomAudienceDataSource"] = Field(None, description="Data Source")
 
     data_source_types: Optional[str] = Field(None, description="Data Source Types")
 
@@ -36184,21 +36184,21 @@ class Customaudience(BaseModel):
 
     delete_time: Optional[int] = Field(None, description="Delete Time")
 
-    delivery_status: Optional["Customaudiencestatus"] = Field(None, description="Delivery Status")
+    delivery_status: Optional["CustomAudienceStatus"] = Field(None, description="Delivery Status")
 
     description: Optional[str] = Field(None, description="Description")
 
-    excluded_custom_audiences: Optional[list["Customaudience"]] = Field(
+    excluded_custom_audiences: Optional[list["CustomAudience"]] = Field(
         None, description="Excluded Custom Audiences"
     )
 
-    external_event_source: Optional["Adspixel"] = Field(None, description="External Event Source")
+    external_event_source: Optional["AdsPixel"] = Field(None, description="External Event Source")
 
     household_audience: Optional[int] = Field(None, description="Household Audience")
 
     id: Optional[str] = Field(None, description="Id")
 
-    included_custom_audiences: Optional[list["Customaudience"]] = Field(
+    included_custom_audiences: Optional[list["CustomAudience"]] = Field(
         None, description="Included Custom Audiences"
     )
 
@@ -36214,11 +36214,11 @@ class Customaudience(BaseModel):
 
     lookalike_audience_ids: Optional[list[str]] = Field(None, description="Lookalike Audience Ids")
 
-    lookalike_spec: Optional["Lookalikespec"] = Field(None, description="Lookalike Spec")
+    lookalike_spec: Optional["LookalikeSpec"] = Field(None, description="Lookalike Spec")
 
     name: Optional[str] = Field(None, description="Name")
 
-    operation_status: Optional["Customaudiencestatus"] = Field(None, description="Operation Status")
+    operation_status: Optional["CustomAudienceStatus"] = Field(None, description="Operation Status")
 
     opt_out_link: Optional[str] = Field(None, description="Opt Out Link")
 
@@ -36228,13 +36228,13 @@ class Customaudience(BaseModel):
         None, description="Page Deletion Marked Delete Time"
     )
 
-    permission_for_actions: Optional["Audiencepermissionforactions"] = Field(
+    permission_for_actions: Optional["AudiencePermissionForActions"] = Field(
         None, description="Permission For Actions"
     )
 
     pixel_id: Optional[str] = Field(None, description="Pixel Id")
 
-    regulated_audience_spec: Optional["Lookalikespec"] = Field(
+    regulated_audience_spec: Optional["LookalikeSpec"] = Field(
         None, description="Regulated Audience Spec"
     )
 
@@ -36250,7 +36250,7 @@ class Customaudience(BaseModel):
 
     seed_audience: Optional[int] = Field(None, description="Seed Audience")
 
-    sharing_status: Optional["Customaudiencesharingstatus"] = Field(
+    sharing_status: Optional["CustomAudienceSharingStatus"] = Field(
         None, description="Sharing Status"
     )
 
@@ -36270,7 +36270,7 @@ class Customaudience(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudience":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudience":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36279,8 +36279,8 @@ class Customaudience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountreachestimate(BaseModel):
-    """Adaccountreachestimate model"""
+class AdAccountReachEstimate(BaseModel):
+    """AdAccountReachEstimate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36298,7 +36298,7 @@ class Adaccountreachestimate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountreachestimate":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountReachEstimate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36307,8 +36307,8 @@ class Adaccountreachestimate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adgroupmetadata(BaseModel):
-    """Adgroupmetadata model"""
+class AdgroupMetadata(BaseModel):
+    """AdgroupMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36334,7 +36334,7 @@ class Adgroupmetadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adgroupmetadata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdgroupMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36343,8 +36343,8 @@ class Adgroupmetadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Privacyoption(BaseModel):
-    """Privacyoption model"""
+class PrivacyOption(BaseModel):
+    """PrivacyOption model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36368,7 +36368,7 @@ class Privacyoption(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Privacyoption":
+    def from_dict(cls, data: dict[str, Any]) -> "PrivacyOption":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36377,12 +36377,12 @@ class Privacyoption(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Franchiseprogram(BaseModel):
-    """Franchiseprogram model"""
+class FranchiseProgram(BaseModel):
+    """FranchiseProgram model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    business_asset_group: Optional["Businessassetgroup"] = Field(
+    business_asset_group: Optional["BusinessAssetGroup"] = Field(
         None, description="Business Asset Group"
     )
 
@@ -36404,7 +36404,7 @@ class Franchiseprogram(BaseModel):
 
     program_url: Optional[str] = Field(None, description="Program Url")
 
-    shared_custom_audience: Optional["Customaudience"] = Field(
+    shared_custom_audience: Optional["CustomAudience"] = Field(
         None, description="Shared Custom Audience"
     )
 
@@ -36418,7 +36418,7 @@ class Franchiseprogram(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Franchiseprogram":
+    def from_dict(cls, data: dict[str, Any]) -> "FranchiseProgram":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36427,8 +36427,8 @@ class Franchiseprogram(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsreportbuildersavedreport(BaseModel):
-    """Adsreportbuildersavedreport model"""
+class AdsReportBuilderSavedReport(BaseModel):
+    """AdsReportBuilderSavedReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36532,7 +36532,7 @@ class Adsreportbuildersavedreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsreportbuildersavedreport":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsReportBuilderSavedReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36541,8 +36541,8 @@ class Adsreportbuildersavedreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Analyticsfunnelqueryresult(BaseModel):
-    """Analyticsfunnelqueryresult model"""
+class AnalyticsFunnelQueryResult(BaseModel):
+    """AnalyticsFunnelQueryResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36558,7 +36558,7 @@ class Analyticsfunnelqueryresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Analyticsfunnelqueryresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AnalyticsFunnelQueryResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36567,8 +36567,8 @@ class Analyticsfunnelqueryresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcataloguseractions(BaseModel):
-    """Productcataloguseractions model"""
+class ProductCatalogUserActions(BaseModel):
+    """ProductCatalogUserActions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36582,7 +36582,7 @@ class Productcataloguseractions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcataloguseractions":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogUserActions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36591,8 +36591,8 @@ class Productcataloguseractions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adgroupissuesinfo(BaseModel):
-    """Adgroupissuesinfo model"""
+class AdgroupIssuesInfo(BaseModel):
+    """AdgroupIssuesInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36616,7 +36616,7 @@ class Adgroupissuesinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adgroupissuesinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdgroupIssuesInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36625,8 +36625,8 @@ class Adgroupissuesinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogimagesettingsoperation(BaseModel):
-    """Productcatalogimagesettingsoperation model"""
+class ProductCatalogImageSettingsOperation(BaseModel):
+    """ProductCatalogImageSettingsOperation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36640,7 +36640,7 @@ class Productcatalogimagesettingsoperation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogimagesettingsoperation":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogImageSettingsOperation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36649,8 +36649,8 @@ class Productcatalogimagesettingsoperation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Iguserexportforcam(BaseModel):
-    """Iguserexportforcam model"""
+class IGUserExportForCAM(BaseModel):
+    """IGUserExportForCAM model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36688,7 +36688,7 @@ class Iguserexportforcam(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Iguserexportforcam":
+    def from_dict(cls, data: dict[str, Any]) -> "IGUserExportForCAM":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36697,8 +36697,8 @@ class Iguserexportforcam(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audioasset(BaseModel):
-    """Audioasset model"""
+class AudioAsset(BaseModel):
+    """AudioAsset model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36750,7 +36750,7 @@ class Audioasset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audioasset":
+    def from_dict(cls, data: dict[str, Any]) -> "AudioAsset":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36759,12 +36759,12 @@ class Audioasset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccounttrackingdata(BaseModel):
-    """Adaccounttrackingdata model"""
+class AdAccountTrackingData(BaseModel):
+    """AdAccountTrackingData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    tracking_specs: Optional["Conversionactionquery"] = Field(None, description="Tracking Specs")
+    tracking_specs: Optional["ConversionActionQuery"] = Field(None, description="Tracking Specs")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -36774,7 +36774,7 @@ class Adaccounttrackingdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccounttrackingdata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountTrackingData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36783,8 +36783,8 @@ class Adaccounttrackingdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencyadformat(BaseModel):
-    """Reachfrequencyadformat model"""
+class ReachFrequencyAdFormat(BaseModel):
+    """ReachFrequencyAdFormat model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36800,7 +36800,7 @@ class Reachfrequencyadformat(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencyadformat":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyAdFormat":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36809,8 +36809,8 @@ class Reachfrequencyadformat(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whatsappbusinessaccount(BaseModel):
-    """Whatsappbusinessaccount model"""
+class WhatsAppBusinessAccount(BaseModel):
+    """WhatsAppBusinessAccount model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36832,7 +36832,7 @@ class Whatsappbusinessaccount(BaseModel):
 
     currency: Optional[str] = Field(None, description="Currency")
 
-    health_status: Optional["Whatsappbusinesshealthstatusformessagesend"] = Field(
+    health_status: Optional["WhatsAppBusinessHealthStatusForMessageSend"] = Field(
         None, description="Health Status"
     )
 
@@ -36842,7 +36842,7 @@ class Whatsappbusinessaccount(BaseModel):
 
     is_shared_with_partners: Optional[bool] = Field(None, description="Is Shared With Partners")
 
-    linked_commerce_account: Optional["Commercemerchantsettings"] = Field(
+    linked_commerce_account: Optional["CommerceMerchantSettings"] = Field(
         None, description="Linked Commerce Account"
     )
 
@@ -36884,7 +36884,7 @@ class Whatsappbusinessaccount(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whatsappbusinessaccount":
+    def from_dict(cls, data: dict[str, Any]) -> "WhatsAppBusinessAccount":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36893,8 +36893,8 @@ class Whatsappbusinessaccount(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Extendedcreditemail(BaseModel):
-    """Extendedcreditemail model"""
+class ExtendedCreditEmail(BaseModel):
+    """ExtendedCreditEmail model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36910,7 +36910,7 @@ class Extendedcreditemail(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Extendedcreditemail":
+    def from_dict(cls, data: dict[str, Any]) -> "ExtendedCreditEmail":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36919,8 +36919,8 @@ class Extendedcreditemail(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Admonetizationproperty(BaseModel):
-    """Admonetizationproperty model"""
+class AdMonetizationProperty(BaseModel):
+    """AdMonetizationProperty model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36934,7 +36934,7 @@ class Admonetizationproperty(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Admonetizationproperty":
+    def from_dict(cls, data: dict[str, Any]) -> "AdMonetizationProperty":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36943,8 +36943,8 @@ class Admonetizationproperty(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandedcontentshadowigmediaid(BaseModel):
-    """Brandedcontentshadowigmediaid model"""
+class BrandedContentShadowIGMediaID(BaseModel):
+    """BrandedContentShadowIGMediaID model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -36972,7 +36972,7 @@ class Brandedcontentshadowigmediaid(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandedcontentshadowigmediaid":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandedContentShadowIGMediaID":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -36981,8 +36981,8 @@ class Brandedcontentshadowigmediaid(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencyestimatescurve(BaseModel):
-    """Reachfrequencyestimatescurve model"""
+class ReachFrequencyEstimatesCurve(BaseModel):
+    """ReachFrequencyEstimatesCurve model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37010,7 +37010,7 @@ class Reachfrequencyestimatescurve(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencyestimatescurve":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyEstimatesCurve":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37026,7 +37026,7 @@ class Vehicle(BaseModel):
 
     address: Optional[dict[str, Any]] = Field(None, description="Address")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     availability: Optional[str] = Field(None, description="Availability")
 
@@ -37040,7 +37040,7 @@ class Vehicle(BaseModel):
 
     body_style: Optional[str] = Field(None, description="Body Style")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -37187,8 +37187,8 @@ class Vehicle(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whatsapppaymentcapabilities(BaseModel):
-    """Whatsapppaymentcapabilities model"""
+class WhatsAppPaymentCapabilities(BaseModel):
+    """WhatsAppPaymentCapabilities model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37206,7 +37206,7 @@ class Whatsapppaymentcapabilities(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whatsapppaymentcapabilities":
+    def from_dict(cls, data: dict[str, Any]) -> "WhatsAppPaymentCapabilities":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37215,8 +37215,8 @@ class Whatsapppaymentcapabilities(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adpromotedobject(BaseModel):
-    """Adpromotedobject model"""
+class AdPromotedObject(BaseModel):
+    """AdPromotedObject model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37276,7 +37276,7 @@ class Adpromotedobject(BaseModel):
 
     pixel_rule: Optional[str] = Field(None, description="Pixel Rule")
 
-    place_page_set: Optional["Adplacepageset"] = Field(None, description="Place Page Set")
+    place_page_set: Optional["AdPlacePageSet"] = Field(None, description="Place Page Set")
 
     place_page_set_id: Optional[str] = Field(None, description="Place Page Set Id")
 
@@ -37284,7 +37284,7 @@ class Adpromotedobject(BaseModel):
 
     product_item_id: Optional[str] = Field(None, description="Product Item Id")
 
-    product_set: Optional["Productset"] = Field(None, description="Product Set")
+    product_set: Optional["ProductSet"] = Field(None, description="Product Set")
 
     product_set_id: Optional[str] = Field(None, description="Product Set Id")
 
@@ -37310,7 +37310,7 @@ class Adpromotedobject(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adpromotedobject":
+    def from_dict(cls, data: dict[str, Any]) -> "AdPromotedObject":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37319,8 +37319,8 @@ class Adpromotedobject(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlineconversiondatasetpermissions(BaseModel):
-    """Offlineconversiondatasetpermissions model"""
+class OfflineConversionDataSetPermissions(BaseModel):
+    """OfflineConversionDataSetPermissions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37342,7 +37342,7 @@ class Offlineconversiondatasetpermissions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlineconversiondatasetpermissions":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineConversionDataSetPermissions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37351,8 +37351,8 @@ class Offlineconversiondatasetpermissions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Paymentenginepayment(BaseModel):
-    """Paymentenginepayment model"""
+class PaymentEnginePayment(BaseModel):
+    """PaymentEnginePayment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37386,7 +37386,7 @@ class Paymentenginepayment(BaseModel):
 
     platform: Optional[str] = Field(None, description="Platform")
 
-    refundable_amount: Optional["Currencyamount"] = Field(None, description="Refundable Amount")
+    refundable_amount: Optional["CurrencyAmount"] = Field(None, description="Refundable Amount")
 
     request_id: Optional[str] = Field(None, description="Request Id")
 
@@ -37406,7 +37406,7 @@ class Paymentenginepayment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Paymentenginepayment":
+    def from_dict(cls, data: dict[str, Any]) -> "PaymentEnginePayment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37415,12 +37415,12 @@ class Paymentenginepayment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenappointmentslotsbyday(BaseModel):
-    """Leadgenappointmentslotsbyday model"""
+class LeadGenAppointmentSlotsByDay(BaseModel):
+    """LeadGenAppointmentSlotsByDay model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    appointment_slots: Optional[list["Leadgenappointmenttimeslot"]] = Field(
+    appointment_slots: Optional[list["LeadGenAppointmentTimeSlot"]] = Field(
         None, description="Appointment Slots"
     )
 
@@ -37434,7 +37434,7 @@ class Leadgenappointmentslotsbyday(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenappointmentslotsbyday":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenAppointmentSlotsByDay":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37443,12 +37443,12 @@ class Leadgenappointmentslotsbyday(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adruleexecutionspec(BaseModel):
-    """Adruleexecutionspec model"""
+class AdRuleExecutionSpec(BaseModel):
+    """AdRuleExecutionSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    execution_options: Optional[list["Adruleexecutionoptions"]] = Field(
+    execution_options: Optional[list["AdRuleExecutionOptions"]] = Field(
         None, description="Execution Options"
     )
 
@@ -37466,7 +37466,7 @@ class Adruleexecutionspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adruleexecutionspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleExecutionSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37475,8 +37475,8 @@ class Adruleexecutionspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogitemvalidationerrorlist(BaseModel):
-    """Catalogitemvalidationerrorlist model"""
+class CatalogItemValidationErrorList(BaseModel):
+    """CatalogItemValidationErrorList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37490,7 +37490,7 @@ class Catalogitemvalidationerrorlist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogitemvalidationerrorlist":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogItemValidationErrorList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37499,8 +37499,8 @@ class Catalogitemvalidationerrorlist(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationlocationcluster(BaseModel):
-    """Targetinggeolocationlocationcluster model"""
+class TargetingGeoLocationLocationCluster(BaseModel):
+    """TargetingGeoLocationLocationCluster model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37514,7 +37514,7 @@ class Targetinggeolocationlocationcluster(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationlocationcluster":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationLocationCluster":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37523,8 +37523,8 @@ class Targetinggeolocationlocationcluster(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Analyticsqueryresult(BaseModel):
-    """Analyticsqueryresult model"""
+class AnalyticsQueryResult(BaseModel):
+    """AnalyticsQueryResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37540,7 +37540,7 @@ class Analyticsqueryresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Analyticsqueryresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AnalyticsQueryResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37549,8 +37549,8 @@ class Analyticsqueryresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igaccesstokenforigonlyapi(BaseModel):
-    """Igaccesstokenforigonlyapi model"""
+class IGAccessTokenForIGOnlyAPI(BaseModel):
+    """IGAccessTokenForIGOnlyAPI model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37568,7 +37568,7 @@ class Igaccesstokenforigonlyapi(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igaccesstokenforigonlyapi":
+    def from_dict(cls, data: dict[str, Any]) -> "IGAccessTokenForIGOnlyAPI":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37577,12 +37577,12 @@ class Igaccesstokenforigonlyapi(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videostatusprocessingphase(BaseModel):
-    """Videostatusprocessingphase model"""
+class VideoStatusProcessingPhase(BaseModel):
+    """VideoStatusProcessingPhase model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    errors: Optional[list["Videostatuserror"]] = Field(None, description="Errors")
+    errors: Optional[list["VideoStatusError"]] = Field(None, description="Errors")
 
     status: Optional[str] = Field(None, description="Status")
 
@@ -37594,7 +37594,7 @@ class Videostatusprocessingphase(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videostatusprocessingphase":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoStatusProcessingPhase":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37603,8 +37603,8 @@ class Videostatusprocessingphase(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemcommerceinsights(BaseModel):
-    """Productitemcommerceinsights model"""
+class ProductItemCommerceInsights(BaseModel):
+    """ProductItemCommerceInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37622,7 +37622,7 @@ class Productitemcommerceinsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemcommerceinsights":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemCommerceInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37631,8 +37631,8 @@ class Productitemcommerceinsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountaaacompatibleadobjects(BaseModel):
-    """Adaccountaaacompatibleadobjects model"""
+class AdAccountAAACompatibleAdObjects(BaseModel):
+    """AdAccountAAACompatibleAdObjects model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37650,7 +37650,7 @@ class Adaccountaaacompatibleadobjects(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountaaacompatibleadobjects":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAAACompatibleAdObjects":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37659,8 +37659,8 @@ class Adaccountaaacompatibleadobjects(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productiteminsights(BaseModel):
-    """Productiteminsights model"""
+class ProductItemInsights(BaseModel):
+    """ProductItemInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37682,7 +37682,7 @@ class Productiteminsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productiteminsights":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37691,8 +37691,8 @@ class Productiteminsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelstats(BaseModel):
-    """Adspixelstats model"""
+class AdsPixelStats(BaseModel):
+    """AdsPixelStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37714,7 +37714,7 @@ class Adspixelstats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelstats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37723,8 +37723,8 @@ class Adspixelstats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetdescription(BaseModel):
-    """Adassetdescription model"""
+class AdAssetDescription(BaseModel):
+    """AdAssetDescription model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37742,7 +37742,7 @@ class Adassetdescription(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetdescription":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetDescription":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37751,8 +37751,8 @@ class Adassetdescription(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeshopspec(BaseModel):
-    """Adcreativeshopspec model"""
+class AdCreativeShopSpec(BaseModel):
+    """AdCreativeShopSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37770,7 +37770,7 @@ class Adcreativeshopspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeshopspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeShopSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37779,8 +37779,8 @@ class Adcreativeshopspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencydaypart(BaseModel):
-    """Reachfrequencydaypart model"""
+class ReachFrequencyDayPart(BaseModel):
+    """ReachFrequencyDayPart model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37798,7 +37798,7 @@ class Reachfrequencydaypart(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencydaypart":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyDayPart":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37807,8 +37807,8 @@ class Reachfrequencydaypart(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessownedobjectonbehalfofrequest(BaseModel):
-    """Businessownedobjectonbehalfofrequest model"""
+class BusinessOwnedObjectOnBehalfOfRequest(BaseModel):
+    """BusinessOwnedObjectOnBehalfOfRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37830,7 +37830,7 @@ class Businessownedobjectonbehalfofrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessownedobjectonbehalfofrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessOwnedObjectOnBehalfOfRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37839,30 +37839,30 @@ class Businessownedobjectonbehalfofrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalog(BaseModel):
-    """Productcatalog model"""
+class ProductCatalog(BaseModel):
+    """ProductCatalog model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_account_to_collaborative_ads_share_settings: Optional["Collaborativeadssharesettings"] = (
+    ad_account_to_collaborative_ads_share_settings: Optional["CollaborativeAdsShareSettings"] = (
         Field(None, description="Ad Account To Collaborative Ads Share Settings")
     )
 
-    agency_collaborative_ads_share_settings: Optional["Collaborativeadssharesettings"] = Field(
+    agency_collaborative_ads_share_settings: Optional["CollaborativeAdsShareSettings"] = Field(
         None, description="Agency Collaborative Ads Share Settings"
     )
 
     business: Optional["Business"] = Field(None, description="Business")
 
-    catalog_store: Optional["Storecatalogsettings"] = Field(None, description="Catalog Store")
+    catalog_store: Optional["StoreCatalogSettings"] = Field(None, description="Catalog Store")
 
-    commerce_merchant_settings: Optional["Commercemerchantsettings"] = Field(
+    commerce_merchant_settings: Optional["CommerceMerchantSettings"] = Field(
         None, description="Commerce Merchant Settings"
     )
 
     creator_user: Optional["User"] = Field(None, description="Creator User")
 
-    da_display_settings: Optional["Productcatalogimagesettings"] = Field(
+    da_display_settings: Optional["ProductCatalogImageSettings"] = Field(
         None, description="Da Display Settings"
     )
 
@@ -37884,7 +37884,7 @@ class Productcatalog(BaseModel):
 
     product_count: Optional[int] = Field(None, description="Product Count")
 
-    store_catalog_settings: Optional["Storecatalogsettings"] = Field(
+    store_catalog_settings: Optional["StoreCatalogSettings"] = Field(
         None, description="Store Catalog Settings"
     )
 
@@ -37900,7 +37900,7 @@ class Productcatalog(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalog":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalog":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37909,8 +37909,8 @@ class Productcatalog(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemsubscriptioninfo(BaseModel):
-    """Productitemsubscriptioninfo model"""
+class ProductItemSubscriptionInfo(BaseModel):
+    """ProductItemSubscriptionInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37930,7 +37930,7 @@ class Productitemsubscriptioninfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemsubscriptioninfo":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemSubscriptionInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37939,8 +37939,8 @@ class Productitemsubscriptioninfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videopoll(BaseModel):
-    """Videopoll model"""
+class VideoPoll(BaseModel):
+    """VideoPoll model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37966,7 +37966,7 @@ class Videopoll(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videopoll":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoPoll":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -37975,8 +37975,8 @@ class Videopoll(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adentitytargetspend(BaseModel):
-    """Adentitytargetspend model"""
+class AdEntityTargetSpend(BaseModel):
+    """AdEntityTargetSpend model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -37998,7 +37998,7 @@ class Adentitytargetspend(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adentitytargetspend":
+    def from_dict(cls, data: dict[str, Any]) -> "AdEntityTargetSpend":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38007,8 +38007,8 @@ class Adentitytargetspend(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Campaigngroupbrandconfiguration(BaseModel):
-    """Campaigngroupbrandconfiguration model"""
+class CampaignGroupBrandConfiguration(BaseModel):
+    """CampaignGroupBrandConfiguration model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38026,7 +38026,7 @@ class Campaigngroupbrandconfiguration(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Campaigngroupbrandconfiguration":
+    def from_dict(cls, data: dict[str, Any]) -> "CampaignGroupBrandConfiguration":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38035,8 +38035,8 @@ class Campaigngroupbrandconfiguration(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Playablecontent(BaseModel):
-    """Playablecontent model"""
+class PlayableContent(BaseModel):
+    """PlayableContent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38054,7 +38054,7 @@ class Playablecontent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Playablecontent":
+    def from_dict(cls, data: dict[str, Any]) -> "PlayableContent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38063,8 +38063,8 @@ class Playablecontent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowigmediaproducttags(BaseModel):
-    """Shadowigmediaproducttags model"""
+class ShadowIGMediaProductTags(BaseModel):
+    """ShadowIGMediaProductTags model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38100,7 +38100,7 @@ class Shadowigmediaproducttags(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowigmediaproducttags":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGMediaProductTags":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38109,8 +38109,8 @@ class Shadowigmediaproducttags(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessassetgroup(BaseModel):
-    """Businessassetgroup model"""
+class BusinessAssetGroup(BaseModel):
+    """BusinessAssetGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38128,7 +38128,7 @@ class Businessassetgroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessassetgroup":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessAssetGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38137,8 +38137,8 @@ class Businessassetgroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageaboutstorycomposedblockentityranges(BaseModel):
-    """Pageaboutstorycomposedblockentityranges model"""
+class PageAboutStoryComposedBlockEntityRanges(BaseModel):
+    """PageAboutStoryComposedBlockEntityRanges model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38156,7 +38156,7 @@ class Pageaboutstorycomposedblockentityranges(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageaboutstorycomposedblockentityranges":
+    def from_dict(cls, data: dict[str, Any]) -> "PageAboutStoryComposedBlockEntityRanges":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38165,8 +38165,8 @@ class Pageaboutstorycomposedblockentityranges(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessobject(BaseModel):
-    """Businessobject model"""
+class BusinessObject(BaseModel):
+    """BusinessObject model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38188,7 +38188,7 @@ class Businessobject(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessobject":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessObject":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38197,8 +38197,8 @@ class Businessobject(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativepromotionmetadataspec(BaseModel):
-    """Adcreativepromotionmetadataspec model"""
+class AdCreativePromotionMetadataSpec(BaseModel):
+    """AdCreativePromotionMetadataSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38224,7 +38224,7 @@ class Adcreativepromotionmetadataspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativepromotionmetadataspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativePromotionMetadataSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38233,20 +38233,20 @@ class Adcreativepromotionmetadataspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingsubscriberuniverse(BaseModel):
-    """Targetingsubscriberuniverse model"""
+class TargetingSubscriberUniverse(BaseModel):
+    """TargetingSubscriberUniverse model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    messenger_subscriber_source: Optional["Idname"] = Field(
+    messenger_subscriber_source: Optional["IDName"] = Field(
         None, description="Messenger Subscriber Source"
     )
 
-    whatsapp_subscriber_pool: Optional["Idname"] = Field(
+    whatsapp_subscriber_pool: Optional["IDName"] = Field(
         None, description="Whatsapp Subscriber Pool"
     )
 
-    whatsapp_subscriber_source: Optional["Idname"] = Field(
+    whatsapp_subscriber_source: Optional["IDName"] = Field(
         None, description="Whatsapp Subscriber Source"
     )
 
@@ -38258,7 +38258,7 @@ class Targetingsubscriberuniverse(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingsubscriberuniverse":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingSubscriberUniverse":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38267,8 +38267,8 @@ class Targetingsubscriberuniverse(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Textwithentities(BaseModel):
-    """Textwithentities model"""
+class TextWithEntities(BaseModel):
+    """TextWithEntities model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38282,7 +38282,7 @@ class Textwithentities(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Textwithentities":
+    def from_dict(cls, data: dict[str, Any]) -> "TextWithEntities":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38291,12 +38291,12 @@ class Textwithentities(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igcomment(BaseModel):
-    """Igcomment model"""
+class IGComment(BaseModel):
+    """IGComment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    from_: Optional["Igcommentfromuser"] = Field(None, alias="from", description="From")
+    from_: Optional["IGCommentFromUser"] = Field(None, alias="from", description="From")
 
     hidden: Optional[bool] = Field(None, description="Hidden")
 
@@ -38308,7 +38308,7 @@ class Igcomment(BaseModel):
 
     like_count: Optional[int] = Field(None, description="Like Count")
 
-    media: Optional["Igmedia"] = Field(None, description="Media")
+    media: Optional["IGMedia"] = Field(None, description="Media")
 
     parent_id: Optional[str] = Field(None, description="Parent Id")
 
@@ -38316,7 +38316,7 @@ class Igcomment(BaseModel):
 
     timestamp: Optional[datetime] = Field(None, description="Timestamp")
 
-    user: Optional["Iguser"] = Field(None, description="User")
+    user: Optional["IGUser"] = Field(None, description="User")
 
     username: Optional[str] = Field(None, description="Username")
 
@@ -38328,7 +38328,7 @@ class Igcomment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igcomment":
+    def from_dict(cls, data: dict[str, Any]) -> "IGComment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38337,8 +38337,8 @@ class Igcomment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowiguserpartnershipadsmediaerrors(BaseModel):
-    """Shadowiguserpartnershipadsmediaerrors model"""
+class ShadowIGUserPartnershipAdsMediaErrors(BaseModel):
+    """ShadowIGUserPartnershipAdsMediaErrors model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38358,7 +38358,7 @@ class Shadowiguserpartnershipadsmediaerrors(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowiguserpartnershipadsmediaerrors":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGUserPartnershipAdsMediaErrors":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38367,8 +38367,8 @@ class Shadowiguserpartnershipadsmediaerrors(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Userpageonetimeoptintokensettings(BaseModel):
-    """Userpageonetimeoptintokensettings model"""
+class UserPageOneTimeOptInTokenSettings(BaseModel):
+    """UserPageOneTimeOptInTokenSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38408,7 +38408,7 @@ class Userpageonetimeoptintokensettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Userpageonetimeoptintokensettings":
+    def from_dict(cls, data: dict[str, Any]) -> "UserPageOneTimeOptInTokenSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38417,8 +38417,8 @@ class Userpageonetimeoptintokensettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adlimitsetting(BaseModel):
-    """Adlimitsetting model"""
+class AdLimitSetting(BaseModel):
+    """AdLimitSetting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38434,7 +38434,7 @@ class Adlimitsetting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adlimitsetting":
+    def from_dict(cls, data: dict[str, Any]) -> "AdLimitSetting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38443,12 +38443,12 @@ class Adlimitsetting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reportingaudience(BaseModel):
-    """Reportingaudience model"""
+class ReportingAudience(BaseModel):
+    """ReportingAudience model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    custom_audiences: Optional[list["Rawcustomaudience"]] = Field(
+    custom_audiences: Optional[list["RawCustomAudience"]] = Field(
         None, description="Custom Audiences"
     )
 
@@ -38468,7 +38468,7 @@ class Reportingaudience(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reportingaudience":
+    def from_dict(cls, data: dict[str, Any]) -> "ReportingAudience":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38477,18 +38477,18 @@ class Reportingaudience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Partnershipadcontentsearchmedia(BaseModel):
-    """Partnershipadcontentsearchmedia model"""
+class PartnershipAdContentSearchMedia(BaseModel):
+    """PartnershipAdContentSearchMedia model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     ig_ad_code_sponsor_count: Optional[int] = Field(None, description="Ig Ad Code Sponsor Count")
 
-    ig_ad_code_sponsors: Optional[list["Fbpageandinstagramaccount"]] = Field(
+    ig_ad_code_sponsors: Optional[list["FBPageAndInstagramAccount"]] = Field(
         None, description="Ig Ad Code Sponsors"
     )
 
-    ig_media: Optional["Igmedia"] = Field(None, description="Ig Media")
+    ig_media: Optional["IGMedia"] = Field(None, description="Ig Media")
 
     ig_media_has_product_tags: Optional[bool] = Field(None, description="Ig Media Has Product Tags")
 
@@ -38506,7 +38506,7 @@ class Partnershipadcontentsearchmedia(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Partnershipadcontentsearchmedia":
+    def from_dict(cls, data: dict[str, Any]) -> "PartnershipAdContentSearchMedia":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38515,8 +38515,8 @@ class Partnershipadcontentsearchmedia(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountspendcapchangehistory(BaseModel):
-    """Adaccountspendcapchangehistory model"""
+class AdAccountSpendCapChangeHistory(BaseModel):
+    """AdAccountSpendCapChangeHistory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38536,7 +38536,7 @@ class Adaccountspendcapchangehistory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountspendcapchangehistory":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountSpendCapChangeHistory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38545,8 +38545,8 @@ class Adaccountspendcapchangehistory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencycurvelowerconfidencerange(BaseModel):
-    """Reachfrequencycurvelowerconfidencerange model"""
+class ReachFrequencyCurveLowerConfidenceRange(BaseModel):
+    """ReachFrequencyCurveLowerConfidenceRange model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38572,7 +38572,7 @@ class Reachfrequencycurvelowerconfidencerange(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencycurvelowerconfidencerange":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyCurveLowerConfidenceRange":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38581,8 +38581,8 @@ class Reachfrequencycurvelowerconfidencerange(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdataimagelayerspec(BaseModel):
-    """Adcreativelinkdataimagelayerspec model"""
+class AdCreativeLinkDataImageLayerSpec(BaseModel):
+    """AdCreativeLinkDataImageLayerSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38638,7 +38638,7 @@ class Adcreativelinkdataimagelayerspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdataimagelayerspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataImageLayerSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38647,8 +38647,8 @@ class Adcreativelinkdataimagelayerspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationgeoentities(BaseModel):
-    """Targetinggeolocationgeoentities model"""
+class TargetingGeoLocationGeoEntities(BaseModel):
+    """TargetingGeoLocationGeoEntities model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38670,7 +38670,7 @@ class Targetinggeolocationgeoentities(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationgeoentities":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationGeoEntities":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38679,8 +38679,8 @@ class Targetinggeolocationgeoentities(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlineconversiondatasetusage(BaseModel):
-    """Offlineconversiondatasetusage model"""
+class OfflineConversionDataSetUsage(BaseModel):
+    """OfflineConversionDataSetUsage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38694,7 +38694,7 @@ class Offlineconversiondatasetusage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlineconversiondatasetusage":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineConversionDataSetUsage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38703,8 +38703,8 @@ class Offlineconversiondatasetusage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videothumbnail(BaseModel):
-    """Videothumbnail model"""
+class VideoThumbnail(BaseModel):
+    """VideoThumbnail model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38730,7 +38730,7 @@ class Videothumbnail(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videothumbnail":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoThumbnail":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38739,8 +38739,8 @@ class Videothumbnail(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Externaleventsourcecpaseventsdebugging(BaseModel):
-    """Externaleventsourcecpaseventsdebugging model"""
+class ExternalEventSourceCPASEventsDebugging(BaseModel):
+    """ExternalEventSourceCPASEventsDebugging model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38770,7 +38770,7 @@ class Externaleventsourcecpaseventsdebugging(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Externaleventsourcecpaseventsdebugging":
+    def from_dict(cls, data: dict[str, Any]) -> "ExternalEventSourceCPASEventsDebugging":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38779,12 +38779,12 @@ class Externaleventsourcecpaseventsdebugging(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspeccaption(BaseModel):
-    """Adassetfeedspeccaption model"""
+class AdAssetFeedSpecCaption(BaseModel):
+    """AdAssetFeedSpecCaption model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     text: Optional[str] = Field(None, description="Text")
 
@@ -38798,7 +38798,7 @@ class Adassetfeedspeccaption(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspeccaption":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecCaption":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38807,8 +38807,8 @@ class Adassetfeedspeccaption(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Hasleadaccess(BaseModel):
-    """Hasleadaccess model"""
+class HasLeadAccess(BaseModel):
+    """HasLeadAccess model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38840,7 +38840,7 @@ class Hasleadaccess(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Hasleadaccess":
+    def from_dict(cls, data: dict[str, Any]) -> "HasLeadAccess":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38849,8 +38849,8 @@ class Hasleadaccess(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Collaborativeadspartnerbusinesses(BaseModel):
-    """Collaborativeadspartnerbusinesses model"""
+class CollaborativeAdsPartnerBusinesses(BaseModel):
+    """CollaborativeAdsPartnerBusinesses model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38870,7 +38870,7 @@ class Collaborativeadspartnerbusinesses(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Collaborativeadspartnerbusinesses":
+    def from_dict(cls, data: dict[str, Any]) -> "CollaborativeAdsPartnerBusinesses":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38886,15 +38886,15 @@ class Business(BaseModel):
 
     block_offline_analytics: Optional[bool] = Field(None, description="Block Offline Analytics")
 
-    collaborative_ads_managed_partner_business_info: Optional["Managedpartnerbusiness"] = Field(
+    collaborative_ads_managed_partner_business_info: Optional["ManagedPartnerBusiness"] = Field(
         None, description="Collaborative Ads Managed Partner Business Info"
     )
 
-    collaborative_ads_managed_partner_eligibility: Optional["Businessmanagedpartnereligibility"] = (
+    collaborative_ads_managed_partner_eligibility: Optional["BusinessManagedPartnerEligibility"] = (
         Field(None, description="Collaborative Ads Managed Partner Eligibility")
     )
 
-    collaborative_ads_partner_premium_options: Optional["Businesspartnerpremiumoptions"] = Field(
+    collaborative_ads_partner_premium_options: Optional["BusinessPartnerPremiumOptions"] = Field(
         None, description="Collaborative Ads Partner Premium Options"
     )
 
@@ -38953,8 +38953,8 @@ class Business(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Socialwifisite(BaseModel):
-    """Socialwifisite model"""
+class SocialWifiSite(BaseModel):
+    """SocialWifiSite model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38968,7 +38968,7 @@ class Socialwifisite(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Socialwifisite":
+    def from_dict(cls, data: dict[str, Any]) -> "SocialWifiSite":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -38977,8 +38977,8 @@ class Socialwifisite(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igusermessengerprofile(BaseModel):
-    """Igusermessengerprofile model"""
+class IGUserMessengerProfile(BaseModel):
+    """IGUserMessengerProfile model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -38994,7 +38994,7 @@ class Igusermessengerprofile(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igusermessengerprofile":
+    def from_dict(cls, data: dict[str, Any]) -> "IGUserMessengerProfile":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39003,8 +39003,8 @@ class Igusermessengerprofile(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdataimageoverlayspec(BaseModel):
-    """Adcreativelinkdataimageoverlayspec model"""
+class AdCreativeLinkDataImageOverlaySpec(BaseModel):
+    """AdCreativeLinkDataImageOverlaySpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39044,7 +39044,7 @@ class Adcreativelinkdataimageoverlayspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdataimageoverlayspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataImageOverlaySpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39053,8 +39053,8 @@ class Adcreativelinkdataimageoverlayspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Salesrightsinventorymanagement(BaseModel):
-    """Salesrightsinventorymanagement model"""
+class SalesRightsInventoryManagement(BaseModel):
+    """SalesRightsInventoryManagement model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39080,7 +39080,7 @@ class Salesrightsinventorymanagement(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Salesrightsinventorymanagement":
+    def from_dict(cls, data: dict[str, Any]) -> "SalesRightsInventoryManagement":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39089,26 +39089,26 @@ class Salesrightsinventorymanagement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeobjectstoryspec(BaseModel):
-    """Adcreativeobjectstoryspec model"""
+class AdCreativeObjectStorySpec(BaseModel):
+    """AdCreativeObjectStorySpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     instagram_user_id: Optional[str] = Field(None, description="Instagram User Id")
 
-    link_data: Optional["Adcreativelinkdata"] = Field(None, description="Link Data")
+    link_data: Optional["AdCreativeLinkData"] = Field(None, description="Link Data")
 
     page_id: Optional[str] = Field(None, description="Page Id")
 
-    photo_data: Optional["Adcreativephotodata"] = Field(None, description="Photo Data")
+    photo_data: Optional["AdCreativePhotoData"] = Field(None, description="Photo Data")
 
-    product_data: Optional[list["Adcreativeproductdata"]] = Field(None, description="Product Data")
+    product_data: Optional[list["AdCreativeProductData"]] = Field(None, description="Product Data")
 
-    template_data: Optional["Adcreativelinkdata"] = Field(None, description="Template Data")
+    template_data: Optional["AdCreativeLinkData"] = Field(None, description="Template Data")
 
-    text_data: Optional["Adcreativetextdata"] = Field(None, description="Text Data")
+    text_data: Optional["AdCreativeTextData"] = Field(None, description="Text Data")
 
-    video_data: Optional["Adcreativevideodata"] = Field(None, description="Video Data")
+    video_data: Optional["AdCreativeVideoData"] = Field(None, description="Video Data")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -39118,7 +39118,7 @@ class Adcreativeobjectstoryspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeobjectstoryspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeObjectStorySpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39127,8 +39127,8 @@ class Adcreativeobjectstoryspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adasyncrequestset(BaseModel):
-    """Adasyncrequestset model"""
+class AdAsyncRequestSet(BaseModel):
+    """AdAsyncRequestSet model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39152,7 +39152,7 @@ class Adasyncrequestset(BaseModel):
         None, description="Notification Mode"
     )
 
-    notification_result: Optional["Adasyncrequestsetnotificationresult"] = Field(
+    notification_result: Optional["AdAsyncRequestSetNotificationResult"] = Field(
         None, description="Notification Result"
     )
 
@@ -39176,7 +39176,7 @@ class Adasyncrequestset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adasyncrequestset":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAsyncRequestSet":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39185,8 +39185,8 @@ class Adasyncrequestset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Assigneduser(BaseModel):
-    """Assigneduser model"""
+class AssignedUser(BaseModel):
+    """AssignedUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39206,7 +39206,7 @@ class Assigneduser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Assigneduser":
+    def from_dict(cls, data: dict[str, Any]) -> "AssignedUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39215,12 +39215,12 @@ class Assigneduser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adkpishift(BaseModel):
-    """Adkpishift model"""
+class AdKpiShift(BaseModel):
+    """AdKpiShift model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_set: Optional["Adset"] = Field(None, description="Ad Set")
+    ad_set: Optional["AdSet"] = Field(None, description="Ad Set")
 
     cost_per_result_shift: Optional[float] = Field(None, description="Cost Per Result Shift")
 
@@ -39240,7 +39240,7 @@ class Adkpishift(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adkpishift":
+    def from_dict(cls, data: dict[str, Any]) -> "AdKpiShift":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39249,8 +39249,8 @@ class Adkpishift(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenpostsubmissioncheckresult(BaseModel):
-    """Leadgenpostsubmissioncheckresult model"""
+class LeadGenPostSubmissionCheckResult(BaseModel):
+    """LeadGenPostSubmissionCheckResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39268,7 +39268,7 @@ class Leadgenpostsubmissioncheckresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenpostsubmissioncheckresult":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenPostSubmissionCheckResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39277,8 +39277,8 @@ class Leadgenpostsubmissioncheckresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencehealth(BaseModel):
-    """Customaudiencehealth model"""
+class CustomAudienceHealth(BaseModel):
+    """CustomAudienceHealth model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39292,7 +39292,7 @@ class Customaudiencehealth(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencehealth":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceHealth":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39301,8 +39301,8 @@ class Customaudiencehealth(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencyactivity(BaseModel):
-    """Reachfrequencyactivity model"""
+class ReachFrequencyActivity(BaseModel):
+    """ReachFrequencyActivity model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39326,7 +39326,7 @@ class Reachfrequencyactivity(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencyactivity":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyActivity":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39335,14 +39335,14 @@ class Reachfrequencyactivity(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessuser(BaseModel):
-    """Businessuser model"""
+class BusinessUser(BaseModel):
+    """BusinessUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     business: Optional["Business"] = Field(None, description="Business")
 
-    business_role_request: Optional["Businessrolerequest"] = Field(
+    business_role_request: Optional["BusinessRoleRequest"] = Field(
         None, description="Business Role Request"
     )
 
@@ -39380,7 +39380,7 @@ class Businessuser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessuser":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39389,8 +39389,8 @@ class Businessuser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativetemplateurlspec(BaseModel):
-    """Adcreativetemplateurlspec model"""
+class AdCreativeTemplateURLSpec(BaseModel):
+    """AdCreativeTemplateURLSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39416,7 +39416,7 @@ class Adcreativetemplateurlspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativetemplateurlspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeTemplateURLSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39425,8 +39425,8 @@ class Adcreativetemplateurlspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencesharingstatus(BaseModel):
-    """Customaudiencesharingstatus model"""
+class CustomAudienceSharingStatus(BaseModel):
+    """CustomAudienceSharingStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39442,7 +39442,7 @@ class Customaudiencesharingstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencesharingstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceSharingStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39451,8 +39451,8 @@ class Customaudiencesharingstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeedrulepreviewsample(BaseModel):
-    """Productfeedrulepreviewsample model"""
+class ProductFeedRulePreviewSample(BaseModel):
+    """ProductFeedRulePreviewSample model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39468,7 +39468,7 @@ class Productfeedrulepreviewsample(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeedrulepreviewsample":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedRulePreviewSample":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39477,8 +39477,8 @@ class Productfeedrulepreviewsample(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fblitetonttransitions(BaseModel):
-    """Fblitetonttransitions model"""
+class FBLiteToNTTransitions(BaseModel):
+    """FBLiteToNTTransitions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39492,7 +39492,7 @@ class Fblitetonttransitions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fblitetonttransitions":
+    def from_dict(cls, data: dict[str, Any]) -> "FBLiteToNTTransitions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39501,8 +39501,8 @@ class Fblitetonttransitions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessvideo(BaseModel):
-    """Businessvideo model"""
+class BusinessVideo(BaseModel):
+    """BusinessVideo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39514,7 +39514,7 @@ class Businessvideo(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    video: Optional["Advideo"] = Field(None, description="Video")
+    video: Optional["AdVideo"] = Field(None, description="Video")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -39524,7 +39524,7 @@ class Businessvideo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessvideo":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessVideo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39556,23 +39556,23 @@ class Targeting(BaseModel):
         None, description="Audience Network Positions"
     )
 
-    behaviors: Optional[list["Idname"]] = Field(None, description="Behaviors")
+    behaviors: Optional[list["IDName"]] = Field(None, description="Behaviors")
 
     brand_safety_content_filter_levels: Optional[list[str]] = Field(
         None, description="Brand Safety Content Filter Levels"
     )
 
-    catalog_based_targeting: Optional["Catalogbasedtargeting"] = Field(
+    catalog_based_targeting: Optional["CatalogBasedTargeting"] = Field(
         None, description="Catalog Based Targeting"
     )
 
-    cities: Optional[list["Idname"]] = Field(None, description="Cities")
+    cities: Optional[list["IDName"]] = Field(None, description="Cities")
 
     college_years: Optional[list[int]] = Field(None, description="College Years")
 
-    connections: Optional[list["Connectionstargeting"]] = Field(None, description="Connections")
+    connections: Optional[list["ConnectionsTargeting"]] = Field(None, description="Connections")
 
-    contextual_targeting_categories: Optional[list["Idname"]] = Field(
+    contextual_targeting_categories: Optional[list["IDName"]] = Field(
         None, description="Contextual Targeting Categories"
     )
 
@@ -39582,7 +39582,7 @@ class Targeting(BaseModel):
 
     country_groups: Optional[list[str]] = Field(None, description="Country Groups")
 
-    custom_audiences: Optional[list["Rawcustomaudience"]] = Field(
+    custom_audiences: Optional[list["RawCustomAudience"]] = Field(
         None, description="Custom Audiences"
     )
 
@@ -39594,9 +39594,9 @@ class Targeting(BaseModel):
 
     dynamic_audience_ids: Optional[list[str]] = Field(None, description="Dynamic Audience Ids")
 
-    education_majors: Optional[list["Idname"]] = Field(None, description="Education Majors")
+    education_majors: Optional[list["IDName"]] = Field(None, description="Education Majors")
 
-    education_schools: Optional[list["Idname"]] = Field(None, description="Education Schools")
+    education_schools: Optional[list["IDName"]] = Field(None, description="Education Schools")
 
     education_statuses: Optional[list[int]] = Field(None, description="Education Statuses")
 
@@ -39628,11 +39628,11 @@ class Targeting(BaseModel):
         None, description="Effective Threads Positions"
     )
 
-    engagement_specs: Optional[list["Targetingdynamicrule"]] = Field(
+    engagement_specs: Optional[list["TargetingDynamicRule"]] = Field(
         None, description="Engagement Specs"
     )
 
-    ethnic_affinity: Optional[list["Idname"]] = Field(None, description="Ethnic Affinity")
+    ethnic_affinity: Optional[list["IDName"]] = Field(None, description="Ethnic Affinity")
 
     exclude_reached_since: Optional[list[str]] = Field(None, description="Exclude Reached Since")
 
@@ -39640,11 +39640,11 @@ class Targeting(BaseModel):
         None, description="Excluded Brand Safety Content Types"
     )
 
-    excluded_connections: Optional[list["Connectionstargeting"]] = Field(
+    excluded_connections: Optional[list["ConnectionsTargeting"]] = Field(
         None, description="Excluded Connections"
     )
 
-    excluded_custom_audiences: Optional[list["Rawcustomaudience"]] = Field(
+    excluded_custom_audiences: Optional[list["RawCustomAudience"]] = Field(
         None, description="Excluded Custom Audiences"
     )
 
@@ -39652,11 +39652,11 @@ class Targeting(BaseModel):
         None, description="Excluded Dynamic Audience Ids"
     )
 
-    excluded_engagement_specs: Optional[list["Targetingdynamicrule"]] = Field(
+    excluded_engagement_specs: Optional[list["TargetingDynamicRule"]] = Field(
         None, description="Excluded Engagement Specs"
     )
 
-    excluded_geo_locations: Optional["Targetinggeolocation"] = Field(
+    excluded_geo_locations: Optional["TargetingGeoLocation"] = Field(
         None, description="Excluded Geo Locations"
     )
 
@@ -39664,7 +39664,7 @@ class Targeting(BaseModel):
         None, description="Excluded Mobile Device Model"
     )
 
-    excluded_product_audience_specs: Optional[list["Targetingproductaudiencespec"]] = Field(
+    excluded_product_audience_specs: Optional[list["TargetingProductAudienceSpec"]] = Field(
         None, description="Excluded Product Audience Specs"
     )
 
@@ -39678,39 +39678,39 @@ class Targeting(BaseModel):
 
     excluded_user_device: Optional[list[str]] = Field(None, description="Excluded User Device")
 
-    exclusions: Optional["Flexibletargeting"] = Field(None, description="Exclusions")
+    exclusions: Optional["FlexibleTargeting"] = Field(None, description="Exclusions")
 
     facebook_positions: Optional[list[str]] = Field(None, description="Facebook Positions")
 
-    family_statuses: Optional[list["Idname"]] = Field(None, description="Family Statuses")
+    family_statuses: Optional[list["IDName"]] = Field(None, description="Family Statuses")
 
     fb_deal_id: Optional[str] = Field(None, description="Fb Deal Id")
 
-    flexible_spec: Optional[list["Flexibletargeting"]] = Field(None, description="Flexible Spec")
+    flexible_spec: Optional[list["FlexibleTargeting"]] = Field(None, description="Flexible Spec")
 
-    friends_of_connections: Optional[list["Connectionstargeting"]] = Field(
+    friends_of_connections: Optional[list["ConnectionsTargeting"]] = Field(
         None, description="Friends Of Connections"
     )
 
     genders: Optional[list[int]] = Field(None, description="Genders")
 
-    generation: Optional[list["Idname"]] = Field(None, description="Generation")
+    generation: Optional[list["IDName"]] = Field(None, description="Generation")
 
-    geo_locations: Optional["Targetinggeolocation"] = Field(None, description="Geo Locations")
+    geo_locations: Optional["TargetingGeoLocation"] = Field(None, description="Geo Locations")
 
-    home_ownership: Optional[list["Idname"]] = Field(None, description="Home Ownership")
+    home_ownership: Optional[list["IDName"]] = Field(None, description="Home Ownership")
 
-    home_type: Optional[list["Idname"]] = Field(None, description="Home Type")
+    home_type: Optional[list["IDName"]] = Field(None, description="Home Type")
 
-    home_value: Optional[list["Idname"]] = Field(None, description="Home Value")
+    home_value: Optional[list["IDName"]] = Field(None, description="Home Value")
 
-    household_composition: Optional[list["Idname"]] = Field(
+    household_composition: Optional[list["IDName"]] = Field(
         None, description="Household Composition"
     )
 
-    income: Optional[list["Idname"]] = Field(None, description="Income")
+    income: Optional[list["IDName"]] = Field(None, description="Income")
 
-    industries: Optional[list["Idname"]] = Field(None, description="Industries")
+    industries: Optional[list["IDName"]] = Field(None, description="Industries")
 
     instagram_positions: Optional[list[str]] = Field(None, description="Instagram Positions")
 
@@ -39720,7 +39720,7 @@ class Targeting(BaseModel):
 
     interested_in: Optional[list[int]] = Field(None, description="Interested In")
 
-    interests: Optional[list["Idname"]] = Field(None, description="Interests")
+    interests: Optional[list["IDName"]] = Field(None, description="Interests")
 
     is_whatsapp_destination_ad: Optional[bool] = Field(
         None, description="Is Whatsapp Destination Ad"
@@ -39728,29 +39728,29 @@ class Targeting(BaseModel):
 
     keywords: Optional[list[str]] = Field(None, description="Keywords")
 
-    life_events: Optional[list["Idname"]] = Field(None, description="Life Events")
+    life_events: Optional[list["IDName"]] = Field(None, description="Life Events")
 
     locales: Optional[list[int]] = Field(None, description="Locales")
 
     messenger_positions: Optional[list[str]] = Field(None, description="Messenger Positions")
 
-    moms: Optional[list["Idname"]] = Field(None, description="Moms")
+    moms: Optional[list["IDName"]] = Field(None, description="Moms")
 
-    net_worth: Optional[list["Idname"]] = Field(None, description="Net Worth")
+    net_worth: Optional[list["IDName"]] = Field(None, description="Net Worth")
 
-    office_type: Optional[list["Idname"]] = Field(None, description="Office Type")
+    office_type: Optional[list["IDName"]] = Field(None, description="Office Type")
 
     place_page_set_ids: Optional[list[str]] = Field(None, description="Place Page Set Ids")
 
     political_views: Optional[list[int]] = Field(None, description="Political Views")
 
-    politics: Optional[list["Idname"]] = Field(None, description="Politics")
+    politics: Optional[list["IDName"]] = Field(None, description="Politics")
 
-    product_audience_specs: Optional[list["Targetingproductaudiencespec"]] = Field(
+    product_audience_specs: Optional[list["TargetingProductAudienceSpec"]] = Field(
         None, description="Product Audience Specs"
     )
 
-    prospecting_audience: Optional["Targetingprospectingaudience"] = Field(
+    prospecting_audience: Optional["TargetingProspectingAudience"] = Field(
         None, description="Prospecting Audience"
     )
 
@@ -39758,25 +39758,25 @@ class Targeting(BaseModel):
 
     radius: Optional[str] = Field(None, description="Radius")
 
-    regions: Optional[list["Idname"]] = Field(None, description="Regions")
+    regions: Optional[list["IDName"]] = Field(None, description="Regions")
 
     relationship_statuses: Optional[list[int]] = Field(None, description="Relationship Statuses")
 
     site_category: Optional[list[str]] = Field(None, description="Site Category")
 
-    targeting_automation: Optional["Targetingautomation"] = Field(
+    targeting_automation: Optional["TargetingAutomation"] = Field(
         None, description="Targeting Automation"
     )
 
     targeting_optimization: Optional[str] = Field(None, description="Targeting Optimization")
 
-    targeting_relaxation_types: Optional["Targetingrelaxation"] = Field(
+    targeting_relaxation_types: Optional["TargetingRelaxation"] = Field(
         None, description="Targeting Relaxation Types"
     )
 
     threads_positions: Optional[list[str]] = Field(None, description="Threads Positions")
 
-    user_adclusters: Optional[list["Idname"]] = Field(None, description="User Adclusters")
+    user_adclusters: Optional[list["IDName"]] = Field(None, description="User Adclusters")
 
     user_device: Optional[list[str]] = Field(None, description="User Device")
 
@@ -39786,9 +39786,9 @@ class Targeting(BaseModel):
 
     wireless_carrier: Optional[list[str]] = Field(None, description="Wireless Carrier")
 
-    work_employers: Optional[list["Idname"]] = Field(None, description="Work Employers")
+    work_employers: Optional[list["IDName"]] = Field(None, description="Work Employers")
 
-    work_positions: Optional[list["Idname"]] = Field(None, description="Work Positions")
+    work_positions: Optional[list["IDName"]] = Field(None, description="Work Positions")
 
     zips: Optional[list[str]] = Field(None, description="Zips")
 
@@ -39809,8 +39809,8 @@ class Targeting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixeleventprediction(BaseModel):
-    """Adspixeleventprediction model"""
+class AdsPixelEventPrediction(BaseModel):
+    """AdsPixelEventPrediction model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39828,7 +39828,7 @@ class Adspixeleventprediction(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixeleventprediction":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelEventPrediction":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39837,8 +39837,8 @@ class Adspixeleventprediction(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Deliverycheckextrainfo(BaseModel):
-    """Deliverycheckextrainfo model"""
+class DeliveryCheckExtraInfo(BaseModel):
+    """DeliveryCheckExtraInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39856,7 +39856,7 @@ class Deliverycheckextrainfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Deliverycheckextrainfo":
+    def from_dict(cls, data: dict[str, Any]) -> "DeliveryCheckExtraInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39865,72 +39865,72 @@ class Deliverycheckextrainfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocation(BaseModel):
-    """Targetinggeolocation model"""
+class TargetingGeoLocation(BaseModel):
+    """TargetingGeoLocation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    cities: Optional[list["Targetinggeolocationcity"]] = Field(None, description="Cities")
+    cities: Optional[list["TargetingGeoLocationCity"]] = Field(None, description="Cities")
 
     countries: Optional[list[str]] = Field(None, description="Countries")
 
     country_groups: Optional[list[str]] = Field(None, description="Country Groups")
 
-    custom_locations: Optional[list["Targetinggeolocationcustomlocation"]] = Field(
+    custom_locations: Optional[list["TargetingGeoLocationCustomLocation"]] = Field(
         None, description="Custom Locations"
     )
 
-    electoral_districts: Optional[list["Targetinggeolocationelectoraldistrict"]] = Field(
+    electoral_districts: Optional[list["TargetingGeoLocationElectoralDistrict"]] = Field(
         None, description="Electoral Districts"
     )
 
-    geo_markets: Optional[list["Targetinggeolocationmarket"]] = Field(
+    geo_markets: Optional[list["TargetingGeoLocationMarket"]] = Field(
         None, description="Geo Markets"
     )
 
-    large_geo_areas: Optional[list["Targetinggeolocationgeoentities"]] = Field(
+    large_geo_areas: Optional[list["TargetingGeoLocationGeoEntities"]] = Field(
         None, description="Large Geo Areas"
     )
 
-    location_cluster_ids: Optional[list["Targetinggeolocationlocationcluster"]] = Field(
+    location_cluster_ids: Optional[list["TargetingGeoLocationLocationCluster"]] = Field(
         None, description="Location Cluster Ids"
     )
 
     location_types: Optional[list[str]] = Field(None, description="Location Types")
 
-    medium_geo_areas: Optional[list["Targetinggeolocationgeoentities"]] = Field(
+    medium_geo_areas: Optional[list["TargetingGeoLocationGeoEntities"]] = Field(
         None, description="Medium Geo Areas"
     )
 
-    metro_areas: Optional[list["Targetinggeolocationgeoentities"]] = Field(
+    metro_areas: Optional[list["TargetingGeoLocationGeoEntities"]] = Field(
         None, description="Metro Areas"
     )
 
-    neighborhoods: Optional[list["Targetinggeolocationgeoentities"]] = Field(
+    neighborhoods: Optional[list["TargetingGeoLocationGeoEntities"]] = Field(
         None, description="Neighborhoods"
     )
 
-    places: Optional[list["Targetinggeolocationplace"]] = Field(None, description="Places")
+    places: Optional[list["TargetingGeoLocationPlace"]] = Field(None, description="Places")
 
-    political_districts: Optional[list["Targetinggeolocationpoliticaldistrict"]] = Field(
+    political_districts: Optional[list["TargetingGeoLocationPoliticalDistrict"]] = Field(
         None, description="Political Districts"
     )
 
-    regions: Optional[list["Targetinggeolocationregion"]] = Field(None, description="Regions")
+    regions: Optional[list["TargetingGeoLocationRegion"]] = Field(None, description="Regions")
 
-    small_geo_areas: Optional[list["Targetinggeolocationgeoentities"]] = Field(
+    small_geo_areas: Optional[list["TargetingGeoLocationGeoEntities"]] = Field(
         None, description="Small Geo Areas"
     )
 
-    subcities: Optional[list["Targetinggeolocationgeoentities"]] = Field(
+    subcities: Optional[list["TargetingGeoLocationGeoEntities"]] = Field(
         None, description="Subcities"
     )
 
-    subneighborhoods: Optional[list["Targetinggeolocationgeoentities"]] = Field(
+    subneighborhoods: Optional[list["TargetingGeoLocationGeoEntities"]] = Field(
         None, description="Subneighborhoods"
     )
 
-    zips: Optional[list["Targetinggeolocationzip"]] = Field(None, description="Zips")
+    zips: Optional[list["TargetingGeoLocationZip"]] = Field(None, description="Zips")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -39940,7 +39940,7 @@ class Targetinggeolocation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocation":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39949,8 +39949,8 @@ class Targetinggeolocation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudienceadaccount(BaseModel):
-    """Customaudienceadaccount model"""
+class CustomAudienceAdAccount(BaseModel):
+    """CustomAudienceAdAccount model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39964,7 +39964,7 @@ class Customaudienceadaccount(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudienceadaccount":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceAdAccount":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -39973,8 +39973,8 @@ class Customaudienceadaccount(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Columnsuggestions(BaseModel):
-    """Columnsuggestions model"""
+class ColumnSuggestions(BaseModel):
+    """ColumnSuggestions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -39994,7 +39994,7 @@ class Columnsuggestions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Columnsuggestions":
+    def from_dict(cls, data: dict[str, Any]) -> "ColumnSuggestions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40003,8 +40003,8 @@ class Columnsuggestions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Aradsdatacontainer(BaseModel):
-    """Aradsdatacontainer model"""
+class ArAdsDataContainer(BaseModel):
+    """ArAdsDataContainer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40030,7 +40030,7 @@ class Aradsdatacontainer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Aradsdatacontainer":
+    def from_dict(cls, data: dict[str, Any]) -> "ArAdsDataContainer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40039,8 +40039,8 @@ class Aradsdatacontainer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Windowsapplink(BaseModel):
-    """Windowsapplink model"""
+class WindowsAppLink(BaseModel):
+    """WindowsAppLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40060,7 +40060,7 @@ class Windowsapplink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Windowsapplink":
+    def from_dict(cls, data: dict[str, Any]) -> "WindowsAppLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40069,8 +40069,8 @@ class Windowsapplink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productset(BaseModel):
-    """Productset model"""
+class ProductSet(BaseModel):
+    """ProductSet model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40080,15 +40080,15 @@ class Productset(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    latest_metadata: Optional["Productsetmetadata"] = Field(None, description="Latest Metadata")
+    latest_metadata: Optional["ProductSetMetadata"] = Field(None, description="Latest Metadata")
 
-    live_metadata: Optional["Productsetmetadata"] = Field(None, description="Live Metadata")
+    live_metadata: Optional["ProductSetMetadata"] = Field(None, description="Live Metadata")
 
     name: Optional[str] = Field(None, description="Name")
 
     ordering_info: Optional[list[int]] = Field(None, description="Ordering Info")
 
-    product_catalog: Optional["Productcatalog"] = Field(None, description="Product Catalog")
+    product_catalog: Optional["ProductCatalog"] = Field(None, description="Product Catalog")
 
     product_count: Optional[int] = Field(None, description="Product Count")
 
@@ -40102,7 +40102,7 @@ class Productset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productset":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductSet":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40111,8 +40111,8 @@ class Productset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccounturlforassetextraction(BaseModel):
-    """Adaccounturlforassetextraction model"""
+class AdAccountURLForAssetExtraction(BaseModel):
+    """AdAccountURLForAssetExtraction model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40128,7 +40128,7 @@ class Adaccounturlforassetextraction(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccounturlforassetextraction":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountURLForAssetExtraction":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40175,8 +40175,8 @@ class Engagement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Contentdeliveryreport(BaseModel):
-    """Contentdeliveryreport model"""
+class ContentDeliveryReport(BaseModel):
+    """ContentDeliveryReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40202,7 +40202,7 @@ class Contentdeliveryreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Contentdeliveryreport":
+    def from_dict(cls, data: dict[str, Any]) -> "ContentDeliveryReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40211,12 +40211,12 @@ class Contentdeliveryreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videostatuspublishingphase(BaseModel):
-    """Videostatuspublishingphase model"""
+class VideoStatusPublishingPhase(BaseModel):
+    """VideoStatusPublishingPhase model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    errors: Optional[list["Videostatuserror"]] = Field(None, description="Errors")
+    errors: Optional[list["VideoStatusError"]] = Field(None, description="Errors")
 
     publish_status: Optional[str] = Field(None, description="Publish Status")
 
@@ -40232,7 +40232,7 @@ class Videostatuspublishingphase(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videostatuspublishingphase":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoStatusPublishingPhase":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40241,14 +40241,14 @@ class Videostatuspublishingphase(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandedcontenteligiblesponsorids(BaseModel):
-    """Brandedcontenteligiblesponsorids model"""
+class BrandedContentEligibleSponsorIDs(BaseModel):
+    """BrandedContentEligibleSponsorIDs model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     fb_page: Optional["Page"] = Field(None, description="Fb Page")
 
-    ig_account_v2: Optional["Iguser"] = Field(None, description="Ig Account V2")
+    ig_account_v2: Optional["IGUser"] = Field(None, description="Ig Account V2")
 
     ig_approval_needed: Optional[bool] = Field(None, description="Ig Approval Needed")
 
@@ -40260,7 +40260,7 @@ class Brandedcontenteligiblesponsorids(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandedcontenteligiblesponsorids":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandedContentEligibleSponsorIDs":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40269,8 +40269,8 @@ class Brandedcontenteligiblesponsorids(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igshoppingreviewstatusreasonwithhelpmessage(BaseModel):
-    """Igshoppingreviewstatusreasonwithhelpmessage model"""
+class IGShoppingReviewStatusReasonWithHelpMessage(BaseModel):
+    """IGShoppingReviewStatusReasonWithHelpMessage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40288,7 +40288,7 @@ class Igshoppingreviewstatusreasonwithhelpmessage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igshoppingreviewstatusreasonwithhelpmessage":
+    def from_dict(cls, data: dict[str, Any]) -> "IGShoppingReviewStatusReasonWithHelpMessage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40297,8 +40297,8 @@ class Igshoppingreviewstatusreasonwithhelpmessage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsavedreport(BaseModel):
-    """Adsavedreport model"""
+class AdSavedReport(BaseModel):
+    """AdSavedReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40348,7 +40348,7 @@ class Adsavedreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsavedreport":
+    def from_dict(cls, data: dict[str, Any]) -> "AdSavedReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40357,12 +40357,12 @@ class Adsavedreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountpaymentdetails(BaseModel):
-    """Adaccountpaymentdetails model"""
+class AdAccountPaymentDetails(BaseModel):
+    """AdAccountPaymentDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    amount: Optional["Currencyamount"] = Field(None, description="Amount")
+    amount: Optional["CurrencyAmount"] = Field(None, description="Amount")
 
     create_date: Optional[int] = Field(None, description="Create Date")
 
@@ -40382,7 +40382,7 @@ class Adaccountpaymentdetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountpaymentdetails":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountPaymentDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40391,12 +40391,12 @@ class Adaccountpaymentdetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adrulehistoryresult(BaseModel):
-    """Adrulehistoryresult model"""
+class AdRuleHistoryResult(BaseModel):
+    """AdRuleHistoryResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    actions: Optional[list["Adrulehistoryresultaction"]] = Field(None, description="Actions")
+    actions: Optional[list["AdRuleHistoryResultAction"]] = Field(None, description="Actions")
 
     object_id: Optional[str] = Field(None, description="Object Id")
 
@@ -40410,7 +40410,7 @@ class Adrulehistoryresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adrulehistoryresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleHistoryResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40419,8 +40419,8 @@ class Adrulehistoryresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenconditionalquestionsgroupquestions(BaseModel):
-    """Leadgenconditionalquestionsgroupquestions model"""
+class LeadGenConditionalQuestionsGroupQuestions(BaseModel):
+    """LeadGenConditionalQuestionsGroupQuestions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40438,7 +40438,7 @@ class Leadgenconditionalquestionsgroupquestions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenconditionalquestionsgroupquestions":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenConditionalQuestionsGroupQuestions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40447,8 +40447,8 @@ class Leadgenconditionalquestionsgroupquestions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Asyncsession(BaseModel):
-    """Asyncsession model"""
+class AsyncSession(BaseModel):
+    """AsyncSession model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40490,7 +40490,7 @@ class Asyncsession(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Asyncsession":
+    def from_dict(cls, data: dict[str, Any]) -> "AsyncSession":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40499,8 +40499,8 @@ class Asyncsession(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountcreationrequest(BaseModel):
-    """Adaccountcreationrequest model"""
+class AdAccountCreationRequest(BaseModel):
+    """AdAccountCreationRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40592,7 +40592,7 @@ class Adaccountcreationrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountcreationrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountCreationRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40601,8 +40601,8 @@ class Adaccountcreationrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageuserpermissions(BaseModel):
-    """Pageuserpermissions model"""
+class PageUserPermissions(BaseModel):
+    """PageUserPermissions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40634,7 +40634,7 @@ class Pageuserpermissions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageuserpermissions":
+    def from_dict(cls, data: dict[str, Any]) -> "PageUserPermissions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40643,8 +40643,8 @@ class Pageuserpermissions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Platformsessionkey(BaseModel):
-    """Platformsessionkey model"""
+class PlatformSessionKey(BaseModel):
+    """PlatformSessionKey model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40658,7 +40658,7 @@ class Platformsessionkey(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Platformsessionkey":
+    def from_dict(cls, data: dict[str, Any]) -> "PlatformSessionKey":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40715,8 +40715,8 @@ class Location(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetcustomizationrulecustomizationspec(BaseModel):
-    """Adassetcustomizationrulecustomizationspec model"""
+class AdAssetCustomizationRuleCustomizationSpec(BaseModel):
+    """AdAssetCustomizationRuleCustomizationSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40734,7 +40734,7 @@ class Adassetcustomizationrulecustomizationspec(BaseModel):
 
     facebook_positions: Optional[list[str]] = Field(None, description="Facebook Positions")
 
-    geo_locations: Optional["Targetinggeolocation"] = Field(None, description="Geo Locations")
+    geo_locations: Optional["TargetingGeoLocation"] = Field(None, description="Geo Locations")
 
     instagram_positions: Optional[list[str]] = Field(None, description="Instagram Positions")
 
@@ -40752,7 +40752,7 @@ class Adassetcustomizationrulecustomizationspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetcustomizationrulecustomizationspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetCustomizationRuleCustomizationSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40761,8 +40761,8 @@ class Adassetcustomizationrulecustomizationspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencesharedaccountcampaigninfo(BaseModel):
-    """Customaudiencesharedaccountcampaigninfo model"""
+class CustomAudienceSharedAccountCampaignInfo(BaseModel):
+    """CustomAudienceSharedAccountCampaignInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40790,7 +40790,7 @@ class Customaudiencesharedaccountcampaigninfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencesharedaccountcampaigninfo":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceSharedAccountCampaignInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40799,8 +40799,8 @@ class Customaudiencesharedaccountcampaigninfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Managementsitelink(BaseModel):
-    """Managementsitelink model"""
+class ManagementSiteLink(BaseModel):
+    """ManagementSiteLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -40830,7 +40830,7 @@ class Managementsitelink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Managementsitelink":
+    def from_dict(cls, data: dict[str, Any]) -> "ManagementSiteLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -40839,8 +40839,8 @@ class Managementsitelink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Deliverywindow(BaseModel):
-    """Deliverywindow model"""
+class DeliveryWindow(BaseModel):
+    """DeliveryWindow model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41356,7 +41356,7 @@ class Deliverywindow(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Deliverywindow":
+    def from_dict(cls, data: dict[str, Any]) -> "DeliveryWindow":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41365,8 +41365,8 @@ class Deliverywindow(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Bidschedule(BaseModel):
-    """Bidschedule model"""
+class BidSchedule(BaseModel):
+    """BidSchedule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41394,7 +41394,7 @@ class Bidschedule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Bidschedule":
+    def from_dict(cls, data: dict[str, Any]) -> "BidSchedule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41403,8 +41403,8 @@ class Bidschedule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativewhatsappchannelspec(BaseModel):
-    """Adcreativewhatsappchannelspec model"""
+class AdCreativeWhatsAppChannelSpec(BaseModel):
+    """AdCreativeWhatsAppChannelSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41420,7 +41420,7 @@ class Adcreativewhatsappchannelspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativewhatsappchannelspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeWhatsAppChannelSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41429,14 +41429,14 @@ class Adcreativewhatsappchannelspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adgroupreviewfeedback(BaseModel):
-    """Adgroupreviewfeedback model"""
+class AdgroupReviewFeedback(BaseModel):
+    """AdgroupReviewFeedback model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     global_: Optional[dict[str, str]] = Field(None, alias="global", description="Global")
 
-    placement_specific: Optional["Adgroupplacementspecificreviewfeedback"] = Field(
+    placement_specific: Optional["AdgroupPlacementSpecificReviewFeedback"] = Field(
         None, description="Placement Specific"
     )
 
@@ -41448,7 +41448,7 @@ class Adgroupreviewfeedback(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adgroupreviewfeedback":
+    def from_dict(cls, data: dict[str, Any]) -> "AdgroupReviewFeedback":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41457,8 +41457,8 @@ class Adgroupreviewfeedback(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adjacentcontentdeliveryreport(BaseModel):
-    """Adjacentcontentdeliveryreport model"""
+class AdjacentContentDeliveryReport(BaseModel):
+    """AdjacentContentDeliveryReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41476,7 +41476,7 @@ class Adjacentcontentdeliveryreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adjacentcontentdeliveryreport":
+    def from_dict(cls, data: dict[str, Any]) -> "AdjacentContentDeliveryReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41485,8 +41485,8 @@ class Adjacentcontentdeliveryreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Currencyamount(BaseModel):
-    """Currencyamount model"""
+class CurrencyAmount(BaseModel):
+    """CurrencyAmount model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41506,7 +41506,7 @@ class Currencyamount(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Currencyamount":
+    def from_dict(cls, data: dict[str, Any]) -> "CurrencyAmount":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41515,8 +41515,8 @@ class Currencyamount(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagerestaurantservices(BaseModel):
-    """Pagerestaurantservices model"""
+class PageRestaurantServices(BaseModel):
+    """PageRestaurantServices model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41548,7 +41548,7 @@ class Pagerestaurantservices(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagerestaurantservices":
+    def from_dict(cls, data: dict[str, Any]) -> "PageRestaurantServices":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41557,8 +41557,8 @@ class Pagerestaurantservices(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignbidconstraint(BaseModel):
-    """Adcampaignbidconstraint model"""
+class AdCampaignBidConstraint(BaseModel):
+    """AdCampaignBidConstraint model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41572,7 +41572,7 @@ class Adcampaignbidconstraint(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignbidconstraint":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignBidConstraint":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41581,8 +41581,8 @@ class Adcampaignbidconstraint(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationplace(BaseModel):
-    """Targetinggeolocationplace model"""
+class TargetingGeoLocationPlace(BaseModel):
+    """TargetingGeoLocationPlace model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41612,7 +41612,7 @@ class Targetinggeolocationplace(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationplace":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationPlace":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41621,8 +41621,8 @@ class Targetinggeolocationplace(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Chinabusinessonboardingvettingrequest(BaseModel):
-    """Chinabusinessonboardingvettingrequest model"""
+class ChinaBusinessOnboardingVettingRequest(BaseModel):
+    """ChinaBusinessOnboardingVettingRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41728,7 +41728,7 @@ class Chinabusinessonboardingvettingrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Chinabusinessonboardingvettingrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "ChinaBusinessOnboardingVettingRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41737,8 +41737,8 @@ class Chinabusinessonboardingvettingrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountaaasimilarcampaigns(BaseModel):
-    """Adaccountaaasimilarcampaigns model"""
+class AdAccountAAASimilarCampaigns(BaseModel):
+    """AdAccountAAASimilarCampaigns model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41758,7 +41758,7 @@ class Adaccountaaasimilarcampaigns(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountaaasimilarcampaigns":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAAASimilarCampaigns":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41767,8 +41767,8 @@ class Adaccountaaasimilarcampaigns(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adreportrun(BaseModel):
-    """Adreportrun model"""
+class AdReportRun(BaseModel):
+    """AdReportRun model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41812,7 +41812,7 @@ class Adreportrun(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adreportrun":
+    def from_dict(cls, data: dict[str, Any]) -> "AdReportRun":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41821,8 +41821,8 @@ class Adreportrun(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Paymentpricepoints(BaseModel):
-    """Paymentpricepoints model"""
+class PaymentPricepoints(BaseModel):
+    """PaymentPricepoints model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41836,7 +41836,7 @@ class Paymentpricepoints(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Paymentpricepoints":
+    def from_dict(cls, data: dict[str, Any]) -> "PaymentPricepoints":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41845,8 +41845,8 @@ class Paymentpricepoints(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Recommendedigmedia(BaseModel):
-    """Recommendedigmedia model"""
+class RecommendedIGMedia(BaseModel):
+    """RecommendedIGMedia model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41860,7 +41860,7 @@ class Recommendedigmedia(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Recommendedigmedia":
+    def from_dict(cls, data: dict[str, Any]) -> "RecommendedIGMedia":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41869,8 +41869,8 @@ class Recommendedigmedia(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingprospectingaudience(BaseModel):
-    """Targetingprospectingaudience model"""
+class TargetingProspectingAudience(BaseModel):
+    """TargetingProspectingAudience model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41884,7 +41884,7 @@ class Targetingprospectingaudience(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingprospectingaudience":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingProspectingAudience":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41893,8 +41893,8 @@ class Targetingprospectingaudience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogdiagnosticgroup(BaseModel):
-    """Productcatalogdiagnosticgroup model"""
+class ProductCatalogDiagnosticGroup(BaseModel):
+    """ProductCatalogDiagnosticGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41934,7 +41934,7 @@ class Productcatalogdiagnosticgroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogdiagnosticgroup":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogDiagnosticGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41943,8 +41943,8 @@ class Productcatalogdiagnosticgroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstudyobjective(BaseModel):
-    """Adstudyobjective model"""
+class AdStudyObjective(BaseModel):
+    """AdStudyObjective model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -41968,7 +41968,7 @@ class Adstudyobjective(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstudyobjective":
+    def from_dict(cls, data: dict[str, Any]) -> "AdStudyObjective":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -41977,12 +41977,12 @@ class Adstudyobjective(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adssignaldiagnosticissue(BaseModel):
-    """Adssignaldiagnosticissue model"""
+class AdsSignalDiagnosticIssue(BaseModel):
+    """AdsSignalDiagnosticIssue model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    data_source_id: Optional["Adspixel"] = Field(None, description="Data Source Id")
+    data_source_id: Optional["AdsPixel"] = Field(None, description="Data Source Id")
 
     data_source_type: Optional[str] = Field(None, description="Data Source Type")
 
@@ -42006,7 +42006,7 @@ class Adssignaldiagnosticissue(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adssignaldiagnosticissue":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsSignalDiagnosticIssue":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42015,8 +42015,8 @@ class Adssignaldiagnosticissue(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpasadvertiserpartnershiprecommendation(BaseModel):
-    """Cpasadvertiserpartnershiprecommendation model"""
+class CPASAdvertiserPartnershipRecommendation(BaseModel):
+    """CPASAdvertiserPartnershipRecommendation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42046,7 +42046,7 @@ class Cpasadvertiserpartnershiprecommendation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpasadvertiserpartnershiprecommendation":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASAdvertiserPartnershipRecommendation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42055,8 +42055,8 @@ class Cpasadvertiserpartnershiprecommendation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeed(BaseModel):
-    """Productfeed model"""
+class ProductFeed(BaseModel):
+    """ProductFeed model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42082,7 +42082,7 @@ class Productfeed(BaseModel):
 
     item_sub_type: Optional[str] = Field(None, description="Item Sub Type")
 
-    latest_upload: Optional["Productfeedupload"] = Field(None, description="Latest Upload")
+    latest_upload: Optional["ProductFeedUpload"] = Field(None, description="Latest Upload")
 
     migrated_from_feed_id: Optional[str] = Field(None, description="Migrated From Feed Id")
 
@@ -42098,11 +42098,11 @@ class Productfeed(BaseModel):
         None, description="Quoted Fields Mode"
     )
 
-    schedule: Optional["Productfeedschedule"] = Field(None, description="Schedule")
+    schedule: Optional["ProductFeedSchedule"] = Field(None, description="Schedule")
 
     supplementary_feeds: Optional[list[str]] = Field(None, description="Supplementary Feeds")
 
-    update_schedule: Optional["Productfeedschedule"] = Field(None, description="Update Schedule")
+    update_schedule: Optional["ProductFeedSchedule"] = Field(None, description="Update Schedule")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -42112,7 +42112,7 @@ class Productfeed(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeed":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeed":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42121,8 +42121,8 @@ class Productfeed(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Authlink(BaseModel):
-    """Authlink model"""
+class AuthLink(BaseModel):
+    """AuthLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42136,7 +42136,7 @@ class Authlink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Authlink":
+    def from_dict(cls, data: dict[str, Any]) -> "AuthLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42145,8 +42145,8 @@ class Authlink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesspagerequest(BaseModel):
-    """Businesspagerequest model"""
+class BusinessPageRequest(BaseModel):
+    """BusinessPageRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42162,7 +42162,7 @@ class Businesspagerequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesspagerequest":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessPageRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42171,8 +42171,8 @@ class Businesspagerequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Bapidomain(BaseModel):
-    """Bapidomain model"""
+class BAPIDomain(BaseModel):
+    """BAPIDomain model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42192,7 +42192,7 @@ class Bapidomain(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Bapidomain":
+    def from_dict(cls, data: dict[str, Any]) -> "BAPIDomain":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42201,16 +42201,16 @@ class Bapidomain(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencyprediction(BaseModel):
-    """Reachfrequencyprediction model"""
+class ReachFrequencyPrediction(BaseModel):
+    """ReachFrequencyPrediction model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     account_id: Optional[int] = Field(None, description="Account Id")
 
-    activity_status: Optional["Reachfrequencyactivity"] = Field(None, description="Activity Status")
+    activity_status: Optional["ReachFrequencyActivity"] = Field(None, description="Activity Status")
 
-    ad_formats: Optional[list["Reachfrequencyadformat"]] = Field(None, description="Ad Formats")
+    ad_formats: Optional[list["ReachFrequencyAdFormat"]] = Field(None, description="Ad Formats")
 
     auction_entry_option_index: Optional[int] = Field(
         None, description="Auction Entry Option Index"
@@ -42234,7 +42234,7 @@ class Reachfrequencyprediction(BaseModel):
 
     currency: Optional[str] = Field(None, description="Currency")
 
-    curve_budget_reach: Optional["Reachfrequencyestimatescurve"] = Field(
+    curve_budget_reach: Optional["ReachFrequencyEstimatesCurve"] = Field(
         None, description="Curve Budget Reach"
     )
 
@@ -42250,7 +42250,7 @@ class Reachfrequencyprediction(BaseModel):
         None, description="Daily Impression Curve Map"
     )
 
-    day_parting_schedule: Optional[list["Reachfrequencydaypart"]] = Field(
+    day_parting_schedule: Optional[list["ReachFrequencyDayPart"]] = Field(
         None, description="Day Parting Schedule"
     )
 
@@ -42370,12 +42370,12 @@ class Reachfrequencyprediction(BaseModel):
         None, description="Percent Reach At Target Frequency"
     )
 
-    placement_breakdown: Optional["Reachfrequencyestimatesplacementbreakdown"] = Field(
+    placement_breakdown: Optional["ReachFrequencyEstimatesPlacementBreakdown"] = Field(
         None, description="Placement Breakdown"
     )
 
     placement_breakdown_map: Optional[
-        list[dict[int, "Reachfrequencyestimatesplacementbreakdown"]]
+        list[dict[int, "ReachFrequencyEstimatesPlacementBreakdown"]]
     ] = Field(None, description="Placement Breakdown Map")
 
     plan_name: Optional[str] = Field(None, description="Plan Name")
@@ -42430,7 +42430,7 @@ class Reachfrequencyprediction(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencyprediction":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyPrediction":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42439,8 +42439,8 @@ class Reachfrequencyprediction(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeaddisclaimer(BaseModel):
-    """Adcreativeaddisclaimer model"""
+class AdCreativeAdDisclaimer(BaseModel):
+    """AdCreativeAdDisclaimer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42458,7 +42458,7 @@ class Adcreativeaddisclaimer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeaddisclaimer":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeAdDisclaimer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42467,8 +42467,8 @@ class Adcreativeaddisclaimer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsreportbuilderexportcore(BaseModel):
-    """Adsreportbuilderexportcore model"""
+class AdsReportBuilderExportCore(BaseModel):
+    """AdsReportBuilderExportCore model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42514,7 +42514,7 @@ class Adsreportbuilderexportcore(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsreportbuilderexportcore":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsReportBuilderExportCore":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42523,12 +42523,12 @@ class Adsreportbuilderexportcore(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativestaticfallbackspec(BaseModel):
-    """Adcreativestaticfallbackspec model"""
+class AdCreativeStaticFallbackSpec(BaseModel):
+    """AdCreativeStaticFallbackSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    call_to_action: Optional["Adcreativelinkdatacalltoaction"] = Field(
+    call_to_action: Optional["AdCreativeLinkDataCallToAction"] = Field(
         None, description="Call To Action"
     )
 
@@ -42550,7 +42550,7 @@ class Adcreativestaticfallbackspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativestaticfallbackspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeStaticFallbackSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42559,8 +42559,8 @@ class Adcreativestaticfallbackspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Commercesettings(BaseModel):
-    """Commercesettings model"""
+class CommerceSettings(BaseModel):
+    """CommerceSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42576,7 +42576,7 @@ class Commercesettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Commercesettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CommerceSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42585,16 +42585,16 @@ class Commercesettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Managedpartnerextendedcredit(BaseModel):
-    """Managedpartnerextendedcredit model"""
+class ManagedPartnerExtendedCredit(BaseModel):
+    """ManagedPartnerExtendedCredit model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     id: Optional[str] = Field(None, description="Id")
 
-    max_balance: Optional["Currencyamount"] = Field(None, description="Max Balance")
+    max_balance: Optional["CurrencyAmount"] = Field(None, description="Max Balance")
 
-    receiving_credit_allocation_config: Optional["Extendedcreditallocationconfig"] = Field(
+    receiving_credit_allocation_config: Optional["ExtendedCreditAllocationConfig"] = Field(
         None, description="Receiving Credit Allocation Config"
     )
 
@@ -42606,7 +42606,7 @@ class Managedpartnerextendedcredit(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Managedpartnerextendedcredit":
+    def from_dict(cls, data: dict[str, Any]) -> "ManagedPartnerExtendedCredit":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42615,8 +42615,8 @@ class Managedpartnerextendedcredit(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessadvertisableapplicationsresult(BaseModel):
-    """Businessadvertisableapplicationsresult model"""
+class BusinessAdvertisableApplicationsResult(BaseModel):
+    """BusinessAdvertisableApplicationsResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42642,7 +42642,7 @@ class Businessadvertisableapplicationsresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessadvertisableapplicationsresult":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessAdvertisableApplicationsResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42651,8 +42651,8 @@ class Businessadvertisableapplicationsresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Lifeevent(BaseModel):
-    """Lifeevent model"""
+class LifeEvent(BaseModel):
+    """LifeEvent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42680,7 +42680,7 @@ class Lifeevent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Lifeevent":
+    def from_dict(cls, data: dict[str, Any]) -> "LifeEvent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42689,8 +42689,8 @@ class Lifeevent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemvideodata(BaseModel):
-    """Productitemvideodata model"""
+class ProductItemVideoData(BaseModel):
+    """ProductItemVideoData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42706,7 +42706,7 @@ class Productitemvideodata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemvideodata":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemVideoData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42715,8 +42715,8 @@ class Productitemvideodata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountrelatedicostudy(BaseModel):
-    """Adaccountrelatedicostudy model"""
+class AdAccountRelatedIcoStudy(BaseModel):
+    """AdAccountRelatedIcoStudy model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42728,7 +42728,7 @@ class Adaccountrelatedicostudy(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountrelatedicostudy":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountRelatedIcoStudy":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42737,8 +42737,8 @@ class Adaccountrelatedicostudy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsdataset(BaseModel):
-    """Adsdataset model"""
+class AdsDataset(BaseModel):
+    """AdsDataset model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42846,7 +42846,7 @@ class Adsdataset(BaseModel):
 
     num_uploads: Optional[int] = Field(None, description="Num Uploads")
 
-    owner_ad_account: Optional["Adaccount"] = Field(None, description="Owner Ad Account")
+    owner_ad_account: Optional["AdAccount"] = Field(None, description="Owner Ad Account")
 
     owner_business: Optional["Business"] = Field(None, description="Owner Business")
 
@@ -42854,7 +42854,7 @@ class Adsdataset(BaseModel):
         None, description="Percentage Of Late Uploads In External Suboptimal Window"
     )
 
-    permissions: Optional["Offlineconversiondatasetpermissions"] = Field(
+    permissions: Optional["OfflineConversionDataSetPermissions"] = Field(
         None, description="Permissions"
     )
 
@@ -42868,7 +42868,7 @@ class Adsdataset(BaseModel):
         None, description="Upload Reminder Eligibility"
     )
 
-    usage: Optional["Offlineconversiondatasetusage"] = Field(None, description="Usage")
+    usage: Optional["OfflineConversionDataSetUsage"] = Field(None, description="Usage")
 
     valid_entries: Optional[int] = Field(None, description="Valid Entries")
 
@@ -42880,7 +42880,7 @@ class Adsdataset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsdataset":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsDataset":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42889,8 +42889,8 @@ class Adsdataset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagesettings(BaseModel):
-    """Pagesettings model"""
+class PageSettings(BaseModel):
+    """PageSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42906,7 +42906,7 @@ class Pagesettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagesettings":
+    def from_dict(cls, data: dict[str, Any]) -> "PageSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42915,8 +42915,8 @@ class Pagesettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessrequest(BaseModel):
-    """Businessrequest model"""
+class BusinessRequest(BaseModel):
+    """BusinessRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42946,7 +42946,7 @@ class Businessrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42955,8 +42955,8 @@ class Businessrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adnetworkanalyticssyncqueryresult(BaseModel):
-    """Adnetworkanalyticssyncqueryresult model"""
+class AdNetworkAnalyticsSyncQueryResult(BaseModel):
+    """AdNetworkAnalyticsSyncQueryResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -42974,7 +42974,7 @@ class Adnetworkanalyticssyncqueryresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adnetworkanalyticssyncqueryresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdNetworkAnalyticsSyncQueryResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -42983,8 +42983,8 @@ class Adnetworkanalyticssyncqueryresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instagramrelatedproducttags(BaseModel):
-    """Instagramrelatedproducttags model"""
+class InstagramRelatedProductTags(BaseModel):
+    """InstagramRelatedProductTags model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43008,7 +43008,7 @@ class Instagramrelatedproducttags(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instagramrelatedproducttags":
+    def from_dict(cls, data: dict[str, Any]) -> "InstagramRelatedProductTags":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43017,8 +43017,8 @@ class Instagramrelatedproducttags(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Connectionstargeting(BaseModel):
-    """Connectionstargeting model"""
+class ConnectionsTargeting(BaseModel):
+    """ConnectionsTargeting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43034,7 +43034,7 @@ class Connectionstargeting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Connectionstargeting":
+    def from_dict(cls, data: dict[str, Any]) -> "ConnectionsTargeting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43043,16 +43043,16 @@ class Connectionstargeting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Extendedcredit(BaseModel):
-    """Extendedcredit model"""
+class ExtendedCredit(BaseModel):
+    """ExtendedCredit model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    allocated_amount: Optional["Currencyamount"] = Field(None, description="Allocated Amount")
+    allocated_amount: Optional["CurrencyAmount"] = Field(None, description="Allocated Amount")
 
-    balance: Optional["Currencyamount"] = Field(None, description="Balance")
+    balance: Optional["CurrencyAmount"] = Field(None, description="Balance")
 
-    credit_available: Optional["Currencyamount"] = Field(None, description="Credit Available")
+    credit_available: Optional["CurrencyAmount"] = Field(None, description="Credit Available")
 
     credit_type: Optional[str] = Field(None, description="Credit Type")
 
@@ -43064,13 +43064,13 @@ class Extendedcredit(BaseModel):
 
     legal_entity_name: Optional[str] = Field(None, description="Legal Entity Name")
 
-    liable_address: Optional["Crmaddress"] = Field(None, description="Liable Address")
+    liable_address: Optional["CRMAddress"] = Field(None, description="Liable Address")
 
     liable_biz_name: Optional[str] = Field(None, description="Liable Biz Name")
 
-    max_balance: Optional["Currencyamount"] = Field(None, description="Max Balance")
+    max_balance: Optional["CurrencyAmount"] = Field(None, description="Max Balance")
 
-    online_max_balance: Optional["Currencyamount"] = Field(None, description="Online Max Balance")
+    online_max_balance: Optional["CurrencyAmount"] = Field(None, description="Online Max Balance")
 
     owner_business: Optional["Business"] = Field(None, description="Owner Business")
 
@@ -43078,15 +43078,15 @@ class Extendedcredit(BaseModel):
 
     partition_from: Optional[str] = Field(None, description="Partition From")
 
-    receiving_credit_allocation_config: Optional["Extendedcreditallocationconfig"] = Field(
+    receiving_credit_allocation_config: Optional["ExtendedCreditAllocationConfig"] = Field(
         None, description="Receiving Credit Allocation Config"
     )
 
-    send_bill_to_address: Optional["Crmaddress"] = Field(None, description="Send Bill To Address")
+    send_bill_to_address: Optional["CRMAddress"] = Field(None, description="Send Bill To Address")
 
     send_bill_to_biz_name: Optional[str] = Field(None, description="Send Bill To Biz Name")
 
-    sold_to_address: Optional["Crmaddress"] = Field(None, description="Sold To Address")
+    sold_to_address: Optional["CRMAddress"] = Field(None, description="Sold To Address")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -43096,7 +43096,7 @@ class Extendedcredit(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Extendedcredit":
+    def from_dict(cls, data: dict[str, Any]) -> "ExtendedCredit":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43105,8 +43105,8 @@ class Extendedcredit(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Commercepayout(BaseModel):
-    """Commercepayout model"""
+class CommercePayout(BaseModel):
+    """CommercePayout model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43128,7 +43128,7 @@ class Commercepayout(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Commercepayout":
+    def from_dict(cls, data: dict[str, Any]) -> "CommercePayout":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43137,8 +43137,8 @@ class Commercepayout(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igupcomingevent(BaseModel):
-    """Igupcomingevent model"""
+class IGUpcomingEvent(BaseModel):
+    """IGUpcomingEvent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43162,7 +43162,7 @@ class Igupcomingevent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igupcomingevent":
+    def from_dict(cls, data: dict[str, Any]) -> "IGUpcomingEvent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43171,8 +43171,8 @@ class Igupcomingevent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adruleschedule(BaseModel):
-    """Adruleschedule model"""
+class AdRuleSchedule(BaseModel):
+    """AdRuleSchedule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43190,7 +43190,7 @@ class Adruleschedule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adruleschedule":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleSchedule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43199,8 +43199,8 @@ class Adruleschedule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adlightcampaign(BaseModel):
-    """Adlightcampaign model"""
+class AdLightCampaign(BaseModel):
+    """AdLightCampaign model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43216,7 +43216,7 @@ class Adlightcampaign(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adlightcampaign":
+    def from_dict(cls, data: dict[str, Any]) -> "AdLightCampaign":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43225,8 +43225,8 @@ class Adlightcampaign(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Resellerguidance(BaseModel):
-    """Resellerguidance model"""
+class ResellerGuidance(BaseModel):
+    """ResellerGuidance model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43272,7 +43272,7 @@ class Resellerguidance(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Resellerguidance":
+    def from_dict(cls, data: dict[str, Any]) -> "ResellerGuidance":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43311,8 +43311,8 @@ class Currency(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemoffer(BaseModel):
-    """Productitemoffer model"""
+class ProductItemOffer(BaseModel):
+    """ProductItemOffer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43330,7 +43330,7 @@ class Productitemoffer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemoffer":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemOffer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43339,8 +43339,8 @@ class Productitemoffer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Workuserfrontline(BaseModel):
-    """Workuserfrontline model"""
+class WorkUserFrontline(BaseModel):
+    """WorkUserFrontline model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43356,7 +43356,7 @@ class Workuserfrontline(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Workuserfrontline":
+    def from_dict(cls, data: dict[str, Any]) -> "WorkUserFrontline":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43391,8 +43391,8 @@ class Permission(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetbody(BaseModel):
-    """Adassetbody model"""
+class AdAssetBody(BaseModel):
+    """AdAssetBody model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43410,7 +43410,7 @@ class Adassetbody(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetbody":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetBody":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43419,8 +43419,8 @@ class Adassetbody(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencycurveupperconfidencerange(BaseModel):
-    """Reachfrequencycurveupperconfidencerange model"""
+class ReachFrequencyCurveUpperConfidenceRange(BaseModel):
+    """ReachFrequencyCurveUpperConfidenceRange model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43446,7 +43446,7 @@ class Reachfrequencycurveupperconfidencerange(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencycurveupperconfidencerange":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencyCurveUpperConfidenceRange":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43455,8 +43455,8 @@ class Reachfrequencycurveupperconfidencerange(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Websitecreativeassetsuggestions(BaseModel):
-    """Websitecreativeassetsuggestions model"""
+class WebsiteCreativeAssetSuggestions(BaseModel):
+    """WebsiteCreativeAssetSuggestions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43476,7 +43476,7 @@ class Websitecreativeassetsuggestions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Websitecreativeassetsuggestions":
+    def from_dict(cls, data: dict[str, Any]) -> "WebsiteCreativeAssetSuggestions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43485,8 +43485,8 @@ class Websitecreativeassetsuggestions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Checkbatchrequeststatus(BaseModel):
-    """Checkbatchrequeststatus model"""
+class CheckBatchRequestStatus(BaseModel):
+    """CheckBatchRequestStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43514,7 +43514,7 @@ class Checkbatchrequeststatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Checkbatchrequeststatus":
+    def from_dict(cls, data: dict[str, Any]) -> "CheckBatchRequestStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43523,8 +43523,8 @@ class Checkbatchrequeststatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Userpaymentmobilepricepoints(BaseModel):
-    """Userpaymentmobilepricepoints model"""
+class UserPaymentMobilePricepoints(BaseModel):
+    """UserPaymentMobilePricepoints model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43544,7 +43544,7 @@ class Userpaymentmobilepricepoints(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Userpaymentmobilepricepoints":
+    def from_dict(cls, data: dict[str, Any]) -> "UserPaymentMobilePricepoints":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43553,8 +43553,8 @@ class Userpaymentmobilepricepoints(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whatsappbusinessprofile(BaseModel):
-    """Whatsappbusinessprofile model"""
+class WhatsAppBusinessProfile(BaseModel):
+    """WhatsAppBusinessProfile model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43574,7 +43574,7 @@ class Whatsappbusinessprofile(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whatsappbusinessprofile":
+    def from_dict(cls, data: dict[str, Any]) -> "WhatsAppBusinessProfile":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43583,8 +43583,8 @@ class Whatsappbusinessprofile(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Loomconfig(BaseModel):
-    """Loomconfig model"""
+class LoomConfig(BaseModel):
+    """LoomConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43598,7 +43598,7 @@ class Loomconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Loomconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "LoomConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43607,8 +43607,8 @@ class Loomconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativebrandedcontentads(BaseModel):
-    """Adcreativebrandedcontentads model"""
+class AdCreativeBrandedContentAds(BaseModel):
+    """AdCreativeBrandedContentAds model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43638,7 +43638,7 @@ class Adcreativebrandedcontentads(BaseModel):
         None, description="Parent Source Instagram Media Id"
     )
 
-    partners: Optional[list["Adcreativebrandedcontentadspartners"]] = Field(
+    partners: Optional[list["AdCreativeBrandedContentAdsPartners"]] = Field(
         None, description="Partners"
     )
 
@@ -43662,7 +43662,7 @@ class Adcreativebrandedcontentads(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativebrandedcontentads":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeBrandedContentAds":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43671,8 +43671,8 @@ class Adcreativebrandedcontentads(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativemediasourcingspec(BaseModel):
-    """Adcreativemediasourcingspec model"""
+class AdCreativeMediaSourcingSpec(BaseModel):
+    """AdCreativeMediaSourcingSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43684,7 +43684,7 @@ class Adcreativemediasourcingspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativemediasourcingspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeMediaSourcingSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43693,8 +43693,8 @@ class Adcreativemediasourcingspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandrequest(BaseModel):
-    """Brandrequest model"""
+class BrandRequest(BaseModel):
+    """BrandRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43748,7 +43748,7 @@ class Brandrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43757,8 +43757,8 @@ class Brandrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessmanagedpartnereligibility(BaseModel):
-    """Businessmanagedpartnereligibility model"""
+class BusinessManagedPartnerEligibility(BaseModel):
+    """BusinessManagedPartnerEligibility model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43776,7 +43776,7 @@ class Businessmanagedpartnereligibility(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessmanagedpartnereligibility":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessManagedPartnerEligibility":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43785,8 +43785,8 @@ class Businessmanagedpartnereligibility(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenappointmentbookinginfo(BaseModel):
-    """Leadgenappointmentbookinginfo model"""
+class LeadGenAppointmentBookingInfo(BaseModel):
+    """LeadGenAppointmentBookingInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43796,7 +43796,7 @@ class Leadgenappointmentbookinginfo(BaseModel):
 
     appointment_durations: Optional[list[str]] = Field(None, description="Appointment Durations")
 
-    appointment_slots_by_day: Optional[list["Leadgenappointmentslotsbyday"]] = Field(
+    appointment_slots_by_day: Optional[list["LeadGenAppointmentSlotsByDay"]] = Field(
         None, description="Appointment Slots By Day"
     )
 
@@ -43808,7 +43808,7 @@ class Leadgenappointmentbookinginfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenappointmentbookinginfo":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenAppointmentBookingInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43817,8 +43817,8 @@ class Leadgenappointmentbookinginfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Wearabledevicepublickey(BaseModel):
-    """Wearabledevicepublickey model"""
+class WearableDevicePublicKey(BaseModel):
+    """WearableDevicePublicKey model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43846,7 +43846,7 @@ class Wearabledevicepublickey(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Wearabledevicepublickey":
+    def from_dict(cls, data: dict[str, Any]) -> "WearableDevicePublicKey":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43855,8 +43855,8 @@ class Wearabledevicepublickey(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adruletrigger(BaseModel):
-    """Adruletrigger model"""
+class AdRuleTrigger(BaseModel):
+    """AdRuleTrigger model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43876,7 +43876,7 @@ class Adruletrigger(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adruletrigger":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleTrigger":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43885,8 +43885,8 @@ class Adruletrigger(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeplatformcustomization(BaseModel):
-    """Adcreativeplatformcustomization model"""
+class AdCreativePlatformCustomization(BaseModel):
+    """AdCreativePlatformCustomization model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43900,7 +43900,7 @@ class Adcreativeplatformcustomization(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeplatformcustomization":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativePlatformCustomization":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43909,8 +43909,8 @@ class Adcreativeplatformcustomization(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adruleexecutionoptions(BaseModel):
-    """Adruleexecutionoptions model"""
+class AdRuleExecutionOptions(BaseModel):
+    """AdRuleExecutionOptions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43928,7 +43928,7 @@ class Adruleexecutionoptions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adruleexecutionoptions":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleExecutionOptions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43937,8 +43937,8 @@ class Adruleexecutionoptions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountadrulescountbytype(BaseModel):
-    """Adaccountadrulescountbytype model"""
+class AdAccountAdRulesCountByType(BaseModel):
+    """AdAccountAdRulesCountByType model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -43954,7 +43954,7 @@ class Adaccountadrulescountbytype(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountadrulescountbytype":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAdRulesCountByType":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -43963,8 +43963,8 @@ class Adaccountadrulescountbytype(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiorelease(BaseModel):
-    """Audiorelease model"""
+class AudioRelease(BaseModel):
+    """AudioRelease model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44010,7 +44010,7 @@ class Audiorelease(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiorelease":
+    def from_dict(cls, data: dict[str, Any]) -> "AudioRelease":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44019,8 +44019,8 @@ class Audiorelease(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Unifiedthread(BaseModel):
-    """Unifiedthread model"""
+class UnifiedThread(BaseModel):
+    """UnifiedThread model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44066,7 +44066,7 @@ class Unifiedthread(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Unifiedthread":
+    def from_dict(cls, data: dict[str, Any]) -> "UnifiedThread":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44075,8 +44075,8 @@ class Unifiedthread(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandedcontentshadowiguserid(BaseModel):
-    """Brandedcontentshadowiguserid model"""
+class BrandedContentShadowIGUserID(BaseModel):
+    """BrandedContentShadowIGUserID model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44090,7 +44090,7 @@ class Brandedcontentshadowiguserid(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandedcontentshadowiguserid":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandedContentShadowIGUserID":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44099,8 +44099,8 @@ class Brandedcontentshadowiguserid(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencegroup(BaseModel):
-    """Customaudiencegroup model"""
+class CustomAudienceGroup(BaseModel):
+    """CustomAudienceGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44118,7 +44118,7 @@ class Customaudiencegroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencegroup":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44127,8 +44127,8 @@ class Customaudiencegroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountlivevideoadvertiser(BaseModel):
-    """Adaccountlivevideoadvertiser model"""
+class AdAccountLiveVideoAdvertiser(BaseModel):
+    """AdAccountLiveVideoAdvertiser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44154,7 +44154,7 @@ class Adaccountlivevideoadvertiser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountlivevideoadvertiser":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountLiveVideoAdvertiser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44163,12 +44163,12 @@ class Adaccountlivevideoadvertiser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Uniqueadcreative(BaseModel):
-    """Uniqueadcreative model"""
+class UniqueAdCreative(BaseModel):
+    """UniqueAdCreative model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    sample_creative: Optional["Adcreative"] = Field(None, description="Sample Creative")
+    sample_creative: Optional["AdCreative"] = Field(None, description="Sample Creative")
 
     visual_hash: Optional[int] = Field(None, description="Visual Hash")
 
@@ -44180,7 +44180,7 @@ class Uniqueadcreative(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Uniqueadcreative":
+    def from_dict(cls, data: dict[str, Any]) -> "UniqueAdCreative":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44189,8 +44189,8 @@ class Uniqueadcreative(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adasyncrequestsetnotificationresult(BaseModel):
-    """Adasyncrequestsetnotificationresult model"""
+class AdAsyncRequestSetNotificationResult(BaseModel):
+    """AdAsyncRequestSetNotificationResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44206,7 +44206,7 @@ class Adasyncrequestsetnotificationresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adasyncrequestsetnotificationresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAsyncRequestSetNotificationResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44215,8 +44215,8 @@ class Adasyncrequestsetnotificationresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Campaigngroupcollaborativeadspartnerinfo(BaseModel):
-    """Campaigngroupcollaborativeadspartnerinfo model"""
+class CampaignGroupCollaborativeAdsPartnerInfo(BaseModel):
+    """CampaignGroupCollaborativeAdsPartnerInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44228,7 +44228,7 @@ class Campaigngroupcollaborativeadspartnerinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Campaigngroupcollaborativeadspartnerinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "CampaignGroupCollaborativeAdsPartnerInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44237,8 +44237,8 @@ class Campaigngroupcollaborativeadspartnerinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogbasedtargeting(BaseModel):
-    """Catalogbasedtargeting model"""
+class CatalogBasedTargeting(BaseModel):
+    """CatalogBasedTargeting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44252,7 +44252,7 @@ class Catalogbasedtargeting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogbasedtargeting":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogBasedTargeting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44261,8 +44261,8 @@ class Catalogbasedtargeting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Ipobject(BaseModel):
-    """Ipobject model"""
+class IPObject(BaseModel):
+    """IPObject model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44278,7 +44278,7 @@ class Ipobject(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Ipobject":
+    def from_dict(cls, data: dict[str, Any]) -> "IPObject":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44287,8 +44287,8 @@ class Ipobject(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsinsights(BaseModel):
-    """Adsinsights model"""
+class AdsInsights(BaseModel):
+    """AdsInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44298,15 +44298,15 @@ class Adsinsights(BaseModel):
 
     account_name: Optional[str] = Field(None, description="Account Name")
 
-    action_values: Optional[list["Adsactionstats"]] = Field(None, description="Action Values")
+    action_values: Optional[list["AdsActionStats"]] = Field(None, description="Action Values")
 
-    actions: Optional[list["Adsactionstats"]] = Field(None, description="Actions")
+    actions: Optional[list["AdsActionStats"]] = Field(None, description="Actions")
 
-    ad_click_actions: Optional[list["Adsactionstats"]] = Field(None, description="Ad Click Actions")
+    ad_click_actions: Optional[list["AdsActionStats"]] = Field(None, description="Ad Click Actions")
 
     ad_id: Optional[str] = Field(None, description="Ad Id")
 
-    ad_impression_actions: Optional[list["Adsactionstats"]] = Field(
+    ad_impression_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Ad Impression Actions"
     )
 
@@ -44332,7 +44332,7 @@ class Adsinsights(BaseModel):
         None, description="Auction Max Competitor Bid"
     )
 
-    average_purchases_conversion_value: Optional[list["Adsactionstats"]] = Field(
+    average_purchases_conversion_value: Optional[list["AdsActionStats"]] = Field(
         None, description="Average Purchases Conversion Value"
     )
 
@@ -44346,145 +44346,145 @@ class Adsinsights(BaseModel):
 
     canvas_avg_view_time: Optional[str] = Field(None, description="Canvas Avg View Time")
 
-    catalog_segment_actions: Optional[list["Adsactionstats"]] = Field(
+    catalog_segment_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Catalog Segment Actions"
     )
 
-    catalog_segment_value: Optional[list["Adsactionstats"]] = Field(
+    catalog_segment_value: Optional[list["AdsActionStats"]] = Field(
         None, description="Catalog Segment Value"
     )
 
-    catalog_segment_value_mobile_purchase_roas: Optional[list["Adsactionstats"]] = Field(
+    catalog_segment_value_mobile_purchase_roas: Optional[list["AdsActionStats"]] = Field(
         None, description="Catalog Segment Value Mobile Purchase Roas"
     )
 
-    catalog_segment_value_omni_purchase_roas: Optional[list["Adsactionstats"]] = Field(
+    catalog_segment_value_omni_purchase_roas: Optional[list["AdsActionStats"]] = Field(
         None, description="Catalog Segment Value Omni Purchase Roas"
     )
 
-    catalog_segment_value_website_purchase_roas: Optional[list["Adsactionstats"]] = Field(
+    catalog_segment_value_website_purchase_roas: Optional[list["AdsActionStats"]] = Field(
         None, description="Catalog Segment Value Website Purchase Roas"
     )
 
     clicks: Optional[str] = Field(None, description="Clicks")
 
-    conversion_lead_rate: Optional[list["Adsactionstats"]] = Field(
+    conversion_lead_rate: Optional[list["AdsActionStats"]] = Field(
         None, description="Conversion Lead Rate"
     )
 
-    conversion_leads: Optional[list["Adsactionstats"]] = Field(None, description="Conversion Leads")
+    conversion_leads: Optional[list["AdsActionStats"]] = Field(None, description="Conversion Leads")
 
     conversion_rate_ranking: Optional[str] = Field(None, description="Conversion Rate Ranking")
 
-    conversion_values: Optional[list["Adsactionstats"]] = Field(
+    conversion_values: Optional[list["AdsActionStats"]] = Field(
         None, description="Conversion Values"
     )
 
-    conversions: Optional[list["Adsactionstats"]] = Field(None, description="Conversions")
+    conversions: Optional[list["AdsActionStats"]] = Field(None, description="Conversions")
 
-    converted_product_app_custom_event_fb_mobile_purchase: Optional[list["Adsactionstats"]] = Field(
+    converted_product_app_custom_event_fb_mobile_purchase: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product App Custom Event Fb Mobile Purchase"
     )
 
     converted_product_app_custom_event_fb_mobile_purchase_value: Optional[
-        list["Adsactionstats"]
+        list["AdsActionStats"]
     ] = Field(None, description="Converted Product App Custom Event Fb Mobile Purchase Value")
 
-    converted_product_offline_purchase: Optional[list["Adsactionstats"]] = Field(
+    converted_product_offline_purchase: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Offline Purchase"
     )
 
-    converted_product_offline_purchase_value: Optional[list["Adsactionstats"]] = Field(
+    converted_product_offline_purchase_value: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Offline Purchase Value"
     )
 
-    converted_product_omni_purchase: Optional[list["Adsactionstats"]] = Field(
+    converted_product_omni_purchase: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Omni Purchase"
     )
 
-    converted_product_omni_purchase_values: Optional[list["Adsactionstats"]] = Field(
+    converted_product_omni_purchase_values: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Omni Purchase Values"
     )
 
-    converted_product_quantity: Optional[list["Adsactionstats"]] = Field(
+    converted_product_quantity: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Quantity"
     )
 
-    converted_product_value: Optional[list["Adsactionstats"]] = Field(
+    converted_product_value: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Value"
     )
 
-    converted_product_website_pixel_purchase: Optional[list["Adsactionstats"]] = Field(
+    converted_product_website_pixel_purchase: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Website Pixel Purchase"
     )
 
-    converted_product_website_pixel_purchase_value: Optional[list["Adsactionstats"]] = Field(
+    converted_product_website_pixel_purchase_value: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Product Website Pixel Purchase Value"
     )
 
     converted_promoted_product_app_custom_event_fb_mobile_purchase: Optional[
-        list["Adsactionstats"]
+        list["AdsActionStats"]
     ] = Field(None, description="Converted Promoted Product App Custom Event Fb Mobile Purchase")
 
     converted_promoted_product_app_custom_event_fb_mobile_purchase_value: Optional[
-        list["Adsactionstats"]
+        list["AdsActionStats"]
     ] = Field(
         None, description="Converted Promoted Product App Custom Event Fb Mobile Purchase Value"
     )
 
-    converted_promoted_product_offline_purchase: Optional[list["Adsactionstats"]] = Field(
+    converted_promoted_product_offline_purchase: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Promoted Product Offline Purchase"
     )
 
-    converted_promoted_product_offline_purchase_value: Optional[list["Adsactionstats"]] = Field(
+    converted_promoted_product_offline_purchase_value: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Promoted Product Offline Purchase Value"
     )
 
-    converted_promoted_product_omni_purchase: Optional[list["Adsactionstats"]] = Field(
+    converted_promoted_product_omni_purchase: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Promoted Product Omni Purchase"
     )
 
-    converted_promoted_product_omni_purchase_values: Optional[list["Adsactionstats"]] = Field(
+    converted_promoted_product_omni_purchase_values: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Promoted Product Omni Purchase Values"
     )
 
-    converted_promoted_product_quantity: Optional[list["Adsactionstats"]] = Field(
+    converted_promoted_product_quantity: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Promoted Product Quantity"
     )
 
-    converted_promoted_product_value: Optional[list["Adsactionstats"]] = Field(
+    converted_promoted_product_value: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Promoted Product Value"
     )
 
-    converted_promoted_product_website_pixel_purchase: Optional[list["Adsactionstats"]] = Field(
+    converted_promoted_product_website_pixel_purchase: Optional[list["AdsActionStats"]] = Field(
         None, description="Converted Promoted Product Website Pixel Purchase"
     )
 
-    converted_promoted_product_website_pixel_purchase_value: Optional[list["Adsactionstats"]] = (
+    converted_promoted_product_website_pixel_purchase_value: Optional[list["AdsActionStats"]] = (
         Field(None, description="Converted Promoted Product Website Pixel Purchase Value")
     )
 
-    cost_per_15_sec_video_view: Optional[list["Adsactionstats"]] = Field(
+    cost_per_15_sec_video_view: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per 15 Sec Video View"
     )
 
-    cost_per_2_sec_continuous_video_view: Optional[list["Adsactionstats"]] = Field(
+    cost_per_2_sec_continuous_video_view: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per 2 Sec Continuous Video View"
     )
 
-    cost_per_action_type: Optional[list["Adsactionstats"]] = Field(
+    cost_per_action_type: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Action Type"
     )
 
-    cost_per_ad_click: Optional[list["Adsactionstats"]] = Field(
+    cost_per_ad_click: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Ad Click"
     )
 
-    cost_per_conversion: Optional[list["Adsactionstats"]] = Field(
+    cost_per_conversion: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Conversion"
     )
 
-    cost_per_conversion_lead: Optional[list["Adsactionstats"]] = Field(
+    cost_per_conversion_lead: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Conversion Lead"
     )
 
@@ -44508,27 +44508,27 @@ class Adsinsights(BaseModel):
         None, description="Cost Per Objective Result"
     )
 
-    cost_per_one_thousand_ad_impression: Optional[list["Adsactionstats"]] = Field(
+    cost_per_one_thousand_ad_impression: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per One Thousand Ad Impression"
     )
 
-    cost_per_outbound_click: Optional[list["Adsactionstats"]] = Field(
+    cost_per_outbound_click: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Outbound Click"
     )
 
     cost_per_result: Optional[list[dict[str, Any]]] = Field(None, description="Cost Per Result")
 
-    cost_per_thruplay: Optional[list["Adsactionstats"]] = Field(
+    cost_per_thruplay: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Thruplay"
     )
 
-    cost_per_unique_action_type: Optional[list["Adsactionstats"]] = Field(
+    cost_per_unique_action_type: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Unique Action Type"
     )
 
     cost_per_unique_click: Optional[str] = Field(None, description="Cost Per Unique Click")
 
-    cost_per_unique_conversion: Optional[list["Adsactionstats"]] = Field(
+    cost_per_unique_conversion: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Unique Conversion"
     )
 
@@ -44536,7 +44536,7 @@ class Adsinsights(BaseModel):
         None, description="Cost Per Unique Inline Link Click"
     )
 
-    cost_per_unique_outbound_click: Optional[list["Adsactionstats"]] = Field(
+    cost_per_unique_outbound_click: Optional[list["AdsActionStats"]] = Field(
         None, description="Cost Per Unique Outbound Click"
     )
 
@@ -44610,11 +44610,11 @@ class Adsinsights(BaseModel):
         None, description="Instant Experience Clicks To Start"
     )
 
-    instant_experience_outbound_clicks: Optional[list["Adsactionstats"]] = Field(
+    instant_experience_outbound_clicks: Optional[list["AdsActionStats"]] = Field(
         None, description="Instant Experience Outbound Clicks"
     )
 
-    interactive_component_tap: Optional[list["Adsactionstats"]] = Field(
+    interactive_component_tap: Optional[list["AdsActionStats"]] = Field(
         None, description="Interactive Component Tap"
     )
 
@@ -44712,7 +44712,7 @@ class Adsinsights(BaseModel):
         None, description="Marketing Messages Website Purchase Values"
     )
 
-    mobile_app_purchase_roas: Optional[list["Adsactionstats"]] = Field(
+    mobile_app_purchase_roas: Optional[list["AdsActionStats"]] = Field(
         None, description="Mobile App Purchase Roas"
     )
 
@@ -44724,15 +44724,15 @@ class Adsinsights(BaseModel):
 
     objective_results: Optional[list[dict[str, Any]]] = Field(None, description="Objective Results")
 
-    onsite_conversion_messaging_detected_purchase_deduped: Optional[list["Adsactionstats"]] = Field(
+    onsite_conversion_messaging_detected_purchase_deduped: Optional[list["AdsActionStats"]] = Field(
         None, description="Onsite Conversion Messaging Detected Purchase Deduped"
     )
 
     optimization_goal: Optional[str] = Field(None, description="Optimization Goal")
 
-    outbound_clicks: Optional[list["Adsactionstats"]] = Field(None, description="Outbound Clicks")
+    outbound_clicks: Optional[list["AdsActionStats"]] = Field(None, description="Outbound Clicks")
 
-    outbound_clicks_ctr: Optional[list["Adsactionstats"]] = Field(
+    outbound_clicks_ctr: Optional[list["AdsActionStats"]] = Field(
         None, description="Outbound Clicks Ctr"
     )
 
@@ -44766,7 +44766,7 @@ class Adsinsights(BaseModel):
         None, description="Purchase Per Landing Page View"
     )
 
-    purchase_roas: Optional[list["Adsactionstats"]] = Field(None, description="Purchase Roas")
+    purchase_roas: Optional[list["AdsActionStats"]] = Field(None, description="Purchase Roas")
 
     purchases_per_link_click: Optional[str] = Field(None, description="Purchases Per Link Click")
 
@@ -44794,19 +44794,19 @@ class Adsinsights(BaseModel):
 
     total_postbacks: Optional[str] = Field(None, description="Total Postbacks")
 
-    total_postbacks_detailed: Optional[list["Adsactionstats"]] = Field(
+    total_postbacks_detailed: Optional[list["AdsActionStats"]] = Field(
         None, description="Total Postbacks Detailed"
     )
 
-    total_postbacks_detailed_v4: Optional[list["Adsactionstats"]] = Field(
+    total_postbacks_detailed_v4: Optional[list["AdsActionStats"]] = Field(
         None, description="Total Postbacks Detailed V4"
     )
 
-    unique_actions: Optional[list["Adsactionstats"]] = Field(None, description="Unique Actions")
+    unique_actions: Optional[list["AdsActionStats"]] = Field(None, description="Unique Actions")
 
     unique_clicks: Optional[str] = Field(None, description="Unique Clicks")
 
-    unique_conversions: Optional[list["Adsactionstats"]] = Field(
+    unique_conversions: Optional[list["AdsActionStats"]] = Field(
         None, description="Unique Conversions"
     )
 
@@ -44820,95 +44820,95 @@ class Adsinsights(BaseModel):
 
     unique_link_clicks_ctr: Optional[str] = Field(None, description="Unique Link Clicks Ctr")
 
-    unique_outbound_clicks: Optional[list["Adsactionstats"]] = Field(
+    unique_outbound_clicks: Optional[list["AdsActionStats"]] = Field(
         None, description="Unique Outbound Clicks"
     )
 
-    unique_outbound_clicks_ctr: Optional[list["Adsactionstats"]] = Field(
+    unique_outbound_clicks_ctr: Optional[list["AdsActionStats"]] = Field(
         None, description="Unique Outbound Clicks Ctr"
     )
 
-    unique_video_continuous_2_sec_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    unique_video_continuous_2_sec_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Unique Video Continuous 2 Sec Watched Actions"
     )
 
-    unique_video_view_15_sec: Optional[list["Adsactionstats"]] = Field(
+    unique_video_view_15_sec: Optional[list["AdsActionStats"]] = Field(
         None, description="Unique Video View 15 Sec"
     )
 
     updated_time: Optional[str] = Field(None, description="Updated Time")
 
-    video_15_sec_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_15_sec_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video 15 Sec Watched Actions"
     )
 
-    video_30_sec_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_30_sec_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video 30 Sec Watched Actions"
     )
 
-    video_avg_time_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_avg_time_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video Avg Time Watched Actions"
     )
 
-    video_continuous_2_sec_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_continuous_2_sec_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video Continuous 2 Sec Watched Actions"
     )
 
-    video_p100_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_p100_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video P100 Watched Actions"
     )
 
-    video_p25_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_p25_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video P25 Watched Actions"
     )
 
-    video_p50_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_p50_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video P50 Watched Actions"
     )
 
-    video_p75_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_p75_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video P75 Watched Actions"
     )
 
-    video_p95_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_p95_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video P95 Watched Actions"
     )
 
-    video_play_actions: Optional[list["Adsactionstats"]] = Field(
+    video_play_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video Play Actions"
     )
 
-    video_play_curve_actions: Optional[list["Adshistogramstats"]] = Field(
+    video_play_curve_actions: Optional[list["AdsHistogramStats"]] = Field(
         None, description="Video Play Curve Actions"
     )
 
-    video_play_retention_0_to_15s_actions: Optional[list["Adshistogramstats"]] = Field(
+    video_play_retention_0_to_15s_actions: Optional[list["AdsHistogramStats"]] = Field(
         None, description="Video Play Retention 0 To 15S Actions"
     )
 
-    video_play_retention_20_to_60s_actions: Optional[list["Adshistogramstats"]] = Field(
+    video_play_retention_20_to_60s_actions: Optional[list["AdsHistogramStats"]] = Field(
         None, description="Video Play Retention 20 To 60S Actions"
     )
 
-    video_play_retention_graph_actions: Optional[list["Adshistogramstats"]] = Field(
+    video_play_retention_graph_actions: Optional[list["AdsHistogramStats"]] = Field(
         None, description="Video Play Retention Graph Actions"
     )
 
-    video_thruplay_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_thruplay_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video Thruplay Watched Actions"
     )
 
-    video_time_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_time_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video Time Watched Actions"
     )
 
-    video_view_per_impression: Optional[list["Adsactionstats"]] = Field(
+    video_view_per_impression: Optional[list["AdsActionStats"]] = Field(
         None, description="Video View Per Impression"
     )
 
-    website_ctr: Optional[list["Adsactionstats"]] = Field(None, description="Website Ctr")
+    website_ctr: Optional[list["AdsActionStats"]] = Field(None, description="Website Ctr")
 
-    website_purchase_roas: Optional[list["Adsactionstats"]] = Field(
+    website_purchase_roas: Optional[list["AdsActionStats"]] = Field(
         None, description="Website Purchase Roas"
     )
 
@@ -44922,7 +44922,7 @@ class Adsinsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsinsights":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44931,8 +44931,8 @@ class Adsinsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcataloglocalizationsettings(BaseModel):
-    """Productcataloglocalizationsettings model"""
+class ProductCatalogLocalizationSettings(BaseModel):
+    """ProductCatalogLocalizationSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -44950,7 +44950,7 @@ class Productcataloglocalizationsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcataloglocalizationsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogLocalizationSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -44959,8 +44959,8 @@ class Productcataloglocalizationsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messagedeliveryestimate(BaseModel):
-    """Messagedeliveryestimate model"""
+class MessageDeliveryEstimate(BaseModel):
+    """MessageDeliveryEstimate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45002,7 +45002,7 @@ class Messagedeliveryestimate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messagedeliveryestimate":
+    def from_dict(cls, data: dict[str, Any]) -> "MessageDeliveryEstimate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45011,12 +45011,12 @@ class Messagedeliveryestimate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adasyncrequest(BaseModel):
-    """Adasyncrequest model"""
+class AdAsyncRequest(BaseModel):
+    """AdAsyncRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    async_request_set: Optional["Adasyncrequestset"] = Field(None, description="Async Request Set")
+    async_request_set: Optional["AdAsyncRequestSet"] = Field(None, description="Async Request Set")
 
     created_time: Optional[datetime] = Field(None, description="Created Time")
 
@@ -45042,7 +45042,7 @@ class Adasyncrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adasyncrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAsyncRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45090,7 +45090,7 @@ class Comment(BaseModel):
 
     message: Optional[str] = Field(None, description="Message")
 
-    message_tags: Optional[list["Entityattextrange"]] = Field(None, description="Message Tags")
+    message_tags: Optional[list["EntityAtTextRange"]] = Field(None, description="Message Tags")
 
     object: Optional[dict[str, Any]] = Field(None, description="Object")
 
@@ -45121,8 +45121,8 @@ class Comment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativephotodata(BaseModel):
-    """Adcreativephotodata model"""
+class AdCreativePhotoData(BaseModel):
+    """AdCreativePhotoData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45150,7 +45150,7 @@ class Adcreativephotodata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativephotodata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativePhotoData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45159,8 +45159,8 @@ class Adcreativephotodata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagepostexperiment(BaseModel):
-    """Pagepostexperiment model"""
+class PagePostExperiment(BaseModel):
+    """PagePostExperiment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45210,7 +45210,7 @@ class Pagepostexperiment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagepostexperiment":
+    def from_dict(cls, data: dict[str, Any]) -> "PagePostExperiment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45219,12 +45219,12 @@ class Pagepostexperiment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Automotivemodel(BaseModel):
-    """Automotivemodel model"""
+class AutomotiveModel(BaseModel):
+    """AutomotiveModel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     automotive_model_id: Optional[str] = Field(None, description="Automotive Model Id")
 
@@ -45232,7 +45232,7 @@ class Automotivemodel(BaseModel):
 
     body_style: Optional[str] = Field(None, description="Body Style")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -45314,7 +45314,7 @@ class Automotivemodel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Automotivemodel":
+    def from_dict(cls, data: dict[str, Any]) -> "AutomotiveModel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45323,8 +45323,8 @@ class Automotivemodel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpassetup(BaseModel):
-    """Cpassetup model"""
+class CPASSetup(BaseModel):
+    """CPASSetup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45336,7 +45336,7 @@ class Cpassetup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpassetup":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASSetup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45345,8 +45345,8 @@ class Cpassetup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogsubverticallist(BaseModel):
-    """Catalogsubverticallist model"""
+class CatalogSubVerticalList(BaseModel):
+    """CatalogSubVerticalList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45502,7 +45502,7 @@ class Catalogsubverticallist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogsubverticallist":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogSubVerticalList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45511,8 +45511,8 @@ class Catalogsubverticallist(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Merchantcompliance(BaseModel):
-    """Merchantcompliance model"""
+class MerchantCompliance(BaseModel):
+    """MerchantCompliance model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45536,7 +45536,7 @@ class Merchantcompliance(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Merchantcompliance":
+    def from_dict(cls, data: dict[str, Any]) -> "MerchantCompliance":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45545,8 +45545,8 @@ class Merchantcompliance(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Analyticsuserconfig(BaseModel):
-    """Analyticsuserconfig model"""
+class AnalyticsUserConfig(BaseModel):
+    """AnalyticsUserConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45564,7 +45564,7 @@ class Analyticsuserconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Analyticsuserconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "AnalyticsUserConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45573,8 +45573,8 @@ class Analyticsuserconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativerewardinfo(BaseModel):
-    """Adcreativerewardinfo model"""
+class AdCreativeRewardInfo(BaseModel):
+    """AdCreativeRewardInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45590,7 +45590,7 @@ class Adcreativerewardinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativerewardinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeRewardInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45599,8 +45599,8 @@ class Adcreativerewardinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountpromotionprogressbar(BaseModel):
-    """Adaccountpromotionprogressbar model"""
+class AdAccountPromotionProgressBar(BaseModel):
+    """AdAccountPromotionProgressBar model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45628,7 +45628,7 @@ class Adaccountpromotionprogressbar(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountpromotionprogressbar":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountPromotionProgressBar":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45637,8 +45637,8 @@ class Adaccountpromotionprogressbar(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igproducttagginginvalidationerror(BaseModel):
-    """Igproducttagginginvalidationerror model"""
+class IGProductTaggingInvalidationError(BaseModel):
+    """IGProductTaggingInvalidationError model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45656,7 +45656,7 @@ class Igproducttagginginvalidationerror(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igproducttagginginvalidationerror":
+    def from_dict(cls, data: dict[str, Any]) -> "IGProductTaggingInvalidationError":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45665,8 +45665,8 @@ class Igproducttagginginvalidationerror(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdatamoment(BaseModel):
-    """Adcreativelinkdatamoment model"""
+class AdCreativeLinkDataMoment(BaseModel):
+    """AdCreativeLinkDataMoment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45682,7 +45682,7 @@ class Adcreativelinkdatamoment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdatamoment":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataMoment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45691,8 +45691,8 @@ class Adcreativelinkdatamoment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adtoplinedetail(BaseModel):
-    """Adtoplinedetail model"""
+class AdToplineDetail(BaseModel):
+    """AdToplineDetail model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45732,7 +45732,7 @@ class Adtoplinedetail(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adtoplinedetail":
+    def from_dict(cls, data: dict[str, Any]) -> "AdToplineDetail":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45741,8 +45741,8 @@ class Adtoplinedetail(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videolist(BaseModel):
-    """Videolist model"""
+class VideoList(BaseModel):
+    """VideoList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45772,7 +45772,7 @@ class Videolist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videolist":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45781,8 +45781,8 @@ class Videolist(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenthankyoupage(BaseModel):
-    """Leadgenthankyoupage model"""
+class LeadGenThankYouPage(BaseModel):
+    """LeadGenThankYouPage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45798,7 +45798,7 @@ class Leadgenthankyoupage(BaseModel):
 
     enable_messenger: Optional[bool] = Field(None, description="Enable Messenger")
 
-    gated_file: Optional["Leadgenthankyoupagegatedfile"] = Field(None, description="Gated File")
+    gated_file: Optional["LeadGenThankYouPageGatedFile"] = Field(None, description="Gated File")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -45818,7 +45818,7 @@ class Leadgenthankyoupage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenthankyoupage":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenThankYouPage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45827,8 +45827,8 @@ class Leadgenthankyoupage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adpreview(BaseModel):
-    """Adpreview model"""
+class AdPreview(BaseModel):
+    """AdPreview model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45844,7 +45844,7 @@ class Adpreview(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adpreview":
+    def from_dict(cls, data: dict[str, Any]) -> "AdPreview":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45853,24 +45853,24 @@ class Adpreview(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adrulehistory(BaseModel):
-    """Adrulehistory model"""
+class AdRuleHistory(BaseModel):
+    """AdRuleHistory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    evaluation_spec: Optional["Adruleevaluationspec"] = Field(None, description="Evaluation Spec")
+    evaluation_spec: Optional["AdRuleEvaluationSpec"] = Field(None, description="Evaluation Spec")
 
     exception_code: Optional[int] = Field(None, description="Exception Code")
 
     exception_message: Optional[str] = Field(None, description="Exception Message")
 
-    execution_spec: Optional["Adruleexecutionspec"] = Field(None, description="Execution Spec")
+    execution_spec: Optional["AdRuleExecutionSpec"] = Field(None, description="Execution Spec")
 
     is_manual: Optional[bool] = Field(None, description="Is Manual")
 
-    results: Optional[list["Adrulehistoryresult"]] = Field(None, description="Results")
+    results: Optional[list["AdRuleHistoryResult"]] = Field(None, description="Results")
 
-    schedule_spec: Optional["Adruleschedulespec"] = Field(None, description="Schedule Spec")
+    schedule_spec: Optional["AdRuleScheduleSpec"] = Field(None, description="Schedule Spec")
 
     timestamp: Optional[datetime] = Field(None, description="Timestamp")
 
@@ -45882,7 +45882,7 @@ class Adrulehistory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adrulehistory":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleHistory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45891,8 +45891,8 @@ class Adrulehistory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountappsetuprequirements(BaseModel):
-    """Adaccountappsetuprequirements model"""
+class AdAccountAppSetupRequirements(BaseModel):
+    """AdAccountAppSetupRequirements model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45904,7 +45904,7 @@ class Adaccountappsetuprequirements(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountappsetuprequirements":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAppSetupRequirements":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45913,8 +45913,8 @@ class Adaccountappsetuprequirements(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogusertasks(BaseModel):
-    """Productcatalogusertasks model"""
+class ProductCatalogUserTasks(BaseModel):
+    """ProductCatalogUserTasks model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45930,7 +45930,7 @@ class Productcatalogusertasks(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogusertasks":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogUserTasks":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45939,8 +45939,8 @@ class Productcatalogusertasks(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsconversiongoal(BaseModel):
-    """Adsconversiongoal model"""
+class AdsConversionGoal(BaseModel):
+    """AdsConversionGoal model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -45970,7 +45970,7 @@ class Adsconversiongoal(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsconversiongoal":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsConversionGoal":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -45979,8 +45979,8 @@ class Adsconversiongoal(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Chatplugin(BaseModel):
-    """Chatplugin model"""
+class ChatPlugin(BaseModel):
+    """ChatPlugin model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46016,7 +46016,7 @@ class Chatplugin(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Chatplugin":
+    def from_dict(cls, data: dict[str, Any]) -> "ChatPlugin":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46025,8 +46025,8 @@ class Chatplugin(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandsafetydownloadable(BaseModel):
-    """Brandsafetydownloadable model"""
+class BrandSafetyDownloadable(BaseModel):
+    """BrandSafetyDownloadable model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46054,7 +46054,7 @@ class Brandsafetydownloadable(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandsafetydownloadable":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandSafetyDownloadable":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46063,8 +46063,8 @@ class Brandsafetydownloadable(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagectxdefaultgreetingtext(BaseModel):
-    """Pagectxdefaultgreetingtext model"""
+class PageCTXDefaultGreetingText(BaseModel):
+    """PageCTXDefaultGreetingText model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46082,7 +46082,7 @@ class Pagectxdefaultgreetingtext(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagectxdefaultgreetingtext":
+    def from_dict(cls, data: dict[str, Any]) -> "PageCTXDefaultGreetingText":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46091,12 +46091,12 @@ class Pagectxdefaultgreetingtext(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspeclinkurl(BaseModel):
-    """Adassetfeedspeclinkurl model"""
+class AdAssetFeedSpecLinkURL(BaseModel):
+    """AdAssetFeedSpecLinkURL model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     carousel_see_more_url: Optional[str] = Field(None, description="Carousel See More Url")
 
@@ -46118,7 +46118,7 @@ class Adassetfeedspeclinkurl(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspeclinkurl":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecLinkURL":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46127,14 +46127,14 @@ class Adassetfeedspeclinkurl(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenconditionalquestionsgroupchoices(BaseModel):
-    """Leadgenconditionalquestionsgroupchoices model"""
+class LeadGenConditionalQuestionsGroupChoices(BaseModel):
+    """LeadGenConditionalQuestionsGroupChoices model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     customized_token: Optional[str] = Field(None, description="Customized Token")
 
-    next_question_choices: Optional[list["Leadgenconditionalquestionsgroupchoices"]] = Field(
+    next_question_choices: Optional[list["LeadGenConditionalQuestionsGroupChoices"]] = Field(
         None, description="Next Question Choices"
     )
 
@@ -46148,7 +46148,7 @@ class Leadgenconditionalquestionsgroupchoices(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenconditionalquestionsgroupchoices":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenConditionalQuestionsGroupChoices":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46157,8 +46157,8 @@ class Leadgenconditionalquestionsgroupchoices(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Bizinboxoffsiteemailaccount(BaseModel):
-    """Bizinboxoffsiteemailaccount model"""
+class BizInboxOffsiteEmailAccount(BaseModel):
+    """BizInboxOffsiteEmailAccount model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46174,7 +46174,7 @@ class Bizinboxoffsiteemailaccount(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Bizinboxoffsiteemailaccount":
+    def from_dict(cls, data: dict[str, Any]) -> "BizInboxOffsiteEmailAccount":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46183,12 +46183,12 @@ class Bizinboxoffsiteemailaccount(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecbody(BaseModel):
-    """Adassetfeedspecbody model"""
+class AdAssetFeedSpecBody(BaseModel):
+    """AdAssetFeedSpecBody model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     text: Optional[str] = Field(None, description="Text")
 
@@ -46202,7 +46202,7 @@ class Adassetfeedspecbody(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecbody":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecBody":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46211,8 +46211,8 @@ class Adassetfeedspecbody(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountuser(BaseModel):
-    """Adaccountuser model"""
+class AdAccountUser(BaseModel):
+    """AdAccountUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46230,7 +46230,7 @@ class Adaccountuser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountuser":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46319,8 +46319,8 @@ class Placement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fundingsourcedetailscoupontiering(BaseModel):
-    """Fundingsourcedetailscoupontiering model"""
+class FundingSourceDetailsCouponTiering(BaseModel):
+    """FundingSourceDetailsCouponTiering model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46338,7 +46338,7 @@ class Fundingsourcedetailscoupontiering(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fundingsourcedetailscoupontiering":
+    def from_dict(cls, data: dict[str, Any]) -> "FundingSourceDetailsCouponTiering":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46347,8 +46347,8 @@ class Fundingsourcedetailscoupontiering(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adlightcampaigngroup(BaseModel):
-    """Adlightcampaigngroup model"""
+class AdLightCampaignGroup(BaseModel):
+    """AdLightCampaignGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46362,7 +46362,7 @@ class Adlightcampaigngroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adlightcampaigngroup":
+    def from_dict(cls, data: dict[str, Any]) -> "AdLightCampaignGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46371,8 +46371,8 @@ class Adlightcampaigngroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountcampaignattributionoptioninfo(BaseModel):
-    """Adaccountcampaignattributionoptioninfo model"""
+class AdAccountCampaignAttributionOptionInfo(BaseModel):
+    """AdAccountCampaignAttributionOptionInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46388,7 +46388,7 @@ class Adaccountcampaignattributionoptioninfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountcampaignattributionoptioninfo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountCampaignAttributionOptionInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46397,8 +46397,8 @@ class Adaccountcampaignattributionoptioninfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Addraft(BaseModel):
-    """Addraft model"""
+class AdDraft(BaseModel):
+    """AdDraft model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46406,7 +46406,7 @@ class Addraft(BaseModel):
 
     api_version: Optional[str] = Field(None, description="Api Version")
 
-    async_request_set: Optional["Adasyncrequestset"] = Field(None, description="Async Request Set")
+    async_request_set: Optional["AdAsyncRequestSet"] = Field(None, description="Async Request Set")
 
     author_id: Optional[str] = Field(None, description="Author Id")
 
@@ -46440,7 +46440,7 @@ class Addraft(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Addraft":
+    def from_dict(cls, data: dict[str, Any]) -> "AdDraft":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46449,8 +46449,8 @@ class Addraft(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountdsarecommendations(BaseModel):
-    """Adaccountdsarecommendations model"""
+class AdAccountDsaRecommendations(BaseModel):
+    """AdAccountDsaRecommendations model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46464,7 +46464,7 @@ class Adaccountdsarecommendations(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountdsarecommendations":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountDsaRecommendations":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46473,8 +46473,8 @@ class Adaccountdsarecommendations(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessimage(BaseModel):
-    """Businessimage model"""
+class BusinessImage(BaseModel):
+    """BusinessImage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46506,7 +46506,7 @@ class Businessimage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessimage":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessImage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46515,8 +46515,8 @@ class Businessimage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Asyncrequest(BaseModel):
-    """Asyncrequest model"""
+class AsyncRequest(BaseModel):
+    """AsyncRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46536,7 +46536,7 @@ class Asyncrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Asyncrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "AsyncRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46545,8 +46545,8 @@ class Asyncrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Websitecreativeinfo(BaseModel):
-    """Websitecreativeinfo model"""
+class WebsiteCreativeInfo(BaseModel):
+    """WebsiteCreativeInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46564,7 +46564,7 @@ class Websitecreativeinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Websitecreativeinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "WebsiteCreativeInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46573,28 +46573,28 @@ class Websitecreativeinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Extendedcreditinvoicegroup(BaseModel):
-    """Extendedcreditinvoicegroup model"""
+class ExtendedCreditInvoiceGroup(BaseModel):
+    """ExtendedCreditInvoiceGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     auto_enroll: Optional[bool] = Field(None, description="Auto Enroll")
 
-    bill_to_address: Optional["Crmaddress"] = Field(None, description="Bill To Address")
+    bill_to_address: Optional["CRMAddress"] = Field(None, description="Bill To Address")
 
     customer_po_number: Optional[str] = Field(None, description="Customer Po Number")
 
-    email: Optional["Extendedcreditemail"] = Field(None, description="Email")
+    email: Optional["ExtendedCreditEmail"] = Field(None, description="Email")
 
     emails: Optional[list[str]] = Field(None, description="Emails")
 
     id: Optional[str] = Field(None, description="Id")
 
-    liable_address: Optional["Crmaddress"] = Field(None, description="Liable Address")
+    liable_address: Optional["CRMAddress"] = Field(None, description="Liable Address")
 
     name: Optional[str] = Field(None, description="Name")
 
-    sold_to_address: Optional["Crmaddress"] = Field(None, description="Sold To Address")
+    sold_to_address: Optional["CRMAddress"] = Field(None, description="Sold To Address")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -46604,7 +46604,7 @@ class Extendedcreditinvoicegroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Extendedcreditinvoicegroup":
+    def from_dict(cls, data: dict[str, Any]) -> "ExtendedCreditInvoiceGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46613,8 +46613,8 @@ class Extendedcreditinvoicegroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationcity(BaseModel):
-    """Targetinggeolocationcity model"""
+class TargetingGeoLocationCity(BaseModel):
+    """TargetingGeoLocationCity model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46640,7 +46640,7 @@ class Targetinggeolocationcity(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationcity":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationCity":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46649,16 +46649,16 @@ class Targetinggeolocationcity(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igshoppingreviewstatus(BaseModel):
-    """Igshoppingreviewstatus model"""
+class IGShoppingReviewStatus(BaseModel):
+    """IGShoppingReviewStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    onsite_eligibility: Optional["Igshoppingreviewstatusonsiteeligibility"] = Field(
+    onsite_eligibility: Optional["IGShoppingReviewStatusOnsiteEligibility"] = Field(
         None, description="Onsite Eligibility"
     )
 
-    reasons: Optional[list["Igshoppingreviewstatusreasonwithhelpmessage"]] = Field(
+    reasons: Optional[list["IGShoppingReviewStatusReasonWithHelpMessage"]] = Field(
         None, description="Reasons"
     )
 
@@ -46672,7 +46672,7 @@ class Igshoppingreviewstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igshoppingreviewstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "IGShoppingReviewStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46681,8 +46681,8 @@ class Igshoppingreviewstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dynamicitemdisplaybundlefolder(BaseModel):
-    """Dynamicitemdisplaybundlefolder model"""
+class DynamicItemDisplayBundleFolder(BaseModel):
+    """DynamicItemDisplayBundleFolder model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46692,9 +46692,9 @@ class Dynamicitemdisplaybundlefolder(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    product_catalog: Optional["Productcatalog"] = Field(None, description="Product Catalog")
+    product_catalog: Optional["ProductCatalog"] = Field(None, description="Product Catalog")
 
-    product_set: Optional["Productset"] = Field(None, description="Product Set")
+    product_set: Optional["ProductSet"] = Field(None, description="Product Set")
 
     valid_labels: Optional[list[dict[str, list[str]]]] = Field(None, description="Valid Labels")
 
@@ -46706,7 +46706,7 @@ class Dynamicitemdisplaybundlefolder(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dynamicitemdisplaybundlefolder":
+    def from_dict(cls, data: dict[str, Any]) -> "DynamicItemDisplayBundleFolder":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46715,8 +46715,8 @@ class Dynamicitemdisplaybundlefolder(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagechangeproposal(BaseModel):
-    """Pagechangeproposal model"""
+class PageChangeProposal(BaseModel):
+    """PageChangeProposal model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46726,7 +46726,7 @@ class Pagechangeproposal(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    upcoming_change_info: Optional["Pageupcomingchange"] = Field(
+    upcoming_change_info: Optional["PageUpcomingChange"] = Field(
         None, description="Upcoming Change Info"
     )
 
@@ -46738,7 +46738,7 @@ class Pagechangeproposal(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagechangeproposal":
+    def from_dict(cls, data: dict[str, Any]) -> "PageChangeProposal":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46747,12 +46747,12 @@ class Pagechangeproposal(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Rtbdynamicpost(BaseModel):
-    """Rtbdynamicpost model"""
+class RTBDynamicPost(BaseModel):
+    """RTBDynamicPost model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    child_attachments: Optional[list["Dynamicpostchildattachment"]] = Field(
+    child_attachments: Optional[list["DynamicPostChildAttachment"]] = Field(
         None, description="Child Attachments"
     )
 
@@ -46784,7 +46784,7 @@ class Rtbdynamicpost(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Rtbdynamicpost":
+    def from_dict(cls, data: dict[str, Any]) -> "RTBDynamicPost":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46793,8 +46793,8 @@ class Rtbdynamicpost(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountmaxbid(BaseModel):
-    """Adaccountmaxbid model"""
+class AdAccountMaxBid(BaseModel):
+    """AdAccountMaxBid model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46808,7 +46808,7 @@ class Adaccountmaxbid(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountmaxbid":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountMaxBid":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46817,8 +46817,8 @@ class Adaccountmaxbid(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videostatuserror(BaseModel):
-    """Videostatuserror model"""
+class VideoStatusError(BaseModel):
+    """VideoStatusError model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46834,7 +46834,7 @@ class Videostatuserror(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videostatuserror":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoStatusError":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46843,8 +46843,8 @@ class Videostatuserror(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Eventregistrationsetting(BaseModel):
-    """Eventregistrationsetting model"""
+class EventRegistrationSetting(BaseModel):
+    """EventRegistrationSetting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46864,7 +46864,7 @@ class Eventregistrationsetting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Eventregistrationsetting":
+    def from_dict(cls, data: dict[str, Any]) -> "EventRegistrationSetting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46873,18 +46873,18 @@ class Eventregistrationsetting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Livevideo(BaseModel):
-    """Livevideo model"""
+class LiveVideo(BaseModel):
+    """LiveVideo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_break_config: Optional["Livevideoadbreakconfig"] = Field(None, description="Ad Break Config")
+    ad_break_config: Optional["LiveVideoAdBreakConfig"] = Field(None, description="Ad Break Config")
 
     ad_break_failure_reason: Optional[str] = Field(None, description="Ad Break Failure Reason")
 
     broadcast_start_time: Optional[datetime] = Field(None, description="Broadcast Start Time")
 
-    copyright: Optional["Videocopyright"] = Field(None, description="Copyright")
+    copyright: Optional["VideoCopyright"] = Field(None, description="Copyright")
 
     creation_time: Optional[datetime] = Field(None, description="Creation Time")
 
@@ -46900,7 +46900,7 @@ class Livevideo(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    ingest_streams: Optional[list["Livevideoinputstream"]] = Field(
+    ingest_streams: Optional[list["LiveVideoInputStream"]] = Field(
         None, description="Ingest Streams"
     )
 
@@ -46916,7 +46916,7 @@ class Livevideo(BaseModel):
 
     planned_start_time: Optional[datetime] = Field(None, description="Planned Start Time")
 
-    recommended_encoder_settings: Optional["Livevideorecommendedencodersettings"] = Field(
+    recommended_encoder_settings: Optional["LiveVideoRecommendedEncoderSettings"] = Field(
         None, description="Recommended Encoder Settings"
     )
 
@@ -46928,13 +46928,13 @@ class Livevideo(BaseModel):
 
     stream_url: Optional[str] = Field(None, description="Stream Url")
 
-    targeting: Optional["Livevideotargeting"] = Field(None, description="Targeting")
+    targeting: Optional["LiveVideoTargeting"] = Field(None, description="Targeting")
 
     title: Optional[str] = Field(None, description="Title")
 
     total_views: Optional[str] = Field(None, description="Total Views")
 
-    video: Optional["Advideo"] = Field(None, description="Video")
+    video: Optional["AdVideo"] = Field(None, description="Video")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -46944,7 +46944,7 @@ class Livevideo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Livevideo":
+    def from_dict(cls, data: dict[str, Any]) -> "LiveVideo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46953,8 +46953,8 @@ class Livevideo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adconversions(BaseModel):
-    """Adconversions model"""
+class AdConversions(BaseModel):
+    """AdConversions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -46974,7 +46974,7 @@ class Adconversions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adconversions":
+    def from_dict(cls, data: dict[str, Any]) -> "AdConversions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -46983,8 +46983,8 @@ class Adconversions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessproductcatalogtos(BaseModel):
-    """Businessproductcatalogtos model"""
+class BusinessProductCatalogTOS(BaseModel):
+    """BusinessProductCatalogTOS model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47000,7 +47000,7 @@ class Businessproductcatalogtos(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessproductcatalogtos":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessProductCatalogTOS":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47009,8 +47009,8 @@ class Businessproductcatalogtos(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessassetsharingagreement(BaseModel):
-    """Businessassetsharingagreement model"""
+class BusinessAssetSharingAgreement(BaseModel):
+    """BusinessAssetSharingAgreement model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47034,7 +47034,7 @@ class Businessassetsharingagreement(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessassetsharingagreement":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessAssetSharingAgreement":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47043,8 +47043,8 @@ class Businessassetsharingagreement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreationpackageconfig(BaseModel):
-    """Adcreationpackageconfig model"""
+class AdCreationPackageConfig(BaseModel):
+    """AdCreationPackageConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47070,7 +47070,7 @@ class Adcreationpackageconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreationpackageconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreationPackageConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47079,8 +47079,8 @@ class Adcreationpackageconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Contentpublishinglimitresponse(BaseModel):
-    """Contentpublishinglimitresponse model"""
+class ContentPublishingLimitResponse(BaseModel):
+    """ContentPublishingLimitResponse model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47096,7 +47096,7 @@ class Contentpublishinglimitresponse(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Contentpublishinglimitresponse":
+    def from_dict(cls, data: dict[str, Any]) -> "ContentPublishingLimitResponse":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47105,8 +47105,8 @@ class Contentpublishinglimitresponse(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Endstudycriteria(BaseModel):
-    """Endstudycriteria model"""
+class EndStudyCriteria(BaseModel):
+    """EndStudyCriteria model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47118,7 +47118,7 @@ class Endstudycriteria(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Endstudycriteria":
+    def from_dict(cls, data: dict[str, Any]) -> "EndStudyCriteria":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47127,8 +47127,8 @@ class Endstudycriteria(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Collaborativeadspartnerinfolistitem(BaseModel):
-    """Collaborativeadspartnerinfolistitem model"""
+class CollaborativeAdsPartnerInfoListItem(BaseModel):
+    """CollaborativeAdsPartnerInfoListItem model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47140,7 +47140,7 @@ class Collaborativeadspartnerinfolistitem(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Collaborativeadspartnerinfolistitem":
+    def from_dict(cls, data: dict[str, Any]) -> "CollaborativeAdsPartnerInfoListItem":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47149,8 +47149,8 @@ class Collaborativeadspartnerinfolistitem(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Copyrightmediamisuse(BaseModel):
-    """Copyrightmediamisuse model"""
+class CopyrightMediaMisuse(BaseModel):
+    """CopyrightMediaMisuse model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47194,7 +47194,7 @@ class Copyrightmediamisuse(BaseModel):
 
     update_time: Optional[datetime] = Field(None, description="Update Time")
 
-    video_copyright: Optional["Videocopyright"] = Field(None, description="Video Copyright")
+    video_copyright: Optional["VideoCopyright"] = Field(None, description="Video Copyright")
 
     video_segments: Optional[list[dict[str, Any]]] = Field(None, description="Video Segments")
 
@@ -47206,7 +47206,7 @@ class Copyrightmediamisuse(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Copyrightmediamisuse":
+    def from_dict(cls, data: dict[str, Any]) -> "CopyrightMediaMisuse":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47215,14 +47215,14 @@ class Copyrightmediamisuse(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdatacalltoaction(BaseModel):
-    """Adcreativelinkdatacalltoaction model"""
+class AdCreativeLinkDataCallToAction(BaseModel):
+    """AdCreativeLinkDataCallToAction model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     type: Optional[AdCreativeLinkDataCallToAction_type] = Field(None, description="Type")
 
-    value: Optional["Adcreativelinkdatacalltoactionvalue"] = Field(None, description="Value")
+    value: Optional["AdCreativeLinkDataCallToActionValue"] = Field(None, description="Value")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -47232,7 +47232,7 @@ class Adcreativelinkdatacalltoaction(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdatacalltoaction":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataCallToAction":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47241,14 +47241,14 @@ class Adcreativelinkdatacalltoaction(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videostatusuploadingphase(BaseModel):
-    """Videostatusuploadingphase model"""
+class VideoStatusUploadingPhase(BaseModel):
+    """VideoStatusUploadingPhase model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     bytes_transferred: Optional[int] = Field(None, description="Bytes Transferred")
 
-    errors: Optional[list["Videostatuserror"]] = Field(None, description="Errors")
+    errors: Optional[list["VideoStatusError"]] = Field(None, description="Errors")
 
     source_file_size: Optional[int] = Field(None, description="Source File Size")
 
@@ -47262,7 +47262,7 @@ class Videostatusuploadingphase(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videostatusuploadingphase":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoStatusUploadingPhase":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47271,8 +47271,8 @@ class Videostatusuploadingphase(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativebrandedcontentadspartners(BaseModel):
-    """Adcreativebrandedcontentadspartners model"""
+class AdCreativeBrandedContentAdsPartners(BaseModel):
+    """AdCreativeBrandedContentAdsPartners model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47294,7 +47294,7 @@ class Adcreativebrandedcontentadspartners(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativebrandedcontentadspartners":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeBrandedContentAdsPartners":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47337,8 +47337,8 @@ class Stories(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instagraminsightsresult(BaseModel):
-    """Instagraminsightsresult model"""
+class InstagramInsightsResult(BaseModel):
+    """InstagramInsightsResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47354,7 +47354,7 @@ class Instagraminsightsresult(BaseModel):
 
     total_value: Optional[dict[str, Any]] = Field(None, description="Total Value")
 
-    values: Optional[list["Instagraminsightsvalue"]] = Field(None, description="Values")
+    values: Optional[list["InstagramInsightsValue"]] = Field(None, description="Values")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -47364,7 +47364,7 @@ class Instagraminsightsresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instagraminsightsresult":
+    def from_dict(cls, data: dict[str, Any]) -> "InstagramInsightsResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47373,8 +47373,8 @@ class Instagraminsightsresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelsignalsiwlnux(BaseModel):
-    """Adspixelsignalsiwlnux model"""
+class AdsPixelSignalsIWLNux(BaseModel):
+    """AdsPixelSignalsIWLNux model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47396,7 +47396,7 @@ class Adspixelsignalsiwlnux(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelsignalsiwlnux":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelSignalsIWLNux":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47405,8 +47405,8 @@ class Adspixelsignalsiwlnux(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeedrulesuggestion(BaseModel):
-    """Productfeedrulesuggestion model"""
+class ProductFeedRuleSuggestion(BaseModel):
+    """ProductFeedRuleSuggestion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47424,7 +47424,7 @@ class Productfeedrulesuggestion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeedrulesuggestion":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedRuleSuggestion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47433,8 +47433,8 @@ class Productfeedrulesuggestion(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mediacopyrightattribution(BaseModel):
-    """Mediacopyrightattribution model"""
+class MediaCopyrightAttribution(BaseModel):
+    """MediaCopyrightAttribution model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47480,7 +47480,7 @@ class Mediacopyrightattribution(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mediacopyrightattribution":
+    def from_dict(cls, data: dict[str, Any]) -> "MediaCopyrightAttribution":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47489,8 +47489,8 @@ class Mediacopyrightattribution(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessproject(BaseModel):
-    """Businessproject model"""
+class BusinessProject(BaseModel):
+    """BusinessProject model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47512,7 +47512,7 @@ class Businessproject(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessproject":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessProject":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47521,8 +47521,8 @@ class Businessproject(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstudy(BaseModel):
-    """Adstudy model"""
+class AdStudy(BaseModel):
+    """AdStudy model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47572,7 +47572,7 @@ class Adstudy(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstudy":
+    def from_dict(cls, data: dict[str, Any]) -> "AdStudy":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47581,8 +47581,8 @@ class Adstudy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adgroupplacementspecificreviewfeedback(BaseModel):
-    """Adgroupplacementspecificreviewfeedback model"""
+class AdgroupPlacementSpecificReviewFeedback(BaseModel):
+    """AdgroupPlacementSpecificReviewFeedback model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47680,7 +47680,7 @@ class Adgroupplacementspecificreviewfeedback(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adgroupplacementspecificreviewfeedback":
+    def from_dict(cls, data: dict[str, Any]) -> "AdgroupPlacementSpecificReviewFeedback":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47689,8 +47689,8 @@ class Adgroupplacementspecificreviewfeedback(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Ctxpartnerappwelcomemessageflow(BaseModel):
-    """Ctxpartnerappwelcomemessageflow model"""
+class CTXPartnerAppWelcomeMessageFlow(BaseModel):
+    """CTXPartnerAppWelcomeMessageFlow model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47720,7 +47720,7 @@ class Ctxpartnerappwelcomemessageflow(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Ctxpartnerappwelcomemessageflow":
+    def from_dict(cls, data: dict[str, Any]) -> "CTXPartnerAppWelcomeMessageFlow":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47729,16 +47729,16 @@ class Ctxpartnerappwelcomemessageflow(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Transactableitem(BaseModel):
-    """Transactableitem model"""
+class TransactableItem(BaseModel):
+    """TransactableItem model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     action_title: Optional[str] = Field(None, description="Action Title")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -47786,7 +47786,7 @@ class Transactableitem(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Transactableitem":
+    def from_dict(cls, data: dict[str, Any]) -> "TransactableItem":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47795,8 +47795,8 @@ class Transactableitem(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adtopline(BaseModel):
-    """Adtopline model"""
+class AdTopline(BaseModel):
+    """AdTopline model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47884,7 +47884,7 @@ class Adtopline(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adtopline":
+    def from_dict(cls, data: dict[str, Any]) -> "AdTopline":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47893,8 +47893,8 @@ class Adtopline(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdatacustomoverlayspec(BaseModel):
-    """Adcreativelinkdatacustomoverlayspec model"""
+class AdCreativeLinkDataCustomOverlaySpec(BaseModel):
+    """AdCreativeLinkDataCustomOverlaySpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -47930,7 +47930,7 @@ class Adcreativelinkdatacustomoverlayspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdatacustomoverlayspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataCustomOverlaySpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -47939,8 +47939,8 @@ class Adcreativelinkdatacustomoverlayspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlineconversiondataset(BaseModel):
-    """Offlineconversiondataset model"""
+class OfflineConversionDataSet(BaseModel):
+    """OfflineConversionDataSet model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48006,11 +48006,11 @@ class Offlineconversiondataset(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    owner_ad_account: Optional["Adaccount"] = Field(None, description="Owner Ad Account")
+    owner_ad_account: Optional["AdAccount"] = Field(None, description="Owner Ad Account")
 
     owner_business: Optional["Business"] = Field(None, description="Owner Business")
 
-    usage: Optional["Offlineconversiondatasetusage"] = Field(None, description="Usage")
+    usage: Optional["OfflineConversionDataSetUsage"] = Field(None, description="Usage")
 
     valid_entries: Optional[int] = Field(None, description="Valid Entries")
 
@@ -48022,7 +48022,7 @@ class Offlineconversiondataset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlineconversiondataset":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineConversionDataSet":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48031,8 +48031,8 @@ class Offlineconversiondataset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixeldeliveryrecommendations(BaseModel):
-    """Adspixeldeliveryrecommendations model"""
+class AdsPixelDeliveryRecommendations(BaseModel):
+    """AdsPixelDeliveryRecommendations model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48048,7 +48048,7 @@ class Adspixeldeliveryrecommendations(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixeldeliveryrecommendations":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelDeliveryRecommendations":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48057,194 +48057,194 @@ class Adspixeldeliveryrecommendations(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativefeaturesspec(BaseModel):
-    """Adcreativefeaturesspec model"""
+class AdCreativeFeaturesSpec(BaseModel):
+    """AdCreativeFeaturesSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adapt_to_placement: Optional["Adcreativefeaturedetails"] = Field(
+    adapt_to_placement: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Adapt To Placement"
     )
 
-    add_text_overlay: Optional["Adcreativefeaturedetails"] = Field(
+    add_text_overlay: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Add Text Overlay"
     )
 
-    ads_with_benefits: Optional["Adcreativefeaturedetails"] = Field(
+    ads_with_benefits: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Ads With Benefits"
     )
 
-    advantage_plus_creative: Optional["Adcreativefeaturedetails"] = Field(
+    advantage_plus_creative: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Advantage Plus Creative"
     )
 
-    app_highlights: Optional["Adcreativefeaturedetails"] = Field(None, description="App Highlights")
+    app_highlights: Optional["AdCreativeFeatureDetails"] = Field(None, description="App Highlights")
 
-    audio: Optional["Adcreativefeaturedetails"] = Field(None, description="Audio")
+    audio: Optional["AdCreativeFeatureDetails"] = Field(None, description="Audio")
 
-    biz_ai: Optional["Adcreativefeaturedetails"] = Field(None, description="Biz Ai")
+    biz_ai: Optional["AdCreativeFeatureDetails"] = Field(None, description="Biz Ai")
 
-    carousel_to_video: Optional["Adcreativefeaturedetails"] = Field(
+    carousel_to_video: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Carousel To Video"
     )
 
-    catalog_feed_tag: Optional["Adcreativefeaturedetails"] = Field(
+    catalog_feed_tag: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Catalog Feed Tag"
     )
 
-    customize_product_recommendation: Optional["Adcreativefeaturedetails"] = Field(
+    customize_product_recommendation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Customize Product Recommendation"
     )
 
-    cv_transformation: Optional["Adcreativefeaturedetails"] = Field(
+    cv_transformation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Cv Transformation"
     )
 
-    description_automation: Optional["Adcreativefeaturedetails"] = Field(
+    description_automation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Description Automation"
     )
 
-    dha_optimization: Optional["Adcreativefeaturedetails"] = Field(
+    dha_optimization: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Dha Optimization"
     )
 
-    dynamic_partner_content: Optional["Adcreativefeaturedetails"] = Field(
+    dynamic_partner_content: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Dynamic Partner Content"
     )
 
-    enhance_cta: Optional["Adcreativefeaturedetails"] = Field(None, description="Enhance Cta")
+    enhance_cta: Optional["AdCreativeFeatureDetails"] = Field(None, description="Enhance Cta")
 
-    fb_feed_tag: Optional["Adcreativefeaturedetails"] = Field(None, description="Fb Feed Tag")
+    fb_feed_tag: Optional["AdCreativeFeatureDetails"] = Field(None, description="Fb Feed Tag")
 
-    fb_reels_tag: Optional["Adcreativefeaturedetails"] = Field(None, description="Fb Reels Tag")
+    fb_reels_tag: Optional["AdCreativeFeatureDetails"] = Field(None, description="Fb Reels Tag")
 
-    fb_story_tag: Optional["Adcreativefeaturedetails"] = Field(None, description="Fb Story Tag")
+    fb_story_tag: Optional["AdCreativeFeatureDetails"] = Field(None, description="Fb Story Tag")
 
-    feed_caption_optimization: Optional["Adcreativefeaturedetails"] = Field(
+    feed_caption_optimization: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Feed Caption Optimization"
     )
 
-    hide_price: Optional["Adcreativefeaturedetails"] = Field(None, description="Hide Price")
+    hide_price: Optional["AdCreativeFeatureDetails"] = Field(None, description="Hide Price")
 
-    ig_feed_tag: Optional["Adcreativefeaturedetails"] = Field(None, description="Ig Feed Tag")
+    ig_feed_tag: Optional["AdCreativeFeatureDetails"] = Field(None, description="Ig Feed Tag")
 
-    ig_glados_feed: Optional["Adcreativefeaturedetails"] = Field(None, description="Ig Glados Feed")
+    ig_glados_feed: Optional["AdCreativeFeatureDetails"] = Field(None, description="Ig Glados Feed")
 
-    ig_reels_tag: Optional["Adcreativefeaturedetails"] = Field(None, description="Ig Reels Tag")
+    ig_reels_tag: Optional["AdCreativeFeatureDetails"] = Field(None, description="Ig Reels Tag")
 
-    ig_stream_tag: Optional["Adcreativefeaturedetails"] = Field(None, description="Ig Stream Tag")
+    ig_stream_tag: Optional["AdCreativeFeatureDetails"] = Field(None, description="Ig Stream Tag")
 
-    image_animation: Optional["Adcreativefeaturedetails"] = Field(
+    image_animation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Image Animation"
     )
 
-    image_auto_crop: Optional["Adcreativefeaturedetails"] = Field(
+    image_auto_crop: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Image Auto Crop"
     )
 
-    image_background_gen: Optional["Adcreativefeaturedetails"] = Field(
+    image_background_gen: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Image Background Gen"
     )
 
-    image_brightness_and_contrast: Optional["Adcreativefeaturedetails"] = Field(
+    image_brightness_and_contrast: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Image Brightness And Contrast"
     )
 
-    image_enhancement: Optional["Adcreativefeaturedetails"] = Field(
+    image_enhancement: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Image Enhancement"
     )
 
-    image_templates: Optional["Adcreativefeaturedetails"] = Field(
+    image_templates: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Image Templates"
     )
 
-    image_touchups: Optional["Adcreativefeaturedetails"] = Field(None, description="Image Touchups")
+    image_touchups: Optional["AdCreativeFeatureDetails"] = Field(None, description="Image Touchups")
 
-    image_uncrop: Optional["Adcreativefeaturedetails"] = Field(None, description="Image Uncrop")
+    image_uncrop: Optional["AdCreativeFeatureDetails"] = Field(None, description="Image Uncrop")
 
-    inline_comment: Optional["Adcreativefeaturedetails"] = Field(None, description="Inline Comment")
+    inline_comment: Optional["AdCreativeFeatureDetails"] = Field(None, description="Inline Comment")
 
-    local_store_extension: Optional["Adcreativefeaturedetails"] = Field(
+    local_store_extension: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Local Store Extension"
     )
 
-    media_liquidity_animated_image: Optional["Adcreativefeaturedetails"] = Field(
+    media_liquidity_animated_image: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Media Liquidity Animated Image"
     )
 
-    media_order: Optional["Adcreativefeaturedetails"] = Field(None, description="Media Order")
+    media_order: Optional["AdCreativeFeatureDetails"] = Field(None, description="Media Order")
 
-    media_type_automation: Optional["Adcreativefeaturedetails"] = Field(
+    media_type_automation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Media Type Automation"
     )
 
-    multi_photo_to_video: Optional["Adcreativefeaturedetails"] = Field(
+    multi_photo_to_video: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Multi Photo To Video"
     )
 
-    music_generation: Optional["Adcreativefeaturedetails"] = Field(
+    music_generation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Music Generation"
     )
 
-    pac_relaxation: Optional["Adcreativefeaturedetails"] = Field(None, description="Pac Relaxation")
+    pac_relaxation: Optional["AdCreativeFeatureDetails"] = Field(None, description="Pac Relaxation")
 
-    product_extensions: Optional["Adcreativefeaturedetails"] = Field(
+    product_extensions: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Product Extensions"
     )
 
-    product_metadata_automation: Optional["Adcreativefeaturedetails"] = Field(
+    product_metadata_automation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Product Metadata Automation"
     )
 
-    product_tags: Optional["Adcreativefeaturedetails"] = Field(None, description="Product Tags")
+    product_tags: Optional["AdCreativeFeatureDetails"] = Field(None, description="Product Tags")
 
-    profile_card: Optional["Adcreativefeaturedetails"] = Field(None, description="Profile Card")
+    profile_card: Optional["AdCreativeFeatureDetails"] = Field(None, description="Profile Card")
 
-    profile_extension: Optional["Adcreativefeaturedetails"] = Field(
+    profile_extension: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Profile Extension"
     )
 
-    show_summary: Optional["Adcreativefeaturedetails"] = Field(None, description="Show Summary")
+    show_summary: Optional["AdCreativeFeatureDetails"] = Field(None, description="Show Summary")
 
-    site_extensions: Optional["Adcreativefeaturedetails"] = Field(
+    site_extensions: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Site Extensions"
     )
 
-    standard_enhancements: Optional["Adcreativefeaturedetails"] = Field(
+    standard_enhancements: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Standard Enhancements"
     )
 
-    standard_enhancements_catalog: Optional["Adcreativefeaturedetails"] = Field(
+    standard_enhancements_catalog: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Standard Enhancements Catalog"
     )
 
-    text_generation: Optional["Adcreativefeaturedetails"] = Field(
+    text_generation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Text Generation"
     )
 
-    text_optimizations: Optional["Adcreativefeaturedetails"] = Field(
+    text_optimizations: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Text Optimizations"
     )
 
-    text_translation: Optional["Adcreativefeaturedetails"] = Field(
+    text_translation: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Text Translation"
     )
 
-    video_auto_crop: Optional["Adcreativefeaturedetails"] = Field(
+    video_auto_crop: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Video Auto Crop"
     )
 
-    video_filtering: Optional["Adcreativefeaturedetails"] = Field(
+    video_filtering: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Video Filtering"
     )
 
-    video_highlight: Optional["Adcreativefeaturedetails"] = Field(
+    video_highlight: Optional["AdCreativeFeatureDetails"] = Field(
         None, description="Video Highlight"
     )
 
-    video_to_image: Optional["Adcreativefeaturedetails"] = Field(None, description="Video To Image")
+    video_to_image: Optional["AdCreativeFeatureDetails"] = Field(None, description="Video To Image")
 
-    video_uncrop: Optional["Adcreativefeaturedetails"] = Field(None, description="Video Uncrop")
+    video_uncrop: Optional["AdCreativeFeatureDetails"] = Field(None, description="Video Uncrop")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -48254,7 +48254,7 @@ class Adcreativefeaturesspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativefeaturesspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeFeaturesSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48263,8 +48263,8 @@ class Adcreativefeaturesspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeeduploaderrorsample(BaseModel):
-    """Productfeeduploaderrorsample model"""
+class ProductFeedUploadErrorSample(BaseModel):
+    """ProductFeedUploadErrorSample model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48282,7 +48282,7 @@ class Productfeeduploaderrorsample(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeeduploaderrorsample":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedUploadErrorSample":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48291,8 +48291,8 @@ class Productfeeduploaderrorsample(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Wituser(BaseModel):
-    """Wituser model"""
+class WITUser(BaseModel):
+    """WITUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48310,7 +48310,7 @@ class Wituser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Wituser":
+    def from_dict(cls, data: dict[str, Any]) -> "WITUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48319,8 +48319,8 @@ class Wituser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Highdemandperiodtimesuggestionweeklysegment(BaseModel):
-    """Highdemandperiodtimesuggestionweeklysegment model"""
+class HighDemandPeriodTimeSuggestionWeeklySegment(BaseModel):
+    """HighDemandPeriodTimeSuggestionWeeklySegment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48340,7 +48340,7 @@ class Highdemandperiodtimesuggestionweeklysegment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Highdemandperiodtimesuggestionweeklysegment":
+    def from_dict(cls, data: dict[str, Any]) -> "HighDemandPeriodTimeSuggestionWeeklySegment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48349,8 +48349,8 @@ class Highdemandperiodtimesuggestionweeklysegment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adnetworkanalyticsasyncqueryresult(BaseModel):
-    """Adnetworkanalyticsasyncqueryresult model"""
+class AdNetworkAnalyticsAsyncQueryResult(BaseModel):
+    """AdNetworkAnalyticsAsyncQueryResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48372,7 +48372,7 @@ class Adnetworkanalyticsasyncqueryresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adnetworkanalyticsasyncqueryresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdNetworkAnalyticsAsyncQueryResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48381,8 +48381,8 @@ class Adnetworkanalyticsasyncqueryresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigngroupmetricsmetadata(BaseModel):
-    """Adcampaigngroupmetricsmetadata model"""
+class AdCampaignGroupMetricsMetadata(BaseModel):
+    """AdCampaignGroupMetricsMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48398,7 +48398,7 @@ class Adcampaigngroupmetricsmetadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigngroupmetricsmetadata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignGroupMetricsMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48407,8 +48407,8 @@ class Adcampaigngroupmetricsmetadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativemarketingmessagestructuredspec(BaseModel):
-    """Adcreativemarketingmessagestructuredspec model"""
+class AdCreativeMarketingMessageStructuredSpec(BaseModel):
+    """AdCreativeMarketingMessageStructuredSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48436,7 +48436,7 @@ class Adcreativemarketingmessagestructuredspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativemarketingmessagestructuredspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeMarketingMessageStructuredSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48445,8 +48445,8 @@ class Adcreativemarketingmessagestructuredspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountamountspenthistory(BaseModel):
-    """Adaccountamountspenthistory model"""
+class AdAccountAmountSpentHistory(BaseModel):
+    """AdAccountAmountSpentHistory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48466,7 +48466,7 @@ class Adaccountamountspenthistory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountamountspenthistory":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAmountSpentHistory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48475,16 +48475,16 @@ class Adaccountamountspenthistory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingproductaudiencespec(BaseModel):
-    """Targetingproductaudiencespec model"""
+class TargetingProductAudienceSpec(BaseModel):
+    """TargetingProductAudienceSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    exclusions: Optional[list["Targetingproductaudiencesubspec"]] = Field(
+    exclusions: Optional[list["TargetingProductAudienceSubSpec"]] = Field(
         None, description="Exclusions"
     )
 
-    inclusions: Optional[list["Targetingproductaudiencesubspec"]] = Field(
+    inclusions: Optional[list["TargetingProductAudienceSubSpec"]] = Field(
         None, description="Inclusions"
     )
 
@@ -48498,7 +48498,7 @@ class Targetingproductaudiencespec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingproductaudiencespec":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingProductAudienceSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48507,8 +48507,8 @@ class Targetingproductaudiencespec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Blockeduserinfo(BaseModel):
-    """Blockeduserinfo model"""
+class BlockedUserInfo(BaseModel):
+    """BlockedUserInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48530,7 +48530,7 @@ class Blockeduserinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Blockeduserinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "BlockedUserInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48539,8 +48539,8 @@ class Blockeduserinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audienceoverlap(BaseModel):
-    """Audienceoverlap model"""
+class AudienceOverlap(BaseModel):
+    """AudienceOverlap model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48560,7 +48560,7 @@ class Audienceoverlap(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audienceoverlap":
+    def from_dict(cls, data: dict[str, Any]) -> "AudienceOverlap":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48569,8 +48569,8 @@ class Audienceoverlap(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Commerceorder(BaseModel):
-    """Commerceorder model"""
+class CommerceOrder(BaseModel):
+    """CommerceOrder model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48616,7 +48616,7 @@ class Commerceorder(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Commerceorder":
+    def from_dict(cls, data: dict[str, Any]) -> "CommerceOrder":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48625,14 +48625,14 @@ class Commerceorder(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productsetusage(BaseModel):
-    """Productsetusage model"""
+class ProductSetUsage(BaseModel):
+    """ProductSetUsage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     id: Optional[str] = Field(None, description="Id")
 
-    product_set: Optional["Productset"] = Field(None, description="Product Set")
+    product_set: Optional["ProductSet"] = Field(None, description="Product Set")
 
     usage_type: Optional[str] = Field(None, description="Usage Type")
 
@@ -48644,7 +48644,7 @@ class Productsetusage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productsetusage":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductSetUsage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48653,8 +48653,8 @@ class Productsetusage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountallpaymentmethods(BaseModel):
-    """Adaccountallpaymentmethods model"""
+class AdAccountAllPaymentMethods(BaseModel):
+    """AdAccountAllPaymentMethods model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48666,7 +48666,7 @@ class Adaccountallpaymentmethods(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountallpaymentmethods":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAllPaymentMethods":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48675,8 +48675,8 @@ class Adaccountallpaymentmethods(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Ctxoptimizationeligibility(BaseModel):
-    """Ctxoptimizationeligibility model"""
+class CTXOptimizationEligibility(BaseModel):
+    """CTXOptimizationEligibility model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48690,7 +48690,7 @@ class Ctxoptimizationeligibility(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Ctxoptimizationeligibility":
+    def from_dict(cls, data: dict[str, Any]) -> "CTXOptimizationEligibility":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48710,7 +48710,7 @@ class Event(BaseModel):
 
     category: Optional[Event_category] = Field(None, description="Category")
 
-    cover: Optional["Coverphoto"] = Field(None, description="Cover")
+    cover: Optional["CoverPhoto"] = Field(None, description="Cover")
 
     created_time: Optional[datetime] = Field(None, description="Created Time")
 
@@ -48722,7 +48722,7 @@ class Event(BaseModel):
 
     end_time: Optional[str] = Field(None, description="End Time")
 
-    event_times: Optional[list["Childevent"]] = Field(None, description="Event Times")
+    event_times: Optional[list["ChildEvent"]] = Field(None, description="Event Times")
 
     guest_list_enabled: Optional[bool] = Field(None, description="Guest List Enabled")
 
@@ -48758,7 +48758,7 @@ class Event(BaseModel):
 
     place: Optional["Place"] = Field(None, description="Place")
 
-    registration_setting: Optional["Eventregistrationsetting"] = Field(
+    registration_setting: Optional["EventRegistrationSetting"] = Field(
         None, description="Registration Setting"
     )
 
@@ -48770,7 +48770,7 @@ class Event(BaseModel):
 
     ticket_selling_status: Optional[str] = Field(None, description="Ticket Selling Status")
 
-    ticket_setting: Optional["Eventticketsetting"] = Field(None, description="Ticket Setting")
+    ticket_setting: Optional["EventTicketSetting"] = Field(None, description="Ticket Setting")
 
     ticket_uri: Optional[str] = Field(None, description="Ticket Uri")
 
@@ -48805,8 +48805,8 @@ class Event(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videotextquestion(BaseModel):
-    """Videotextquestion model"""
+class VideoTextQuestion(BaseModel):
+    """VideoTextQuestion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48826,7 +48826,7 @@ class Videotextquestion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videotextquestion":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoTextQuestion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48867,8 +48867,8 @@ class Experience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiosublabel(BaseModel):
-    """Audiosublabel model"""
+class AudioSubLabel(BaseModel):
+    """AudioSubLabel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48894,7 +48894,7 @@ class Audiosublabel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiosublabel":
+    def from_dict(cls, data: dict[str, Any]) -> "AudioSubLabel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48903,8 +48903,8 @@ class Audiosublabel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenprivacypolicy(BaseModel):
-    """Leadgenprivacypolicy model"""
+class LeadGenPrivacyPolicy(BaseModel):
+    """LeadGenPrivacyPolicy model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48920,7 +48920,7 @@ class Leadgenprivacypolicy(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenprivacypolicy":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenPrivacyPolicy":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48929,12 +48929,12 @@ class Leadgenprivacypolicy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcolumnsizes(BaseModel):
-    """Adcolumnsizes model"""
+class AdColumnSizes(BaseModel):
+    """AdColumnSizes model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    admarket_account: Optional["Adaccount"] = Field(None, description="Admarket Account")
+    admarket_account: Optional["AdAccount"] = Field(None, description="Admarket Account")
 
     app_id: Optional[str] = Field(None, description="App Id")
 
@@ -48960,7 +48960,7 @@ class Adcolumnsizes(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcolumnsizes":
+    def from_dict(cls, data: dict[str, Any]) -> "AdColumnSizes":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -48969,8 +48969,8 @@ class Adcolumnsizes(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videocopyright(BaseModel):
-    """Videocopyright model"""
+class VideoCopyright(BaseModel):
+    """VideoCopyright model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -48980,7 +48980,7 @@ class Videocopyright(BaseModel):
 
     creator: Optional["User"] = Field(None, description="Creator")
 
-    excluded_ownership_segments: Optional[list["Videocopyrightsegment"]] = Field(
+    excluded_ownership_segments: Optional[list["VideoCopyrightSegment"]] = Field(
         None, description="Excluded Ownership Segments"
     )
 
@@ -48992,11 +48992,11 @@ class Videocopyright(BaseModel):
 
     monitoring_type: Optional[str] = Field(None, description="Monitoring Type")
 
-    ownership_countries: Optional["Videocopyrightgeogate"] = Field(
+    ownership_countries: Optional["VideoCopyrightGeoGate"] = Field(
         None, description="Ownership Countries"
     )
 
-    reference_file: Optional["Copyrightreferencecontainer"] = Field(
+    reference_file: Optional["CopyrightReferenceContainer"] = Field(
         None, description="Reference File"
     )
 
@@ -49008,7 +49008,7 @@ class Videocopyright(BaseModel):
 
     reference_owner_id: Optional[str] = Field(None, description="Reference Owner Id")
 
-    rule_ids: Optional[list["Videocopyrightrule"]] = Field(None, description="Rule Ids")
+    rule_ids: Optional[list["VideoCopyrightRule"]] = Field(None, description="Rule Ids")
 
     tags: Optional[list[str]] = Field(None, description="Tags")
 
@@ -49022,7 +49022,7 @@ class Videocopyright(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videocopyright":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoCopyright":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49031,8 +49031,8 @@ class Videocopyright(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Imagecopyrightdispute(BaseModel):
-    """Imagecopyrightdispute model"""
+class ImageCopyrightDispute(BaseModel):
+    """ImageCopyrightDispute model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49062,7 +49062,7 @@ class Imagecopyrightdispute(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Imagecopyrightdispute":
+    def from_dict(cls, data: dict[str, Any]) -> "ImageCopyrightDispute":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49071,8 +49071,8 @@ class Imagecopyrightdispute(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeedupload(BaseModel):
-    """Productfeedupload model"""
+class ProductFeedUpload(BaseModel):
+    """ProductFeedUpload model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49080,7 +49080,7 @@ class Productfeedupload(BaseModel):
 
     error_count: Optional[int] = Field(None, description="Error Count")
 
-    error_report: Optional["Productfeeduploaderrorreport"] = Field(None, description="Error Report")
+    error_report: Optional["ProductFeedUploadErrorReport"] = Field(None, description="Error Report")
 
     filename: Optional[str] = Field(None, description="Filename")
 
@@ -49110,7 +49110,7 @@ class Productfeedupload(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeedupload":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedUpload":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49119,8 +49119,8 @@ class Productfeedupload(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videocopyrightconditiongroup(BaseModel):
-    """Videocopyrightconditiongroup model"""
+class VideoCopyrightConditionGroup(BaseModel):
+    """VideoCopyrightConditionGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49138,7 +49138,7 @@ class Videocopyrightconditiongroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videocopyrightconditiongroup":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoCopyrightConditionGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49147,8 +49147,8 @@ class Videocopyrightconditiongroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpasadcreationtemplate(BaseModel):
-    """Cpasadcreationtemplate model"""
+class CPASAdCreationTemplate(BaseModel):
+    """CPASAdCreationTemplate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49174,7 +49174,7 @@ class Cpasadcreationtemplate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpasadcreationtemplate":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASAdCreationTemplate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49183,8 +49183,8 @@ class Cpasadcreationtemplate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenurlentityatranges(BaseModel):
-    """Leadgenurlentityatranges model"""
+class LeadGenURLEntityAtRanges(BaseModel):
+    """LeadGenURLEntityAtRanges model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49202,7 +49202,7 @@ class Leadgenurlentityatranges(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenurlentityatranges":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenURLEntityAtRanges":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49211,8 +49211,8 @@ class Leadgenurlentityatranges(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Externaleventsource(BaseModel):
-    """Externaleventsource model"""
+class ExternalEventSource(BaseModel):
+    """ExternalEventSource model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49230,7 +49230,7 @@ class Externaleventsource(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Externaleventsource":
+    def from_dict(cls, data: dict[str, Any]) -> "ExternalEventSource":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49239,8 +49239,8 @@ class Externaleventsource(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Almguidancemetrics(BaseModel):
-    """Almguidancemetrics model"""
+class ALMGuidanceMetrics(BaseModel):
+    """ALMGuidanceMetrics model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49296,7 +49296,7 @@ class Almguidancemetrics(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Almguidancemetrics":
+    def from_dict(cls, data: dict[str, Any]) -> "ALMGuidanceMetrics":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49305,8 +49305,8 @@ class Almguidancemetrics(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Userleadgendisclaimerresponse(BaseModel):
-    """Userleadgendisclaimerresponse model"""
+class UserLeadGenDisclaimerResponse(BaseModel):
+    """UserLeadGenDisclaimerResponse model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49322,7 +49322,7 @@ class Userleadgendisclaimerresponse(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Userleadgendisclaimerresponse":
+    def from_dict(cls, data: dict[str, Any]) -> "UserLeadGenDisclaimerResponse":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49331,8 +49331,8 @@ class Userleadgendisclaimerresponse(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Deliverystatus(BaseModel):
-    """Deliverystatus model"""
+class DeliveryStatus(BaseModel):
+    """DeliveryStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49348,7 +49348,7 @@ class Deliverystatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Deliverystatus":
+    def from_dict(cls, data: dict[str, Any]) -> "DeliveryStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49357,8 +49357,8 @@ class Deliverystatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeinsights(BaseModel):
-    """Adcreativeinsights model"""
+class AdCreativeInsights(BaseModel):
+    """AdCreativeInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49372,7 +49372,7 @@ class Adcreativeinsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeinsights":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49381,8 +49381,8 @@ class Adcreativeinsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixeleventlastfiredtime(BaseModel):
-    """Adspixeleventlastfiredtime model"""
+class AdsPixelEventLastFiredTime(BaseModel):
+    """AdsPixelEventLastFiredTime model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49398,7 +49398,7 @@ class Adspixeleventlastfiredtime(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixeleventlastfiredtime":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelEventLastFiredTime":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49407,8 +49407,8 @@ class Adspixeleventlastfiredtime(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adnetworkanalyticsasyncqueryexport(BaseModel):
-    """Adnetworkanalyticsasyncqueryexport model"""
+class AdNetworkAnalyticsAsyncQueryExport(BaseModel):
+    """AdNetworkAnalyticsAsyncQueryExport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49426,7 +49426,7 @@ class Adnetworkanalyticsasyncqueryexport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adnetworkanalyticsasyncqueryexport":
+    def from_dict(cls, data: dict[str, Any]) -> "AdNetworkAnalyticsAsyncQueryExport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49435,8 +49435,8 @@ class Adnetworkanalyticsasyncqueryexport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeregionalregulationdisclaimer(BaseModel):
-    """Adcreativeregionalregulationdisclaimer model"""
+class AdCreativeRegionalRegulationDisclaimer(BaseModel):
+    """AdCreativeRegionalRegulationDisclaimer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49458,7 +49458,7 @@ class Adcreativeregionalregulationdisclaimer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeregionalregulationdisclaimer":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeRegionalRegulationDisclaimer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49467,8 +49467,8 @@ class Adcreativeregionalregulationdisclaimer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsvalueadjustmentrulecollection(BaseModel):
-    """Adsvalueadjustmentrulecollection model"""
+class AdsValueAdjustmentRuleCollection(BaseModel):
+    """AdsValueAdjustmentRuleCollection model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49490,7 +49490,7 @@ class Adsvalueadjustmentrulecollection(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsvalueadjustmentrulecollection":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsValueAdjustmentRuleCollection":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49499,14 +49499,14 @@ class Adsvalueadjustmentrulecollection(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Iguser(BaseModel):
-    """Iguser model"""
+class IGUser(BaseModel):
+    """IGUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     biography: Optional[str] = Field(None, description="Biography")
 
-    business_discovery: Optional["Iguser"] = Field(None, description="Business Discovery")
+    business_discovery: Optional["IGUser"] = Field(None, description="Business Discovery")
 
     followers_count: Optional[int] = Field(None, description="Followers Count")
 
@@ -49524,9 +49524,9 @@ class Iguser(BaseModel):
 
     media_count: Optional[int] = Field(None, description="Media Count")
 
-    mentioned_comment: Optional["Igcomment"] = Field(None, description="Mentioned Comment")
+    mentioned_comment: Optional["IGComment"] = Field(None, description="Mentioned Comment")
 
-    mentioned_media: Optional["Igmedia"] = Field(None, description="Mentioned Media")
+    mentioned_media: Optional["IGMedia"] = Field(None, description="Mentioned Media")
 
     name: Optional[str] = Field(None, description="Name")
 
@@ -49552,7 +49552,7 @@ class Iguser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Iguser":
+    def from_dict(cls, data: dict[str, Any]) -> "IGUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49561,8 +49561,8 @@ class Iguser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpasparentcatalogsettings(BaseModel):
-    """Cpasparentcatalogsettings model"""
+class CPASParentCatalogSettings(BaseModel):
+    """CPASParentCatalogSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49584,7 +49584,7 @@ class Cpasparentcatalogsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpasparentcatalogsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASParentCatalogSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49593,8 +49593,8 @@ class Cpasparentcatalogsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Agencyclientdeclaration(BaseModel):
-    """Agencyclientdeclaration model"""
+class AgencyClientDeclaration(BaseModel):
+    """AgencyClientDeclaration model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49634,7 +49634,7 @@ class Agencyclientdeclaration(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Agencyclientdeclaration":
+    def from_dict(cls, data: dict[str, Any]) -> "AgencyClientDeclaration":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49643,8 +49643,8 @@ class Agencyclientdeclaration(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Regionalregulationidentities(BaseModel):
-    """Regionalregulationidentities model"""
+class RegionalRegulationIdentities(BaseModel):
+    """RegionalRegulationIdentities model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49684,7 +49684,7 @@ class Regionalregulationidentities(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Regionalregulationidentities":
+    def from_dict(cls, data: dict[str, Any]) -> "RegionalRegulationIdentities":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49693,8 +49693,8 @@ class Regionalregulationidentities(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Canvasadsettings(BaseModel):
-    """Canvasadsettings model"""
+class CanvasAdSettings(BaseModel):
+    """CanvasAdSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49722,7 +49722,7 @@ class Canvasadsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Canvasadsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CanvasAdSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49731,28 +49731,28 @@ class Canvasadsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Applinks(BaseModel):
-    """Applinks model"""
+class AppLinks(BaseModel):
+    """AppLinks model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    android: Optional[list["Androidapplink"]] = Field(None, description="Android")
+    android: Optional[list["AndroidAppLink"]] = Field(None, description="Android")
 
     id: Optional[str] = Field(None, description="Id")
 
-    ios: Optional[list["Iosapplink"]] = Field(None, description="Ios")
+    ios: Optional[list["IosAppLink"]] = Field(None, description="Ios")
 
-    ipad: Optional[list["Iosapplink"]] = Field(None, description="Ipad")
+    ipad: Optional[list["IosAppLink"]] = Field(None, description="Ipad")
 
-    iphone: Optional[list["Iosapplink"]] = Field(None, description="Iphone")
+    iphone: Optional[list["IosAppLink"]] = Field(None, description="Iphone")
 
-    web: Optional["Webapplink"] = Field(None, description="Web")
+    web: Optional["WebAppLink"] = Field(None, description="Web")
 
-    windows: Optional[list["Windowsapplink"]] = Field(None, description="Windows")
+    windows: Optional[list["WindowsAppLink"]] = Field(None, description="Windows")
 
-    windows_phone: Optional[list["Windowsphoneapplink"]] = Field(None, description="Windows Phone")
+    windows_phone: Optional[list["WindowsPhoneAppLink"]] = Field(None, description="Windows Phone")
 
-    windows_universal: Optional[list["Windowsapplink"]] = Field(
+    windows_universal: Optional[list["WindowsAppLink"]] = Field(
         None, description="Windows Universal"
     )
 
@@ -49764,7 +49764,7 @@ class Applinks(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Applinks":
+    def from_dict(cls, data: dict[str, Any]) -> "AppLinks":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49773,22 +49773,22 @@ class Applinks(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsavedlocation(BaseModel):
-    """Adsavedlocation model"""
+class AdSavedLocation(BaseModel):
+    """AdSavedLocation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    cities: Optional[list["Targetinggeolocationcity"]] = Field(None, description="Cities")
+    cities: Optional[list["TargetingGeoLocationCity"]] = Field(None, description="Cities")
 
     countries: Optional[list[str]] = Field(None, description="Countries")
 
     country_groups: Optional[list[str]] = Field(None, description="Country Groups")
 
-    custom_locations: Optional[list["Targetinggeolocationcustomlocation"]] = Field(
+    custom_locations: Optional[list["TargetingGeoLocationCustomLocation"]] = Field(
         None, description="Custom Locations"
     )
 
-    geo_markets: Optional[list["Targetinggeolocationmarket"]] = Field(
+    geo_markets: Optional[list["TargetingGeoLocationMarket"]] = Field(
         None, description="Geo Markets"
     )
 
@@ -49798,9 +49798,9 @@ class Adsavedlocation(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    regions: Optional[list["Targetinggeolocationregion"]] = Field(None, description="Regions")
+    regions: Optional[list["TargetingGeoLocationRegion"]] = Field(None, description="Regions")
 
-    zips: Optional[list["Targetinggeolocationzip"]] = Field(None, description="Zips")
+    zips: Optional[list["TargetingGeoLocationZip"]] = Field(None, description="Zips")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -49810,7 +49810,7 @@ class Adsavedlocation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsavedlocation":
+    def from_dict(cls, data: dict[str, Any]) -> "AdSavedLocation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49819,8 +49819,8 @@ class Adsavedlocation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Thirdpartymeasurementreportdataset(BaseModel):
-    """Thirdpartymeasurementreportdataset model"""
+class ThirdPartyMeasurementReportDataset(BaseModel):
+    """ThirdPartyMeasurementReportDataset model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49842,7 +49842,7 @@ class Thirdpartymeasurementreportdataset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Thirdpartymeasurementreportdataset":
+    def from_dict(cls, data: dict[str, Any]) -> "ThirdPartyMeasurementReportDataset":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49851,8 +49851,8 @@ class Thirdpartymeasurementreportdataset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Homelisting(BaseModel):
-    """Homelisting model"""
+class HomeListing(BaseModel):
+    """HomeListing model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -49874,7 +49874,7 @@ class Homelisting(BaseModel):
 
     agent_phone: Optional[str] = Field(None, description="Agent Phone")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     area_size: Optional[int] = Field(None, description="Area Size")
 
@@ -49882,7 +49882,7 @@ class Homelisting(BaseModel):
 
     availability: Optional[str] = Field(None, description="Availability")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -49990,7 +49990,7 @@ class Homelisting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Homelisting":
+    def from_dict(cls, data: dict[str, Any]) -> "HomeListing":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -49999,8 +49999,8 @@ class Homelisting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Geogatingpolicy(BaseModel):
-    """Geogatingpolicy model"""
+class GeoGatingPolicy(BaseModel):
+    """GeoGatingPolicy model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50026,7 +50026,7 @@ class Geogatingpolicy(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Geogatingpolicy":
+    def from_dict(cls, data: dict[str, Any]) -> "GeoGatingPolicy":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50035,8 +50035,8 @@ class Geogatingpolicy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adplacepagesetmetadata(BaseModel):
-    """Adplacepagesetmetadata model"""
+class AdPlacePageSetMetadata(BaseModel):
+    """AdPlacePageSetMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50056,7 +50056,7 @@ class Adplacepagesetmetadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adplacepagesetmetadata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdPlacePageSetMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50065,8 +50065,8 @@ class Adplacepagesetmetadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mcomonboardingstatus(BaseModel):
-    """Mcomonboardingstatus model"""
+class McomOnboardingStatus(BaseModel):
+    """McomOnboardingStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50082,7 +50082,7 @@ class Mcomonboardingstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mcomonboardingstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "McomOnboardingStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50091,18 +50091,18 @@ class Mcomonboardingstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdataapplinkspec(BaseModel):
-    """Adcreativelinkdataapplinkspec model"""
+class AdCreativeLinkDataAppLinkSpec(BaseModel):
+    """AdCreativeLinkDataAppLinkSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    android: Optional[list["Androidapplink"]] = Field(None, description="Android")
+    android: Optional[list["AndroidAppLink"]] = Field(None, description="Android")
 
-    ios: Optional[list["Iosapplink"]] = Field(None, description="Ios")
+    ios: Optional[list["IosAppLink"]] = Field(None, description="Ios")
 
-    ipad: Optional[list["Iosapplink"]] = Field(None, description="Ipad")
+    ipad: Optional[list["IosAppLink"]] = Field(None, description="Ipad")
 
-    iphone: Optional[list["Iosapplink"]] = Field(None, description="Iphone")
+    iphone: Optional[list["IosAppLink"]] = Field(None, description="Iphone")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -50112,7 +50112,7 @@ class Adcreativelinkdataapplinkspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdataapplinkspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataAppLinkSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50121,8 +50121,8 @@ class Adcreativelinkdataapplinkspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Addynamiccreative(BaseModel):
-    """Addynamiccreative model"""
+class AdDynamicCreative(BaseModel):
+    """AdDynamicCreative model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50136,7 +50136,7 @@ class Addynamiccreative(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Addynamiccreative":
+    def from_dict(cls, data: dict[str, Any]) -> "AdDynamicCreative":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50145,8 +50145,8 @@ class Addynamiccreative(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountdefaultdestination(BaseModel):
-    """Adaccountdefaultdestination model"""
+class AdAccountDefaultDestination(BaseModel):
+    """AdAccountDefaultDestination model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50162,7 +50162,7 @@ class Adaccountdefaultdestination(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountdefaultdestination":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountDefaultDestination":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50171,16 +50171,16 @@ class Adaccountdefaultdestination(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Managedpartnerbusiness(BaseModel):
-    """Managedpartnerbusiness model"""
+class ManagedPartnerBusiness(BaseModel):
+    """ManagedPartnerBusiness model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_account: Optional["Adaccount"] = Field(None, description="Ad Account")
+    ad_account: Optional["AdAccount"] = Field(None, description="Ad Account")
 
-    catalog_segment: Optional["Productcatalog"] = Field(None, description="Catalog Segment")
+    catalog_segment: Optional["ProductCatalog"] = Field(None, description="Catalog Segment")
 
-    extended_credit: Optional["Managedpartnerextendedcredit"] = Field(
+    extended_credit: Optional["ManagedPartnerExtendedCredit"] = Field(
         None, description="Extended Credit"
     )
 
@@ -50200,7 +50200,7 @@ class Managedpartnerbusiness(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Managedpartnerbusiness":
+    def from_dict(cls, data: dict[str, Any]) -> "ManagedPartnerBusiness":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50209,8 +50209,8 @@ class Managedpartnerbusiness(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Commercemerchantsettings(BaseModel):
-    """Commercemerchantsettings model"""
+class CommerceMerchantSettings(BaseModel):
+    """CommerceMerchantSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50264,7 +50264,7 @@ class Commercemerchantsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Commercemerchantsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CommerceMerchantSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50273,8 +50273,8 @@ class Commercemerchantsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeplacedata(BaseModel):
-    """Adcreativeplacedata model"""
+class AdCreativePlaceData(BaseModel):
+    """AdCreativePlaceData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50298,7 +50298,7 @@ class Adcreativeplacedata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeplacedata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativePlaceData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50307,8 +50307,8 @@ class Adcreativeplacedata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Extendedcreditinfo(BaseModel):
-    """Extendedcreditinfo model"""
+class ExtendedCreditInfo(BaseModel):
+    """ExtendedCreditInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50328,7 +50328,7 @@ class Extendedcreditinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Extendedcreditinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "ExtendedCreditInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50337,8 +50337,8 @@ class Extendedcreditinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Placetag(BaseModel):
-    """Placetag model"""
+class PlaceTag(BaseModel):
+    """PlaceTag model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50356,7 +50356,7 @@ class Placetag(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Placetag":
+    def from_dict(cls, data: dict[str, Any]) -> "PlaceTag":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50365,8 +50365,8 @@ class Placetag(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsmcmeconversion(BaseModel):
-    """Adsmcmeconversion model"""
+class AdsMcmeConversion(BaseModel):
+    """AdsMcmeConversion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50392,7 +50392,7 @@ class Adsmcmeconversion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsmcmeconversion":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsMcmeConversion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50406,7 +50406,7 @@ class Shop(BaseModel):
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    commerce_merchant_settings: Optional["Commercemerchantsettings"] = Field(
+    commerce_merchant_settings: Optional["CommerceMerchantSettings"] = Field(
         None, description="Commerce Merchant Settings"
     )
 
@@ -50439,8 +50439,8 @@ class Shop(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemshipping(BaseModel):
-    """Productitemshipping model"""
+class ProductItemShipping(BaseModel):
+    """ProductItemShipping model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50462,7 +50462,7 @@ class Productitemshipping(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemshipping":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemShipping":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50471,8 +50471,8 @@ class Productitemshipping(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsreportbuildermmmreportscheduler(BaseModel):
-    """Adsreportbuildermmmreportscheduler model"""
+class AdsReportBuilderMMMReportScheduler(BaseModel):
+    """AdsReportBuilderMMMReportScheduler model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50494,7 +50494,7 @@ class Adsreportbuildermmmreportscheduler(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsreportbuildermmmreportscheduler":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsReportBuilderMMMReportScheduler":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50503,8 +50503,8 @@ class Adsreportbuildermmmreportscheduler(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Reachfrequencyspec(BaseModel):
-    """Reachfrequencyspec model"""
+class ReachFrequencySpec(BaseModel):
+    """ReachFrequencySpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50542,7 +50542,7 @@ class Reachfrequencyspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Reachfrequencyspec":
+    def from_dict(cls, data: dict[str, Any]) -> "ReachFrequencySpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50551,8 +50551,8 @@ class Reachfrequencyspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Creativemulticelltestconfig(BaseModel):
-    """Creativemulticelltestconfig model"""
+class CreativeMulticellTestConfig(BaseModel):
+    """CreativeMulticellTestConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50576,7 +50576,7 @@ class Creativemulticelltestconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Creativemulticelltestconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "CreativeMulticellTestConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50585,8 +50585,8 @@ class Creativemulticelltestconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Userpaymentmodulesoptions(BaseModel):
-    """Userpaymentmodulesoptions model"""
+class UserPaymentModulesOptions(BaseModel):
+    """UserPaymentModulesOptions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50608,7 +50608,7 @@ class Userpaymentmodulesoptions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Userpaymentmodulesoptions":
+    def from_dict(cls, data: dict[str, Any]) -> "UserPaymentModulesOptions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50617,8 +50617,8 @@ class Userpaymentmodulesoptions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Contentblocklist(BaseModel):
-    """Contentblocklist model"""
+class ContentBlockList(BaseModel):
+    """ContentBlockList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50636,7 +50636,7 @@ class Contentblocklist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Contentblocklist":
+    def from_dict(cls, data: dict[str, Any]) -> "ContentBlockList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50645,8 +50645,8 @@ class Contentblocklist(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativegenerativeassetspec(BaseModel):
-    """Adcreativegenerativeassetspec model"""
+class AdCreativeGenerativeAssetSpec(BaseModel):
+    """AdCreativeGenerativeAssetSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50658,7 +50658,7 @@ class Adcreativegenerativeassetspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativegenerativeassetspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeGenerativeAssetSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50667,8 +50667,8 @@ class Adcreativegenerativeassetspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativephotodatamediaelements(BaseModel):
-    """Adcreativephotodatamediaelements model"""
+class AdCreativePhotoDataMediaElements(BaseModel):
+    """AdCreativePhotoDataMediaElements model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50688,7 +50688,7 @@ class Adcreativephotodatamediaelements(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativephotodatamediaelements":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativePhotoDataMediaElements":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50697,8 +50697,8 @@ class Adcreativephotodatamediaelements(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Photometadata(BaseModel):
-    """Photometadata model"""
+class PhotoMetadata(BaseModel):
+    """PhotoMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50734,7 +50734,7 @@ class Photometadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Photometadata":
+    def from_dict(cls, data: dict[str, Any]) -> "PhotoMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50743,8 +50743,8 @@ class Photometadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Copyrightaudioasset(BaseModel):
-    """Copyrightaudioasset model"""
+class CopyrightAudioAsset(BaseModel):
+    """CopyrightAudioAsset model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50772,7 +50772,7 @@ class Copyrightaudioasset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Copyrightaudioasset":
+    def from_dict(cls, data: dict[str, Any]) -> "CopyrightAudioAsset":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50781,8 +50781,8 @@ class Copyrightaudioasset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsanomalydetection(BaseModel):
-    """Adsanomalydetection model"""
+class AdsAnomalyDetection(BaseModel):
+    """AdsAnomalyDetection model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50798,7 +50798,7 @@ class Adsanomalydetection(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsanomalydetection":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsAnomalyDetection":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50807,8 +50807,8 @@ class Adsanomalydetection(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstudycell(BaseModel):
-    """Adstudycell model"""
+class AdStudyCell(BaseModel):
+    """AdStudyCell model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50830,7 +50830,7 @@ class Adstudycell(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstudycell":
+    def from_dict(cls, data: dict[str, Any]) -> "AdStudyCell":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50839,16 +50839,16 @@ class Adstudycell(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspeccalltoaction(BaseModel):
-    """Adassetfeedspeccalltoaction model"""
+class AdAssetFeedSpecCallToAction(BaseModel):
+    """AdAssetFeedSpecCallToAction model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     type: Optional[str] = Field(None, description="Type")
 
-    value: Optional["Adcreativelinkdatacalltoactionvalue"] = Field(None, description="Value")
+    value: Optional["AdCreativeLinkDataCallToActionValue"] = Field(None, description="Value")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -50858,7 +50858,7 @@ class Adassetfeedspeccalltoaction(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspeccalltoaction":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecCallToAction":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50867,8 +50867,8 @@ class Adassetfeedspeccalltoaction(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Valuebasedeligiblesource(BaseModel):
-    """Valuebasedeligiblesource model"""
+class ValueBasedEligibleSource(BaseModel):
+    """ValueBasedEligibleSource model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50886,7 +50886,7 @@ class Valuebasedeligiblesource(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Valuebasedeligiblesource":
+    def from_dict(cls, data: dict[str, Any]) -> "ValueBasedEligibleSource":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50895,14 +50895,14 @@ class Valuebasedeligiblesource(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspeccarousel(BaseModel):
-    """Adassetfeedspeccarousel model"""
+class AdAssetFeedSpecCarousel(BaseModel):
+    """AdAssetFeedSpecCarousel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
-    child_attachments: Optional[list["Adassetfeedspeccarouselchildattachment"]] = Field(
+    child_attachments: Optional[list["AdAssetFeedSpecCarouselChildAttachment"]] = Field(
         None, description="Child Attachments"
     )
 
@@ -50918,7 +50918,7 @@ class Adassetfeedspeccarousel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspeccarousel":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecCarousel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50927,8 +50927,8 @@ class Adassetfeedspeccarousel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessapplicationrequest(BaseModel):
-    """Businessapplicationrequest model"""
+class BusinessApplicationRequest(BaseModel):
+    """BusinessApplicationRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50944,7 +50944,7 @@ class Businessapplicationrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessapplicationrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessApplicationRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50953,8 +50953,8 @@ class Businessapplicationrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class P2minvoicepayments(BaseModel):
-    """P2minvoicepayments model"""
+class P2MInvoicePayments(BaseModel):
+    """P2MInvoicePayments model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -50970,7 +50970,7 @@ class P2minvoicepayments(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "P2minvoicepayments":
+    def from_dict(cls, data: dict[str, Any]) -> "P2MInvoicePayments":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -50979,8 +50979,8 @@ class P2minvoicepayments(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudienceintegrityflagsandappealstatus(BaseModel):
-    """Customaudienceintegrityflagsandappealstatus model"""
+class CustomAudienceIntegrityFlagsAndAppealStatus(BaseModel):
+    """CustomAudienceIntegrityFlagsAndAppealStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51002,7 +51002,7 @@ class Customaudienceintegrityflagsandappealstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudienceintegrityflagsandappealstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceIntegrityFlagsAndAppealStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51011,14 +51011,14 @@ class Customaudienceintegrityflagsandappealstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mediatitle(BaseModel):
-    """Mediatitle model"""
+class MediaTitle(BaseModel):
+    """MediaTitle model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -51070,7 +51070,7 @@ class Mediatitle(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mediatitle":
+    def from_dict(cls, data: dict[str, Any]) -> "MediaTitle":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51079,8 +51079,8 @@ class Mediatitle(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Overridedetails(BaseModel):
-    """Overridedetails model"""
+class OverrideDetails(BaseModel):
+    """OverrideDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51098,7 +51098,7 @@ class Overridedetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Overridedetails":
+    def from_dict(cls, data: dict[str, Any]) -> "OverrideDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51107,8 +51107,8 @@ class Overridedetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adplacement(BaseModel):
-    """Adplacement model"""
+class AdPlacement(BaseModel):
+    """AdPlacement model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51138,7 +51138,7 @@ class Adplacement(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adplacement":
+    def from_dict(cls, data: dict[str, Any]) -> "AdPlacement":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51147,8 +51147,8 @@ class Adplacement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Androidapplink(BaseModel):
-    """Androidapplink model"""
+class AndroidAppLink(BaseModel):
+    """AndroidAppLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51168,7 +51168,7 @@ class Androidapplink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Androidapplink":
+    def from_dict(cls, data: dict[str, Any]) -> "AndroidAppLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51177,8 +51177,8 @@ class Androidapplink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsactionstats(BaseModel):
-    """Adsactionstats model"""
+class AdsActionStats(BaseModel):
+    """AdsActionStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51342,7 +51342,7 @@ class Adsactionstats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsactionstats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsActionStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51351,8 +51351,8 @@ class Adsactionstats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Creatorassetcreative(BaseModel):
-    """Creatorassetcreative model"""
+class CreatorAssetCreative(BaseModel):
+    """CreatorAssetCreative model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51378,7 +51378,7 @@ class Creatorassetcreative(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Creatorassetcreative":
+    def from_dict(cls, data: dict[str, Any]) -> "CreatorAssetCreative":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51387,8 +51387,8 @@ class Creatorassetcreative(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingautomation(BaseModel):
-    """Targetingautomation model"""
+class TargetingAutomation(BaseModel):
+    """TargetingAutomation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51408,7 +51408,7 @@ class Targetingautomation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingautomation":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingAutomation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51417,26 +51417,26 @@ class Targetingautomation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountadruleshistory(BaseModel):
-    """Adaccountadruleshistory model"""
+class AdAccountAdRulesHistory(BaseModel):
+    """AdAccountAdRulesHistory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    evaluation_spec: Optional["Adruleevaluationspec"] = Field(None, description="Evaluation Spec")
+    evaluation_spec: Optional["AdRuleEvaluationSpec"] = Field(None, description="Evaluation Spec")
 
     exception_code: Optional[int] = Field(None, description="Exception Code")
 
     exception_message: Optional[str] = Field(None, description="Exception Message")
 
-    execution_spec: Optional["Adruleexecutionspec"] = Field(None, description="Execution Spec")
+    execution_spec: Optional["AdRuleExecutionSpec"] = Field(None, description="Execution Spec")
 
     is_manual: Optional[bool] = Field(None, description="Is Manual")
 
-    results: Optional[list["Adrulehistoryresult"]] = Field(None, description="Results")
+    results: Optional[list["AdRuleHistoryResult"]] = Field(None, description="Results")
 
     rule_id: Optional[int] = Field(None, description="Rule Id")
 
-    schedule_spec: Optional["Adruleschedulespec"] = Field(None, description="Schedule Spec")
+    schedule_spec: Optional["AdRuleScheduleSpec"] = Field(None, description="Schedule Spec")
 
     timestamp: Optional[datetime] = Field(None, description="Timestamp")
 
@@ -51448,7 +51448,7 @@ class Adaccountadruleshistory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountadruleshistory":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAdRulesHistory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51457,8 +51457,8 @@ class Adaccountadruleshistory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcontract(BaseModel):
-    """Adcontract model"""
+class AdContract(BaseModel):
+    """AdContract model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51552,7 +51552,7 @@ class Adcontract(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcontract":
+    def from_dict(cls, data: dict[str, Any]) -> "AdContract":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51561,8 +51561,8 @@ class Adcontract(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mediacopyrightupdaterecord(BaseModel):
-    """Mediacopyrightupdaterecord model"""
+class MediaCopyrightUpdateRecord(BaseModel):
+    """MediaCopyrightUpdateRecord model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51592,7 +51592,7 @@ class Mediacopyrightupdaterecord(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mediacopyrightupdaterecord":
+    def from_dict(cls, data: dict[str, Any]) -> "MediaCopyrightUpdateRecord":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51601,8 +51601,8 @@ class Mediacopyrightupdaterecord(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagectstopic(BaseModel):
-    """Pagectstopic model"""
+class PageCTSTopic(BaseModel):
+    """PageCTSTopic model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51626,7 +51626,7 @@ class Pagectstopic(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagectstopic":
+    def from_dict(cls, data: dict[str, Any]) -> "PageCTSTopic":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51635,8 +51635,8 @@ class Pagectstopic(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igcommentfromuser(BaseModel):
-    """Igcommentfromuser model"""
+class IGCommentFromUser(BaseModel):
+    """IGCommentFromUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51654,7 +51654,7 @@ class Igcommentfromuser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igcommentfromuser":
+    def from_dict(cls, data: dict[str, Any]) -> "IGCommentFromUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51682,15 +51682,15 @@ class Lead(BaseModel):
 
     created_time: Optional[datetime] = Field(None, description="Created Time")
 
-    custom_disclaimer_responses: Optional[list["Userleadgendisclaimerresponse"]] = Field(
+    custom_disclaimer_responses: Optional[list["UserLeadGenDisclaimerResponse"]] = Field(
         None, description="Custom Disclaimer Responses"
     )
 
-    field_data: Optional[list["Userleadgenfielddata"]] = Field(None, description="Field Data")
+    field_data: Optional[list["UserLeadGenFieldData"]] = Field(None, description="Field Data")
 
     form_id: Optional[str] = Field(None, description="Form Id")
 
-    home_listing: Optional["Homelisting"] = Field(None, description="Home Listing")
+    home_listing: Optional["HomeListing"] = Field(None, description="Home Listing")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -51702,7 +51702,7 @@ class Lead(BaseModel):
 
     post: Optional["Link"] = Field(None, description="Post")
 
-    post_submission_check_result: Optional["Leadgenpostsubmissioncheckresult"] = Field(
+    post_submission_check_result: Optional["LeadGenPostSubmissionCheckResult"] = Field(
         None, description="Post Submission Check Result"
     )
 
@@ -51727,8 +51727,8 @@ class Lead(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativefeaturecustomizations(BaseModel):
-    """Adcreativefeaturecustomizations model"""
+class AdCreativeFeatureCustomizations(BaseModel):
+    """AdCreativeFeatureCustomizations model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51756,7 +51756,7 @@ class Adcreativefeaturecustomizations(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativefeaturecustomizations":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeFeatureCustomizations":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51765,8 +51765,8 @@ class Adcreativefeaturecustomizations(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountiosfourteencampaignlimits(BaseModel):
-    """Adaccountiosfourteencampaignlimits model"""
+class AdAccountIosFourteenCampaignLimits(BaseModel):
+    """AdAccountIosFourteenCampaignLimits model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51786,7 +51786,7 @@ class Adaccountiosfourteencampaignlimits(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountiosfourteencampaignlimits":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountIosFourteenCampaignLimits":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51795,8 +51795,8 @@ class Adaccountiosfourteencampaignlimits(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessimagetbusinessfolderpathitem(BaseModel):
-    """Businessimagetbusinessfolderpathitem model"""
+class BusinessImageTBusinessFolderPathItem(BaseModel):
+    """BusinessImageTBusinessFolderPathItem model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51814,7 +51814,7 @@ class Businessimagetbusinessfolderpathitem(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessimagetbusinessfolderpathitem":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessImageTBusinessFolderPathItem":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51823,8 +51823,8 @@ class Businessimagetbusinessfolderpathitem(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Ctxdefaultoptimizationconfig(BaseModel):
-    """Ctxdefaultoptimizationconfig model"""
+class CTXDefaultOptimizationConfig(BaseModel):
+    """CTXDefaultOptimizationConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51842,7 +51842,7 @@ class Ctxdefaultoptimizationconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Ctxdefaultoptimizationconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "CTXDefaultOptimizationConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51851,8 +51851,8 @@ class Ctxdefaultoptimizationconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspaymentcycle(BaseModel):
-    """Adspaymentcycle model"""
+class AdsPaymentCycle(BaseModel):
+    """AdsPaymentCycle model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51878,7 +51878,7 @@ class Adspaymentcycle(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspaymentcycle":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPaymentCycle":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51887,8 +51887,8 @@ class Adspaymentcycle(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Richmediaelement(BaseModel):
-    """Richmediaelement model"""
+class RichMediaElement(BaseModel):
+    """RichMediaElement model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51906,7 +51906,7 @@ class Richmediaelement(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Richmediaelement":
+    def from_dict(cls, data: dict[str, Any]) -> "RichMediaElement":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51915,8 +51915,8 @@ class Richmediaelement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Lookalikespec(BaseModel):
-    """Lookalikespec model"""
+class LookalikeSpec(BaseModel):
+    """LookalikeSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51952,7 +51952,7 @@ class Lookalikespec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Lookalikespec":
+    def from_dict(cls, data: dict[str, Any]) -> "LookalikeSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51961,8 +51961,8 @@ class Lookalikespec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigngroupadvantagestate(BaseModel):
-    """Adcampaigngroupadvantagestate model"""
+class AdCampaignGroupAdvantageState(BaseModel):
+    """AdCampaignGroupAdvantageState model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -51982,7 +51982,7 @@ class Adcampaigngroupadvantagestate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigngroupadvantagestate":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignGroupAdvantageState":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -51991,8 +51991,8 @@ class Adcampaigngroupadvantagestate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelcapiintegrationquality(BaseModel):
-    """Adspixelcapiintegrationquality model"""
+class AdsPixelCAPIIntegrationQuality(BaseModel):
+    """AdsPixelCAPIIntegrationQuality model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52022,7 +52022,7 @@ class Adspixelcapiintegrationquality(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelcapiintegrationquality":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelCAPIIntegrationQuality":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52031,16 +52031,16 @@ class Adspixelcapiintegrationquality(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogimagesettings(BaseModel):
-    """Productcatalogimagesettings model"""
+class ProductCatalogImageSettings(BaseModel):
+    """ProductCatalogImageSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    carousel_ad: Optional["Productcatalogimagesettingsoperation"] = Field(
+    carousel_ad: Optional["ProductCatalogImageSettingsOperation"] = Field(
         None, description="Carousel Ad"
     )
 
-    single_ad: Optional["Productcatalogimagesettingsoperation"] = Field(
+    single_ad: Optional["ProductCatalogImageSettingsOperation"] = Field(
         None, description="Single Ad"
     )
 
@@ -52052,7 +52052,7 @@ class Productcatalogimagesettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogimagesettings":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogImageSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52061,8 +52061,8 @@ class Productcatalogimagesettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Revsharepolicy(BaseModel):
-    """Revsharepolicy model"""
+class RevSharePolicy(BaseModel):
+    """RevSharePolicy model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52078,7 +52078,7 @@ class Revsharepolicy(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Revsharepolicy":
+    def from_dict(cls, data: dict[str, Any]) -> "RevSharePolicy":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52087,8 +52087,8 @@ class Revsharepolicy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Canvascollectionthumbnail(BaseModel):
-    """Canvascollectionthumbnail model"""
+class CanvasCollectionThumbnail(BaseModel):
+    """CanvasCollectionThumbnail model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52106,7 +52106,7 @@ class Canvascollectionthumbnail(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Canvascollectionthumbnail":
+    def from_dict(cls, data: dict[str, Any]) -> "CanvasCollectionThumbnail":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52115,8 +52115,8 @@ class Canvascollectionthumbnail(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativesitelinksspec(BaseModel):
-    """Adcreativesitelinksspec model"""
+class AdCreativeSiteLinksSpec(BaseModel):
+    """AdCreativeSiteLinksSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52146,7 +52146,7 @@ class Adcreativesitelinksspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativesitelinksspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeSiteLinksSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52162,9 +52162,9 @@ class Destination(BaseModel):
 
     address: Optional[str] = Field(None, description="Address")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -52237,28 +52237,28 @@ class Destination(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adset(BaseModel):
-    """Adset model"""
+class AdSet(BaseModel):
+    """AdSet model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     account_id: Optional[str] = Field(None, description="Account Id")
 
-    adlabels: Optional[list["Adlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdLabel"]] = Field(None, description="Adlabels")
 
-    adset_schedule: Optional[list["Daypart"]] = Field(None, description="Adset Schedule")
+    adset_schedule: Optional[list["DayPart"]] = Field(None, description="Adset Schedule")
 
     asset_feed_id: Optional[str] = Field(None, description="Asset Feed Id")
 
-    attribution_spec: Optional[list["Attributionspec"]] = Field(
+    attribution_spec: Optional[list["AttributionSpec"]] = Field(
         None, description="Attribution Spec"
     )
 
-    bid_adjustments: Optional["Adbidadjustments"] = Field(None, description="Bid Adjustments")
+    bid_adjustments: Optional["AdBidAdjustments"] = Field(None, description="Bid Adjustments")
 
     bid_amount: Optional[int] = Field(None, description="Bid Amount")
 
-    bid_constraints: Optional["Adcampaignbidconstraint"] = Field(
+    bid_constraints: Optional["AdCampaignBidConstraint"] = Field(
         None, description="Bid Constraints"
     )
 
@@ -52268,7 +52268,7 @@ class Adset(BaseModel):
 
     billing_event: Optional[AdSet_billing_event] = Field(None, description="Billing Event")
 
-    brand_safety_config: Optional["Brandsafetycampaignconfig"] = Field(
+    brand_safety_config: Optional["BrandSafetyCampaignConfig"] = Field(
         None, description="Brand Safety Config"
     )
 
@@ -52314,7 +52314,7 @@ class Adset(BaseModel):
         None, description="Existing Customer Budget Percentage"
     )
 
-    frequency_control_specs: Optional[list["Adcampaignfrequencycontrolspecs"]] = Field(
+    frequency_control_specs: Optional[list["AdCampaignFrequencyControlSpecs"]] = Field(
         None, description="Frequency Control Specs"
     )
 
@@ -52340,9 +52340,9 @@ class Adset(BaseModel):
         None, description="Is Incremental Attribution Enabled"
     )
 
-    issues_info: Optional[list["Adcampaignissuesinfo"]] = Field(None, description="Issues Info")
+    issues_info: Optional[list["AdCampaignIssuesInfo"]] = Field(None, description="Issues Info")
 
-    learning_stage_info: Optional["Adcampaignlearningstageinfo"] = Field(
+    learning_stage_info: Optional["AdCampaignLearningStageInfo"] = Field(
         None, description="Learning Stage Info"
     )
 
@@ -52376,9 +52376,9 @@ class Adset(BaseModel):
 
     pacing_type: Optional[list[str]] = Field(None, description="Pacing Type")
 
-    promoted_object: Optional["Adpromotedobject"] = Field(None, description="Promoted Object")
+    promoted_object: Optional["AdPromotedObject"] = Field(None, description="Promoted Object")
 
-    recommendations: Optional[list["Adrecommendation"]] = Field(None, description="Recommendations")
+    recommendations: Optional[list["AdRecommendation"]] = Field(None, description="Recommendations")
 
     recurring_budget_semantics: Optional[bool] = Field(
         None, description="Recurring Budget Semantics"
@@ -52388,7 +52388,7 @@ class Adset(BaseModel):
         None, description="Regional Regulated Categories"
     )
 
-    regional_regulation_identities: Optional["Regionalregulationidentities"] = Field(
+    regional_regulation_identities: Optional["RegionalRegulationIdentities"] = Field(
         None, description="Regional Regulation Identities"
     )
 
@@ -52396,7 +52396,7 @@ class Adset(BaseModel):
 
     rf_prediction_id: Optional[str] = Field(None, description="Rf Prediction Id")
 
-    source_adset: Optional["Adset"] = Field(None, description="Source Adset")
+    source_adset: Optional["AdSet"] = Field(None, description="Source Adset")
 
     source_adset_id: Optional[str] = Field(None, description="Source Adset Id")
 
@@ -52430,7 +52430,7 @@ class Adset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adset":
+    def from_dict(cls, data: dict[str, Any]) -> "AdSet":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52439,8 +52439,8 @@ class Adset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignmultiads(BaseModel):
-    """Adcampaignmultiads model"""
+class AdCampaignMultiAds(BaseModel):
+    """AdCampaignMultiAds model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52456,7 +52456,7 @@ class Adcampaignmultiads(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignmultiads":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignMultiAds":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52465,8 +52465,8 @@ class Adcampaignmultiads(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Insightsvalue(BaseModel):
-    """Insightsvalue model"""
+class InsightsValue(BaseModel):
+    """InsightsValue model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52508,7 +52508,7 @@ class Insightsvalue(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Insightsvalue":
+    def from_dict(cls, data: dict[str, Any]) -> "InsightsValue":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52517,8 +52517,8 @@ class Insightsvalue(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Canvasdynamicsetting(BaseModel):
-    """Canvasdynamicsetting model"""
+class CanvasDynamicSetting(BaseModel):
+    """CanvasDynamicSetting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52534,7 +52534,7 @@ class Canvasdynamicsetting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Canvasdynamicsetting":
+    def from_dict(cls, data: dict[str, Any]) -> "CanvasDynamicSetting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52543,8 +52543,8 @@ class Canvasdynamicsetting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsquickviews(BaseModel):
-    """Adsquickviews model"""
+class AdsQuickViews(BaseModel):
+    """AdsQuickViews model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52576,7 +52576,7 @@ class Adsquickviews(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsquickviews":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsQuickViews":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52585,8 +52585,8 @@ class Adsquickviews(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Placetopic(BaseModel):
-    """Placetopic model"""
+class PlaceTopic(BaseModel):
+    """PlaceTopic model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52614,7 +52614,7 @@ class Placetopic(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Placetopic":
+    def from_dict(cls, data: dict[str, Any]) -> "PlaceTopic":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52623,8 +52623,8 @@ class Placetopic(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adkeywords(BaseModel):
-    """Adkeywords model"""
+class AdKeywords(BaseModel):
+    """AdKeywords model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52644,7 +52644,7 @@ class Adkeywords(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adkeywords":
+    def from_dict(cls, data: dict[str, Any]) -> "AdKeywords":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52653,8 +52653,8 @@ class Adkeywords(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixeleventsuggestionrule(BaseModel):
-    """Adspixeleventsuggestionrule model"""
+class AdsPixelEventSuggestionRule(BaseModel):
+    """AdsPixelEventSuggestionRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52682,7 +52682,7 @@ class Adspixeleventsuggestionrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixeleventsuggestionrule":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelEventSuggestionRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52691,8 +52691,8 @@ class Adspixeleventsuggestionrule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlineconversiondatasetactivities(BaseModel):
-    """Offlineconversiondatasetactivities model"""
+class OfflineConversionDataSetActivities(BaseModel):
+    """OfflineConversionDataSetActivities model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52722,7 +52722,7 @@ class Offlineconversiondatasetactivities(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlineconversiondatasetactivities":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineConversionDataSetActivities":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52731,8 +52731,8 @@ class Offlineconversiondatasetactivities(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adimage(BaseModel):
-    """Adimage model"""
+class AdImage(BaseModel):
+    """AdImage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52780,7 +52780,7 @@ class Adimage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adimage":
+    def from_dict(cls, data: dict[str, Any]) -> "AdImage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52789,8 +52789,8 @@ class Adimage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetvideo(BaseModel):
-    """Adassetvideo model"""
+class AdAssetVideo(BaseModel):
+    """AdAssetVideo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52824,7 +52824,7 @@ class Adassetvideo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetvideo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetVideo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52833,8 +52833,8 @@ class Adassetvideo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igusersubscribedappsdata(BaseModel):
-    """Igusersubscribedappsdata model"""
+class IGUserSubscribedAppsData(BaseModel):
+    """IGUserSubscribedAppsData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52850,7 +52850,7 @@ class Igusersubscribedappsdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igusersubscribedappsdata":
+    def from_dict(cls, data: dict[str, Any]) -> "IGUserSubscribedAppsData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52859,8 +52859,8 @@ class Igusersubscribedappsdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogitemrejectionreasons(BaseModel):
-    """Catalogitemrejectionreasons model"""
+class CatalogItemRejectionReasons(BaseModel):
+    """CatalogItemRejectionReasons model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52878,7 +52878,7 @@ class Catalogitemrejectionreasons(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogitemrejectionreasons":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogItemRejectionReasons":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52887,8 +52887,8 @@ class Catalogitemrejectionreasons(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogcategory(BaseModel):
-    """Productcatalogcategory model"""
+class ProductCatalogCategory(BaseModel):
+    """ProductCatalogCategory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52914,7 +52914,7 @@ class Productcatalogcategory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogcategory":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogCategory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52923,8 +52923,8 @@ class Productcatalogcategory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationpoliticaldistrict(BaseModel):
-    """Targetinggeolocationpoliticaldistrict model"""
+class TargetingGeoLocationPoliticalDistrict(BaseModel):
+    """TargetingGeoLocationPoliticalDistrict model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52944,7 +52944,7 @@ class Targetinggeolocationpoliticaldistrict(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationpoliticaldistrict":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationPoliticalDistrict":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52953,8 +52953,8 @@ class Targetinggeolocationpoliticaldistrict(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adscustompivotspreview(BaseModel):
-    """Adscustompivotspreview model"""
+class AdsCustomPivotsPreview(BaseModel):
+    """AdsCustomPivotsPreview model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -52984,7 +52984,7 @@ class Adscustompivotspreview(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adscustompivotspreview":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsCustomPivotsPreview":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -52993,8 +52993,8 @@ class Adscustompivotspreview(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowighashtag(BaseModel):
-    """Shadowighashtag model"""
+class ShadowIGHashtag(BaseModel):
+    """ShadowIGHashtag model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53010,7 +53010,7 @@ class Shadowighashtag(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowighashtag":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGHashtag":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53019,8 +53019,8 @@ class Shadowighashtag(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignfrequencycontrolspecs(BaseModel):
-    """Adcampaignfrequencycontrolspecs model"""
+class AdCampaignFrequencyControlSpecs(BaseModel):
+    """AdCampaignFrequencyControlSpecs model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53038,7 +53038,7 @@ class Adcampaignfrequencycontrolspecs(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignfrequencycontrolspecs":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignFrequencyControlSpecs":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53047,8 +53047,8 @@ class Adcampaignfrequencycontrolspecs(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Apppublisher(BaseModel):
-    """Apppublisher model"""
+class AppPublisher(BaseModel):
+    """AppPublisher model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53074,7 +53074,7 @@ class Apppublisher(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Apppublisher":
+    def from_dict(cls, data: dict[str, Any]) -> "AppPublisher":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53109,8 +53109,8 @@ class Hours(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountbusinessconstraints(BaseModel):
-    """Adaccountbusinessconstraints model"""
+class AdAccountBusinessConstraints(BaseModel):
+    """AdAccountBusinessConstraints model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53130,7 +53130,7 @@ class Adaccountbusinessconstraints(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountbusinessconstraints":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountBusinessConstraints":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53139,8 +53139,8 @@ class Adaccountbusinessconstraints(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instagramthread(BaseModel):
-    """Instagramthread model"""
+class InstagramThread(BaseModel):
+    """InstagramThread model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53160,7 +53160,7 @@ class Instagramthread(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instagramthread":
+    def from_dict(cls, data: dict[str, Any]) -> "InstagramThread":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53169,8 +53169,8 @@ class Instagramthread(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Timesuggestion(BaseModel):
-    """Timesuggestion model"""
+class TimeSuggestion(BaseModel):
+    """TimeSuggestion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53188,7 +53188,7 @@ class Timesuggestion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Timesuggestion":
+    def from_dict(cls, data: dict[str, Any]) -> "TimeSuggestion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53197,8 +53197,8 @@ class Timesuggestion(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Anblockedbicategory(BaseModel):
-    """Anblockedbicategory model"""
+class ANBlockedBICategory(BaseModel):
+    """ANBlockedBICategory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53212,7 +53212,7 @@ class Anblockedbicategory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Anblockedbicategory":
+    def from_dict(cls, data: dict[str, Any]) -> "ANBlockedBICategory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53221,8 +53221,8 @@ class Anblockedbicategory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassettargetruletargeting(BaseModel):
-    """Adassettargetruletargeting model"""
+class AdAssetTargetRuleTargeting(BaseModel):
+    """AdAssetTargetRuleTargeting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53240,7 +53240,7 @@ class Adassettargetruletargeting(BaseModel):
 
     facebook_positions: Optional[list[str]] = Field(None, description="Facebook Positions")
 
-    geo_locations: Optional["Targetinggeolocation"] = Field(None, description="Geo Locations")
+    geo_locations: Optional["TargetingGeoLocation"] = Field(None, description="Geo Locations")
 
     instagram_positions: Optional[list[str]] = Field(None, description="Instagram Positions")
 
@@ -53256,7 +53256,7 @@ class Adassettargetruletargeting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassettargetruletargeting":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetTargetRuleTargeting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53265,8 +53265,8 @@ class Adassettargetruletargeting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Storelocation(BaseModel):
-    """Storelocation model"""
+class StoreLocation(BaseModel):
+    """StoreLocation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53294,7 +53294,7 @@ class Storelocation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Storelocation":
+    def from_dict(cls, data: dict[str, Any]) -> "StoreLocation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53303,8 +53303,8 @@ class Storelocation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountyouthadsadvertiser(BaseModel):
-    """Adaccountyouthadsadvertiser model"""
+class AdAccountYouthAdsAdvertiser(BaseModel):
+    """AdAccountYouthAdsAdvertiser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53318,7 +53318,7 @@ class Adaccountyouthadsadvertiser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountyouthadsadvertiser":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountYouthAdsAdvertiser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53327,8 +53327,8 @@ class Adaccountyouthadsadvertiser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeimagedatamediaelements(BaseModel):
-    """Adcreativeimagedatamediaelements model"""
+class AdCreativeImageDataMediaElements(BaseModel):
+    """AdCreativeImageDataMediaElements model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53348,7 +53348,7 @@ class Adcreativeimagedatamediaelements(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeimagedatamediaelements":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeImageDataMediaElements":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53357,12 +53357,12 @@ class Adcreativeimagedatamediaelements(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Publisherblocklist(BaseModel):
-    """Publisherblocklist model"""
+class PublisherBlockList(BaseModel):
+    """PublisherBlockList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    app_publishers: Optional[list["Apppublisher"]] = Field(None, description="App Publishers")
+    app_publishers: Optional[list["AppPublisher"]] = Field(None, description="App Publishers")
 
     business_owner_id: Optional[str] = Field(None, description="Business Owner Id")
 
@@ -53382,7 +53382,7 @@ class Publisherblocklist(BaseModel):
 
     owner_ad_account_id: Optional[str] = Field(None, description="Owner Ad Account Id")
 
-    web_publishers: Optional[list["Webpublisher"]] = Field(None, description="Web Publishers")
+    web_publishers: Optional[list["WebPublisher"]] = Field(None, description="Web Publishers")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -53392,7 +53392,7 @@ class Publisherblocklist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Publisherblocklist":
+    def from_dict(cls, data: dict[str, Any]) -> "PublisherBlockList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53401,8 +53401,8 @@ class Publisherblocklist(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Apprequest(BaseModel):
-    """Apprequest model"""
+class AppRequest(BaseModel):
+    """AppRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53432,7 +53432,7 @@ class Apprequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Apprequest":
+    def from_dict(cls, data: dict[str, Any]) -> "AppRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53441,8 +53441,8 @@ class Apprequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Streamfilter(BaseModel):
-    """Streamfilter model"""
+class StreamFilter(BaseModel):
+    """StreamFilter model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53460,7 +53460,7 @@ class Streamfilter(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Streamfilter":
+    def from_dict(cls, data: dict[str, Any]) -> "StreamFilter":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53469,8 +53469,8 @@ class Streamfilter(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Scimcompanyuserphonenumber(BaseModel):
-    """Scimcompanyuserphonenumber model"""
+class ScimCompanyUserPhoneNumber(BaseModel):
+    """ScimCompanyUserPhoneNumber model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53488,7 +53488,7 @@ class Scimcompanyuserphonenumber(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Scimcompanyuserphonenumber":
+    def from_dict(cls, data: dict[str, Any]) -> "ScimCompanyUserPhoneNumber":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53497,8 +53497,8 @@ class Scimcompanyuserphonenumber(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativevideodata(BaseModel):
-    """Adcreativevideodata model"""
+class AdCreativeVideoData(BaseModel):
+    """AdCreativeVideoData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53512,15 +53512,15 @@ class Adcreativevideodata(BaseModel):
         None, description="Branded Content Sponsor Page Id"
     )
 
-    call_to_action: Optional["Adcreativelinkdatacalltoaction"] = Field(
+    call_to_action: Optional["AdCreativeLinkDataCallToAction"] = Field(
         None, description="Call To Action"
     )
 
-    collection_thumbnails: Optional[list["Adcreativecollectionthumbnailinfo"]] = Field(
+    collection_thumbnails: Optional[list["AdCreativeCollectionThumbnailInfo"]] = Field(
         None, description="Collection Thumbnails"
     )
 
-    customization_rules_spec: Optional[list["Adcustomizationrulespec"]] = Field(
+    customization_rules_spec: Optional[list["AdCustomizationRuleSpec"]] = Field(
         None, description="Customization Rules Spec"
     )
 
@@ -53536,7 +53536,7 @@ class Adcreativevideodata(BaseModel):
 
     page_welcome_message: Optional[str] = Field(None, description="Page Welcome Message")
 
-    post_click_configuration: Optional["Adcreativepostclickconfiguration"] = Field(
+    post_click_configuration: Optional["AdCreativePostClickConfiguration"] = Field(
         None, description="Post Click Configuration"
     )
 
@@ -53556,7 +53556,7 @@ class Adcreativevideodata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativevideodata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeVideoData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53565,8 +53565,8 @@ class Adcreativevideodata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messagingfeaturestatus(BaseModel):
-    """Messagingfeaturestatus model"""
+class MessagingFeatureStatus(BaseModel):
+    """MessagingFeatureStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53584,7 +53584,7 @@ class Messagingfeaturestatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messagingfeaturestatus":
+    def from_dict(cls, data: dict[str, Any]) -> "MessagingFeatureStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53593,8 +53593,8 @@ class Messagingfeaturestatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fbimagecopyrightmatch(BaseModel):
-    """Fbimagecopyrightmatch model"""
+class FBImageCopyrightMatch(BaseModel):
+    """FBImageCopyrightMatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53624,7 +53624,7 @@ class Fbimagecopyrightmatch(BaseModel):
 
     match_status: Optional[str] = Field(None, description="Match Status")
 
-    ownership_countries: Optional["Videocopyrightgeogate"] = Field(
+    ownership_countries: Optional["VideoCopyrightGeoGate"] = Field(
         None, description="Ownership Countries"
     )
 
@@ -53640,7 +53640,7 @@ class Fbimagecopyrightmatch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fbimagecopyrightmatch":
+    def from_dict(cls, data: dict[str, Any]) -> "FBImageCopyrightMatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53649,8 +53649,8 @@ class Fbimagecopyrightmatch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessadsreportingreportspecs(BaseModel):
-    """Businessadsreportingreportspecs model"""
+class BusinessAdsReportingReportSpecs(BaseModel):
+    """BusinessAdsReportingReportSpecs model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53666,7 +53666,7 @@ class Businessadsreportingreportspecs(BaseModel):
 
     business: Optional["Business"] = Field(None, description="Business")
 
-    business_asset_group: Optional["Businessassetgroup"] = Field(
+    business_asset_group: Optional["BusinessAssetGroup"] = Field(
         None, description="Business Asset Group"
     )
 
@@ -53756,7 +53756,7 @@ class Businessadsreportingreportspecs(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessadsreportingreportspecs":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessAdsReportingReportSpecs":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53765,8 +53765,8 @@ class Businessadsreportingreportspecs(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adactivity(BaseModel):
-    """Adactivity model"""
+class AdActivity(BaseModel):
+    """AdActivity model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53802,7 +53802,7 @@ class Adactivity(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adactivity":
+    def from_dict(cls, data: dict[str, Any]) -> "AdActivity":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53811,14 +53811,14 @@ class Adactivity(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativecollectionthumbnailinfo(BaseModel):
-    """Adcreativecollectionthumbnailinfo model"""
+class AdCreativeCollectionThumbnailInfo(BaseModel):
+    """AdCreativeCollectionThumbnailInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     element_child_index: Optional[int] = Field(None, description="Element Child Index")
 
-    element_crops: Optional["Adsimagecrops"] = Field(None, description="Element Crops")
+    element_crops: Optional["AdsImageCrops"] = Field(None, description="Element Crops")
 
     element_id: Optional[str] = Field(None, description="Element Id")
 
@@ -53830,7 +53830,7 @@ class Adcreativecollectionthumbnailinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativecollectionthumbnailinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeCollectionThumbnailInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53839,8 +53839,8 @@ class Adcreativecollectionthumbnailinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecassetlabel(BaseModel):
-    """Adassetfeedspecassetlabel model"""
+class AdAssetFeedSpecAssetLabel(BaseModel):
+    """AdAssetFeedSpecAssetLabel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -53856,7 +53856,7 @@ class Adassetfeedspecassetlabel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecassetlabel":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecAssetLabel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -53911,8 +53911,8 @@ class Robot(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adshistogramstats(BaseModel):
-    """Adshistogramstats model"""
+class AdsHistogramStats(BaseModel):
+    """AdsHistogramStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54082,7 +54082,7 @@ class Adshistogramstats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adshistogramstats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsHistogramStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54091,18 +54091,18 @@ class Adshistogramstats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productgroup(BaseModel):
-    """Productgroup model"""
+class ProductGroup(BaseModel):
+    """ProductGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     id: Optional[str] = Field(None, description="Id")
 
-    product_catalog: Optional["Productcatalog"] = Field(None, description="Product Catalog")
+    product_catalog: Optional["ProductCatalog"] = Field(None, description="Product Catalog")
 
     retailer_id: Optional[str] = Field(None, description="Retailer Id")
 
-    variants: Optional[list["Productvariant"]] = Field(None, description="Variants")
+    variants: Optional[list["ProductVariant"]] = Field(None, description="Variants")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -54112,7 +54112,7 @@ class Productgroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productgroup":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54121,8 +54121,8 @@ class Productgroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offsitepixel(BaseModel):
-    """Offsitepixel model"""
+class OffsitePixel(BaseModel):
+    """OffsitePixel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54146,7 +54146,7 @@ class Offsitepixel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offsitepixel":
+    def from_dict(cls, data: dict[str, Any]) -> "OffsitePixel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54155,8 +54155,8 @@ class Offsitepixel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassettitle(BaseModel):
-    """Adassettitle model"""
+class AdAssetTitle(BaseModel):
+    """AdAssetTitle model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54174,7 +54174,7 @@ class Adassettitle(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassettitle":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetTitle":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54183,8 +54183,8 @@ class Adassettitle(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Highdemandperiod(BaseModel):
-    """Highdemandperiod model"""
+class HighDemandPeriod(BaseModel):
+    """HighDemandPeriod model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54202,7 +54202,7 @@ class Highdemandperiod(BaseModel):
 
     time_start: Optional[datetime] = Field(None, description="Time Start")
 
-    weekly_schedule: Optional[list["Highdemandperiodtimesuggestionweeklysegment"]] = Field(
+    weekly_schedule: Optional[list["HighDemandPeriodTimeSuggestionWeeklySegment"]] = Field(
         None, description="Weekly Schedule"
     )
 
@@ -54214,7 +54214,7 @@ class Highdemandperiod(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Highdemandperiod":
+    def from_dict(cls, data: dict[str, Any]) -> "HighDemandPeriod":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54230,9 +54230,9 @@ class User(BaseModel):
 
     about: Optional[str] = Field(None, description="About")
 
-    age_range: Optional["Agerange"] = Field(None, description="Age Range")
+    age_range: Optional["AgeRange"] = Field(None, description="Age Range")
 
-    avatar_2d_profile_picture: Optional["Avatarprofilepicture"] = Field(
+    avatar_2d_profile_picture: Optional["AvatarProfilePicture"] = Field(
         None, description="Avatar 2D Profile Picture"
     )
 
@@ -54242,11 +54242,11 @@ class User(BaseModel):
 
     community: Optional["Group"] = Field(None, description="Community")
 
-    cover: Optional["Usercoverphoto"] = Field(None, description="Cover")
+    cover: Optional["UserCoverPhoto"] = Field(None, description="Cover")
 
     currency: Optional["Currency"] = Field(None, description="Currency")
 
-    education: Optional[list["Educationexperience"]] = Field(None, description="Education")
+    education: Optional[list["EducationExperience"]] = Field(None, description="Education")
 
     email: Optional[str] = Field(None, description="Email")
 
@@ -54302,7 +54302,7 @@ class User(BaseModel):
 
     name_format: Optional[str] = Field(None, description="Name Format")
 
-    payment_pricepoints: Optional["Paymentpricepoints"] = Field(
+    payment_pricepoints: Optional["PaymentPricepoints"] = Field(
         None, description="Payment Pricepoints"
     )
 
@@ -54340,7 +54340,7 @@ class User(BaseModel):
 
     verified: Optional[bool] = Field(None, description="Verified")
 
-    video_upload_limits: Optional["Videouploadlimits"] = Field(
+    video_upload_limits: Optional["VideoUploadLimits"] = Field(
         None, description="Video Upload Limits"
     )
 
@@ -54363,8 +54363,8 @@ class User(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogadvertiserinsight(BaseModel):
-    """Catalogadvertiserinsight model"""
+class CatalogAdvertiserInsight(BaseModel):
+    """CatalogAdvertiserInsight model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54380,7 +54380,7 @@ class Catalogadvertiserinsight(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogadvertiserinsight":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogAdvertiserInsight":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54389,8 +54389,8 @@ class Catalogadvertiserinsight(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Profilepicturesource(BaseModel):
-    """Profilepicturesource model"""
+class ProfilePictureSource(BaseModel):
+    """ProfilePictureSource model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54420,7 +54420,7 @@ class Profilepicturesource(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Profilepicturesource":
+    def from_dict(cls, data: dict[str, Any]) -> "ProfilePictureSource":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54429,8 +54429,8 @@ class Profilepicturesource(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Userpaymentmethodsinfo(BaseModel):
-    """Userpaymentmethodsinfo model"""
+class UserPaymentMethodsInfo(BaseModel):
+    """UserPaymentMethodsInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54462,7 +54462,7 @@ class Userpaymentmethodsinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Userpaymentmethodsinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "UserPaymentMethodsInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54471,8 +54471,8 @@ class Userpaymentmethodsinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeedschedule(BaseModel):
-    """Productfeedschedule model"""
+class ProductFeedSchedule(BaseModel):
+    """ProductFeedSchedule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54504,7 +54504,7 @@ class Productfeedschedule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeedschedule":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedSchedule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54513,12 +54513,12 @@ class Productfeedschedule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adkeywordstats(BaseModel):
-    """Adkeywordstats model"""
+class AdKeywordStats(BaseModel):
+    """AdKeywordStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    actions: Optional[list["Adsactionstats"]] = Field(None, description="Actions")
+    actions: Optional[list["AdsActionStats"]] = Field(None, description="Actions")
 
     clicks: Optional[int] = Field(None, description="Clicks")
 
@@ -54550,7 +54550,7 @@ class Adkeywordstats(BaseModel):
 
     total_unique_actions: Optional[int] = Field(None, description="Total Unique Actions")
 
-    unique_actions: Optional[list["Adsactionstats"]] = Field(None, description="Unique Actions")
+    unique_actions: Optional[list["AdsActionStats"]] = Field(None, description="Unique Actions")
 
     unique_clicks: Optional[int] = Field(None, description="Unique Clicks")
 
@@ -54566,7 +54566,7 @@ class Adkeywordstats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adkeywordstats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdKeywordStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54575,8 +54575,8 @@ class Adkeywordstats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesscreative(BaseModel):
-    """Businesscreative model"""
+class BusinessCreative(BaseModel):
+    """BusinessCreative model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54610,7 +54610,7 @@ class Businesscreative(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesscreative":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessCreative":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54619,8 +54619,8 @@ class Businesscreative(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customusersettings(BaseModel):
-    """Customusersettings model"""
+class CustomUserSettings(BaseModel):
+    """CustomUserSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54640,7 +54640,7 @@ class Customusersettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customusersettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomUserSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54649,12 +54649,12 @@ class Customusersettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mcominvoicelists(BaseModel):
-    """Mcominvoicelists model"""
+class McomInvoiceLists(BaseModel):
+    """McomInvoiceLists model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    invoice_details: Optional[list["Mcominvoicedetails"]] = Field(
+    invoice_details: Optional[list["McomInvoiceDetails"]] = Field(
         None, description="Invoice Details"
     )
 
@@ -54670,7 +54670,7 @@ class Mcominvoicelists(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mcominvoicelists":
+    def from_dict(cls, data: dict[str, Any]) -> "McomInvoiceLists":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54679,8 +54679,8 @@ class Mcominvoicelists(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgencontextcard(BaseModel):
-    """Leadgencontextcard model"""
+class LeadGenContextCard(BaseModel):
+    """LeadGenContextCard model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54704,7 +54704,7 @@ class Leadgencontextcard(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgencontextcard":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenContextCard":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54713,8 +54713,8 @@ class Leadgencontextcard(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Imagecopyright(BaseModel):
-    """Imagecopyright model"""
+class ImageCopyright(BaseModel):
+    """ImageCopyright model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54744,7 +54744,7 @@ class Imagecopyright(BaseModel):
         None, description="Original Content Creation Date"
     )
 
-    ownership_countries: Optional["Videocopyrightgeogate"] = Field(
+    ownership_countries: Optional["VideoCopyrightGeoGate"] = Field(
         None, description="Ownership Countries"
     )
 
@@ -54762,7 +54762,7 @@ class Imagecopyright(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Imagecopyright":
+    def from_dict(cls, data: dict[str, Any]) -> "ImageCopyright":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54771,8 +54771,8 @@ class Imagecopyright(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Apacmonsellerstatusapicontainer(BaseModel):
-    """Apacmonsellerstatusapicontainer model"""
+class ApacMonSellerStatusAPIContainer(BaseModel):
+    """ApacMonSellerStatusAPIContainer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54784,7 +54784,7 @@ class Apacmonsellerstatusapicontainer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Apacmonsellerstatusapicontainer":
+    def from_dict(cls, data: dict[str, Any]) -> "ApacMonSellerStatusAPIContainer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54793,8 +54793,8 @@ class Apacmonsellerstatusapicontainer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignissuesinfo(BaseModel):
-    """Adcampaignissuesinfo model"""
+class AdCampaignIssuesInfo(BaseModel):
+    """AdCampaignIssuesInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54818,7 +54818,7 @@ class Adcampaignissuesinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignissuesinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignIssuesInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54827,8 +54827,8 @@ class Adcampaignissuesinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountadvolume(BaseModel):
-    """Adaccountadvolume model"""
+class AdAccountAdVolume(BaseModel):
+    """AdAccountAdVolume model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54882,7 +54882,7 @@ class Adaccountadvolume(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountadvolume":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAdVolume":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54891,8 +54891,8 @@ class Adaccountadvolume(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Preapprovalreview(BaseModel):
-    """Preapprovalreview model"""
+class PreapprovalReview(BaseModel):
+    """PreapprovalReview model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54914,7 +54914,7 @@ class Preapprovalreview(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Preapprovalreview":
+    def from_dict(cls, data: dict[str, Any]) -> "PreapprovalReview":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54923,8 +54923,8 @@ class Preapprovalreview(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Url(BaseModel):
-    """Url model"""
+class URL(BaseModel):
+    """URL model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54948,7 +54948,7 @@ class Url(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Url":
+    def from_dict(cls, data: dict[str, Any]) -> "URL":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54957,8 +54957,8 @@ class Url(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedadditionaldata(BaseModel):
-    """Adassetfeedadditionaldata model"""
+class AdAssetFeedAdditionalData(BaseModel):
+    """AdAssetFeedAdditionalData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -54984,7 +54984,7 @@ class Adassetfeedadditionaldata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedadditionaldata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedAdditionalData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -54993,8 +54993,8 @@ class Adassetfeedadditionaldata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountusersettings(BaseModel):
-    """Adaccountusersettings model"""
+class AdAccountUserSettings(BaseModel):
+    """AdAccountUserSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55014,7 +55014,7 @@ class Adaccountusersettings(BaseModel):
         None, description="Active Ads Quick View Created"
     )
 
-    ad_account: Optional["Adaccount"] = Field(None, description="Ad Account")
+    ad_account: Optional["AdAccount"] = Field(None, description="Ad Account")
 
     ad_object_export_format: Optional[str] = Field(None, description="Ad Object Export Format")
 
@@ -55234,7 +55234,7 @@ class Adaccountusersettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountusersettings":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountUserSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55243,14 +55243,14 @@ class Adaccountusersettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Localservicebusiness(BaseModel):
-    """Localservicebusiness model"""
+class LocalServiceBusiness(BaseModel):
+    """LocalServiceBusiness model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     address: Optional[dict[str, Any]] = Field(None, description="Address")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     availability: Optional[LocalServiceBusiness_availability] = Field(
         None, description="Availability"
@@ -55260,7 +55260,7 @@ class Localservicebusiness(BaseModel):
 
     category: Optional[str] = Field(None, description="Category")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -55304,11 +55304,11 @@ class Localservicebusiness(BaseModel):
 
     images: Optional[list[str]] = Field(None, description="Images")
 
-    local_info: Optional["Productitemlocalinfo"] = Field(None, description="Local Info")
+    local_info: Optional["ProductItemLocalInfo"] = Field(None, description="Local Info")
 
     local_service_business_id: Optional[str] = Field(None, description="Local Service Business Id")
 
-    main_local_info: Optional["Productitemlocalinfo"] = Field(None, description="Main Local Info")
+    main_local_info: Optional["ProductItemLocalInfo"] = Field(None, description="Main Local Info")
 
     phone: Optional[str] = Field(None, description="Phone")
 
@@ -55342,7 +55342,7 @@ class Localservicebusiness(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Localservicebusiness":
+    def from_dict(cls, data: dict[str, Any]) -> "LocalServiceBusiness":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55351,8 +55351,8 @@ class Localservicebusiness(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messengerdestinationpagewelcomemessage(BaseModel):
-    """Messengerdestinationpagewelcomemessage model"""
+class MessengerDestinationPageWelcomeMessage(BaseModel):
+    """MessengerDestinationPageWelcomeMessage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55376,7 +55376,7 @@ class Messengerdestinationpagewelcomemessage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messengerdestinationpagewelcomemessage":
+    def from_dict(cls, data: dict[str, Any]) -> "MessengerDestinationPageWelcomeMessage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55385,8 +55385,8 @@ class Messengerdestinationpagewelcomemessage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audioisrc(BaseModel):
-    """Audioisrc model"""
+class AudioIsrc(BaseModel):
+    """AudioIsrc model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55424,7 +55424,7 @@ class Audioisrc(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audioisrc":
+    def from_dict(cls, data: dict[str, Any]) -> "AudioIsrc":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55433,8 +55433,8 @@ class Audioisrc(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whitehatfbdlrun(BaseModel):
-    """Whitehatfbdlrun model"""
+class WhitehatFBDLRun(BaseModel):
+    """WhitehatFBDLRun model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55462,7 +55462,7 @@ class Whitehatfbdlrun(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whitehatfbdlrun":
+    def from_dict(cls, data: dict[str, Any]) -> "WhitehatFBDLRun":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55471,8 +55471,8 @@ class Whitehatfbdlrun(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencestatus(BaseModel):
-    """Customaudiencestatus model"""
+class CustomAudienceStatus(BaseModel):
+    """CustomAudienceStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55488,7 +55488,7 @@ class Customaudiencestatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencestatus":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55497,8 +55497,8 @@ class Customaudiencestatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcustomizationrulespec(BaseModel):
-    """Adcustomizationrulespec model"""
+class AdCustomizationRuleSpec(BaseModel):
+    """AdCustomizationRuleSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55518,7 +55518,7 @@ class Adcustomizationrulespec(BaseModel):
 
     priority: Optional[int] = Field(None, description="Priority")
 
-    template_url_spec: Optional["Adcreativetemplateurlspec"] = Field(
+    template_url_spec: Optional["AdCreativeTemplateURLSpec"] = Field(
         None, description="Template Url Spec"
     )
 
@@ -55532,7 +55532,7 @@ class Adcustomizationrulespec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcustomizationrulespec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCustomizationRuleSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55541,14 +55541,14 @@ class Adcustomizationrulespec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adproposal(BaseModel):
-    """Adproposal model"""
+class AdProposal(BaseModel):
+    """AdProposal model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     ad_proposal_type_name: Optional[str] = Field(None, description="Ad Proposal Type Name")
 
-    adaccount: Optional["Adaccount"] = Field(None, description="Adaccount")
+    adaccount: Optional["AdAccount"] = Field(None, description="Adaccount")
 
     creation_time: Optional[datetime] = Field(None, description="Creation Time")
 
@@ -55592,7 +55592,7 @@ class Adproposal(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adproposal":
+    def from_dict(cls, data: dict[str, Any]) -> "AdProposal":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55601,8 +55601,8 @@ class Adproposal(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageinsightsasyncexportrun(BaseModel):
-    """Pageinsightsasyncexportrun model"""
+class PageInsightsAsyncExportRun(BaseModel):
+    """PageInsightsAsyncExportRun model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55632,7 +55632,7 @@ class Pageinsightsasyncexportrun(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageinsightsasyncexportrun":
+    def from_dict(cls, data: dict[str, Any]) -> "PageInsightsAsyncExportRun":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55641,8 +55641,8 @@ class Pageinsightsasyncexportrun(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videogroup(BaseModel):
-    """Videogroup model"""
+class VideoGroup(BaseModel):
+    """VideoGroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55688,7 +55688,7 @@ class Videogroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videogroup":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoGroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55697,8 +55697,8 @@ class Videogroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adruleevaluationspec(BaseModel):
-    """Adruleevaluationspec model"""
+class AdRuleEvaluationSpec(BaseModel):
+    """AdRuleEvaluationSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55706,9 +55706,9 @@ class Adruleevaluationspec(BaseModel):
         None, description="Evaluation Type"
     )
 
-    filters: Optional[list["Adrulefilters"]] = Field(None, description="Filters")
+    filters: Optional[list["AdRuleFilters"]] = Field(None, description="Filters")
 
-    trigger: Optional["Adruletrigger"] = Field(None, description="Trigger")
+    trigger: Optional["AdRuleTrigger"] = Field(None, description="Trigger")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -55718,7 +55718,7 @@ class Adruleevaluationspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adruleevaluationspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleEvaluationSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55727,8 +55727,8 @@ class Adruleevaluationspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Appoptimizedcustomevents(BaseModel):
-    """Appoptimizedcustomevents model"""
+class AppOptimizedCustomEvents(BaseModel):
+    """AppOptimizedCustomEvents model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55746,7 +55746,7 @@ class Appoptimizedcustomevents(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Appoptimizedcustomevents":
+    def from_dict(cls, data: dict[str, Any]) -> "AppOptimizedCustomEvents":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55755,8 +55755,8 @@ class Appoptimizedcustomevents(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Ctwawhatsappnumbersinfo(BaseModel):
-    """Ctwawhatsappnumbersinfo model"""
+class CTWAWhatsAppNumbersInfo(BaseModel):
+    """CTWAWhatsAppNumbersInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55786,7 +55786,7 @@ class Ctwawhatsappnumbersinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Ctwawhatsappnumbersinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "CTWAWhatsAppNumbersInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55795,8 +55795,8 @@ class Ctwawhatsappnumbersinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlineconversiondatasetoptimizationstatus(BaseModel):
-    """Offlineconversiondatasetoptimizationstatus model"""
+class OfflineConversionDataSetOptimizationStatus(BaseModel):
+    """OfflineConversionDataSetOptimizationStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55816,7 +55816,7 @@ class Offlineconversiondatasetoptimizationstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlineconversiondatasetoptimizationstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineConversionDataSetOptimizationStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55825,8 +55825,8 @@ class Offlineconversiondatasetoptimizationstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountdefaultobjective(BaseModel):
-    """Adaccountdefaultobjective model"""
+class AdAccountDefaultObjective(BaseModel):
+    """AdAccountDefaultObjective model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55846,7 +55846,7 @@ class Adaccountdefaultobjective(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountdefaultobjective":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountDefaultObjective":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55855,8 +55855,8 @@ class Adaccountdefaultobjective(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountadsrecommendedaudios(BaseModel):
-    """Adaccountadsrecommendedaudios model"""
+class AdAccountAdsRecommendedAudios(BaseModel):
+    """AdAccountAdsRecommendedAudios model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55870,7 +55870,7 @@ class Adaccountadsrecommendedaudios(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountadsrecommendedaudios":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAdsRecommendedAudios":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55879,8 +55879,8 @@ class Adaccountadsrecommendedaudios(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Brandsafetyblocklistusage(BaseModel):
-    """Brandsafetyblocklistusage model"""
+class BrandSafetyBlockListUsage(BaseModel):
+    """BrandSafetyBlockListUsage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55902,7 +55902,7 @@ class Brandsafetyblocklistusage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Brandsafetyblocklistusage":
+    def from_dict(cls, data: dict[str, Any]) -> "BrandSafetyBlockListUsage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55911,8 +55911,8 @@ class Brandsafetyblocklistusage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagerestaurantspecialties(BaseModel):
-    """Pagerestaurantspecialties model"""
+class PageRestaurantSpecialties(BaseModel):
+    """PageRestaurantSpecialties model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55934,7 +55934,7 @@ class Pagerestaurantspecialties(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagerestaurantspecialties":
+    def from_dict(cls, data: dict[str, Any]) -> "PageRestaurantSpecialties":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55943,8 +55943,8 @@ class Pagerestaurantspecialties(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instagramuser(BaseModel):
-    """Instagramuser model"""
+class InstagramUser(BaseModel):
+    """InstagramUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -55980,7 +55980,7 @@ class Instagramuser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instagramuser":
+    def from_dict(cls, data: dict[str, Any]) -> "InstagramUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -55989,8 +55989,8 @@ class Instagramuser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fbpageandinstagramaccount(BaseModel):
-    """Fbpageandinstagramaccount model"""
+class FBPageAndInstagramAccount(BaseModel):
+    """FBPageAndInstagramAccount model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56012,7 +56012,7 @@ class Fbpageandinstagramaccount(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fbpageandinstagramaccount":
+    def from_dict(cls, data: dict[str, Any]) -> "FBPageAndInstagramAccount":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56021,8 +56021,8 @@ class Fbpageandinstagramaccount(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Securitysettings(BaseModel):
-    """Securitysettings model"""
+class SecuritySettings(BaseModel):
+    """SecuritySettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56034,7 +56034,7 @@ class Securitysettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Securitysettings":
+    def from_dict(cls, data: dict[str, Any]) -> "SecuritySettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56043,8 +56043,8 @@ class Securitysettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcustomderivedmetrics(BaseModel):
-    """Adcustomderivedmetrics model"""
+class AdCustomDerivedMetrics(BaseModel):
+    """AdCustomDerivedMetrics model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56094,7 +56094,7 @@ class Adcustomderivedmetrics(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcustomderivedmetrics":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCustomDerivedMetrics":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56103,8 +56103,8 @@ class Adcustomderivedmetrics(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelrecenteventsresult(BaseModel):
-    """Adspixelrecenteventsresult model"""
+class AdsPixelRecentEventsResult(BaseModel):
+    """AdsPixelRecentEventsResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56120,7 +56120,7 @@ class Adspixelrecenteventsresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelrecenteventsresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelRecentEventsResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56129,8 +56129,8 @@ class Adspixelrecenteventsresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesstrafficanalysisreport(BaseModel):
-    """Businesstrafficanalysisreport model"""
+class BusinessTrafficAnalysisReport(BaseModel):
+    """BusinessTrafficAnalysisReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56150,7 +56150,7 @@ class Businesstrafficanalysisreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesstrafficanalysisreport":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessTrafficAnalysisReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56159,14 +56159,14 @@ class Businesstrafficanalysisreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgencustomdisclaimerbody(BaseModel):
-    """Leadgencustomdisclaimerbody model"""
+class LeadGenCustomDisclaimerBody(BaseModel):
+    """LeadGenCustomDisclaimerBody model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     text: Optional[str] = Field(None, description="Text")
 
-    url_entities: Optional[list["Leadgenurlentityatranges"]] = Field(
+    url_entities: Optional[list["LeadGenURLEntityAtRanges"]] = Field(
         None, description="Url Entities"
     )
 
@@ -56178,7 +56178,7 @@ class Leadgencustomdisclaimerbody(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgencustomdisclaimerbody":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenCustomDisclaimerBody":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56187,12 +56187,12 @@ class Leadgencustomdisclaimerbody(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigndeliveryestimate(BaseModel):
-    """Adcampaigndeliveryestimate model"""
+class AdCampaignDeliveryEstimate(BaseModel):
+    """AdCampaignDeliveryEstimate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    daily_outcomes_curve: Optional[list["Outcomepredictionpoint"]] = Field(
+    daily_outcomes_curve: Optional[list["OutcomePredictionPoint"]] = Field(
         None, description="Daily Outcomes Curve"
     )
 
@@ -56216,7 +56216,7 @@ class Adcampaigndeliveryestimate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigndeliveryestimate":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignDeliveryEstimate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56225,8 +56225,8 @@ class Adcampaigndeliveryestimate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igmediaboosteligibilityinfo(BaseModel):
-    """Igmediaboosteligibilityinfo model"""
+class IGMediaBoostEligibilityInfo(BaseModel):
+    """IGMediaBoostEligibilityInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56242,7 +56242,7 @@ class Igmediaboosteligibilityinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igmediaboosteligibilityinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "IGMediaBoostEligibilityInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56251,8 +56251,8 @@ class Igmediaboosteligibilityinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowiguserctxpartnerappwelcomemessageflow(BaseModel):
-    """Shadowiguserctxpartnerappwelcomemessageflow model"""
+class ShadowIGUserCTXPartnerAppWelcomeMessageFlow(BaseModel):
+    """ShadowIGUserCTXPartnerAppWelcomeMessageFlow model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56280,7 +56280,7 @@ class Shadowiguserctxpartnerappwelcomemessageflow(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowiguserctxpartnerappwelcomemessageflow":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGUserCTXPartnerAppWelcomeMessageFlow":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56289,8 +56289,8 @@ class Shadowiguserctxpartnerappwelcomemessageflow(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Eventticketsetting(BaseModel):
-    """Eventticketsetting model"""
+class EventTicketSetting(BaseModel):
+    """EventTicketSetting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56306,7 +56306,7 @@ class Eventticketsetting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Eventticketsetting":
+    def from_dict(cls, data: dict[str, Any]) -> "EventTicketSetting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56315,8 +56315,8 @@ class Eventticketsetting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationzip(BaseModel):
-    """Targetinggeolocationzip model"""
+class TargetingGeoLocationZip(BaseModel):
+    """TargetingGeoLocationZip model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56338,7 +56338,7 @@ class Targetinggeolocationzip(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationzip":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationZip":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56347,8 +56347,8 @@ class Targetinggeolocationzip(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountrecommendations(BaseModel):
-    """Adaccountrecommendations model"""
+class AdAccountRecommendations(BaseModel):
+    """AdAccountRecommendations model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56362,7 +56362,7 @@ class Adaccountrecommendations(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountrecommendations":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountRecommendations":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56371,16 +56371,16 @@ class Adaccountrecommendations(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igresumablevideouploadstatus(BaseModel):
-    """Igresumablevideouploadstatus model"""
+class IGResumableVideoUploadStatus(BaseModel):
+    """IGResumableVideoUploadStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    processing_phase: Optional["Videostatusprocessingphase"] = Field(
+    processing_phase: Optional["VideoStatusProcessingPhase"] = Field(
         None, description="Processing Phase"
     )
 
-    uploading_phase: Optional["Videostatusuploadingphase"] = Field(
+    uploading_phase: Optional["VideoStatusUploadingPhase"] = Field(
         None, description="Uploading Phase"
     )
 
@@ -56392,7 +56392,7 @@ class Igresumablevideouploadstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igresumablevideouploadstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "IGResumableVideoUploadStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56401,8 +56401,8 @@ class Igresumablevideouploadstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Thirdpartypartnerpanelrequest(BaseModel):
-    """Thirdpartypartnerpanelrequest model"""
+class ThirdPartyPartnerPanelRequest(BaseModel):
+    """ThirdPartyPartnerPanelRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56442,7 +56442,7 @@ class Thirdpartypartnerpanelrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Thirdpartypartnerpanelrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "ThirdPartyPartnerPanelRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56451,8 +56451,8 @@ class Thirdpartypartnerpanelrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Creditcard(BaseModel):
-    """Creditcard model"""
+class CreditCard(BaseModel):
+    """CreditCard model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56510,7 +56510,7 @@ class Creditcard(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Creditcard":
+    def from_dict(cls, data: dict[str, Any]) -> "CreditCard":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56519,8 +56519,8 @@ class Creditcard(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Entityattextrange(BaseModel):
-    """Entityattextrange model"""
+class EntityAtTextRange(BaseModel):
+    """EntityAtTextRange model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56544,7 +56544,7 @@ class Entityattextrange(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Entityattextrange":
+    def from_dict(cls, data: dict[str, Any]) -> "EntityAtTextRange":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56553,8 +56553,8 @@ class Entityattextrange(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adrecommendationdata(BaseModel):
-    """Adrecommendationdata model"""
+class AdRecommendationData(BaseModel):
+    """AdRecommendationData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56568,7 +56568,7 @@ class Adrecommendationdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adrecommendationdata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRecommendationData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56577,8 +56577,8 @@ class Adrecommendationdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeinstagrambrandedcontent(BaseModel):
-    """Adcreativeinstagrambrandedcontent model"""
+class AdCreativeInstagramBrandedContent(BaseModel):
+    """AdCreativeInstagramBrandedContent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56592,7 +56592,7 @@ class Adcreativeinstagrambrandedcontent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeinstagrambrandedcontent":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeInstagramBrandedContent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56601,8 +56601,8 @@ class Adcreativeinstagrambrandedcontent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Usercoverphoto(BaseModel):
-    """Usercoverphoto model"""
+class UserCoverPhoto(BaseModel):
+    """UserCoverPhoto model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56620,7 +56620,7 @@ class Usercoverphoto(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Usercoverphoto":
+    def from_dict(cls, data: dict[str, Any]) -> "UserCoverPhoto":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56629,8 +56629,8 @@ class Usercoverphoto(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messagingfeaturereview(BaseModel):
-    """Messagingfeaturereview model"""
+class MessagingFeatureReview(BaseModel):
+    """MessagingFeatureReview model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56646,7 +56646,7 @@ class Messagingfeaturereview(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messagingfeaturereview":
+    def from_dict(cls, data: dict[str, Any]) -> "MessagingFeatureReview":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56655,8 +56655,8 @@ class Messagingfeaturereview(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Orderidattributions(BaseModel):
-    """Orderidattributions model"""
+class OrderIDAttributions(BaseModel):
+    """OrderIDAttributions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56686,7 +56686,7 @@ class Orderidattributions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Orderidattributions":
+    def from_dict(cls, data: dict[str, Any]) -> "OrderIDAttributions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56695,8 +56695,8 @@ class Orderidattributions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemerror(BaseModel):
-    """Productitemerror model"""
+class ProductItemError(BaseModel):
+    """ProductItemError model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56716,7 +56716,7 @@ class Productitemerror(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemerror":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemError":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56725,8 +56725,8 @@ class Productitemerror(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationmarket(BaseModel):
-    """Targetinggeolocationmarket model"""
+class TargetingGeoLocationMarket(BaseModel):
+    """TargetingGeoLocationMarket model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56746,7 +56746,7 @@ class Targetinggeolocationmarket(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationmarket":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationMarket":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56755,8 +56755,8 @@ class Targetinggeolocationmarket(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Livevideoinputstream(BaseModel):
-    """Livevideoinputstream model"""
+class LiveVideoInputStream(BaseModel):
+    """LiveVideoInputStream model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56784,7 +56784,7 @@ class Livevideoinputstream(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Livevideoinputstream":
+    def from_dict(cls, data: dict[str, Any]) -> "LiveVideoInputStream":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56793,8 +56793,8 @@ class Livevideoinputstream(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountagencyfeeconfig(BaseModel):
-    """Adaccountagencyfeeconfig model"""
+class AdAccountAgencyFeeConfig(BaseModel):
+    """AdAccountAgencyFeeConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56818,7 +56818,7 @@ class Adaccountagencyfeeconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountagencyfeeconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountAgencyFeeConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56827,8 +56827,8 @@ class Adaccountagencyfeeconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Savedmessageresponse(BaseModel):
-    """Savedmessageresponse model"""
+class SavedMessageResponse(BaseModel):
+    """SavedMessageResponse model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56850,7 +56850,7 @@ class Savedmessageresponse(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Savedmessageresponse":
+    def from_dict(cls, data: dict[str, Any]) -> "SavedMessageResponse":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56859,8 +56859,8 @@ class Savedmessageresponse(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdatatemplatevideospec(BaseModel):
-    """Adcreativelinkdatatemplatevideospec model"""
+class AdCreativeLinkDataTemplateVideoSpec(BaseModel):
+    """AdCreativeLinkDataTemplateVideoSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56878,7 +56878,7 @@ class Adcreativelinkdatatemplatevideospec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdatatemplatevideospec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataTemplateVideoSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56887,8 +56887,8 @@ class Adcreativelinkdatatemplatevideospec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adrulehistoryresultaction(BaseModel):
-    """Adrulehistoryresultaction model"""
+class AdRuleHistoryResultAction(BaseModel):
+    """AdRuleHistoryResultAction model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56908,7 +56908,7 @@ class Adrulehistoryresultaction(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adrulehistoryresultaction":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleHistoryResultAction":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56917,8 +56917,8 @@ class Adrulehistoryresultaction(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messengerbusinesstemplate(BaseModel):
-    """Messengerbusinesstemplate model"""
+class MessengerBusinessTemplate(BaseModel):
+    """MessengerBusinessTemplate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56958,7 +56958,7 @@ class Messengerbusinesstemplate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messengerbusinesstemplate":
+    def from_dict(cls, data: dict[str, Any]) -> "MessengerBusinessTemplate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -56967,8 +56967,8 @@ class Messengerbusinesstemplate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mailingaddress(BaseModel):
-    """Mailingaddress model"""
+class MailingAddress(BaseModel):
+    """MailingAddress model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -56996,7 +56996,7 @@ class Mailingaddress(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mailingaddress":
+    def from_dict(cls, data: dict[str, Any]) -> "MailingAddress":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57005,8 +57005,8 @@ class Mailingaddress(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offsitesignalcontainerbusinessobject(BaseModel):
-    """Offsitesignalcontainerbusinessobject model"""
+class OffsiteSignalContainerBusinessObject(BaseModel):
+    """OffsiteSignalContainerBusinessObject model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57036,7 +57036,7 @@ class Offsitesignalcontainerbusinessobject(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offsitesignalcontainerbusinessobject":
+    def from_dict(cls, data: dict[str, Any]) -> "OffsiteSignalContainerBusinessObject":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57045,8 +57045,8 @@ class Offsitesignalcontainerbusinessobject(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencedatasource(BaseModel):
-    """Customaudiencedatasource model"""
+class CustomAudienceDataSource(BaseModel):
+    """CustomAudienceDataSource model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57064,7 +57064,7 @@ class Customaudiencedatasource(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencedatasource":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceDataSource":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57073,8 +57073,8 @@ class Customaudiencedatasource(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountspendlimit(BaseModel):
-    """Adaccountspendlimit model"""
+class AdAccountSpendLimit(BaseModel):
+    """AdAccountSpendLimit model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57100,7 +57100,7 @@ class Adaccountspendlimit(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountspendlimit":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountSpendLimit":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57109,14 +57109,14 @@ class Adaccountspendlimit(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgencustomdisclaimer(BaseModel):
-    """Leadgencustomdisclaimer model"""
+class LeadGenCustomDisclaimer(BaseModel):
+    """LeadGenCustomDisclaimer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    body: Optional["Leadgencustomdisclaimerbody"] = Field(None, description="Body")
+    body: Optional["LeadGenCustomDisclaimerBody"] = Field(None, description="Body")
 
-    checkboxes: Optional[list["Leadgenlegalcontentcheckbox"]] = Field(
+    checkboxes: Optional[list["LeadGenLegalContentCheckbox"]] = Field(
         None, description="Checkboxes"
     )
 
@@ -57130,7 +57130,7 @@ class Leadgencustomdisclaimer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgencustomdisclaimer":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenCustomDisclaimer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57139,8 +57139,8 @@ class Leadgencustomdisclaimer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogcheckmarketplacepartnersellersstatus(BaseModel):
-    """Productcatalogcheckmarketplacepartnersellersstatus model"""
+class ProductCatalogCheckMarketplacePartnerSellersStatus(BaseModel):
+    """ProductCatalogCheckMarketplacePartnerSellersStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57160,7 +57160,7 @@ class Productcatalogcheckmarketplacepartnersellersstatus(BaseModel):
     @classmethod
     def from_dict(
         cls, data: dict[str, Any]
-    ) -> "Productcatalogcheckmarketplacepartnersellersstatus":
+    ) -> "ProductCatalogCheckMarketplacePartnerSellersStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57169,38 +57169,38 @@ class Productcatalogcheckmarketplacepartnersellersstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspeccarouselchildattachment(BaseModel):
-    """Adassetfeedspeccarouselchildattachment model"""
+class AdAssetFeedSpecCarouselChildAttachment(BaseModel):
+    """AdAssetFeedSpecCarouselChildAttachment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    body_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Body Label")
+    body_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Body Label")
 
-    call_to_action_type_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    call_to_action_type_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Call To Action Type Label"
     )
 
-    caption_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Caption Label")
+    caption_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Caption Label")
 
-    description_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    description_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Description Label"
     )
 
-    image_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Image Label")
+    image_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Image Label")
 
-    link_url_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    link_url_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Link Url Label"
     )
 
-    phone_data_ids_label: Optional["Adassetfeedspecassetlabel"] = Field(
+    phone_data_ids_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(
         None, description="Phone Data Ids Label"
     )
 
     static_card: Optional[bool] = Field(None, description="Static Card")
 
-    title_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Title Label")
+    title_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Title Label")
 
-    video_label: Optional["Adassetfeedspecassetlabel"] = Field(None, description="Video Label")
+    video_label: Optional["AdAssetFeedSpecAssetLabel"] = Field(None, description="Video Label")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -57210,7 +57210,7 @@ class Adassetfeedspeccarouselchildattachment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspeccarouselchildattachment":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecCarouselChildAttachment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57219,8 +57219,8 @@ class Adassetfeedspeccarouselchildattachment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productsetmetadata(BaseModel):
-    """Productsetmetadata model"""
+class ProductSetMetadata(BaseModel):
+    """ProductSetMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57240,7 +57240,7 @@ class Productsetmetadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productsetmetadata":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductSetMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57249,8 +57249,8 @@ class Productsetmetadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstabular(BaseModel):
-    """Adstabular model"""
+class AdsTabular(BaseModel):
+    """AdsTabular model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57264,7 +57264,7 @@ class Adstabular(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstabular":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsTabular":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57273,8 +57273,8 @@ class Adstabular(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesstag(BaseModel):
-    """Businesstag model"""
+class BusinessTag(BaseModel):
+    """BusinessTag model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57290,7 +57290,7 @@ class Businesstag(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesstag":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessTag":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57299,8 +57299,8 @@ class Businesstag(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsimagecrops(BaseModel):
-    """Adsimagecrops model"""
+class AdsImageCrops(BaseModel):
+    """AdsImageCrops model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57326,7 +57326,7 @@ class Adsimagecrops(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsimagecrops":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsImageCrops":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57335,8 +57335,8 @@ class Adsimagecrops(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dynamicitemdisplaybundle(BaseModel):
-    """Dynamicitemdisplaybundle model"""
+class DynamicItemDisplayBundle(BaseModel):
+    """DynamicItemDisplayBundle model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57348,7 +57348,7 @@ class Dynamicitemdisplaybundle(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    product_set: Optional["Productset"] = Field(None, description="Product Set")
+    product_set: Optional["ProductSet"] = Field(None, description="Product Set")
 
     text_tokens: Optional[list[dict[str, str]]] = Field(None, description="Text Tokens")
 
@@ -57362,7 +57362,7 @@ class Dynamicitemdisplaybundle(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dynamicitemdisplaybundle":
+    def from_dict(cls, data: dict[str, Any]) -> "DynamicItemDisplayBundle":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57371,20 +57371,20 @@ class Dynamicitemdisplaybundle(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogimagesettingsinternal(BaseModel):
-    """Productcatalogimagesettingsinternal model"""
+class ProductCatalogImageSettingsInternal(BaseModel):
+    """ProductCatalogImageSettingsInternal model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    carousel_ad: Optional["Productcatalogimagesettingsoperation"] = Field(
+    carousel_ad: Optional["ProductCatalogImageSettingsOperation"] = Field(
         None, description="Carousel Ad"
     )
 
-    shops_pdp: Optional["Productcatalogimagesettingsoperation"] = Field(
+    shops_pdp: Optional["ProductCatalogImageSettingsOperation"] = Field(
         None, description="Shops Pdp"
     )
 
-    single_ad: Optional["Productcatalogimagesettingsoperation"] = Field(
+    single_ad: Optional["ProductCatalogImageSettingsOperation"] = Field(
         None, description="Single Ad"
     )
 
@@ -57396,7 +57396,7 @@ class Productcatalogimagesettingsinternal(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogimagesettingsinternal":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogImageSettingsInternal":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57405,8 +57405,8 @@ class Productcatalogimagesettingsinternal(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesspartnerpremiumoptions(BaseModel):
-    """Businesspartnerpremiumoptions model"""
+class BusinessPartnerPremiumOptions(BaseModel):
+    """BusinessPartnerPremiumOptions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57428,7 +57428,7 @@ class Businesspartnerpremiumoptions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesspartnerpremiumoptions":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessPartnerPremiumOptions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57437,8 +57437,8 @@ class Businesspartnerpremiumoptions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Franchiseprogrammember(BaseModel):
-    """Franchiseprogrammember model"""
+class FranchiseProgramMember(BaseModel):
+    """FranchiseProgramMember model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57450,7 +57450,7 @@ class Franchiseprogrammember(BaseModel):
 
     join_date: Optional[datetime] = Field(None, description="Join Date")
 
-    member_ad_account: Optional["Adaccount"] = Field(None, description="Member Ad Account")
+    member_ad_account: Optional["AdAccount"] = Field(None, description="Member Ad Account")
 
     member_user: Optional["User"] = Field(None, description="Member User")
 
@@ -57466,7 +57466,7 @@ class Franchiseprogrammember(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Franchiseprogrammember":
+    def from_dict(cls, data: dict[str, Any]) -> "FranchiseProgramMember":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57475,8 +57475,8 @@ class Franchiseprogrammember(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstudyobjectiveid(BaseModel):
-    """Adstudyobjectiveid model"""
+class AdStudyObjectiveID(BaseModel):
+    """AdStudyObjectiveID model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57494,7 +57494,7 @@ class Adstudyobjectiveid(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstudyobjectiveid":
+    def from_dict(cls, data: dict[str, Any]) -> "AdStudyObjectiveID":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57503,8 +57503,8 @@ class Adstudyobjectiveid(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Outcomepredictionpoint(BaseModel):
-    """Outcomepredictionpoint model"""
+class OutcomePredictionPoint(BaseModel):
+    """OutcomePredictionPoint model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57524,7 +57524,7 @@ class Outcomepredictionpoint(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Outcomepredictionpoint":
+    def from_dict(cls, data: dict[str, Any]) -> "OutcomePredictionPoint":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57533,8 +57533,8 @@ class Outcomepredictionpoint(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenthankyoupagegatedfile(BaseModel):
-    """Leadgenthankyoupagegatedfile model"""
+class LeadGenThankYouPageGatedFile(BaseModel):
+    """LeadGenThankYouPageGatedFile model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57554,7 +57554,7 @@ class Leadgenthankyoupagegatedfile(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenthankyoupagegatedfile":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenThankYouPageGatedFile":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57563,8 +57563,8 @@ class Leadgenthankyoupagegatedfile(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Eventtour(BaseModel):
-    """Eventtour model"""
+class EventTour(BaseModel):
+    """EventTour model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57594,7 +57594,7 @@ class Eventtour(BaseModel):
 
     ticketing_uri: Optional[str] = Field(None, description="Ticketing Uri")
 
-    video: Optional["Advideo"] = Field(None, description="Video")
+    video: Optional["AdVideo"] = Field(None, description="Video")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -57604,7 +57604,7 @@ class Eventtour(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Eventtour":
+    def from_dict(cls, data: dict[str, Any]) -> "EventTour":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57613,18 +57613,18 @@ class Eventtour(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageaboutstorycomposedblock(BaseModel):
-    """Pageaboutstorycomposedblock model"""
+class PageAboutStoryComposedBlock(BaseModel):
+    """PageAboutStoryComposedBlock model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     depth: Optional[int] = Field(None, description="Depth")
 
-    entity_ranges: Optional[list["Pageaboutstorycomposedblockentityranges"]] = Field(
+    entity_ranges: Optional[list["PageAboutStoryComposedBlockEntityRanges"]] = Field(
         None, description="Entity Ranges"
     )
 
-    inline_style_ranges: Optional[list["Pageaboutstorycomposedblockinlinestyle"]] = Field(
+    inline_style_ranges: Optional[list["PageAboutStoryComposedBlockInlineStyle"]] = Field(
         None, description="Inline Style Ranges"
     )
 
@@ -57640,7 +57640,7 @@ class Pageaboutstorycomposedblock(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageaboutstorycomposedblock":
+    def from_dict(cls, data: dict[str, Any]) -> "PageAboutStoryComposedBlock":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57649,8 +57649,8 @@ class Pageaboutstorycomposedblock(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixeldomainlastfiredtime(BaseModel):
-    """Adspixeldomainlastfiredtime model"""
+class AdsPixelDomainLastFiredTime(BaseModel):
+    """AdsPixelDomainLastFiredTime model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57666,7 +57666,7 @@ class Adspixeldomainlastfiredtime(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixeldomainlastfiredtime":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelDomainLastFiredTime":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57675,12 +57675,12 @@ class Adspixeldomainlastfiredtime(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecdescription(BaseModel):
-    """Adassetfeedspecdescription model"""
+class AdAssetFeedSpecDescription(BaseModel):
+    """AdAssetFeedSpecDescription model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     text: Optional[str] = Field(None, description="Text")
 
@@ -57694,7 +57694,7 @@ class Adassetfeedspecdescription(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecdescription":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecDescription":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57703,8 +57703,8 @@ class Adassetfeedspecdescription(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeportraitcustomizations(BaseModel):
-    """Adcreativeportraitcustomizations model"""
+class AdCreativePortraitCustomizations(BaseModel):
+    """AdCreativePortraitCustomizations model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57720,7 +57720,7 @@ class Adcreativeportraitcustomizations(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeportraitcustomizations":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativePortraitCustomizations":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57729,8 +57729,8 @@ class Adcreativeportraitcustomizations(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenappointmenttimeslot(BaseModel):
-    """Leadgenappointmenttimeslot model"""
+class LeadGenAppointmentTimeSlot(BaseModel):
+    """LeadGenAppointmentTimeSlot model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57746,7 +57746,7 @@ class Leadgenappointmenttimeslot(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenappointmenttimeslot":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenAppointmentTimeSlot":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57755,12 +57755,12 @@ class Leadgenappointmenttimeslot(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativefeaturedetails(BaseModel):
-    """Adcreativefeaturedetails model"""
+class AdCreativeFeatureDetails(BaseModel):
+    """AdCreativeFeatureDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    customizations: Optional["Adcreativefeaturecustomizations"] = Field(
+    customizations: Optional["AdCreativeFeatureCustomizations"] = Field(
         None, description="Customizations"
     )
 
@@ -57774,7 +57774,7 @@ class Adcreativefeaturedetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativefeaturedetails":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeFeatureDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57783,8 +57783,8 @@ class Adcreativefeaturedetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Creativeassettag(BaseModel):
-    """Creativeassettag model"""
+class CreativeAssetTag(BaseModel):
+    """CreativeAssetTag model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57798,7 +57798,7 @@ class Creativeassettag(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Creativeassettag":
+    def from_dict(cls, data: dict[str, Any]) -> "CreativeAssetTag":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57807,12 +57807,12 @@ class Creativeassettag(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgendraftquestion(BaseModel):
-    """Leadgendraftquestion model"""
+class LeadGenDraftQuestion(BaseModel):
+    """LeadGenDraftQuestion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    conditional_questions_choices: Optional[list["Leadgenconditionalquestionsgroupchoices"]] = (
+    conditional_questions_choices: Optional[list["LeadGenConditionalQuestionsGroupChoices"]] = (
         Field(None, description="Conditional Questions Choices")
     )
 
@@ -57820,7 +57820,7 @@ class Leadgendraftquestion(BaseModel):
         None, description="Conditional Questions Group Id"
     )
 
-    dependent_conditional_questions: Optional[list["Leadgenconditionalquestionsgroupquestions"]] = (
+    dependent_conditional_questions: Optional[list["LeadGenConditionalQuestionsGroupQuestions"]] = (
         Field(None, description="Dependent Conditional Questions")
     )
 
@@ -57830,7 +57830,7 @@ class Leadgendraftquestion(BaseModel):
 
     label: Optional[str] = Field(None, description="Label")
 
-    options: Optional[list["Leadgenquestionoption"]] = Field(None, description="Options")
+    options: Optional[list["LeadGenQuestionOption"]] = Field(None, description="Options")
 
     type: Optional[str] = Field(None, description="Type")
 
@@ -57842,7 +57842,7 @@ class Leadgendraftquestion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgendraftquestion":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenDraftQuestion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57851,12 +57851,12 @@ class Leadgendraftquestion(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Savedaudience(BaseModel):
-    """Savedaudience model"""
+class SavedAudience(BaseModel):
+    """SavedAudience model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    account: Optional["Adaccount"] = Field(None, description="Account")
+    account: Optional["AdAccount"] = Field(None, description="Account")
 
     approximate_count_lower_bound: Optional[int] = Field(
         None, description="Approximate Count Lower Bound"
@@ -57874,7 +57874,7 @@ class Savedaudience(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    operation_status: Optional["Customaudiencestatus"] = Field(None, description="Operation Status")
+    operation_status: Optional["CustomAudienceStatus"] = Field(None, description="Operation Status")
 
     owner_business: Optional["Business"] = Field(None, description="Owner Business")
 
@@ -57882,7 +57882,7 @@ class Savedaudience(BaseModel):
         None, description="Page Deletion Marked Delete Time"
     )
 
-    permission_for_actions: Optional["Audiencepermissionforactions"] = Field(
+    permission_for_actions: Optional["AudiencePermissionForActions"] = Field(
         None, description="Permission For Actions"
     )
 
@@ -57904,7 +57904,7 @@ class Savedaudience(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Savedaudience":
+    def from_dict(cls, data: dict[str, Any]) -> "SavedAudience":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57913,8 +57913,8 @@ class Savedaudience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adrule(BaseModel):
-    """Adrule model"""
+class AdRule(BaseModel):
+    """AdRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -57926,15 +57926,15 @@ class Adrule(BaseModel):
 
     disable_error_code: Optional[int] = Field(None, description="Disable Error Code")
 
-    evaluation_spec: Optional["Adruleevaluationspec"] = Field(None, description="Evaluation Spec")
+    evaluation_spec: Optional["AdRuleEvaluationSpec"] = Field(None, description="Evaluation Spec")
 
-    execution_spec: Optional["Adruleexecutionspec"] = Field(None, description="Execution Spec")
+    execution_spec: Optional["AdRuleExecutionSpec"] = Field(None, description="Execution Spec")
 
     id: Optional[str] = Field(None, description="Id")
 
     name: Optional[str] = Field(None, description="Name")
 
-    schedule_spec: Optional["Adruleschedulespec"] = Field(None, description="Schedule Spec")
+    schedule_spec: Optional["AdRuleScheduleSpec"] = Field(None, description="Schedule Spec")
 
     status: Optional[str] = Field(None, description="Status")
 
@@ -57948,7 +57948,7 @@ class Adrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adrule":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -57957,8 +57957,8 @@ class Adrule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenformpreviewdetails(BaseModel):
-    """Leadgenformpreviewdetails model"""
+class LeadGenFormPreviewDetails(BaseModel):
+    """LeadGenFormPreviewDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58110,7 +58110,7 @@ class Leadgenformpreviewdetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenformpreviewdetails":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenFormPreviewDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58119,8 +58119,8 @@ class Leadgenformpreviewdetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenform(BaseModel):
-    """Leadgenform model"""
+class LeadgenForm(BaseModel):
+    """LeadgenForm model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58130,7 +58130,7 @@ class Leadgenform(BaseModel):
         None, description="Block Display For Non Targeted Viewer"
     )
 
-    context_card: Optional["Leadgencontextcard"] = Field(None, description="Context Card")
+    context_card: Optional["LeadGenContextCard"] = Field(None, description="Context Card")
 
     created_time: Optional[datetime] = Field(None, description="Created Time")
 
@@ -58148,7 +58148,7 @@ class Leadgenform(BaseModel):
 
     leads_count: Optional[int] = Field(None, description="Leads Count")
 
-    legal_content: Optional["Leadgenlegalcontent"] = Field(None, description="Legal Content")
+    legal_content: Optional["LeadGenLegalContent"] = Field(None, description="Legal Content")
 
     locale: Optional[str] = Field(None, description="Locale")
 
@@ -58166,11 +58166,11 @@ class Leadgenform(BaseModel):
         None, description="Question Page Custom Headline"
     )
 
-    questions: Optional[list["Leadgenquestion"]] = Field(None, description="Questions")
+    questions: Optional[list["LeadGenQuestion"]] = Field(None, description="Questions")
 
     status: Optional[str] = Field(None, description="Status")
 
-    thank_you_page: Optional["Leadgenthankyoupage"] = Field(None, description="Thank You Page")
+    thank_you_page: Optional["LeadGenThankYouPage"] = Field(None, description="Thank You Page")
 
     tracking_parameters: Optional[list[dict[str, str]]] = Field(
         None, description="Tracking Parameters"
@@ -58184,7 +58184,7 @@ class Leadgenform(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenform":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadgenForm":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58193,8 +58193,8 @@ class Leadgenform(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagethreadowner(BaseModel):
-    """Pagethreadowner model"""
+class PageThreadOwner(BaseModel):
+    """PageThreadOwner model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58208,7 +58208,7 @@ class Pagethreadowner(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagethreadowner":
+    def from_dict(cls, data: dict[str, Any]) -> "PageThreadOwner":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58217,8 +58217,8 @@ class Pagethreadowner(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeeduploaderror(BaseModel):
-    """Productfeeduploaderror model"""
+class ProductFeedUploadError(BaseModel):
+    """ProductFeedUploadError model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58246,7 +58246,7 @@ class Productfeeduploaderror(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeeduploaderror":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedUploadError":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58255,12 +58255,12 @@ class Productfeeduploaderror(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adlabel(BaseModel):
-    """Adlabel model"""
+class AdLabel(BaseModel):
+    """AdLabel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    account: Optional["Adaccount"] = Field(None, description="Account")
+    account: Optional["AdAccount"] = Field(None, description="Account")
 
     created_time: Optional[datetime] = Field(None, description="Created Time")
 
@@ -58278,7 +58278,7 @@ class Adlabel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adlabel":
+    def from_dict(cls, data: dict[str, Any]) -> "AdLabel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58287,8 +58287,8 @@ class Adlabel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Calibratorexistingrule(BaseModel):
-    """Calibratorexistingrule model"""
+class CalibratorExistingRule(BaseModel):
+    """CalibratorExistingRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58322,7 +58322,7 @@ class Calibratorexistingrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Calibratorexistingrule":
+    def from_dict(cls, data: dict[str, Any]) -> "CalibratorExistingRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58331,8 +58331,8 @@ class Calibratorexistingrule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videocopyrightmatch(BaseModel):
-    """Videocopyrightmatch model"""
+class VideoCopyrightMatch(BaseModel):
+    """VideoCopyrightMatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58360,7 +58360,7 @@ class Videocopyrightmatch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videocopyrightmatch":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoCopyrightMatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58369,8 +58369,8 @@ class Videocopyrightmatch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemunitprice(BaseModel):
-    """Productitemunitprice model"""
+class ProductItemUnitPrice(BaseModel):
+    """ProductItemUnitPrice model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58382,7 +58382,7 @@ class Productitemunitprice(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemunitprice":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemUnitPrice":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58391,8 +58391,8 @@ class Productitemunitprice(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Storecatalogsettings(BaseModel):
-    """Storecatalogsettings model"""
+class StoreCatalogSettings(BaseModel):
+    """StoreCatalogSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58408,7 +58408,7 @@ class Storecatalogsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Storecatalogsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "StoreCatalogSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58417,12 +58417,12 @@ class Storecatalogsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Partneraccountlinking(BaseModel):
-    """Partneraccountlinking model"""
+class PartnerAccountLinking(BaseModel):
+    """PartnerAccountLinking model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adaccount: Optional["Adaccount"] = Field(None, description="Adaccount")
+    adaccount: Optional["AdAccount"] = Field(None, description="Adaccount")
 
     app: Optional["Application"] = Field(None, description="App")
 
@@ -58446,7 +58446,7 @@ class Partneraccountlinking(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Partneraccountlinking":
+    def from_dict(cls, data: dict[str, Any]) -> "PartnerAccountLinking":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58455,8 +58455,8 @@ class Partneraccountlinking(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Commerceordertransactiondetail(BaseModel):
-    """Commerceordertransactiondetail model"""
+class CommerceOrderTransactionDetail(BaseModel):
+    """CommerceOrderTransactionDetail model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58466,7 +58466,7 @@ class Commerceordertransactiondetail(BaseModel):
 
     order_created: Optional[str] = Field(None, description="Order Created")
 
-    order_details: Optional["Commerceorder"] = Field(None, description="Order Details")
+    order_details: Optional["CommerceOrder"] = Field(None, description="Order Details")
 
     order_id: Optional[str] = Field(None, description="Order Id")
 
@@ -58494,7 +58494,7 @@ class Commerceordertransactiondetail(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Commerceordertransactiondetail":
+    def from_dict(cls, data: dict[str, Any]) -> "CommerceOrderTransactionDetail":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58503,8 +58503,8 @@ class Commerceordertransactiondetail(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Websitecreativeassetsource(BaseModel):
-    """Websitecreativeassetsource model"""
+class WebsiteCreativeAssetSource(BaseModel):
+    """WebsiteCreativeAssetSource model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58520,7 +58520,7 @@ class Websitecreativeassetsource(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Websitecreativeassetsource":
+    def from_dict(cls, data: dict[str, Any]) -> "WebsiteCreativeAssetSource":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58529,8 +58529,8 @@ class Websitecreativeassetsource(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Minimumbudget(BaseModel):
-    """Minimumbudget model"""
+class MinimumBudget(BaseModel):
+    """MinimumBudget model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58556,7 +58556,7 @@ class Minimumbudget(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Minimumbudget":
+    def from_dict(cls, data: dict[str, Any]) -> "MinimumBudget":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58565,8 +58565,8 @@ class Minimumbudget(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenthankyoupagegatedpromo(BaseModel):
-    """Leadgenthankyoupagegatedpromo model"""
+class LeadGenThankYouPageGatedPromo(BaseModel):
+    """LeadGenThankYouPageGatedPromo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58584,7 +58584,7 @@ class Leadgenthankyoupagegatedpromo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenthankyoupagegatedpromo":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenThankYouPageGatedPromo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58623,8 +58623,8 @@ class Place(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeinteractivecomponentsspec(BaseModel):
-    """Adcreativeinteractivecomponentsspec model"""
+class AdCreativeInteractiveComponentsSpec(BaseModel):
+    """AdCreativeInteractiveComponentsSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58640,7 +58640,7 @@ class Adcreativeinteractivecomponentsspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeinteractivecomponentsspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeInteractiveComponentsSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58649,8 +58649,8 @@ class Adcreativeinteractivecomponentsspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Woodhengesupporter(BaseModel):
-    """Woodhengesupporter model"""
+class WoodhengeSupporter(BaseModel):
+    """WoodhengeSupporter model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58678,7 +58678,7 @@ class Woodhengesupporter(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Woodhengesupporter":
+    def from_dict(cls, data: dict[str, Any]) -> "WoodhengeSupporter":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58687,8 +58687,8 @@ class Woodhengesupporter(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessmediaadplacementvalidationresult(BaseModel):
-    """Businessmediaadplacementvalidationresult model"""
+class BusinessMediaAdPlacementValidationResult(BaseModel):
+    """BusinessMediaAdPlacementValidationResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58708,7 +58708,7 @@ class Businessmediaadplacementvalidationresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessmediaadplacementvalidationresult":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessMediaAdPlacementValidationResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58717,8 +58717,8 @@ class Businessmediaadplacementvalidationresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fundraiserpersontocharity(BaseModel):
-    """Fundraiserpersontocharity model"""
+class FundraiserPersonToCharity(BaseModel):
+    """FundraiserPersonToCharity model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58776,7 +58776,7 @@ class Fundraiserpersontocharity(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fundraiserpersontocharity":
+    def from_dict(cls, data: dict[str, Any]) -> "FundraiserPersonToCharity":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58785,8 +58785,8 @@ class Fundraiserpersontocharity(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowigusercatalogproductvariant(BaseModel):
-    """Shadowigusercatalogproductvariant model"""
+class ShadowIGUserCatalogProductVariant(BaseModel):
+    """ShadowIGUserCatalogProductVariant model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58802,7 +58802,7 @@ class Shadowigusercatalogproductvariant(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowigusercatalogproductvariant":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGUserCatalogProductVariant":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58811,8 +58811,8 @@ class Shadowigusercatalogproductvariant(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igboostmediaad(BaseModel):
-    """Igboostmediaad model"""
+class IGBoostMediaAd(BaseModel):
+    """IGBoostMediaAd model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58828,7 +58828,7 @@ class Igboostmediaad(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igboostmediaad":
+    def from_dict(cls, data: dict[str, Any]) -> "IGBoostMediaAd":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58865,8 +58865,8 @@ class Organization(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountbankinfolist(BaseModel):
-    """Adaccountbankinfolist model"""
+class AdAccountBankInfoList(BaseModel):
+    """AdAccountBankInfoList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58880,7 +58880,7 @@ class Adaccountbankinfolist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountbankinfolist":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountBankInfoList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58889,8 +58889,8 @@ class Adaccountbankinfolist(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpascollaborationrequest(BaseModel):
-    """Cpascollaborationrequest model"""
+class CPASCollaborationRequest(BaseModel):
+    """CPASCollaborationRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58922,7 +58922,7 @@ class Cpascollaborationrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpascollaborationrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASCollaborationRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58931,8 +58931,8 @@ class Cpascollaborationrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Broadtargetingcategories(BaseModel):
-    """Broadtargetingcategories model"""
+class BroadTargetingCategories(BaseModel):
+    """BroadTargetingCategories model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -58968,7 +58968,7 @@ class Broadtargetingcategories(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Broadtargetingcategories":
+    def from_dict(cls, data: dict[str, Any]) -> "BroadTargetingCategories":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -58977,8 +58977,8 @@ class Broadtargetingcategories(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videostats(BaseModel):
-    """Videostats model"""
+class VideoStats(BaseModel):
+    """VideoStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59006,7 +59006,7 @@ class Videostats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videostats":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59015,8 +59015,8 @@ class Videostats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Conversionhealthkpi(BaseModel):
-    """Conversionhealthkpi model"""
+class ConversionHealthKPI(BaseModel):
+    """ConversionHealthKPI model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59058,7 +59058,7 @@ class Conversionhealthkpi(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Conversionhealthkpi":
+    def from_dict(cls, data: dict[str, Any]) -> "ConversionHealthKPI":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59067,8 +59067,8 @@ class Conversionhealthkpi(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagepost(BaseModel):
-    """Pagepost model"""
+class PagePost(BaseModel):
+    """PagePost model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59194,7 +59194,7 @@ class Pagepost(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagepost":
+    def from_dict(cls, data: dict[str, Any]) -> "PagePost":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59203,8 +59203,8 @@ class Pagepost(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Analyticsconfig(BaseModel):
-    """Analyticsconfig model"""
+class AnalyticsConfig(BaseModel):
+    """AnalyticsConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59300,7 +59300,7 @@ class Analyticsconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Analyticsconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "AnalyticsConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59309,8 +59309,8 @@ class Analyticsconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Windowsphoneapplink(BaseModel):
-    """Windowsphoneapplink model"""
+class WindowsPhoneAppLink(BaseModel):
+    """WindowsPhoneAppLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59328,7 +59328,7 @@ class Windowsphoneapplink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Windowsphoneapplink":
+    def from_dict(cls, data: dict[str, Any]) -> "WindowsPhoneAppLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59337,8 +59337,8 @@ class Windowsphoneapplink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignpacedbidinfo(BaseModel):
-    """Adcampaignpacedbidinfo model"""
+class AdCampaignPacedBidInfo(BaseModel):
+    """AdCampaignPacedBidInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59352,7 +59352,7 @@ class Adcampaignpacedbidinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignpacedbidinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignPacedBidInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59361,8 +59361,8 @@ class Adcampaignpacedbidinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Useravailablecatalogs(BaseModel):
-    """Useravailablecatalogs model"""
+class UserAvailableCatalogs(BaseModel):
+    """UserAvailableCatalogs model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59382,7 +59382,7 @@ class Useravailablecatalogs(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Useravailablecatalogs":
+    def from_dict(cls, data: dict[str, Any]) -> "UserAvailableCatalogs":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59391,8 +59391,8 @@ class Useravailablecatalogs(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Timezoneoffset(BaseModel):
-    """Timezoneoffset model"""
+class TimezoneOffset(BaseModel):
+    """TimezoneOffset model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59414,7 +59414,7 @@ class Timezoneoffset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Timezoneoffset":
+    def from_dict(cls, data: dict[str, Any]) -> "TimezoneOffset":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59423,8 +59423,8 @@ class Timezoneoffset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Jobopening(BaseModel):
-    """Jobopening model"""
+class JobOpening(BaseModel):
+    """JobOpening model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59490,7 +59490,7 @@ class Jobopening(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Jobopening":
+    def from_dict(cls, data: dict[str, Any]) -> "JobOpening":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59499,8 +59499,8 @@ class Jobopening(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Voipinfo(BaseModel):
-    """Voipinfo model"""
+class VoipInfo(BaseModel):
+    """VoipInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59526,7 +59526,7 @@ class Voipinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Voipinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "VoipInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59535,12 +59535,12 @@ class Voipinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Extendedcreditallocationconfig(BaseModel):
-    """Extendedcreditallocationconfig model"""
+class ExtendedCreditAllocationConfig(BaseModel):
+    """ExtendedCreditAllocationConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    currency_amount: Optional["Currencyamount"] = Field(None, description="Currency Amount")
+    currency_amount: Optional["CurrencyAmount"] = Field(None, description="Currency Amount")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -59548,13 +59548,13 @@ class Extendedcreditallocationconfig(BaseModel):
 
     owning_business: Optional["Business"] = Field(None, description="Owning Business")
 
-    owning_credential: Optional["Extendedcredit"] = Field(None, description="Owning Credential")
+    owning_credential: Optional["ExtendedCredit"] = Field(None, description="Owning Credential")
 
     partition_type: Optional[str] = Field(None, description="Partition Type")
 
     receiving_business: Optional["Business"] = Field(None, description="Receiving Business")
 
-    receiving_credential: Optional["Extendedcredit"] = Field(
+    receiving_credential: Optional["ExtendedCredit"] = Field(
         None, description="Receiving Credential"
     )
 
@@ -59570,7 +59570,7 @@ class Extendedcreditallocationconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Extendedcreditallocationconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "ExtendedCreditAllocationConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59579,8 +59579,8 @@ class Extendedcreditallocationconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativefacebookbrandedcontent(BaseModel):
-    """Adcreativefacebookbrandedcontent model"""
+class AdCreativeFacebookBrandedContent(BaseModel):
+    """AdCreativeFacebookBrandedContent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59598,7 +59598,7 @@ class Adcreativefacebookbrandedcontent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativefacebookbrandedcontent":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeFacebookBrandedContent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59607,8 +59607,8 @@ class Adcreativefacebookbrandedcontent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsusersettings(BaseModel):
-    """Adsusersettings model"""
+class AdsUserSettings(BaseModel):
+    """AdsUserSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -59786,7 +59786,7 @@ class Adsusersettings(BaseModel):
 
     saon_migr_l1_seen_status: Optional[str] = Field(None, description="Saon Migr L1 Seen Status")
 
-    selected_ad_account: Optional["Adaccount"] = Field(None, description="Selected Ad Account")
+    selected_ad_account: Optional["AdAccount"] = Field(None, description="Selected Ad Account")
 
     selected_comparison_timerange: Optional[dict[str, Any]] = Field(
         None, description="Selected Comparison Timerange"
@@ -59880,7 +59880,7 @@ class Adsusersettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsusersettings":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsUserSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -59896,13 +59896,13 @@ class Hotel(BaseModel):
 
     address: Optional[str] = Field(None, description="Address")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     brand: Optional[str] = Field(None, description="Brand")
 
     category: Optional[str] = Field(None, description="Category")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -59993,8 +59993,8 @@ class Hotel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Entwithsponsor(BaseModel):
-    """Entwithsponsor model"""
+class EntWithSponsor(BaseModel):
+    """EntWithSponsor model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60018,7 +60018,7 @@ class Entwithsponsor(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Entwithsponsor":
+    def from_dict(cls, data: dict[str, Any]) -> "EntWithSponsor":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60027,8 +60027,8 @@ class Entwithsponsor(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adstargetinginsights(BaseModel):
-    """Adstargetinginsights model"""
+class AdsTargetingInsights(BaseModel):
+    """AdsTargetingInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60062,7 +60062,7 @@ class Adstargetinginsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adstargetinginsights":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsTargetingInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60071,8 +60071,8 @@ class Adstargetinginsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessvideotbusinessfolderpathitem(BaseModel):
-    """Businessvideotbusinessfolderpathitem model"""
+class BusinessVideoTBusinessFolderPathItem(BaseModel):
+    """BusinessVideoTBusinessFolderPathItem model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60090,7 +60090,7 @@ class Businessvideotbusinessfolderpathitem(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessvideotbusinessfolderpathitem":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessVideoTBusinessFolderPathItem":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60099,8 +60099,8 @@ class Businessvideotbusinessfolderpathitem(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Creativehistory(BaseModel):
-    """Creativehistory model"""
+class CreativeHistory(BaseModel):
+    """CreativeHistory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60116,7 +60116,7 @@ class Creativehistory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Creativehistory":
+    def from_dict(cls, data: dict[str, Any]) -> "CreativeHistory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60125,8 +60125,8 @@ class Creativehistory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mcominvoicedetails(BaseModel):
-    """Mcominvoicedetails model"""
+class McomInvoiceDetails(BaseModel):
+    """McomInvoiceDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60180,7 +60180,7 @@ class Mcominvoicedetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mcominvoicedetails":
+    def from_dict(cls, data: dict[str, Any]) -> "McomInvoiceDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60189,8 +60189,8 @@ class Mcominvoicedetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whatsappbusinesspreverifiedphonenumber(BaseModel):
-    """Whatsappbusinesspreverifiedphonenumber model"""
+class WhatsAppBusinessPreVerifiedPhoneNumber(BaseModel):
+    """WhatsAppBusinessPreVerifiedPhoneNumber model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60218,7 +60218,7 @@ class Whatsappbusinesspreverifiedphonenumber(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whatsappbusinesspreverifiedphonenumber":
+    def from_dict(cls, data: dict[str, Any]) -> "WhatsAppBusinessPreVerifiedPhoneNumber":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60227,8 +60227,8 @@ class Whatsappbusinesspreverifiedphonenumber(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdata(BaseModel):
-    """Adcreativelinkdata model"""
+class AdCreativeLinkData(BaseModel):
+    """AdCreativeLinkData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60236,7 +60236,7 @@ class Adcreativelinkdata(BaseModel):
 
     additional_image_index: Optional[int] = Field(None, description="Additional Image Index")
 
-    app_link_spec: Optional["Adcreativelinkdataapplinkspec"] = Field(
+    app_link_spec: Optional["AdCreativeLinkDataAppLinkSpec"] = Field(
         None, description="App Link Spec"
     )
 
@@ -60254,21 +60254,21 @@ class Adcreativelinkdata(BaseModel):
         None, description="Branded Content Sponsor Page Id"
     )
 
-    call_to_action: Optional["Adcreativelinkdatacalltoaction"] = Field(
+    call_to_action: Optional["AdCreativeLinkDataCallToAction"] = Field(
         None, description="Call To Action"
     )
 
     caption: Optional[str] = Field(None, description="Caption")
 
-    child_attachments: Optional[list["Adcreativelinkdatachildattachment"]] = Field(
+    child_attachments: Optional[list["AdCreativeLinkDataChildAttachment"]] = Field(
         None, description="Child Attachments"
     )
 
-    collection_thumbnails: Optional[list["Adcreativecollectionthumbnailinfo"]] = Field(
+    collection_thumbnails: Optional[list["AdCreativeCollectionThumbnailInfo"]] = Field(
         None, description="Collection Thumbnails"
     )
 
-    customization_rules_spec: Optional[list["Adcustomizationrulespec"]] = Field(
+    customization_rules_spec: Optional[list["AdCustomizationRuleSpec"]] = Field(
         None, description="Customization Rules Spec"
     )
 
@@ -60282,15 +60282,15 @@ class Adcreativelinkdata(BaseModel):
         None, description="Format Option"
     )
 
-    image_crops: Optional["Adsimagecrops"] = Field(None, description="Image Crops")
+    image_crops: Optional["AdsImageCrops"] = Field(None, description="Image Crops")
 
     image_hash: Optional[str] = Field(None, description="Image Hash")
 
-    image_layer_specs: Optional[list["Adcreativelinkdataimagelayerspec"]] = Field(
+    image_layer_specs: Optional[list["AdCreativeLinkDataImageLayerSpec"]] = Field(
         None, description="Image Layer Specs"
     )
 
-    image_overlay_spec: Optional["Adcreativelinkdataimageoverlayspec"] = Field(
+    image_overlay_spec: Optional["AdCreativeLinkDataImageOverlaySpec"] = Field(
         None, description="Image Overlay Spec"
     )
 
@@ -60310,7 +60310,7 @@ class Adcreativelinkdata(BaseModel):
 
     picture: Optional[str] = Field(None, description="Picture")
 
-    post_click_configuration: Optional["Adcreativepostclickconfiguration"] = Field(
+    post_click_configuration: Optional["AdCreativePostClickConfiguration"] = Field(
         None, description="Post Click Configuration"
     )
 
@@ -60322,7 +60322,7 @@ class Adcreativelinkdata(BaseModel):
 
     show_multiple_images: Optional[bool] = Field(None, description="Show Multiple Images")
 
-    static_fallback_spec: Optional["Adcreativestaticfallbackspec"] = Field(
+    static_fallback_spec: Optional["AdCreativeStaticFallbackSpec"] = Field(
         None, description="Static Fallback Spec"
     )
 
@@ -60338,7 +60338,7 @@ class Adcreativelinkdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60347,8 +60347,8 @@ class Adcreativelinkdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Wifiinformation(BaseModel):
-    """Wifiinformation model"""
+class WifiInformation(BaseModel):
+    """WifiInformation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60366,7 +60366,7 @@ class Wifiinformation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Wifiinformation":
+    def from_dict(cls, data: dict[str, Any]) -> "WifiInformation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60375,20 +60375,20 @@ class Wifiinformation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountprepaydetails(BaseModel):
-    """Adaccountprepaydetails model"""
+class AdAccountPrepayDetails(BaseModel):
+    """AdAccountPrepayDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    default_funding_amount: Optional["Currencyamount"] = Field(
+    default_funding_amount: Optional["CurrencyAmount"] = Field(
         None, description="Default Funding Amount"
     )
 
-    max_acceptable_amount: Optional["Currencyamount"] = Field(
+    max_acceptable_amount: Optional["CurrencyAmount"] = Field(
         None, description="Max Acceptable Amount"
     )
 
-    min_acceptable_amount: Optional["Currencyamount"] = Field(
+    min_acceptable_amount: Optional["CurrencyAmount"] = Field(
         None, description="Min Acceptable Amount"
     )
 
@@ -60404,7 +60404,7 @@ class Adaccountprepaydetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountprepaydetails":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountPrepayDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60413,8 +60413,8 @@ class Adaccountprepaydetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adbidadjustments(BaseModel):
-    """Adbidadjustments model"""
+class AdBidAdjustments(BaseModel):
+    """AdBidAdjustments model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60432,7 +60432,7 @@ class Adbidadjustments(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adbidadjustments":
+    def from_dict(cls, data: dict[str, Any]) -> "AdBidAdjustments":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60465,8 +60465,8 @@ class Avatar(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiencesharingrecipientaccounts(BaseModel):
-    """Audiencesharingrecipientaccounts model"""
+class AudienceSharingRecipientAccounts(BaseModel):
+    """AudienceSharingRecipientAccounts model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60494,7 +60494,7 @@ class Audiencesharingrecipientaccounts(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiencesharingrecipientaccounts":
+    def from_dict(cls, data: dict[str, Any]) -> "AudienceSharingRecipientAccounts":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60503,8 +60503,8 @@ class Audiencesharingrecipientaccounts(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messengerprofile(BaseModel):
-    """Messengerprofile model"""
+class MessengerProfile(BaseModel):
+    """MessengerProfile model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60534,7 +60534,7 @@ class Messengerprofile(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messengerprofile":
+    def from_dict(cls, data: dict[str, Any]) -> "MessengerProfile":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60543,8 +60543,8 @@ class Messengerprofile(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsreportbuilder(BaseModel):
-    """Adsreportbuilder model"""
+class AdsReportBuilder(BaseModel):
+    """AdsReportBuilder model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60564,7 +60564,7 @@ class Adsreportbuilder(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsreportbuilder":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsReportBuilder":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60573,26 +60573,26 @@ class Adsreportbuilder(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videostatus(BaseModel):
-    """Videostatus model"""
+class VideoStatus(BaseModel):
+    """VideoStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    copyright_check_status: Optional["Videocopyrightcheckstatus"] = Field(
+    copyright_check_status: Optional["VideoCopyrightCheckStatus"] = Field(
         None, description="Copyright Check Status"
     )
 
-    processing_phase: Optional["Videostatusprocessingphase"] = Field(
+    processing_phase: Optional["VideoStatusProcessingPhase"] = Field(
         None, description="Processing Phase"
     )
 
     processing_progress: Optional[int] = Field(None, description="Processing Progress")
 
-    publishing_phase: Optional["Videostatuspublishingphase"] = Field(
+    publishing_phase: Optional["VideoStatusPublishingPhase"] = Field(
         None, description="Publishing Phase"
     )
 
-    uploading_phase: Optional["Videostatusuploadingphase"] = Field(
+    uploading_phase: Optional["VideoStatusUploadingPhase"] = Field(
         None, description="Uploading Phase"
     )
 
@@ -60606,7 +60606,7 @@ class Videostatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videostatus":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60615,8 +60615,8 @@ class Videostatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productimage(BaseModel):
-    """Productimage model"""
+class ProductImage(BaseModel):
+    """ProductImage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60636,7 +60636,7 @@ class Productimage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productimage":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductImage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60645,8 +60645,8 @@ class Productimage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitem(BaseModel):
-    """Productitem model"""
+class ProductItem(BaseModel):
+    """ProductItem model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60662,7 +60662,7 @@ class Productitem(BaseModel):
 
     age_group: Optional[ProductItem_age_group] = Field(None, description="Age Group")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     availability: Optional[ProductItem_availability] = Field(None, description="Availability")
 
@@ -60678,13 +60678,13 @@ class Productitem(BaseModel):
 
     category: Optional[str] = Field(None, description="Category")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
     color: Optional[str] = Field(None, description="Color")
 
-    commerce_insights: Optional["Productitemcommerceinsights"] = Field(
+    commerce_insights: Optional["ProductItemCommerceInsights"] = Field(
         None, description="Commerce Insights"
     )
 
@@ -60716,7 +60716,7 @@ class Productitem(BaseModel):
 
     description: Optional[str] = Field(None, description="Description")
 
-    errors: Optional[list["Productitemerror"]] = Field(None, description="Errors")
+    errors: Optional[list["ProductItemError"]] = Field(None, description="Errors")
 
     expiration_date: Optional[str] = Field(None, description="Expiration Date")
 
@@ -60724,7 +60724,7 @@ class Productitem(BaseModel):
 
     gender: Optional[ProductItem_gender] = Field(None, description="Gender")
 
-    generated_background_images: Optional[list["Aigeneratedproductimage"]] = Field(
+    generated_background_images: Optional[list["AIGeneratedProductImage"]] = Field(
         None, description="Generated Background Images"
     )
 
@@ -60746,13 +60746,13 @@ class Productitem(BaseModel):
 
     images: Optional[list[str]] = Field(None, description="Images")
 
-    importer_address: Optional["Productitemimporteraddress"] = Field(
+    importer_address: Optional["ProductItemImporterAddress"] = Field(
         None, description="Importer Address"
     )
 
     importer_name: Optional[str] = Field(None, description="Importer Name")
 
-    invalidation_errors: Optional[list["Productiteminvalidationerror"]] = Field(
+    invalidation_errors: Optional[list["ProductItemInvalidationError"]] = Field(
         None, description="Invalidation Errors"
     )
 
@@ -60786,13 +60786,13 @@ class Productitem(BaseModel):
 
     price: Optional[str] = Field(None, description="Price")
 
-    product_catalog: Optional["Productcatalog"] = Field(None, description="Product Catalog")
+    product_catalog: Optional["ProductCatalog"] = Field(None, description="Product Catalog")
 
-    product_feed: Optional["Productfeed"] = Field(None, description="Product Feed")
+    product_feed: Optional["ProductFeed"] = Field(None, description="Product Feed")
 
-    product_group: Optional["Productgroup"] = Field(None, description="Product Group")
+    product_group: Optional["ProductGroup"] = Field(None, description="Product Group")
 
-    product_local_info: Optional["Productitemlocalinfo"] = Field(
+    product_local_info: Optional["ProductItemLocalInfo"] = Field(
         None, description="Product Local Info"
     )
 
@@ -60842,7 +60842,7 @@ class Productitem(BaseModel):
         None, description="Video Fetch Status"
     )
 
-    videos: Optional[list["Productitemvideodata"]] = Field(None, description="Videos")
+    videos: Optional[list["ProductItemVideoData"]] = Field(None, description="Videos")
 
     visibility: Optional[ProductItem_visibility] = Field(None, description="Visibility")
 
@@ -60856,7 +60856,7 @@ class Productitem(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitem":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItem":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60865,8 +60865,8 @@ class Productitem(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Partnercategory(BaseModel):
-    """Partnercategory model"""
+class PartnerCategory(BaseModel):
+    """PartnerCategory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60900,7 +60900,7 @@ class Partnercategory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Partnercategory":
+    def from_dict(cls, data: dict[str, Any]) -> "PartnerCategory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60909,8 +60909,8 @@ class Partnercategory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageleadsaccessconfig(BaseModel):
-    """Pageleadsaccessconfig model"""
+class PageLeadsAccessConfig(BaseModel):
+    """PageLeadsAccessConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60926,7 +60926,7 @@ class Pageleadsaccessconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageleadsaccessconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "PageLeadsAccessConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60935,8 +60935,8 @@ class Pageleadsaccessconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productdeliverypreference(BaseModel):
-    """Productdeliverypreference model"""
+class ProductDeliveryPreference(BaseModel):
+    """ProductDeliveryPreference model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60958,7 +60958,7 @@ class Productdeliverypreference(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productdeliverypreference":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductDeliveryPreference":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60967,8 +60967,8 @@ class Productdeliverypreference(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Trackingandconversionwithdefaults(BaseModel):
-    """Trackingandconversionwithdefaults model"""
+class TrackingAndConversionWithDefaults(BaseModel):
+    """TrackingAndConversionWithDefaults model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -60990,7 +60990,7 @@ class Trackingandconversionwithdefaults(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Trackingandconversionwithdefaults":
+    def from_dict(cls, data: dict[str, Any]) -> "TrackingAndConversionWithDefaults":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -60999,12 +60999,12 @@ class Trackingandconversionwithdefaults(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountdeliveryestimate(BaseModel):
-    """Adaccountdeliveryestimate model"""
+class AdAccountDeliveryEstimate(BaseModel):
+    """AdAccountDeliveryEstimate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    daily_outcomes_curve: Optional[list["Outcomepredictionpoint"]] = Field(
+    daily_outcomes_curve: Optional[list["OutcomePredictionPoint"]] = Field(
         None, description="Daily Outcomes Curve"
     )
 
@@ -61028,7 +61028,7 @@ class Adaccountdeliveryestimate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountdeliveryestimate":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountDeliveryEstimate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61037,8 +61037,8 @@ class Adaccountdeliveryestimate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogproductsetsbatch(BaseModel):
-    """Productcatalogproductsetsbatch model"""
+class ProductCatalogProductSetsBatch(BaseModel):
+    """ProductCatalogProductSetsBatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61058,7 +61058,7 @@ class Productcatalogproductsetsbatch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogproductsetsbatch":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogProductSetsBatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61067,12 +61067,12 @@ class Productcatalogproductsetsbatch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemlocalinfo(BaseModel):
-    """Productitemlocalinfo model"""
+class ProductItemLocalInfo(BaseModel):
+    """ProductItemLocalInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    availability_circle_origin: Optional["Productitemlocalinfolatlongshape"] = Field(
+    availability_circle_origin: Optional["ProductItemLocalInfoLatLongShape"] = Field(
         None, description="Availability Circle Origin"
     )
 
@@ -61084,7 +61084,7 @@ class Productitemlocalinfo(BaseModel):
         None, description="Availability Circle Radius Unit"
     )
 
-    availability_polygon_coordinates: Optional[list["Productitemlocalinfolatlongshape"]] = Field(
+    availability_polygon_coordinates: Optional[list["ProductItemLocalInfoLatLongShape"]] = Field(
         None, description="Availability Polygon Coordinates"
     )
 
@@ -61096,7 +61096,7 @@ class Productitemlocalinfo(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    inferred_circle_origin: Optional["Productitemlocalinfolatlongshape"] = Field(
+    inferred_circle_origin: Optional["ProductItemLocalInfoLatLongShape"] = Field(
         None, description="Inferred Circle Origin"
     )
 
@@ -61110,7 +61110,7 @@ class Productitemlocalinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemlocalinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemLocalInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61119,8 +61119,8 @@ class Productitemlocalinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativefeatureactionmetadata(BaseModel):
-    """Adcreativefeatureactionmetadata model"""
+class AdCreativeFeatureActionMetadata(BaseModel):
+    """AdCreativeFeatureActionMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61134,7 +61134,7 @@ class Adcreativefeatureactionmetadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativefeatureactionmetadata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeFeatureActionMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61143,8 +61143,8 @@ class Adcreativefeatureactionmetadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adrulefilters(BaseModel):
-    """Adrulefilters model"""
+class AdRuleFilters(BaseModel):
+    """AdRuleFilters model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61162,7 +61162,7 @@ class Adrulefilters(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adrulefilters":
+    def from_dict(cls, data: dict[str, Any]) -> "AdRuleFilters":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61171,8 +61171,8 @@ class Adrulefilters(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Taggablesubject(BaseModel):
-    """Taggablesubject model"""
+class TaggableSubject(BaseModel):
+    """TaggableSubject model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61188,7 +61188,7 @@ class Taggablesubject(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Taggablesubject":
+    def from_dict(cls, data: dict[str, Any]) -> "TaggableSubject":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61197,8 +61197,8 @@ class Taggablesubject(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountmatchedsearchapplicationsedgedata(BaseModel):
-    """Adaccountmatchedsearchapplicationsedgedata model"""
+class AdAccountMatchedSearchApplicationsEdgeData(BaseModel):
+    """AdAccountMatchedSearchApplicationsEdgeData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61228,7 +61228,7 @@ class Adaccountmatchedsearchapplicationsedgedata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountmatchedsearchapplicationsedgedata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountMatchedSearchApplicationsEdgeData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61237,8 +61237,8 @@ class Adaccountmatchedsearchapplicationsedgedata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogwebsiteonboardingsettings(BaseModel):
-    """Catalogwebsiteonboardingsettings model"""
+class CatalogWebsiteOnboardingSettings(BaseModel):
+    """CatalogWebsiteOnboardingSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61256,7 +61256,7 @@ class Catalogwebsiteonboardingsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogwebsiteonboardingsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogWebsiteOnboardingSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61265,8 +61265,8 @@ class Catalogwebsiteonboardingsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cloudbridgedatasetstatus(BaseModel):
-    """Cloudbridgedatasetstatus model"""
+class CloudbridgeDatasetStatus(BaseModel):
+    """CloudbridgeDatasetStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61292,7 +61292,7 @@ class Cloudbridgedatasetstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cloudbridgedatasetstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "CloudbridgeDatasetStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61301,8 +61301,8 @@ class Cloudbridgedatasetstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagegetstartednullstate(BaseModel):
-    """Pagegetstartednullstate model"""
+class PageGetStartedNullstate(BaseModel):
+    """PageGetStartedNullstate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61320,7 +61320,7 @@ class Pagegetstartednullstate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagegetstartednullstate":
+    def from_dict(cls, data: dict[str, Any]) -> "PageGetStartedNullstate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61329,8 +61329,8 @@ class Pagegetstartednullstate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mediafingerprint(BaseModel):
-    """Mediafingerprint model"""
+class MediaFingerprint(BaseModel):
+    """MediaFingerprint model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61356,7 +61356,7 @@ class Mediafingerprint(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mediafingerprint":
+    def from_dict(cls, data: dict[str, Any]) -> "MediaFingerprint":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61365,8 +61365,8 @@ class Mediafingerprint(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adlimitsenforcementdata(BaseModel):
-    """Adlimitsenforcementdata model"""
+class AdLimitsEnforcementData(BaseModel):
+    """AdLimitsEnforcementData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61390,7 +61390,7 @@ class Adlimitsenforcementdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adlimitsenforcementdata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdLimitsEnforcementData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61399,16 +61399,16 @@ class Adlimitsenforcementdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecimage(BaseModel):
-    """Adassetfeedspecimage model"""
+class AdAssetFeedSpecImage(BaseModel):
+    """AdAssetFeedSpecImage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     hash: Optional[str] = Field(None, description="Hash")
 
-    image_crops: Optional["Adsimagecrops"] = Field(None, description="Image Crops")
+    image_crops: Optional["AdsImageCrops"] = Field(None, description="Image Crops")
 
     url: Optional[str] = Field(None, description="Url")
 
@@ -61422,7 +61422,7 @@ class Adassetfeedspecimage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecimage":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecImage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61431,18 +61431,18 @@ class Adassetfeedspecimage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenlegalcontent(BaseModel):
-    """Leadgenlegalcontent model"""
+class LeadGenLegalContent(BaseModel):
+    """LeadGenLegalContent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    custom_disclaimer: Optional["Leadgencustomdisclaimer"] = Field(
+    custom_disclaimer: Optional["LeadGenCustomDisclaimer"] = Field(
         None, description="Custom Disclaimer"
     )
 
     id: Optional[str] = Field(None, description="Id")
 
-    privacy_policy: Optional["Leadgenprivacypolicy"] = Field(None, description="Privacy Policy")
+    privacy_policy: Optional["LeadGenPrivacyPolicy"] = Field(None, description="Privacy Policy")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -61452,7 +61452,7 @@ class Leadgenlegalcontent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenlegalcontent":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenLegalContent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61461,8 +61461,8 @@ class Leadgenlegalcontent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instagrambusinessasset(BaseModel):
-    """Instagrambusinessasset model"""
+class InstagramBusinessAsset(BaseModel):
+    """InstagramBusinessAsset model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61480,7 +61480,7 @@ class Instagrambusinessasset(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instagrambusinessasset":
+    def from_dict(cls, data: dict[str, Any]) -> "InstagramBusinessAsset":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61489,8 +61489,8 @@ class Instagrambusinessasset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenlegalcontentcheckbox(BaseModel):
-    """Leadgenlegalcontentcheckbox model"""
+class LeadGenLegalContentCheckbox(BaseModel):
+    """LeadGenLegalContentCheckbox model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61512,7 +61512,7 @@ class Leadgenlegalcontentcheckbox(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenlegalcontentcheckbox":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenLegalContentCheckbox":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61521,8 +61521,8 @@ class Leadgenlegalcontentcheckbox(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Opengraphcontext(BaseModel):
-    """Opengraphcontext model"""
+class OpenGraphContext(BaseModel):
+    """OpenGraphContext model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61536,7 +61536,7 @@ class Opengraphcontext(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Opengraphcontext":
+    def from_dict(cls, data: dict[str, Any]) -> "OpenGraphContext":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61545,8 +61545,8 @@ class Opengraphcontext(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Usernotificationseenstatedata(BaseModel):
-    """Usernotificationseenstatedata model"""
+class UserNotificationSeenStateData(BaseModel):
+    """UserNotificationSeenStateData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61562,7 +61562,7 @@ class Usernotificationseenstatedata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Usernotificationseenstatedata":
+    def from_dict(cls, data: dict[str, Any]) -> "UserNotificationSeenStateData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61571,8 +61571,8 @@ class Usernotificationseenstatedata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Usermobileconfig(BaseModel):
-    """Usermobileconfig model"""
+class UserMobileConfig(BaseModel):
+    """UserMobileConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61588,7 +61588,7 @@ class Usermobileconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Usermobileconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "UserMobileConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61597,8 +61597,8 @@ class Usermobileconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Coverphoto(BaseModel):
-    """Coverphoto model"""
+class CoverPhoto(BaseModel):
+    """CoverPhoto model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61620,7 +61620,7 @@ class Coverphoto(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Coverphoto":
+    def from_dict(cls, data: dict[str, Any]) -> "CoverPhoto":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61629,14 +61629,14 @@ class Coverphoto(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogitemoverride(BaseModel):
-    """Catalogitemoverride model"""
+class CatalogItemOverride(BaseModel):
+    """CatalogItemOverride model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     id: Optional[str] = Field(None, description="Id")
 
-    local_info: Optional["Productitemlocalinfo"] = Field(None, description="Local Info")
+    local_info: Optional["ProductItemLocalInfo"] = Field(None, description="Local Info")
 
     override_type: Optional[str] = Field(None, description="Override Type")
 
@@ -61650,7 +61650,7 @@ class Catalogitemoverride(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogitemoverride":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogItemOverride":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61659,14 +61659,14 @@ class Catalogitemoverride(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelstatsresult(BaseModel):
-    """Adspixelstatsresult model"""
+class AdsPixelStatsResult(BaseModel):
+    """AdsPixelStatsResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     aggregation: Optional[str] = Field(None, description="Aggregation")
 
-    data: Optional[list["Adspixelstats"]] = Field(None, description="Data")
+    data: Optional[list["AdsPixelStats"]] = Field(None, description="Data")
 
     start_time: Optional[datetime] = Field(None, description="Start Time")
 
@@ -61678,7 +61678,7 @@ class Adspixelstatsresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelstatsresult":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelStatsResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61687,8 +61687,8 @@ class Adspixelstatsresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpasbusinesssetupconfig(BaseModel):
-    """Cpasbusinesssetupconfig model"""
+class CPASBusinessSetupConfig(BaseModel):
+    """CPASBusinessSetupConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61714,7 +61714,7 @@ class Cpasbusinesssetupconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpasbusinesssetupconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASBusinessSetupConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61723,8 +61723,8 @@ class Cpasbusinesssetupconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fundingsourcedetailscoupon(BaseModel):
-    """Fundingsourcedetailscoupon model"""
+class FundingSourceDetailsCoupon(BaseModel):
+    """FundingSourceDetailsCoupon model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61738,7 +61738,7 @@ class Fundingsourcedetailscoupon(BaseModel):
 
     coupon_id: Optional[str] = Field(None, description="Coupon Id")
 
-    coupon_tiering: Optional["Fundingsourcedetailscoupontiering"] = Field(
+    coupon_tiering: Optional["FundingSourceDetailsCouponTiering"] = Field(
         None, description="Coupon Tiering"
     )
 
@@ -61764,7 +61764,7 @@ class Fundingsourcedetailscoupon(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fundingsourcedetailscoupon":
+    def from_dict(cls, data: dict[str, Any]) -> "FundingSourceDetailsCoupon":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61773,8 +61773,8 @@ class Fundingsourcedetailscoupon(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsnamingtemplate(BaseModel):
-    """Adsnamingtemplate model"""
+class AdsNamingTemplate(BaseModel):
+    """AdsNamingTemplate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61808,7 +61808,7 @@ class Adsnamingtemplate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsnamingtemplate":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsNamingTemplate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61817,8 +61817,8 @@ class Adsnamingtemplate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Thirdpartypartnerliftrequest(BaseModel):
-    """Thirdpartypartnerliftrequest model"""
+class ThirdPartyPartnerLiftRequest(BaseModel):
+    """ThirdPartyPartnerLiftRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61868,7 +61868,7 @@ class Thirdpartypartnerliftrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Thirdpartypartnerliftrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "ThirdPartyPartnerLiftRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61877,8 +61877,8 @@ class Thirdpartypartnerliftrequest(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adseligibility(BaseModel):
-    """Adseligibility model"""
+class AdsEligibility(BaseModel):
+    """AdsEligibility model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61892,7 +61892,7 @@ class Adseligibility(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adseligibility":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsEligibility":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61901,8 +61901,8 @@ class Adseligibility(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Userleadgenfielddata(BaseModel):
-    """Userleadgenfielddata model"""
+class UserLeadGenFieldData(BaseModel):
+    """UserLeadGenFieldData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -61918,7 +61918,7 @@ class Userleadgenfielddata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Userleadgenfielddata":
+    def from_dict(cls, data: dict[str, Any]) -> "UserLeadGenFieldData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -61997,8 +61997,8 @@ class Album(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videouploadlimits(BaseModel):
-    """Videouploadlimits model"""
+class VideoUploadLimits(BaseModel):
+    """VideoUploadLimits model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62014,7 +62014,7 @@ class Videouploadlimits(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videouploadlimits":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoUploadLimits":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62023,8 +62023,8 @@ class Videouploadlimits(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messagingappsinfo(BaseModel):
-    """Messagingappsinfo model"""
+class MessagingAppsInfo(BaseModel):
+    """MessagingAppsInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62052,7 +62052,7 @@ class Messagingappsinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messagingappsinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "MessagingAppsInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62061,12 +62061,12 @@ class Messagingappsinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Favoritecatalog(BaseModel):
-    """Favoritecatalog model"""
+class FavoriteCatalog(BaseModel):
+    """FavoriteCatalog model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    catalog: Optional["Productcatalog"] = Field(None, description="Catalog")
+    catalog: Optional["ProductCatalog"] = Field(None, description="Catalog")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -62078,7 +62078,7 @@ class Favoritecatalog(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Favoritecatalog":
+    def from_dict(cls, data: dict[str, Any]) -> "FavoriteCatalog":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62087,8 +62087,8 @@ class Favoritecatalog(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Livevideoerror(BaseModel):
-    """Livevideoerror model"""
+class LiveVideoError(BaseModel):
+    """LiveVideoError model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62108,7 +62108,7 @@ class Livevideoerror(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Livevideoerror":
+    def from_dict(cls, data: dict[str, Any]) -> "LiveVideoError":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62117,8 +62117,8 @@ class Livevideoerror(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemimporteraddress(BaseModel):
-    """Productitemimporteraddress model"""
+class ProductItemImporterAddress(BaseModel):
+    """ProductItemImporterAddress model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62142,7 +62142,7 @@ class Productitemimporteraddress(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemimporteraddress":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemImporterAddress":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62151,8 +62151,8 @@ class Productitemimporteraddress(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videocopyrightsegment(BaseModel):
-    """Videocopyrightsegment model"""
+class VideoCopyrightSegment(BaseModel):
+    """VideoCopyrightSegment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62170,7 +62170,7 @@ class Videocopyrightsegment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videocopyrightsegment":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoCopyrightSegment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62179,12 +62179,12 @@ class Videocopyrightsegment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesscreativeinsights(BaseModel):
-    """Businesscreativeinsights model"""
+class BusinessCreativeInsights(BaseModel):
+    """BusinessCreativeInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    actions: Optional[list["Adsactionstats"]] = Field(None, description="Actions")
+    actions: Optional[list["AdsActionStats"]] = Field(None, description="Actions")
 
     age: Optional[str] = Field(None, description="Age")
 
@@ -62212,11 +62212,11 @@ class Businesscreativeinsights(BaseModel):
 
     quality_ranking: Optional[str] = Field(None, description="Quality Ranking")
 
-    video_play_actions: Optional[list["Adsactionstats"]] = Field(
+    video_play_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video Play Actions"
     )
 
-    video_thruplay_watched_actions: Optional[list["Adsactionstats"]] = Field(
+    video_thruplay_watched_actions: Optional[list["AdsActionStats"]] = Field(
         None, description="Video Thruplay Watched Actions"
     )
 
@@ -62228,7 +62228,7 @@ class Businesscreativeinsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesscreativeinsights":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessCreativeInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62237,8 +62237,8 @@ class Businesscreativeinsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dynamicpriceconfigbydate(BaseModel):
-    """Dynamicpriceconfigbydate model"""
+class DynamicPriceConfigByDate(BaseModel):
+    """DynamicPriceConfigByDate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62256,7 +62256,7 @@ class Dynamicpriceconfigbydate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dynamicpriceconfigbydate":
+    def from_dict(cls, data: dict[str, Any]) -> "DynamicPriceConfigByDate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62265,8 +62265,8 @@ class Dynamicpriceconfigbydate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adgroupfacebookfeedback(BaseModel):
-    """Adgroupfacebookfeedback model"""
+class AdgroupFacebookFeedback(BaseModel):
+    """AdgroupFacebookFeedback model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62282,7 +62282,7 @@ class Adgroupfacebookfeedback(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adgroupfacebookfeedback":
+    def from_dict(cls, data: dict[str, Any]) -> "AdgroupFacebookFeedback":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62291,8 +62291,8 @@ class Adgroupfacebookfeedback(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Emailimport(BaseModel):
-    """Emailimport model"""
+class EmailImport(BaseModel):
+    """EmailImport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62308,7 +62308,7 @@ class Emailimport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Emailimport":
+    def from_dict(cls, data: dict[str, Any]) -> "EmailImport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62317,8 +62317,8 @@ class Emailimport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetonsitedestinations(BaseModel):
-    """Adassetonsitedestinations model"""
+class AdAssetOnsiteDestinations(BaseModel):
+    """AdAssetOnsiteDestinations model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62342,7 +62342,7 @@ class Adassetonsitedestinations(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetonsitedestinations":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetOnsiteDestinations":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62351,8 +62351,8 @@ class Adassetonsitedestinations(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingrelaxation(BaseModel):
-    """Targetingrelaxation model"""
+class TargetingRelaxation(BaseModel):
+    """TargetingRelaxation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62368,7 +62368,7 @@ class Targetingrelaxation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingrelaxation":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingRelaxation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62377,8 +62377,8 @@ class Targetingrelaxation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productdaeventsamplesbatch(BaseModel):
-    """Productdaeventsamplesbatch model"""
+class ProductDaEventSamplesBatch(BaseModel):
+    """ProductDaEventSamplesBatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62396,7 +62396,7 @@ class Productdaeventsamplesbatch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productdaeventsamplesbatch":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductDaEventSamplesBatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62405,8 +62405,8 @@ class Productdaeventsamplesbatch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagepaymentoptions(BaseModel):
-    """Pagepaymentoptions model"""
+class PagePaymentOptions(BaseModel):
+    """PagePaymentOptions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62428,7 +62428,7 @@ class Pagepaymentoptions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagepaymentoptions":
+    def from_dict(cls, data: dict[str, Any]) -> "PagePaymentOptions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62437,8 +62437,8 @@ class Pagepaymentoptions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Advideo(BaseModel):
-    """Advideo model"""
+class AdVideo(BaseModel):
+    """AdVideo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62446,7 +62446,7 @@ class Advideo(BaseModel):
 
     admin_creator: Optional["User"] = Field(None, description="Admin Creator")
 
-    audio_isrc: Optional["Audioisrc"] = Field(None, description="Audio Isrc")
+    audio_isrc: Optional["AudioIsrc"] = Field(None, description="Audio Isrc")
 
     backdated_time: Optional[datetime] = Field(None, description="Backdated Time")
 
@@ -62462,7 +62462,7 @@ class Advideo(BaseModel):
 
     content_tags: Optional[list[str]] = Field(None, description="Content Tags")
 
-    copyright: Optional["Videocopyright"] = Field(None, description="Copyright")
+    copyright: Optional["VideoCopyright"] = Field(None, description="Copyright")
 
     copyright_check_information: Optional[dict[str, Any]] = Field(
         None, description="Copyright Check Information"
@@ -62510,7 +62510,7 @@ class Advideo(BaseModel):
 
     live_status: Optional[str] = Field(None, description="Live Status")
 
-    music_video_copyright: Optional["Musicvideocopyright"] = Field(
+    music_video_copyright: Optional["MusicVideoCopyright"] = Field(
         None, description="Music Video Copyright"
     )
 
@@ -62538,7 +62538,7 @@ class Advideo(BaseModel):
 
     spherical: Optional[bool] = Field(None, description="Spherical")
 
-    status: Optional["Videostatus"] = Field(None, description="Status")
+    status: Optional["VideoStatus"] = Field(None, description="Status")
 
     title: Optional[str] = Field(None, description="Title")
 
@@ -62556,7 +62556,7 @@ class Advideo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Advideo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdVideo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62565,8 +62565,8 @@ class Advideo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Measurementreport(BaseModel):
-    """Measurementreport model"""
+class MeasurementReport(BaseModel):
+    """MeasurementReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62588,7 +62588,7 @@ class Measurementreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Measurementreport":
+    def from_dict(cls, data: dict[str, Any]) -> "MeasurementReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62597,8 +62597,8 @@ class Measurementreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageuserwithleadsaccess(BaseModel):
-    """Pageuserwithleadsaccess model"""
+class PageUserWithLeadsAccess(BaseModel):
+    """PageUserWithLeadsAccess model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62618,7 +62618,7 @@ class Pageuserwithleadsaccess(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageuserwithleadsaccess":
+    def from_dict(cls, data: dict[str, Any]) -> "PageUserWithLeadsAccess":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62627,8 +62627,8 @@ class Pageuserwithleadsaccess(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetimage(BaseModel):
-    """Adassetimage model"""
+class AdAssetImage(BaseModel):
+    """AdAssetImage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62636,7 +62636,7 @@ class Adassetimage(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    image_crops: Optional["Adsimagecrops"] = Field(None, description="Image Crops")
+    image_crops: Optional["AdsImageCrops"] = Field(None, description="Image Crops")
 
     name: Optional[str] = Field(None, description="Name")
 
@@ -62654,7 +62654,7 @@ class Adassetimage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetimage":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetImage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62663,8 +62663,8 @@ class Adassetimage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreative(BaseModel):
-    """Adcreative model"""
+class AdCreative(BaseModel):
+    """AdCreative model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62672,15 +62672,15 @@ class Adcreative(BaseModel):
 
     actor_id: Optional[str] = Field(None, description="Actor Id")
 
-    ad_disclaimer_spec: Optional["Adcreativeaddisclaimer"] = Field(
+    ad_disclaimer_spec: Optional["AdCreativeAdDisclaimer"] = Field(
         None, description="Ad Disclaimer Spec"
     )
 
-    adlabels: Optional[list["Adlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdLabel"]] = Field(None, description="Adlabels")
 
     applink_treatment: Optional[str] = Field(None, description="Applink Treatment")
 
-    asset_feed_spec: Optional["Adassetfeedspec"] = Field(None, description="Asset Feed Spec")
+    asset_feed_spec: Optional["AdAssetFeedSpec"] = Field(None, description="Asset Feed Spec")
 
     authorization_category: Optional[str] = Field(None, description="Authorization Category")
 
@@ -62688,7 +62688,7 @@ class Adcreative(BaseModel):
 
     body: Optional[str] = Field(None, description="Body")
 
-    branded_content: Optional["Adcreativebrandedcontentads"] = Field(
+    branded_content: Optional["AdCreativeBrandedContentAds"] = Field(
         None, description="Branded Content"
     )
 
@@ -62698,7 +62698,7 @@ class Adcreative(BaseModel):
 
     bundle_folder_id: Optional[str] = Field(None, description="Bundle Folder Id")
 
-    call_to_action: Optional["Adcreativelinkdatacalltoaction"] = Field(
+    call_to_action: Optional["AdCreativeLinkDataCallToAction"] = Field(
         None, description="Call To Action"
     )
 
@@ -62714,15 +62714,15 @@ class Adcreative(BaseModel):
         None, description="Collaborative Ads Lsb Image Bank Id"
     )
 
-    contextual_multi_ads: Optional["Adcreativecontextualmultiads"] = Field(
+    contextual_multi_ads: Optional["AdCreativeContextualMultiAds"] = Field(
         None, description="Contextual Multi Ads"
     )
 
-    creative_sourcing_spec: Optional["Adcreativesourcingspec"] = Field(
+    creative_sourcing_spec: Optional["AdCreativeSourcingSpec"] = Field(
         None, description="Creative Sourcing Spec"
     )
 
-    degrees_of_freedom_spec: Optional["Adcreativedegreesoffreedomspec"] = Field(
+    degrees_of_freedom_spec: Optional["AdCreativeDegreesOfFreedomSpec"] = Field(
         None, description="Degrees Of Freedom Spec"
     )
 
@@ -62744,19 +62744,19 @@ class Adcreative(BaseModel):
 
     enable_launch_instant_app: Optional[bool] = Field(None, description="Enable Launch Instant App")
 
-    facebook_branded_content: Optional["Adcreativefacebookbrandedcontent"] = Field(
+    facebook_branded_content: Optional["AdCreativeFacebookBrandedContent"] = Field(
         None, description="Facebook Branded Content"
     )
 
     id: Optional[str] = Field(None, description="Id")
 
-    image_crops: Optional["Adsimagecrops"] = Field(None, description="Image Crops")
+    image_crops: Optional["AdsImageCrops"] = Field(None, description="Image Crops")
 
     image_hash: Optional[str] = Field(None, description="Image Hash")
 
     image_url: Optional[str] = Field(None, description="Image Url")
 
-    instagram_branded_content: Optional["Adcreativeinstagrambrandedcontent"] = Field(
+    instagram_branded_content: Optional["AdCreativeInstagramBrandedContent"] = Field(
         None, description="Instagram Branded Content"
     )
 
@@ -62764,7 +62764,7 @@ class Adcreative(BaseModel):
 
     instagram_user_id: Optional[str] = Field(None, description="Instagram User Id")
 
-    interactive_components_spec: Optional["Adcreativeinteractivecomponentsspec"] = Field(
+    interactive_components_spec: Optional["AdCreativeInteractiveComponentsSpec"] = Field(
         None, description="Interactive Components Spec"
     )
 
@@ -62790,7 +62790,7 @@ class Adcreative(BaseModel):
 
     object_story_id: Optional[str] = Field(None, description="Object Story Id")
 
-    object_story_spec: Optional["Adcreativeobjectstoryspec"] = Field(
+    object_story_spec: Optional["AdCreativeObjectStorySpec"] = Field(
         None, description="Object Story Spec"
     )
 
@@ -62798,7 +62798,7 @@ class Adcreative(BaseModel):
 
     object_url: Optional[str] = Field(None, description="Object Url")
 
-    omnichannel_link_spec: Optional["Adcreativeomnichannellinkspec"] = Field(
+    omnichannel_link_spec: Optional["AdCreativeOmnichannelLinkSpec"] = Field(
         None, description="Omnichannel Link Spec"
     )
 
@@ -62810,25 +62810,25 @@ class Adcreative(BaseModel):
 
     place_page_set_id: Optional[str] = Field(None, description="Place Page Set Id")
 
-    platform_customizations: Optional["Adcreativeplatformcustomization"] = Field(
+    platform_customizations: Optional["AdCreativePlatformCustomization"] = Field(
         None, description="Platform Customizations"
     )
 
     playable_asset_id: Optional[str] = Field(None, description="Playable Asset Id")
 
-    portrait_customizations: Optional["Adcreativeportraitcustomizations"] = Field(
+    portrait_customizations: Optional["AdCreativePortraitCustomizations"] = Field(
         None, description="Portrait Customizations"
     )
 
-    product_data: Optional[list["Adcreativeproductdata"]] = Field(None, description="Product Data")
+    product_data: Optional[list["AdCreativeProductData"]] = Field(None, description="Product Data")
 
     product_set_id: Optional[str] = Field(None, description="Product Set Id")
 
-    recommender_settings: Optional["Adcreativerecommendersettings"] = Field(
+    recommender_settings: Optional["AdCreativeRecommenderSettings"] = Field(
         None, description="Recommender Settings"
     )
 
-    regional_regulation_disclaimer_spec: Optional["Adcreativeregionalregulationdisclaimer"] = Field(
+    regional_regulation_disclaimer_spec: Optional["AdCreativeRegionalRegulationDisclaimer"] = Field(
         None, description="Regional Regulation Disclaimer Spec"
     )
 
@@ -62840,7 +62840,7 @@ class Adcreative(BaseModel):
 
     template_url: Optional[str] = Field(None, description="Template Url")
 
-    template_url_spec: Optional["Adcreativetemplateurlspec"] = Field(
+    template_url_spec: Optional["AdCreativeTemplateURLSpec"] = Field(
         None, description="Template Url Spec"
     )
 
@@ -62864,7 +62864,7 @@ class Adcreative(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreative":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreative":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62873,8 +62873,8 @@ class Adcreative(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountoptimizationgoalsaemv2eligibility(BaseModel):
-    """Adaccountoptimizationgoalsaemv2eligibility model"""
+class AdAccountOptimizationGoalsAEMv2Eligibility(BaseModel):
+    """AdAccountOptimizationGoalsAEMv2Eligibility model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62892,7 +62892,7 @@ class Adaccountoptimizationgoalsaemv2eligibility(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountoptimizationgoalsaemv2eligibility":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountOptimizationGoalsAEMv2Eligibility":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62901,8 +62901,8 @@ class Adaccountoptimizationgoalsaemv2eligibility(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageaboutstorycomposedblockinlinestyle(BaseModel):
-    """Pageaboutstorycomposedblockinlinestyle model"""
+class PageAboutStoryComposedBlockInlineStyle(BaseModel):
+    """PageAboutStoryComposedBlockInlineStyle model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62920,7 +62920,7 @@ class Pageaboutstorycomposedblockinlinestyle(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageaboutstorycomposedblockinlinestyle":
+    def from_dict(cls, data: dict[str, Any]) -> "PageAboutStoryComposedBlockInlineStyle":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62929,8 +62929,8 @@ class Pageaboutstorycomposedblockinlinestyle(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigngroupagencyfeeconfigforapi(BaseModel):
-    """Adcampaigngroupagencyfeeconfigforapi model"""
+class AdCampaignGroupAgencyFeeConfigForApi(BaseModel):
+    """AdCampaignGroupAgencyFeeConfigForApi model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62948,7 +62948,7 @@ class Adcampaigngroupagencyfeeconfigforapi(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaigngroupagencyfeeconfigforapi":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignGroupAgencyFeeConfigForApi":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62957,8 +62957,8 @@ class Adcampaigngroupagencyfeeconfigforapi(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businessagreement(BaseModel):
-    """Businessagreement model"""
+class BusinessAgreement(BaseModel):
+    """BusinessAgreement model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -62974,7 +62974,7 @@ class Businessagreement(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businessagreement":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessAgreement":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -62983,8 +62983,8 @@ class Businessagreement(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Insightsresult(BaseModel):
-    """Insightsresult model"""
+class InsightsResult(BaseModel):
+    """InsightsResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63000,7 +63000,7 @@ class Insightsresult(BaseModel):
 
     title: Optional[str] = Field(None, description="Title")
 
-    values: Optional[list["Insightsvalue"]] = Field(None, description="Values")
+    values: Optional[list["InsightsValue"]] = Field(None, description="Values")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -63010,7 +63010,7 @@ class Insightsresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Insightsresult":
+    def from_dict(cls, data: dict[str, Any]) -> "InsightsResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63019,16 +63019,16 @@ class Insightsresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsavedkeywords(BaseModel):
-    """Adsavedkeywords model"""
+class AdSavedKeywords(BaseModel):
+    """AdSavedKeywords model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    account: Optional["Adaccount"] = Field(None, description="Account")
+    account: Optional["AdAccount"] = Field(None, description="Account")
 
     id: Optional[str] = Field(None, description="Id")
 
-    keywords: Optional["Adkeywords"] = Field(None, description="Keywords")
+    keywords: Optional["AdKeywords"] = Field(None, description="Keywords")
 
     name: Optional[str] = Field(None, description="Name")
 
@@ -63046,7 +63046,7 @@ class Adsavedkeywords(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsavedkeywords":
+    def from_dict(cls, data: dict[str, Any]) -> "AdSavedKeywords":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63093,8 +63093,8 @@ class Recommendation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogsmartpixelsettings(BaseModel):
-    """Catalogsmartpixelsettings model"""
+class CatalogSmartPixelSettings(BaseModel):
+    """CatalogSmartPixelSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63104,7 +63104,7 @@ class Catalogsmartpixelsettings(BaseModel):
         None, description="Available Property Filters"
     )
 
-    catalog: Optional["Productcatalog"] = Field(None, description="Catalog")
+    catalog: Optional["ProductCatalog"] = Field(None, description="Catalog")
 
     cbb_custom_override_filters: Optional[list[dict[str, Any]]] = Field(
         None, description="Cbb Custom Override Filters"
@@ -63132,7 +63132,7 @@ class Catalogsmartpixelsettings(BaseModel):
         None, description="Microdata Format Precedence"
     )
 
-    pixel: Optional["Adspixel"] = Field(None, description="Pixel")
+    pixel: Optional["AdsPixel"] = Field(None, description="Pixel")
 
     property_filter: Optional[list[str]] = Field(None, description="Property Filter")
 
@@ -63146,7 +63146,7 @@ class Catalogsmartpixelsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogsmartpixelsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogSmartPixelSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63155,8 +63155,8 @@ class Catalogsmartpixelsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videocopyrightcheckstatus(BaseModel):
-    """Videocopyrightcheckstatus model"""
+class VideoCopyrightCheckStatus(BaseModel):
+    """VideoCopyrightCheckStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63172,7 +63172,7 @@ class Videocopyrightcheckstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videocopyrightcheckstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoCopyrightCheckStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63181,14 +63181,14 @@ class Videocopyrightcheckstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativedegreesoffreedomspec(BaseModel):
-    """Adcreativedegreesoffreedomspec model"""
+class AdCreativeDegreesOfFreedomSpec(BaseModel):
+    """AdCreativeDegreesOfFreedomSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     ad_handle_type: Optional[str] = Field(None, description="Ad Handle Type")
 
-    creative_features_spec: Optional["Adcreativefeaturesspec"] = Field(
+    creative_features_spec: Optional["AdCreativeFeaturesSpec"] = Field(
         None, description="Creative Features Spec"
     )
 
@@ -63222,7 +63222,7 @@ class Adcreativedegreesoffreedomspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativedegreesoffreedomspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeDegreesOfFreedomSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63231,8 +63231,8 @@ class Adcreativedegreesoffreedomspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixel(BaseModel):
-    """Adspixel model"""
+class AdsPixel(BaseModel):
+    """AdsPixel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63300,11 +63300,11 @@ class Adspixel(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    owner_ad_account: Optional["Adaccount"] = Field(None, description="Owner Ad Account")
+    owner_ad_account: Optional["AdAccount"] = Field(None, description="Owner Ad Account")
 
     owner_business: Optional["Business"] = Field(None, description="Owner Business")
 
-    usage: Optional["Offlineconversiondatasetusage"] = Field(None, description="Usage")
+    usage: Optional["OfflineConversionDataSetUsage"] = Field(None, description="Usage")
 
     user_access_expire_time: Optional[datetime] = Field(None, description="User Access Expire Time")
 
@@ -63318,7 +63318,7 @@ class Adspixel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixel":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63327,8 +63327,8 @@ class Adspixel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Openbridgeconfiguration(BaseModel):
-    """Openbridgeconfiguration model"""
+class OpenBridgeConfiguration(BaseModel):
+    """OpenBridgeConfiguration model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63378,7 +63378,7 @@ class Openbridgeconfiguration(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Openbridgeconfiguration":
+    def from_dict(cls, data: dict[str, Any]) -> "OpenBridgeConfiguration":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63387,8 +63387,8 @@ class Openbridgeconfiguration(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenclientvalidationrules(BaseModel):
-    """Leadgenclientvalidationrules model"""
+class LeadGenClientValidationRules(BaseModel):
+    """LeadGenClientValidationRules model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63408,7 +63408,7 @@ class Leadgenclientvalidationrules(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenclientvalidationrules":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenClientValidationRules":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63417,8 +63417,8 @@ class Leadgenclientvalidationrules(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountcustomaudiencelimits(BaseModel):
-    """Adaccountcustomaudiencelimits model"""
+class AdAccountCustomAudienceLimits(BaseModel):
+    """AdAccountCustomAudienceLimits model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63448,7 +63448,7 @@ class Adaccountcustomaudiencelimits(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountcustomaudiencelimits":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountCustomAudienceLimits":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63464,7 +63464,7 @@ class Group(BaseModel):
 
     archived: Optional[bool] = Field(None, description="Archived")
 
-    cover: Optional["Coverphoto"] = Field(None, description="Cover")
+    cover: Optional["CoverPhoto"] = Field(None, description="Cover")
 
     created_time: Optional[datetime] = Field(None, description="Created Time")
 
@@ -63517,12 +63517,12 @@ class Group(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Partnerintegrationlinked(BaseModel):
-    """Partnerintegrationlinked model"""
+class PartnerIntegrationLinked(BaseModel):
+    """PartnerIntegrationLinked model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ads_pixel: Optional["Adspixel"] = Field(None, description="Ads Pixel")
+    ads_pixel: Optional["AdsPixel"] = Field(None, description="Ads Pixel")
 
     application: Optional["Application"] = Field(None, description="Application")
 
@@ -63548,7 +63548,7 @@ class Partnerintegrationlinked(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    offline_conversion_data_set: Optional["Offlineconversiondataset"] = Field(
+    offline_conversion_data_set: Optional["OfflineConversionDataSet"] = Field(
         None, description="Offline Conversion Data Set"
     )
 
@@ -63556,7 +63556,7 @@ class Partnerintegrationlinked(BaseModel):
 
     partner: Optional[str] = Field(None, description="Partner")
 
-    product_catalog: Optional["Productcatalog"] = Field(None, description="Product Catalog")
+    product_catalog: Optional["ProductCatalog"] = Field(None, description="Product Catalog")
 
     setup_status: Optional[str] = Field(None, description="Setup Status")
 
@@ -63568,7 +63568,7 @@ class Partnerintegrationlinked(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Partnerintegrationlinked":
+    def from_dict(cls, data: dict[str, Any]) -> "PartnerIntegrationLinked":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63577,8 +63577,8 @@ class Partnerintegrationlinked(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Rightsmanagerdataexport(BaseModel):
-    """Rightsmanagerdataexport model"""
+class RightsManagerDataExport(BaseModel):
+    """RightsManagerDataExport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63604,7 +63604,7 @@ class Rightsmanagerdataexport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Rightsmanagerdataexport":
+    def from_dict(cls, data: dict[str, Any]) -> "RightsManagerDataExport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63613,8 +63613,8 @@ class Rightsmanagerdataexport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igshoppingproductappeal(BaseModel):
-    """Igshoppingproductappeal model"""
+class IGShoppingProductAppeal(BaseModel):
+    """IGShoppingProductAppeal model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63636,7 +63636,7 @@ class Igshoppingproductappeal(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igshoppingproductappeal":
+    def from_dict(cls, data: dict[str, Any]) -> "IGShoppingProductAppeal":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63645,8 +63645,8 @@ class Igshoppingproductappeal(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Aigeneratedproductimage(BaseModel):
-    """Aigeneratedproductimage model"""
+class AIGeneratedProductImage(BaseModel):
+    """AIGeneratedProductImage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63662,7 +63662,7 @@ class Aigeneratedproductimage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Aigeneratedproductimage":
+    def from_dict(cls, data: dict[str, Any]) -> "AIGeneratedProductImage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63671,8 +63671,8 @@ class Aigeneratedproductimage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageusermessagethreadlabel(BaseModel):
-    """Pageusermessagethreadlabel model"""
+class PageUserMessageThreadLabel(BaseModel):
+    """PageUserMessageThreadLabel model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63688,7 +63688,7 @@ class Pageusermessagethreadlabel(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageusermessagethreadlabel":
+    def from_dict(cls, data: dict[str, Any]) -> "PageUserMessageThreadLabel":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63697,26 +63697,26 @@ class Pageusermessagethreadlabel(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogitemapplinks(BaseModel):
-    """Catalogitemapplinks model"""
+class CatalogItemAppLinks(BaseModel):
+    """CatalogItemAppLinks model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    android: Optional[list["Androidapplink"]] = Field(None, description="Android")
+    android: Optional[list["AndroidAppLink"]] = Field(None, description="Android")
 
-    ios: Optional[list["Iosapplink"]] = Field(None, description="Ios")
+    ios: Optional[list["IosAppLink"]] = Field(None, description="Ios")
 
-    ipad: Optional[list["Iosapplink"]] = Field(None, description="Ipad")
+    ipad: Optional[list["IosAppLink"]] = Field(None, description="Ipad")
 
-    iphone: Optional[list["Iosapplink"]] = Field(None, description="Iphone")
+    iphone: Optional[list["IosAppLink"]] = Field(None, description="Iphone")
 
-    web: Optional["Webapplink"] = Field(None, description="Web")
+    web: Optional["WebAppLink"] = Field(None, description="Web")
 
-    windows: Optional[list["Windowsapplink"]] = Field(None, description="Windows")
+    windows: Optional[list["WindowsAppLink"]] = Field(None, description="Windows")
 
-    windows_phone: Optional[list["Windowsphoneapplink"]] = Field(None, description="Windows Phone")
+    windows_phone: Optional[list["WindowsPhoneAppLink"]] = Field(None, description="Windows Phone")
 
-    windows_universal: Optional[list["Windowsapplink"]] = Field(
+    windows_universal: Optional[list["WindowsAppLink"]] = Field(
         None, description="Windows Universal"
     )
 
@@ -63728,7 +63728,7 @@ class Catalogitemapplinks(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogitemapplinks":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogItemAppLinks":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63737,8 +63737,8 @@ class Catalogitemapplinks(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instagramshoppingmerchantreviewmessage(BaseModel):
-    """Instagramshoppingmerchantreviewmessage model"""
+class InstagramShoppingMerchantReviewMessage(BaseModel):
+    """InstagramShoppingMerchantReviewMessage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63754,7 +63754,7 @@ class Instagramshoppingmerchantreviewmessage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instagramshoppingmerchantreviewmessage":
+    def from_dict(cls, data: dict[str, Any]) -> "InstagramShoppingMerchantReviewMessage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63763,8 +63763,8 @@ class Instagramshoppingmerchantreviewmessage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationcustomlocation(BaseModel):
-    """Targetinggeolocationcustomlocation model"""
+class TargetingGeoLocationCustomLocation(BaseModel):
+    """TargetingGeoLocationCustomLocation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63804,7 +63804,7 @@ class Targetinggeolocationcustomlocation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationcustomlocation":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationCustomLocation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63813,8 +63813,8 @@ class Targetinggeolocationcustomlocation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Workexperience(BaseModel):
-    """Workexperience model"""
+class WorkExperience(BaseModel):
+    """WorkExperience model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63846,7 +63846,7 @@ class Workexperience(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Workexperience":
+    def from_dict(cls, data: dict[str, Any]) -> "WorkExperience":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63855,8 +63855,8 @@ class Workexperience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Iosapplink(BaseModel):
-    """Iosapplink model"""
+class IosAppLink(BaseModel):
+    """IosAppLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63874,7 +63874,7 @@ class Iosapplink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Iosapplink":
+    def from_dict(cls, data: dict[str, Any]) -> "IosAppLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63883,8 +63883,8 @@ class Iosapplink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Bcpcampaign(BaseModel):
-    """Bcpcampaign model"""
+class BCPCampaign(BaseModel):
+    """BCPCampaign model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63938,7 +63938,7 @@ class Bcpcampaign(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Bcpcampaign":
+    def from_dict(cls, data: dict[str, Any]) -> "BCPCampaign":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63947,8 +63947,8 @@ class Bcpcampaign(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Calladsphonedata(BaseModel):
-    """Calladsphonedata model"""
+class CallAdsPhoneData(BaseModel):
+    """CallAdsPhoneData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -63974,7 +63974,7 @@ class Calladsphonedata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Calladsphonedata":
+    def from_dict(cls, data: dict[str, Any]) -> "CallAdsPhoneData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -63983,12 +63983,12 @@ class Calladsphonedata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiencepermission(BaseModel):
-    """Audiencepermission model"""
+class AudiencePermission(BaseModel):
+    """AudiencePermission model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    audience: Optional["Customaudience"] = Field(None, description="Audience")
+    audience: Optional["CustomAudience"] = Field(None, description="Audience")
 
     share_account_id: Optional[str] = Field(None, description="Share Account Id")
 
@@ -64002,7 +64002,7 @@ class Audiencepermission(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiencepermission":
+    def from_dict(cls, data: dict[str, Any]) -> "AudiencePermission":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64011,8 +64011,8 @@ class Audiencepermission(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Draftpost(BaseModel):
-    """Draftpost model"""
+class DraftPost(BaseModel):
+    """DraftPost model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64058,7 +64058,7 @@ class Draftpost(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Draftpost":
+    def from_dict(cls, data: dict[str, Any]) -> "DraftPost":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64067,8 +64067,8 @@ class Draftpost(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Paymentrequestdetails(BaseModel):
-    """Paymentrequestdetails model"""
+class PaymentRequestDetails(BaseModel):
+    """PaymentRequestDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64098,7 +64098,7 @@ class Paymentrequestdetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Paymentrequestdetails":
+    def from_dict(cls, data: dict[str, Any]) -> "PaymentRequestDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64107,8 +64107,8 @@ class Paymentrequestdetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsreportbuildermmmreport(BaseModel):
-    """Adsreportbuildermmmreport model"""
+class AdsReportBuilderMMMReport(BaseModel):
+    """AdsReportBuilderMMMReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64136,7 +64136,7 @@ class Adsreportbuildermmmreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsreportbuildermmmreport":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsReportBuilderMMMReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64145,8 +64145,8 @@ class Adsreportbuildermmmreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetinggeolocationlocationexpansion(BaseModel):
-    """Targetinggeolocationlocationexpansion model"""
+class TargetingGeoLocationLocationExpansion(BaseModel):
+    """TargetingGeoLocationLocationExpansion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64162,7 +64162,7 @@ class Targetinggeolocationlocationexpansion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetinggeolocationlocationexpansion":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingGeoLocationLocationExpansion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64171,8 +64171,8 @@ class Targetinggeolocationlocationexpansion(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Conversionactionquery(BaseModel):
-    """Conversionactionquery model"""
+class ConversionActionQuery(BaseModel):
+    """ConversionActionQuery model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64248,7 +64248,7 @@ class Conversionactionquery(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Conversionactionquery":
+    def from_dict(cls, data: dict[str, Any]) -> "ConversionActionQuery":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64257,8 +64257,8 @@ class Conversionactionquery(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencesalts(BaseModel):
-    """Customaudiencesalts model"""
+class CustomAudienceSalts(BaseModel):
+    """CustomAudienceSalts model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64278,7 +64278,7 @@ class Customaudiencesalts(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencesalts":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceSalts":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64287,8 +64287,8 @@ class Customaudiencesalts(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Avatarprofilepicture(BaseModel):
-    """Avatarprofilepicture model"""
+class AvatarProfilePicture(BaseModel):
+    """AvatarProfilePicture model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64304,7 +64304,7 @@ class Avatarprofilepicture(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Avatarprofilepicture":
+    def from_dict(cls, data: dict[str, Any]) -> "AvatarProfilePicture":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64313,8 +64313,8 @@ class Avatarprofilepicture(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Webapplink(BaseModel):
-    """Webapplink model"""
+class WebAppLink(BaseModel):
+    """WebAppLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64330,7 +64330,7 @@ class Webapplink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Webapplink":
+    def from_dict(cls, data: dict[str, Any]) -> "WebAppLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64339,12 +64339,12 @@ class Webapplink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgenquestion(BaseModel):
-    """Leadgenquestion model"""
+class LeadGenQuestion(BaseModel):
+    """LeadGenQuestion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    conditional_questions_choices: Optional[list["Leadgenconditionalquestionsgroupchoices"]] = (
+    conditional_questions_choices: Optional[list["LeadGenConditionalQuestionsGroupChoices"]] = (
         Field(None, description="Conditional Questions Choices")
     )
 
@@ -64352,7 +64352,7 @@ class Leadgenquestion(BaseModel):
         None, description="Conditional Questions Group Id"
     )
 
-    dependent_conditional_questions: Optional[list["Leadgenconditionalquestionsgroupquestions"]] = (
+    dependent_conditional_questions: Optional[list["LeadGenConditionalQuestionsGroupQuestions"]] = (
         Field(None, description="Dependent Conditional Questions")
     )
 
@@ -64364,7 +64364,7 @@ class Leadgenquestion(BaseModel):
 
     label: Optional[str] = Field(None, description="Label")
 
-    options: Optional[list["Leadgenquestionoption"]] = Field(None, description="Options")
+    options: Optional[list["LeadGenQuestionOption"]] = Field(None, description="Options")
 
     type: Optional[str] = Field(None, description="Type")
 
@@ -64376,7 +64376,7 @@ class Leadgenquestion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgenquestion":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenQuestion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64385,8 +64385,8 @@ class Leadgenquestion(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetlinkurl(BaseModel):
-    """Adassetlinkurl model"""
+class AdAssetLinkURL(BaseModel):
+    """AdAssetLinkURL model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64416,7 +64416,7 @@ class Adassetlinkurl(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetlinkurl":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetLinkURL":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64425,8 +64425,8 @@ class Adassetlinkurl(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Advertiserverificationstatus(BaseModel):
-    """Advertiserverificationstatus model"""
+class AdvertiserVerificationStatus(BaseModel):
+    """AdvertiserVerificationStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64446,7 +64446,7 @@ class Advertiserverificationstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Advertiserverificationstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "AdvertiserVerificationStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64455,8 +64455,8 @@ class Advertiserverificationstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspivotrules(BaseModel):
-    """Adspivotrules model"""
+class AdsPivotRules(BaseModel):
+    """AdsPivotRules model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64488,7 +64488,7 @@ class Adspivotrules(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspivotrules":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPivotRules":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64497,8 +64497,8 @@ class Adspivotrules(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Dynamicvideometadata(BaseModel):
-    """Dynamicvideometadata model"""
+class DynamicVideoMetadata(BaseModel):
+    """DynamicVideoMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64508,7 +64508,7 @@ class Dynamicvideometadata(BaseModel):
 
     url: Optional[str] = Field(None, description="Url")
 
-    video: Optional["Advideo"] = Field(None, description="Video")
+    video: Optional["AdVideo"] = Field(None, description="Video")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -64518,7 +64518,7 @@ class Dynamicvideometadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Dynamicvideometadata":
+    def from_dict(cls, data: dict[str, Any]) -> "DynamicVideoMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64527,8 +64527,8 @@ class Dynamicvideometadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Businesssettinglogsdata(BaseModel):
-    """Businesssettinglogsdata model"""
+class BusinessSettingLogsData(BaseModel):
+    """BusinessSettingLogsData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64550,7 +64550,7 @@ class Businesssettinglogsdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Businesssettinglogsdata":
+    def from_dict(cls, data: dict[str, Any]) -> "BusinessSettingLogsData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64559,8 +64559,8 @@ class Businesssettinglogsdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Almadaccountinfo(BaseModel):
-    """Almadaccountinfo model"""
+class ALMAdAccountInfo(BaseModel):
+    """ALMAdAccountInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64590,7 +64590,7 @@ class Almadaccountinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Almadaccountinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "ALMAdAccountInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64599,8 +64599,8 @@ class Almadaccountinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Thirdpartypartnerviewabilityrequest(BaseModel):
-    """Thirdpartypartnerviewabilityrequest model"""
+class ThirdPartyPartnerViewabilityRequest(BaseModel):
+    """ThirdPartyPartnerViewabilityRequest model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64636,7 +64636,7 @@ class Thirdpartypartnerviewabilityrequest(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Thirdpartypartnerviewabilityrequest":
+    def from_dict(cls, data: dict[str, Any]) -> "ThirdPartyPartnerViewabilityRequest":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64927,8 +64927,8 @@ class Application(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mcominvoicebankaccount(BaseModel):
-    """Mcominvoicebankaccount model"""
+class McomInvoiceBankAccount(BaseModel):
+    """McomInvoiceBankAccount model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64952,7 +64952,7 @@ class Mcominvoicebankaccount(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mcominvoicebankaccount":
+    def from_dict(cls, data: dict[str, Any]) -> "McomInvoiceBankAccount":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -64961,8 +64961,8 @@ class Mcominvoicebankaccount(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Privateliftstudyinstance(BaseModel):
-    """Privateliftstudyinstance model"""
+class PrivateLiftStudyInstance(BaseModel):
+    """PrivateLiftStudyInstance model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -64998,7 +64998,7 @@ class Privateliftstudyinstance(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Privateliftstudyinstance":
+    def from_dict(cls, data: dict[str, Any]) -> "PrivateLiftStudyInstance":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65007,8 +65007,8 @@ class Privateliftstudyinstance(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Iguserforigonlyapi(BaseModel):
-    """Iguserforigonlyapi model"""
+class IGUserForIGOnlyAPI(BaseModel):
+    """IGUserForIGOnlyAPI model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65042,7 +65042,7 @@ class Iguserforigonlyapi(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Iguserforigonlyapi":
+    def from_dict(cls, data: dict[str, Any]) -> "IGUserForIGOnlyAPI":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65051,8 +65051,8 @@ class Iguserforigonlyapi(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igrefreshaccesstokenforigonlyapi(BaseModel):
-    """Igrefreshaccesstokenforigonlyapi model"""
+class IGRefreshAccessTokenForIGOnlyAPI(BaseModel):
+    """IGRefreshAccessTokenForIGOnlyAPI model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65072,7 +65072,7 @@ class Igrefreshaccesstokenforigonlyapi(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igrefreshaccesstokenforigonlyapi":
+    def from_dict(cls, data: dict[str, Any]) -> "IGRefreshAccessTokenForIGOnlyAPI":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65081,8 +65081,8 @@ class Igrefreshaccesstokenforigonlyapi(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogdatasource(BaseModel):
-    """Productcatalogdatasource model"""
+class ProductCatalogDataSource(BaseModel):
+    """ProductCatalogDataSource model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65104,7 +65104,7 @@ class Productcatalogdatasource(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogdatasource":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogDataSource":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65113,8 +65113,8 @@ class Productcatalogdatasource(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Famekumo(BaseModel):
-    """Famekumo model"""
+class FAMEKumo(BaseModel):
+    """FAMEKumo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65128,7 +65128,7 @@ class Famekumo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Famekumo":
+    def from_dict(cls, data: dict[str, Any]) -> "FAMEKumo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65137,8 +65137,8 @@ class Famekumo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Webpublisher(BaseModel):
-    """Webpublisher model"""
+class WebPublisher(BaseModel):
+    """WebPublisher model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65156,7 +65156,7 @@ class Webpublisher(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Webpublisher":
+    def from_dict(cls, data: dict[str, Any]) -> "WebPublisher":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65165,8 +65165,8 @@ class Webpublisher(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productiteminvalidationerror(BaseModel):
-    """Productiteminvalidationerror model"""
+class ProductItemInvalidationError(BaseModel):
+    """ProductItemInvalidationError model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65178,7 +65178,7 @@ class Productiteminvalidationerror(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productiteminvalidationerror":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemInvalidationError":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65187,8 +65187,8 @@ class Productiteminvalidationerror(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Workaccesscode(BaseModel):
-    """Workaccesscode model"""
+class WorkAccessCode(BaseModel):
+    """WorkAccessCode model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65204,7 +65204,7 @@ class Workaccesscode(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Workaccesscode":
+    def from_dict(cls, data: dict[str, Any]) -> "WorkAccessCode":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65213,8 +65213,8 @@ class Workaccesscode(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagectxbudgetsimilaradvertiserbudgetrecommendation(BaseModel):
-    """Pagectxbudgetsimilaradvertiserbudgetrecommendation model"""
+class PageCTXBudgetSimilarAdvertiserBudgetRecommendation(BaseModel):
+    """PageCTXBudgetSimilarAdvertiserBudgetRecommendation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65232,7 +65232,7 @@ class Pagectxbudgetsimilaradvertiserbudgetrecommendation(BaseModel):
     @classmethod
     def from_dict(
         cls, data: dict[str, Any]
-    ) -> "Pagectxbudgetsimilaradvertiserbudgetrecommendation":
+    ) -> "PageCTXBudgetSimilarAdvertiserBudgetRecommendation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65287,8 +65287,8 @@ class Link(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Messengercallsettings(BaseModel):
-    """Messengercallsettings model"""
+class MessengerCallSettings(BaseModel):
+    """MessengerCallSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65308,7 +65308,7 @@ class Messengercallsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Messengercallsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "MessengerCallSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65317,12 +65317,12 @@ class Messengercallsettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountaslschedule(BaseModel):
-    """Adaccountaslschedule model"""
+class AdAccountASLSchedule(BaseModel):
+    """AdAccountASLSchedule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_account: Optional["Adaccount"] = Field(None, description="Ad Account")
+    ad_account: Optional["AdAccount"] = Field(None, description="Ad Account")
 
     id: Optional[str] = Field(None, description="Id")
 
@@ -65338,7 +65338,7 @@ class Adaccountaslschedule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountaslschedule":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountASLSchedule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65347,8 +65347,8 @@ class Adaccountaslschedule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogcollection(BaseModel):
-    """Catalogcollection model"""
+class CatalogCollection(BaseModel):
+    """CatalogCollection model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65366,7 +65366,7 @@ class Catalogcollection(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogcollection":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogCollection":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65375,8 +65375,8 @@ class Catalogcollection(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeeduploadprogress(BaseModel):
-    """Productfeeduploadprogress model"""
+class ProductFeedUploadProgress(BaseModel):
+    """ProductFeedUploadProgress model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65398,7 +65398,7 @@ class Productfeeduploadprogress(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeeduploadprogress":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedUploadProgress":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65407,8 +65407,8 @@ class Productfeeduploadprogress(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Producteventstat(BaseModel):
-    """Producteventstat model"""
+class ProductEventStat(BaseModel):
+    """ProductEventStat model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65420,7 +65420,7 @@ class Producteventstat(BaseModel):
 
     event: Optional[ProductEventStat_event] = Field(None, description="Event")
 
-    event_source: Optional["Externaleventsource"] = Field(None, description="Event Source")
+    event_source: Optional["ExternalEventSource"] = Field(None, description="Event Source")
 
     total_content_ids_matched_other_catalogs: Optional[int] = Field(
         None, description="Total Content Ids Matched Other Catalogs"
@@ -65452,7 +65452,7 @@ class Producteventstat(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Producteventstat":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductEventStat":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65461,8 +65461,8 @@ class Producteventstat(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Workuserbadges(BaseModel):
-    """Workuserbadges model"""
+class WorkUserBadges(BaseModel):
+    """WorkUserBadges model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65484,7 +65484,7 @@ class Workuserbadges(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Workuserbadges":
+    def from_dict(cls, data: dict[str, Any]) -> "WorkUserBadges":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65493,8 +65493,8 @@ class Workuserbadges(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpassetuppagestructureprogress(BaseModel):
-    """Cpassetuppagestructureprogress model"""
+class CPASSetupPageStructureProgress(BaseModel):
+    """CPASSetupPageStructureProgress model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65512,7 +65512,7 @@ class Cpassetuppagestructureprogress(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpassetuppagestructureprogress":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASSetupPageStructureProgress":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65521,8 +65521,8 @@ class Cpassetuppagestructureprogress(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountsubscribedapps(BaseModel):
-    """Adaccountsubscribedapps model"""
+class AdAccountSubscribedApps(BaseModel):
+    """AdAccountSubscribedApps model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65538,7 +65538,7 @@ class Adaccountsubscribedapps(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountsubscribedapps":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountSubscribedApps":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65547,8 +65547,8 @@ class Adaccountsubscribedapps(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpasmerchantconfig(BaseModel):
-    """Cpasmerchantconfig model"""
+class CPASMerchantConfig(BaseModel):
+    """CPASMerchantConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65578,7 +65578,7 @@ class Cpasmerchantconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpasmerchantconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASMerchantConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65587,8 +65587,8 @@ class Cpasmerchantconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Livevideoadcampaignconfig(BaseModel):
-    """Livevideoadcampaignconfig model"""
+class LiveVideoAdCampaignConfig(BaseModel):
+    """LiveVideoAdCampaignConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65604,7 +65604,7 @@ class Livevideoadcampaignconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Livevideoadcampaignconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "LiveVideoAdCampaignConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65613,8 +65613,8 @@ class Livevideoadcampaignconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Threadsuser(BaseModel):
-    """Threadsuser model"""
+class ThreadsUser(BaseModel):
+    """ThreadsUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65630,7 +65630,7 @@ class Threadsuser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Threadsuser":
+    def from_dict(cls, data: dict[str, Any]) -> "ThreadsUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65639,8 +65639,8 @@ class Threadsuser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pageparking(BaseModel):
-    """Pageparking model"""
+class PageParking(BaseModel):
+    """PageParking model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65658,7 +65658,7 @@ class Pageparking(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pageparking":
+    def from_dict(cls, data: dict[str, Any]) -> "PageParking":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65667,8 +65667,8 @@ class Pageparking(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsguidanceqeexposure(BaseModel):
-    """Adsguidanceqeexposure model"""
+class AdsGuidanceQEExposure(BaseModel):
+    """AdsGuidanceQEExposure model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65682,7 +65682,7 @@ class Adsguidanceqeexposure(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsguidanceqeexposure":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsGuidanceQEExposure":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65691,14 +65691,14 @@ class Adsguidanceqeexposure(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagecategory(BaseModel):
-    """Pagecategory model"""
+class PageCategory(BaseModel):
+    """PageCategory model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     api_enum: Optional[str] = Field(None, description="Api Enum")
 
-    fb_page_categories: Optional[list["Pagecategory"]] = Field(
+    fb_page_categories: Optional[list["PageCategory"]] = Field(
         None, description="Fb Page Categories"
     )
 
@@ -65714,7 +65714,7 @@ class Pagecategory(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagecategory":
+    def from_dict(cls, data: dict[str, Any]) -> "PageCategory":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65723,8 +65723,8 @@ class Pagecategory(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagegamebotquotainformation(BaseModel):
-    """Pagegamebotquotainformation model"""
+class PageGameBotQuotaInformation(BaseModel):
+    """PageGameBotQuotaInformation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65740,7 +65740,7 @@ class Pagegamebotquotainformation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagegamebotquotainformation":
+    def from_dict(cls, data: dict[str, Any]) -> "PageGameBotQuotaInformation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65749,8 +65749,8 @@ class Pagegamebotquotainformation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelitemprice(BaseModel):
-    """Adspixelitemprice model"""
+class AdsPixelItemPrice(BaseModel):
+    """AdsPixelItemPrice model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65766,7 +65766,7 @@ class Adspixelitemprice(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelitemprice":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelItemPrice":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65775,8 +65775,8 @@ class Adspixelitemprice(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountrecommendedcamapaignbudget(BaseModel):
-    """Adaccountrecommendedcamapaignbudget model"""
+class AdAccountRecommendedCamapaignBudget(BaseModel):
+    """AdAccountRecommendedCamapaignBudget model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65794,7 +65794,7 @@ class Adaccountrecommendedcamapaignbudget(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountrecommendedcamapaignbudget":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountRecommendedCamapaignBudget":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65803,8 +65803,8 @@ class Adaccountrecommendedcamapaignbudget(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedadditionaldatapagenudgemessage(BaseModel):
-    """Adassetfeedadditionaldatapagenudgemessage model"""
+class AdAssetFeedAdditionalDataPageNudgeMessage(BaseModel):
+    """AdAssetFeedAdditionalDataPageNudgeMessage model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65822,7 +65822,7 @@ class Adassetfeedadditionaldatapagenudgemessage(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedadditionaldatapagenudgemessage":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedAdditionalDataPageNudgeMessage":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65831,12 +65831,12 @@ class Adassetfeedadditionaldatapagenudgemessage(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspectitle(BaseModel):
-    """Adassetfeedspectitle model"""
+class AdAssetFeedSpecTitle(BaseModel):
+    """AdAssetFeedSpecTitle model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     text: Optional[str] = Field(None, description="Text")
 
@@ -65850,7 +65850,7 @@ class Adassetfeedspectitle(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspectitle":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecTitle":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65859,12 +65859,12 @@ class Adassetfeedspectitle(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdatachildattachment(BaseModel):
-    """Adcreativelinkdatachildattachment model"""
+class AdCreativeLinkDataChildAttachment(BaseModel):
+    """AdCreativeLinkDataChildAttachment model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    call_to_action: Optional["Adcreativelinkdatacalltoaction"] = Field(
+    call_to_action: Optional["AdCreativeLinkDataCallToAction"] = Field(
         None, description="Call To Action"
     )
 
@@ -65872,7 +65872,7 @@ class Adcreativelinkdatachildattachment(BaseModel):
 
     description: Optional[str] = Field(None, description="Description")
 
-    image_crops: Optional["Adsimagecrops"] = Field(None, description="Image Crops")
+    image_crops: Optional["AdsImageCrops"] = Field(None, description="Image Crops")
 
     image_hash: Optional[str] = Field(None, description="Image Hash")
 
@@ -65882,7 +65882,7 @@ class Adcreativelinkdatachildattachment(BaseModel):
 
     picture: Optional[str] = Field(None, description="Picture")
 
-    place_data: Optional["Adcreativeplacedata"] = Field(None, description="Place Data")
+    place_data: Optional["AdCreativePlaceData"] = Field(None, description="Place Data")
 
     static_card: Optional[bool] = Field(None, description="Static Card")
 
@@ -65896,7 +65896,7 @@ class Adcreativelinkdatachildattachment(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdatachildattachment":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataChildAttachment":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65905,8 +65905,8 @@ class Adcreativelinkdatachildattachment(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeassetgroupsspec(BaseModel):
-    """Adcreativeassetgroupsspec model"""
+class AdCreativeAssetGroupsSpec(BaseModel):
+    """AdCreativeAssetGroupsSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65922,7 +65922,7 @@ class Adcreativeassetgroupsspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeassetgroupsspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeAssetGroupsSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65931,8 +65931,8 @@ class Adcreativeassetgroupsspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whatsappbusinesspartnerclientverificationsubmission(BaseModel):
-    """Whatsappbusinesspartnerclientverificationsubmission model"""
+class WhatsAppBusinessPartnerClientVerificationSubmission(BaseModel):
+    """WhatsAppBusinessPartnerClientVerificationSubmission model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65964,7 +65964,7 @@ class Whatsappbusinesspartnerclientverificationsubmission(BaseModel):
     @classmethod
     def from_dict(
         cls, data: dict[str, Any]
-    ) -> "Whatsappbusinesspartnerclientverificationsubmission":
+    ) -> "WhatsAppBusinessPartnerClientVerificationSubmission":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65973,8 +65973,8 @@ class Whatsappbusinesspartnerclientverificationsubmission(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Agerange(BaseModel):
-    """Agerange model"""
+class AgeRange(BaseModel):
+    """AgeRange model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -65990,7 +65990,7 @@ class Agerange(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Agerange":
+    def from_dict(cls, data: dict[str, Any]) -> "AgeRange":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -65999,8 +65999,8 @@ class Agerange(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativepostclickconfiguration(BaseModel):
-    """Adcreativepostclickconfiguration model"""
+class AdCreativePostClickConfiguration(BaseModel):
+    """AdCreativePostClickConfiguration model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66018,7 +66018,7 @@ class Adcreativepostclickconfiguration(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativepostclickconfiguration":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativePostClickConfiguration":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66027,8 +66027,8 @@ class Adcreativepostclickconfiguration(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Linkedinstagramaccountdata(BaseModel):
-    """Linkedinstagramaccountdata model"""
+class LinkedInstagramAccountData(BaseModel):
+    """LinkedInstagramAccountData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66052,7 +66052,7 @@ class Linkedinstagramaccountdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Linkedinstagramaccountdata":
+    def from_dict(cls, data: dict[str, Any]) -> "LinkedInstagramAccountData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66061,8 +66061,8 @@ class Linkedinstagramaccountdata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fbpaybuttonlogin(BaseModel):
-    """Fbpaybuttonlogin model"""
+class FBPayButtonLogin(BaseModel):
+    """FBPayButtonLogin model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66074,7 +66074,7 @@ class Fbpaybuttonlogin(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fbpaybuttonlogin":
+    def from_dict(cls, data: dict[str, Any]) -> "FBPayButtonLogin":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66083,8 +66083,8 @@ class Fbpaybuttonlogin(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Crmaddress(BaseModel):
-    """Crmaddress model"""
+class CRMAddress(BaseModel):
+    """CRMAddress model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66124,7 +66124,7 @@ class Crmaddress(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Crmaddress":
+    def from_dict(cls, data: dict[str, Any]) -> "CRMAddress":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66133,8 +66133,8 @@ class Crmaddress(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountsmartsuggestedads(BaseModel):
-    """Adaccountsmartsuggestedads model"""
+class AdAccountSmartSuggestedAds(BaseModel):
+    """AdAccountSmartSuggestedAds model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66154,7 +66154,7 @@ class Adaccountsmartsuggestedads(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountsmartsuggestedads":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountSmartSuggestedAds":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66163,8 +66163,8 @@ class Adaccountsmartsuggestedads(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customaudiencecapabilities(BaseModel):
-    """Customaudiencecapabilities model"""
+class CustomAudienceCapabilities(BaseModel):
+    """CustomAudienceCapabilities model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66178,7 +66178,7 @@ class Customaudiencecapabilities(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customaudiencecapabilities":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomAudienceCapabilities":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66187,8 +66187,8 @@ class Customaudiencecapabilities(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Almevent(BaseModel):
-    """Almevent model"""
+class ALMEvent(BaseModel):
+    """ALMEvent model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66224,7 +66224,7 @@ class Almevent(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Almevent":
+    def from_dict(cls, data: dict[str, Any]) -> "ALMEvent":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66233,8 +66233,8 @@ class Almevent(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Casssetupofflineeventsetprogress(BaseModel):
-    """Casssetupofflineeventsetprogress model"""
+class CASSSetupOfflineEventSetProgress(BaseModel):
+    """CASSSetupOfflineEventSetProgress model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66246,7 +66246,7 @@ class Casssetupofflineeventsetprogress(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Casssetupofflineeventsetprogress":
+    def from_dict(cls, data: dict[str, Any]) -> "CASSSetupOfflineEventSetProgress":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66255,8 +66255,8 @@ class Casssetupofflineeventsetprogress(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Publisherdeliveryreport(BaseModel):
-    """Publisherdeliveryreport model"""
+class PublisherDeliveryReport(BaseModel):
+    """PublisherDeliveryReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66278,7 +66278,7 @@ class Publisherdeliveryreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Publisherdeliveryreport":
+    def from_dict(cls, data: dict[str, Any]) -> "PublisherDeliveryReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66287,8 +66287,8 @@ class Publisherdeliveryreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelcapabilityoverride(BaseModel):
-    """Adspixelcapabilityoverride model"""
+class AdsPixelCapabilityOverride(BaseModel):
+    """AdsPixelCapabilityOverride model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66308,7 +66308,7 @@ class Adspixelcapabilityoverride(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelcapabilityoverride":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelCapabilityOverride":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66317,8 +66317,8 @@ class Adspixelcapabilityoverride(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Financeobject(BaseModel):
-    """Financeobject model"""
+class FinanceObject(BaseModel):
+    """FinanceObject model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66334,7 +66334,7 @@ class Financeobject(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Financeobject":
+    def from_dict(cls, data: dict[str, Any]) -> "FinanceObject":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66343,8 +66343,8 @@ class Financeobject(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mixinsightsresult(BaseModel):
-    """Mixinsightsresult model"""
+class MIXInsightsResult(BaseModel):
+    """MIXInsightsResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66424,7 +66424,7 @@ class Mixinsightsresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mixinsightsresult":
+    def from_dict(cls, data: dict[str, Any]) -> "MIXInsightsResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66433,8 +66433,8 @@ class Mixinsightsresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagedirectintegrationcrmwithleadsaccess(BaseModel):
-    """Pagedirectintegrationcrmwithleadsaccess model"""
+class PageDirectIntegrationCrmWithLeadsAccess(BaseModel):
+    """PageDirectIntegrationCrmWithLeadsAccess model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66452,7 +66452,7 @@ class Pagedirectintegrationcrmwithleadsaccess(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagedirectintegrationcrmwithleadsaccess":
+    def from_dict(cls, data: dict[str, Any]) -> "PageDirectIntegrationCrmWithLeadsAccess":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66461,8 +66461,8 @@ class Pagedirectintegrationcrmwithleadsaccess(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagepublisher(BaseModel):
-    """Pagepublisher model"""
+class PagePublisher(BaseModel):
+    """PagePublisher model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66484,7 +66484,7 @@ class Pagepublisher(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagepublisher":
+    def from_dict(cls, data: dict[str, Any]) -> "PagePublisher":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66527,8 +66527,8 @@ class Status(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Contextualbundlingspec(BaseModel):
-    """Contextualbundlingspec model"""
+class ContextualBundlingSpec(BaseModel):
+    """ContextualBundlingSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66542,7 +66542,7 @@ class Contextualbundlingspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Contextualbundlingspec":
+    def from_dict(cls, data: dict[str, Any]) -> "ContextualBundlingSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66551,8 +66551,8 @@ class Contextualbundlingspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Rawcustomaudience(BaseModel):
-    """Rawcustomaudience model"""
+class RawCustomAudience(BaseModel):
+    """RawCustomAudience model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66568,7 +66568,7 @@ class Rawcustomaudience(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Rawcustomaudience":
+    def from_dict(cls, data: dict[str, Any]) -> "RawCustomAudience":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66577,8 +66577,8 @@ class Rawcustomaudience(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whatsappsubscribedappsinfo(BaseModel):
-    """Whatsappsubscribedappsinfo model"""
+class WhatsappSubscribedAppsInfo(BaseModel):
+    """WhatsappSubscribedAppsInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66594,7 +66594,7 @@ class Whatsappsubscribedappsinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whatsappsubscribedappsinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "WhatsappSubscribedAppsInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66603,14 +66603,14 @@ class Whatsappsubscribedappsinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Fundingsourcedetails(BaseModel):
-    """Fundingsourcedetails model"""
+class FundingSourceDetails(BaseModel):
+    """FundingSourceDetails model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    coupon: Optional["Fundingsourcedetailscoupon"] = Field(None, description="Coupon")
+    coupon: Optional["FundingSourceDetailsCoupon"] = Field(None, description="Coupon")
 
-    coupons: Optional[list["Fundingsourcedetailscoupon"]] = Field(None, description="Coupons")
+    coupons: Optional[list["FundingSourceDetailsCoupon"]] = Field(None, description="Coupons")
 
     display_string: Optional[str] = Field(None, description="Display String")
 
@@ -66626,7 +66626,7 @@ class Fundingsourcedetails(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Fundingsourcedetails":
+    def from_dict(cls, data: dict[str, Any]) -> "FundingSourceDetails":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66635,8 +66635,8 @@ class Fundingsourcedetails(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Omegacustomertrx(BaseModel):
-    """Omegacustomertrx model"""
+class OmegaCustomerTrx(BaseModel):
+    """OmegaCustomerTrx model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66646,7 +66646,7 @@ class Omegacustomertrx(BaseModel):
 
     amount: Optional[str] = Field(None, description="Amount")
 
-    amount_due: Optional["Currencyamount"] = Field(None, description="Amount Due")
+    amount_due: Optional["CurrencyAmount"] = Field(None, description="Amount Due")
 
     billed_amount_details: Optional[dict[str, Any]] = Field(
         None, description="Billed Amount Details"
@@ -66688,7 +66688,7 @@ class Omegacustomertrx(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Omegacustomertrx":
+    def from_dict(cls, data: dict[str, Any]) -> "OmegaCustomerTrx":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66697,8 +66697,8 @@ class Omegacustomertrx(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adlightadgroup(BaseModel):
-    """Adlightadgroup model"""
+class AdLightAdgroup(BaseModel):
+    """AdLightAdgroup model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66714,7 +66714,7 @@ class Adlightadgroup(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adlightadgroup":
+    def from_dict(cls, data: dict[str, Any]) -> "AdLightAdgroup":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66723,8 +66723,8 @@ class Adlightadgroup(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Nullnode(BaseModel):
-    """Nullnode model"""
+class NullNode(BaseModel):
+    """NullNode model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66736,7 +66736,7 @@ class Nullnode(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Nullnode":
+    def from_dict(cls, data: dict[str, Any]) -> "NullNode":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66745,12 +66745,12 @@ class Nullnode(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingmarketingmessagechannels(BaseModel):
-    """Targetingmarketingmessagechannels model"""
+class TargetingMarketingMessageChannels(BaseModel):
+    """TargetingMarketingMessageChannels model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    whatsapp: Optional["Idname"] = Field(None, description="Whatsapp")
+    whatsapp: Optional["IDName"] = Field(None, description="Whatsapp")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -66760,7 +66760,7 @@ class Targetingmarketingmessagechannels(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingmarketingmessagechannels":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingMarketingMessageChannels":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66769,8 +66769,8 @@ class Targetingmarketingmessagechannels(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountpaymentoptions(BaseModel):
-    """Adaccountpaymentoptions model"""
+class AdAccountPaymentOptions(BaseModel):
+    """AdAccountPaymentOptions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66796,7 +66796,7 @@ class Adaccountpaymentoptions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountpaymentoptions":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountPaymentOptions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66805,8 +66805,8 @@ class Adaccountpaymentoptions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Paymentsubscription(BaseModel):
-    """Paymentsubscription model"""
+class PaymentSubscription(BaseModel):
+    """PaymentSubscription model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66826,7 +66826,7 @@ class Paymentsubscription(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    last_payment: Optional["Paymentenginepayment"] = Field(None, description="Last Payment")
+    last_payment: Optional["PaymentEnginePayment"] = Field(None, description="Last Payment")
 
     next_bill_time: Optional[datetime] = Field(None, description="Next Bill Time")
 
@@ -66866,7 +66866,7 @@ class Paymentsubscription(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Paymentsubscription":
+    def from_dict(cls, data: dict[str, Any]) -> "PaymentSubscription":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66875,8 +66875,8 @@ class Paymentsubscription(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Partnerstudy(BaseModel):
-    """Partnerstudy model"""
+class PartnerStudy(BaseModel):
+    """PartnerStudy model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66894,7 +66894,7 @@ class Partnerstudy(BaseModel):
 
     is_export: Optional[bool] = Field(None, description="Is Export")
 
-    lift_study: Optional["Adstudy"] = Field(None, description="Lift Study")
+    lift_study: Optional["AdStudy"] = Field(None, description="Lift Study")
 
     location: Optional[str] = Field(None, description="Location")
 
@@ -66926,7 +66926,7 @@ class Partnerstudy(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Partnerstudy":
+    def from_dict(cls, data: dict[str, Any]) -> "PartnerStudy":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66935,8 +66935,8 @@ class Partnerstudy(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adsstartyourdaywidget(BaseModel):
-    """Adsstartyourdaywidget model"""
+class AdsStartYourDayWidget(BaseModel):
+    """AdsStartYourDayWidget model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -66952,7 +66952,7 @@ class Adsstartyourdaywidget(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adsstartyourdaywidget":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsStartYourDayWidget":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66961,12 +66961,12 @@ class Adsstartyourdaywidget(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowigmediabuilder(BaseModel):
-    """Shadowigmediabuilder model"""
+class ShadowIGMediaBuilder(BaseModel):
+    """ShadowIGMediaBuilder model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    copyright_check_status: Optional["Igvideocopyrightcheckstatus"] = Field(
+    copyright_check_status: Optional["IGVideoCopyrightCheckStatus"] = Field(
         None, description="Copyright Check Status"
     )
 
@@ -66976,7 +66976,7 @@ class Shadowigmediabuilder(BaseModel):
 
     status_code: Optional[str] = Field(None, description="Status Code")
 
-    video_status: Optional["Igresumablevideouploadstatus"] = Field(None, description="Video Status")
+    video_status: Optional["IGResumableVideoUploadStatus"] = Field(None, description="Video Status")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -66986,7 +66986,7 @@ class Shadowigmediabuilder(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowigmediabuilder":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGMediaBuilder":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -66995,12 +66995,12 @@ class Shadowigmediabuilder(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetfeedspecvideo(BaseModel):
-    """Adassetfeedspecvideo model"""
+class AdAssetFeedSpecVideo(BaseModel):
+    """AdAssetFeedSpecVideo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    adlabels: Optional[list["Adassetfeedspecassetlabel"]] = Field(None, description="Adlabels")
+    adlabels: Optional[list["AdAssetFeedSpecAssetLabel"]] = Field(None, description="Adlabels")
 
     caption_ids: Optional[list[str]] = Field(None, description="Caption Ids")
 
@@ -67020,7 +67020,7 @@ class Adassetfeedspecvideo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetfeedspecvideo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetFeedSpecVideo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67029,8 +67029,8 @@ class Adassetfeedspecvideo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountuserpermissions(BaseModel):
-    """Adaccountuserpermissions model"""
+class AdAccountUserPermissions(BaseModel):
+    """AdAccountUserPermissions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67062,7 +67062,7 @@ class Adaccountuserpermissions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountuserpermissions":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountUserPermissions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67071,8 +67071,8 @@ class Adaccountuserpermissions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Shadowigmediacollaborators(BaseModel):
-    """Shadowigmediacollaborators model"""
+class ShadowIGMediaCollaborators(BaseModel):
+    """ShadowIGMediaCollaborators model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67090,7 +67090,7 @@ class Shadowigmediacollaborators(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Shadowigmediacollaborators":
+    def from_dict(cls, data: dict[str, Any]) -> "ShadowIGMediaCollaborators":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67099,8 +67099,8 @@ class Shadowigmediacollaborators(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingproductaudiencesubspec(BaseModel):
-    """Targetingproductaudiencesubspec model"""
+class TargetingProductAudienceSubSpec(BaseModel):
+    """TargetingProductAudienceSubSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67116,7 +67116,7 @@ class Targetingproductaudiencesubspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingproductaudiencesubspec":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingProductAudienceSubSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67125,8 +67125,8 @@ class Targetingproductaudiencesubspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagepartnerwithleadsaccess(BaseModel):
-    """Pagepartnerwithleadsaccess model"""
+class PagePartnerWithLeadsAccess(BaseModel):
+    """PagePartnerWithLeadsAccess model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67144,7 +67144,7 @@ class Pagepartnerwithleadsaccess(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagepartnerwithleadsaccess":
+    def from_dict(cls, data: dict[str, Any]) -> "PagePartnerWithLeadsAccess":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67153,8 +67153,8 @@ class Pagepartnerwithleadsaccess(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Sitelink(BaseModel):
-    """Sitelink model"""
+class SiteLink(BaseModel):
+    """SiteLink model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67176,7 +67176,7 @@ class Sitelink(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Sitelink":
+    def from_dict(cls, data: dict[str, Any]) -> "SiteLink":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67185,8 +67185,8 @@ class Sitelink(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogwebsitesettings(BaseModel):
-    """Catalogwebsitesettings model"""
+class CatalogWebsiteSettings(BaseModel):
+    """CatalogWebsiteSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67202,7 +67202,7 @@ class Catalogwebsitesettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogwebsitesettings":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogWebsiteSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67211,8 +67211,8 @@ class Catalogwebsitesettings(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cloudgame(BaseModel):
-    """Cloudgame model"""
+class CloudGame(BaseModel):
+    """CloudGame model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67242,7 +67242,7 @@ class Cloudgame(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cloudgame":
+    def from_dict(cls, data: dict[str, Any]) -> "CloudGame":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67251,8 +67251,8 @@ class Cloudgame(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Apprequestformerrecipient(BaseModel):
-    """Apprequestformerrecipient model"""
+class AppRequestFormerRecipient(BaseModel):
+    """AppRequestFormerRecipient model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67268,7 +67268,7 @@ class Apprequestformerrecipient(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Apprequestformerrecipient":
+    def from_dict(cls, data: dict[str, Any]) -> "AppRequestFormerRecipient":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67277,8 +67277,8 @@ class Apprequestformerrecipient(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Systemuser(BaseModel):
-    """Systemuser model"""
+class SystemUser(BaseModel):
+    """SystemUser model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67302,7 +67302,7 @@ class Systemuser(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Systemuser":
+    def from_dict(cls, data: dict[str, Any]) -> "SystemUser":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67311,12 +67311,12 @@ class Systemuser(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videocopyrightrule(BaseModel):
-    """Videocopyrightrule model"""
+class VideoCopyrightRule(BaseModel):
+    """VideoCopyrightRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    condition_groups: Optional[list["Videocopyrightconditiongroup"]] = Field(
+    condition_groups: Optional[list["VideoCopyrightConditionGroup"]] = Field(
         None, description="Condition Groups"
     )
 
@@ -67340,7 +67340,7 @@ class Videocopyrightrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videocopyrightrule":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoCopyrightRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67349,8 +67349,8 @@ class Videocopyrightrule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Publisherwhitelist(BaseModel):
-    """Publisherwhitelist model"""
+class PublisherWhiteList(BaseModel):
+    """PublisherWhiteList model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67374,7 +67374,7 @@ class Publisherwhitelist(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Publisherwhitelist":
+    def from_dict(cls, data: dict[str, Any]) -> "PublisherWhiteList":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67383,8 +67383,8 @@ class Publisherwhitelist(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Targetingdynamicrule(BaseModel):
-    """Targetingdynamicrule model"""
+class TargetingDynamicRule(BaseModel):
+    """TargetingDynamicRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67412,7 +67412,7 @@ class Targetingdynamicrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Targetingdynamicrule":
+    def from_dict(cls, data: dict[str, Any]) -> "TargetingDynamicRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67421,14 +67421,14 @@ class Targetingdynamicrule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Whatsappbusinesshealthstatusformessagesend(BaseModel):
-    """Whatsappbusinesshealthstatusformessagesend model"""
+class WhatsAppBusinessHealthStatusForMessageSend(BaseModel):
+    """WhatsAppBusinessHealthStatusForMessageSend model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     can_send_message: Optional[str] = Field(None, description="Can Send Message")
 
-    entities: Optional[list["Whatsappbusinesshealthstatus"]] = Field(None, description="Entities")
+    entities: Optional[list["WhatsAppBusinessHealthStatus"]] = Field(None, description="Entities")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -67438,7 +67438,7 @@ class Whatsappbusinesshealthstatusformessagesend(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Whatsappbusinesshealthstatusformessagesend":
+    def from_dict(cls, data: dict[str, Any]) -> "WhatsAppBusinessHealthStatusForMessageSend":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67447,8 +67447,8 @@ class Whatsappbusinesshealthstatusformessagesend(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Videocopyrightgeogate(BaseModel):
-    """Videocopyrightgeogate model"""
+class VideoCopyrightGeoGate(BaseModel):
+    """VideoCopyrightGeoGate model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67464,7 +67464,7 @@ class Videocopyrightgeogate(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Videocopyrightgeogate":
+    def from_dict(cls, data: dict[str, Any]) -> "VideoCopyrightGeoGate":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67473,8 +67473,8 @@ class Videocopyrightgeogate(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagestartinfo(BaseModel):
-    """Pagestartinfo model"""
+class PageStartInfo(BaseModel):
+    """PageStartInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67490,7 +67490,7 @@ class Pagestartinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagestartinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "PageStartInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67499,8 +67499,8 @@ class Pagestartinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixelmicrodatastats(BaseModel):
-    """Adspixelmicrodatastats model"""
+class AdsPixelMicrodataStats(BaseModel):
+    """AdsPixelMicrodataStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67528,7 +67528,7 @@ class Adspixelmicrodatastats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixelmicrodatastats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelMicrodataStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67537,8 +67537,8 @@ class Adspixelmicrodatastats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Audiovisualreferencematch(BaseModel):
-    """Audiovisualreferencematch model"""
+class AudioVisualReferenceMatch(BaseModel):
+    """AudioVisualReferenceMatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67648,7 +67648,7 @@ class Audiovisualreferencematch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Audiovisualreferencematch":
+    def from_dict(cls, data: dict[str, Any]) -> "AudioVisualReferenceMatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67657,8 +67657,8 @@ class Audiovisualreferencematch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Daypart(BaseModel):
-    """Daypart model"""
+class DayPart(BaseModel):
+    """DayPart model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67678,7 +67678,7 @@ class Daypart(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Daypart":
+    def from_dict(cls, data: dict[str, Any]) -> "DayPart":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67687,8 +67687,8 @@ class Daypart(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productitemlocalinfolatlongshape(BaseModel):
-    """Productitemlocalinfolatlongshape model"""
+class ProductItemLocalInfoLatLongShape(BaseModel):
+    """ProductItemLocalInfoLatLongShape model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67704,7 +67704,7 @@ class Productitemlocalinfolatlongshape(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productitemlocalinfolatlongshape":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductItemLocalInfoLatLongShape":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67713,8 +67713,8 @@ class Productitemlocalinfolatlongshape(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Addefaultvalues(BaseModel):
-    """Addefaultvalues model"""
+class AdDefaultValues(BaseModel):
+    """AdDefaultValues model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67728,7 +67728,7 @@ class Addefaultvalues(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Addefaultvalues":
+    def from_dict(cls, data: dict[str, Any]) -> "AdDefaultValues":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67737,8 +67737,8 @@ class Addefaultvalues(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Customconversion(BaseModel):
-    """Customconversion model"""
+class CustomConversion(BaseModel):
+    """CustomConversion model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67754,7 +67754,7 @@ class Customconversion(BaseModel):
         None, description="Custom Event Type"
     )
 
-    data_sources: Optional[list["Externaleventsource"]] = Field(None, description="Data Sources")
+    data_sources: Optional[list["ExternalEventSource"]] = Field(None, description="Data Sources")
 
     default_conversion_value: Optional[int] = Field(None, description="Default Conversion Value")
 
@@ -67774,11 +67774,11 @@ class Customconversion(BaseModel):
 
     name: Optional[str] = Field(None, description="Name")
 
-    offline_conversion_data_set: Optional["Offlineconversiondataset"] = Field(
+    offline_conversion_data_set: Optional["OfflineConversionDataSet"] = Field(
         None, description="Offline Conversion Data Set"
     )
 
-    pixel: Optional["Adspixel"] = Field(None, description="Pixel")
+    pixel: Optional["AdsPixel"] = Field(None, description="Pixel")
 
     retention_days: Optional[int] = Field(None, description="Retention Days")
 
@@ -67792,7 +67792,7 @@ class Customconversion(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Customconversion":
+    def from_dict(cls, data: dict[str, Any]) -> "CustomConversion":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67801,8 +67801,8 @@ class Customconversion(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Userdevice(BaseModel):
-    """Userdevice model"""
+class UserDevice(BaseModel):
+    """UserDevice model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67818,7 +67818,7 @@ class Userdevice(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Userdevice":
+    def from_dict(cls, data: dict[str, Any]) -> "UserDevice":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67827,8 +67827,8 @@ class Userdevice(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Commercemerchantsettingssetupstatus(BaseModel):
-    """Commercemerchantsettingssetupstatus model"""
+class CommerceMerchantSettingsSetupStatus(BaseModel):
+    """CommerceMerchantSettingsSetupStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67856,7 +67856,7 @@ class Commercemerchantsettingssetupstatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Commercemerchantsettingssetupstatus":
+    def from_dict(cls, data: dict[str, Any]) -> "CommerceMerchantSettingsSetupStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67865,8 +67865,8 @@ class Commercemerchantsettingssetupstatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcataloghotelroomsbatch(BaseModel):
-    """Productcataloghotelroomsbatch model"""
+class ProductCatalogHotelRoomsBatch(BaseModel):
+    """ProductCatalogHotelRoomsBatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67886,7 +67886,7 @@ class Productcataloghotelroomsbatch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcataloghotelroomsbatch":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogHotelRoomsBatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67895,8 +67895,8 @@ class Productcataloghotelroomsbatch(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativeproductdata(BaseModel):
-    """Adcreativeproductdata model"""
+class AdCreativeProductData(BaseModel):
+    """AdCreativeProductData model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -67912,7 +67912,7 @@ class Adcreativeproductdata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativeproductdata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeProductData":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -67930,7 +67930,7 @@ class Page(BaseModel):
 
     access_token: Optional[str] = Field(None, description="Access Token")
 
-    ad_campaign: Optional["Adset"] = Field(None, description="Ad Campaign")
+    ad_campaign: Optional["AdSet"] = Field(None, description="Ad Campaign")
 
     affiliation: Optional[str] = Field(None, description="Affiliation")
 
@@ -67970,21 +67970,21 @@ class Page(BaseModel):
 
     category: Optional[str] = Field(None, description="Category")
 
-    category_list: Optional[list["Pagecategory"]] = Field(None, description="Category List")
+    category_list: Optional[list["PageCategory"]] = Field(None, description="Category List")
 
     checkins: Optional[int] = Field(None, description="Checkins")
 
     company_overview: Optional[str] = Field(None, description="Company Overview")
 
-    connected_instagram_account: Optional["Iguser"] = Field(
+    connected_instagram_account: Optional["IGUser"] = Field(
         None, description="Connected Instagram Account"
     )
 
-    connected_page_backed_instagram_account: Optional["Iguser"] = Field(
+    connected_page_backed_instagram_account: Optional["IGUser"] = Field(
         None, description="Connected Page Backed Instagram Account"
     )
 
-    contact_address: Optional["Mailingaddress"] = Field(None, description="Contact Address")
+    contact_address: Optional["MailingAddress"] = Field(None, description="Contact Address")
 
     copyright_whitelisted_ig_partners: Optional[list[str]] = Field(
         None, description="Copyright Whitelisted Ig Partners"
@@ -67992,7 +67992,7 @@ class Page(BaseModel):
 
     country_page_likes: Optional[int] = Field(None, description="Country Page Likes")
 
-    cover: Optional["Coverphoto"] = Field(None, description="Cover")
+    cover: Optional["CoverPhoto"] = Field(None, description="Cover")
 
     culinary_team: Optional[str] = Field(None, description="Culinary Team")
 
@@ -68028,7 +68028,7 @@ class Page(BaseModel):
 
     fan_count: Optional[int] = Field(None, description="Fan Count")
 
-    featured_video: Optional["Advideo"] = Field(None, description="Featured Video")
+    featured_video: Optional["AdVideo"] = Field(None, description="Featured Video")
 
     features: Optional[str] = Field(None, description="Features")
 
@@ -68050,7 +68050,7 @@ class Page(BaseModel):
 
     has_added_app: Optional[bool] = Field(None, description="Has Added App")
 
-    has_lead_access: Optional["Hasleadaccess"] = Field(None, description="Has Lead Access")
+    has_lead_access: Optional["HasLeadAccess"] = Field(None, description="Has Lead Access")
 
     has_transitioned_to_new_page_experience: Optional[bool] = Field(
         None, description="Has Transitioned To New Page Experience"
@@ -68072,7 +68072,7 @@ class Page(BaseModel):
 
     influences: Optional[str] = Field(None, description="Influences")
 
-    instagram_business_account: Optional["Iguser"] = Field(
+    instagram_business_account: Optional["IGUser"] = Field(
         None, description="Instagram Business Account"
     )
 
@@ -68132,7 +68132,7 @@ class Page(BaseModel):
 
     merchant_review_status: Optional[str] = Field(None, description="Merchant Review Status")
 
-    messaging_feature_status: Optional["Messagingfeaturestatus"] = Field(
+    messaging_feature_status: Optional["MessagingFeatureStatus"] = Field(
         None, description="Messaging Feature Status"
     )
 
@@ -68174,9 +68174,9 @@ class Page(BaseModel):
 
     parent_page: Optional["Page"] = Field(None, description="Parent Page")
 
-    parking: Optional["Pageparking"] = Field(None, description="Parking")
+    parking: Optional["PageParking"] = Field(None, description="Parking")
 
-    payment_options: Optional["Pagepaymentoptions"] = Field(None, description="Payment Options")
+    payment_options: Optional["PagePaymentOptions"] = Field(None, description="Payment Options")
 
     personal_info: Optional[str] = Field(None, description="Personal Info")
 
@@ -68220,11 +68220,11 @@ class Page(BaseModel):
 
     release_date: Optional[str] = Field(None, description="Release Date")
 
-    restaurant_services: Optional["Pagerestaurantservices"] = Field(
+    restaurant_services: Optional["PageRestaurantServices"] = Field(
         None, description="Restaurant Services"
     )
 
-    restaurant_specialties: Optional["Pagerestaurantspecialties"] = Field(
+    restaurant_specialties: Optional["PageRestaurantSpecialties"] = Field(
         None, description="Restaurant Specialties"
     )
 
@@ -68238,7 +68238,7 @@ class Page(BaseModel):
 
     starring: Optional[str] = Field(None, description="Starring")
 
-    start_info: Optional["Pagestartinfo"] = Field(None, description="Start Info")
+    start_info: Optional["PageStartInfo"] = Field(None, description="Start Info")
 
     store_code: Optional[str] = Field(None, description="Store Code")
 
@@ -68268,7 +68268,7 @@ class Page(BaseModel):
 
     verification_status: Optional[str] = Field(None, description="Verification Status")
 
-    voip_info: Optional["Voipinfo"] = Field(None, description="Voip Info")
+    voip_info: Optional["VoipInfo"] = Field(None, description="Voip Info")
 
     website: Optional[str] = Field(None, description="Website")
 
@@ -68295,8 +68295,8 @@ class Page(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativesourcingspec(BaseModel):
-    """Adcreativesourcingspec model"""
+class AdCreativeSourcingSpec(BaseModel):
+    """AdCreativeSourcingSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68312,11 +68312,11 @@ class Adcreativesourcingspec(BaseModel):
         None, description="Enable Social Feedback Preservation"
     )
 
-    promotion_metadata_spec: Optional[list["Adcreativepromotionmetadataspec"]] = Field(
+    promotion_metadata_spec: Optional[list["AdCreativePromotionMetadataSpec"]] = Field(
         None, description="Promotion Metadata Spec"
     )
 
-    site_links_spec: Optional[list["Adcreativesitelinksspec"]] = Field(
+    site_links_spec: Optional[list["AdCreativeSiteLinksSpec"]] = Field(
         None, description="Site Links Spec"
     )
 
@@ -68330,7 +68330,7 @@ class Adcreativesourcingspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativesourcingspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeSourcingSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68339,8 +68339,8 @@ class Adcreativesourcingspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativevideodatamediaelements(BaseModel):
-    """Adcreativevideodatamediaelements model"""
+class AdCreativeVideoDataMediaElements(BaseModel):
+    """AdCreativeVideoDataMediaElements model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68356,7 +68356,7 @@ class Adcreativevideodatamediaelements(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativevideodatamediaelements":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeVideoDataMediaElements":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68365,8 +68365,8 @@ class Adcreativevideodatamediaelements(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignmetricsmetadata(BaseModel):
-    """Adcampaignmetricsmetadata model"""
+class AdCampaignMetricsMetadata(BaseModel):
+    """AdCampaignMetricsMetadata model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68396,7 +68396,7 @@ class Adcampaignmetricsmetadata(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignmetricsmetadata":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignMetricsMetadata":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68405,8 +68405,8 @@ class Adcampaignmetricsmetadata(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetcalltoactiontype(BaseModel):
-    """Adassetcalltoactiontype model"""
+class AdAssetCallToActionType(BaseModel):
+    """AdAssetCallToActionType model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68422,7 +68422,7 @@ class Adassetcalltoactiontype(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetcalltoactiontype":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetCallToActionType":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68431,8 +68431,8 @@ class Adassetcalltoactiontype(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogfacets(BaseModel):
-    """Productcatalogfacets model"""
+class ProductCatalogFacets(BaseModel):
+    """ProductCatalogFacets model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68448,7 +68448,7 @@ class Productcatalogfacets(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogfacets":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogFacets":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68457,8 +68457,8 @@ class Productcatalogfacets(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Scheduledpost(BaseModel):
-    """Scheduledpost model"""
+class ScheduledPost(BaseModel):
+    """ScheduledPost model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68504,7 +68504,7 @@ class Scheduledpost(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Scheduledpost":
+    def from_dict(cls, data: dict[str, Any]) -> "ScheduledPost":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68513,12 +68513,12 @@ class Scheduledpost(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountbillingdatepreference(BaseModel):
-    """Adaccountbillingdatepreference model"""
+class AdAccountBillingDatePreference(BaseModel):
+    """AdAccountBillingDatePreference model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    ad_account: Optional["Adaccount"] = Field(None, description="Ad Account")
+    ad_account: Optional["AdAccount"] = Field(None, description="Ad Account")
 
     day_of_month: Optional[int] = Field(None, description="Day Of Month")
 
@@ -68538,7 +68538,7 @@ class Adaccountbillingdatepreference(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountbillingdatepreference":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountBillingDatePreference":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68547,8 +68547,8 @@ class Adaccountbillingdatepreference(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Offlineconversiondatasetupload(BaseModel):
-    """Offlineconversiondatasetupload model"""
+class OfflineConversionDataSetUpload(BaseModel):
+    """OfflineConversionDataSetUpload model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68588,7 +68588,7 @@ class Offlineconversiondatasetupload(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Offlineconversiondatasetupload":
+    def from_dict(cls, data: dict[str, Any]) -> "OfflineConversionDataSetUpload":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68597,8 +68597,8 @@ class Offlineconversiondatasetupload(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Copyrightownershiptransfer(BaseModel):
-    """Copyrightownershiptransfer model"""
+class CopyrightOwnershipTransfer(BaseModel):
+    """CopyrightOwnershipTransfer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68624,7 +68624,7 @@ class Copyrightownershiptransfer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Copyrightownershiptransfer":
+    def from_dict(cls, data: dict[str, Any]) -> "CopyrightOwnershipTransfer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68633,8 +68633,8 @@ class Copyrightownershiptransfer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignconversionvalueexpressionspec(BaseModel):
-    """Adcampaignconversionvalueexpressionspec model"""
+class AdCampaignConversionValueExpressionSpec(BaseModel):
+    """AdCampaignConversionValueExpressionSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68652,7 +68652,7 @@ class Adcampaignconversionvalueexpressionspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignconversionvalueexpressionspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignConversionValueExpressionSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68676,7 +68676,7 @@ class Profile(BaseModel):
 
     pic: Optional[str] = Field(None, description="Pic")
 
-    pic_crop: Optional["Profilepicturesource"] = Field(None, description="Pic Crop")
+    pic_crop: Optional["ProfilePictureSource"] = Field(None, description="Pic Crop")
 
     pic_large: Optional[str] = Field(None, description="Pic Large")
 
@@ -68705,8 +68705,8 @@ class Profile(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Mcexperienceconfigforapi(BaseModel):
-    """Mcexperienceconfigforapi model"""
+class MCExperienceConfigForApi(BaseModel):
+    """MCExperienceConfigForApi model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68724,7 +68724,7 @@ class Mcexperienceconfigforapi(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Mcexperienceconfigforapi":
+    def from_dict(cls, data: dict[str, Any]) -> "MCExperienceConfigForApi":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68733,8 +68733,8 @@ class Mcexperienceconfigforapi(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Appeventconfig(BaseModel):
-    """Appeventconfig model"""
+class AppEventConfig(BaseModel):
+    """AppEventConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68832,7 +68832,7 @@ class Appeventconfig(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Appeventconfig":
+    def from_dict(cls, data: dict[str, Any]) -> "AppEventConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68841,8 +68841,8 @@ class Appeventconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignstats(BaseModel):
-    """Adcampaignstats model"""
+class AdCampaignStats(BaseModel):
+    """AdCampaignStats model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68902,7 +68902,7 @@ class Adcampaignstats(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignstats":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignStats":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68911,8 +68911,8 @@ class Adcampaignstats(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Cpaslsbimagebank(BaseModel):
-    """Cpaslsbimagebank model"""
+class CPASLsbImageBank(BaseModel):
+    """CPASLsbImageBank model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68930,7 +68930,7 @@ class Cpaslsbimagebank(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Cpaslsbimagebank":
+    def from_dict(cls, data: dict[str, Any]) -> "CPASLsbImageBank":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68939,8 +68939,8 @@ class Cpaslsbimagebank(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaigngroupincrementalconversionoptimizationconfig(BaseModel):
-    """Adcampaigngroupincrementalconversionoptimizationconfig model"""
+class AdCampaignGroupIncrementalConversionOptimizationConfig(BaseModel):
+    """AdCampaignGroupIncrementalConversionOptimizationConfig model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -68974,7 +68974,7 @@ class Adcampaigngroupincrementalconversionoptimizationconfig(BaseModel):
     @classmethod
     def from_dict(
         cls, data: dict[str, Any]
-    ) -> "Adcampaigngroupincrementalconversionoptimizationconfig":
+    ) -> "AdCampaignGroupIncrementalConversionOptimizationConfig":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -68983,70 +68983,70 @@ class Adcampaigngroupincrementalconversionoptimizationconfig(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Flexibletargeting(BaseModel):
-    """Flexibletargeting model"""
+class FlexibleTargeting(BaseModel):
+    """FlexibleTargeting model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
-    behaviors: Optional[list["Idname"]] = Field(None, description="Behaviors")
+    behaviors: Optional[list["IDName"]] = Field(None, description="Behaviors")
 
     college_years: Optional[list[int]] = Field(None, description="College Years")
 
-    connections: Optional[list["Idname"]] = Field(None, description="Connections")
+    connections: Optional[list["IDName"]] = Field(None, description="Connections")
 
-    custom_audiences: Optional[list["Idname"]] = Field(None, description="Custom Audiences")
+    custom_audiences: Optional[list["IDName"]] = Field(None, description="Custom Audiences")
 
-    education_majors: Optional[list["Idname"]] = Field(None, description="Education Majors")
+    education_majors: Optional[list["IDName"]] = Field(None, description="Education Majors")
 
-    education_schools: Optional[list["Idname"]] = Field(None, description="Education Schools")
+    education_schools: Optional[list["IDName"]] = Field(None, description="Education Schools")
 
     education_statuses: Optional[list[int]] = Field(None, description="Education Statuses")
 
-    ethnic_affinity: Optional[list["Idname"]] = Field(None, description="Ethnic Affinity")
+    ethnic_affinity: Optional[list["IDName"]] = Field(None, description="Ethnic Affinity")
 
-    family_statuses: Optional[list["Idname"]] = Field(None, description="Family Statuses")
+    family_statuses: Optional[list["IDName"]] = Field(None, description="Family Statuses")
 
-    friends_of_connections: Optional[list["Idname"]] = Field(
+    friends_of_connections: Optional[list["IDName"]] = Field(
         None, description="Friends Of Connections"
     )
 
-    generation: Optional[list["Idname"]] = Field(None, description="Generation")
+    generation: Optional[list["IDName"]] = Field(None, description="Generation")
 
-    home_ownership: Optional[list["Idname"]] = Field(None, description="Home Ownership")
+    home_ownership: Optional[list["IDName"]] = Field(None, description="Home Ownership")
 
-    home_type: Optional[list["Idname"]] = Field(None, description="Home Type")
+    home_type: Optional[list["IDName"]] = Field(None, description="Home Type")
 
-    home_value: Optional[list["Idname"]] = Field(None, description="Home Value")
+    home_value: Optional[list["IDName"]] = Field(None, description="Home Value")
 
-    household_composition: Optional[list["Idname"]] = Field(
+    household_composition: Optional[list["IDName"]] = Field(
         None, description="Household Composition"
     )
 
-    income: Optional[list["Idname"]] = Field(None, description="Income")
+    income: Optional[list["IDName"]] = Field(None, description="Income")
 
-    industries: Optional[list["Idname"]] = Field(None, description="Industries")
+    industries: Optional[list["IDName"]] = Field(None, description="Industries")
 
     interested_in: Optional[list[int]] = Field(None, description="Interested In")
 
-    interests: Optional[list["Idname"]] = Field(None, description="Interests")
+    interests: Optional[list["IDName"]] = Field(None, description="Interests")
 
-    life_events: Optional[list["Idname"]] = Field(None, description="Life Events")
+    life_events: Optional[list["IDName"]] = Field(None, description="Life Events")
 
-    moms: Optional[list["Idname"]] = Field(None, description="Moms")
+    moms: Optional[list["IDName"]] = Field(None, description="Moms")
 
-    net_worth: Optional[list["Idname"]] = Field(None, description="Net Worth")
+    net_worth: Optional[list["IDName"]] = Field(None, description="Net Worth")
 
-    office_type: Optional[list["Idname"]] = Field(None, description="Office Type")
+    office_type: Optional[list["IDName"]] = Field(None, description="Office Type")
 
-    politics: Optional[list["Idname"]] = Field(None, description="Politics")
+    politics: Optional[list["IDName"]] = Field(None, description="Politics")
 
     relationship_statuses: Optional[list[int]] = Field(None, description="Relationship Statuses")
 
-    user_adclusters: Optional[list["Idname"]] = Field(None, description="User Adclusters")
+    user_adclusters: Optional[list["IDName"]] = Field(None, description="User Adclusters")
 
-    work_employers: Optional[list["Idname"]] = Field(None, description="Work Employers")
+    work_employers: Optional[list["IDName"]] = Field(None, description="Work Employers")
 
-    work_positions: Optional[list["Idname"]] = Field(None, description="Work Positions")
+    work_positions: Optional[list["IDName"]] = Field(None, description="Work Positions")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -69056,7 +69056,7 @@ class Flexibletargeting(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Flexibletargeting":
+    def from_dict(cls, data: dict[str, Any]) -> "FlexibleTargeting":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69065,8 +69065,8 @@ class Flexibletargeting(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Copyrightattributioninsights(BaseModel):
-    """Copyrightattributioninsights model"""
+class CopyrightAttributionInsights(BaseModel):
+    """CopyrightAttributionInsights model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69092,7 +69092,7 @@ class Copyrightattributioninsights(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Copyrightattributioninsights":
+    def from_dict(cls, data: dict[str, Any]) -> "CopyrightAttributionInsights":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69101,8 +69101,8 @@ class Copyrightattributioninsights(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeedrule(BaseModel):
-    """Productfeedrule model"""
+class ProductFeedRule(BaseModel):
+    """ProductFeedRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69122,7 +69122,7 @@ class Productfeedrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeedrule":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69131,8 +69131,8 @@ class Productfeedrule(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productfeeduploaderrorreport(BaseModel):
-    """Productfeeduploaderrorreport model"""
+class ProductFeedUploadErrorReport(BaseModel):
+    """ProductFeedUploadErrorReport model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69148,7 +69148,7 @@ class Productfeeduploaderrorreport(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productfeeduploaderrorreport":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductFeedUploadErrorReport":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69157,8 +69157,8 @@ class Productfeeduploaderrorreport(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Thirdpartypartnerpanelscheduled(BaseModel):
-    """Thirdpartypartnerpanelscheduled model"""
+class ThirdPartyPartnerPanelScheduled(BaseModel):
+    """ThirdPartyPartnerPanelScheduled model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69200,7 +69200,7 @@ class Thirdpartypartnerpanelscheduled(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Thirdpartypartnerpanelscheduled":
+    def from_dict(cls, data: dict[str, Any]) -> "ThirdPartyPartnerPanelScheduled":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69209,8 +69209,8 @@ class Thirdpartypartnerpanelscheduled(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagelocationsbreakdown(BaseModel):
-    """Pagelocationsbreakdown model"""
+class PageLocationsBreakdown(BaseModel):
+    """PageLocationsBreakdown model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69244,7 +69244,7 @@ class Pagelocationsbreakdown(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagelocationsbreakdown":
+    def from_dict(cls, data: dict[str, Any]) -> "PageLocationsBreakdown":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69253,8 +69253,8 @@ class Pagelocationsbreakdown(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adspixeldomaincontrolrule(BaseModel):
-    """Adspixeldomaincontrolrule model"""
+class AdsPixelDomainControlRule(BaseModel):
+    """AdsPixelDomainControlRule model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69270,7 +69270,7 @@ class Adspixeldomaincontrolrule(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adspixeldomaincontrolrule":
+    def from_dict(cls, data: dict[str, Any]) -> "AdsPixelDomainControlRule":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69314,13 +69314,13 @@ class Photo(BaseModel):
 
     id: Optional[str] = Field(None, description="Id")
 
-    images: Optional[list["Platformimagesource"]] = Field(None, description="Images")
+    images: Optional[list["PlatformImageSource"]] = Field(None, description="Images")
 
     link: Optional[str] = Field(None, description="Link")
 
     name: Optional[str] = Field(None, description="Name")
 
-    name_tags: Optional[list["Entityattextrange"]] = Field(None, description="Name Tags")
+    name_tags: Optional[list["EntityAtTextRange"]] = Field(None, description="Name Tags")
 
     page_story_id: Optional[str] = Field(None, description="Page Story Id")
 
@@ -69336,7 +69336,7 @@ class Photo(BaseModel):
 
     updated_time: Optional[datetime] = Field(None, description="Updated Time")
 
-    webp_images: Optional[list["Platformimagesource"]] = Field(None, description="Webp Images")
+    webp_images: Optional[list["PlatformImageSource"]] = Field(None, description="Webp Images")
 
     width: Optional[int] = Field(None, description="Width")
 
@@ -69357,8 +69357,8 @@ class Photo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Catalogitemchannelstointegritystatus(BaseModel):
-    """Catalogitemchannelstointegritystatus model"""
+class CatalogItemChannelsToIntegrityStatus(BaseModel):
+    """CatalogItemChannelsToIntegrityStatus model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69376,7 +69376,7 @@ class Catalogitemchannelstointegritystatus(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Catalogitemchannelstointegritystatus":
+    def from_dict(cls, data: dict[str, Any]) -> "CatalogItemChannelsToIntegrityStatus":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69385,14 +69385,14 @@ class Catalogitemchannelstointegritystatus(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igshoppingreviewstatusonsiteeligibility(BaseModel):
-    """Igshoppingreviewstatusonsiteeligibility model"""
+class IGShoppingReviewStatusOnsiteEligibility(BaseModel):
+    """IGShoppingReviewStatusOnsiteEligibility model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     is_eligible: Optional[bool] = Field(None, description="Is Eligible")
 
-    reasons: Optional[list["Igshoppingreviewstatusreasonwithhelpmessage"]] = Field(
+    reasons: Optional[list["IGShoppingReviewStatusReasonWithHelpMessage"]] = Field(
         None, description="Reasons"
     )
 
@@ -69404,7 +69404,7 @@ class Igshoppingreviewstatusonsiteeligibility(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igshoppingreviewstatusonsiteeligibility":
+    def from_dict(cls, data: dict[str, Any]) -> "IGShoppingReviewStatusOnsiteEligibility":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69563,8 +69563,8 @@ class Post(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Externalmerchantsettings(BaseModel):
-    """Externalmerchantsettings model"""
+class ExternalMerchantSettings(BaseModel):
+    """ExternalMerchantSettings model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69582,7 +69582,7 @@ class Externalmerchantsettings(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Externalmerchantsettings":
+    def from_dict(cls, data: dict[str, Any]) -> "ExternalMerchantSettings":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69617,14 +69617,14 @@ class Dataset(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Igvideocopyrightcheckmatchesinformation(BaseModel):
-    """Igvideocopyrightcheckmatchesinformation model"""
+class IGVideoCopyrightCheckMatchesInformation(BaseModel):
+    """IGVideoCopyrightCheckMatchesInformation model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
     copyright_matches: Optional[list[dict[str, Any]]] = Field(None, description="Copyright Matches")
 
-    status: Optional["Igvideocopyrightcheckstatus"] = Field(None, description="Status")
+    status: Optional["IGVideoCopyrightCheckStatus"] = Field(None, description="Status")
 
     @field_serializer("*", mode="wrap")
     def serialize_datetime(self, value, handler):
@@ -69634,7 +69634,7 @@ class Igvideocopyrightcheckmatchesinformation(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Igvideocopyrightcheckmatchesinformation":
+    def from_dict(cls, data: dict[str, Any]) -> "IGVideoCopyrightCheckMatchesInformation":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69643,8 +69643,8 @@ class Igvideocopyrightcheckmatchesinformation(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Instantarticleinsightsqueryresult(BaseModel):
-    """Instantarticleinsightsqueryresult model"""
+class InstantArticleInsightsQueryResult(BaseModel):
+    """InstantArticleInsightsQueryResult model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69664,7 +69664,7 @@ class Instantarticleinsightsqueryresult(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Instantarticleinsightsqueryresult":
+    def from_dict(cls, data: dict[str, Any]) -> "InstantArticleInsightsQueryResult":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69673,8 +69673,8 @@ class Instantarticleinsightsqueryresult(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Pagebroadcast(BaseModel):
-    """Pagebroadcast model"""
+class PageBroadcast(BaseModel):
+    """PageBroadcast model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69692,7 +69692,7 @@ class Pagebroadcast(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Pagebroadcast":
+    def from_dict(cls, data: dict[str, Any]) -> "PageBroadcast":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69701,8 +69701,8 @@ class Pagebroadcast(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Leadgendatadraft(BaseModel):
-    """Leadgendatadraft model"""
+class LeadGenDataDraft(BaseModel):
+    """LeadGenDataDraft model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69734,7 +69734,7 @@ class Leadgendatadraft(BaseModel):
         None, description="Question Page Custom Headline"
     )
 
-    questions: Optional[list["Leadgendraftquestion"]] = Field(None, description="Questions")
+    questions: Optional[list["LeadGenDraftQuestion"]] = Field(None, description="Questions")
 
     status: Optional[str] = Field(None, description="Status")
 
@@ -69752,7 +69752,7 @@ class Leadgendatadraft(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Leadgendatadraft":
+    def from_dict(cls, data: dict[str, Any]) -> "LeadGenDataDraft":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69761,8 +69761,8 @@ class Leadgendatadraft(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcampaignlearningstageinfo(BaseModel):
-    """Adcampaignlearningstageinfo model"""
+class AdCampaignLearningStageInfo(BaseModel):
+    """AdCampaignLearningStageInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69782,7 +69782,7 @@ class Adcampaignlearningstageinfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcampaignlearningstageinfo":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCampaignLearningStageInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69791,8 +69791,8 @@ class Adcampaignlearningstageinfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Partnershipadsidentity(BaseModel):
-    """Partnershipadsidentity model"""
+class PartnershipAdsIdentity(BaseModel):
+    """PartnershipAdsIdentity model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69812,7 +69812,7 @@ class Partnershipadsidentity(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Partnershipadsidentity":
+    def from_dict(cls, data: dict[str, Any]) -> "PartnershipAdsIdentity":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69821,8 +69821,8 @@ class Partnershipadsidentity(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativelinkdatasponsorshipinfospec(BaseModel):
-    """Adcreativelinkdatasponsorshipinfospec model"""
+class AdCreativeLinkDataSponsorshipInfoSpec(BaseModel):
+    """AdCreativeLinkDataSponsorshipInfoSpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69838,7 +69838,7 @@ class Adcreativelinkdatasponsorshipinfospec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativelinkdatasponsorshipinfospec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeLinkDataSponsorshipInfoSpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69847,8 +69847,8 @@ class Adcreativelinkdatasponsorshipinfospec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adassetmessageextensions(BaseModel):
-    """Adassetmessageextensions model"""
+class AdAssetMessageExtensions(BaseModel):
+    """AdAssetMessageExtensions model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69862,7 +69862,7 @@ class Adassetmessageextensions(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adassetmessageextensions":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAssetMessageExtensions":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -69871,8 +69871,8 @@ class Adassetmessageextensions(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Vehicleoffer(BaseModel):
-    """Vehicleoffer model"""
+class VehicleOffer(BaseModel):
+    """VehicleOffer model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -69884,7 +69884,7 @@ class Vehicleoffer(BaseModel):
 
     amount_qualifier: Optional[str] = Field(None, description="Amount Qualifier")
 
-    applinks: Optional["Catalogitemapplinks"] = Field(None, description="Applinks")
+    applinks: Optional["CatalogItemAppLinks"] = Field(None, description="Applinks")
 
     availability: Optional[str] = Field(None, description="Availability")
 
@@ -69894,7 +69894,7 @@ class Vehicleoffer(BaseModel):
 
     cashback_price: Optional[str] = Field(None, description="Cashback Price")
 
-    category_specific_fields: Optional["Catalogsubverticallist"] = Field(
+    category_specific_fields: Optional["CatalogSubVerticalList"] = Field(
         None, description="Category Specific Fields"
     )
 
@@ -70010,7 +70010,7 @@ class Vehicleoffer(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Vehicleoffer":
+    def from_dict(cls, data: dict[str, Any]) -> "VehicleOffer":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70019,8 +70019,8 @@ class Vehicleoffer(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Musicworkcopyright(BaseModel):
-    """Musicworkcopyright model"""
+class MusicWorkCopyright(BaseModel):
+    """MusicWorkCopyright model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70050,7 +70050,7 @@ class Musicworkcopyright(BaseModel):
         None, description="Is Linking Required To Monetize For Manual Claim"
     )
 
-    match_rule: Optional["Videocopyrightrule"] = Field(None, description="Match Rule")
+    match_rule: Optional["VideoCopyrightRule"] = Field(None, description="Match Rule")
 
     status: Optional[str] = Field(None, description="Status")
 
@@ -70066,7 +70066,7 @@ class Musicworkcopyright(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Musicworkcopyright":
+    def from_dict(cls, data: dict[str, Any]) -> "MusicWorkCopyright":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70075,8 +70075,8 @@ class Musicworkcopyright(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Owneddomain(BaseModel):
-    """Owneddomain model"""
+class OwnedDomain(BaseModel):
+    """OwnedDomain model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70098,7 +70098,7 @@ class Owneddomain(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Owneddomain":
+    def from_dict(cls, data: dict[str, Any]) -> "OwnedDomain":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70107,8 +70107,8 @@ class Owneddomain(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativevideodatacustomoverlayspec(BaseModel):
-    """Adcreativevideodatacustomoverlayspec model"""
+class AdCreativeVideoDataCustomOverlaySpec(BaseModel):
+    """AdCreativeVideoDataCustomOverlaySpec model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70148,7 +70148,7 @@ class Adcreativevideodatacustomoverlayspec(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativevideodatacustomoverlayspec":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeVideoDataCustomOverlaySpec":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70157,8 +70157,8 @@ class Adcreativevideodatacustomoverlayspec(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adcreativecontextualmultiads(BaseModel):
-    """Adcreativecontextualmultiads model"""
+class AdCreativeContextualMultiAds(BaseModel):
+    """AdCreativeContextualMultiAds model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70172,7 +70172,7 @@ class Adcreativecontextualmultiads(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adcreativecontextualmultiads":
+    def from_dict(cls, data: dict[str, Any]) -> "AdCreativeContextualMultiAds":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70181,8 +70181,8 @@ class Adcreativecontextualmultiads(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Workskill(BaseModel):
-    """Workskill model"""
+class WorkSkill(BaseModel):
+    """WorkSkill model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70198,7 +70198,7 @@ class Workskill(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Workskill":
+    def from_dict(cls, data: dict[str, Any]) -> "WorkSkill":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70207,8 +70207,8 @@ class Workskill(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Areffect(BaseModel):
-    """Areffect model"""
+class AREffect(BaseModel):
+    """AREffect model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70232,7 +70232,7 @@ class Areffect(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Areffect":
+    def from_dict(cls, data: dict[str, Any]) -> "AREffect":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70241,8 +70241,8 @@ class Areffect(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Adaccountpromotableobjects(BaseModel):
-    """Adaccountpromotableobjects model"""
+class AdAccountPromotableObjects(BaseModel):
+    """AdAccountPromotableObjects model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70260,7 +70260,7 @@ class Adaccountpromotableobjects(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Adaccountpromotableobjects":
+    def from_dict(cls, data: dict[str, Any]) -> "AdAccountPromotableObjects":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70269,8 +70269,8 @@ class Adaccountpromotableobjects(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Externaleventsourcecpaseventsdebugginginfo(BaseModel):
-    """Externaleventsourcecpaseventsdebugginginfo model"""
+class ExternalEventSourceCPASEventsDebuggingInfo(BaseModel):
+    """ExternalEventSourceCPASEventsDebuggingInfo model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70288,7 +70288,7 @@ class Externaleventsourcecpaseventsdebugginginfo(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Externaleventsourcecpaseventsdebugginginfo":
+    def from_dict(cls, data: dict[str, Any]) -> "ExternalEventSourceCPASEventsDebuggingInfo":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70297,8 +70297,8 @@ class Externaleventsourcecpaseventsdebugginginfo(BaseModel):
         return self.model_dump(exclude_none=exclude_none)
 
 
-class Productcatalogpricingvariablesbatch(BaseModel):
-    """Productcatalogpricingvariablesbatch model"""
+class ProductCatalogPricingVariablesBatch(BaseModel):
+    """ProductCatalogPricingVariablesBatch model"""
 
     model_config = ConfigDict(extra="allow", use_enum_values=True, populate_by_name=True)
 
@@ -70318,7 +70318,7 @@ class Productcatalogpricingvariablesbatch(BaseModel):
         return handler(value)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "Productcatalogpricingvariablesbatch":
+    def from_dict(cls, data: dict[str, Any]) -> "ProductCatalogPricingVariablesBatch":
         """Create instance from dictionary"""
         return cls(**data)
 
@@ -70329,1881 +70329,1881 @@ class Productcatalogpricingvariablesbatch(BaseModel):
 
 # Update forward references
 
-Whatsappbusinesshealthstatus.model_rebuild()
+WhatsAppBusinessHealthStatus.model_rebuild()
 
-Advolume.model_rebuild()
+AdVolume.model_rebuild()
 
-Dynamicpostchildattachment.model_rebuild()
+DynamicPostChildAttachment.model_rebuild()
 
-Adassetfeedspec.model_rebuild()
+AdAssetFeedSpec.model_rebuild()
 
-Offlineproductitem.model_rebuild()
+OfflineProductItem.model_rebuild()
 
-Adcreativelinkdatacalltoactionvalue.model_rebuild()
+AdCreativeLinkDataCallToActionValue.model_rebuild()
 
-Businessfranchiseconfig.model_rebuild()
+BusinessFranchiseConfig.model_rebuild()
 
 Transaction.model_rebuild()
 
-Igmedia.model_rebuild()
+IGMedia.model_rebuild()
 
-Igbcadspermission.model_rebuild()
+IGBCAdsPermission.model_rebuild()
 
-Adplacepageset.model_rebuild()
+AdPlacePageSet.model_rebuild()
 
-Rightsmanagerinsights.model_rebuild()
+RightsManagerInsights.model_rebuild()
 
-Adstextsuggestions.model_rebuild()
+AdsTextSuggestions.model_rebuild()
 
-Adcampaigngroupstructuretree.model_rebuild()
+AdCampaignGroupStructureTree.model_rebuild()
 
-Targetinggeolocationregion.model_rebuild()
+TargetingGeoLocationRegion.model_rebuild()
 
-Canvastemplate.model_rebuild()
+CanvasTemplate.model_rebuild()
 
-Targetingsentenceline.model_rebuild()
+TargetingSentenceLine.model_rebuild()
 
-Adruleschedulespec.model_rebuild()
+AdRuleScheduleSpec.model_rebuild()
 
-Customaudiencestos.model_rebuild()
+CustomAudiencesTOS.model_rebuild()
 
 Campaign.model_rebuild()
 
-Eventtickettier.model_rebuild()
+EventTicketTier.model_rebuild()
 
-Dynamiccontentset.model_rebuild()
+DynamicContentSet.model_rebuild()
 
-Musicvideocopyright.model_rebuild()
+MusicVideoCopyright.model_rebuild()
 
-Smartpixelinsights.model_rebuild()
+SmartPixelInsights.model_rebuild()
 
-Customaudiencesharedaccountinfo.model_rebuild()
+CustomAudiencesharedAccountInfo.model_rebuild()
 
-Adassetfeedspecassetcustomizationrule.model_rebuild()
+AdAssetFeedSpecAssetCustomizationRule.model_rebuild()
 
-Adspixelrealtimeeventlogresult.model_rebuild()
+AdsPixelRealTimeEventLogResult.model_rebuild()
 
-Advainstance.model_rebuild()
+AdvAInstance.model_rebuild()
 
-Keyvalue.model_rebuild()
+KeyValue.model_rebuild()
 
-Directdebit.model_rebuild()
+DirectDebit.model_rebuild()
 
-Pageupcomingchange.model_rebuild()
+PageUpcomingChange.model_rebuild()
 
-Reachfrequencyestimatesplacementbreakdown.model_rebuild()
+ReachFrequencyEstimatesPlacementBreakdown.model_rebuild()
 
-Analyticssegment.model_rebuild()
+AnalyticsSegment.model_rebuild()
 
-Contactsmessengersyncconfig.model_rebuild()
+ContactsMessengerSyncConfig.model_rebuild()
 
-Childevent.model_rebuild()
+ChildEvent.model_rebuild()
 
-Targetinggeolocationelectoraldistrict.model_rebuild()
+TargetingGeoLocationElectoralDistrict.model_rebuild()
 
-Adassetfeedspecevents.model_rebuild()
+AdAssetFeedSpecEvents.model_rebuild()
 
-Audiencefunnel.model_rebuild()
+AudienceFunnel.model_rebuild()
 
-Adssegments.model_rebuild()
+AdsSegments.model_rebuild()
 
-Adexportpreset.model_rebuild()
+AdExportPreset.model_rebuild()
 
-Imagereferencematch.model_rebuild()
+ImageReferenceMatch.model_rebuild()
 
-Leadgenquestionoption.model_rebuild()
+LeadGenQuestionOption.model_rebuild()
 
-Collaborativeadssharesettings.model_rebuild()
+CollaborativeAdsShareSettings.model_rebuild()
 
-Livevideotargeting.model_rebuild()
+LiveVideoTargeting.model_rebuild()
 
-Adcreativetextdata.model_rebuild()
+AdCreativeTextData.model_rebuild()
 
-Analyticsentityuserconfig.model_rebuild()
+AnalyticsEntityUserConfig.model_rebuild()
 
-Igmediaforigonlyapi.model_rebuild()
+IGMediaForIGOnlyAPI.model_rebuild()
 
-Adcampaignoptimizationevent.model_rebuild()
+AdCampaignOptimizationEvent.model_rebuild()
 
 Privacy.model_rebuild()
 
-Blindpig.model_rebuild()
+BlindPig.model_rebuild()
 
-Attributionspec.model_rebuild()
+AttributionSpec.model_rebuild()
 
-Adsoptimaldeliverygrowthopportunity.model_rebuild()
+AdsOptimalDeliveryGrowthOpportunity.model_rebuild()
 
-Almguidance.model_rebuild()
+ALMGuidance.model_rebuild()
 
-Useridforpage.model_rebuild()
+UserIDForPage.model_rebuild()
 
-Adaccount.model_rebuild()
+AdAccount.model_rebuild()
 
-Leadgendirectcrmintegrationconfig.model_rebuild()
+LeadGenDirectCRMIntegrationConfig.model_rebuild()
 
-Signalsiwlextractor.model_rebuild()
+SignalsIWLExtractor.model_rebuild()
 
-Singleowneradditionalprofile.model_rebuild()
+SingleOwnerAdditionalProfile.model_rebuild()
 
-Dynamicarmetadata.model_rebuild()
+DynamicARMetadata.model_rebuild()
 
-Productitemlandingpagedata.model_rebuild()
+ProductItemLandingPageData.model_rebuild()
 
-Businessadaccountrequest.model_rebuild()
+BusinessAdAccountRequest.model_rebuild()
 
 Flight.model_rebuild()
 
-Customconversionactivities.model_rebuild()
+CustomConversionActivities.model_rebuild()
 
 Ad.model_rebuild()
 
-Hotelroom.model_rebuild()
+HotelRoom.model_rebuild()
 
-Adcreativeomnichannellinkspec.model_rebuild()
+AdCreativeOmnichannelLinkSpec.model_rebuild()
 
-Livevideoadbreakconfig.model_rebuild()
+LiveVideoAdBreakConfig.model_rebuild()
 
-Splittestwinner.model_rebuild()
+SplitTestWinner.model_rebuild()
 
-Campaignactionsdata.model_rebuild()
+CampaignActionsData.model_rebuild()
 
-Idname.model_rebuild()
+IDName.model_rebuild()
 
-Adspixelrawfiresresult.model_rebuild()
+AdsPixelRawFiresResult.model_rebuild()
 
-Recommendedpagepost.model_rebuild()
+RecommendedPagePost.model_rebuild()
 
-Copyrightreferencecontainer.model_rebuild()
+CopyrightReferenceContainer.model_rebuild()
 
-Businesscreativefolder.model_rebuild()
+BusinessCreativeFolder.model_rebuild()
 
-Useridforapp.model_rebuild()
+UserIDForApp.model_rebuild()
 
-Amoneshopsettings.model_rebuild()
+AMOneshopSettings.model_rebuild()
 
-Adcampaigndeliverystatsunsupportedreasons.model_rebuild()
+AdCampaignDeliveryStatsUnsupportedReasons.model_rebuild()
 
-Adrecommendation.model_rebuild()
+AdRecommendation.model_rebuild()
 
-Pageappwithleadsaccess.model_rebuild()
+PageAppWithLeadsAccess.model_rebuild()
 
-Adassetfeedspecgrouprule.model_rebuild()
+AdAssetFeedSpecGroupRule.model_rebuild()
 
-Pagecrmswithleadsaccess.model_rebuild()
+PageCrmsWithLeadsAccess.model_rebuild()
 
-Businessobjecttransferownershipagreement.model_rebuild()
+BusinessObjectTransferOwnershipAgreement.model_rebuild()
 
-Livevideorecommendedencodersettings.model_rebuild()
+LiveVideoRecommendedEncoderSettings.model_rebuild()
 
-Pagecalltoaction.model_rebuild()
+PageCallToAction.model_rebuild()
 
-Adcampaigngroupstats.model_rebuild()
+AdCampaignGroupStats.model_rebuild()
 
-Businessrolerequest.model_rebuild()
+BusinessRoleRequest.model_rebuild()
 
-Offlinetermsofservice.model_rebuild()
+OfflineTermsOfService.model_rebuild()
 
-Adaccountadlimitsinsights.model_rebuild()
+AdAccountAdLimitsInsights.model_rebuild()
 
-Adcreativerecommendersettings.model_rebuild()
+AdCreativeRecommenderSettings.model_rebuild()
 
-Extendedcreditapplication.model_rebuild()
+ExtendedCreditApplication.model_rebuild()
 
-Adcreativeformattransformationspec.model_rebuild()
+AdCreativeFormatTransformationSpec.model_rebuild()
 
-Productvisualvariant.model_rebuild()
+ProductVisualVariant.model_rebuild()
 
-Audiencepermissionforactions.model_rebuild()
+AudiencePermissionForActions.model_rebuild()
 
-Adscreationsavedstate.model_rebuild()
+AdsCreationSavedState.model_rebuild()
 
-Educationexperience.model_rebuild()
+EducationExperience.model_rebuild()
 
-Messengeradspartialautomatedsteplist.model_rebuild()
+MessengerAdsPartialAutomatedStepList.model_rebuild()
 
 Tab.model_rebuild()
 
-Audiocopyright.model_rebuild()
+AudioCopyright.model_rebuild()
 
-Brandedcontentaderror.model_rebuild()
+BrandedContentAdError.model_rebuild()
 
-Withasset3d.model_rebuild()
+WithAsset3D.model_rebuild()
 
-Adcreativedestinationspec.model_rebuild()
+AdCreativeDestinationSpec.model_rebuild()
 
-Woodhengepurchasedpaygreceipt.model_rebuild()
+WoodhengePurchasedPAYGReceipt.model_rebuild()
 
-Productsettaxoncategory.model_rebuild()
+ProductSetTaxonCategory.model_rebuild()
 
 Canvas.model_rebuild()
 
-Adconversionvalues.model_rebuild()
+AdConversionValues.model_rebuild()
 
-Catalogcontentversionconfig.model_rebuild()
+CatalogContentVersionConfig.model_rebuild()
 
-Customconversionstatsresult.model_rebuild()
+CustomConversionStatsResult.model_rebuild()
 
-Shadowigusercatalogproductsearch.model_rebuild()
+ShadowIGUserCatalogProductSearch.model_rebuild()
 
-Adcreativehouseshopsadssellercontent.model_rebuild()
+AdCreativeHouseShopsAdsSellerContent.model_rebuild()
 
-Productvariant.model_rebuild()
+ProductVariant.model_rebuild()
 
-Mcominvoicestatus.model_rebuild()
+McomInvoiceStatus.model_rebuild()
 
-Deliveryinfo.model_rebuild()
+DeliveryInfo.model_rebuild()
 
-Eventsourcegroup.model_rebuild()
+EventSourceGroup.model_rebuild()
 
-Analyticsplatformmetricsconfig.model_rebuild()
+AnalyticsPlatformMetricsConfig.model_rebuild()
 
-Adstudyobjectiveoffsitedatasets.model_rebuild()
+AdStudyObjectiveOffsiteDatasets.model_rebuild()
 
-Brandsafetycampaignconfig.model_rebuild()
+BrandSafetyCampaignConfig.model_rebuild()
 
-Platformimagesource.model_rebuild()
+PlatformImageSource.model_rebuild()
 
-Pagemessageresponsivenessmetrics.model_rebuild()
+PageMessageResponsivenessMetrics.model_rebuild()
 
-Pagectxmessagingfeaturelimit.model_rebuild()
+PageCTXMessagingFeatureLimit.model_rebuild()
 
-Personaladspersona.model_rebuild()
+PersonalAdsPersona.model_rebuild()
 
-Adaccounttargetingunified.model_rebuild()
+AdAccountTargetingUnified.model_rebuild()
 
-Deliverycheck.model_rebuild()
+DeliveryCheck.model_rebuild()
 
-Slicedeventsourcegroup.model_rebuild()
+SlicedEventSourceGroup.model_rebuild()
 
-Customaudiencesession.model_rebuild()
+CustomAudienceSession.model_rebuild()
 
-Canvaspreview.model_rebuild()
+CanvasPreview.model_rebuild()
 
-Dacheck.model_rebuild()
+DACheck.model_rebuild()
 
-Audiencesharingaccountvalid.model_rebuild()
+AudienceSharingAccountValid.model_rebuild()
 
-Adspixelsignalsiwlfeedbacknux.model_rebuild()
+AdsPixelSignalsIWLFeedbackNux.model_rebuild()
 
-Eventexternalticketinfo.model_rebuild()
+EventExternalTicketInfo.model_rebuild()
 
-Researchpollstudy.model_rebuild()
+ResearchPollStudy.model_rebuild()
 
-Usercontext.model_rebuild()
+UserContext.model_rebuild()
 
-Almendadvertiserinfo.model_rebuild()
+ALMEndAdvertiserInfo.model_rebuild()
 
-Premiummusicvideo.model_rebuild()
+PremiumMusicVideo.model_rebuild()
 
 Persona.model_rebuild()
 
-Creditpartitionactionoptions.model_rebuild()
+CreditPartitionActionOptions.model_rebuild()
 
-Canvasbodyelement.model_rebuild()
+CanvasBodyElement.model_rebuild()
 
-Adaccountsubsidyamountdetails.model_rebuild()
+AdAccountSubsidyAmountDetails.model_rebuild()
 
-Adcampaigndeliverystats.model_rebuild()
+AdCampaignDeliveryStats.model_rebuild()
 
-Instagraminsightsvalue.model_rebuild()
+InstagramInsightsValue.model_rebuild()
 
-Fantasygame.model_rebuild()
+FantasyGame.model_rebuild()
 
-Igvideocopyrightcheckstatus.model_rebuild()
+IGVideoCopyrightCheckStatus.model_rebuild()
 
-Mcompayouts.model_rebuild()
+McomPayouts.model_rebuild()
 
-Customaudience.model_rebuild()
+CustomAudience.model_rebuild()
 
-Adaccountreachestimate.model_rebuild()
+AdAccountReachEstimate.model_rebuild()
 
-Adgroupmetadata.model_rebuild()
+AdgroupMetadata.model_rebuild()
 
-Privacyoption.model_rebuild()
+PrivacyOption.model_rebuild()
 
-Franchiseprogram.model_rebuild()
+FranchiseProgram.model_rebuild()
 
-Adsreportbuildersavedreport.model_rebuild()
+AdsReportBuilderSavedReport.model_rebuild()
 
-Analyticsfunnelqueryresult.model_rebuild()
+AnalyticsFunnelQueryResult.model_rebuild()
 
-Productcataloguseractions.model_rebuild()
+ProductCatalogUserActions.model_rebuild()
 
-Adgroupissuesinfo.model_rebuild()
+AdgroupIssuesInfo.model_rebuild()
 
-Productcatalogimagesettingsoperation.model_rebuild()
+ProductCatalogImageSettingsOperation.model_rebuild()
 
-Iguserexportforcam.model_rebuild()
+IGUserExportForCAM.model_rebuild()
 
-Audioasset.model_rebuild()
+AudioAsset.model_rebuild()
 
-Adaccounttrackingdata.model_rebuild()
+AdAccountTrackingData.model_rebuild()
 
-Reachfrequencyadformat.model_rebuild()
+ReachFrequencyAdFormat.model_rebuild()
 
-Whatsappbusinessaccount.model_rebuild()
+WhatsAppBusinessAccount.model_rebuild()
 
-Extendedcreditemail.model_rebuild()
+ExtendedCreditEmail.model_rebuild()
 
-Admonetizationproperty.model_rebuild()
+AdMonetizationProperty.model_rebuild()
 
-Brandedcontentshadowigmediaid.model_rebuild()
+BrandedContentShadowIGMediaID.model_rebuild()
 
-Reachfrequencyestimatescurve.model_rebuild()
+ReachFrequencyEstimatesCurve.model_rebuild()
 
 Vehicle.model_rebuild()
 
-Whatsapppaymentcapabilities.model_rebuild()
+WhatsAppPaymentCapabilities.model_rebuild()
 
-Adpromotedobject.model_rebuild()
+AdPromotedObject.model_rebuild()
 
-Offlineconversiondatasetpermissions.model_rebuild()
+OfflineConversionDataSetPermissions.model_rebuild()
 
-Paymentenginepayment.model_rebuild()
+PaymentEnginePayment.model_rebuild()
 
-Leadgenappointmentslotsbyday.model_rebuild()
+LeadGenAppointmentSlotsByDay.model_rebuild()
 
-Adruleexecutionspec.model_rebuild()
+AdRuleExecutionSpec.model_rebuild()
 
-Catalogitemvalidationerrorlist.model_rebuild()
+CatalogItemValidationErrorList.model_rebuild()
 
-Targetinggeolocationlocationcluster.model_rebuild()
+TargetingGeoLocationLocationCluster.model_rebuild()
 
-Analyticsqueryresult.model_rebuild()
+AnalyticsQueryResult.model_rebuild()
 
-Igaccesstokenforigonlyapi.model_rebuild()
+IGAccessTokenForIGOnlyAPI.model_rebuild()
 
-Videostatusprocessingphase.model_rebuild()
+VideoStatusProcessingPhase.model_rebuild()
 
-Productitemcommerceinsights.model_rebuild()
+ProductItemCommerceInsights.model_rebuild()
 
-Adaccountaaacompatibleadobjects.model_rebuild()
+AdAccountAAACompatibleAdObjects.model_rebuild()
 
-Productiteminsights.model_rebuild()
+ProductItemInsights.model_rebuild()
 
-Adspixelstats.model_rebuild()
+AdsPixelStats.model_rebuild()
 
-Adassetdescription.model_rebuild()
+AdAssetDescription.model_rebuild()
 
-Adcreativeshopspec.model_rebuild()
+AdCreativeShopSpec.model_rebuild()
 
-Reachfrequencydaypart.model_rebuild()
+ReachFrequencyDayPart.model_rebuild()
 
-Businessownedobjectonbehalfofrequest.model_rebuild()
+BusinessOwnedObjectOnBehalfOfRequest.model_rebuild()
 
-Productcatalog.model_rebuild()
+ProductCatalog.model_rebuild()
 
-Productitemsubscriptioninfo.model_rebuild()
+ProductItemSubscriptionInfo.model_rebuild()
 
-Videopoll.model_rebuild()
+VideoPoll.model_rebuild()
 
-Adentitytargetspend.model_rebuild()
+AdEntityTargetSpend.model_rebuild()
 
-Campaigngroupbrandconfiguration.model_rebuild()
+CampaignGroupBrandConfiguration.model_rebuild()
 
-Playablecontent.model_rebuild()
+PlayableContent.model_rebuild()
 
-Shadowigmediaproducttags.model_rebuild()
+ShadowIGMediaProductTags.model_rebuild()
 
-Businessassetgroup.model_rebuild()
+BusinessAssetGroup.model_rebuild()
 
-Pageaboutstorycomposedblockentityranges.model_rebuild()
+PageAboutStoryComposedBlockEntityRanges.model_rebuild()
 
-Businessobject.model_rebuild()
+BusinessObject.model_rebuild()
 
-Adcreativepromotionmetadataspec.model_rebuild()
+AdCreativePromotionMetadataSpec.model_rebuild()
 
-Targetingsubscriberuniverse.model_rebuild()
+TargetingSubscriberUniverse.model_rebuild()
 
-Textwithentities.model_rebuild()
+TextWithEntities.model_rebuild()
 
-Igcomment.model_rebuild()
+IGComment.model_rebuild()
 
-Shadowiguserpartnershipadsmediaerrors.model_rebuild()
+ShadowIGUserPartnershipAdsMediaErrors.model_rebuild()
 
-Userpageonetimeoptintokensettings.model_rebuild()
+UserPageOneTimeOptInTokenSettings.model_rebuild()
 
-Adlimitsetting.model_rebuild()
+AdLimitSetting.model_rebuild()
 
-Reportingaudience.model_rebuild()
+ReportingAudience.model_rebuild()
 
-Partnershipadcontentsearchmedia.model_rebuild()
+PartnershipAdContentSearchMedia.model_rebuild()
 
-Adaccountspendcapchangehistory.model_rebuild()
+AdAccountSpendCapChangeHistory.model_rebuild()
 
-Reachfrequencycurvelowerconfidencerange.model_rebuild()
+ReachFrequencyCurveLowerConfidenceRange.model_rebuild()
 
-Adcreativelinkdataimagelayerspec.model_rebuild()
+AdCreativeLinkDataImageLayerSpec.model_rebuild()
 
-Targetinggeolocationgeoentities.model_rebuild()
+TargetingGeoLocationGeoEntities.model_rebuild()
 
-Offlineconversiondatasetusage.model_rebuild()
+OfflineConversionDataSetUsage.model_rebuild()
 
-Videothumbnail.model_rebuild()
+VideoThumbnail.model_rebuild()
 
-Externaleventsourcecpaseventsdebugging.model_rebuild()
+ExternalEventSourceCPASEventsDebugging.model_rebuild()
 
-Adassetfeedspeccaption.model_rebuild()
+AdAssetFeedSpecCaption.model_rebuild()
 
-Hasleadaccess.model_rebuild()
+HasLeadAccess.model_rebuild()
 
-Collaborativeadspartnerbusinesses.model_rebuild()
+CollaborativeAdsPartnerBusinesses.model_rebuild()
 
 Business.model_rebuild()
 
-Socialwifisite.model_rebuild()
+SocialWifiSite.model_rebuild()
 
-Igusermessengerprofile.model_rebuild()
+IGUserMessengerProfile.model_rebuild()
 
-Adcreativelinkdataimageoverlayspec.model_rebuild()
+AdCreativeLinkDataImageOverlaySpec.model_rebuild()
 
-Salesrightsinventorymanagement.model_rebuild()
+SalesRightsInventoryManagement.model_rebuild()
 
-Adcreativeobjectstoryspec.model_rebuild()
+AdCreativeObjectStorySpec.model_rebuild()
 
-Adasyncrequestset.model_rebuild()
+AdAsyncRequestSet.model_rebuild()
 
-Assigneduser.model_rebuild()
+AssignedUser.model_rebuild()
 
-Adkpishift.model_rebuild()
+AdKpiShift.model_rebuild()
 
-Leadgenpostsubmissioncheckresult.model_rebuild()
+LeadGenPostSubmissionCheckResult.model_rebuild()
 
-Customaudiencehealth.model_rebuild()
+CustomAudienceHealth.model_rebuild()
 
-Reachfrequencyactivity.model_rebuild()
+ReachFrequencyActivity.model_rebuild()
 
-Businessuser.model_rebuild()
+BusinessUser.model_rebuild()
 
-Adcreativetemplateurlspec.model_rebuild()
+AdCreativeTemplateURLSpec.model_rebuild()
 
-Customaudiencesharingstatus.model_rebuild()
+CustomAudienceSharingStatus.model_rebuild()
 
-Productfeedrulepreviewsample.model_rebuild()
+ProductFeedRulePreviewSample.model_rebuild()
 
-Fblitetonttransitions.model_rebuild()
+FBLiteToNTTransitions.model_rebuild()
 
-Businessvideo.model_rebuild()
+BusinessVideo.model_rebuild()
 
 Targeting.model_rebuild()
 
-Adspixeleventprediction.model_rebuild()
+AdsPixelEventPrediction.model_rebuild()
 
-Deliverycheckextrainfo.model_rebuild()
+DeliveryCheckExtraInfo.model_rebuild()
 
-Targetinggeolocation.model_rebuild()
+TargetingGeoLocation.model_rebuild()
 
-Customaudienceadaccount.model_rebuild()
+CustomAudienceAdAccount.model_rebuild()
 
-Columnsuggestions.model_rebuild()
+ColumnSuggestions.model_rebuild()
 
-Aradsdatacontainer.model_rebuild()
+ArAdsDataContainer.model_rebuild()
 
-Windowsapplink.model_rebuild()
+WindowsAppLink.model_rebuild()
 
-Productset.model_rebuild()
+ProductSet.model_rebuild()
 
-Adaccounturlforassetextraction.model_rebuild()
+AdAccountURLForAssetExtraction.model_rebuild()
 
 Engagement.model_rebuild()
 
-Contentdeliveryreport.model_rebuild()
+ContentDeliveryReport.model_rebuild()
 
-Videostatuspublishingphase.model_rebuild()
+VideoStatusPublishingPhase.model_rebuild()
 
-Brandedcontenteligiblesponsorids.model_rebuild()
+BrandedContentEligibleSponsorIDs.model_rebuild()
 
-Igshoppingreviewstatusreasonwithhelpmessage.model_rebuild()
+IGShoppingReviewStatusReasonWithHelpMessage.model_rebuild()
 
-Adsavedreport.model_rebuild()
+AdSavedReport.model_rebuild()
 
-Adaccountpaymentdetails.model_rebuild()
+AdAccountPaymentDetails.model_rebuild()
 
-Adrulehistoryresult.model_rebuild()
+AdRuleHistoryResult.model_rebuild()
 
-Leadgenconditionalquestionsgroupquestions.model_rebuild()
+LeadGenConditionalQuestionsGroupQuestions.model_rebuild()
 
-Asyncsession.model_rebuild()
+AsyncSession.model_rebuild()
 
-Adaccountcreationrequest.model_rebuild()
+AdAccountCreationRequest.model_rebuild()
 
-Pageuserpermissions.model_rebuild()
+PageUserPermissions.model_rebuild()
 
-Platformsessionkey.model_rebuild()
+PlatformSessionKey.model_rebuild()
 
 Location.model_rebuild()
 
-Adassetcustomizationrulecustomizationspec.model_rebuild()
+AdAssetCustomizationRuleCustomizationSpec.model_rebuild()
 
-Customaudiencesharedaccountcampaigninfo.model_rebuild()
+CustomAudienceSharedAccountCampaignInfo.model_rebuild()
 
-Managementsitelink.model_rebuild()
+ManagementSiteLink.model_rebuild()
 
-Deliverywindow.model_rebuild()
+DeliveryWindow.model_rebuild()
 
-Bidschedule.model_rebuild()
+BidSchedule.model_rebuild()
 
-Adcreativewhatsappchannelspec.model_rebuild()
+AdCreativeWhatsAppChannelSpec.model_rebuild()
 
-Adgroupreviewfeedback.model_rebuild()
+AdgroupReviewFeedback.model_rebuild()
 
-Adjacentcontentdeliveryreport.model_rebuild()
+AdjacentContentDeliveryReport.model_rebuild()
 
-Currencyamount.model_rebuild()
+CurrencyAmount.model_rebuild()
 
-Pagerestaurantservices.model_rebuild()
+PageRestaurantServices.model_rebuild()
 
-Adcampaignbidconstraint.model_rebuild()
+AdCampaignBidConstraint.model_rebuild()
 
-Targetinggeolocationplace.model_rebuild()
+TargetingGeoLocationPlace.model_rebuild()
 
-Chinabusinessonboardingvettingrequest.model_rebuild()
+ChinaBusinessOnboardingVettingRequest.model_rebuild()
 
-Adaccountaaasimilarcampaigns.model_rebuild()
+AdAccountAAASimilarCampaigns.model_rebuild()
 
-Adreportrun.model_rebuild()
+AdReportRun.model_rebuild()
 
-Paymentpricepoints.model_rebuild()
+PaymentPricepoints.model_rebuild()
 
-Recommendedigmedia.model_rebuild()
+RecommendedIGMedia.model_rebuild()
 
-Targetingprospectingaudience.model_rebuild()
+TargetingProspectingAudience.model_rebuild()
 
-Productcatalogdiagnosticgroup.model_rebuild()
+ProductCatalogDiagnosticGroup.model_rebuild()
 
-Adstudyobjective.model_rebuild()
+AdStudyObjective.model_rebuild()
 
-Adssignaldiagnosticissue.model_rebuild()
+AdsSignalDiagnosticIssue.model_rebuild()
 
-Cpasadvertiserpartnershiprecommendation.model_rebuild()
+CPASAdvertiserPartnershipRecommendation.model_rebuild()
 
-Productfeed.model_rebuild()
+ProductFeed.model_rebuild()
 
-Authlink.model_rebuild()
+AuthLink.model_rebuild()
 
-Businesspagerequest.model_rebuild()
+BusinessPageRequest.model_rebuild()
 
-Bapidomain.model_rebuild()
+BAPIDomain.model_rebuild()
 
-Reachfrequencyprediction.model_rebuild()
+ReachFrequencyPrediction.model_rebuild()
 
-Adcreativeaddisclaimer.model_rebuild()
+AdCreativeAdDisclaimer.model_rebuild()
 
-Adsreportbuilderexportcore.model_rebuild()
+AdsReportBuilderExportCore.model_rebuild()
 
-Adcreativestaticfallbackspec.model_rebuild()
+AdCreativeStaticFallbackSpec.model_rebuild()
 
-Commercesettings.model_rebuild()
+CommerceSettings.model_rebuild()
 
-Managedpartnerextendedcredit.model_rebuild()
+ManagedPartnerExtendedCredit.model_rebuild()
 
-Businessadvertisableapplicationsresult.model_rebuild()
+BusinessAdvertisableApplicationsResult.model_rebuild()
 
-Lifeevent.model_rebuild()
+LifeEvent.model_rebuild()
 
-Productitemvideodata.model_rebuild()
+ProductItemVideoData.model_rebuild()
 
-Adaccountrelatedicostudy.model_rebuild()
+AdAccountRelatedIcoStudy.model_rebuild()
 
-Adsdataset.model_rebuild()
+AdsDataset.model_rebuild()
 
-Pagesettings.model_rebuild()
+PageSettings.model_rebuild()
 
-Businessrequest.model_rebuild()
+BusinessRequest.model_rebuild()
 
-Adnetworkanalyticssyncqueryresult.model_rebuild()
+AdNetworkAnalyticsSyncQueryResult.model_rebuild()
 
-Instagramrelatedproducttags.model_rebuild()
+InstagramRelatedProductTags.model_rebuild()
 
-Connectionstargeting.model_rebuild()
+ConnectionsTargeting.model_rebuild()
 
-Extendedcredit.model_rebuild()
+ExtendedCredit.model_rebuild()
 
-Commercepayout.model_rebuild()
+CommercePayout.model_rebuild()
 
-Igupcomingevent.model_rebuild()
+IGUpcomingEvent.model_rebuild()
 
-Adruleschedule.model_rebuild()
+AdRuleSchedule.model_rebuild()
 
-Adlightcampaign.model_rebuild()
+AdLightCampaign.model_rebuild()
 
-Resellerguidance.model_rebuild()
+ResellerGuidance.model_rebuild()
 
 Currency.model_rebuild()
 
-Productitemoffer.model_rebuild()
+ProductItemOffer.model_rebuild()
 
-Workuserfrontline.model_rebuild()
+WorkUserFrontline.model_rebuild()
 
 Permission.model_rebuild()
 
-Adassetbody.model_rebuild()
+AdAssetBody.model_rebuild()
 
-Reachfrequencycurveupperconfidencerange.model_rebuild()
+ReachFrequencyCurveUpperConfidenceRange.model_rebuild()
 
-Websitecreativeassetsuggestions.model_rebuild()
+WebsiteCreativeAssetSuggestions.model_rebuild()
 
-Checkbatchrequeststatus.model_rebuild()
+CheckBatchRequestStatus.model_rebuild()
 
-Userpaymentmobilepricepoints.model_rebuild()
+UserPaymentMobilePricepoints.model_rebuild()
 
-Whatsappbusinessprofile.model_rebuild()
+WhatsAppBusinessProfile.model_rebuild()
 
-Loomconfig.model_rebuild()
+LoomConfig.model_rebuild()
 
-Adcreativebrandedcontentads.model_rebuild()
+AdCreativeBrandedContentAds.model_rebuild()
 
-Adcreativemediasourcingspec.model_rebuild()
+AdCreativeMediaSourcingSpec.model_rebuild()
 
-Brandrequest.model_rebuild()
+BrandRequest.model_rebuild()
 
-Businessmanagedpartnereligibility.model_rebuild()
+BusinessManagedPartnerEligibility.model_rebuild()
 
-Leadgenappointmentbookinginfo.model_rebuild()
+LeadGenAppointmentBookingInfo.model_rebuild()
 
-Wearabledevicepublickey.model_rebuild()
+WearableDevicePublicKey.model_rebuild()
 
-Adruletrigger.model_rebuild()
+AdRuleTrigger.model_rebuild()
 
-Adcreativeplatformcustomization.model_rebuild()
+AdCreativePlatformCustomization.model_rebuild()
 
-Adruleexecutionoptions.model_rebuild()
+AdRuleExecutionOptions.model_rebuild()
 
-Adaccountadrulescountbytype.model_rebuild()
+AdAccountAdRulesCountByType.model_rebuild()
 
-Audiorelease.model_rebuild()
+AudioRelease.model_rebuild()
 
-Unifiedthread.model_rebuild()
+UnifiedThread.model_rebuild()
 
-Brandedcontentshadowiguserid.model_rebuild()
+BrandedContentShadowIGUserID.model_rebuild()
 
-Customaudiencegroup.model_rebuild()
+CustomAudienceGroup.model_rebuild()
 
-Adaccountlivevideoadvertiser.model_rebuild()
+AdAccountLiveVideoAdvertiser.model_rebuild()
 
-Uniqueadcreative.model_rebuild()
+UniqueAdCreative.model_rebuild()
 
-Adasyncrequestsetnotificationresult.model_rebuild()
+AdAsyncRequestSetNotificationResult.model_rebuild()
 
-Campaigngroupcollaborativeadspartnerinfo.model_rebuild()
+CampaignGroupCollaborativeAdsPartnerInfo.model_rebuild()
 
-Catalogbasedtargeting.model_rebuild()
+CatalogBasedTargeting.model_rebuild()
 
-Ipobject.model_rebuild()
+IPObject.model_rebuild()
 
-Adsinsights.model_rebuild()
+AdsInsights.model_rebuild()
 
-Productcataloglocalizationsettings.model_rebuild()
+ProductCatalogLocalizationSettings.model_rebuild()
 
-Messagedeliveryestimate.model_rebuild()
+MessageDeliveryEstimate.model_rebuild()
 
-Adasyncrequest.model_rebuild()
+AdAsyncRequest.model_rebuild()
 
 Comment.model_rebuild()
 
-Adcreativephotodata.model_rebuild()
+AdCreativePhotoData.model_rebuild()
 
-Pagepostexperiment.model_rebuild()
+PagePostExperiment.model_rebuild()
 
-Automotivemodel.model_rebuild()
+AutomotiveModel.model_rebuild()
 
-Cpassetup.model_rebuild()
+CPASSetup.model_rebuild()
 
-Catalogsubverticallist.model_rebuild()
+CatalogSubVerticalList.model_rebuild()
 
-Merchantcompliance.model_rebuild()
+MerchantCompliance.model_rebuild()
 
-Analyticsuserconfig.model_rebuild()
+AnalyticsUserConfig.model_rebuild()
 
-Adcreativerewardinfo.model_rebuild()
+AdCreativeRewardInfo.model_rebuild()
 
-Adaccountpromotionprogressbar.model_rebuild()
+AdAccountPromotionProgressBar.model_rebuild()
 
-Igproducttagginginvalidationerror.model_rebuild()
+IGProductTaggingInvalidationError.model_rebuild()
 
-Adcreativelinkdatamoment.model_rebuild()
+AdCreativeLinkDataMoment.model_rebuild()
 
-Adtoplinedetail.model_rebuild()
+AdToplineDetail.model_rebuild()
 
-Videolist.model_rebuild()
+VideoList.model_rebuild()
 
-Leadgenthankyoupage.model_rebuild()
+LeadGenThankYouPage.model_rebuild()
 
-Adpreview.model_rebuild()
+AdPreview.model_rebuild()
 
-Adrulehistory.model_rebuild()
+AdRuleHistory.model_rebuild()
 
-Adaccountappsetuprequirements.model_rebuild()
+AdAccountAppSetupRequirements.model_rebuild()
 
-Productcatalogusertasks.model_rebuild()
+ProductCatalogUserTasks.model_rebuild()
 
-Adsconversiongoal.model_rebuild()
+AdsConversionGoal.model_rebuild()
 
-Chatplugin.model_rebuild()
+ChatPlugin.model_rebuild()
 
-Brandsafetydownloadable.model_rebuild()
+BrandSafetyDownloadable.model_rebuild()
 
-Pagectxdefaultgreetingtext.model_rebuild()
+PageCTXDefaultGreetingText.model_rebuild()
 
-Adassetfeedspeclinkurl.model_rebuild()
+AdAssetFeedSpecLinkURL.model_rebuild()
 
-Leadgenconditionalquestionsgroupchoices.model_rebuild()
+LeadGenConditionalQuestionsGroupChoices.model_rebuild()
 
-Bizinboxoffsiteemailaccount.model_rebuild()
+BizInboxOffsiteEmailAccount.model_rebuild()
 
-Adassetfeedspecbody.model_rebuild()
+AdAssetFeedSpecBody.model_rebuild()
 
-Adaccountuser.model_rebuild()
+AdAccountUser.model_rebuild()
 
 Placement.model_rebuild()
 
-Fundingsourcedetailscoupontiering.model_rebuild()
+FundingSourceDetailsCouponTiering.model_rebuild()
 
-Adlightcampaigngroup.model_rebuild()
+AdLightCampaignGroup.model_rebuild()
 
-Adaccountcampaignattributionoptioninfo.model_rebuild()
+AdAccountCampaignAttributionOptionInfo.model_rebuild()
 
-Addraft.model_rebuild()
+AdDraft.model_rebuild()
 
-Adaccountdsarecommendations.model_rebuild()
+AdAccountDsaRecommendations.model_rebuild()
 
-Businessimage.model_rebuild()
+BusinessImage.model_rebuild()
 
-Asyncrequest.model_rebuild()
+AsyncRequest.model_rebuild()
 
-Websitecreativeinfo.model_rebuild()
+WebsiteCreativeInfo.model_rebuild()
 
-Extendedcreditinvoicegroup.model_rebuild()
+ExtendedCreditInvoiceGroup.model_rebuild()
 
-Targetinggeolocationcity.model_rebuild()
+TargetingGeoLocationCity.model_rebuild()
 
-Igshoppingreviewstatus.model_rebuild()
+IGShoppingReviewStatus.model_rebuild()
 
-Dynamicitemdisplaybundlefolder.model_rebuild()
+DynamicItemDisplayBundleFolder.model_rebuild()
 
-Pagechangeproposal.model_rebuild()
+PageChangeProposal.model_rebuild()
 
-Rtbdynamicpost.model_rebuild()
+RTBDynamicPost.model_rebuild()
 
-Adaccountmaxbid.model_rebuild()
+AdAccountMaxBid.model_rebuild()
 
-Videostatuserror.model_rebuild()
+VideoStatusError.model_rebuild()
 
-Eventregistrationsetting.model_rebuild()
+EventRegistrationSetting.model_rebuild()
 
-Livevideo.model_rebuild()
+LiveVideo.model_rebuild()
 
-Adconversions.model_rebuild()
+AdConversions.model_rebuild()
 
-Businessproductcatalogtos.model_rebuild()
+BusinessProductCatalogTOS.model_rebuild()
 
-Businessassetsharingagreement.model_rebuild()
+BusinessAssetSharingAgreement.model_rebuild()
 
-Adcreationpackageconfig.model_rebuild()
+AdCreationPackageConfig.model_rebuild()
 
-Contentpublishinglimitresponse.model_rebuild()
+ContentPublishingLimitResponse.model_rebuild()
 
-Endstudycriteria.model_rebuild()
+EndStudyCriteria.model_rebuild()
 
-Collaborativeadspartnerinfolistitem.model_rebuild()
+CollaborativeAdsPartnerInfoListItem.model_rebuild()
 
-Copyrightmediamisuse.model_rebuild()
+CopyrightMediaMisuse.model_rebuild()
 
-Adcreativelinkdatacalltoaction.model_rebuild()
+AdCreativeLinkDataCallToAction.model_rebuild()
 
-Videostatusuploadingphase.model_rebuild()
+VideoStatusUploadingPhase.model_rebuild()
 
-Adcreativebrandedcontentadspartners.model_rebuild()
+AdCreativeBrandedContentAdsPartners.model_rebuild()
 
 Stories.model_rebuild()
 
-Instagraminsightsresult.model_rebuild()
+InstagramInsightsResult.model_rebuild()
 
-Adspixelsignalsiwlnux.model_rebuild()
+AdsPixelSignalsIWLNux.model_rebuild()
 
-Productfeedrulesuggestion.model_rebuild()
+ProductFeedRuleSuggestion.model_rebuild()
 
-Mediacopyrightattribution.model_rebuild()
+MediaCopyrightAttribution.model_rebuild()
 
-Businessproject.model_rebuild()
+BusinessProject.model_rebuild()
 
-Adstudy.model_rebuild()
+AdStudy.model_rebuild()
 
-Adgroupplacementspecificreviewfeedback.model_rebuild()
+AdgroupPlacementSpecificReviewFeedback.model_rebuild()
 
-Ctxpartnerappwelcomemessageflow.model_rebuild()
+CTXPartnerAppWelcomeMessageFlow.model_rebuild()
 
-Transactableitem.model_rebuild()
+TransactableItem.model_rebuild()
 
-Adtopline.model_rebuild()
+AdTopline.model_rebuild()
 
-Adcreativelinkdatacustomoverlayspec.model_rebuild()
+AdCreativeLinkDataCustomOverlaySpec.model_rebuild()
 
-Offlineconversiondataset.model_rebuild()
+OfflineConversionDataSet.model_rebuild()
 
-Adspixeldeliveryrecommendations.model_rebuild()
+AdsPixelDeliveryRecommendations.model_rebuild()
 
-Adcreativefeaturesspec.model_rebuild()
+AdCreativeFeaturesSpec.model_rebuild()
 
-Productfeeduploaderrorsample.model_rebuild()
+ProductFeedUploadErrorSample.model_rebuild()
 
-Wituser.model_rebuild()
+WITUser.model_rebuild()
 
-Highdemandperiodtimesuggestionweeklysegment.model_rebuild()
+HighDemandPeriodTimeSuggestionWeeklySegment.model_rebuild()
 
-Adnetworkanalyticsasyncqueryresult.model_rebuild()
+AdNetworkAnalyticsAsyncQueryResult.model_rebuild()
 
-Adcampaigngroupmetricsmetadata.model_rebuild()
+AdCampaignGroupMetricsMetadata.model_rebuild()
 
-Adcreativemarketingmessagestructuredspec.model_rebuild()
+AdCreativeMarketingMessageStructuredSpec.model_rebuild()
 
-Adaccountamountspenthistory.model_rebuild()
+AdAccountAmountSpentHistory.model_rebuild()
 
-Targetingproductaudiencespec.model_rebuild()
+TargetingProductAudienceSpec.model_rebuild()
 
-Blockeduserinfo.model_rebuild()
+BlockedUserInfo.model_rebuild()
 
-Audienceoverlap.model_rebuild()
+AudienceOverlap.model_rebuild()
 
-Commerceorder.model_rebuild()
+CommerceOrder.model_rebuild()
 
-Productsetusage.model_rebuild()
+ProductSetUsage.model_rebuild()
 
-Adaccountallpaymentmethods.model_rebuild()
+AdAccountAllPaymentMethods.model_rebuild()
 
-Ctxoptimizationeligibility.model_rebuild()
+CTXOptimizationEligibility.model_rebuild()
 
 Event.model_rebuild()
 
-Videotextquestion.model_rebuild()
+VideoTextQuestion.model_rebuild()
 
 Experience.model_rebuild()
 
-Audiosublabel.model_rebuild()
+AudioSubLabel.model_rebuild()
 
-Leadgenprivacypolicy.model_rebuild()
+LeadGenPrivacyPolicy.model_rebuild()
 
-Adcolumnsizes.model_rebuild()
+AdColumnSizes.model_rebuild()
 
-Videocopyright.model_rebuild()
+VideoCopyright.model_rebuild()
 
-Imagecopyrightdispute.model_rebuild()
+ImageCopyrightDispute.model_rebuild()
 
-Productfeedupload.model_rebuild()
+ProductFeedUpload.model_rebuild()
 
-Videocopyrightconditiongroup.model_rebuild()
+VideoCopyrightConditionGroup.model_rebuild()
 
-Cpasadcreationtemplate.model_rebuild()
+CPASAdCreationTemplate.model_rebuild()
 
-Leadgenurlentityatranges.model_rebuild()
+LeadGenURLEntityAtRanges.model_rebuild()
 
-Externaleventsource.model_rebuild()
+ExternalEventSource.model_rebuild()
 
-Almguidancemetrics.model_rebuild()
+ALMGuidanceMetrics.model_rebuild()
 
-Userleadgendisclaimerresponse.model_rebuild()
+UserLeadGenDisclaimerResponse.model_rebuild()
 
-Deliverystatus.model_rebuild()
+DeliveryStatus.model_rebuild()
 
-Adcreativeinsights.model_rebuild()
+AdCreativeInsights.model_rebuild()
 
-Adspixeleventlastfiredtime.model_rebuild()
+AdsPixelEventLastFiredTime.model_rebuild()
 
-Adnetworkanalyticsasyncqueryexport.model_rebuild()
+AdNetworkAnalyticsAsyncQueryExport.model_rebuild()
 
-Adcreativeregionalregulationdisclaimer.model_rebuild()
+AdCreativeRegionalRegulationDisclaimer.model_rebuild()
 
-Adsvalueadjustmentrulecollection.model_rebuild()
+AdsValueAdjustmentRuleCollection.model_rebuild()
 
-Iguser.model_rebuild()
+IGUser.model_rebuild()
 
-Cpasparentcatalogsettings.model_rebuild()
+CPASParentCatalogSettings.model_rebuild()
 
-Agencyclientdeclaration.model_rebuild()
+AgencyClientDeclaration.model_rebuild()
 
-Regionalregulationidentities.model_rebuild()
+RegionalRegulationIdentities.model_rebuild()
 
-Canvasadsettings.model_rebuild()
+CanvasAdSettings.model_rebuild()
 
-Applinks.model_rebuild()
+AppLinks.model_rebuild()
 
-Adsavedlocation.model_rebuild()
+AdSavedLocation.model_rebuild()
 
-Thirdpartymeasurementreportdataset.model_rebuild()
+ThirdPartyMeasurementReportDataset.model_rebuild()
 
-Homelisting.model_rebuild()
+HomeListing.model_rebuild()
 
-Geogatingpolicy.model_rebuild()
+GeoGatingPolicy.model_rebuild()
 
-Adplacepagesetmetadata.model_rebuild()
+AdPlacePageSetMetadata.model_rebuild()
 
-Mcomonboardingstatus.model_rebuild()
+McomOnboardingStatus.model_rebuild()
 
-Adcreativelinkdataapplinkspec.model_rebuild()
+AdCreativeLinkDataAppLinkSpec.model_rebuild()
 
-Addynamiccreative.model_rebuild()
+AdDynamicCreative.model_rebuild()
 
-Adaccountdefaultdestination.model_rebuild()
+AdAccountDefaultDestination.model_rebuild()
 
-Managedpartnerbusiness.model_rebuild()
+ManagedPartnerBusiness.model_rebuild()
 
-Commercemerchantsettings.model_rebuild()
+CommerceMerchantSettings.model_rebuild()
 
-Adcreativeplacedata.model_rebuild()
+AdCreativePlaceData.model_rebuild()
 
-Extendedcreditinfo.model_rebuild()
+ExtendedCreditInfo.model_rebuild()
 
-Placetag.model_rebuild()
+PlaceTag.model_rebuild()
 
-Adsmcmeconversion.model_rebuild()
+AdsMcmeConversion.model_rebuild()
 
 Shop.model_rebuild()
 
-Productitemshipping.model_rebuild()
+ProductItemShipping.model_rebuild()
 
-Adsreportbuildermmmreportscheduler.model_rebuild()
+AdsReportBuilderMMMReportScheduler.model_rebuild()
 
-Reachfrequencyspec.model_rebuild()
+ReachFrequencySpec.model_rebuild()
 
-Creativemulticelltestconfig.model_rebuild()
+CreativeMulticellTestConfig.model_rebuild()
 
-Userpaymentmodulesoptions.model_rebuild()
+UserPaymentModulesOptions.model_rebuild()
 
-Contentblocklist.model_rebuild()
+ContentBlockList.model_rebuild()
 
-Adcreativegenerativeassetspec.model_rebuild()
+AdCreativeGenerativeAssetSpec.model_rebuild()
 
-Adcreativephotodatamediaelements.model_rebuild()
+AdCreativePhotoDataMediaElements.model_rebuild()
 
-Photometadata.model_rebuild()
+PhotoMetadata.model_rebuild()
 
-Copyrightaudioasset.model_rebuild()
+CopyrightAudioAsset.model_rebuild()
 
-Adsanomalydetection.model_rebuild()
+AdsAnomalyDetection.model_rebuild()
 
-Adstudycell.model_rebuild()
+AdStudyCell.model_rebuild()
 
-Adassetfeedspeccalltoaction.model_rebuild()
+AdAssetFeedSpecCallToAction.model_rebuild()
 
-Valuebasedeligiblesource.model_rebuild()
+ValueBasedEligibleSource.model_rebuild()
 
-Adassetfeedspeccarousel.model_rebuild()
+AdAssetFeedSpecCarousel.model_rebuild()
 
-Businessapplicationrequest.model_rebuild()
+BusinessApplicationRequest.model_rebuild()
 
-P2minvoicepayments.model_rebuild()
+P2MInvoicePayments.model_rebuild()
 
-Customaudienceintegrityflagsandappealstatus.model_rebuild()
+CustomAudienceIntegrityFlagsAndAppealStatus.model_rebuild()
 
-Mediatitle.model_rebuild()
+MediaTitle.model_rebuild()
 
-Overridedetails.model_rebuild()
+OverrideDetails.model_rebuild()
 
-Adplacement.model_rebuild()
+AdPlacement.model_rebuild()
 
-Androidapplink.model_rebuild()
+AndroidAppLink.model_rebuild()
 
-Adsactionstats.model_rebuild()
+AdsActionStats.model_rebuild()
 
-Creatorassetcreative.model_rebuild()
+CreatorAssetCreative.model_rebuild()
 
-Targetingautomation.model_rebuild()
+TargetingAutomation.model_rebuild()
 
-Adaccountadruleshistory.model_rebuild()
+AdAccountAdRulesHistory.model_rebuild()
 
-Adcontract.model_rebuild()
+AdContract.model_rebuild()
 
-Mediacopyrightupdaterecord.model_rebuild()
+MediaCopyrightUpdateRecord.model_rebuild()
 
-Pagectstopic.model_rebuild()
+PageCTSTopic.model_rebuild()
 
-Igcommentfromuser.model_rebuild()
+IGCommentFromUser.model_rebuild()
 
 Lead.model_rebuild()
 
-Adcreativefeaturecustomizations.model_rebuild()
+AdCreativeFeatureCustomizations.model_rebuild()
 
-Adaccountiosfourteencampaignlimits.model_rebuild()
+AdAccountIosFourteenCampaignLimits.model_rebuild()
 
-Businessimagetbusinessfolderpathitem.model_rebuild()
+BusinessImageTBusinessFolderPathItem.model_rebuild()
 
-Ctxdefaultoptimizationconfig.model_rebuild()
+CTXDefaultOptimizationConfig.model_rebuild()
 
-Adspaymentcycle.model_rebuild()
+AdsPaymentCycle.model_rebuild()
 
-Richmediaelement.model_rebuild()
+RichMediaElement.model_rebuild()
 
-Lookalikespec.model_rebuild()
+LookalikeSpec.model_rebuild()
 
-Adcampaigngroupadvantagestate.model_rebuild()
+AdCampaignGroupAdvantageState.model_rebuild()
 
-Adspixelcapiintegrationquality.model_rebuild()
+AdsPixelCAPIIntegrationQuality.model_rebuild()
 
-Productcatalogimagesettings.model_rebuild()
+ProductCatalogImageSettings.model_rebuild()
 
-Revsharepolicy.model_rebuild()
+RevSharePolicy.model_rebuild()
 
-Canvascollectionthumbnail.model_rebuild()
+CanvasCollectionThumbnail.model_rebuild()
 
-Adcreativesitelinksspec.model_rebuild()
+AdCreativeSiteLinksSpec.model_rebuild()
 
 Destination.model_rebuild()
 
-Adset.model_rebuild()
+AdSet.model_rebuild()
 
-Adcampaignmultiads.model_rebuild()
+AdCampaignMultiAds.model_rebuild()
 
-Insightsvalue.model_rebuild()
+InsightsValue.model_rebuild()
 
-Canvasdynamicsetting.model_rebuild()
+CanvasDynamicSetting.model_rebuild()
 
-Adsquickviews.model_rebuild()
+AdsQuickViews.model_rebuild()
 
-Placetopic.model_rebuild()
+PlaceTopic.model_rebuild()
 
-Adkeywords.model_rebuild()
+AdKeywords.model_rebuild()
 
-Adspixeleventsuggestionrule.model_rebuild()
+AdsPixelEventSuggestionRule.model_rebuild()
 
-Offlineconversiondatasetactivities.model_rebuild()
+OfflineConversionDataSetActivities.model_rebuild()
 
-Adimage.model_rebuild()
+AdImage.model_rebuild()
 
-Adassetvideo.model_rebuild()
+AdAssetVideo.model_rebuild()
 
-Igusersubscribedappsdata.model_rebuild()
+IGUserSubscribedAppsData.model_rebuild()
 
-Catalogitemrejectionreasons.model_rebuild()
+CatalogItemRejectionReasons.model_rebuild()
 
-Productcatalogcategory.model_rebuild()
+ProductCatalogCategory.model_rebuild()
 
-Targetinggeolocationpoliticaldistrict.model_rebuild()
+TargetingGeoLocationPoliticalDistrict.model_rebuild()
 
-Adscustompivotspreview.model_rebuild()
+AdsCustomPivotsPreview.model_rebuild()
 
-Shadowighashtag.model_rebuild()
+ShadowIGHashtag.model_rebuild()
 
-Adcampaignfrequencycontrolspecs.model_rebuild()
+AdCampaignFrequencyControlSpecs.model_rebuild()
 
-Apppublisher.model_rebuild()
+AppPublisher.model_rebuild()
 
 Hours.model_rebuild()
 
-Adaccountbusinessconstraints.model_rebuild()
+AdAccountBusinessConstraints.model_rebuild()
 
-Instagramthread.model_rebuild()
+InstagramThread.model_rebuild()
 
-Timesuggestion.model_rebuild()
+TimeSuggestion.model_rebuild()
 
-Anblockedbicategory.model_rebuild()
+ANBlockedBICategory.model_rebuild()
 
-Adassettargetruletargeting.model_rebuild()
+AdAssetTargetRuleTargeting.model_rebuild()
 
-Storelocation.model_rebuild()
+StoreLocation.model_rebuild()
 
-Adaccountyouthadsadvertiser.model_rebuild()
+AdAccountYouthAdsAdvertiser.model_rebuild()
 
-Adcreativeimagedatamediaelements.model_rebuild()
+AdCreativeImageDataMediaElements.model_rebuild()
 
-Publisherblocklist.model_rebuild()
+PublisherBlockList.model_rebuild()
 
-Apprequest.model_rebuild()
+AppRequest.model_rebuild()
 
-Streamfilter.model_rebuild()
+StreamFilter.model_rebuild()
 
-Scimcompanyuserphonenumber.model_rebuild()
+ScimCompanyUserPhoneNumber.model_rebuild()
 
-Adcreativevideodata.model_rebuild()
+AdCreativeVideoData.model_rebuild()
 
-Messagingfeaturestatus.model_rebuild()
+MessagingFeatureStatus.model_rebuild()
 
-Fbimagecopyrightmatch.model_rebuild()
+FBImageCopyrightMatch.model_rebuild()
 
-Businessadsreportingreportspecs.model_rebuild()
+BusinessAdsReportingReportSpecs.model_rebuild()
 
-Adactivity.model_rebuild()
+AdActivity.model_rebuild()
 
-Adcreativecollectionthumbnailinfo.model_rebuild()
+AdCreativeCollectionThumbnailInfo.model_rebuild()
 
-Adassetfeedspecassetlabel.model_rebuild()
+AdAssetFeedSpecAssetLabel.model_rebuild()
 
 Robot.model_rebuild()
 
-Adshistogramstats.model_rebuild()
+AdsHistogramStats.model_rebuild()
 
-Productgroup.model_rebuild()
+ProductGroup.model_rebuild()
 
-Offsitepixel.model_rebuild()
+OffsitePixel.model_rebuild()
 
-Adassettitle.model_rebuild()
+AdAssetTitle.model_rebuild()
 
-Highdemandperiod.model_rebuild()
+HighDemandPeriod.model_rebuild()
 
 User.model_rebuild()
 
-Catalogadvertiserinsight.model_rebuild()
+CatalogAdvertiserInsight.model_rebuild()
 
-Profilepicturesource.model_rebuild()
+ProfilePictureSource.model_rebuild()
 
-Userpaymentmethodsinfo.model_rebuild()
+UserPaymentMethodsInfo.model_rebuild()
 
-Productfeedschedule.model_rebuild()
+ProductFeedSchedule.model_rebuild()
 
-Adkeywordstats.model_rebuild()
+AdKeywordStats.model_rebuild()
 
-Businesscreative.model_rebuild()
+BusinessCreative.model_rebuild()
 
-Customusersettings.model_rebuild()
+CustomUserSettings.model_rebuild()
 
-Mcominvoicelists.model_rebuild()
+McomInvoiceLists.model_rebuild()
 
-Leadgencontextcard.model_rebuild()
+LeadGenContextCard.model_rebuild()
 
-Imagecopyright.model_rebuild()
+ImageCopyright.model_rebuild()
 
-Apacmonsellerstatusapicontainer.model_rebuild()
+ApacMonSellerStatusAPIContainer.model_rebuild()
 
-Adcampaignissuesinfo.model_rebuild()
+AdCampaignIssuesInfo.model_rebuild()
 
-Adaccountadvolume.model_rebuild()
+AdAccountAdVolume.model_rebuild()
 
-Preapprovalreview.model_rebuild()
+PreapprovalReview.model_rebuild()
 
-Url.model_rebuild()
+URL.model_rebuild()
 
-Adassetfeedadditionaldata.model_rebuild()
+AdAssetFeedAdditionalData.model_rebuild()
 
-Adaccountusersettings.model_rebuild()
+AdAccountUserSettings.model_rebuild()
 
-Localservicebusiness.model_rebuild()
+LocalServiceBusiness.model_rebuild()
 
-Messengerdestinationpagewelcomemessage.model_rebuild()
+MessengerDestinationPageWelcomeMessage.model_rebuild()
 
-Audioisrc.model_rebuild()
+AudioIsrc.model_rebuild()
 
-Whitehatfbdlrun.model_rebuild()
+WhitehatFBDLRun.model_rebuild()
 
-Customaudiencestatus.model_rebuild()
+CustomAudienceStatus.model_rebuild()
 
-Adcustomizationrulespec.model_rebuild()
+AdCustomizationRuleSpec.model_rebuild()
 
-Adproposal.model_rebuild()
+AdProposal.model_rebuild()
 
-Pageinsightsasyncexportrun.model_rebuild()
+PageInsightsAsyncExportRun.model_rebuild()
 
-Videogroup.model_rebuild()
+VideoGroup.model_rebuild()
 
-Adruleevaluationspec.model_rebuild()
+AdRuleEvaluationSpec.model_rebuild()
 
-Appoptimizedcustomevents.model_rebuild()
+AppOptimizedCustomEvents.model_rebuild()
 
-Ctwawhatsappnumbersinfo.model_rebuild()
+CTWAWhatsAppNumbersInfo.model_rebuild()
 
-Offlineconversiondatasetoptimizationstatus.model_rebuild()
+OfflineConversionDataSetOptimizationStatus.model_rebuild()
 
-Adaccountdefaultobjective.model_rebuild()
+AdAccountDefaultObjective.model_rebuild()
 
-Adaccountadsrecommendedaudios.model_rebuild()
+AdAccountAdsRecommendedAudios.model_rebuild()
 
-Brandsafetyblocklistusage.model_rebuild()
+BrandSafetyBlockListUsage.model_rebuild()
 
-Pagerestaurantspecialties.model_rebuild()
+PageRestaurantSpecialties.model_rebuild()
 
-Instagramuser.model_rebuild()
+InstagramUser.model_rebuild()
 
-Fbpageandinstagramaccount.model_rebuild()
+FBPageAndInstagramAccount.model_rebuild()
 
-Securitysettings.model_rebuild()
+SecuritySettings.model_rebuild()
 
-Adcustomderivedmetrics.model_rebuild()
+AdCustomDerivedMetrics.model_rebuild()
 
-Adspixelrecenteventsresult.model_rebuild()
+AdsPixelRecentEventsResult.model_rebuild()
 
-Businesstrafficanalysisreport.model_rebuild()
+BusinessTrafficAnalysisReport.model_rebuild()
 
-Leadgencustomdisclaimerbody.model_rebuild()
+LeadGenCustomDisclaimerBody.model_rebuild()
 
-Adcampaigndeliveryestimate.model_rebuild()
+AdCampaignDeliveryEstimate.model_rebuild()
 
-Igmediaboosteligibilityinfo.model_rebuild()
+IGMediaBoostEligibilityInfo.model_rebuild()
 
-Shadowiguserctxpartnerappwelcomemessageflow.model_rebuild()
+ShadowIGUserCTXPartnerAppWelcomeMessageFlow.model_rebuild()
 
-Eventticketsetting.model_rebuild()
+EventTicketSetting.model_rebuild()
 
-Targetinggeolocationzip.model_rebuild()
+TargetingGeoLocationZip.model_rebuild()
 
-Adaccountrecommendations.model_rebuild()
+AdAccountRecommendations.model_rebuild()
 
-Igresumablevideouploadstatus.model_rebuild()
+IGResumableVideoUploadStatus.model_rebuild()
 
-Thirdpartypartnerpanelrequest.model_rebuild()
+ThirdPartyPartnerPanelRequest.model_rebuild()
 
-Creditcard.model_rebuild()
+CreditCard.model_rebuild()
 
-Entityattextrange.model_rebuild()
+EntityAtTextRange.model_rebuild()
 
-Adrecommendationdata.model_rebuild()
+AdRecommendationData.model_rebuild()
 
-Adcreativeinstagrambrandedcontent.model_rebuild()
+AdCreativeInstagramBrandedContent.model_rebuild()
 
-Usercoverphoto.model_rebuild()
+UserCoverPhoto.model_rebuild()
 
-Messagingfeaturereview.model_rebuild()
+MessagingFeatureReview.model_rebuild()
 
-Orderidattributions.model_rebuild()
+OrderIDAttributions.model_rebuild()
 
-Productitemerror.model_rebuild()
+ProductItemError.model_rebuild()
 
-Targetinggeolocationmarket.model_rebuild()
+TargetingGeoLocationMarket.model_rebuild()
 
-Livevideoinputstream.model_rebuild()
+LiveVideoInputStream.model_rebuild()
 
-Adaccountagencyfeeconfig.model_rebuild()
+AdAccountAgencyFeeConfig.model_rebuild()
 
-Savedmessageresponse.model_rebuild()
+SavedMessageResponse.model_rebuild()
 
-Adcreativelinkdatatemplatevideospec.model_rebuild()
+AdCreativeLinkDataTemplateVideoSpec.model_rebuild()
 
-Adrulehistoryresultaction.model_rebuild()
+AdRuleHistoryResultAction.model_rebuild()
 
-Messengerbusinesstemplate.model_rebuild()
+MessengerBusinessTemplate.model_rebuild()
 
-Mailingaddress.model_rebuild()
+MailingAddress.model_rebuild()
 
-Offsitesignalcontainerbusinessobject.model_rebuild()
+OffsiteSignalContainerBusinessObject.model_rebuild()
 
-Customaudiencedatasource.model_rebuild()
+CustomAudienceDataSource.model_rebuild()
 
-Adaccountspendlimit.model_rebuild()
+AdAccountSpendLimit.model_rebuild()
 
-Leadgencustomdisclaimer.model_rebuild()
+LeadGenCustomDisclaimer.model_rebuild()
 
-Productcatalogcheckmarketplacepartnersellersstatus.model_rebuild()
+ProductCatalogCheckMarketplacePartnerSellersStatus.model_rebuild()
 
-Adassetfeedspeccarouselchildattachment.model_rebuild()
+AdAssetFeedSpecCarouselChildAttachment.model_rebuild()
 
-Productsetmetadata.model_rebuild()
+ProductSetMetadata.model_rebuild()
 
-Adstabular.model_rebuild()
+AdsTabular.model_rebuild()
 
-Businesstag.model_rebuild()
+BusinessTag.model_rebuild()
 
-Adsimagecrops.model_rebuild()
+AdsImageCrops.model_rebuild()
 
-Dynamicitemdisplaybundle.model_rebuild()
+DynamicItemDisplayBundle.model_rebuild()
 
-Productcatalogimagesettingsinternal.model_rebuild()
+ProductCatalogImageSettingsInternal.model_rebuild()
 
-Businesspartnerpremiumoptions.model_rebuild()
+BusinessPartnerPremiumOptions.model_rebuild()
 
-Franchiseprogrammember.model_rebuild()
+FranchiseProgramMember.model_rebuild()
 
-Adstudyobjectiveid.model_rebuild()
+AdStudyObjectiveID.model_rebuild()
 
-Outcomepredictionpoint.model_rebuild()
+OutcomePredictionPoint.model_rebuild()
 
-Leadgenthankyoupagegatedfile.model_rebuild()
+LeadGenThankYouPageGatedFile.model_rebuild()
 
-Eventtour.model_rebuild()
+EventTour.model_rebuild()
 
-Pageaboutstorycomposedblock.model_rebuild()
+PageAboutStoryComposedBlock.model_rebuild()
 
-Adspixeldomainlastfiredtime.model_rebuild()
+AdsPixelDomainLastFiredTime.model_rebuild()
 
-Adassetfeedspecdescription.model_rebuild()
+AdAssetFeedSpecDescription.model_rebuild()
 
-Adcreativeportraitcustomizations.model_rebuild()
+AdCreativePortraitCustomizations.model_rebuild()
 
-Leadgenappointmenttimeslot.model_rebuild()
+LeadGenAppointmentTimeSlot.model_rebuild()
 
-Adcreativefeaturedetails.model_rebuild()
+AdCreativeFeatureDetails.model_rebuild()
 
-Creativeassettag.model_rebuild()
+CreativeAssetTag.model_rebuild()
 
-Leadgendraftquestion.model_rebuild()
+LeadGenDraftQuestion.model_rebuild()
 
-Savedaudience.model_rebuild()
+SavedAudience.model_rebuild()
 
-Adrule.model_rebuild()
+AdRule.model_rebuild()
 
-Leadgenformpreviewdetails.model_rebuild()
+LeadGenFormPreviewDetails.model_rebuild()
 
-Leadgenform.model_rebuild()
+LeadgenForm.model_rebuild()
 
-Pagethreadowner.model_rebuild()
+PageThreadOwner.model_rebuild()
 
-Productfeeduploaderror.model_rebuild()
+ProductFeedUploadError.model_rebuild()
 
-Adlabel.model_rebuild()
+AdLabel.model_rebuild()
 
-Calibratorexistingrule.model_rebuild()
+CalibratorExistingRule.model_rebuild()
 
-Videocopyrightmatch.model_rebuild()
+VideoCopyrightMatch.model_rebuild()
 
-Productitemunitprice.model_rebuild()
+ProductItemUnitPrice.model_rebuild()
 
-Storecatalogsettings.model_rebuild()
+StoreCatalogSettings.model_rebuild()
 
-Partneraccountlinking.model_rebuild()
+PartnerAccountLinking.model_rebuild()
 
-Commerceordertransactiondetail.model_rebuild()
+CommerceOrderTransactionDetail.model_rebuild()
 
-Websitecreativeassetsource.model_rebuild()
+WebsiteCreativeAssetSource.model_rebuild()
 
-Minimumbudget.model_rebuild()
+MinimumBudget.model_rebuild()
 
-Leadgenthankyoupagegatedpromo.model_rebuild()
+LeadGenThankYouPageGatedPromo.model_rebuild()
 
 Place.model_rebuild()
 
-Adcreativeinteractivecomponentsspec.model_rebuild()
+AdCreativeInteractiveComponentsSpec.model_rebuild()
 
-Woodhengesupporter.model_rebuild()
+WoodhengeSupporter.model_rebuild()
 
-Businessmediaadplacementvalidationresult.model_rebuild()
+BusinessMediaAdPlacementValidationResult.model_rebuild()
 
-Fundraiserpersontocharity.model_rebuild()
+FundraiserPersonToCharity.model_rebuild()
 
-Shadowigusercatalogproductvariant.model_rebuild()
+ShadowIGUserCatalogProductVariant.model_rebuild()
 
-Igboostmediaad.model_rebuild()
+IGBoostMediaAd.model_rebuild()
 
 Organization.model_rebuild()
 
-Adaccountbankinfolist.model_rebuild()
+AdAccountBankInfoList.model_rebuild()
 
-Cpascollaborationrequest.model_rebuild()
+CPASCollaborationRequest.model_rebuild()
 
-Broadtargetingcategories.model_rebuild()
+BroadTargetingCategories.model_rebuild()
 
-Videostats.model_rebuild()
+VideoStats.model_rebuild()
 
-Conversionhealthkpi.model_rebuild()
+ConversionHealthKPI.model_rebuild()
 
-Pagepost.model_rebuild()
+PagePost.model_rebuild()
 
-Analyticsconfig.model_rebuild()
+AnalyticsConfig.model_rebuild()
 
-Windowsphoneapplink.model_rebuild()
+WindowsPhoneAppLink.model_rebuild()
 
-Adcampaignpacedbidinfo.model_rebuild()
+AdCampaignPacedBidInfo.model_rebuild()
 
-Useravailablecatalogs.model_rebuild()
+UserAvailableCatalogs.model_rebuild()
 
-Timezoneoffset.model_rebuild()
+TimezoneOffset.model_rebuild()
 
-Jobopening.model_rebuild()
+JobOpening.model_rebuild()
 
-Voipinfo.model_rebuild()
+VoipInfo.model_rebuild()
 
-Extendedcreditallocationconfig.model_rebuild()
+ExtendedCreditAllocationConfig.model_rebuild()
 
-Adcreativefacebookbrandedcontent.model_rebuild()
+AdCreativeFacebookBrandedContent.model_rebuild()
 
-Adsusersettings.model_rebuild()
+AdsUserSettings.model_rebuild()
 
 Hotel.model_rebuild()
 
-Entwithsponsor.model_rebuild()
+EntWithSponsor.model_rebuild()
 
-Adstargetinginsights.model_rebuild()
+AdsTargetingInsights.model_rebuild()
 
-Businessvideotbusinessfolderpathitem.model_rebuild()
+BusinessVideoTBusinessFolderPathItem.model_rebuild()
 
-Creativehistory.model_rebuild()
+CreativeHistory.model_rebuild()
 
-Mcominvoicedetails.model_rebuild()
+McomInvoiceDetails.model_rebuild()
 
-Whatsappbusinesspreverifiedphonenumber.model_rebuild()
+WhatsAppBusinessPreVerifiedPhoneNumber.model_rebuild()
 
-Adcreativelinkdata.model_rebuild()
+AdCreativeLinkData.model_rebuild()
 
-Wifiinformation.model_rebuild()
+WifiInformation.model_rebuild()
 
-Adaccountprepaydetails.model_rebuild()
+AdAccountPrepayDetails.model_rebuild()
 
-Adbidadjustments.model_rebuild()
+AdBidAdjustments.model_rebuild()
 
 Avatar.model_rebuild()
 
-Audiencesharingrecipientaccounts.model_rebuild()
+AudienceSharingRecipientAccounts.model_rebuild()
 
-Messengerprofile.model_rebuild()
+MessengerProfile.model_rebuild()
 
-Adsreportbuilder.model_rebuild()
+AdsReportBuilder.model_rebuild()
 
-Videostatus.model_rebuild()
+VideoStatus.model_rebuild()
 
-Productimage.model_rebuild()
+ProductImage.model_rebuild()
 
-Productitem.model_rebuild()
+ProductItem.model_rebuild()
 
-Partnercategory.model_rebuild()
+PartnerCategory.model_rebuild()
 
-Pageleadsaccessconfig.model_rebuild()
+PageLeadsAccessConfig.model_rebuild()
 
-Productdeliverypreference.model_rebuild()
+ProductDeliveryPreference.model_rebuild()
 
-Trackingandconversionwithdefaults.model_rebuild()
+TrackingAndConversionWithDefaults.model_rebuild()
 
-Adaccountdeliveryestimate.model_rebuild()
+AdAccountDeliveryEstimate.model_rebuild()
 
-Productcatalogproductsetsbatch.model_rebuild()
+ProductCatalogProductSetsBatch.model_rebuild()
 
-Productitemlocalinfo.model_rebuild()
+ProductItemLocalInfo.model_rebuild()
 
-Adcreativefeatureactionmetadata.model_rebuild()
+AdCreativeFeatureActionMetadata.model_rebuild()
 
-Adrulefilters.model_rebuild()
+AdRuleFilters.model_rebuild()
 
-Taggablesubject.model_rebuild()
+TaggableSubject.model_rebuild()
 
-Adaccountmatchedsearchapplicationsedgedata.model_rebuild()
+AdAccountMatchedSearchApplicationsEdgeData.model_rebuild()
 
-Catalogwebsiteonboardingsettings.model_rebuild()
+CatalogWebsiteOnboardingSettings.model_rebuild()
 
-Cloudbridgedatasetstatus.model_rebuild()
+CloudbridgeDatasetStatus.model_rebuild()
 
-Pagegetstartednullstate.model_rebuild()
+PageGetStartedNullstate.model_rebuild()
 
-Mediafingerprint.model_rebuild()
+MediaFingerprint.model_rebuild()
 
-Adlimitsenforcementdata.model_rebuild()
+AdLimitsEnforcementData.model_rebuild()
 
-Adassetfeedspecimage.model_rebuild()
+AdAssetFeedSpecImage.model_rebuild()
 
-Leadgenlegalcontent.model_rebuild()
+LeadGenLegalContent.model_rebuild()
 
-Instagrambusinessasset.model_rebuild()
+InstagramBusinessAsset.model_rebuild()
 
-Leadgenlegalcontentcheckbox.model_rebuild()
+LeadGenLegalContentCheckbox.model_rebuild()
 
-Opengraphcontext.model_rebuild()
+OpenGraphContext.model_rebuild()
 
-Usernotificationseenstatedata.model_rebuild()
+UserNotificationSeenStateData.model_rebuild()
 
-Usermobileconfig.model_rebuild()
+UserMobileConfig.model_rebuild()
 
-Coverphoto.model_rebuild()
+CoverPhoto.model_rebuild()
 
-Catalogitemoverride.model_rebuild()
+CatalogItemOverride.model_rebuild()
 
-Adspixelstatsresult.model_rebuild()
+AdsPixelStatsResult.model_rebuild()
 
-Cpasbusinesssetupconfig.model_rebuild()
+CPASBusinessSetupConfig.model_rebuild()
 
-Fundingsourcedetailscoupon.model_rebuild()
+FundingSourceDetailsCoupon.model_rebuild()
 
-Adsnamingtemplate.model_rebuild()
+AdsNamingTemplate.model_rebuild()
 
-Thirdpartypartnerliftrequest.model_rebuild()
+ThirdPartyPartnerLiftRequest.model_rebuild()
 
-Adseligibility.model_rebuild()
+AdsEligibility.model_rebuild()
 
-Userleadgenfielddata.model_rebuild()
+UserLeadGenFieldData.model_rebuild()
 
 Album.model_rebuild()
 
-Videouploadlimits.model_rebuild()
+VideoUploadLimits.model_rebuild()
 
-Messagingappsinfo.model_rebuild()
+MessagingAppsInfo.model_rebuild()
 
-Favoritecatalog.model_rebuild()
+FavoriteCatalog.model_rebuild()
 
-Livevideoerror.model_rebuild()
+LiveVideoError.model_rebuild()
 
-Productitemimporteraddress.model_rebuild()
+ProductItemImporterAddress.model_rebuild()
 
-Videocopyrightsegment.model_rebuild()
+VideoCopyrightSegment.model_rebuild()
 
-Businesscreativeinsights.model_rebuild()
+BusinessCreativeInsights.model_rebuild()
 
-Dynamicpriceconfigbydate.model_rebuild()
+DynamicPriceConfigByDate.model_rebuild()
 
-Adgroupfacebookfeedback.model_rebuild()
+AdgroupFacebookFeedback.model_rebuild()
 
-Emailimport.model_rebuild()
+EmailImport.model_rebuild()
 
-Adassetonsitedestinations.model_rebuild()
+AdAssetOnsiteDestinations.model_rebuild()
 
-Targetingrelaxation.model_rebuild()
+TargetingRelaxation.model_rebuild()
 
-Productdaeventsamplesbatch.model_rebuild()
+ProductDaEventSamplesBatch.model_rebuild()
 
-Pagepaymentoptions.model_rebuild()
+PagePaymentOptions.model_rebuild()
 
-Advideo.model_rebuild()
+AdVideo.model_rebuild()
 
-Measurementreport.model_rebuild()
+MeasurementReport.model_rebuild()
 
-Pageuserwithleadsaccess.model_rebuild()
+PageUserWithLeadsAccess.model_rebuild()
 
-Adassetimage.model_rebuild()
+AdAssetImage.model_rebuild()
 
-Adcreative.model_rebuild()
+AdCreative.model_rebuild()
 
-Adaccountoptimizationgoalsaemv2eligibility.model_rebuild()
+AdAccountOptimizationGoalsAEMv2Eligibility.model_rebuild()
 
-Pageaboutstorycomposedblockinlinestyle.model_rebuild()
+PageAboutStoryComposedBlockInlineStyle.model_rebuild()
 
-Adcampaigngroupagencyfeeconfigforapi.model_rebuild()
+AdCampaignGroupAgencyFeeConfigForApi.model_rebuild()
 
-Businessagreement.model_rebuild()
+BusinessAgreement.model_rebuild()
 
-Insightsresult.model_rebuild()
+InsightsResult.model_rebuild()
 
-Adsavedkeywords.model_rebuild()
+AdSavedKeywords.model_rebuild()
 
 Recommendation.model_rebuild()
 
-Catalogsmartpixelsettings.model_rebuild()
+CatalogSmartPixelSettings.model_rebuild()
 
-Videocopyrightcheckstatus.model_rebuild()
+VideoCopyrightCheckStatus.model_rebuild()
 
-Adcreativedegreesoffreedomspec.model_rebuild()
+AdCreativeDegreesOfFreedomSpec.model_rebuild()
 
-Adspixel.model_rebuild()
+AdsPixel.model_rebuild()
 
-Openbridgeconfiguration.model_rebuild()
+OpenBridgeConfiguration.model_rebuild()
 
-Leadgenclientvalidationrules.model_rebuild()
+LeadGenClientValidationRules.model_rebuild()
 
-Adaccountcustomaudiencelimits.model_rebuild()
+AdAccountCustomAudienceLimits.model_rebuild()
 
 Group.model_rebuild()
 
-Partnerintegrationlinked.model_rebuild()
+PartnerIntegrationLinked.model_rebuild()
 
-Rightsmanagerdataexport.model_rebuild()
+RightsManagerDataExport.model_rebuild()
 
-Igshoppingproductappeal.model_rebuild()
+IGShoppingProductAppeal.model_rebuild()
 
-Aigeneratedproductimage.model_rebuild()
+AIGeneratedProductImage.model_rebuild()
 
-Pageusermessagethreadlabel.model_rebuild()
+PageUserMessageThreadLabel.model_rebuild()
 
-Catalogitemapplinks.model_rebuild()
+CatalogItemAppLinks.model_rebuild()
 
-Instagramshoppingmerchantreviewmessage.model_rebuild()
+InstagramShoppingMerchantReviewMessage.model_rebuild()
 
-Targetinggeolocationcustomlocation.model_rebuild()
+TargetingGeoLocationCustomLocation.model_rebuild()
 
-Workexperience.model_rebuild()
+WorkExperience.model_rebuild()
 
-Iosapplink.model_rebuild()
+IosAppLink.model_rebuild()
 
-Bcpcampaign.model_rebuild()
+BCPCampaign.model_rebuild()
 
-Calladsphonedata.model_rebuild()
+CallAdsPhoneData.model_rebuild()
 
-Audiencepermission.model_rebuild()
+AudiencePermission.model_rebuild()
 
-Draftpost.model_rebuild()
+DraftPost.model_rebuild()
 
-Paymentrequestdetails.model_rebuild()
+PaymentRequestDetails.model_rebuild()
 
-Adsreportbuildermmmreport.model_rebuild()
+AdsReportBuilderMMMReport.model_rebuild()
 
-Targetinggeolocationlocationexpansion.model_rebuild()
+TargetingGeoLocationLocationExpansion.model_rebuild()
 
-Conversionactionquery.model_rebuild()
+ConversionActionQuery.model_rebuild()
 
-Customaudiencesalts.model_rebuild()
+CustomAudienceSalts.model_rebuild()
 
-Avatarprofilepicture.model_rebuild()
+AvatarProfilePicture.model_rebuild()
 
-Webapplink.model_rebuild()
+WebAppLink.model_rebuild()
 
-Leadgenquestion.model_rebuild()
+LeadGenQuestion.model_rebuild()
 
-Adassetlinkurl.model_rebuild()
+AdAssetLinkURL.model_rebuild()
 
-Advertiserverificationstatus.model_rebuild()
+AdvertiserVerificationStatus.model_rebuild()
 
-Adspivotrules.model_rebuild()
+AdsPivotRules.model_rebuild()
 
-Dynamicvideometadata.model_rebuild()
+DynamicVideoMetadata.model_rebuild()
 
-Businesssettinglogsdata.model_rebuild()
+BusinessSettingLogsData.model_rebuild()
 
-Almadaccountinfo.model_rebuild()
+ALMAdAccountInfo.model_rebuild()
 
-Thirdpartypartnerviewabilityrequest.model_rebuild()
+ThirdPartyPartnerViewabilityRequest.model_rebuild()
 
 Application.model_rebuild()
 
-Mcominvoicebankaccount.model_rebuild()
+McomInvoiceBankAccount.model_rebuild()
 
-Privateliftstudyinstance.model_rebuild()
+PrivateLiftStudyInstance.model_rebuild()
 
-Iguserforigonlyapi.model_rebuild()
+IGUserForIGOnlyAPI.model_rebuild()
 
-Igrefreshaccesstokenforigonlyapi.model_rebuild()
+IGRefreshAccessTokenForIGOnlyAPI.model_rebuild()
 
-Productcatalogdatasource.model_rebuild()
+ProductCatalogDataSource.model_rebuild()
 
-Famekumo.model_rebuild()
+FAMEKumo.model_rebuild()
 
-Webpublisher.model_rebuild()
+WebPublisher.model_rebuild()
 
-Productiteminvalidationerror.model_rebuild()
+ProductItemInvalidationError.model_rebuild()
 
-Workaccesscode.model_rebuild()
+WorkAccessCode.model_rebuild()
 
-Pagectxbudgetsimilaradvertiserbudgetrecommendation.model_rebuild()
+PageCTXBudgetSimilarAdvertiserBudgetRecommendation.model_rebuild()
 
 Link.model_rebuild()
 
-Messengercallsettings.model_rebuild()
+MessengerCallSettings.model_rebuild()
 
-Adaccountaslschedule.model_rebuild()
+AdAccountASLSchedule.model_rebuild()
 
-Catalogcollection.model_rebuild()
+CatalogCollection.model_rebuild()
 
-Productfeeduploadprogress.model_rebuild()
+ProductFeedUploadProgress.model_rebuild()
 
-Producteventstat.model_rebuild()
+ProductEventStat.model_rebuild()
 
-Workuserbadges.model_rebuild()
+WorkUserBadges.model_rebuild()
 
-Cpassetuppagestructureprogress.model_rebuild()
+CPASSetupPageStructureProgress.model_rebuild()
 
-Adaccountsubscribedapps.model_rebuild()
+AdAccountSubscribedApps.model_rebuild()
 
-Cpasmerchantconfig.model_rebuild()
+CPASMerchantConfig.model_rebuild()
 
-Livevideoadcampaignconfig.model_rebuild()
+LiveVideoAdCampaignConfig.model_rebuild()
 
-Threadsuser.model_rebuild()
+ThreadsUser.model_rebuild()
 
-Pageparking.model_rebuild()
+PageParking.model_rebuild()
 
-Adsguidanceqeexposure.model_rebuild()
+AdsGuidanceQEExposure.model_rebuild()
 
-Pagecategory.model_rebuild()
+PageCategory.model_rebuild()
 
-Pagegamebotquotainformation.model_rebuild()
+PageGameBotQuotaInformation.model_rebuild()
 
-Adspixelitemprice.model_rebuild()
+AdsPixelItemPrice.model_rebuild()
 
-Adaccountrecommendedcamapaignbudget.model_rebuild()
+AdAccountRecommendedCamapaignBudget.model_rebuild()
 
-Adassetfeedadditionaldatapagenudgemessage.model_rebuild()
+AdAssetFeedAdditionalDataPageNudgeMessage.model_rebuild()
 
-Adassetfeedspectitle.model_rebuild()
+AdAssetFeedSpecTitle.model_rebuild()
 
-Adcreativelinkdatachildattachment.model_rebuild()
+AdCreativeLinkDataChildAttachment.model_rebuild()
 
-Adcreativeassetgroupsspec.model_rebuild()
+AdCreativeAssetGroupsSpec.model_rebuild()
 
-Whatsappbusinesspartnerclientverificationsubmission.model_rebuild()
+WhatsAppBusinessPartnerClientVerificationSubmission.model_rebuild()
 
-Agerange.model_rebuild()
+AgeRange.model_rebuild()
 
-Adcreativepostclickconfiguration.model_rebuild()
+AdCreativePostClickConfiguration.model_rebuild()
 
-Linkedinstagramaccountdata.model_rebuild()
+LinkedInstagramAccountData.model_rebuild()
 
-Fbpaybuttonlogin.model_rebuild()
+FBPayButtonLogin.model_rebuild()
 
-Crmaddress.model_rebuild()
+CRMAddress.model_rebuild()
 
-Adaccountsmartsuggestedads.model_rebuild()
+AdAccountSmartSuggestedAds.model_rebuild()
 
-Customaudiencecapabilities.model_rebuild()
+CustomAudienceCapabilities.model_rebuild()
 
-Almevent.model_rebuild()
+ALMEvent.model_rebuild()
 
-Casssetupofflineeventsetprogress.model_rebuild()
+CASSSetupOfflineEventSetProgress.model_rebuild()
 
-Publisherdeliveryreport.model_rebuild()
+PublisherDeliveryReport.model_rebuild()
 
-Adspixelcapabilityoverride.model_rebuild()
+AdsPixelCapabilityOverride.model_rebuild()
 
-Financeobject.model_rebuild()
+FinanceObject.model_rebuild()
 
-Mixinsightsresult.model_rebuild()
+MIXInsightsResult.model_rebuild()
 
-Pagedirectintegrationcrmwithleadsaccess.model_rebuild()
+PageDirectIntegrationCrmWithLeadsAccess.model_rebuild()
 
-Pagepublisher.model_rebuild()
+PagePublisher.model_rebuild()
 
 Status.model_rebuild()
 
-Contextualbundlingspec.model_rebuild()
+ContextualBundlingSpec.model_rebuild()
 
-Rawcustomaudience.model_rebuild()
+RawCustomAudience.model_rebuild()
 
-Whatsappsubscribedappsinfo.model_rebuild()
+WhatsappSubscribedAppsInfo.model_rebuild()
 
-Fundingsourcedetails.model_rebuild()
+FundingSourceDetails.model_rebuild()
 
-Omegacustomertrx.model_rebuild()
+OmegaCustomerTrx.model_rebuild()
 
-Adlightadgroup.model_rebuild()
+AdLightAdgroup.model_rebuild()
 
-Nullnode.model_rebuild()
+NullNode.model_rebuild()
 
-Targetingmarketingmessagechannels.model_rebuild()
+TargetingMarketingMessageChannels.model_rebuild()
 
-Adaccountpaymentoptions.model_rebuild()
+AdAccountPaymentOptions.model_rebuild()
 
-Paymentsubscription.model_rebuild()
+PaymentSubscription.model_rebuild()
 
-Partnerstudy.model_rebuild()
+PartnerStudy.model_rebuild()
 
-Adsstartyourdaywidget.model_rebuild()
+AdsStartYourDayWidget.model_rebuild()
 
-Shadowigmediabuilder.model_rebuild()
+ShadowIGMediaBuilder.model_rebuild()
 
-Adassetfeedspecvideo.model_rebuild()
+AdAssetFeedSpecVideo.model_rebuild()
 
-Adaccountuserpermissions.model_rebuild()
+AdAccountUserPermissions.model_rebuild()
 
-Shadowigmediacollaborators.model_rebuild()
+ShadowIGMediaCollaborators.model_rebuild()
 
-Targetingproductaudiencesubspec.model_rebuild()
+TargetingProductAudienceSubSpec.model_rebuild()
 
-Pagepartnerwithleadsaccess.model_rebuild()
+PagePartnerWithLeadsAccess.model_rebuild()
 
-Sitelink.model_rebuild()
+SiteLink.model_rebuild()
 
-Catalogwebsitesettings.model_rebuild()
+CatalogWebsiteSettings.model_rebuild()
 
-Cloudgame.model_rebuild()
+CloudGame.model_rebuild()
 
-Apprequestformerrecipient.model_rebuild()
+AppRequestFormerRecipient.model_rebuild()
 
-Systemuser.model_rebuild()
+SystemUser.model_rebuild()
 
-Videocopyrightrule.model_rebuild()
+VideoCopyrightRule.model_rebuild()
 
-Publisherwhitelist.model_rebuild()
+PublisherWhiteList.model_rebuild()
 
-Targetingdynamicrule.model_rebuild()
+TargetingDynamicRule.model_rebuild()
 
-Whatsappbusinesshealthstatusformessagesend.model_rebuild()
+WhatsAppBusinessHealthStatusForMessageSend.model_rebuild()
 
-Videocopyrightgeogate.model_rebuild()
+VideoCopyrightGeoGate.model_rebuild()
 
-Pagestartinfo.model_rebuild()
+PageStartInfo.model_rebuild()
 
-Adspixelmicrodatastats.model_rebuild()
+AdsPixelMicrodataStats.model_rebuild()
 
-Audiovisualreferencematch.model_rebuild()
+AudioVisualReferenceMatch.model_rebuild()
 
-Daypart.model_rebuild()
+DayPart.model_rebuild()
 
-Productitemlocalinfolatlongshape.model_rebuild()
+ProductItemLocalInfoLatLongShape.model_rebuild()
 
-Addefaultvalues.model_rebuild()
+AdDefaultValues.model_rebuild()
 
-Customconversion.model_rebuild()
+CustomConversion.model_rebuild()
 
-Userdevice.model_rebuild()
+UserDevice.model_rebuild()
 
-Commercemerchantsettingssetupstatus.model_rebuild()
+CommerceMerchantSettingsSetupStatus.model_rebuild()
 
-Productcataloghotelroomsbatch.model_rebuild()
+ProductCatalogHotelRoomsBatch.model_rebuild()
 
-Adcreativeproductdata.model_rebuild()
+AdCreativeProductData.model_rebuild()
 
 Page.model_rebuild()
 
-Adcreativesourcingspec.model_rebuild()
+AdCreativeSourcingSpec.model_rebuild()
 
-Adcreativevideodatamediaelements.model_rebuild()
+AdCreativeVideoDataMediaElements.model_rebuild()
 
-Adcampaignmetricsmetadata.model_rebuild()
+AdCampaignMetricsMetadata.model_rebuild()
 
-Adassetcalltoactiontype.model_rebuild()
+AdAssetCallToActionType.model_rebuild()
 
-Productcatalogfacets.model_rebuild()
+ProductCatalogFacets.model_rebuild()
 
-Scheduledpost.model_rebuild()
+ScheduledPost.model_rebuild()
 
-Adaccountbillingdatepreference.model_rebuild()
+AdAccountBillingDatePreference.model_rebuild()
 
-Offlineconversiondatasetupload.model_rebuild()
+OfflineConversionDataSetUpload.model_rebuild()
 
-Copyrightownershiptransfer.model_rebuild()
+CopyrightOwnershipTransfer.model_rebuild()
 
-Adcampaignconversionvalueexpressionspec.model_rebuild()
+AdCampaignConversionValueExpressionSpec.model_rebuild()
 
 Profile.model_rebuild()
 
-Mcexperienceconfigforapi.model_rebuild()
+MCExperienceConfigForApi.model_rebuild()
 
-Appeventconfig.model_rebuild()
+AppEventConfig.model_rebuild()
 
-Adcampaignstats.model_rebuild()
+AdCampaignStats.model_rebuild()
 
-Cpaslsbimagebank.model_rebuild()
+CPASLsbImageBank.model_rebuild()
 
-Adcampaigngroupincrementalconversionoptimizationconfig.model_rebuild()
+AdCampaignGroupIncrementalConversionOptimizationConfig.model_rebuild()
 
-Flexibletargeting.model_rebuild()
+FlexibleTargeting.model_rebuild()
 
-Copyrightattributioninsights.model_rebuild()
+CopyrightAttributionInsights.model_rebuild()
 
-Productfeedrule.model_rebuild()
+ProductFeedRule.model_rebuild()
 
-Productfeeduploaderrorreport.model_rebuild()
+ProductFeedUploadErrorReport.model_rebuild()
 
-Thirdpartypartnerpanelscheduled.model_rebuild()
+ThirdPartyPartnerPanelScheduled.model_rebuild()
 
-Pagelocationsbreakdown.model_rebuild()
+PageLocationsBreakdown.model_rebuild()
 
-Adspixeldomaincontrolrule.model_rebuild()
+AdsPixelDomainControlRule.model_rebuild()
 
 Photo.model_rebuild()
 
-Catalogitemchannelstointegritystatus.model_rebuild()
+CatalogItemChannelsToIntegrityStatus.model_rebuild()
 
-Igshoppingreviewstatusonsiteeligibility.model_rebuild()
+IGShoppingReviewStatusOnsiteEligibility.model_rebuild()
 
 Post.model_rebuild()
 
-Externalmerchantsettings.model_rebuild()
+ExternalMerchantSettings.model_rebuild()
 
 Dataset.model_rebuild()
 
-Igvideocopyrightcheckmatchesinformation.model_rebuild()
+IGVideoCopyrightCheckMatchesInformation.model_rebuild()
 
-Instantarticleinsightsqueryresult.model_rebuild()
+InstantArticleInsightsQueryResult.model_rebuild()
 
-Pagebroadcast.model_rebuild()
+PageBroadcast.model_rebuild()
 
-Leadgendatadraft.model_rebuild()
+LeadGenDataDraft.model_rebuild()
 
-Adcampaignlearningstageinfo.model_rebuild()
+AdCampaignLearningStageInfo.model_rebuild()
 
-Partnershipadsidentity.model_rebuild()
+PartnershipAdsIdentity.model_rebuild()
 
-Adcreativelinkdatasponsorshipinfospec.model_rebuild()
+AdCreativeLinkDataSponsorshipInfoSpec.model_rebuild()
 
-Adassetmessageextensions.model_rebuild()
+AdAssetMessageExtensions.model_rebuild()
 
-Vehicleoffer.model_rebuild()
+VehicleOffer.model_rebuild()
 
-Musicworkcopyright.model_rebuild()
+MusicWorkCopyright.model_rebuild()
 
-Owneddomain.model_rebuild()
+OwnedDomain.model_rebuild()
 
-Adcreativevideodatacustomoverlayspec.model_rebuild()
+AdCreativeVideoDataCustomOverlaySpec.model_rebuild()
 
-Adcreativecontextualmultiads.model_rebuild()
+AdCreativeContextualMultiAds.model_rebuild()
 
-Workskill.model_rebuild()
+WorkSkill.model_rebuild()
 
-Areffect.model_rebuild()
+AREffect.model_rebuild()
 
-Adaccountpromotableobjects.model_rebuild()
+AdAccountPromotableObjects.model_rebuild()
 
-Externaleventsourcecpaseventsdebugginginfo.model_rebuild()
+ExternalEventSourceCPASEventsDebuggingInfo.model_rebuild()
 
-Productcatalogpricingvariablesbatch.model_rebuild()
+ProductCatalogPricingVariablesBatch.model_rebuild()
 
 
 __all__ = [
@@ -73048,942 +73048,942 @@ __all__ = [
     "whatsappbusinessaccounttemplate_group_analytics_metric_types_enum_param",
     "whatsappbusinessaccountupsert_message_templates_category_enum_param",
     "whatsappbusinesspreverifiedphonenumberrequest_code_code_method_enum_param",
-    "Whatsappbusinesshealthstatus",
-    "Advolume",
-    "Dynamicpostchildattachment",
-    "Adassetfeedspec",
-    "Offlineproductitem",
-    "Adcreativelinkdatacalltoactionvalue",
-    "Businessfranchiseconfig",
+    "WhatsAppBusinessHealthStatus",
+    "AdVolume",
+    "DynamicPostChildAttachment",
+    "AdAssetFeedSpec",
+    "OfflineProductItem",
+    "AdCreativeLinkDataCallToActionValue",
+    "BusinessFranchiseConfig",
     "Transaction",
-    "Igmedia",
-    "Igbcadspermission",
-    "Adplacepageset",
-    "Rightsmanagerinsights",
-    "Adstextsuggestions",
-    "Adcampaigngroupstructuretree",
-    "Targetinggeolocationregion",
-    "Canvastemplate",
-    "Targetingsentenceline",
-    "Adruleschedulespec",
-    "Customaudiencestos",
+    "IGMedia",
+    "IGBCAdsPermission",
+    "AdPlacePageSet",
+    "RightsManagerInsights",
+    "AdsTextSuggestions",
+    "AdCampaignGroupStructureTree",
+    "TargetingGeoLocationRegion",
+    "CanvasTemplate",
+    "TargetingSentenceLine",
+    "AdRuleScheduleSpec",
+    "CustomAudiencesTOS",
     "Campaign",
-    "Eventtickettier",
-    "Dynamiccontentset",
-    "Musicvideocopyright",
-    "Smartpixelinsights",
-    "Customaudiencesharedaccountinfo",
-    "Adassetfeedspecassetcustomizationrule",
-    "Adspixelrealtimeeventlogresult",
-    "Advainstance",
-    "Keyvalue",
-    "Directdebit",
-    "Pageupcomingchange",
-    "Reachfrequencyestimatesplacementbreakdown",
-    "Analyticssegment",
-    "Contactsmessengersyncconfig",
-    "Childevent",
-    "Targetinggeolocationelectoraldistrict",
-    "Adassetfeedspecevents",
-    "Audiencefunnel",
-    "Adssegments",
-    "Adexportpreset",
-    "Imagereferencematch",
-    "Leadgenquestionoption",
-    "Collaborativeadssharesettings",
-    "Livevideotargeting",
-    "Adcreativetextdata",
-    "Analyticsentityuserconfig",
-    "Igmediaforigonlyapi",
-    "Adcampaignoptimizationevent",
+    "EventTicketTier",
+    "DynamicContentSet",
+    "MusicVideoCopyright",
+    "SmartPixelInsights",
+    "CustomAudiencesharedAccountInfo",
+    "AdAssetFeedSpecAssetCustomizationRule",
+    "AdsPixelRealTimeEventLogResult",
+    "AdvAInstance",
+    "KeyValue",
+    "DirectDebit",
+    "PageUpcomingChange",
+    "ReachFrequencyEstimatesPlacementBreakdown",
+    "AnalyticsSegment",
+    "ContactsMessengerSyncConfig",
+    "ChildEvent",
+    "TargetingGeoLocationElectoralDistrict",
+    "AdAssetFeedSpecEvents",
+    "AudienceFunnel",
+    "AdsSegments",
+    "AdExportPreset",
+    "ImageReferenceMatch",
+    "LeadGenQuestionOption",
+    "CollaborativeAdsShareSettings",
+    "LiveVideoTargeting",
+    "AdCreativeTextData",
+    "AnalyticsEntityUserConfig",
+    "IGMediaForIGOnlyAPI",
+    "AdCampaignOptimizationEvent",
     "Privacy",
-    "Blindpig",
-    "Attributionspec",
-    "Adsoptimaldeliverygrowthopportunity",
-    "Almguidance",
-    "Useridforpage",
-    "Adaccount",
-    "Leadgendirectcrmintegrationconfig",
-    "Signalsiwlextractor",
-    "Singleowneradditionalprofile",
-    "Dynamicarmetadata",
-    "Productitemlandingpagedata",
-    "Businessadaccountrequest",
+    "BlindPig",
+    "AttributionSpec",
+    "AdsOptimalDeliveryGrowthOpportunity",
+    "ALMGuidance",
+    "UserIDForPage",
+    "AdAccount",
+    "LeadGenDirectCRMIntegrationConfig",
+    "SignalsIWLExtractor",
+    "SingleOwnerAdditionalProfile",
+    "DynamicARMetadata",
+    "ProductItemLandingPageData",
+    "BusinessAdAccountRequest",
     "Flight",
-    "Customconversionactivities",
+    "CustomConversionActivities",
     "Ad",
-    "Hotelroom",
-    "Adcreativeomnichannellinkspec",
-    "Livevideoadbreakconfig",
-    "Splittestwinner",
-    "Campaignactionsdata",
-    "Idname",
-    "Adspixelrawfiresresult",
-    "Recommendedpagepost",
-    "Copyrightreferencecontainer",
-    "Businesscreativefolder",
-    "Useridforapp",
-    "Amoneshopsettings",
-    "Adcampaigndeliverystatsunsupportedreasons",
-    "Adrecommendation",
-    "Pageappwithleadsaccess",
-    "Adassetfeedspecgrouprule",
-    "Pagecrmswithleadsaccess",
-    "Businessobjecttransferownershipagreement",
-    "Livevideorecommendedencodersettings",
-    "Pagecalltoaction",
-    "Adcampaigngroupstats",
-    "Businessrolerequest",
-    "Offlinetermsofservice",
-    "Adaccountadlimitsinsights",
-    "Adcreativerecommendersettings",
-    "Extendedcreditapplication",
-    "Adcreativeformattransformationspec",
-    "Productvisualvariant",
-    "Audiencepermissionforactions",
-    "Adscreationsavedstate",
-    "Educationexperience",
-    "Messengeradspartialautomatedsteplist",
+    "HotelRoom",
+    "AdCreativeOmnichannelLinkSpec",
+    "LiveVideoAdBreakConfig",
+    "SplitTestWinner",
+    "CampaignActionsData",
+    "IDName",
+    "AdsPixelRawFiresResult",
+    "RecommendedPagePost",
+    "CopyrightReferenceContainer",
+    "BusinessCreativeFolder",
+    "UserIDForApp",
+    "AMOneshopSettings",
+    "AdCampaignDeliveryStatsUnsupportedReasons",
+    "AdRecommendation",
+    "PageAppWithLeadsAccess",
+    "AdAssetFeedSpecGroupRule",
+    "PageCrmsWithLeadsAccess",
+    "BusinessObjectTransferOwnershipAgreement",
+    "LiveVideoRecommendedEncoderSettings",
+    "PageCallToAction",
+    "AdCampaignGroupStats",
+    "BusinessRoleRequest",
+    "OfflineTermsOfService",
+    "AdAccountAdLimitsInsights",
+    "AdCreativeRecommenderSettings",
+    "ExtendedCreditApplication",
+    "AdCreativeFormatTransformationSpec",
+    "ProductVisualVariant",
+    "AudiencePermissionForActions",
+    "AdsCreationSavedState",
+    "EducationExperience",
+    "MessengerAdsPartialAutomatedStepList",
     "Tab",
-    "Audiocopyright",
-    "Brandedcontentaderror",
-    "Withasset3d",
-    "Adcreativedestinationspec",
-    "Woodhengepurchasedpaygreceipt",
-    "Productsettaxoncategory",
+    "AudioCopyright",
+    "BrandedContentAdError",
+    "WithAsset3D",
+    "AdCreativeDestinationSpec",
+    "WoodhengePurchasedPAYGReceipt",
+    "ProductSetTaxonCategory",
     "Canvas",
-    "Adconversionvalues",
-    "Catalogcontentversionconfig",
-    "Customconversionstatsresult",
-    "Shadowigusercatalogproductsearch",
-    "Adcreativehouseshopsadssellercontent",
-    "Productvariant",
-    "Mcominvoicestatus",
-    "Deliveryinfo",
-    "Eventsourcegroup",
-    "Analyticsplatformmetricsconfig",
-    "Adstudyobjectiveoffsitedatasets",
-    "Brandsafetycampaignconfig",
-    "Platformimagesource",
-    "Pagemessageresponsivenessmetrics",
-    "Pagectxmessagingfeaturelimit",
-    "Personaladspersona",
-    "Adaccounttargetingunified",
-    "Deliverycheck",
-    "Slicedeventsourcegroup",
-    "Customaudiencesession",
-    "Canvaspreview",
-    "Dacheck",
-    "Audiencesharingaccountvalid",
-    "Adspixelsignalsiwlfeedbacknux",
-    "Eventexternalticketinfo",
-    "Researchpollstudy",
-    "Usercontext",
-    "Almendadvertiserinfo",
-    "Premiummusicvideo",
+    "AdConversionValues",
+    "CatalogContentVersionConfig",
+    "CustomConversionStatsResult",
+    "ShadowIGUserCatalogProductSearch",
+    "AdCreativeHouseShopsAdsSellerContent",
+    "ProductVariant",
+    "McomInvoiceStatus",
+    "DeliveryInfo",
+    "EventSourceGroup",
+    "AnalyticsPlatformMetricsConfig",
+    "AdStudyObjectiveOffsiteDatasets",
+    "BrandSafetyCampaignConfig",
+    "PlatformImageSource",
+    "PageMessageResponsivenessMetrics",
+    "PageCTXMessagingFeatureLimit",
+    "PersonalAdsPersona",
+    "AdAccountTargetingUnified",
+    "DeliveryCheck",
+    "SlicedEventSourceGroup",
+    "CustomAudienceSession",
+    "CanvasPreview",
+    "DACheck",
+    "AudienceSharingAccountValid",
+    "AdsPixelSignalsIWLFeedbackNux",
+    "EventExternalTicketInfo",
+    "ResearchPollStudy",
+    "UserContext",
+    "ALMEndAdvertiserInfo",
+    "PremiumMusicVideo",
     "Persona",
-    "Creditpartitionactionoptions",
-    "Canvasbodyelement",
-    "Adaccountsubsidyamountdetails",
-    "Adcampaigndeliverystats",
-    "Instagraminsightsvalue",
-    "Fantasygame",
-    "Igvideocopyrightcheckstatus",
-    "Mcompayouts",
-    "Customaudience",
-    "Adaccountreachestimate",
-    "Adgroupmetadata",
-    "Privacyoption",
-    "Franchiseprogram",
-    "Adsreportbuildersavedreport",
-    "Analyticsfunnelqueryresult",
-    "Productcataloguseractions",
-    "Adgroupissuesinfo",
-    "Productcatalogimagesettingsoperation",
-    "Iguserexportforcam",
-    "Audioasset",
-    "Adaccounttrackingdata",
-    "Reachfrequencyadformat",
-    "Whatsappbusinessaccount",
-    "Extendedcreditemail",
-    "Admonetizationproperty",
-    "Brandedcontentshadowigmediaid",
-    "Reachfrequencyestimatescurve",
+    "CreditPartitionActionOptions",
+    "CanvasBodyElement",
+    "AdAccountSubsidyAmountDetails",
+    "AdCampaignDeliveryStats",
+    "InstagramInsightsValue",
+    "FantasyGame",
+    "IGVideoCopyrightCheckStatus",
+    "McomPayouts",
+    "CustomAudience",
+    "AdAccountReachEstimate",
+    "AdgroupMetadata",
+    "PrivacyOption",
+    "FranchiseProgram",
+    "AdsReportBuilderSavedReport",
+    "AnalyticsFunnelQueryResult",
+    "ProductCatalogUserActions",
+    "AdgroupIssuesInfo",
+    "ProductCatalogImageSettingsOperation",
+    "IGUserExportForCAM",
+    "AudioAsset",
+    "AdAccountTrackingData",
+    "ReachFrequencyAdFormat",
+    "WhatsAppBusinessAccount",
+    "ExtendedCreditEmail",
+    "AdMonetizationProperty",
+    "BrandedContentShadowIGMediaID",
+    "ReachFrequencyEstimatesCurve",
     "Vehicle",
-    "Whatsapppaymentcapabilities",
-    "Adpromotedobject",
-    "Offlineconversiondatasetpermissions",
-    "Paymentenginepayment",
-    "Leadgenappointmentslotsbyday",
-    "Adruleexecutionspec",
-    "Catalogitemvalidationerrorlist",
-    "Targetinggeolocationlocationcluster",
-    "Analyticsqueryresult",
-    "Igaccesstokenforigonlyapi",
-    "Videostatusprocessingphase",
-    "Productitemcommerceinsights",
-    "Adaccountaaacompatibleadobjects",
-    "Productiteminsights",
-    "Adspixelstats",
-    "Adassetdescription",
-    "Adcreativeshopspec",
-    "Reachfrequencydaypart",
-    "Businessownedobjectonbehalfofrequest",
-    "Productcatalog",
-    "Productitemsubscriptioninfo",
-    "Videopoll",
-    "Adentitytargetspend",
-    "Campaigngroupbrandconfiguration",
-    "Playablecontent",
-    "Shadowigmediaproducttags",
-    "Businessassetgroup",
-    "Pageaboutstorycomposedblockentityranges",
-    "Businessobject",
-    "Adcreativepromotionmetadataspec",
-    "Targetingsubscriberuniverse",
-    "Textwithentities",
-    "Igcomment",
-    "Shadowiguserpartnershipadsmediaerrors",
-    "Userpageonetimeoptintokensettings",
-    "Adlimitsetting",
-    "Reportingaudience",
-    "Partnershipadcontentsearchmedia",
-    "Adaccountspendcapchangehistory",
-    "Reachfrequencycurvelowerconfidencerange",
-    "Adcreativelinkdataimagelayerspec",
-    "Targetinggeolocationgeoentities",
-    "Offlineconversiondatasetusage",
-    "Videothumbnail",
-    "Externaleventsourcecpaseventsdebugging",
-    "Adassetfeedspeccaption",
-    "Hasleadaccess",
-    "Collaborativeadspartnerbusinesses",
+    "WhatsAppPaymentCapabilities",
+    "AdPromotedObject",
+    "OfflineConversionDataSetPermissions",
+    "PaymentEnginePayment",
+    "LeadGenAppointmentSlotsByDay",
+    "AdRuleExecutionSpec",
+    "CatalogItemValidationErrorList",
+    "TargetingGeoLocationLocationCluster",
+    "AnalyticsQueryResult",
+    "IGAccessTokenForIGOnlyAPI",
+    "VideoStatusProcessingPhase",
+    "ProductItemCommerceInsights",
+    "AdAccountAAACompatibleAdObjects",
+    "ProductItemInsights",
+    "AdsPixelStats",
+    "AdAssetDescription",
+    "AdCreativeShopSpec",
+    "ReachFrequencyDayPart",
+    "BusinessOwnedObjectOnBehalfOfRequest",
+    "ProductCatalog",
+    "ProductItemSubscriptionInfo",
+    "VideoPoll",
+    "AdEntityTargetSpend",
+    "CampaignGroupBrandConfiguration",
+    "PlayableContent",
+    "ShadowIGMediaProductTags",
+    "BusinessAssetGroup",
+    "PageAboutStoryComposedBlockEntityRanges",
+    "BusinessObject",
+    "AdCreativePromotionMetadataSpec",
+    "TargetingSubscriberUniverse",
+    "TextWithEntities",
+    "IGComment",
+    "ShadowIGUserPartnershipAdsMediaErrors",
+    "UserPageOneTimeOptInTokenSettings",
+    "AdLimitSetting",
+    "ReportingAudience",
+    "PartnershipAdContentSearchMedia",
+    "AdAccountSpendCapChangeHistory",
+    "ReachFrequencyCurveLowerConfidenceRange",
+    "AdCreativeLinkDataImageLayerSpec",
+    "TargetingGeoLocationGeoEntities",
+    "OfflineConversionDataSetUsage",
+    "VideoThumbnail",
+    "ExternalEventSourceCPASEventsDebugging",
+    "AdAssetFeedSpecCaption",
+    "HasLeadAccess",
+    "CollaborativeAdsPartnerBusinesses",
     "Business",
-    "Socialwifisite",
-    "Igusermessengerprofile",
-    "Adcreativelinkdataimageoverlayspec",
-    "Salesrightsinventorymanagement",
-    "Adcreativeobjectstoryspec",
-    "Adasyncrequestset",
-    "Assigneduser",
-    "Adkpishift",
-    "Leadgenpostsubmissioncheckresult",
-    "Customaudiencehealth",
-    "Reachfrequencyactivity",
-    "Businessuser",
-    "Adcreativetemplateurlspec",
-    "Customaudiencesharingstatus",
-    "Productfeedrulepreviewsample",
-    "Fblitetonttransitions",
-    "Businessvideo",
+    "SocialWifiSite",
+    "IGUserMessengerProfile",
+    "AdCreativeLinkDataImageOverlaySpec",
+    "SalesRightsInventoryManagement",
+    "AdCreativeObjectStorySpec",
+    "AdAsyncRequestSet",
+    "AssignedUser",
+    "AdKpiShift",
+    "LeadGenPostSubmissionCheckResult",
+    "CustomAudienceHealth",
+    "ReachFrequencyActivity",
+    "BusinessUser",
+    "AdCreativeTemplateURLSpec",
+    "CustomAudienceSharingStatus",
+    "ProductFeedRulePreviewSample",
+    "FBLiteToNTTransitions",
+    "BusinessVideo",
     "Targeting",
-    "Adspixeleventprediction",
-    "Deliverycheckextrainfo",
-    "Targetinggeolocation",
-    "Customaudienceadaccount",
-    "Columnsuggestions",
-    "Aradsdatacontainer",
-    "Windowsapplink",
-    "Productset",
-    "Adaccounturlforassetextraction",
+    "AdsPixelEventPrediction",
+    "DeliveryCheckExtraInfo",
+    "TargetingGeoLocation",
+    "CustomAudienceAdAccount",
+    "ColumnSuggestions",
+    "ArAdsDataContainer",
+    "WindowsAppLink",
+    "ProductSet",
+    "AdAccountURLForAssetExtraction",
     "Engagement",
-    "Contentdeliveryreport",
-    "Videostatuspublishingphase",
-    "Brandedcontenteligiblesponsorids",
-    "Igshoppingreviewstatusreasonwithhelpmessage",
-    "Adsavedreport",
-    "Adaccountpaymentdetails",
-    "Adrulehistoryresult",
-    "Leadgenconditionalquestionsgroupquestions",
-    "Asyncsession",
-    "Adaccountcreationrequest",
-    "Pageuserpermissions",
-    "Platformsessionkey",
+    "ContentDeliveryReport",
+    "VideoStatusPublishingPhase",
+    "BrandedContentEligibleSponsorIDs",
+    "IGShoppingReviewStatusReasonWithHelpMessage",
+    "AdSavedReport",
+    "AdAccountPaymentDetails",
+    "AdRuleHistoryResult",
+    "LeadGenConditionalQuestionsGroupQuestions",
+    "AsyncSession",
+    "AdAccountCreationRequest",
+    "PageUserPermissions",
+    "PlatformSessionKey",
     "Location",
-    "Adassetcustomizationrulecustomizationspec",
-    "Customaudiencesharedaccountcampaigninfo",
-    "Managementsitelink",
-    "Deliverywindow",
-    "Bidschedule",
-    "Adcreativewhatsappchannelspec",
-    "Adgroupreviewfeedback",
-    "Adjacentcontentdeliveryreport",
-    "Currencyamount",
-    "Pagerestaurantservices",
-    "Adcampaignbidconstraint",
-    "Targetinggeolocationplace",
-    "Chinabusinessonboardingvettingrequest",
-    "Adaccountaaasimilarcampaigns",
-    "Adreportrun",
-    "Paymentpricepoints",
-    "Recommendedigmedia",
-    "Targetingprospectingaudience",
-    "Productcatalogdiagnosticgroup",
-    "Adstudyobjective",
-    "Adssignaldiagnosticissue",
-    "Cpasadvertiserpartnershiprecommendation",
-    "Productfeed",
-    "Authlink",
-    "Businesspagerequest",
-    "Bapidomain",
-    "Reachfrequencyprediction",
-    "Adcreativeaddisclaimer",
-    "Adsreportbuilderexportcore",
-    "Adcreativestaticfallbackspec",
-    "Commercesettings",
-    "Managedpartnerextendedcredit",
-    "Businessadvertisableapplicationsresult",
-    "Lifeevent",
-    "Productitemvideodata",
-    "Adaccountrelatedicostudy",
-    "Adsdataset",
-    "Pagesettings",
-    "Businessrequest",
-    "Adnetworkanalyticssyncqueryresult",
-    "Instagramrelatedproducttags",
-    "Connectionstargeting",
-    "Extendedcredit",
-    "Commercepayout",
-    "Igupcomingevent",
-    "Adruleschedule",
-    "Adlightcampaign",
-    "Resellerguidance",
+    "AdAssetCustomizationRuleCustomizationSpec",
+    "CustomAudienceSharedAccountCampaignInfo",
+    "ManagementSiteLink",
+    "DeliveryWindow",
+    "BidSchedule",
+    "AdCreativeWhatsAppChannelSpec",
+    "AdgroupReviewFeedback",
+    "AdjacentContentDeliveryReport",
+    "CurrencyAmount",
+    "PageRestaurantServices",
+    "AdCampaignBidConstraint",
+    "TargetingGeoLocationPlace",
+    "ChinaBusinessOnboardingVettingRequest",
+    "AdAccountAAASimilarCampaigns",
+    "AdReportRun",
+    "PaymentPricepoints",
+    "RecommendedIGMedia",
+    "TargetingProspectingAudience",
+    "ProductCatalogDiagnosticGroup",
+    "AdStudyObjective",
+    "AdsSignalDiagnosticIssue",
+    "CPASAdvertiserPartnershipRecommendation",
+    "ProductFeed",
+    "AuthLink",
+    "BusinessPageRequest",
+    "BAPIDomain",
+    "ReachFrequencyPrediction",
+    "AdCreativeAdDisclaimer",
+    "AdsReportBuilderExportCore",
+    "AdCreativeStaticFallbackSpec",
+    "CommerceSettings",
+    "ManagedPartnerExtendedCredit",
+    "BusinessAdvertisableApplicationsResult",
+    "LifeEvent",
+    "ProductItemVideoData",
+    "AdAccountRelatedIcoStudy",
+    "AdsDataset",
+    "PageSettings",
+    "BusinessRequest",
+    "AdNetworkAnalyticsSyncQueryResult",
+    "InstagramRelatedProductTags",
+    "ConnectionsTargeting",
+    "ExtendedCredit",
+    "CommercePayout",
+    "IGUpcomingEvent",
+    "AdRuleSchedule",
+    "AdLightCampaign",
+    "ResellerGuidance",
     "Currency",
-    "Productitemoffer",
-    "Workuserfrontline",
+    "ProductItemOffer",
+    "WorkUserFrontline",
     "Permission",
-    "Adassetbody",
-    "Reachfrequencycurveupperconfidencerange",
-    "Websitecreativeassetsuggestions",
-    "Checkbatchrequeststatus",
-    "Userpaymentmobilepricepoints",
-    "Whatsappbusinessprofile",
-    "Loomconfig",
-    "Adcreativebrandedcontentads",
-    "Adcreativemediasourcingspec",
-    "Brandrequest",
-    "Businessmanagedpartnereligibility",
-    "Leadgenappointmentbookinginfo",
-    "Wearabledevicepublickey",
-    "Adruletrigger",
-    "Adcreativeplatformcustomization",
-    "Adruleexecutionoptions",
-    "Adaccountadrulescountbytype",
-    "Audiorelease",
-    "Unifiedthread",
-    "Brandedcontentshadowiguserid",
-    "Customaudiencegroup",
-    "Adaccountlivevideoadvertiser",
-    "Uniqueadcreative",
-    "Adasyncrequestsetnotificationresult",
-    "Campaigngroupcollaborativeadspartnerinfo",
-    "Catalogbasedtargeting",
-    "Ipobject",
-    "Adsinsights",
-    "Productcataloglocalizationsettings",
-    "Messagedeliveryestimate",
-    "Adasyncrequest",
+    "AdAssetBody",
+    "ReachFrequencyCurveUpperConfidenceRange",
+    "WebsiteCreativeAssetSuggestions",
+    "CheckBatchRequestStatus",
+    "UserPaymentMobilePricepoints",
+    "WhatsAppBusinessProfile",
+    "LoomConfig",
+    "AdCreativeBrandedContentAds",
+    "AdCreativeMediaSourcingSpec",
+    "BrandRequest",
+    "BusinessManagedPartnerEligibility",
+    "LeadGenAppointmentBookingInfo",
+    "WearableDevicePublicKey",
+    "AdRuleTrigger",
+    "AdCreativePlatformCustomization",
+    "AdRuleExecutionOptions",
+    "AdAccountAdRulesCountByType",
+    "AudioRelease",
+    "UnifiedThread",
+    "BrandedContentShadowIGUserID",
+    "CustomAudienceGroup",
+    "AdAccountLiveVideoAdvertiser",
+    "UniqueAdCreative",
+    "AdAsyncRequestSetNotificationResult",
+    "CampaignGroupCollaborativeAdsPartnerInfo",
+    "CatalogBasedTargeting",
+    "IPObject",
+    "AdsInsights",
+    "ProductCatalogLocalizationSettings",
+    "MessageDeliveryEstimate",
+    "AdAsyncRequest",
     "Comment",
-    "Adcreativephotodata",
-    "Pagepostexperiment",
-    "Automotivemodel",
-    "Cpassetup",
-    "Catalogsubverticallist",
-    "Merchantcompliance",
-    "Analyticsuserconfig",
-    "Adcreativerewardinfo",
-    "Adaccountpromotionprogressbar",
-    "Igproducttagginginvalidationerror",
-    "Adcreativelinkdatamoment",
-    "Adtoplinedetail",
-    "Videolist",
-    "Leadgenthankyoupage",
-    "Adpreview",
-    "Adrulehistory",
-    "Adaccountappsetuprequirements",
-    "Productcatalogusertasks",
-    "Adsconversiongoal",
-    "Chatplugin",
-    "Brandsafetydownloadable",
-    "Pagectxdefaultgreetingtext",
-    "Adassetfeedspeclinkurl",
-    "Leadgenconditionalquestionsgroupchoices",
-    "Bizinboxoffsiteemailaccount",
-    "Adassetfeedspecbody",
-    "Adaccountuser",
+    "AdCreativePhotoData",
+    "PagePostExperiment",
+    "AutomotiveModel",
+    "CPASSetup",
+    "CatalogSubVerticalList",
+    "MerchantCompliance",
+    "AnalyticsUserConfig",
+    "AdCreativeRewardInfo",
+    "AdAccountPromotionProgressBar",
+    "IGProductTaggingInvalidationError",
+    "AdCreativeLinkDataMoment",
+    "AdToplineDetail",
+    "VideoList",
+    "LeadGenThankYouPage",
+    "AdPreview",
+    "AdRuleHistory",
+    "AdAccountAppSetupRequirements",
+    "ProductCatalogUserTasks",
+    "AdsConversionGoal",
+    "ChatPlugin",
+    "BrandSafetyDownloadable",
+    "PageCTXDefaultGreetingText",
+    "AdAssetFeedSpecLinkURL",
+    "LeadGenConditionalQuestionsGroupChoices",
+    "BizInboxOffsiteEmailAccount",
+    "AdAssetFeedSpecBody",
+    "AdAccountUser",
     "Placement",
-    "Fundingsourcedetailscoupontiering",
-    "Adlightcampaigngroup",
-    "Adaccountcampaignattributionoptioninfo",
-    "Addraft",
-    "Adaccountdsarecommendations",
-    "Businessimage",
-    "Asyncrequest",
-    "Websitecreativeinfo",
-    "Extendedcreditinvoicegroup",
-    "Targetinggeolocationcity",
-    "Igshoppingreviewstatus",
-    "Dynamicitemdisplaybundlefolder",
-    "Pagechangeproposal",
-    "Rtbdynamicpost",
-    "Adaccountmaxbid",
-    "Videostatuserror",
-    "Eventregistrationsetting",
-    "Livevideo",
-    "Adconversions",
-    "Businessproductcatalogtos",
-    "Businessassetsharingagreement",
-    "Adcreationpackageconfig",
-    "Contentpublishinglimitresponse",
-    "Endstudycriteria",
-    "Collaborativeadspartnerinfolistitem",
-    "Copyrightmediamisuse",
-    "Adcreativelinkdatacalltoaction",
-    "Videostatusuploadingphase",
-    "Adcreativebrandedcontentadspartners",
+    "FundingSourceDetailsCouponTiering",
+    "AdLightCampaignGroup",
+    "AdAccountCampaignAttributionOptionInfo",
+    "AdDraft",
+    "AdAccountDsaRecommendations",
+    "BusinessImage",
+    "AsyncRequest",
+    "WebsiteCreativeInfo",
+    "ExtendedCreditInvoiceGroup",
+    "TargetingGeoLocationCity",
+    "IGShoppingReviewStatus",
+    "DynamicItemDisplayBundleFolder",
+    "PageChangeProposal",
+    "RTBDynamicPost",
+    "AdAccountMaxBid",
+    "VideoStatusError",
+    "EventRegistrationSetting",
+    "LiveVideo",
+    "AdConversions",
+    "BusinessProductCatalogTOS",
+    "BusinessAssetSharingAgreement",
+    "AdCreationPackageConfig",
+    "ContentPublishingLimitResponse",
+    "EndStudyCriteria",
+    "CollaborativeAdsPartnerInfoListItem",
+    "CopyrightMediaMisuse",
+    "AdCreativeLinkDataCallToAction",
+    "VideoStatusUploadingPhase",
+    "AdCreativeBrandedContentAdsPartners",
     "Stories",
-    "Instagraminsightsresult",
-    "Adspixelsignalsiwlnux",
-    "Productfeedrulesuggestion",
-    "Mediacopyrightattribution",
-    "Businessproject",
-    "Adstudy",
-    "Adgroupplacementspecificreviewfeedback",
-    "Ctxpartnerappwelcomemessageflow",
-    "Transactableitem",
-    "Adtopline",
-    "Adcreativelinkdatacustomoverlayspec",
-    "Offlineconversiondataset",
-    "Adspixeldeliveryrecommendations",
-    "Adcreativefeaturesspec",
-    "Productfeeduploaderrorsample",
-    "Wituser",
-    "Highdemandperiodtimesuggestionweeklysegment",
-    "Adnetworkanalyticsasyncqueryresult",
-    "Adcampaigngroupmetricsmetadata",
-    "Adcreativemarketingmessagestructuredspec",
-    "Adaccountamountspenthistory",
-    "Targetingproductaudiencespec",
-    "Blockeduserinfo",
-    "Audienceoverlap",
-    "Commerceorder",
-    "Productsetusage",
-    "Adaccountallpaymentmethods",
-    "Ctxoptimizationeligibility",
+    "InstagramInsightsResult",
+    "AdsPixelSignalsIWLNux",
+    "ProductFeedRuleSuggestion",
+    "MediaCopyrightAttribution",
+    "BusinessProject",
+    "AdStudy",
+    "AdgroupPlacementSpecificReviewFeedback",
+    "CTXPartnerAppWelcomeMessageFlow",
+    "TransactableItem",
+    "AdTopline",
+    "AdCreativeLinkDataCustomOverlaySpec",
+    "OfflineConversionDataSet",
+    "AdsPixelDeliveryRecommendations",
+    "AdCreativeFeaturesSpec",
+    "ProductFeedUploadErrorSample",
+    "WITUser",
+    "HighDemandPeriodTimeSuggestionWeeklySegment",
+    "AdNetworkAnalyticsAsyncQueryResult",
+    "AdCampaignGroupMetricsMetadata",
+    "AdCreativeMarketingMessageStructuredSpec",
+    "AdAccountAmountSpentHistory",
+    "TargetingProductAudienceSpec",
+    "BlockedUserInfo",
+    "AudienceOverlap",
+    "CommerceOrder",
+    "ProductSetUsage",
+    "AdAccountAllPaymentMethods",
+    "CTXOptimizationEligibility",
     "Event",
-    "Videotextquestion",
+    "VideoTextQuestion",
     "Experience",
-    "Audiosublabel",
-    "Leadgenprivacypolicy",
-    "Adcolumnsizes",
-    "Videocopyright",
-    "Imagecopyrightdispute",
-    "Productfeedupload",
-    "Videocopyrightconditiongroup",
-    "Cpasadcreationtemplate",
-    "Leadgenurlentityatranges",
-    "Externaleventsource",
-    "Almguidancemetrics",
-    "Userleadgendisclaimerresponse",
-    "Deliverystatus",
-    "Adcreativeinsights",
-    "Adspixeleventlastfiredtime",
-    "Adnetworkanalyticsasyncqueryexport",
-    "Adcreativeregionalregulationdisclaimer",
-    "Adsvalueadjustmentrulecollection",
-    "Iguser",
-    "Cpasparentcatalogsettings",
-    "Agencyclientdeclaration",
-    "Regionalregulationidentities",
-    "Canvasadsettings",
-    "Applinks",
-    "Adsavedlocation",
-    "Thirdpartymeasurementreportdataset",
-    "Homelisting",
-    "Geogatingpolicy",
-    "Adplacepagesetmetadata",
-    "Mcomonboardingstatus",
-    "Adcreativelinkdataapplinkspec",
-    "Addynamiccreative",
-    "Adaccountdefaultdestination",
-    "Managedpartnerbusiness",
-    "Commercemerchantsettings",
-    "Adcreativeplacedata",
-    "Extendedcreditinfo",
-    "Placetag",
-    "Adsmcmeconversion",
+    "AudioSubLabel",
+    "LeadGenPrivacyPolicy",
+    "AdColumnSizes",
+    "VideoCopyright",
+    "ImageCopyrightDispute",
+    "ProductFeedUpload",
+    "VideoCopyrightConditionGroup",
+    "CPASAdCreationTemplate",
+    "LeadGenURLEntityAtRanges",
+    "ExternalEventSource",
+    "ALMGuidanceMetrics",
+    "UserLeadGenDisclaimerResponse",
+    "DeliveryStatus",
+    "AdCreativeInsights",
+    "AdsPixelEventLastFiredTime",
+    "AdNetworkAnalyticsAsyncQueryExport",
+    "AdCreativeRegionalRegulationDisclaimer",
+    "AdsValueAdjustmentRuleCollection",
+    "IGUser",
+    "CPASParentCatalogSettings",
+    "AgencyClientDeclaration",
+    "RegionalRegulationIdentities",
+    "CanvasAdSettings",
+    "AppLinks",
+    "AdSavedLocation",
+    "ThirdPartyMeasurementReportDataset",
+    "HomeListing",
+    "GeoGatingPolicy",
+    "AdPlacePageSetMetadata",
+    "McomOnboardingStatus",
+    "AdCreativeLinkDataAppLinkSpec",
+    "AdDynamicCreative",
+    "AdAccountDefaultDestination",
+    "ManagedPartnerBusiness",
+    "CommerceMerchantSettings",
+    "AdCreativePlaceData",
+    "ExtendedCreditInfo",
+    "PlaceTag",
+    "AdsMcmeConversion",
     "Shop",
-    "Productitemshipping",
-    "Adsreportbuildermmmreportscheduler",
-    "Reachfrequencyspec",
-    "Creativemulticelltestconfig",
-    "Userpaymentmodulesoptions",
-    "Contentblocklist",
-    "Adcreativegenerativeassetspec",
-    "Adcreativephotodatamediaelements",
-    "Photometadata",
-    "Copyrightaudioasset",
-    "Adsanomalydetection",
-    "Adstudycell",
-    "Adassetfeedspeccalltoaction",
-    "Valuebasedeligiblesource",
-    "Adassetfeedspeccarousel",
-    "Businessapplicationrequest",
-    "P2minvoicepayments",
-    "Customaudienceintegrityflagsandappealstatus",
-    "Mediatitle",
-    "Overridedetails",
-    "Adplacement",
-    "Androidapplink",
-    "Adsactionstats",
-    "Creatorassetcreative",
-    "Targetingautomation",
-    "Adaccountadruleshistory",
-    "Adcontract",
-    "Mediacopyrightupdaterecord",
-    "Pagectstopic",
-    "Igcommentfromuser",
+    "ProductItemShipping",
+    "AdsReportBuilderMMMReportScheduler",
+    "ReachFrequencySpec",
+    "CreativeMulticellTestConfig",
+    "UserPaymentModulesOptions",
+    "ContentBlockList",
+    "AdCreativeGenerativeAssetSpec",
+    "AdCreativePhotoDataMediaElements",
+    "PhotoMetadata",
+    "CopyrightAudioAsset",
+    "AdsAnomalyDetection",
+    "AdStudyCell",
+    "AdAssetFeedSpecCallToAction",
+    "ValueBasedEligibleSource",
+    "AdAssetFeedSpecCarousel",
+    "BusinessApplicationRequest",
+    "P2MInvoicePayments",
+    "CustomAudienceIntegrityFlagsAndAppealStatus",
+    "MediaTitle",
+    "OverrideDetails",
+    "AdPlacement",
+    "AndroidAppLink",
+    "AdsActionStats",
+    "CreatorAssetCreative",
+    "TargetingAutomation",
+    "AdAccountAdRulesHistory",
+    "AdContract",
+    "MediaCopyrightUpdateRecord",
+    "PageCTSTopic",
+    "IGCommentFromUser",
     "Lead",
-    "Adcreativefeaturecustomizations",
-    "Adaccountiosfourteencampaignlimits",
-    "Businessimagetbusinessfolderpathitem",
-    "Ctxdefaultoptimizationconfig",
-    "Adspaymentcycle",
-    "Richmediaelement",
-    "Lookalikespec",
-    "Adcampaigngroupadvantagestate",
-    "Adspixelcapiintegrationquality",
-    "Productcatalogimagesettings",
-    "Revsharepolicy",
-    "Canvascollectionthumbnail",
-    "Adcreativesitelinksspec",
+    "AdCreativeFeatureCustomizations",
+    "AdAccountIosFourteenCampaignLimits",
+    "BusinessImageTBusinessFolderPathItem",
+    "CTXDefaultOptimizationConfig",
+    "AdsPaymentCycle",
+    "RichMediaElement",
+    "LookalikeSpec",
+    "AdCampaignGroupAdvantageState",
+    "AdsPixelCAPIIntegrationQuality",
+    "ProductCatalogImageSettings",
+    "RevSharePolicy",
+    "CanvasCollectionThumbnail",
+    "AdCreativeSiteLinksSpec",
     "Destination",
-    "Adset",
-    "Adcampaignmultiads",
-    "Insightsvalue",
-    "Canvasdynamicsetting",
-    "Adsquickviews",
-    "Placetopic",
-    "Adkeywords",
-    "Adspixeleventsuggestionrule",
-    "Offlineconversiondatasetactivities",
-    "Adimage",
-    "Adassetvideo",
-    "Igusersubscribedappsdata",
-    "Catalogitemrejectionreasons",
-    "Productcatalogcategory",
-    "Targetinggeolocationpoliticaldistrict",
-    "Adscustompivotspreview",
-    "Shadowighashtag",
-    "Adcampaignfrequencycontrolspecs",
-    "Apppublisher",
+    "AdSet",
+    "AdCampaignMultiAds",
+    "InsightsValue",
+    "CanvasDynamicSetting",
+    "AdsQuickViews",
+    "PlaceTopic",
+    "AdKeywords",
+    "AdsPixelEventSuggestionRule",
+    "OfflineConversionDataSetActivities",
+    "AdImage",
+    "AdAssetVideo",
+    "IGUserSubscribedAppsData",
+    "CatalogItemRejectionReasons",
+    "ProductCatalogCategory",
+    "TargetingGeoLocationPoliticalDistrict",
+    "AdsCustomPivotsPreview",
+    "ShadowIGHashtag",
+    "AdCampaignFrequencyControlSpecs",
+    "AppPublisher",
     "Hours",
-    "Adaccountbusinessconstraints",
-    "Instagramthread",
-    "Timesuggestion",
-    "Anblockedbicategory",
-    "Adassettargetruletargeting",
-    "Storelocation",
-    "Adaccountyouthadsadvertiser",
-    "Adcreativeimagedatamediaelements",
-    "Publisherblocklist",
-    "Apprequest",
-    "Streamfilter",
-    "Scimcompanyuserphonenumber",
-    "Adcreativevideodata",
-    "Messagingfeaturestatus",
-    "Fbimagecopyrightmatch",
-    "Businessadsreportingreportspecs",
-    "Adactivity",
-    "Adcreativecollectionthumbnailinfo",
-    "Adassetfeedspecassetlabel",
+    "AdAccountBusinessConstraints",
+    "InstagramThread",
+    "TimeSuggestion",
+    "ANBlockedBICategory",
+    "AdAssetTargetRuleTargeting",
+    "StoreLocation",
+    "AdAccountYouthAdsAdvertiser",
+    "AdCreativeImageDataMediaElements",
+    "PublisherBlockList",
+    "AppRequest",
+    "StreamFilter",
+    "ScimCompanyUserPhoneNumber",
+    "AdCreativeVideoData",
+    "MessagingFeatureStatus",
+    "FBImageCopyrightMatch",
+    "BusinessAdsReportingReportSpecs",
+    "AdActivity",
+    "AdCreativeCollectionThumbnailInfo",
+    "AdAssetFeedSpecAssetLabel",
     "Robot",
-    "Adshistogramstats",
-    "Productgroup",
-    "Offsitepixel",
-    "Adassettitle",
-    "Highdemandperiod",
+    "AdsHistogramStats",
+    "ProductGroup",
+    "OffsitePixel",
+    "AdAssetTitle",
+    "HighDemandPeriod",
     "User",
-    "Catalogadvertiserinsight",
-    "Profilepicturesource",
-    "Userpaymentmethodsinfo",
-    "Productfeedschedule",
-    "Adkeywordstats",
-    "Businesscreative",
-    "Customusersettings",
-    "Mcominvoicelists",
-    "Leadgencontextcard",
-    "Imagecopyright",
-    "Apacmonsellerstatusapicontainer",
-    "Adcampaignissuesinfo",
-    "Adaccountadvolume",
-    "Preapprovalreview",
-    "Url",
-    "Adassetfeedadditionaldata",
-    "Adaccountusersettings",
-    "Localservicebusiness",
-    "Messengerdestinationpagewelcomemessage",
-    "Audioisrc",
-    "Whitehatfbdlrun",
-    "Customaudiencestatus",
-    "Adcustomizationrulespec",
-    "Adproposal",
-    "Pageinsightsasyncexportrun",
-    "Videogroup",
-    "Adruleevaluationspec",
-    "Appoptimizedcustomevents",
-    "Ctwawhatsappnumbersinfo",
-    "Offlineconversiondatasetoptimizationstatus",
-    "Adaccountdefaultobjective",
-    "Adaccountadsrecommendedaudios",
-    "Brandsafetyblocklistusage",
-    "Pagerestaurantspecialties",
-    "Instagramuser",
-    "Fbpageandinstagramaccount",
-    "Securitysettings",
-    "Adcustomderivedmetrics",
-    "Adspixelrecenteventsresult",
-    "Businesstrafficanalysisreport",
-    "Leadgencustomdisclaimerbody",
-    "Adcampaigndeliveryestimate",
-    "Igmediaboosteligibilityinfo",
-    "Shadowiguserctxpartnerappwelcomemessageflow",
-    "Eventticketsetting",
-    "Targetinggeolocationzip",
-    "Adaccountrecommendations",
-    "Igresumablevideouploadstatus",
-    "Thirdpartypartnerpanelrequest",
-    "Creditcard",
-    "Entityattextrange",
-    "Adrecommendationdata",
-    "Adcreativeinstagrambrandedcontent",
-    "Usercoverphoto",
-    "Messagingfeaturereview",
-    "Orderidattributions",
-    "Productitemerror",
-    "Targetinggeolocationmarket",
-    "Livevideoinputstream",
-    "Adaccountagencyfeeconfig",
-    "Savedmessageresponse",
-    "Adcreativelinkdatatemplatevideospec",
-    "Adrulehistoryresultaction",
-    "Messengerbusinesstemplate",
-    "Mailingaddress",
-    "Offsitesignalcontainerbusinessobject",
-    "Customaudiencedatasource",
-    "Adaccountspendlimit",
-    "Leadgencustomdisclaimer",
-    "Productcatalogcheckmarketplacepartnersellersstatus",
-    "Adassetfeedspeccarouselchildattachment",
-    "Productsetmetadata",
-    "Adstabular",
-    "Businesstag",
-    "Adsimagecrops",
-    "Dynamicitemdisplaybundle",
-    "Productcatalogimagesettingsinternal",
-    "Businesspartnerpremiumoptions",
-    "Franchiseprogrammember",
-    "Adstudyobjectiveid",
-    "Outcomepredictionpoint",
-    "Leadgenthankyoupagegatedfile",
-    "Eventtour",
-    "Pageaboutstorycomposedblock",
-    "Adspixeldomainlastfiredtime",
-    "Adassetfeedspecdescription",
-    "Adcreativeportraitcustomizations",
-    "Leadgenappointmenttimeslot",
-    "Adcreativefeaturedetails",
-    "Creativeassettag",
-    "Leadgendraftquestion",
-    "Savedaudience",
-    "Adrule",
-    "Leadgenformpreviewdetails",
-    "Leadgenform",
-    "Pagethreadowner",
-    "Productfeeduploaderror",
-    "Adlabel",
-    "Calibratorexistingrule",
-    "Videocopyrightmatch",
-    "Productitemunitprice",
-    "Storecatalogsettings",
-    "Partneraccountlinking",
-    "Commerceordertransactiondetail",
-    "Websitecreativeassetsource",
-    "Minimumbudget",
-    "Leadgenthankyoupagegatedpromo",
+    "CatalogAdvertiserInsight",
+    "ProfilePictureSource",
+    "UserPaymentMethodsInfo",
+    "ProductFeedSchedule",
+    "AdKeywordStats",
+    "BusinessCreative",
+    "CustomUserSettings",
+    "McomInvoiceLists",
+    "LeadGenContextCard",
+    "ImageCopyright",
+    "ApacMonSellerStatusAPIContainer",
+    "AdCampaignIssuesInfo",
+    "AdAccountAdVolume",
+    "PreapprovalReview",
+    "URL",
+    "AdAssetFeedAdditionalData",
+    "AdAccountUserSettings",
+    "LocalServiceBusiness",
+    "MessengerDestinationPageWelcomeMessage",
+    "AudioIsrc",
+    "WhitehatFBDLRun",
+    "CustomAudienceStatus",
+    "AdCustomizationRuleSpec",
+    "AdProposal",
+    "PageInsightsAsyncExportRun",
+    "VideoGroup",
+    "AdRuleEvaluationSpec",
+    "AppOptimizedCustomEvents",
+    "CTWAWhatsAppNumbersInfo",
+    "OfflineConversionDataSetOptimizationStatus",
+    "AdAccountDefaultObjective",
+    "AdAccountAdsRecommendedAudios",
+    "BrandSafetyBlockListUsage",
+    "PageRestaurantSpecialties",
+    "InstagramUser",
+    "FBPageAndInstagramAccount",
+    "SecuritySettings",
+    "AdCustomDerivedMetrics",
+    "AdsPixelRecentEventsResult",
+    "BusinessTrafficAnalysisReport",
+    "LeadGenCustomDisclaimerBody",
+    "AdCampaignDeliveryEstimate",
+    "IGMediaBoostEligibilityInfo",
+    "ShadowIGUserCTXPartnerAppWelcomeMessageFlow",
+    "EventTicketSetting",
+    "TargetingGeoLocationZip",
+    "AdAccountRecommendations",
+    "IGResumableVideoUploadStatus",
+    "ThirdPartyPartnerPanelRequest",
+    "CreditCard",
+    "EntityAtTextRange",
+    "AdRecommendationData",
+    "AdCreativeInstagramBrandedContent",
+    "UserCoverPhoto",
+    "MessagingFeatureReview",
+    "OrderIDAttributions",
+    "ProductItemError",
+    "TargetingGeoLocationMarket",
+    "LiveVideoInputStream",
+    "AdAccountAgencyFeeConfig",
+    "SavedMessageResponse",
+    "AdCreativeLinkDataTemplateVideoSpec",
+    "AdRuleHistoryResultAction",
+    "MessengerBusinessTemplate",
+    "MailingAddress",
+    "OffsiteSignalContainerBusinessObject",
+    "CustomAudienceDataSource",
+    "AdAccountSpendLimit",
+    "LeadGenCustomDisclaimer",
+    "ProductCatalogCheckMarketplacePartnerSellersStatus",
+    "AdAssetFeedSpecCarouselChildAttachment",
+    "ProductSetMetadata",
+    "AdsTabular",
+    "BusinessTag",
+    "AdsImageCrops",
+    "DynamicItemDisplayBundle",
+    "ProductCatalogImageSettingsInternal",
+    "BusinessPartnerPremiumOptions",
+    "FranchiseProgramMember",
+    "AdStudyObjectiveID",
+    "OutcomePredictionPoint",
+    "LeadGenThankYouPageGatedFile",
+    "EventTour",
+    "PageAboutStoryComposedBlock",
+    "AdsPixelDomainLastFiredTime",
+    "AdAssetFeedSpecDescription",
+    "AdCreativePortraitCustomizations",
+    "LeadGenAppointmentTimeSlot",
+    "AdCreativeFeatureDetails",
+    "CreativeAssetTag",
+    "LeadGenDraftQuestion",
+    "SavedAudience",
+    "AdRule",
+    "LeadGenFormPreviewDetails",
+    "LeadgenForm",
+    "PageThreadOwner",
+    "ProductFeedUploadError",
+    "AdLabel",
+    "CalibratorExistingRule",
+    "VideoCopyrightMatch",
+    "ProductItemUnitPrice",
+    "StoreCatalogSettings",
+    "PartnerAccountLinking",
+    "CommerceOrderTransactionDetail",
+    "WebsiteCreativeAssetSource",
+    "MinimumBudget",
+    "LeadGenThankYouPageGatedPromo",
     "Place",
-    "Adcreativeinteractivecomponentsspec",
-    "Woodhengesupporter",
-    "Businessmediaadplacementvalidationresult",
-    "Fundraiserpersontocharity",
-    "Shadowigusercatalogproductvariant",
-    "Igboostmediaad",
+    "AdCreativeInteractiveComponentsSpec",
+    "WoodhengeSupporter",
+    "BusinessMediaAdPlacementValidationResult",
+    "FundraiserPersonToCharity",
+    "ShadowIGUserCatalogProductVariant",
+    "IGBoostMediaAd",
     "Organization",
-    "Adaccountbankinfolist",
-    "Cpascollaborationrequest",
-    "Broadtargetingcategories",
-    "Videostats",
-    "Conversionhealthkpi",
-    "Pagepost",
-    "Analyticsconfig",
-    "Windowsphoneapplink",
-    "Adcampaignpacedbidinfo",
-    "Useravailablecatalogs",
-    "Timezoneoffset",
-    "Jobopening",
-    "Voipinfo",
-    "Extendedcreditallocationconfig",
-    "Adcreativefacebookbrandedcontent",
-    "Adsusersettings",
+    "AdAccountBankInfoList",
+    "CPASCollaborationRequest",
+    "BroadTargetingCategories",
+    "VideoStats",
+    "ConversionHealthKPI",
+    "PagePost",
+    "AnalyticsConfig",
+    "WindowsPhoneAppLink",
+    "AdCampaignPacedBidInfo",
+    "UserAvailableCatalogs",
+    "TimezoneOffset",
+    "JobOpening",
+    "VoipInfo",
+    "ExtendedCreditAllocationConfig",
+    "AdCreativeFacebookBrandedContent",
+    "AdsUserSettings",
     "Hotel",
-    "Entwithsponsor",
-    "Adstargetinginsights",
-    "Businessvideotbusinessfolderpathitem",
-    "Creativehistory",
-    "Mcominvoicedetails",
-    "Whatsappbusinesspreverifiedphonenumber",
-    "Adcreativelinkdata",
-    "Wifiinformation",
-    "Adaccountprepaydetails",
-    "Adbidadjustments",
+    "EntWithSponsor",
+    "AdsTargetingInsights",
+    "BusinessVideoTBusinessFolderPathItem",
+    "CreativeHistory",
+    "McomInvoiceDetails",
+    "WhatsAppBusinessPreVerifiedPhoneNumber",
+    "AdCreativeLinkData",
+    "WifiInformation",
+    "AdAccountPrepayDetails",
+    "AdBidAdjustments",
     "Avatar",
-    "Audiencesharingrecipientaccounts",
-    "Messengerprofile",
-    "Adsreportbuilder",
-    "Videostatus",
-    "Productimage",
-    "Productitem",
-    "Partnercategory",
-    "Pageleadsaccessconfig",
-    "Productdeliverypreference",
-    "Trackingandconversionwithdefaults",
-    "Adaccountdeliveryestimate",
-    "Productcatalogproductsetsbatch",
-    "Productitemlocalinfo",
-    "Adcreativefeatureactionmetadata",
-    "Adrulefilters",
-    "Taggablesubject",
-    "Adaccountmatchedsearchapplicationsedgedata",
-    "Catalogwebsiteonboardingsettings",
-    "Cloudbridgedatasetstatus",
-    "Pagegetstartednullstate",
-    "Mediafingerprint",
-    "Adlimitsenforcementdata",
-    "Adassetfeedspecimage",
-    "Leadgenlegalcontent",
-    "Instagrambusinessasset",
-    "Leadgenlegalcontentcheckbox",
-    "Opengraphcontext",
-    "Usernotificationseenstatedata",
-    "Usermobileconfig",
-    "Coverphoto",
-    "Catalogitemoverride",
-    "Adspixelstatsresult",
-    "Cpasbusinesssetupconfig",
-    "Fundingsourcedetailscoupon",
-    "Adsnamingtemplate",
-    "Thirdpartypartnerliftrequest",
-    "Adseligibility",
-    "Userleadgenfielddata",
+    "AudienceSharingRecipientAccounts",
+    "MessengerProfile",
+    "AdsReportBuilder",
+    "VideoStatus",
+    "ProductImage",
+    "ProductItem",
+    "PartnerCategory",
+    "PageLeadsAccessConfig",
+    "ProductDeliveryPreference",
+    "TrackingAndConversionWithDefaults",
+    "AdAccountDeliveryEstimate",
+    "ProductCatalogProductSetsBatch",
+    "ProductItemLocalInfo",
+    "AdCreativeFeatureActionMetadata",
+    "AdRuleFilters",
+    "TaggableSubject",
+    "AdAccountMatchedSearchApplicationsEdgeData",
+    "CatalogWebsiteOnboardingSettings",
+    "CloudbridgeDatasetStatus",
+    "PageGetStartedNullstate",
+    "MediaFingerprint",
+    "AdLimitsEnforcementData",
+    "AdAssetFeedSpecImage",
+    "LeadGenLegalContent",
+    "InstagramBusinessAsset",
+    "LeadGenLegalContentCheckbox",
+    "OpenGraphContext",
+    "UserNotificationSeenStateData",
+    "UserMobileConfig",
+    "CoverPhoto",
+    "CatalogItemOverride",
+    "AdsPixelStatsResult",
+    "CPASBusinessSetupConfig",
+    "FundingSourceDetailsCoupon",
+    "AdsNamingTemplate",
+    "ThirdPartyPartnerLiftRequest",
+    "AdsEligibility",
+    "UserLeadGenFieldData",
     "Album",
-    "Videouploadlimits",
-    "Messagingappsinfo",
-    "Favoritecatalog",
-    "Livevideoerror",
-    "Productitemimporteraddress",
-    "Videocopyrightsegment",
-    "Businesscreativeinsights",
-    "Dynamicpriceconfigbydate",
-    "Adgroupfacebookfeedback",
-    "Emailimport",
-    "Adassetonsitedestinations",
-    "Targetingrelaxation",
-    "Productdaeventsamplesbatch",
-    "Pagepaymentoptions",
-    "Advideo",
-    "Measurementreport",
-    "Pageuserwithleadsaccess",
-    "Adassetimage",
-    "Adcreative",
-    "Adaccountoptimizationgoalsaemv2eligibility",
-    "Pageaboutstorycomposedblockinlinestyle",
-    "Adcampaigngroupagencyfeeconfigforapi",
-    "Businessagreement",
-    "Insightsresult",
-    "Adsavedkeywords",
+    "VideoUploadLimits",
+    "MessagingAppsInfo",
+    "FavoriteCatalog",
+    "LiveVideoError",
+    "ProductItemImporterAddress",
+    "VideoCopyrightSegment",
+    "BusinessCreativeInsights",
+    "DynamicPriceConfigByDate",
+    "AdgroupFacebookFeedback",
+    "EmailImport",
+    "AdAssetOnsiteDestinations",
+    "TargetingRelaxation",
+    "ProductDaEventSamplesBatch",
+    "PagePaymentOptions",
+    "AdVideo",
+    "MeasurementReport",
+    "PageUserWithLeadsAccess",
+    "AdAssetImage",
+    "AdCreative",
+    "AdAccountOptimizationGoalsAEMv2Eligibility",
+    "PageAboutStoryComposedBlockInlineStyle",
+    "AdCampaignGroupAgencyFeeConfigForApi",
+    "BusinessAgreement",
+    "InsightsResult",
+    "AdSavedKeywords",
     "Recommendation",
-    "Catalogsmartpixelsettings",
-    "Videocopyrightcheckstatus",
-    "Adcreativedegreesoffreedomspec",
-    "Adspixel",
-    "Openbridgeconfiguration",
-    "Leadgenclientvalidationrules",
-    "Adaccountcustomaudiencelimits",
+    "CatalogSmartPixelSettings",
+    "VideoCopyrightCheckStatus",
+    "AdCreativeDegreesOfFreedomSpec",
+    "AdsPixel",
+    "OpenBridgeConfiguration",
+    "LeadGenClientValidationRules",
+    "AdAccountCustomAudienceLimits",
     "Group",
-    "Partnerintegrationlinked",
-    "Rightsmanagerdataexport",
-    "Igshoppingproductappeal",
-    "Aigeneratedproductimage",
-    "Pageusermessagethreadlabel",
-    "Catalogitemapplinks",
-    "Instagramshoppingmerchantreviewmessage",
-    "Targetinggeolocationcustomlocation",
-    "Workexperience",
-    "Iosapplink",
-    "Bcpcampaign",
-    "Calladsphonedata",
-    "Audiencepermission",
-    "Draftpost",
-    "Paymentrequestdetails",
-    "Adsreportbuildermmmreport",
-    "Targetinggeolocationlocationexpansion",
-    "Conversionactionquery",
-    "Customaudiencesalts",
-    "Avatarprofilepicture",
-    "Webapplink",
-    "Leadgenquestion",
-    "Adassetlinkurl",
-    "Advertiserverificationstatus",
-    "Adspivotrules",
-    "Dynamicvideometadata",
-    "Businesssettinglogsdata",
-    "Almadaccountinfo",
-    "Thirdpartypartnerviewabilityrequest",
+    "PartnerIntegrationLinked",
+    "RightsManagerDataExport",
+    "IGShoppingProductAppeal",
+    "AIGeneratedProductImage",
+    "PageUserMessageThreadLabel",
+    "CatalogItemAppLinks",
+    "InstagramShoppingMerchantReviewMessage",
+    "TargetingGeoLocationCustomLocation",
+    "WorkExperience",
+    "IosAppLink",
+    "BCPCampaign",
+    "CallAdsPhoneData",
+    "AudiencePermission",
+    "DraftPost",
+    "PaymentRequestDetails",
+    "AdsReportBuilderMMMReport",
+    "TargetingGeoLocationLocationExpansion",
+    "ConversionActionQuery",
+    "CustomAudienceSalts",
+    "AvatarProfilePicture",
+    "WebAppLink",
+    "LeadGenQuestion",
+    "AdAssetLinkURL",
+    "AdvertiserVerificationStatus",
+    "AdsPivotRules",
+    "DynamicVideoMetadata",
+    "BusinessSettingLogsData",
+    "ALMAdAccountInfo",
+    "ThirdPartyPartnerViewabilityRequest",
     "Application",
-    "Mcominvoicebankaccount",
-    "Privateliftstudyinstance",
-    "Iguserforigonlyapi",
-    "Igrefreshaccesstokenforigonlyapi",
-    "Productcatalogdatasource",
-    "Famekumo",
-    "Webpublisher",
-    "Productiteminvalidationerror",
-    "Workaccesscode",
-    "Pagectxbudgetsimilaradvertiserbudgetrecommendation",
+    "McomInvoiceBankAccount",
+    "PrivateLiftStudyInstance",
+    "IGUserForIGOnlyAPI",
+    "IGRefreshAccessTokenForIGOnlyAPI",
+    "ProductCatalogDataSource",
+    "FAMEKumo",
+    "WebPublisher",
+    "ProductItemInvalidationError",
+    "WorkAccessCode",
+    "PageCTXBudgetSimilarAdvertiserBudgetRecommendation",
     "Link",
-    "Messengercallsettings",
-    "Adaccountaslschedule",
-    "Catalogcollection",
-    "Productfeeduploadprogress",
-    "Producteventstat",
-    "Workuserbadges",
-    "Cpassetuppagestructureprogress",
-    "Adaccountsubscribedapps",
-    "Cpasmerchantconfig",
-    "Livevideoadcampaignconfig",
-    "Threadsuser",
-    "Pageparking",
-    "Adsguidanceqeexposure",
-    "Pagecategory",
-    "Pagegamebotquotainformation",
-    "Adspixelitemprice",
-    "Adaccountrecommendedcamapaignbudget",
-    "Adassetfeedadditionaldatapagenudgemessage",
-    "Adassetfeedspectitle",
-    "Adcreativelinkdatachildattachment",
-    "Adcreativeassetgroupsspec",
-    "Whatsappbusinesspartnerclientverificationsubmission",
-    "Agerange",
-    "Adcreativepostclickconfiguration",
-    "Linkedinstagramaccountdata",
-    "Fbpaybuttonlogin",
-    "Crmaddress",
-    "Adaccountsmartsuggestedads",
-    "Customaudiencecapabilities",
-    "Almevent",
-    "Casssetupofflineeventsetprogress",
-    "Publisherdeliveryreport",
-    "Adspixelcapabilityoverride",
-    "Financeobject",
-    "Mixinsightsresult",
-    "Pagedirectintegrationcrmwithleadsaccess",
-    "Pagepublisher",
+    "MessengerCallSettings",
+    "AdAccountASLSchedule",
+    "CatalogCollection",
+    "ProductFeedUploadProgress",
+    "ProductEventStat",
+    "WorkUserBadges",
+    "CPASSetupPageStructureProgress",
+    "AdAccountSubscribedApps",
+    "CPASMerchantConfig",
+    "LiveVideoAdCampaignConfig",
+    "ThreadsUser",
+    "PageParking",
+    "AdsGuidanceQEExposure",
+    "PageCategory",
+    "PageGameBotQuotaInformation",
+    "AdsPixelItemPrice",
+    "AdAccountRecommendedCamapaignBudget",
+    "AdAssetFeedAdditionalDataPageNudgeMessage",
+    "AdAssetFeedSpecTitle",
+    "AdCreativeLinkDataChildAttachment",
+    "AdCreativeAssetGroupsSpec",
+    "WhatsAppBusinessPartnerClientVerificationSubmission",
+    "AgeRange",
+    "AdCreativePostClickConfiguration",
+    "LinkedInstagramAccountData",
+    "FBPayButtonLogin",
+    "CRMAddress",
+    "AdAccountSmartSuggestedAds",
+    "CustomAudienceCapabilities",
+    "ALMEvent",
+    "CASSSetupOfflineEventSetProgress",
+    "PublisherDeliveryReport",
+    "AdsPixelCapabilityOverride",
+    "FinanceObject",
+    "MIXInsightsResult",
+    "PageDirectIntegrationCrmWithLeadsAccess",
+    "PagePublisher",
     "Status",
-    "Contextualbundlingspec",
-    "Rawcustomaudience",
-    "Whatsappsubscribedappsinfo",
-    "Fundingsourcedetails",
-    "Omegacustomertrx",
-    "Adlightadgroup",
-    "Nullnode",
-    "Targetingmarketingmessagechannels",
-    "Adaccountpaymentoptions",
-    "Paymentsubscription",
-    "Partnerstudy",
-    "Adsstartyourdaywidget",
-    "Shadowigmediabuilder",
-    "Adassetfeedspecvideo",
-    "Adaccountuserpermissions",
-    "Shadowigmediacollaborators",
-    "Targetingproductaudiencesubspec",
-    "Pagepartnerwithleadsaccess",
-    "Sitelink",
-    "Catalogwebsitesettings",
-    "Cloudgame",
-    "Apprequestformerrecipient",
-    "Systemuser",
-    "Videocopyrightrule",
-    "Publisherwhitelist",
-    "Targetingdynamicrule",
-    "Whatsappbusinesshealthstatusformessagesend",
-    "Videocopyrightgeogate",
-    "Pagestartinfo",
-    "Adspixelmicrodatastats",
-    "Audiovisualreferencematch",
-    "Daypart",
-    "Productitemlocalinfolatlongshape",
-    "Addefaultvalues",
-    "Customconversion",
-    "Userdevice",
-    "Commercemerchantsettingssetupstatus",
-    "Productcataloghotelroomsbatch",
-    "Adcreativeproductdata",
+    "ContextualBundlingSpec",
+    "RawCustomAudience",
+    "WhatsappSubscribedAppsInfo",
+    "FundingSourceDetails",
+    "OmegaCustomerTrx",
+    "AdLightAdgroup",
+    "NullNode",
+    "TargetingMarketingMessageChannels",
+    "AdAccountPaymentOptions",
+    "PaymentSubscription",
+    "PartnerStudy",
+    "AdsStartYourDayWidget",
+    "ShadowIGMediaBuilder",
+    "AdAssetFeedSpecVideo",
+    "AdAccountUserPermissions",
+    "ShadowIGMediaCollaborators",
+    "TargetingProductAudienceSubSpec",
+    "PagePartnerWithLeadsAccess",
+    "SiteLink",
+    "CatalogWebsiteSettings",
+    "CloudGame",
+    "AppRequestFormerRecipient",
+    "SystemUser",
+    "VideoCopyrightRule",
+    "PublisherWhiteList",
+    "TargetingDynamicRule",
+    "WhatsAppBusinessHealthStatusForMessageSend",
+    "VideoCopyrightGeoGate",
+    "PageStartInfo",
+    "AdsPixelMicrodataStats",
+    "AudioVisualReferenceMatch",
+    "DayPart",
+    "ProductItemLocalInfoLatLongShape",
+    "AdDefaultValues",
+    "CustomConversion",
+    "UserDevice",
+    "CommerceMerchantSettingsSetupStatus",
+    "ProductCatalogHotelRoomsBatch",
+    "AdCreativeProductData",
     "Page",
-    "Adcreativesourcingspec",
-    "Adcreativevideodatamediaelements",
-    "Adcampaignmetricsmetadata",
-    "Adassetcalltoactiontype",
-    "Productcatalogfacets",
-    "Scheduledpost",
-    "Adaccountbillingdatepreference",
-    "Offlineconversiondatasetupload",
-    "Copyrightownershiptransfer",
-    "Adcampaignconversionvalueexpressionspec",
+    "AdCreativeSourcingSpec",
+    "AdCreativeVideoDataMediaElements",
+    "AdCampaignMetricsMetadata",
+    "AdAssetCallToActionType",
+    "ProductCatalogFacets",
+    "ScheduledPost",
+    "AdAccountBillingDatePreference",
+    "OfflineConversionDataSetUpload",
+    "CopyrightOwnershipTransfer",
+    "AdCampaignConversionValueExpressionSpec",
     "Profile",
-    "Mcexperienceconfigforapi",
-    "Appeventconfig",
-    "Adcampaignstats",
-    "Cpaslsbimagebank",
-    "Adcampaigngroupincrementalconversionoptimizationconfig",
-    "Flexibletargeting",
-    "Copyrightattributioninsights",
-    "Productfeedrule",
-    "Productfeeduploaderrorreport",
-    "Thirdpartypartnerpanelscheduled",
-    "Pagelocationsbreakdown",
-    "Adspixeldomaincontrolrule",
+    "MCExperienceConfigForApi",
+    "AppEventConfig",
+    "AdCampaignStats",
+    "CPASLsbImageBank",
+    "AdCampaignGroupIncrementalConversionOptimizationConfig",
+    "FlexibleTargeting",
+    "CopyrightAttributionInsights",
+    "ProductFeedRule",
+    "ProductFeedUploadErrorReport",
+    "ThirdPartyPartnerPanelScheduled",
+    "PageLocationsBreakdown",
+    "AdsPixelDomainControlRule",
     "Photo",
-    "Catalogitemchannelstointegritystatus",
-    "Igshoppingreviewstatusonsiteeligibility",
+    "CatalogItemChannelsToIntegrityStatus",
+    "IGShoppingReviewStatusOnsiteEligibility",
     "Post",
-    "Externalmerchantsettings",
+    "ExternalMerchantSettings",
     "Dataset",
-    "Igvideocopyrightcheckmatchesinformation",
-    "Instantarticleinsightsqueryresult",
-    "Pagebroadcast",
-    "Leadgendatadraft",
-    "Adcampaignlearningstageinfo",
-    "Partnershipadsidentity",
-    "Adcreativelinkdatasponsorshipinfospec",
-    "Adassetmessageextensions",
-    "Vehicleoffer",
-    "Musicworkcopyright",
-    "Owneddomain",
-    "Adcreativevideodatacustomoverlayspec",
-    "Adcreativecontextualmultiads",
-    "Workskill",
-    "Areffect",
-    "Adaccountpromotableobjects",
-    "Externaleventsourcecpaseventsdebugginginfo",
-    "Productcatalogpricingvariablesbatch",
+    "IGVideoCopyrightCheckMatchesInformation",
+    "InstantArticleInsightsQueryResult",
+    "PageBroadcast",
+    "LeadGenDataDraft",
+    "AdCampaignLearningStageInfo",
+    "PartnershipAdsIdentity",
+    "AdCreativeLinkDataSponsorshipInfoSpec",
+    "AdAssetMessageExtensions",
+    "VehicleOffer",
+    "MusicWorkCopyright",
+    "OwnedDomain",
+    "AdCreativeVideoDataCustomOverlaySpec",
+    "AdCreativeContextualMultiAds",
+    "WorkSkill",
+    "AREffect",
+    "AdAccountPromotableObjects",
+    "ExternalEventSourceCPASEventsDebuggingInfo",
+    "ProductCatalogPricingVariablesBatch",
 ]

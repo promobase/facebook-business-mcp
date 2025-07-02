@@ -121,23 +121,9 @@ def parse_type_to_python(
     if type_str in known_models:
         return f'"{type_str}"'  # Use forward reference for models
 
-    # Try to match with different casing
-    # First, try the exact match with our known models
-    # If type_str is already in CamelCase (has capital letters), convert to our format
-    if any(c.isupper() for c in type_str):
-        # Split camelCase: ProductItemInvalidationError -> Product Item Invalidation Error
-        import re
-
-        words = re.sub("([A-Z][a-z]+)", r" \1", re.sub("([A-Z]+)", r" \1", type_str)).split()
-        potential_model_name = "".join(word.capitalize() for word in words)
-    else:
-        # Convert snake_case to CamelCase
-        potential_model_name = "".join(
-            word.capitalize() for word in type_str.replace("_", " ").split()
-        )
-
-    if potential_model_name in known_models:
-        return f'"{potential_model_name}"'
+    # If not found in known models, it might be an external type
+    # Just use it as-is with forward reference
+    # This handles types that might not have spec files
 
     # Handle enum parameter types
     if "_enum_param" in type_str or type_str.endswith("_enum"):
@@ -265,7 +251,9 @@ def generate_unified_models(
     spec_to_model_map = {}
     model_names = set()
     for spec_name in specs.keys():
-        model_name = "".join(word.capitalize() for word in spec_name.split("_"))
+        # Keep the original casing from the filename (without .json extension)
+        # The spec_name is already the filename without extension
+        model_name = spec_name
         model_names.add(model_name)
         # Store mapping for type resolution
         spec_to_model_map[spec_name] = model_name
@@ -360,7 +348,8 @@ __all__ = [
     # Process all models
     models_data = {}
     for spec_name, spec_data in specs.items():
-        model_name = "".join(word.capitalize() for word in spec_name.split("_"))
+        # Use the original spec name as the model name (preserves CamelCase)
+        model_name = spec_name
 
         processed_fields = []
 

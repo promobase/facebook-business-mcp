@@ -3,7 +3,7 @@ from typing import Any
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 
-from src.generated.models import Adaccount
+# from src.generated.models import AdAccount
 from src.utils import wrapped_fn_tool
 
 server_name = "FacebookAdAccount"

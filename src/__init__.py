@@ -61,7 +61,7 @@ def create_root_mcp() -> FastMCP:
     def test_prompt():
         return "This is a test prompt"
 
-    @mcp.resource
+    @mcp.resource("data://app-status")
     def test_resource():
         return "This is a test resource"
 
