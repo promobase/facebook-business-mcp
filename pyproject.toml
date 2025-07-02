@@ -89,6 +89,7 @@ packages = ["facebook_business_mcp", "src"]
 # Set as desired, typically 88 (black standard) or 100 (wide).
 line-length = 100
 fix = true
+exclude = ["**/*.j2", "**/*.jinja", "**/*.jinja2"]
 
 [tool.ruff.format]
 # Use Unix-style line endings
@@ -144,7 +145,7 @@ ignore = [
 # than mypy and with a good extension for VSCode/Cursor.
 # https://marketplace.visualstudio.com/items?itemName=detachhead.basedpyright
 # https://docs.basedpyright.com/latest/configuration/config-files/#sample-pyprojecttoml-file
-include = ["src", "tests", "devtools"]
+include = ["src", "tests", "devtools", "scripts"]
 # By default BasedPyright is very strict, so you almost certainly want to disable
 # some of the rules.
 # First, these turn off warnings about (yes) how you ignore warnings:
@@ -165,6 +166,10 @@ reportUnreachable = false
 # reportUnnecessaryIsInstance = false
 # reportUnknownVariableType = false
 # reportUnknownArgumentType = false
+
+# Enable stricter checks for catching non-existent methods
+reportAttributeAccessIssue = "error"
+reportUnknownMemberType = "error"
 
 [tool.codespell]
 # Add here as needed:

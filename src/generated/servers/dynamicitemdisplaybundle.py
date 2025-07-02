@@ -1,32 +1,45 @@
-"""DynamicItemDisplayBundle MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.dynamicitemdisplaybundle import DynamicItemDisplayBundle
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookDynamicItemDisplayBundle"
-instructions = """
-DynamicItemDisplayBundle MCP Server for Facebook Business API.
-
-Provides typed access to all DynamicItemDisplayBundle operations.
+"""
+Auto-generated MCP server for Facebook DynamicItemDisplayBundle.
+DO NOT EDIT MANUALLY.
 """
 
-dynamicitemdisplaybundle_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.dynamicitemdisplaybundle import DynamicItemDisplayBundle
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-dynamicitemdisplaybundle")
 
 
-# ---- CRUD Operations (1) ----
-@dynamicitemdisplaybundle_server.tool
-@wrapped_fn_tool
-def get_dynamicitemdisplaybundle(
-    dynamicitemdisplaybundle_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_dynamicitemdisplaybundle(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = DynamicItemDisplayBundle(dynamicitemdisplaybundle_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a DynamicItemDisplayBundle.
+
+    Args:
+        object_id: The ID of the DynamicItemDisplayBundle
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = DynamicItemDisplayBundle(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+dynamicitemdisplaybundle_server = mcp

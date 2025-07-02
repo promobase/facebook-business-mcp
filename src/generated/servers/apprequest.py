@@ -1,40 +1,70 @@
-"""AppRequest MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.apprequest import AppRequest
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAppRequest"
-instructions = """
-AppRequest MCP Server for Facebook Business API.
-
-Provides typed access to all AppRequest operations.
+"""
+Auto-generated MCP server for Facebook AppRequest.
+DO NOT EDIT MANUALLY.
 """
 
-apprequest_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.apprequest import AppRequest
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-apprequest")
 
 
-# ---- CRUD Operations (2) ----
-@apprequest_server.tool
-@wrapped_fn_tool
-def get_apprequest(
-    apprequest_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def delete_apprequest(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AppRequest(apprequest_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Delete a AppRequest.
+
+    Args:
+        object_id: The ID of the AppRequest
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = AppRequest(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@apprequest_server.tool
-@wrapped_fn_tool
-def delete_apprequest(
-    apprequest_id: str,
-) -> str:
-    return AppRequest(apprequest_id).api_delete()
+@mcp.tool()
+async def get_apprequest(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AppRequest.
+
+    Args:
+        object_id: The ID of the AppRequest
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AppRequest(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+apprequest_server = mcp

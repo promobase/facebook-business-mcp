@@ -1,32 +1,45 @@
-"""AdLightAdgroup MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adlightadgroup import AdLightAdgroup
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdLightAdgroup"
-instructions = """
-AdLightAdgroup MCP Server for Facebook Business API.
-
-Provides typed access to all AdLightAdgroup operations.
+"""
+Auto-generated MCP server for Facebook AdLightAdgroup.
+DO NOT EDIT MANUALLY.
 """
 
-adlightadgroup_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adlightadgroup import AdLightAdgroup
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adlightadgroup")
 
 
-# ---- CRUD Operations (1) ----
-@adlightadgroup_server.tool
-@wrapped_fn_tool
-def get_adlightadgroup(
-    adlightadgroup_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adlightadgroup(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdLightAdgroup(adlightadgroup_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdLightAdgroup.
+
+    Args:
+        object_id: The ID of the AdLightAdgroup
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdLightAdgroup(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adlightadgroup_server = mcp

@@ -1,32 +1,45 @@
-"""Organization MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.organization import Organization
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookOrganization"
-instructions = """
-Organization MCP Server for Facebook Business API.
-
-Provides typed access to all Organization operations.
+"""
+Auto-generated MCP server for Facebook Organization.
+DO NOT EDIT MANUALLY.
 """
 
-organization_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.organization import Organization
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-organization")
 
 
-# ---- CRUD Operations (1) ----
-@organization_server.tool
-@wrapped_fn_tool
-def get_organization(
-    organization_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_organization(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = Organization(organization_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a Organization.
+
+    Args:
+        object_id: The ID of the Organization
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Organization(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+organization_server = mcp

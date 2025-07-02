@@ -1,32 +1,73 @@
-"""BusinessImage MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.businessimage import BusinessImage
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookBusinessImage"
-instructions = """
-BusinessImage MCP Server for Facebook Business API.
-
-Provides typed access to all BusinessImage operations.
+"""
+Auto-generated MCP server for Facebook BusinessImage.
+DO NOT EDIT MANUALLY.
 """
 
-businessimage_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.businessimage import BusinessImage
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-businessimage")
 
 
-# ---- CRUD Operations (1) ----
-@businessimage_server.tool
-@wrapped_fn_tool
-def get_businessimage(
-    businessimage_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_businessimage(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
-) -> str:
-    obj = BusinessImage(businessimage_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create a BusinessImage.
+
+    Args:
+        object_id: The ID of the BusinessImage
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = BusinessImage(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_businessimage(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a BusinessImage.
+
+    Args:
+        object_id: The ID of the BusinessImage
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = BusinessImage(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+businessimage_server = mcp

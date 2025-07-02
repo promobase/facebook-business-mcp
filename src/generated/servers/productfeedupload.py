@@ -1,53 +1,98 @@
-"""ProductFeedUpload MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.productfeedupload import ProductFeedUpload
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProductFeedUpload"
-instructions = """
-ProductFeedUpload MCP Server for Facebook Business API.
-
-Provides typed access to all ProductFeedUpload operations.
+"""
+Auto-generated MCP server for Facebook ProductFeedUpload.
+DO NOT EDIT MANUALLY.
 """
 
-productfeedupload_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.productfeedupload import ProductFeedUpload
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-productfeedupload")
 
 
-# ---- CRUD Operations (1) ----
-@productfeedupload_server.tool
-@wrapped_fn_tool
-def get_productfeedupload(
-    productfeedupload_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = ProductFeedUpload(productfeedupload_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@productfeedupload_server.tool
-@wrapped_fn_tool
-def create_error_report(
-    productfeedupload_id: str,
+@mcp.tool()
+async def get_productfeedupload(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ProductFeedUpload(productfeedupload_id).create_error_report(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a ProductFeedUpload.
+
+    Args:
+        object_id: The ID of the ProductFeedUpload
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ProductFeedUpload(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@productfeedupload_server.tool
-@wrapped_fn_tool
-def get_errors(
-    productfeedupload_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_error_report_for_productfeedupload(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ProductFeedUpload(productfeedupload_id).get_errors(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Error Report for ProductFeedUpload.
+
+    Args:
+        object_id: The ID of the ProductFeedUpload
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_error_report result
+    """
+    result = ProductFeedUpload(fbid=object_id).create_error_report(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_errors_for_productfeedupload(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Errors for ProductFeedUpload.
+
+    Args:
+        object_id: The ID of the ProductFeedUpload
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_errors result
+    """
+    result = ProductFeedUpload(fbid=object_id).get_errors(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+productfeedupload_server = mcp

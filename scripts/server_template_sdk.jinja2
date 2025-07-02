@@ -1,0 +1,126 @@
+"""
+Auto-generated MCP server for Facebook {{ object_name }}.
+DO NOT EDIT MANUALLY.
+"""
+
+from typing import Any, Optional
+
+from facebook_business.adobjects.{{ module_path }} import {{ class_name }}
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP(f"facebook-{{ module_path }}")
+
+{% if has_crud %}
+# CRUD Operations
+{% for method in crud_methods %}
+@mcp.tool()
+async def {{ method.name.replace('api_', '') }}_{{ module_path }}(
+    object_id: str,
+    {%- for param in method.params %}
+    {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending'] %}
+    {{ param }}: Optional[Any] = None,
+    {%- endif %}
+    {%- endfor %}
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    {{ method.name.replace('api_', '').title() }} a {{ object_name }}.
+
+    Args:
+        object_id: The ID of the {{ object_name }}
+        {%- for param in method.params %}
+        {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending'] %}
+        {{ param }}: {{ param }}
+        {%- endif %}
+        {%- endfor %}
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The {{ method.name.replace('api_', '') }} result
+    """
+    result = {{ class_name }}(fbid=object_id).{{ method.name }}(
+        {%- if method.params %}
+        {%- for param in method.params %}
+        {%- if param == 'fields' %}
+        fields=fields,
+        {%- elif param == 'params' %}
+        params=params,
+        {%- elif param not in ['batch', 'success', 'failure', 'pending'] %}
+        {{ param }}={{ param }},
+        {%- endif %}
+        {%- endfor %}
+        {%- else %}
+        fields=fields,
+        params=params,
+        {%- endif %}
+    )
+
+    return result
+
+{% endfor %}
+{% endif %}
+
+{% if has_edges %}
+# Edge Methods
+{% for method in edge_methods %}
+@mcp.tool()
+async def {{ method.name }}_for_{{ module_path }}(
+    object_id: str,
+    {%- for param in method.params %}
+    {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending', 'is_async'] %}
+    {{ param }}: Optional[Any] = None,
+    {%- endif %}
+    {%- endfor %}
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    {{ method.docstring or method.name.replace('_', ' ').title() }} for {{ object_name }}.
+
+    Args:
+        object_id: The ID of the {{ object_name }}
+        {%- for param in method.params %}
+        {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending', 'is_async'] %}
+        {{ param }}: {{ param }}
+        {%- endif %}
+        {%- endfor %}
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The {{ method.name }} result
+    """
+    result = {{ class_name }}(fbid=object_id).{{ method.name }}(
+        {%- set has_custom_params = false %}
+        {%- for param in method.params %}
+        {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending', 'is_async'] %}
+        {%- set has_custom_params = true %}
+        {%- endif %}
+        {%- endfor %}
+        {%- if has_custom_params %}
+        {%- for param in method.params %}
+        {%- if param == 'fields' %}
+        fields=fields,
+        {%- elif param == 'params' %}
+        params=params,
+        {%- elif param not in ['batch', 'success', 'failure', 'pending', 'is_async'] %}
+        {{ param }}={{ param }},
+        {%- endif %}
+        {%- endfor %}
+        {%- else %}
+        fields=fields,
+        params=params,
+        {%- endif %}
+    )
+
+    return result
+
+{% endfor %}
+{% endif %}
+
+# Export the server
+{{ module_path }}_server = mcp

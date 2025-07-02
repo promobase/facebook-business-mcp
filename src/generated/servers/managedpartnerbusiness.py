@@ -1,34 +1,48 @@
-"""ManagedPartnerBusiness MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.managedpartnerbusiness import ManagedPartnerBusiness
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookManagedPartnerBusiness"
-instructions = """
-ManagedPartnerBusiness MCP Server for Facebook Business API.
-
-Provides typed access to all ManagedPartnerBusiness operations.
+"""
+Auto-generated MCP server for Facebook ManagedPartnerBusiness.
+DO NOT EDIT MANUALLY.
 """
 
-managedpartnerbusiness_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.managedpartnerbusiness import ManagedPartnerBusiness
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-managedpartnerbusiness")
 
 
-# ---- Edge Methods (1) ----
-@managedpartnerbusiness_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    managedpartnerbusiness_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_managedpartnerbusiness(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ManagedPartnerBusiness(managedpartnerbusiness_id).get_endpoint(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create a ManagedPartnerBusiness.
+
+    Args:
+        object_id: The ID of the ManagedPartnerBusiness
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = ManagedPartnerBusiness(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Export the server
+managedpartnerbusiness_server = mcp

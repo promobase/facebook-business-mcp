@@ -1,32 +1,45 @@
-"""CatalogWebsiteSettings MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.catalogwebsitesettings import CatalogWebsiteSettings
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCatalogWebsiteSettings"
-instructions = """
-CatalogWebsiteSettings MCP Server for Facebook Business API.
-
-Provides typed access to all CatalogWebsiteSettings operations.
+"""
+Auto-generated MCP server for Facebook CatalogWebsiteSettings.
+DO NOT EDIT MANUALLY.
 """
 
-catalogwebsitesettings_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.catalogwebsitesettings import CatalogWebsiteSettings
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-catalogwebsitesettings")
 
 
-# ---- CRUD Operations (1) ----
-@catalogwebsitesettings_server.tool
-@wrapped_fn_tool
-def get_catalogwebsitesettings(
-    catalogwebsitesettings_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_catalogwebsitesettings(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CatalogWebsiteSettings(catalogwebsitesettings_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CatalogWebsiteSettings.
+
+    Args:
+        object_id: The ID of the CatalogWebsiteSettings
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CatalogWebsiteSettings(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+catalogwebsitesettings_server = mcp

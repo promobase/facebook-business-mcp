@@ -118,22 +118,22 @@ class CustomAudienceFields(BaseModel):
     time_updated: int = Field(None, alias="time_updated")
 
 
-class CustomAudienceDeleteAdaccountsParams(BaseModel):
-    """Parameters for CustomAudience.delete_adaccounts()."""
+class CustomAudienceDeleteAdAccountsParams(BaseModel):
+    """Parameters for CustomAudience.delete_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     adaccounts: list[str] | None = Field(None, description="adaccounts parameter")
 
 
-class CustomAudienceGetAdaccountsParams(BaseModel):
-    """Parameters for CustomAudience.get_adaccounts()."""
+class CustomAudienceGetAdAccountsParams(BaseModel):
+    """Parameters for CustomAudience.get_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     permissions: str | None = Field(None, description="permissions parameter")
 
 
-class CustomAudienceCreateAdaccountParams(BaseModel):
-    """Parameters for CustomAudience.create_adaccount()."""
+class CustomAudienceCreateAdAccountParams(BaseModel):
+    """Parameters for CustomAudience.create_ad_account()."""
 
     model_config = ConfigDict(extra="forbid")
     adaccounts: list[str] | None = Field(None, description="adaccounts parameter")
@@ -142,8 +142,8 @@ class CustomAudienceCreateAdaccountParams(BaseModel):
     replace: bool | None = Field(None, description="replace parameter")
 
 
-class CustomAudienceGetAdsParams(BaseModel):
-    """Parameters for CustomAudience.get_ads()."""
+class CustomAudienceGetAdSParams(BaseModel):
+    """Parameters for CustomAudience.get_ad_s()."""
 
     model_config = ConfigDict(extra="forbid")
     effective_status: list[str] | None = Field(None, description="effective_status parameter")

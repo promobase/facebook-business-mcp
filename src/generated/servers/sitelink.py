@@ -1,32 +1,45 @@
-"""SiteLink MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.sitelink import SiteLink
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookSiteLink"
-instructions = """
-SiteLink MCP Server for Facebook Business API.
-
-Provides typed access to all SiteLink operations.
+"""
+Auto-generated MCP server for Facebook SiteLink.
+DO NOT EDIT MANUALLY.
 """
 
-sitelink_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.sitelink import SiteLink
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-sitelink")
 
 
-# ---- CRUD Operations (1) ----
-@sitelink_server.tool
-@wrapped_fn_tool
-def get_sitelink(
-    sitelink_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_sitelink(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = SiteLink(sitelink_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a SiteLink.
+
+    Args:
+        object_id: The ID of the SiteLink
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = SiteLink(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+sitelink_server = mcp

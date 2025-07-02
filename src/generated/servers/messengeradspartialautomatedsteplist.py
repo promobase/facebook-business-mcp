@@ -1,47 +1,75 @@
-"""MessengerAdsPartialAutomatedStepList MCP Server."""
+"""
+Auto-generated MCP server for Facebook MessengerAdsPartialAutomatedStepList.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.messengeradspartialautomatedsteplist import (
     MessengerAdsPartialAutomatedStepList,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookMessengerAdsPartialAutomatedStepList"
-instructions = """
-MessengerAdsPartialAutomatedStepList MCP Server for Facebook Business API.
-
-Provides typed access to all MessengerAdsPartialAutomatedStepList operations.
-"""
-
-messengeradspartialautomatedsteplist_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-messengeradspartialautomatedsteplist")
 
 
-# ---- CRUD Operations (1) ----
-@messengeradspartialautomatedsteplist_server.tool
-@wrapped_fn_tool
-def get_messengeradspartialautomatedsteplist(
-    messengeradspartialautomatedsteplist_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = MessengerAdsPartialAutomatedStepList(messengeradspartialautomatedsteplist_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@messengeradspartialautomatedsteplist_server.tool
-@wrapped_fn_tool
-def get_steps(
-    messengeradspartialautomatedsteplist_id: str,
+@mcp.tool()
+async def get_messengeradspartialautomatedsteplist(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return MessengerAdsPartialAutomatedStepList(messengeradspartialautomatedsteplist_id).get_steps(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a MessengerAdsPartialAutomatedStepList.
+
+    Args:
+        object_id: The ID of the MessengerAdsPartialAutomatedStepList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = MessengerAdsPartialAutomatedStepList(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_steps_for_messengeradspartialautomatedsteplist(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Steps for MessengerAdsPartialAutomatedStepList.
+
+    Args:
+        object_id: The ID of the MessengerAdsPartialAutomatedStepList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_steps result
+    """
+    result = MessengerAdsPartialAutomatedStepList(fbid=object_id).get_steps(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+messengeradspartialautomatedsteplist_server = mcp

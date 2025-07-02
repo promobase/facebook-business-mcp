@@ -1,32 +1,45 @@
-"""SavedAudience MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.savedaudience import SavedAudience
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookSavedAudience"
-instructions = """
-SavedAudience MCP Server for Facebook Business API.
-
-Provides typed access to all SavedAudience operations.
+"""
+Auto-generated MCP server for Facebook SavedAudience.
+DO NOT EDIT MANUALLY.
 """
 
-savedaudience_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.savedaudience import SavedAudience
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-savedaudience")
 
 
-# ---- CRUD Operations (1) ----
-@savedaudience_server.tool
-@wrapped_fn_tool
-def get_savedaudience(
-    savedaudience_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_savedaudience(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = SavedAudience(savedaudience_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a SavedAudience.
+
+    Args:
+        object_id: The ID of the SavedAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = SavedAudience(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+savedaudience_server = mcp

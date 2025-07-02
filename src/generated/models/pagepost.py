@@ -16,6 +16,23 @@ if TYPE_CHECKING:
     from .profile import ProfileFields
 
 
+class pagepostreactions_type_enum_param(str, Enum):
+    """pagepostreactions_type_enum_param enum values."""
+
+    ANGRY = "ANGRY"
+    CARE = "CARE"
+    FIRE = "FIRE"
+    HAHA = "HAHA"
+    HUNDRED = "HUNDRED"
+    LIKE = "LIKE"
+    LOVE = "LOVE"
+    NONE = "NONE"
+    PRIDE = "PRIDE"
+    SAD = "SAD"
+    THANKFUL = "THANKFUL"
+    WOW = "WOW"
+
+
 class pagepostcomments_live_filter_enum_param(str, Enum):
     """pagepostcomments_live_filter_enum_param enum values."""
 
@@ -23,11 +40,22 @@ class pagepostcomments_live_filter_enum_param(str, Enum):
     no_filter = "no_filter"
 
 
-class pagepostcomments_filter_enum_param(str, Enum):
-    """pagepostcomments_filter_enum_param enum values."""
+class pagepostinsights_period_enum_param(str, Enum):
+    """pagepostinsights_period_enum_param enum values."""
 
-    stream = "stream"
-    toplevel = "toplevel"
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
+
+
+class pagepostcomments_order_enum_param(str, Enum):
+    """pagepostcomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 class pagepostinsights_date_preset_enum_param(str, Enum):
@@ -55,6 +83,13 @@ class pagepostinsights_date_preset_enum_param(str, Enum):
     yesterday = "yesterday"
 
 
+class pagepostcomments_filter_enum_param(str, Enum):
+    """pagepostcomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
+
+
 class pagepostcomments_comment_privacy_value_enum_param(str, Enum):
     """pagepostcomments_comment_privacy_value_enum_param enum values."""
 
@@ -69,41 +104,6 @@ class pagepostcomments_comment_privacy_value_enum_param(str, Enum):
     SIDE_CONVERSATION = "SIDE_CONVERSATION"
     SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
-
-
-class pagepostreactions_type_enum_param(str, Enum):
-    """pagepostreactions_type_enum_param enum values."""
-
-    ANGRY = "ANGRY"
-    CARE = "CARE"
-    FIRE = "FIRE"
-    HAHA = "HAHA"
-    HUNDRED = "HUNDRED"
-    LIKE = "LIKE"
-    LOVE = "LOVE"
-    NONE = "NONE"
-    PRIDE = "PRIDE"
-    SAD = "SAD"
-    THANKFUL = "THANKFUL"
-    WOW = "WOW"
-
-
-class pagepostinsights_period_enum_param(str, Enum):
-    """pagepostinsights_period_enum_param enum values."""
-
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
-
-
-class pagepostcomments_order_enum_param(str, Enum):
-    """pagepostcomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
 
 
 # Field literal type

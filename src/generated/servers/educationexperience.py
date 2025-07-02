@@ -1,32 +1,45 @@
-"""EducationExperience MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.educationexperience import EducationExperience
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookEducationExperience"
-instructions = """
-EducationExperience MCP Server for Facebook Business API.
-
-Provides typed access to all EducationExperience operations.
+"""
+Auto-generated MCP server for Facebook EducationExperience.
+DO NOT EDIT MANUALLY.
 """
 
-educationexperience_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.educationexperience import EducationExperience
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-educationexperience")
 
 
-# ---- CRUD Operations (1) ----
-@educationexperience_server.tool
-@wrapped_fn_tool
-def get_educationexperience(
-    educationexperience_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_educationexperience(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = EducationExperience(educationexperience_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a EducationExperience.
+
+    Args:
+        object_id: The ID of the EducationExperience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = EducationExperience(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+educationexperience_server = mcp

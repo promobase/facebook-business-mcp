@@ -1,32 +1,45 @@
-"""WebsiteCreativeInfo MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.websitecreativeinfo import WebsiteCreativeInfo
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookWebsiteCreativeInfo"
-instructions = """
-WebsiteCreativeInfo MCP Server for Facebook Business API.
-
-Provides typed access to all WebsiteCreativeInfo operations.
+"""
+Auto-generated MCP server for Facebook WebsiteCreativeInfo.
+DO NOT EDIT MANUALLY.
 """
 
-websitecreativeinfo_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.websitecreativeinfo import WebsiteCreativeInfo
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-websitecreativeinfo")
 
 
-# ---- CRUD Operations (1) ----
-@websitecreativeinfo_server.tool
-@wrapped_fn_tool
-def get_websitecreativeinfo(
-    websitecreativeinfo_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_websitecreativeinfo(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = WebsiteCreativeInfo(websitecreativeinfo_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a WebsiteCreativeInfo.
+
+    Args:
+        object_id: The ID of the WebsiteCreativeInfo
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = WebsiteCreativeInfo(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+websitecreativeinfo_server = mcp

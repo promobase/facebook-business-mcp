@@ -13,6 +13,58 @@ if TYPE_CHECKING:
     from .location import LocationFields
 
 
+class groupphotos_unpublished_content_type_enum_param(str, Enum):
+    """groupphotos_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
+class groupfeed_formatting_enum_param(str, Enum):
+    """groupfeed_formatting_enum_param enum values."""
+
+    MARKDOWN = "MARKDOWN"
+    PLAINTEXT = "PLAINTEXT"
+
+
+class groupvideos_swap_mode_enum_param(str, Enum):
+    """groupvideos_swap_mode_enum_param enum values."""
+
+    replace = "replace"
+
+
+class groupfeed_backdated_time_granularity_enum_param(str, Enum):
+    """groupfeed_backdated_time_granularity_enum_param enum values."""
+
+    day = "day"
+    hour = "hour"
+    min = "min"
+    month = "month"
+    none = "none"
+    year = "year"
+
+
+class grouplive_videos_projection_enum_param(str, Enum):
+    """grouplive_videos_projection_enum_param enum values."""
+
+    CUBEMAP = "CUBEMAP"
+    EQUIRECTANGULAR = "EQUIRECTANGULAR"
+    HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
+
+
+class groupvideos_original_projection_type_enum_param(str, Enum):
+    """groupvideos_original_projection_type_enum_param enum values."""
+
+    cubemap = "cubemap"
+    equirectangular = "equirectangular"
+    half_equirectangular = "half_equirectangular"
+
+
 class grouplive_videos_status_enum_param(str, Enum):
     """grouplive_videos_status_enum_param enum values."""
 
@@ -21,6 +73,20 @@ class grouplive_videos_status_enum_param(str, Enum):
     SCHEDULED_LIVE = "SCHEDULED_LIVE"
     SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
     UNPUBLISHED = "UNPUBLISHED"
+
+
+class grouplive_videos_broadcast_status_enum_param(str, Enum):
+    """grouplive_videos_broadcast_status_enum_param enum values."""
+
+    LIVE = "LIVE"
+    LIVE_STOPPED = "LIVE_STOPPED"
+    PROCESSING = "PROCESSING"
+    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
+    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
+    SCHEDULED_LIVE = "SCHEDULED_LIVE"
+    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
+    UNPUBLISHED = "UNPUBLISHED"
+    VOD = "VOD"
 
 
 class groupvideos_content_category_enum_param(str, Enum):
@@ -46,12 +112,11 @@ class groupvideos_content_category_enum_param(str, Enum):
     VIDEO_GAMING = "VIDEO_GAMING"
 
 
-class grouplive_videos_stereoscopic_mode_enum_param(str, Enum):
-    """grouplive_videos_stereoscopic_mode_enum_param enum values."""
+class groupfeed_target_surface_enum_param(str, Enum):
+    """groupfeed_target_surface_enum_param enum values."""
 
-    LEFT_RIGHT = "LEFT_RIGHT"
-    MONO = "MONO"
-    TOP_BOTTOM = "TOP_BOTTOM"
+    STORY = "STORY"
+    TIMELINE = "TIMELINE"
 
 
 class grouplive_videos_spatial_audio_format_enum_param(str, Enum):
@@ -60,52 +125,8 @@ class grouplive_videos_spatial_audio_format_enum_param(str, Enum):
     ambiX_4 = "ambiX_4"
 
 
-class groupgroups_post_permissions_enum_param(str, Enum):
-    """groupgroups_post_permissions_enum_param enum values."""
-
-    ADMIN_ONLY = "ADMIN_ONLY"
-    ANYONE = "ANYONE"
-    NONE = "NONE"
-
-
-class grouplive_videos_broadcast_status_enum_param(str, Enum):
-    """grouplive_videos_broadcast_status_enum_param enum values."""
-
-    LIVE = "LIVE"
-    LIVE_STOPPED = "LIVE_STOPPED"
-    PROCESSING = "PROCESSING"
-    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
-    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
-    SCHEDULED_LIVE = "SCHEDULED_LIVE"
-    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
-    UNPUBLISHED = "UNPUBLISHED"
-    VOD = "VOD"
-
-
-class groupfeed_place_attachment_setting_enum_param(str, Enum):
-    """groupfeed_place_attachment_setting_enum_param enum values."""
-
-    VALUE_1 = "1"
-    VALUE_2 = "2"
-
-
-class groupvideos_formatting_enum_param(str, Enum):
-    """groupvideos_formatting_enum_param enum values."""
-
-    MARKDOWN = "MARKDOWN"
-    PLAINTEXT = "PLAINTEXT"
-
-
-class grouplive_videos_projection_enum_param(str, Enum):
-    """grouplive_videos_projection_enum_param enum values."""
-
-    CUBEMAP = "CUBEMAP"
-    EQUIRECTANGULAR = "EQUIRECTANGULAR"
-    HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
-
-
-class groupvideos_unpublished_content_type_enum_param(str, Enum):
-    """groupvideos_unpublished_content_type_enum_param enum values."""
+class groupfeed_unpublished_content_type_enum_param(str, Enum):
+    """groupfeed_unpublished_content_type_enum_param enum values."""
 
     ADS_POST = "ADS_POST"
     DRAFT = "DRAFT"
@@ -123,20 +144,6 @@ class grouplive_videos_stream_type_enum_param(str, Enum):
     REGULAR = "REGULAR"
 
 
-class groupfeed_posting_to_redspace_enum_param(str, Enum):
-    """groupfeed_posting_to_redspace_enum_param enum values."""
-
-    disabled = "disabled"
-    enabled = "enabled"
-
-
-class groupfeed_target_surface_enum_param(str, Enum):
-    """groupfeed_target_surface_enum_param enum values."""
-
-    STORY = "STORY"
-    TIMELINE = "TIMELINE"
-
-
 class groupvideos_type_enum_param(str, Enum):
     """groupvideos_type_enum_param enum values."""
 
@@ -144,22 +151,37 @@ class groupvideos_type_enum_param(str, Enum):
     uploaded = "uploaded"
 
 
-class groupvideos_swap_mode_enum_param(str, Enum):
-    """groupvideos_swap_mode_enum_param enum values."""
+class groupgroups_group_type_enum_param(str, Enum):
+    """groupgroups_group_type_enum_param enum values."""
 
-    replace = "replace"
-
-
-class groupfeed_unpublished_content_type_enum_param(str, Enum):
-    """groupfeed_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+    CASUAL = "CASUAL"
+    COWORKERS = "COWORKERS"
+    CUSTOM = "CUSTOM"
+    FOR_SALE = "FOR_SALE"
+    FOR_WORK = "FOR_WORK"
+    GAME = "GAME"
+    HEALTH_SUPPORT = "HEALTH_SUPPORT"
+    JOBS = "JOBS"
+    LEARNING = "LEARNING"
+    NONE = "NONE"
+    PARENTING = "PARENTING"
+    STREAMER = "STREAMER"
+    WORK_ANNOUNCEMENT = "WORK_ANNOUNCEMENT"
+    WORK_DEMO_GROUP = "WORK_DEMO_GROUP"
+    WORK_DISCUSSION = "WORK_DISCUSSION"
+    WORK_EPHEMERAL = "WORK_EPHEMERAL"
+    WORK_FEEDBACK = "WORK_FEEDBACK"
+    WORK_FOR_SALE = "WORK_FOR_SALE"
+    WORK_GARDEN = "WORK_GARDEN"
+    WORK_INTEGRITY = "WORK_INTEGRITY"
+    WORK_LEARNING = "WORK_LEARNING"
+    WORK_MENTORSHIP = "WORK_MENTORSHIP"
+    WORK_MULTI_COMPANY = "WORK_MULTI_COMPANY"
+    WORK_RECRUITING = "WORK_RECRUITING"
+    WORK_SOCIAL = "WORK_SOCIAL"
+    WORK_STAGES = "WORK_STAGES"
+    WORK_TEAM = "WORK_TEAM"
+    WORK_TEAMWORK = "WORK_TEAMWORK"
 
 
 class grouplive_videos_source_enum_param(str, Enum):
@@ -169,28 +191,40 @@ class grouplive_videos_source_enum_param(str, Enum):
     target = "target"
 
 
-class groupphotos_unpublished_content_type_enum_param(str, Enum):
-    """groupphotos_unpublished_content_type_enum_param enum values."""
+class groupfeed_posting_to_redspace_enum_param(str, Enum):
+    """groupfeed_posting_to_redspace_enum_param enum values."""
 
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+    disabled = "disabled"
+    enabled = "enabled"
 
 
-class groupvideos_original_projection_type_enum_param(str, Enum):
-    """groupvideos_original_projection_type_enum_param enum values."""
+class groupfeed_place_attachment_setting_enum_param(str, Enum):
+    """groupfeed_place_attachment_setting_enum_param enum values."""
 
-    cubemap = "cubemap"
-    equirectangular = "equirectangular"
-    half_equirectangular = "half_equirectangular"
+    VALUE_1 = "1"
+    VALUE_2 = "2"
 
 
-class groupfeed_backdated_time_granularity_enum_param(str, Enum):
-    """groupfeed_backdated_time_granularity_enum_param enum values."""
+class groupgroups_join_setting_enum_param(str, Enum):
+    """groupgroups_join_setting_enum_param enum values."""
+
+    ADMIN_ONLY = "ADMIN_ONLY"
+    ANYONE = "ANYONE"
+    NONE = "NONE"
+
+
+class grouppicture_type_enum_param(str, Enum):
+    """grouppicture_type_enum_param enum values."""
+
+    album = "album"
+    large = "large"
+    normal = "normal"
+    small = "small"
+    square = "square"
+
+
+class groupphotos_backdated_time_granularity_enum_param(str, Enum):
+    """groupphotos_backdated_time_granularity_enum_param enum values."""
 
     day = "day"
     hour = "hour"
@@ -200,12 +234,11 @@ class groupfeed_backdated_time_granularity_enum_param(str, Enum):
     year = "year"
 
 
-class groupgroups_join_setting_enum_param(str, Enum):
-    """groupgroups_join_setting_enum_param enum values."""
+class groupvideos_formatting_enum_param(str, Enum):
+    """groupvideos_formatting_enum_param enum values."""
 
-    ADMIN_ONLY = "ADMIN_ONLY"
-    ANYONE = "ANYONE"
-    NONE = "NONE"
+    MARKDOWN = "MARKDOWN"
+    PLAINTEXT = "PLAINTEXT"
 
 
 class groupvideos_container_type_enum_param(str, Enum):
@@ -362,22 +395,33 @@ class groupvideos_container_type_enum_param(str, Enum):
     YOUR_DAY = "YOUR_DAY"
 
 
-class groupfeed_formatting_enum_param(str, Enum):
-    """groupfeed_formatting_enum_param enum values."""
+class groupvideos_upload_phase_enum_param(str, Enum):
+    """groupvideos_upload_phase_enum_param enum values."""
 
-    MARKDOWN = "MARKDOWN"
-    PLAINTEXT = "PLAINTEXT"
+    cancel = "cancel"
+    finish = "finish"
+    start = "start"
+    transfer = "transfer"
 
 
-class groupphotos_backdated_time_granularity_enum_param(str, Enum):
-    """groupphotos_backdated_time_granularity_enum_param enum values."""
+class groupgroups_post_permissions_enum_param(str, Enum):
+    """groupgroups_post_permissions_enum_param enum values."""
 
-    day = "day"
-    hour = "hour"
-    min = "min"
-    month = "month"
-    none = "none"
-    year = "year"
+    ADMIN_ONLY = "ADMIN_ONLY"
+    ANYONE = "ANYONE"
+    NONE = "NONE"
+
+
+class groupvideos_unpublished_content_type_enum_param(str, Enum):
+    """groupvideos_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
 
 
 class groupfeed_post_surfaces_blacklist_enum_param(str, Enum):
@@ -390,56 +434,12 @@ class groupfeed_post_surfaces_blacklist_enum_param(str, Enum):
     VALUE_5 = "5"
 
 
-class groupgroups_group_type_enum_param(str, Enum):
-    """groupgroups_group_type_enum_param enum values."""
+class grouplive_videos_stereoscopic_mode_enum_param(str, Enum):
+    """grouplive_videos_stereoscopic_mode_enum_param enum values."""
 
-    CASUAL = "CASUAL"
-    COWORKERS = "COWORKERS"
-    CUSTOM = "CUSTOM"
-    FOR_SALE = "FOR_SALE"
-    FOR_WORK = "FOR_WORK"
-    GAME = "GAME"
-    HEALTH_SUPPORT = "HEALTH_SUPPORT"
-    JOBS = "JOBS"
-    LEARNING = "LEARNING"
-    NONE = "NONE"
-    PARENTING = "PARENTING"
-    STREAMER = "STREAMER"
-    WORK_ANNOUNCEMENT = "WORK_ANNOUNCEMENT"
-    WORK_DEMO_GROUP = "WORK_DEMO_GROUP"
-    WORK_DISCUSSION = "WORK_DISCUSSION"
-    WORK_EPHEMERAL = "WORK_EPHEMERAL"
-    WORK_FEEDBACK = "WORK_FEEDBACK"
-    WORK_FOR_SALE = "WORK_FOR_SALE"
-    WORK_GARDEN = "WORK_GARDEN"
-    WORK_INTEGRITY = "WORK_INTEGRITY"
-    WORK_LEARNING = "WORK_LEARNING"
-    WORK_MENTORSHIP = "WORK_MENTORSHIP"
-    WORK_MULTI_COMPANY = "WORK_MULTI_COMPANY"
-    WORK_RECRUITING = "WORK_RECRUITING"
-    WORK_SOCIAL = "WORK_SOCIAL"
-    WORK_STAGES = "WORK_STAGES"
-    WORK_TEAM = "WORK_TEAM"
-    WORK_TEAMWORK = "WORK_TEAMWORK"
-
-
-class groupvideos_upload_phase_enum_param(str, Enum):
-    """groupvideos_upload_phase_enum_param enum values."""
-
-    cancel = "cancel"
-    finish = "finish"
-    start = "start"
-    transfer = "transfer"
-
-
-class grouppicture_type_enum_param(str, Enum):
-    """grouppicture_type_enum_param enum values."""
-
-    album = "album"
-    large = "large"
-    normal = "normal"
-    small = "small"
-    square = "square"
+    LEFT_RIGHT = "LEFT_RIGHT"
+    MONO = "MONO"
+    TOP_BOTTOM = "TOP_BOTTOM"
 
 
 # Field literal type
@@ -492,15 +492,15 @@ class GroupFields(BaseModel):
     venue: LocationFields = Field(None, alias="venue")
 
 
-class GroupDeleteAdminsParams(BaseModel):
-    """Parameters for Group.delete_admins()."""
+class GroupDeleteAdMinsParams(BaseModel):
+    """Parameters for Group.delete_ad_mins()."""
 
     model_config = ConfigDict(extra="forbid")
     uid: int | None = Field(None, description="uid parameter")
 
 
-class GroupCreateAdminParams(BaseModel):
-    """Parameters for Group.create_admin()."""
+class GroupCreateAdMinParams(BaseModel):
+    """Parameters for Group.create_ad_min()."""
 
     model_config = ConfigDict(extra="forbid")
     uid: int | None = Field(None, description="uid parameter")

@@ -1,32 +1,45 @@
-"""ProductItemOffer MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.productitemoffer import ProductItemOffer
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProductItemOffer"
-instructions = """
-ProductItemOffer MCP Server for Facebook Business API.
-
-Provides typed access to all ProductItemOffer operations.
+"""
+Auto-generated MCP server for Facebook ProductItemOffer.
+DO NOT EDIT MANUALLY.
 """
 
-productitemoffer_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.productitemoffer import ProductItemOffer
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-productitemoffer")
 
 
-# ---- CRUD Operations (1) ----
-@productitemoffer_server.tool
-@wrapped_fn_tool
-def get_productitemoffer(
-    productitemoffer_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_productitemoffer(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ProductItemOffer(productitemoffer_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ProductItemOffer.
+
+    Args:
+        object_id: The ID of the ProductItemOffer
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ProductItemOffer(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+productitemoffer_server = mcp

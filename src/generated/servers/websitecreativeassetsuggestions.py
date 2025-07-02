@@ -1,34 +1,47 @@
-"""WebsiteCreativeAssetSuggestions MCP Server."""
+"""
+Auto-generated MCP server for Facebook WebsiteCreativeAssetSuggestions.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.websitecreativeassetsuggestions import (
     WebsiteCreativeAssetSuggestions,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookWebsiteCreativeAssetSuggestions"
-instructions = """
-WebsiteCreativeAssetSuggestions MCP Server for Facebook Business API.
-
-Provides typed access to all WebsiteCreativeAssetSuggestions operations.
-"""
-
-websitecreativeassetsuggestions_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-websitecreativeassetsuggestions")
 
 
-# ---- CRUD Operations (1) ----
-@websitecreativeassetsuggestions_server.tool
-@wrapped_fn_tool
-def get_websitecreativeassetsuggestions(
-    websitecreativeassetsuggestions_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_websitecreativeassetsuggestions(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = WebsiteCreativeAssetSuggestions(websitecreativeassetsuggestions_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a WebsiteCreativeAssetSuggestions.
+
+    Args:
+        object_id: The ID of the WebsiteCreativeAssetSuggestions
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = WebsiteCreativeAssetSuggestions(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+websitecreativeassetsuggestions_server = mcp

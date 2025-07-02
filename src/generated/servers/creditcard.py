@@ -1,32 +1,45 @@
-"""CreditCard MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.creditcard import CreditCard
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCreditCard"
-instructions = """
-CreditCard MCP Server for Facebook Business API.
-
-Provides typed access to all CreditCard operations.
+"""
+Auto-generated MCP server for Facebook CreditCard.
+DO NOT EDIT MANUALLY.
 """
 
-creditcard_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.creditcard import CreditCard
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-creditcard")
 
 
-# ---- CRUD Operations (1) ----
-@creditcard_server.tool
-@wrapped_fn_tool
-def get_creditcard(
-    creditcard_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_creditcard(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CreditCard(creditcard_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CreditCard.
+
+    Args:
+        object_id: The ID of the CreditCard
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CreditCard(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+creditcard_server = mcp

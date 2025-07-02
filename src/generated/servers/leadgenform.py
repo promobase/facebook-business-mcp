@@ -1,73 +1,148 @@
-"""LeadgenForm MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.leadgenform import LeadgenForm
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookLeadgenForm"
-instructions = """
-LeadgenForm MCP Server for Facebook Business API.
-
-Provides typed access to all LeadgenForm operations.
+"""
+Auto-generated MCP server for Facebook LeadgenForm.
+DO NOT EDIT MANUALLY.
 """
 
-leadgenform_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.leadgenform import LeadgenForm
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-leadgenform")
 
 
-# ---- CRUD Operations (2) ----
-@leadgenform_server.tool
-@wrapped_fn_tool
-def get_leadgenform(
-    leadgenform_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = LeadgenForm(leadgenform_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@leadgenform_server.tool
-@wrapped_fn_tool
-def update_leadgenform(
-    leadgenform_id: str,
+@mcp.tool()
+async def get_leadgenform(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return LeadgenForm(leadgenform_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a LeadgenForm.
+
+    Args:
+        object_id: The ID of the LeadgenForm
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = LeadgenForm(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-# ---- Edge Methods (3) ----
-@leadgenform_server.tool
-@wrapped_fn_tool
-def get_leads(
-    leadgenform_id: str,
+@mcp.tool()
+async def update_leadgenform(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return LeadgenForm(leadgenform_id).get_leads(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a LeadgenForm.
+
+    Args:
+        object_id: The ID of the LeadgenForm
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = LeadgenForm(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@leadgenform_server.tool
-@wrapped_fn_tool
-def get_test_leads(
-    leadgenform_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_test_lead_for_leadgenform(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return LeadgenForm(leadgenform_id).get_test_leads(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Test Lead for LeadgenForm.
+
+    Args:
+        object_id: The ID of the LeadgenForm
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_test_lead result
+    """
+    result = LeadgenForm(fbid=object_id).create_test_lead(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@leadgenform_server.tool
-@wrapped_fn_tool
-def create_test_lead(
-    leadgenform_id: str,
+@mcp.tool()
+async def get_leads_for_leadgenform(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return LeadgenForm(leadgenform_id).create_test_lead(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Leads for LeadgenForm.
+
+    Args:
+        object_id: The ID of the LeadgenForm
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_leads result
+    """
+    result = LeadgenForm(fbid=object_id).get_leads(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_test_leads_for_leadgenform(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Test Leads for LeadgenForm.
+
+    Args:
+        object_id: The ID of the LeadgenForm
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_test_leads result
+    """
+    result = LeadgenForm(fbid=object_id).get_test_leads(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+leadgenform_server = mcp

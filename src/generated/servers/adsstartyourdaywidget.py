@@ -1,32 +1,45 @@
-"""AdsStartYourDayWidget MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adsstartyourdaywidget import AdsStartYourDayWidget
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsStartYourDayWidget"
-instructions = """
-AdsStartYourDayWidget MCP Server for Facebook Business API.
-
-Provides typed access to all AdsStartYourDayWidget operations.
+"""
+Auto-generated MCP server for Facebook AdsStartYourDayWidget.
+DO NOT EDIT MANUALLY.
 """
 
-adsstartyourdaywidget_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adsstartyourdaywidget import AdsStartYourDayWidget
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adsstartyourdaywidget")
 
 
-# ---- CRUD Operations (1) ----
-@adsstartyourdaywidget_server.tool
-@wrapped_fn_tool
-def get_adsstartyourdaywidget(
-    adsstartyourdaywidget_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adsstartyourdaywidget(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdsStartYourDayWidget(adsstartyourdaywidget_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdsStartYourDayWidget.
+
+    Args:
+        object_id: The ID of the AdsStartYourDayWidget
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsStartYourDayWidget(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adsstartyourdaywidget_server = mcp

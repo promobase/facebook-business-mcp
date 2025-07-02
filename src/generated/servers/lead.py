@@ -1,40 +1,70 @@
-"""Lead MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.lead import Lead
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookLead"
-instructions = """
-Lead MCP Server for Facebook Business API.
-
-Provides typed access to all Lead operations.
+"""
+Auto-generated MCP server for Facebook Lead.
+DO NOT EDIT MANUALLY.
 """
 
-lead_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.lead import Lead
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-lead")
 
 
-# ---- CRUD Operations (2) ----
-@lead_server.tool
-@wrapped_fn_tool
-def get_lead(
-    lead_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def delete_lead(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = Lead(lead_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Delete a Lead.
+
+    Args:
+        object_id: The ID of the Lead
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = Lead(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@lead_server.tool
-@wrapped_fn_tool
-def delete_lead(
-    lead_id: str,
-) -> str:
-    return Lead(lead_id).api_delete()
+@mcp.tool()
+async def get_lead(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a Lead.
+
+    Args:
+        object_id: The ID of the Lead
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Lead(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+lead_server = mcp

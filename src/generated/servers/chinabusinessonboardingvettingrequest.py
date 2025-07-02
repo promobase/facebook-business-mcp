@@ -1,34 +1,47 @@
-"""ChinaBusinessOnboardingVettingRequest MCP Server."""
+"""
+Auto-generated MCP server for Facebook ChinaBusinessOnboardingVettingRequest.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.chinabusinessonboardingvettingrequest import (
     ChinaBusinessOnboardingVettingRequest,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookChinaBusinessOnboardingVettingRequest"
-instructions = """
-ChinaBusinessOnboardingVettingRequest MCP Server for Facebook Business API.
-
-Provides typed access to all ChinaBusinessOnboardingVettingRequest operations.
-"""
-
-chinabusinessonboardingvettingrequest_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-chinabusinessonboardingvettingrequest")
 
 
-# ---- CRUD Operations (1) ----
-@chinabusinessonboardingvettingrequest_server.tool
-@wrapped_fn_tool
-def get_chinabusinessonboardingvettingrequest(
-    chinabusinessonboardingvettingrequest_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_chinabusinessonboardingvettingrequest(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ChinaBusinessOnboardingVettingRequest(chinabusinessonboardingvettingrequest_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ChinaBusinessOnboardingVettingRequest.
+
+    Args:
+        object_id: The ID of the ChinaBusinessOnboardingVettingRequest
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ChinaBusinessOnboardingVettingRequest(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+chinabusinessonboardingvettingrequest_server = mcp

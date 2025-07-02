@@ -1,32 +1,45 @@
-"""MusicVideoCopyright MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.musicvideocopyright import MusicVideoCopyright
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookMusicVideoCopyright"
-instructions = """
-MusicVideoCopyright MCP Server for Facebook Business API.
-
-Provides typed access to all MusicVideoCopyright operations.
+"""
+Auto-generated MCP server for Facebook MusicVideoCopyright.
+DO NOT EDIT MANUALLY.
 """
 
-musicvideocopyright_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.musicvideocopyright import MusicVideoCopyright
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-musicvideocopyright")
 
 
-# ---- CRUD Operations (1) ----
-@musicvideocopyright_server.tool
-@wrapped_fn_tool
-def get_musicvideocopyright(
-    musicvideocopyright_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_musicvideocopyright(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = MusicVideoCopyright(musicvideocopyright_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a MusicVideoCopyright.
+
+    Args:
+        object_id: The ID of the MusicVideoCopyright
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = MusicVideoCopyright(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+musicvideocopyright_server = mcp

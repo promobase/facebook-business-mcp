@@ -1,50 +1,95 @@
-"""ProductFeedRule MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.productfeedrule import ProductFeedRule
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProductFeedRule"
-instructions = """
-ProductFeedRule MCP Server for Facebook Business API.
-
-Provides typed access to all ProductFeedRule operations.
+"""
+Auto-generated MCP server for Facebook ProductFeedRule.
+DO NOT EDIT MANUALLY.
 """
 
-productfeedrule_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.productfeedrule import ProductFeedRule
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-productfeedrule")
 
 
-# ---- CRUD Operations (3) ----
-@productfeedrule_server.tool
-@wrapped_fn_tool
-def get_productfeedrule(
-    productfeedrule_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = ProductFeedRule(productfeedrule_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@productfeedrule_server.tool
-@wrapped_fn_tool
-def update_productfeedrule(
-    productfeedrule_id: str,
+@mcp.tool()
+async def delete_productfeedrule(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return ProductFeedRule(productfeedrule_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a ProductFeedRule.
+
+    Args:
+        object_id: The ID of the ProductFeedRule
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = ProductFeedRule(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@productfeedrule_server.tool
-@wrapped_fn_tool
-def delete_productfeedrule(
-    productfeedrule_id: str,
-) -> str:
-    return ProductFeedRule(productfeedrule_id).api_delete()
+@mcp.tool()
+async def get_productfeedrule(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ProductFeedRule.
+
+    Args:
+        object_id: The ID of the ProductFeedRule
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ProductFeedRule(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_productfeedrule(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Update a ProductFeedRule.
+
+    Args:
+        object_id: The ID of the ProductFeedRule
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = ProductFeedRule(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+productfeedrule_server = mcp

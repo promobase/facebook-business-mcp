@@ -1,32 +1,45 @@
-"""AdToplineDetail MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adtoplinedetail import AdToplineDetail
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdToplineDetail"
-instructions = """
-AdToplineDetail MCP Server for Facebook Business API.
-
-Provides typed access to all AdToplineDetail operations.
+"""
+Auto-generated MCP server for Facebook AdToplineDetail.
+DO NOT EDIT MANUALLY.
 """
 
-adtoplinedetail_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adtoplinedetail import AdToplineDetail
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adtoplinedetail")
 
 
-# ---- CRUD Operations (1) ----
-@adtoplinedetail_server.tool
-@wrapped_fn_tool
-def get_adtoplinedetail(
-    adtoplinedetail_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adtoplinedetail(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdToplineDetail(adtoplinedetail_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdToplineDetail.
+
+    Args:
+        object_id: The ID of the AdToplineDetail
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdToplineDetail(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adtoplinedetail_server = mcp

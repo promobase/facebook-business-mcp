@@ -1,43 +1,73 @@
-"""AudioCopyright MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.audiocopyright import AudioCopyright
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAudioCopyright"
-instructions = """
-AudioCopyright MCP Server for Facebook Business API.
-
-Provides typed access to all AudioCopyright operations.
+"""
+Auto-generated MCP server for Facebook AudioCopyright.
+DO NOT EDIT MANUALLY.
 """
 
-audiocopyright_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.audiocopyright import AudioCopyright
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-audiocopyright")
 
 
-# ---- CRUD Operations (1) ----
-@audiocopyright_server.tool
-@wrapped_fn_tool
-def get_audiocopyright(
-    audiocopyright_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = AudioCopyright(audiocopyright_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@audiocopyright_server.tool
-@wrapped_fn_tool
-def get_update_records(
-    audiocopyright_id: str,
+@mcp.tool()
+async def get_audiocopyright(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AudioCopyright(audiocopyright_id).get_update_records(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a AudioCopyright.
+
+    Args:
+        object_id: The ID of the AudioCopyright
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AudioCopyright(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_update_records_for_audiocopyright(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Update Records for AudioCopyright.
+
+    Args:
+        object_id: The ID of the AudioCopyright
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_update_records result
+    """
+    result = AudioCopyright(fbid=object_id).get_update_records(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+audiocopyright_server = mcp

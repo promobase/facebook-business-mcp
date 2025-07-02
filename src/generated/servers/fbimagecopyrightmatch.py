@@ -1,32 +1,45 @@
-"""FBImageCopyrightMatch MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.fbimagecopyrightmatch import FBImageCopyrightMatch
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookFBImageCopyrightMatch"
-instructions = """
-FBImageCopyrightMatch MCP Server for Facebook Business API.
-
-Provides typed access to all FBImageCopyrightMatch operations.
+"""
+Auto-generated MCP server for Facebook FBImageCopyrightMatch.
+DO NOT EDIT MANUALLY.
 """
 
-fbimagecopyrightmatch_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.fbimagecopyrightmatch import FBImageCopyrightMatch
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-fbimagecopyrightmatch")
 
 
-# ---- CRUD Operations (1) ----
-@fbimagecopyrightmatch_server.tool
-@wrapped_fn_tool
-def get_fbimagecopyrightmatch(
-    fbimagecopyrightmatch_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_fbimagecopyrightmatch(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = FBImageCopyrightMatch(fbimagecopyrightmatch_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a FBImageCopyrightMatch.
+
+    Args:
+        object_id: The ID of the FBImageCopyrightMatch
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = FBImageCopyrightMatch(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+fbimagecopyrightmatch_server = mcp

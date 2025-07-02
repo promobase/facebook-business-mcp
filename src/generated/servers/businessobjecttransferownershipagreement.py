@@ -1,34 +1,47 @@
-"""BusinessObjectTransferOwnershipAgreement MCP Server."""
+"""
+Auto-generated MCP server for Facebook BusinessObjectTransferOwnershipAgreement.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.businessobjecttransferownershipagreement import (
     BusinessObjectTransferOwnershipAgreement,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookBusinessObjectTransferOwnershipAgreement"
-instructions = """
-BusinessObjectTransferOwnershipAgreement MCP Server for Facebook Business API.
-
-Provides typed access to all BusinessObjectTransferOwnershipAgreement operations.
-"""
-
-businessobjecttransferownershipagreement_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-businessobjecttransferownershipagreement")
 
 
-# ---- CRUD Operations (1) ----
-@businessobjecttransferownershipagreement_server.tool
-@wrapped_fn_tool
-def get_businessobjecttransferownershipagreement(
-    businessobjecttransferownershipagreement_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_businessobjecttransferownershipagreement(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = BusinessObjectTransferOwnershipAgreement(businessobjecttransferownershipagreement_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a BusinessObjectTransferOwnershipAgreement.
+
+    Args:
+        object_id: The ID of the BusinessObjectTransferOwnershipAgreement
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = BusinessObjectTransferOwnershipAgreement(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+businessobjecttransferownershipagreement_server = mcp

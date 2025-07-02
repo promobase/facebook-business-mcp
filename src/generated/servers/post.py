@@ -1,160 +1,373 @@
-"""Post MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.post import Post
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPost"
-instructions = """
-Post MCP Server for Facebook Business API.
-
-Provides typed access to all Post operations.
+"""
+Auto-generated MCP server for Facebook Post.
+DO NOT EDIT MANUALLY.
 """
 
-post_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.post import Post
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-post")
 
 
-# ---- CRUD Operations (3) ----
-@post_server.tool
-@wrapped_fn_tool
-def get_post(
-    post_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Post(post_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@post_server.tool
-@wrapped_fn_tool
-def update_post(
-    post_id: str,
+@mcp.tool()
+async def delete_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return Post(post_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = Post(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def delete_post(
-    post_id: str,
-) -> str:
-    return Post(post_id).api_delete()
-
-
-# ---- Edge Methods (11) ----
-@post_server.tool
-@wrapped_fn_tool
-def get_attachments(
-    post_id: str,
+@mcp.tool()
+async def get_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_attachments(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Post(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def get_comments(
-    post_id: str,
+@mcp.tool()
+async def update_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_comments(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = Post(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def create_comment(
-    post_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_comment_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).create_comment(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Comment for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_comment result
+    """
+    result = Post(fbid=object_id).create_comment(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def get_dynamic_posts(
-    post_id: str,
+@mcp.tool()
+async def create_like_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_dynamic_posts(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Like for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_like result
+    """
+    result = Post(fbid=object_id).create_like(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def get_insights(
-    post_id: str,
+@mcp.tool()
+async def delete_likes_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_insights(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete Likes for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete_likes result
+    """
+    result = Post(fbid=object_id).delete_likes(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def delete_likes(
-    post_id: str,
-    params: dict[str, Any] = {},
-):
-    return Post(post_id).delete_likes(params=params)
-
-
-@post_server.tool
-@wrapped_fn_tool
-def create_like(
-    post_id: str,
+@mcp.tool()
+async def get_attachments_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).create_like(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Attachments for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_attachments result
+    """
+    result = Post(fbid=object_id).get_attachments(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def get_reactions(
-    post_id: str,
+@mcp.tool()
+async def get_comments_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_reactions(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Comments for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_comments result
+    """
+    result = Post(fbid=object_id).get_comments(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def get_sharedposts(
-    post_id: str,
+@mcp.tool()
+async def get_dynamic_posts_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_sharedposts(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Dynamic Posts for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_dynamic_posts result
+    """
+    result = Post(fbid=object_id).get_dynamic_posts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def get_sponsor_tags(
-    post_id: str,
+@mcp.tool()
+async def get_insights_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_sponsor_tags(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Insights for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_insights result
+    """
+    result = Post(fbid=object_id).get_insights(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@post_server.tool
-@wrapped_fn_tool
-def get_to(
-    post_id: str,
+@mcp.tool()
+async def get_reactions_for_post(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Post(post_id).get_to(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Reactions for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_reactions result
+    """
+    result = Post(fbid=object_id).get_reactions(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_shared_posts_for_post(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Shared Posts for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_shared_posts result
+    """
+    result = Post(fbid=object_id).get_shared_posts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_sponsor_tags_for_post(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Sponsor Tags for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_sponsor_tags result
+    """
+    result = Post(fbid=object_id).get_sponsor_tags(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_to_for_post(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get To for Post.
+
+    Args:
+        object_id: The ID of the Post
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_to result
+    """
+    result = Post(fbid=object_id).get_to(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+post_server = mcp

@@ -1,32 +1,45 @@
-"""DynamicContentSet MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.dynamiccontentset import DynamicContentSet
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookDynamicContentSet"
-instructions = """
-DynamicContentSet MCP Server for Facebook Business API.
-
-Provides typed access to all DynamicContentSet operations.
+"""
+Auto-generated MCP server for Facebook DynamicContentSet.
+DO NOT EDIT MANUALLY.
 """
 
-dynamiccontentset_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.dynamiccontentset import DynamicContentSet
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-dynamiccontentset")
 
 
-# ---- CRUD Operations (1) ----
-@dynamiccontentset_server.tool
-@wrapped_fn_tool
-def get_dynamiccontentset(
-    dynamiccontentset_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_dynamiccontentset(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = DynamicContentSet(dynamiccontentset_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a DynamicContentSet.
+
+    Args:
+        object_id: The ID of the DynamicContentSet
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = DynamicContentSet(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+dynamiccontentset_server = mcp

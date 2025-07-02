@@ -1,34 +1,48 @@
-"""ProductCatalogCategory MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.productcatalogcategory import ProductCatalogCategory
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProductCatalogCategory"
-instructions = """
-ProductCatalogCategory MCP Server for Facebook Business API.
-
-Provides typed access to all ProductCatalogCategory operations.
+"""
+Auto-generated MCP server for Facebook ProductCatalogCategory.
+DO NOT EDIT MANUALLY.
 """
 
-productcatalogcategory_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.productcatalogcategory import ProductCatalogCategory
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-productcatalogcategory")
 
 
-# ---- Edge Methods (1) ----
-@productcatalogcategory_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    productcatalogcategory_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_productcatalogcategory(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ProductCatalogCategory(productcatalogcategory_id).get_endpoint(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create a ProductCatalogCategory.
+
+    Args:
+        object_id: The ID of the ProductCatalogCategory
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = ProductCatalogCategory(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Export the server
+productcatalogcategory_server = mcp

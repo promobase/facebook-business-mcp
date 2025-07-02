@@ -1,32 +1,45 @@
-"""AdAccountUserSettings MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adaccountusersettings import AdAccountUserSettings
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdAccountUserSettings"
-instructions = """
-AdAccountUserSettings MCP Server for Facebook Business API.
-
-Provides typed access to all AdAccountUserSettings operations.
+"""
+Auto-generated MCP server for Facebook AdAccountUserSettings.
+DO NOT EDIT MANUALLY.
 """
 
-adaccountusersettings_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adaccountusersettings import AdAccountUserSettings
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adaccountusersettings")
 
 
-# ---- CRUD Operations (1) ----
-@adaccountusersettings_server.tool
-@wrapped_fn_tool
-def get_adaccountusersettings(
-    adaccountusersettings_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adaccountusersettings(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdAccountUserSettings(adaccountusersettings_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdAccountUserSettings.
+
+    Args:
+        object_id: The ID of the AdAccountUserSettings
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdAccountUserSettings(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adaccountusersettings_server = mcp

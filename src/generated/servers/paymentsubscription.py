@@ -1,32 +1,45 @@
-"""PaymentSubscription MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.paymentsubscription import PaymentSubscription
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPaymentSubscription"
-instructions = """
-PaymentSubscription MCP Server for Facebook Business API.
-
-Provides typed access to all PaymentSubscription operations.
+"""
+Auto-generated MCP server for Facebook PaymentSubscription.
+DO NOT EDIT MANUALLY.
 """
 
-paymentsubscription_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.paymentsubscription import PaymentSubscription
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-paymentsubscription")
 
 
-# ---- CRUD Operations (1) ----
-@paymentsubscription_server.tool
-@wrapped_fn_tool
-def get_paymentsubscription(
-    paymentsubscription_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_paymentsubscription(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = PaymentSubscription(paymentsubscription_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a PaymentSubscription.
+
+    Args:
+        object_id: The ID of the PaymentSubscription
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PaymentSubscription(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+paymentsubscription_server = mcp

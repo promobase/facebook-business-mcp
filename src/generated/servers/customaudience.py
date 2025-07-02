@@ -1,169 +1,426 @@
-"""CustomAudience MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.customaudience import CustomAudience
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCustomAudience"
-instructions = """
-CustomAudience MCP Server for Facebook Business API.
-
-Provides typed access to all CustomAudience operations.
+"""
+Auto-generated MCP server for Facebook CustomAudience.
+DO NOT EDIT MANUALLY.
 """
 
-customaudience_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.customaudience import CustomAudience
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-customaudience")
 
 
-# ---- CRUD Operations (3) ----
-@customaudience_server.tool
-@wrapped_fn_tool
-def get_customaudience(
-    customaudience_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = CustomAudience(customaudience_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def update_customaudience(
-    customaudience_id: str,
+@mcp.tool()
+async def create_customaudience(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return CustomAudience(customaudience_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create a CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = CustomAudience(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def delete_customaudience(
-    customaudience_id: str,
-) -> str:
-    return CustomAudience(customaudience_id).api_delete()
-
-
-# ---- Edge Methods (12) ----
-@customaudience_server.tool
-@wrapped_fn_tool
-def delete_adaccounts(
-    customaudience_id: str,
-    params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).delete_adaccounts(params=params)
-
-
-@customaudience_server.tool
-@wrapped_fn_tool
-def get_adaccounts(
-    customaudience_id: str,
+@mcp.tool()
+async def delete_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).get_adaccounts(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = CustomAudience(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def create_adaccount(
-    customaudience_id: str,
+@mcp.tool()
+async def get_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).create_adaccount(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CustomAudience(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def get_ads(
-    customaudience_id: str,
+@mcp.tool()
+async def update_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).get_ads(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = CustomAudience(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def get_health(
-    customaudience_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_ad_account_for_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).get_health(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Ad Account for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_ad_account result
+    """
+    result = CustomAudience(fbid=object_id).create_ad_account(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def get_salts(
-    customaudience_id: str,
+@mcp.tool()
+async def create_salt_for_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).get_salts(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Salt for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_salt result
+    """
+    result = CustomAudience(fbid=object_id).create_salt(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def create_salt(
-    customaudience_id: str,
+@mcp.tool()
+async def create_user_for_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).create_salt(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create User for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_user result
+    """
+    result = CustomAudience(fbid=object_id).create_user(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def get_sessions(
-    customaudience_id: str,
+@mcp.tool()
+async def create_users_replace_for_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).get_sessions(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Users Replace for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_users_replace result
+    """
+    result = CustomAudience(fbid=object_id).create_users_replace(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def get_shared_account_info(
-    customaudience_id: str,
+@mcp.tool()
+async def delete_ad_accounts_for_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).get_shared_account_info(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete Ad Accounts for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete_ad_accounts result
+    """
+    result = CustomAudience(fbid=object_id).delete_ad_accounts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def delete_users(
-    customaudience_id: str,
-    params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).delete_users(params=params)
-
-
-@customaudience_server.tool
-@wrapped_fn_tool
-def create_user(
-    customaudience_id: str,
+@mcp.tool()
+async def delete_users_for_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).create_user(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete Users for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete_users result
+    """
+    result = CustomAudience(fbid=object_id).delete_users(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@customaudience_server.tool
-@wrapped_fn_tool
-def create_usersreplace(
-    customaudience_id: str,
+@mcp.tool()
+async def get_ad_accounts_for_customaudience(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return CustomAudience(customaudience_id).create_usersreplace(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Ad Accounts for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ad_accounts result
+    """
+    result = CustomAudience(fbid=object_id).get_ad_accounts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_ads_for_customaudience(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Ads for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ads result
+    """
+    result = CustomAudience(fbid=object_id).get_ads(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_health_for_customaudience(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Health for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_health result
+    """
+    result = CustomAudience(fbid=object_id).get_health(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_salts_for_customaudience(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Salts for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_salts result
+    """
+    result = CustomAudience(fbid=object_id).get_salts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_sessions_for_customaudience(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Sessions for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_sessions result
+    """
+    result = CustomAudience(fbid=object_id).get_sessions(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_shared_account_info_for_customaudience(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Shared Account Info for CustomAudience.
+
+    Args:
+        object_id: The ID of the CustomAudience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_shared_account_info result
+    """
+    result = CustomAudience(fbid=object_id).get_shared_account_info(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+customaudience_server = mcp

@@ -1,32 +1,45 @@
-"""LiveVideoInputStream MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.livevideoinputstream import LiveVideoInputStream
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookLiveVideoInputStream"
-instructions = """
-LiveVideoInputStream MCP Server for Facebook Business API.
-
-Provides typed access to all LiveVideoInputStream operations.
+"""
+Auto-generated MCP server for Facebook LiveVideoInputStream.
+DO NOT EDIT MANUALLY.
 """
 
-livevideoinputstream_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.livevideoinputstream import LiveVideoInputStream
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-livevideoinputstream")
 
 
-# ---- CRUD Operations (1) ----
-@livevideoinputstream_server.tool
-@wrapped_fn_tool
-def get_livevideoinputstream(
-    livevideoinputstream_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_livevideoinputstream(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = LiveVideoInputStream(livevideoinputstream_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a LiveVideoInputStream.
+
+    Args:
+        object_id: The ID of the LiveVideoInputStream
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = LiveVideoInputStream(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+livevideoinputstream_server = mcp

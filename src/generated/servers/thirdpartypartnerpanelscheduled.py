@@ -1,34 +1,47 @@
-"""ThirdPartyPartnerPanelScheduled MCP Server."""
+"""
+Auto-generated MCP server for Facebook ThirdPartyPartnerPanelScheduled.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.thirdpartypartnerpanelscheduled import (
     ThirdPartyPartnerPanelScheduled,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookThirdPartyPartnerPanelScheduled"
-instructions = """
-ThirdPartyPartnerPanelScheduled MCP Server for Facebook Business API.
-
-Provides typed access to all ThirdPartyPartnerPanelScheduled operations.
-"""
-
-thirdpartypartnerpanelscheduled_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-thirdpartypartnerpanelscheduled")
 
 
-# ---- CRUD Operations (1) ----
-@thirdpartypartnerpanelscheduled_server.tool
-@wrapped_fn_tool
-def get_thirdpartypartnerpanelscheduled(
-    thirdpartypartnerpanelscheduled_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_thirdpartypartnerpanelscheduled(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ThirdPartyPartnerPanelScheduled(thirdpartypartnerpanelscheduled_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ThirdPartyPartnerPanelScheduled.
+
+    Args:
+        object_id: The ID of the ThirdPartyPartnerPanelScheduled
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ThirdPartyPartnerPanelScheduled(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+thirdpartypartnerpanelscheduled_server = mcp

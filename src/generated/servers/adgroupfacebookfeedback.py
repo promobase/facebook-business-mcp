@@ -1,34 +1,45 @@
-"""AdgroupFacebookFeedback MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adgroupfacebookfeedback import AdgroupFacebookFeedback
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdgroupFacebookFeedback"
-instructions = """
-AdgroupFacebookFeedback MCP Server for Facebook Business API.
-
-Provides typed access to all AdgroupFacebookFeedback operations.
+"""
+Auto-generated MCP server for Facebook AdgroupFacebookFeedback.
+DO NOT EDIT MANUALLY.
 """
 
-adgroupfacebookfeedback_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adgroupfacebookfeedback import AdgroupFacebookFeedback
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adgroupfacebookfeedback")
 
 
-# ---- Edge Methods (1) ----
-@adgroupfacebookfeedback_server.tool
-@wrapped_fn_tool
-def get_comments(
-    adgroupfacebookfeedback_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_comments_for_adgroupfacebookfeedback(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdgroupFacebookFeedback(adgroupfacebookfeedback_id).get_comments(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get Comments for AdgroupFacebookFeedback.
+
+    Args:
+        object_id: The ID of the AdgroupFacebookFeedback
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_comments result
+    """
+    result = AdgroupFacebookFeedback(fbid=object_id).get_comments(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Export the server
+adgroupfacebookfeedback_server = mcp

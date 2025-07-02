@@ -1,32 +1,45 @@
-"""JobOpening MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.jobopening import JobOpening
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookJobOpening"
-instructions = """
-JobOpening MCP Server for Facebook Business API.
-
-Provides typed access to all JobOpening operations.
+"""
+Auto-generated MCP server for Facebook JobOpening.
+DO NOT EDIT MANUALLY.
 """
 
-jobopening_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.jobopening import JobOpening
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-jobopening")
 
 
-# ---- CRUD Operations (1) ----
-@jobopening_server.tool
-@wrapped_fn_tool
-def get_jobopening(
-    jobopening_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_jobopening(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = JobOpening(jobopening_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a JobOpening.
+
+    Args:
+        object_id: The ID of the JobOpening
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = JobOpening(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+jobopening_server = mcp

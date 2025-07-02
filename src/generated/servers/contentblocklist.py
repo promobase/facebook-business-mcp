@@ -1,65 +1,123 @@
-"""ContentBlockList MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.contentblocklist import ContentBlockList
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookContentBlockList"
-instructions = """
-ContentBlockList MCP Server for Facebook Business API.
-
-Provides typed access to all ContentBlockList operations.
+"""
+Auto-generated MCP server for Facebook ContentBlockList.
+DO NOT EDIT MANUALLY.
 """
 
-contentblocklist_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.contentblocklist import ContentBlockList
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-contentblocklist")
 
 
-# ---- CRUD Operations (1) ----
-@contentblocklist_server.tool
-@wrapped_fn_tool
-def get_contentblocklist(
-    contentblocklist_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = ContentBlockList(contentblocklist_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (3) ----
-@contentblocklist_server.tool
-@wrapped_fn_tool
-def get_applied_ad_accounts(
-    contentblocklist_id: str,
+@mcp.tool()
+async def get_contentblocklist(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ContentBlockList(contentblocklist_id).get_applied_ad_accounts(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a ContentBlockList.
+
+    Args:
+        object_id: The ID of the ContentBlockList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ContentBlockList(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@contentblocklist_server.tool
-@wrapped_fn_tool
-def get_facebook_content(
-    contentblocklist_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_applied_ad_accounts_for_contentblocklist(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ContentBlockList(contentblocklist_id).get_facebook_content(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Applied Ad Accounts for ContentBlockList.
+
+    Args:
+        object_id: The ID of the ContentBlockList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_applied_ad_accounts result
+    """
+    result = ContentBlockList(fbid=object_id).get_applied_ad_accounts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@contentblocklist_server.tool
-@wrapped_fn_tool
-def get_instagram_content(
-    contentblocklist_id: str,
+@mcp.tool()
+async def get_facebook_content_for_contentblocklist(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ContentBlockList(contentblocklist_id).get_instagram_content(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Facebook Content for ContentBlockList.
+
+    Args:
+        object_id: The ID of the ContentBlockList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_facebook_content result
+    """
+    result = ContentBlockList(fbid=object_id).get_facebook_content(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_instagram_content_for_contentblocklist(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Instagram Content for ContentBlockList.
+
+    Args:
+        object_id: The ID of the ContentBlockList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_instagram_content result
+    """
+    result = ContentBlockList(fbid=object_id).get_instagram_content(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+contentblocklist_server = mcp

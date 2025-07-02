@@ -1,32 +1,45 @@
-"""BCPCampaign MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.bcpcampaign import BCPCampaign
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookBCPCampaign"
-instructions = """
-BCPCampaign MCP Server for Facebook Business API.
-
-Provides typed access to all BCPCampaign operations.
+"""
+Auto-generated MCP server for Facebook BCPCampaign.
+DO NOT EDIT MANUALLY.
 """
 
-bcpcampaign_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.bcpcampaign import BCPCampaign
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-bcpcampaign")
 
 
-# ---- CRUD Operations (1) ----
-@bcpcampaign_server.tool
-@wrapped_fn_tool
-def get_bcpcampaign(
-    bcpcampaign_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_bcpcampaign(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = BCPCampaign(bcpcampaign_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a BCPCampaign.
+
+    Args:
+        object_id: The ID of the BCPCampaign
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = BCPCampaign(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+bcpcampaign_server = mcp

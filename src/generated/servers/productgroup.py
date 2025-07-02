@@ -1,71 +1,176 @@
-"""ProductGroup MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.productgroup import ProductGroup
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProductGroup"
-instructions = """
-ProductGroup MCP Server for Facebook Business API.
-
-Provides typed access to all ProductGroup operations.
+"""
+Auto-generated MCP server for Facebook ProductGroup.
+DO NOT EDIT MANUALLY.
 """
 
-productgroup_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.productgroup import ProductGroup
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-productgroup")
 
 
-# ---- CRUD Operations (3) ----
-@productgroup_server.tool
-@wrapped_fn_tool
-def get_productgroup(
-    productgroup_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = ProductGroup(productgroup_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@productgroup_server.tool
-@wrapped_fn_tool
-def update_productgroup(
-    productgroup_id: str,
+@mcp.tool()
+async def create_productgroup(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return ProductGroup(productgroup_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create a ProductGroup.
+
+    Args:
+        object_id: The ID of the ProductGroup
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = ProductGroup(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@productgroup_server.tool
-@wrapped_fn_tool
-def delete_productgroup(
-    productgroup_id: str,
-) -> str:
-    return ProductGroup(productgroup_id).api_delete()
-
-
-# ---- Edge Methods (2) ----
-@productgroup_server.tool
-@wrapped_fn_tool
-def get_products(
-    productgroup_id: str,
+@mcp.tool()
+async def delete_productgroup(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ProductGroup(productgroup_id).get_products(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a ProductGroup.
+
+    Args:
+        object_id: The ID of the ProductGroup
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = ProductGroup(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@productgroup_server.tool
-@wrapped_fn_tool
-def create_product(
-    productgroup_id: str,
+@mcp.tool()
+async def get_productgroup(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ProductGroup(productgroup_id).create_product(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a ProductGroup.
+
+    Args:
+        object_id: The ID of the ProductGroup
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ProductGroup(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_productgroup(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Update a ProductGroup.
+
+    Args:
+        object_id: The ID of the ProductGroup
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = ProductGroup(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def create_product_for_productgroup(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create Product for ProductGroup.
+
+    Args:
+        object_id: The ID of the ProductGroup
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_product result
+    """
+    result = ProductGroup(fbid=object_id).create_product(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_products_for_productgroup(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Products for ProductGroup.
+
+    Args:
+        object_id: The ID of the ProductGroup
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_products result
+    """
+    result = ProductGroup(fbid=object_id).get_products(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+productgroup_server = mcp

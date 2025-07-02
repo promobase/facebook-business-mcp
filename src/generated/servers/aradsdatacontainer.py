@@ -1,32 +1,45 @@
-"""ArAdsDataContainer MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.aradsdatacontainer import ArAdsDataContainer
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookArAdsDataContainer"
-instructions = """
-ArAdsDataContainer MCP Server for Facebook Business API.
-
-Provides typed access to all ArAdsDataContainer operations.
+"""
+Auto-generated MCP server for Facebook ArAdsDataContainer.
+DO NOT EDIT MANUALLY.
 """
 
-aradsdatacontainer_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.aradsdatacontainer import ArAdsDataContainer
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-aradsdatacontainer")
 
 
-# ---- CRUD Operations (1) ----
-@aradsdatacontainer_server.tool
-@wrapped_fn_tool
-def get_aradsdatacontainer(
-    aradsdatacontainer_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_aradsdatacontainer(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ArAdsDataContainer(aradsdatacontainer_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ArAdsDataContainer.
+
+    Args:
+        object_id: The ID of the ArAdsDataContainer
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ArAdsDataContainer(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+aradsdatacontainer_server = mcp

@@ -1,50 +1,95 @@
-"""HighDemandPeriod MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.highdemandperiod import HighDemandPeriod
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookHighDemandPeriod"
-instructions = """
-HighDemandPeriod MCP Server for Facebook Business API.
-
-Provides typed access to all HighDemandPeriod operations.
+"""
+Auto-generated MCP server for Facebook HighDemandPeriod.
+DO NOT EDIT MANUALLY.
 """
 
-highdemandperiod_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.highdemandperiod import HighDemandPeriod
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-highdemandperiod")
 
 
-# ---- CRUD Operations (3) ----
-@highdemandperiod_server.tool
-@wrapped_fn_tool
-def get_highdemandperiod(
-    highdemandperiod_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = HighDemandPeriod(highdemandperiod_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@highdemandperiod_server.tool
-@wrapped_fn_tool
-def update_highdemandperiod(
-    highdemandperiod_id: str,
+@mcp.tool()
+async def delete_highdemandperiod(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return HighDemandPeriod(highdemandperiod_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a HighDemandPeriod.
+
+    Args:
+        object_id: The ID of the HighDemandPeriod
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = HighDemandPeriod(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@highdemandperiod_server.tool
-@wrapped_fn_tool
-def delete_highdemandperiod(
-    highdemandperiod_id: str,
-) -> str:
-    return HighDemandPeriod(highdemandperiod_id).api_delete()
+@mcp.tool()
+async def get_highdemandperiod(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a HighDemandPeriod.
+
+    Args:
+        object_id: The ID of the HighDemandPeriod
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = HighDemandPeriod(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_highdemandperiod(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Update a HighDemandPeriod.
+
+    Args:
+        object_id: The ID of the HighDemandPeriod
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = HighDemandPeriod(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+highdemandperiod_server = mcp

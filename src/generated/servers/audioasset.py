@@ -1,32 +1,45 @@
-"""AudioAsset MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.audioasset import AudioAsset
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAudioAsset"
-instructions = """
-AudioAsset MCP Server for Facebook Business API.
-
-Provides typed access to all AudioAsset operations.
+"""
+Auto-generated MCP server for Facebook AudioAsset.
+DO NOT EDIT MANUALLY.
 """
 
-audioasset_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.audioasset import AudioAsset
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-audioasset")
 
 
-# ---- CRUD Operations (1) ----
-@audioasset_server.tool
-@wrapped_fn_tool
-def get_audioasset(
-    audioasset_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_audioasset(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AudioAsset(audioasset_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AudioAsset.
+
+    Args:
+        object_id: The ID of the AudioAsset
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AudioAsset(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+audioasset_server = mcp

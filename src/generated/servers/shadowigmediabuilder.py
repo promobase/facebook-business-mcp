@@ -1,32 +1,45 @@
-"""ShadowIGMediaBuilder MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.shadowigmediabuilder import ShadowIGMediaBuilder
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookShadowIGMediaBuilder"
-instructions = """
-ShadowIGMediaBuilder MCP Server for Facebook Business API.
-
-Provides typed access to all ShadowIGMediaBuilder operations.
+"""
+Auto-generated MCP server for Facebook ShadowIGMediaBuilder.
+DO NOT EDIT MANUALLY.
 """
 
-shadowigmediabuilder_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.shadowigmediabuilder import ShadowIGMediaBuilder
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-shadowigmediabuilder")
 
 
-# ---- CRUD Operations (1) ----
-@shadowigmediabuilder_server.tool
-@wrapped_fn_tool
-def get_shadowigmediabuilder(
-    shadowigmediabuilder_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_shadowigmediabuilder(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ShadowIGMediaBuilder(shadowigmediabuilder_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ShadowIGMediaBuilder.
+
+    Args:
+        object_id: The ID of the ShadowIGMediaBuilder
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ShadowIGMediaBuilder(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+shadowigmediabuilder_server = mcp

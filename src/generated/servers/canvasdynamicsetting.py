@@ -1,32 +1,45 @@
-"""CanvasDynamicSetting MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.canvasdynamicsetting import CanvasDynamicSetting
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCanvasDynamicSetting"
-instructions = """
-CanvasDynamicSetting MCP Server for Facebook Business API.
-
-Provides typed access to all CanvasDynamicSetting operations.
+"""
+Auto-generated MCP server for Facebook CanvasDynamicSetting.
+DO NOT EDIT MANUALLY.
 """
 
-canvasdynamicsetting_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.canvasdynamicsetting import CanvasDynamicSetting
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-canvasdynamicsetting")
 
 
-# ---- CRUD Operations (1) ----
-@canvasdynamicsetting_server.tool
-@wrapped_fn_tool
-def get_canvasdynamicsetting(
-    canvasdynamicsetting_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_canvasdynamicsetting(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CanvasDynamicSetting(canvasdynamicsetting_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CanvasDynamicSetting.
+
+    Args:
+        object_id: The ID of the CanvasDynamicSetting
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CanvasDynamicSetting(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+canvasdynamicsetting_server = mcp

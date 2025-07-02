@@ -1,110 +1,248 @@
-"""Comment MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.comment import Comment
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookComment"
-instructions = """
-Comment MCP Server for Facebook Business API.
-
-Provides typed access to all Comment operations.
+"""
+Auto-generated MCP server for Facebook Comment.
+DO NOT EDIT MANUALLY.
 """
 
-comment_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.comment import Comment
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-comment")
 
 
-# ---- CRUD Operations (3) ----
-@comment_server.tool
-@wrapped_fn_tool
-def get_comment(
-    comment_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Comment(comment_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@comment_server.tool
-@wrapped_fn_tool
-def update_comment(
-    comment_id: str,
+@mcp.tool()
+async def delete_comment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return Comment(comment_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = Comment(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@comment_server.tool
-@wrapped_fn_tool
-def delete_comment(
-    comment_id: str,
-) -> str:
-    return Comment(comment_id).api_delete()
-
-
-# ---- Edge Methods (6) ----
-@comment_server.tool
-@wrapped_fn_tool
-def get_comments(
-    comment_id: str,
+@mcp.tool()
+async def get_comment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Comment(comment_id).get_comments(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Comment(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@comment_server.tool
-@wrapped_fn_tool
-def create_comment(
-    comment_id: str,
+@mcp.tool()
+async def update_comment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Comment(comment_id).create_comment(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = Comment(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@comment_server.tool
-@wrapped_fn_tool
-def delete_likes(
-    comment_id: str,
-    params: dict[str, Any] = {},
-):
-    return Comment(comment_id).delete_likes(params=params)
+# Edge Methods
 
 
-@comment_server.tool
-@wrapped_fn_tool
-def get_likes(
-    comment_id: str,
+@mcp.tool()
+async def create_comment_for_comment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Comment(comment_id).get_likes(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Comment for Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_comment result
+    """
+    result = Comment(fbid=object_id).create_comment(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@comment_server.tool
-@wrapped_fn_tool
-def create_like(
-    comment_id: str,
+@mcp.tool()
+async def create_like_for_comment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Comment(comment_id).create_like(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Like for Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_like result
+    """
+    result = Comment(fbid=object_id).create_like(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@comment_server.tool
-@wrapped_fn_tool
-def get_reactions(
-    comment_id: str,
+@mcp.tool()
+async def delete_likes_for_comment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Comment(comment_id).get_reactions(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete Likes for Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete_likes result
+    """
+    result = Comment(fbid=object_id).delete_likes(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_comments_for_comment(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Comments for Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_comments result
+    """
+    result = Comment(fbid=object_id).get_comments(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_likes_for_comment(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Likes for Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_likes result
+    """
+    result = Comment(fbid=object_id).get_likes(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_reactions_for_comment(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Reactions for Comment.
+
+    Args:
+        object_id: The ID of the Comment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_reactions result
+    """
+    result = Comment(fbid=object_id).get_reactions(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+comment_server = mcp

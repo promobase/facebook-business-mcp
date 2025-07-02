@@ -1,32 +1,45 @@
-"""BrandRequest MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.brandrequest import BrandRequest
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookBrandRequest"
-instructions = """
-BrandRequest MCP Server for Facebook Business API.
-
-Provides typed access to all BrandRequest operations.
+"""
+Auto-generated MCP server for Facebook BrandRequest.
+DO NOT EDIT MANUALLY.
 """
 
-brandrequest_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.brandrequest import BrandRequest
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-brandrequest")
 
 
-# ---- CRUD Operations (1) ----
-@brandrequest_server.tool
-@wrapped_fn_tool
-def get_brandrequest(
-    brandrequest_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_brandrequest(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = BrandRequest(brandrequest_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a BrandRequest.
+
+    Args:
+        object_id: The ID of the BrandRequest
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = BrandRequest(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+brandrequest_server = mcp

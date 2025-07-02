@@ -1,32 +1,45 @@
-"""CPASAdCreationTemplate MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.cpasadcreationtemplate import CPASAdCreationTemplate
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCPASAdCreationTemplate"
-instructions = """
-CPASAdCreationTemplate MCP Server for Facebook Business API.
-
-Provides typed access to all CPASAdCreationTemplate operations.
+"""
+Auto-generated MCP server for Facebook CPASAdCreationTemplate.
+DO NOT EDIT MANUALLY.
 """
 
-cpasadcreationtemplate_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.cpasadcreationtemplate import CPASAdCreationTemplate
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-cpasadcreationtemplate")
 
 
-# ---- CRUD Operations (1) ----
-@cpasadcreationtemplate_server.tool
-@wrapped_fn_tool
-def get_cpasadcreationtemplate(
-    cpasadcreationtemplate_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_cpasadcreationtemplate(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CPASAdCreationTemplate(cpasadcreationtemplate_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CPASAdCreationTemplate.
+
+    Args:
+        object_id: The ID of the CPASAdCreationTemplate
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CPASAdCreationTemplate(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+cpasadcreationtemplate_server = mcp

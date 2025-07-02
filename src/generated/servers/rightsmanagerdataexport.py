@@ -1,32 +1,45 @@
-"""RightsManagerDataExport MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.rightsmanagerdataexport import RightsManagerDataExport
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookRightsManagerDataExport"
-instructions = """
-RightsManagerDataExport MCP Server for Facebook Business API.
-
-Provides typed access to all RightsManagerDataExport operations.
+"""
+Auto-generated MCP server for Facebook RightsManagerDataExport.
+DO NOT EDIT MANUALLY.
 """
 
-rightsmanagerdataexport_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.rightsmanagerdataexport import RightsManagerDataExport
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-rightsmanagerdataexport")
 
 
-# ---- CRUD Operations (1) ----
-@rightsmanagerdataexport_server.tool
-@wrapped_fn_tool
-def get_rightsmanagerdataexport(
-    rightsmanagerdataexport_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_rightsmanagerdataexport(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = RightsManagerDataExport(rightsmanagerdataexport_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a RightsManagerDataExport.
+
+    Args:
+        object_id: The ID of the RightsManagerDataExport
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = RightsManagerDataExport(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+rightsmanagerdataexport_server = mcp

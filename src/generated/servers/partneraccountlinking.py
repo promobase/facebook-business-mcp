@@ -1,32 +1,45 @@
-"""PartnerAccountLinking MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.partneraccountlinking import PartnerAccountLinking
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPartnerAccountLinking"
-instructions = """
-PartnerAccountLinking MCP Server for Facebook Business API.
-
-Provides typed access to all PartnerAccountLinking operations.
+"""
+Auto-generated MCP server for Facebook PartnerAccountLinking.
+DO NOT EDIT MANUALLY.
 """
 
-partneraccountlinking_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.partneraccountlinking import PartnerAccountLinking
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-partneraccountlinking")
 
 
-# ---- CRUD Operations (1) ----
-@partneraccountlinking_server.tool
-@wrapped_fn_tool
-def get_partneraccountlinking(
-    partneraccountlinking_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_partneraccountlinking(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = PartnerAccountLinking(partneraccountlinking_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a PartnerAccountLinking.
+
+    Args:
+        object_id: The ID of the PartnerAccountLinking
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PartnerAccountLinking(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+partneraccountlinking_server = mcp

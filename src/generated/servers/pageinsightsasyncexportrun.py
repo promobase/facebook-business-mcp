@@ -1,32 +1,45 @@
-"""PageInsightsAsyncExportRun MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.pageinsightsasyncexportrun import PageInsightsAsyncExportRun
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPageInsightsAsyncExportRun"
-instructions = """
-PageInsightsAsyncExportRun MCP Server for Facebook Business API.
-
-Provides typed access to all PageInsightsAsyncExportRun operations.
+"""
+Auto-generated MCP server for Facebook PageInsightsAsyncExportRun.
+DO NOT EDIT MANUALLY.
 """
 
-pageinsightsasyncexportrun_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.pageinsightsasyncexportrun import PageInsightsAsyncExportRun
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-pageinsightsasyncexportrun")
 
 
-# ---- CRUD Operations (1) ----
-@pageinsightsasyncexportrun_server.tool
-@wrapped_fn_tool
-def get_pageinsightsasyncexportrun(
-    pageinsightsasyncexportrun_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_pageinsightsasyncexportrun(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = PageInsightsAsyncExportRun(pageinsightsasyncexportrun_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a PageInsightsAsyncExportRun.
+
+    Args:
+        object_id: The ID of the PageInsightsAsyncExportRun
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PageInsightsAsyncExportRun(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+pageinsightsasyncexportrun_server = mcp

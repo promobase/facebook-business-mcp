@@ -1,45 +1,73 @@
-"""AdsConversionGoal MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adsconversiongoal import AdsConversionGoal
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsConversionGoal"
-instructions = """
-AdsConversionGoal MCP Server for Facebook Business API.
-
-Provides typed access to all AdsConversionGoal operations.
+"""
+Auto-generated MCP server for Facebook AdsConversionGoal.
+DO NOT EDIT MANUALLY.
 """
 
-adsconversiongoal_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adsconversiongoal import AdsConversionGoal
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adsconversiongoal")
 
 
-# ---- CRUD Operations (1) ----
-@adsconversiongoal_server.tool
-@wrapped_fn_tool
-def get_adsconversiongoal(
-    adsconversiongoal_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = AdsConversionGoal(adsconversiongoal_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@adsconversiongoal_server.tool
-@wrapped_fn_tool
-def get_conversion_events(
-    adsconversiongoal_id: str,
+@mcp.tool()
+async def get_adsconversiongoal(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsConversionGoal(adsconversiongoal_id).get_conversion_events(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a AdsConversionGoal.
+
+    Args:
+        object_id: The ID of the AdsConversionGoal
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsConversionGoal(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_conversion_events_for_adsconversiongoal(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Conversion Events for AdsConversionGoal.
+
+    Args:
+        object_id: The ID of the AdsConversionGoal
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_conversion_events result
+    """
+    result = AdsConversionGoal(fbid=object_id).get_conversion_events(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adsconversiongoal_server = mcp

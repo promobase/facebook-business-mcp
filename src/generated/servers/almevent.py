@@ -1,32 +1,45 @@
-"""ALMEvent MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.almevent import ALMEvent
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookALMEvent"
-instructions = """
-ALMEvent MCP Server for Facebook Business API.
-
-Provides typed access to all ALMEvent operations.
+"""
+Auto-generated MCP server for Facebook ALMEvent.
+DO NOT EDIT MANUALLY.
 """
 
-almevent_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.almevent import ALMEvent
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-almevent")
 
 
-# ---- CRUD Operations (1) ----
-@almevent_server.tool
-@wrapped_fn_tool
-def get_almevent(
-    almevent_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_almevent(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ALMEvent(almevent_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ALMEvent.
+
+    Args:
+        object_id: The ID of the ALMEvent
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ALMEvent(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+almevent_server = mcp

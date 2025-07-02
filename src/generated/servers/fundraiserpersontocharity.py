@@ -1,93 +1,173 @@
-"""FundraiserPersonToCharity MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.fundraiserpersontocharity import FundraiserPersonToCharity
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookFundraiserPersonToCharity"
-instructions = """
-FundraiserPersonToCharity MCP Server for Facebook Business API.
-
-Provides typed access to all FundraiserPersonToCharity operations.
+"""
+Auto-generated MCP server for Facebook FundraiserPersonToCharity.
+DO NOT EDIT MANUALLY.
 """
 
-fundraiserpersontocharity_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.fundraiserpersontocharity import FundraiserPersonToCharity
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-fundraiserpersontocharity")
 
 
-# ---- CRUD Operations (2) ----
-@fundraiserpersontocharity_server.tool
-@wrapped_fn_tool
-def get_fundraiserpersontocharity(
-    fundraiserpersontocharity_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = FundraiserPersonToCharity(fundraiserpersontocharity_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@fundraiserpersontocharity_server.tool
-@wrapped_fn_tool
-def update_fundraiserpersontocharity(
-    fundraiserpersontocharity_id: str,
+@mcp.tool()
+async def get_fundraiserpersontocharity(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return FundraiserPersonToCharity(fundraiserpersontocharity_id).api_update(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a FundraiserPersonToCharity.
+
+    Args:
+        object_id: The ID of the FundraiserPersonToCharity
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = FundraiserPersonToCharity(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-# ---- Edge Methods (4) ----
-@fundraiserpersontocharity_server.tool
-@wrapped_fn_tool
-def get_donations(
-    fundraiserpersontocharity_id: str,
+
+@mcp.tool()
+async def update_fundraiserpersontocharity(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return FundraiserPersonToCharity(fundraiserpersontocharity_id).get_donations(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Update a FundraiserPersonToCharity.
+
+    Args:
+        object_id: The ID of the FundraiserPersonToCharity
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = FundraiserPersonToCharity(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@fundraiserpersontocharity_server.tool
-@wrapped_fn_tool
-def create_end_fundraiser(
-    fundraiserpersontocharity_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def create_end_fundraiser_for_fundraiserpersontocharity(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return FundraiserPersonToCharity(fundraiserpersontocharity_id).create_end_fundraiser(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create End Fundraiser for FundraiserPersonToCharity.
+
+    Args:
+        object_id: The ID of the FundraiserPersonToCharity
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_end_fundraiser result
+    """
+    result = FundraiserPersonToCharity(fbid=object_id).create_end_fundraiser(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@fundraiserpersontocharity_server.tool
-@wrapped_fn_tool
-def get_external_donations(
-    fundraiserpersontocharity_id: str,
+
+@mcp.tool()
+async def create_external_donation_for_fundraiserpersontocharity(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return FundraiserPersonToCharity(fundraiserpersontocharity_id).get_external_donations(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create External Donation for FundraiserPersonToCharity.
+
+    Args:
+        object_id: The ID of the FundraiserPersonToCharity
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_external_donation result
+    """
+    result = FundraiserPersonToCharity(fbid=object_id).create_external_donation(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@fundraiserpersontocharity_server.tool
-@wrapped_fn_tool
-def create_external_donation(
-    fundraiserpersontocharity_id: str,
+
+@mcp.tool()
+async def get_donations_for_fundraiserpersontocharity(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return FundraiserPersonToCharity(fundraiserpersontocharity_id).create_external_donation(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get Donations for FundraiserPersonToCharity.
+
+    Args:
+        object_id: The ID of the FundraiserPersonToCharity
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_donations result
+    """
+    result = FundraiserPersonToCharity(fbid=object_id).get_donations(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+@mcp.tool()
+async def get_external_donations_for_fundraiserpersontocharity(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get External Donations for FundraiserPersonToCharity.
+
+    Args:
+        object_id: The ID of the FundraiserPersonToCharity
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_external_donations result
+    """
+    result = FundraiserPersonToCharity(fbid=object_id).get_external_donations(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+fundraiserpersontocharity_server = mcp

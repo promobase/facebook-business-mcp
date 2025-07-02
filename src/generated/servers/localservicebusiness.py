@@ -1,57 +1,98 @@
-"""LocalServiceBusiness MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.localservicebusiness import LocalServiceBusiness
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookLocalServiceBusiness"
-instructions = """
-LocalServiceBusiness MCP Server for Facebook Business API.
-
-Provides typed access to all LocalServiceBusiness operations.
+"""
+Auto-generated MCP server for Facebook LocalServiceBusiness.
+DO NOT EDIT MANUALLY.
 """
 
-localservicebusiness_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.localservicebusiness import LocalServiceBusiness
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-localservicebusiness")
 
 
-# ---- CRUD Operations (1) ----
-@localservicebusiness_server.tool
-@wrapped_fn_tool
-def get_localservicebusiness(
-    localservicebusiness_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = LocalServiceBusiness(localservicebusiness_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@localservicebusiness_server.tool
-@wrapped_fn_tool
-def get_channels_to_integrity_status(
-    localservicebusiness_id: str,
+@mcp.tool()
+async def get_localservicebusiness(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return LocalServiceBusiness(localservicebusiness_id).get_channels_to_integrity_status(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a LocalServiceBusiness.
+
+    Args:
+        object_id: The ID of the LocalServiceBusiness
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = LocalServiceBusiness(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@localservicebusiness_server.tool
-@wrapped_fn_tool
-def get_override_details(
-    localservicebusiness_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_channels_to_integrity_status_for_localservicebusiness(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return LocalServiceBusiness(localservicebusiness_id).get_override_details(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get Channels To Integrity Status for LocalServiceBusiness.
+
+    Args:
+        object_id: The ID of the LocalServiceBusiness
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_channels_to_integrity_status result
+    """
+    result = LocalServiceBusiness(fbid=object_id).get_channels_to_integrity_status(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+@mcp.tool()
+async def get_override_details_for_localservicebusiness(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Override Details for LocalServiceBusiness.
+
+    Args:
+        object_id: The ID of the LocalServiceBusiness
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_override_details result
+    """
+    result = LocalServiceBusiness(fbid=object_id).get_override_details(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+localservicebusiness_server = mcp

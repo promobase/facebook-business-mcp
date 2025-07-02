@@ -1,32 +1,45 @@
-"""AudioSubLabel MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.audiosublabel import AudioSubLabel
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAudioSubLabel"
-instructions = """
-AudioSubLabel MCP Server for Facebook Business API.
-
-Provides typed access to all AudioSubLabel operations.
+"""
+Auto-generated MCP server for Facebook AudioSubLabel.
+DO NOT EDIT MANUALLY.
 """
 
-audiosublabel_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.audiosublabel import AudioSubLabel
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-audiosublabel")
 
 
-# ---- CRUD Operations (1) ----
-@audiosublabel_server.tool
-@wrapped_fn_tool
-def get_audiosublabel(
-    audiosublabel_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_audiosublabel(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AudioSubLabel(audiosublabel_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AudioSubLabel.
+
+    Args:
+        object_id: The ID of the AudioSubLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AudioSubLabel(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+audiosublabel_server = mcp

@@ -102,13 +102,94 @@ class ApiMethodInfo:
         # Clean endpoint - remove leading slash if present
         endpoint = self.endpoint.lstrip("/")
 
+        # Convert endpoint to SDK method name format by adding underscores
+        # Examples: "adcreatives" -> "ad_creatives", "adcreativesbylabels" -> "ad_creatives_by_labels"
+        endpoint_with_underscores = self._add_underscores_to_endpoint(endpoint)
+
         if self.method == "GET":
-            return f"get_{endpoint}"
+            return f"get_{endpoint_with_underscores}"
         elif self.method == "POST":
-            return f"create_{endpoint.rstrip('s')}"  # Remove plural
+            # For POST, check if endpoint already suggests creation
+            if endpoint_with_underscores.startswith("create_"):
+                return endpoint_with_underscores
+            # Remove plural for create methods
+            return f"create_{endpoint_with_underscores.rstrip('s')}"
         elif self.method == "DELETE":
-            return f"delete_{endpoint}"
-        return f"{self.method.lower()}_{endpoint}"
+            return f"delete_{endpoint_with_underscores}"
+        return f"{self.method.lower()}_{endpoint_with_underscores}"
+
+    def _add_underscores_to_endpoint(self, endpoint: str) -> str:
+        """Add underscores to convert API endpoint to SDK method name format.
+
+        Examples:
+        - "adcreatives" -> "ad_creatives"
+        - "adcreativesbylabels" -> "ad_creatives_by_labels"
+        - "asyncadcreatives" -> "async_ad_creatives"
+        - "customaudiences" -> "custom_audiences"
+        - "targetingsentencelines" -> "targeting_sentence_lines"
+        - "adrulesgoverned" -> "ad_rules_governed"
+        - "ads_reporting_mmm_schedulers" -> "ads_reporting_mmm_schedulers" (preserved)
+        """
+        result = endpoint.lower()
+
+        # If endpoint already contains underscores, return as-is
+        # This preserves endpoints like "ads_reporting_mmm_schedulers"
+        if "_" in result:
+            return result
+
+        # Special cases that need specific handling
+        special_cases = {
+            "adcreatives": "ad_creatives",
+            "adcreativesbylabels": "ad_creatives_by_labels",
+            "asyncadcreatives": "async_ad_creatives",
+            "customaudiences": "custom_audiences",
+            "adrulesgoverned": "ad_rules_governed",
+            "targetingsentencelines": "targeting_sentence_lines",
+            "adaccounts": "ad_accounts",
+            "adimages": "ad_images",
+            "advideos": "ad_videos",
+            "adsets": "ad_sets",
+            "adlabels": "ad_labels",
+            "adrules": "ad_rules",
+            "adpixels": "ad_pixels",
+            "asyncadrequests": "async_ad_requests",
+            "asyncadsets": "async_ad_sets",
+            "productcatalogs": "product_catalogs",
+            "productfeeds": "product_feeds",
+            "productsets": "product_sets",
+            "productgroups": "product_groups",
+            "productitems": "product_items",
+        }
+
+        # Check if it's a known special case
+        if result in special_cases:
+            return special_cases[result]
+
+        # General patterns for other cases
+        patterns = [
+            # Handle async prefix
+            (r"^(async)(.+)", r"\1_\2"),
+            # Split "by" when it's between words
+            (r"([a-z]+)by([a-z]+)", r"\1_by_\2"),
+            # Handle common ad-prefixed patterns not in special cases
+            (r"^(ad)([a-z]+)", r"\1_\2"),
+            # Handle common product-prefixed patterns
+            (r"^(product)([a-z]+)", r"\1_\2"),
+            # Handle custom prefix
+            (r"^(custom)([a-z]+)", r"\1_\2"),
+            # Split compound words at known boundaries
+            (r"(targeting)(sentence)", r"\1_\2"),
+            (r"(sentence)(lines)", r"\1_\2"),
+            (r"([a-z]+)(governed|based|matched)$", r"\1_\2"),
+        ]
+
+        for pattern, replacement in patterns:
+            result = re.sub(pattern, replacement, result)
+
+        # Clean up any double underscores
+        result = re.sub(r"_+", "_", result)
+
+        return result
 
 
 @dataclass

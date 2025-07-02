@@ -1,43 +1,73 @@
-"""VideoList MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.videolist import VideoList
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookVideoList"
-instructions = """
-VideoList MCP Server for Facebook Business API.
-
-Provides typed access to all VideoList operations.
+"""
+Auto-generated MCP server for Facebook VideoList.
+DO NOT EDIT MANUALLY.
 """
 
-videolist_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.videolist import VideoList
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-videolist")
 
 
-# ---- CRUD Operations (1) ----
-@videolist_server.tool
-@wrapped_fn_tool
-def get_videolist(
-    videolist_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = VideoList(videolist_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@videolist_server.tool
-@wrapped_fn_tool
-def get_videos(
-    videolist_id: str,
+@mcp.tool()
+async def get_videolist(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return VideoList(videolist_id).get_videos(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a VideoList.
+
+    Args:
+        object_id: The ID of the VideoList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = VideoList(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_videos_for_videolist(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Videos for VideoList.
+
+    Args:
+        object_id: The ID of the VideoList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_videos result
+    """
+    result = VideoList(fbid=object_id).get_videos(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+videolist_server = mcp

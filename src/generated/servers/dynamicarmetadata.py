@@ -1,32 +1,45 @@
-"""DynamicARMetadata MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.dynamicarmetadata import DynamicARMetadata
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookDynamicARMetadata"
-instructions = """
-DynamicARMetadata MCP Server for Facebook Business API.
-
-Provides typed access to all DynamicARMetadata operations.
+"""
+Auto-generated MCP server for Facebook DynamicARMetadata.
+DO NOT EDIT MANUALLY.
 """
 
-dynamicarmetadata_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.dynamicarmetadata import DynamicARMetadata
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-dynamicarmetadata")
 
 
-# ---- CRUD Operations (1) ----
-@dynamicarmetadata_server.tool
-@wrapped_fn_tool
-def get_dynamicarmetadata(
-    dynamicarmetadata_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_dynamicarmetadata(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = DynamicARMetadata(dynamicarmetadata_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a DynamicARMetadata.
+
+    Args:
+        object_id: The ID of the DynamicARMetadata
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = DynamicARMetadata(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+dynamicarmetadata_server = mcp

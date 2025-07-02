@@ -1,43 +1,73 @@
-"""Avatar MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.avatar import Avatar
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAvatar"
-instructions = """
-Avatar MCP Server for Facebook Business API.
-
-Provides typed access to all Avatar operations.
+"""
+Auto-generated MCP server for Facebook Avatar.
+DO NOT EDIT MANUALLY.
 """
 
-avatar_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.avatar import Avatar
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-avatar")
 
 
-# ---- CRUD Operations (1) ----
-@avatar_server.tool
-@wrapped_fn_tool
-def get_avatar(
-    avatar_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Avatar(avatar_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@avatar_server.tool
-@wrapped_fn_tool
-def get_models(
-    avatar_id: str,
+@mcp.tool()
+async def get_avatar(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Avatar(avatar_id).get_models(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Avatar.
+
+    Args:
+        object_id: The ID of the Avatar
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Avatar(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_models_for_avatar(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Models for Avatar.
+
+    Args:
+        object_id: The ID of the Avatar
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_models result
+    """
+    result = Avatar(fbid=object_id).get_models(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+avatar_server = mcp

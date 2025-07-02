@@ -1,32 +1,45 @@
-"""PartnerIntegrationLinked MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.partnerintegrationlinked import PartnerIntegrationLinked
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPartnerIntegrationLinked"
-instructions = """
-PartnerIntegrationLinked MCP Server for Facebook Business API.
-
-Provides typed access to all PartnerIntegrationLinked operations.
+"""
+Auto-generated MCP server for Facebook PartnerIntegrationLinked.
+DO NOT EDIT MANUALLY.
 """
 
-partnerintegrationlinked_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.partnerintegrationlinked import PartnerIntegrationLinked
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-partnerintegrationlinked")
 
 
-# ---- CRUD Operations (1) ----
-@partnerintegrationlinked_server.tool
-@wrapped_fn_tool
-def get_partnerintegrationlinked(
-    partnerintegrationlinked_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_partnerintegrationlinked(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = PartnerIntegrationLinked(partnerintegrationlinked_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a PartnerIntegrationLinked.
+
+    Args:
+        object_id: The ID of the PartnerIntegrationLinked
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PartnerIntegrationLinked(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+partnerintegrationlinked_server = mcp

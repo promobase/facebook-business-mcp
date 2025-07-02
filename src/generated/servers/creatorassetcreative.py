@@ -1,32 +1,45 @@
-"""CreatorAssetCreative MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.creatorassetcreative import CreatorAssetCreative
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCreatorAssetCreative"
-instructions = """
-CreatorAssetCreative MCP Server for Facebook Business API.
-
-Provides typed access to all CreatorAssetCreative operations.
+"""
+Auto-generated MCP server for Facebook CreatorAssetCreative.
+DO NOT EDIT MANUALLY.
 """
 
-creatorassetcreative_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.creatorassetcreative import CreatorAssetCreative
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-creatorassetcreative")
 
 
-# ---- CRUD Operations (1) ----
-@creatorassetcreative_server.tool
-@wrapped_fn_tool
-def get_creatorassetcreative(
-    creatorassetcreative_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_creatorassetcreative(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CreatorAssetCreative(creatorassetcreative_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CreatorAssetCreative.
+
+    Args:
+        object_id: The ID of the CreatorAssetCreative
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CreatorAssetCreative(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+creatorassetcreative_server = mcp

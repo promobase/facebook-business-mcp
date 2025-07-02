@@ -1,32 +1,45 @@
-"""AdsMcmeConversion MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adsmcmeconversion import AdsMcmeConversion
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsMcmeConversion"
-instructions = """
-AdsMcmeConversion MCP Server for Facebook Business API.
-
-Provides typed access to all AdsMcmeConversion operations.
+"""
+Auto-generated MCP server for Facebook AdsMcmeConversion.
+DO NOT EDIT MANUALLY.
 """
 
-adsmcmeconversion_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adsmcmeconversion import AdsMcmeConversion
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adsmcmeconversion")
 
 
-# ---- CRUD Operations (1) ----
-@adsmcmeconversion_server.tool
-@wrapped_fn_tool
-def get_adsmcmeconversion(
-    adsmcmeconversion_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adsmcmeconversion(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdsMcmeConversion(adsmcmeconversion_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdsMcmeConversion.
+
+    Args:
+        object_id: The ID of the AdsMcmeConversion
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsMcmeConversion(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adsmcmeconversion_server = mcp

@@ -1,32 +1,45 @@
-"""SignalsIWLExtractor MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.signalsiwlextractor import SignalsIWLExtractor
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookSignalsIWLExtractor"
-instructions = """
-SignalsIWLExtractor MCP Server for Facebook Business API.
-
-Provides typed access to all SignalsIWLExtractor operations.
+"""
+Auto-generated MCP server for Facebook SignalsIWLExtractor.
+DO NOT EDIT MANUALLY.
 """
 
-signalsiwlextractor_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.signalsiwlextractor import SignalsIWLExtractor
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-signalsiwlextractor")
 
 
-# ---- CRUD Operations (1) ----
-@signalsiwlextractor_server.tool
-@wrapped_fn_tool
-def get_signalsiwlextractor(
-    signalsiwlextractor_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_signalsiwlextractor(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = SignalsIWLExtractor(signalsiwlextractor_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a SignalsIWLExtractor.
+
+    Args:
+        object_id: The ID of the SignalsIWLExtractor
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = SignalsIWLExtractor(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+signalsiwlextractor_server = mcp

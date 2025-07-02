@@ -115,6 +115,261 @@ class AdSet_status(str, Enum):
     PAUSED = "PAUSED"
 
 
+class adcampaignasyncadrequests_statuses_enum_param(str, Enum):
+    """adcampaignasyncadrequests_statuses_enum_param enum values."""
+
+    CANCELED = "CANCELED"
+    CANCELED_DEPENDENCY = "CANCELED_DEPENDENCY"
+    ERROR = "ERROR"
+    ERROR_CONFLICTS = "ERROR_CONFLICTS"
+    ERROR_DEPENDENCY = "ERROR_DEPENDENCY"
+    INITIAL = "INITIAL"
+    IN_PROGRESS = "IN_PROGRESS"
+    PENDING_DEPENDENCY = "PENDING_DEPENDENCY"
+    PROCESS_BY_AD_ASYNC_ENGINE = "PROCESS_BY_AD_ASYNC_ENGINE"
+    PROCESS_BY_EVENT_PROCESSOR = "PROCESS_BY_EVENT_PROCESSOR"
+    SUCCESS = "SUCCESS"
+    USER_CANCELED = "USER_CANCELED"
+    USER_CANCELED_DEPENDENCY = "USER_CANCELED_DEPENDENCY"
+
+
+class adcampaigninsights_action_report_time_enum_param(str, Enum):
+    """adcampaigninsights_action_report_time_enum_param enum values."""
+
+    conversion = "conversion"
+    impression = "impression"
+    lifetime = "lifetime"
+    mixed = "mixed"
+
+
+class adcampaignads_date_preset_enum_param(str, Enum):
+    """adcampaignads_date_preset_enum_param enum values."""
+
+    data_maximum = "data_maximum"
+    last_14d = "last_14d"
+    last_28d = "last_28d"
+    last_30d = "last_30d"
+    last_3d = "last_3d"
+    last_7d = "last_7d"
+    last_90d = "last_90d"
+    last_month = "last_month"
+    last_quarter = "last_quarter"
+    last_week_mon_sun = "last_week_mon_sun"
+    last_week_sun_sat = "last_week_sun_sat"
+    last_year = "last_year"
+    maximum = "maximum"
+    this_month = "this_month"
+    this_quarter = "this_quarter"
+    this_week_mon_today = "this_week_mon_today"
+    this_week_sun_today = "this_week_sun_today"
+    this_year = "this_year"
+    today = "today"
+    yesterday = "yesterday"
+
+
+class adcampaignmessage_delivery_estimate_pacing_type_enum_param(str, Enum):
+    """adcampaignmessage_delivery_estimate_pacing_type_enum_param enum values."""
+
+    DAY_PARTING = "DAY_PARTING"
+    DISABLED = "DISABLED"
+    NO_PACING = "NO_PACING"
+    PROBABILISTIC_PACING = "PROBABILISTIC_PACING"
+    PROBABILISTIC_PACING_V2 = "PROBABILISTIC_PACING_V2"
+    STANDARD = "STANDARD"
+
+
+class adcampaignactivities_category_enum_param(str, Enum):
+    """adcampaignactivities_category_enum_param enum values."""
+
+    ACCOUNT = "ACCOUNT"
+    AD = "AD"
+    AD_KEYWORDS = "AD_KEYWORDS"
+    AD_SET = "AD_SET"
+    AUDIENCE = "AUDIENCE"
+    BID = "BID"
+    BUDGET = "BUDGET"
+    CAMPAIGN = "CAMPAIGN"
+    DATE = "DATE"
+    STATUS = "STATUS"
+    TARGETING = "TARGETING"
+
+
+class adcampaigncopies_status_option_enum_param(str, Enum):
+    """adcampaigncopies_status_option_enum_param enum values."""
+
+    ACTIVE = "ACTIVE"
+    INHERITED_FROM_SOURCE = "INHERITED_FROM_SOURCE"
+    PAUSED = "PAUSED"
+
+
+class adcampaigninsights_action_breakdowns_enum_param(str, Enum):
+    """adcampaigninsights_action_breakdowns_enum_param enum values."""
+
+    action_canvas_component_name = "action_canvas_component_name"
+    action_carousel_card_id = "action_carousel_card_id"
+    action_carousel_card_name = "action_carousel_card_name"
+    action_destination = "action_destination"
+    action_device = "action_device"
+    action_reaction = "action_reaction"
+    action_target_id = "action_target_id"
+    action_type = "action_type"
+    action_video_sound = "action_video_sound"
+    action_video_type = "action_video_type"
+    conversion_destination = "conversion_destination"
+    matched_persona_id = "matched_persona_id"
+    matched_persona_name = "matched_persona_name"
+    signal_source_bucket = "signal_source_bucket"
+    standard_event_content_type = "standard_event_content_type"
+
+
+class adcampaigndelivery_estimate_optimization_goal_enum_param(str, Enum):
+    """adcampaigndelivery_estimate_optimization_goal_enum_param enum values."""
+
+    ADVERTISER_SILOED_VALUE = "ADVERTISER_SILOED_VALUE"
+    AD_RECALL_LIFT = "AD_RECALL_LIFT"
+    APP_INSTALLS = "APP_INSTALLS"
+    APP_INSTALLS_AND_OFFSITE_CONVERSIONS = "APP_INSTALLS_AND_OFFSITE_CONVERSIONS"
+    CONVERSATIONS = "CONVERSATIONS"
+    DERIVED_EVENTS = "DERIVED_EVENTS"
+    ENGAGED_USERS = "ENGAGED_USERS"
+    EVENT_RESPONSES = "EVENT_RESPONSES"
+    IMPRESSIONS = "IMPRESSIONS"
+    IN_APP_VALUE = "IN_APP_VALUE"
+    LANDING_PAGE_VIEWS = "LANDING_PAGE_VIEWS"
+    LEAD_GENERATION = "LEAD_GENERATION"
+    LINK_CLICKS = "LINK_CLICKS"
+    MEANINGFUL_CALL_ATTEMPT = "MEANINGFUL_CALL_ATTEMPT"
+    MESSAGING_APPOINTMENT_CONVERSION = "MESSAGING_APPOINTMENT_CONVERSION"
+    MESSAGING_PURCHASE_CONVERSION = "MESSAGING_PURCHASE_CONVERSION"
+    NONE = "NONE"
+    OFFSITE_CONVERSIONS = "OFFSITE_CONVERSIONS"
+    PAGE_LIKES = "PAGE_LIKES"
+    POST_ENGAGEMENT = "POST_ENGAGEMENT"
+    PROFILE_AND_PAGE_ENGAGEMENT = "PROFILE_AND_PAGE_ENGAGEMENT"
+    PROFILE_VISIT = "PROFILE_VISIT"
+    QUALITY_CALL = "QUALITY_CALL"
+    QUALITY_LEAD = "QUALITY_LEAD"
+    REACH = "REACH"
+    REMINDERS_SET = "REMINDERS_SET"
+    SUBSCRIBERS = "SUBSCRIBERS"
+    THRUPLAY = "THRUPLAY"
+    VALUE = "VALUE"
+    VISIT_INSTAGRAM_PROFILE = "VISIT_INSTAGRAM_PROFILE"
+
+
+class adcampaigninsights_date_preset_enum_param(str, Enum):
+    """adcampaigninsights_date_preset_enum_param enum values."""
+
+    data_maximum = "data_maximum"
+    last_14d = "last_14d"
+    last_28d = "last_28d"
+    last_30d = "last_30d"
+    last_3d = "last_3d"
+    last_7d = "last_7d"
+    last_90d = "last_90d"
+    last_month = "last_month"
+    last_quarter = "last_quarter"
+    last_week_mon_sun = "last_week_mon_sun"
+    last_week_sun_sat = "last_week_sun_sat"
+    last_year = "last_year"
+    maximum = "maximum"
+    this_month = "this_month"
+    this_quarter = "this_quarter"
+    this_week_mon_today = "this_week_mon_today"
+    this_week_sun_today = "this_week_sun_today"
+    this_year = "this_year"
+    today = "today"
+    yesterday = "yesterday"
+
+
+class adcampaigninsights_level_enum_param(str, Enum):
+    """adcampaigninsights_level_enum_param enum values."""
+
+    account = "account"
+    ad = "ad"
+    adset = "adset"
+    campaign = "campaign"
+
+
+class adcampaigninsights_summary_action_breakdowns_enum_param(str, Enum):
+    """adcampaigninsights_summary_action_breakdowns_enum_param enum values."""
+
+    action_canvas_component_name = "action_canvas_component_name"
+    action_carousel_card_id = "action_carousel_card_id"
+    action_carousel_card_name = "action_carousel_card_name"
+    action_destination = "action_destination"
+    action_device = "action_device"
+    action_reaction = "action_reaction"
+    action_target_id = "action_target_id"
+    action_type = "action_type"
+    action_video_sound = "action_video_sound"
+    action_video_type = "action_video_type"
+    conversion_destination = "conversion_destination"
+    matched_persona_id = "matched_persona_id"
+    matched_persona_name = "matched_persona_name"
+    signal_source_bucket = "signal_source_bucket"
+    standard_event_content_type = "standard_event_content_type"
+
+
+class adcampaigninsights_action_attribution_windows_enum_param(str, Enum):
+    """adcampaigninsights_action_attribution_windows_enum_param enum values."""
+
+    VALUE_1D_CLICK = "1d_click"
+    VALUE_1D_EV = "1d_ev"
+    VALUE_1D_VIEW = "1d_view"
+    VALUE_28D_CLICK = "28d_click"
+    VALUE_28D_VIEW = "28d_view"
+    VALUE_28D_VIEW_ALL_CONVERSIONS = "28d_view_all_conversions"
+    VALUE_28D_VIEW_FIRST_CONVERSION = "28d_view_first_conversion"
+    VALUE_7D_CLICK = "7d_click"
+    VALUE_7D_VIEW = "7d_view"
+    VALUE_7D_VIEW_ALL_CONVERSIONS = "7d_view_all_conversions"
+    VALUE_7D_VIEW_FIRST_CONVERSION = "7d_view_first_conversion"
+    dda = "dda"
+    default = "default"
+    skan_click = "skan_click"
+    skan_click_second_postback = "skan_click_second_postback"
+    skan_click_third_postback = "skan_click_third_postback"
+    skan_view = "skan_view"
+    skan_view_second_postback = "skan_view_second_postback"
+    skan_view_third_postback = "skan_view_third_postback"
+
+
+class adcampaignmessage_delivery_estimate_optimization_goal_enum_param(str, Enum):
+    """adcampaignmessage_delivery_estimate_optimization_goal_enum_param enum values."""
+
+    ADVERTISER_SILOED_VALUE = "ADVERTISER_SILOED_VALUE"
+    AD_RECALL_LIFT = "AD_RECALL_LIFT"
+    APP_INSTALLS = "APP_INSTALLS"
+    APP_INSTALLS_AND_OFFSITE_CONVERSIONS = "APP_INSTALLS_AND_OFFSITE_CONVERSIONS"
+    CONVERSATIONS = "CONVERSATIONS"
+    DERIVED_EVENTS = "DERIVED_EVENTS"
+    ENGAGED_USERS = "ENGAGED_USERS"
+    EVENT_RESPONSES = "EVENT_RESPONSES"
+    IMPRESSIONS = "IMPRESSIONS"
+    IN_APP_VALUE = "IN_APP_VALUE"
+    LANDING_PAGE_VIEWS = "LANDING_PAGE_VIEWS"
+    LEAD_GENERATION = "LEAD_GENERATION"
+    LINK_CLICKS = "LINK_CLICKS"
+    MEANINGFUL_CALL_ATTEMPT = "MEANINGFUL_CALL_ATTEMPT"
+    MESSAGING_APPOINTMENT_CONVERSION = "MESSAGING_APPOINTMENT_CONVERSION"
+    MESSAGING_PURCHASE_CONVERSION = "MESSAGING_PURCHASE_CONVERSION"
+    NONE = "NONE"
+    OFFSITE_CONVERSIONS = "OFFSITE_CONVERSIONS"
+    PAGE_LIKES = "PAGE_LIKES"
+    POST_ENGAGEMENT = "POST_ENGAGEMENT"
+    PROFILE_AND_PAGE_ENGAGEMENT = "PROFILE_AND_PAGE_ENGAGEMENT"
+    PROFILE_VISIT = "PROFILE_VISIT"
+    QUALITY_CALL = "QUALITY_CALL"
+    QUALITY_LEAD = "QUALITY_LEAD"
+    REACH = "REACH"
+    REMINDERS_SET = "REMINDERS_SET"
+    SUBSCRIBERS = "SUBSCRIBERS"
+    THRUPLAY = "THRUPLAY"
+    VALUE = "VALUE"
+    VISIT_INSTAGRAM_PROFILE = "VISIT_INSTAGRAM_PROFILE"
+
+
 class adcampaigninsights_breakdowns_enum_param(str, Enum):
     """adcampaigninsights_breakdowns_enum_param enum values."""
 
@@ -187,231 +442,6 @@ class adcampaigninsights_breakdowns_enum_param(str, Enum):
     video_asset = "video_asset"
 
 
-class adcampaignactivities_category_enum_param(str, Enum):
-    """adcampaignactivities_category_enum_param enum values."""
-
-    ACCOUNT = "ACCOUNT"
-    AD = "AD"
-    AD_KEYWORDS = "AD_KEYWORDS"
-    AD_SET = "AD_SET"
-    AUDIENCE = "AUDIENCE"
-    BID = "BID"
-    BUDGET = "BUDGET"
-    CAMPAIGN = "CAMPAIGN"
-    DATE = "DATE"
-    STATUS = "STATUS"
-    TARGETING = "TARGETING"
-
-
-class adcampaigninsights_action_report_time_enum_param(str, Enum):
-    """adcampaigninsights_action_report_time_enum_param enum values."""
-
-    conversion = "conversion"
-    impression = "impression"
-    lifetime = "lifetime"
-    mixed = "mixed"
-
-
-class adcampaigninsights_summary_action_breakdowns_enum_param(str, Enum):
-    """adcampaigninsights_summary_action_breakdowns_enum_param enum values."""
-
-    action_canvas_component_name = "action_canvas_component_name"
-    action_carousel_card_id = "action_carousel_card_id"
-    action_carousel_card_name = "action_carousel_card_name"
-    action_destination = "action_destination"
-    action_device = "action_device"
-    action_reaction = "action_reaction"
-    action_target_id = "action_target_id"
-    action_type = "action_type"
-    action_video_sound = "action_video_sound"
-    action_video_type = "action_video_type"
-    conversion_destination = "conversion_destination"
-    matched_persona_id = "matched_persona_id"
-    matched_persona_name = "matched_persona_name"
-    signal_source_bucket = "signal_source_bucket"
-    standard_event_content_type = "standard_event_content_type"
-
-
-class adcampaignmessage_delivery_estimate_pacing_type_enum_param(str, Enum):
-    """adcampaignmessage_delivery_estimate_pacing_type_enum_param enum values."""
-
-    DAY_PARTING = "DAY_PARTING"
-    DISABLED = "DISABLED"
-    NO_PACING = "NO_PACING"
-    PROBABILISTIC_PACING = "PROBABILISTIC_PACING"
-    PROBABILISTIC_PACING_V2 = "PROBABILISTIC_PACING_V2"
-    STANDARD = "STANDARD"
-
-
-class adcampaigncopies_effective_status_enum_param(str, Enum):
-    """adcampaigncopies_effective_status_enum_param enum values."""
-
-    ACTIVE = "ACTIVE"
-    ADSET_PAUSED = "ADSET_PAUSED"
-    ARCHIVED = "ARCHIVED"
-    CAMPAIGN_PAUSED = "CAMPAIGN_PAUSED"
-    DELETED = "DELETED"
-    DISAPPROVED = "DISAPPROVED"
-    IN_PROCESS = "IN_PROCESS"
-    PAUSED = "PAUSED"
-    PENDING_BILLING_INFO = "PENDING_BILLING_INFO"
-    PENDING_REVIEW = "PENDING_REVIEW"
-    PREAPPROVED = "PREAPPROVED"
-    WITH_ISSUES = "WITH_ISSUES"
-
-
-class adcampaignadlabels_execution_options_enum_param(str, Enum):
-    """adcampaignadlabels_execution_options_enum_param enum values."""
-
-    validate_only = "validate_only"
-
-
-class adcampaigninsights_date_preset_enum_param(str, Enum):
-    """adcampaigninsights_date_preset_enum_param enum values."""
-
-    data_maximum = "data_maximum"
-    last_14d = "last_14d"
-    last_28d = "last_28d"
-    last_30d = "last_30d"
-    last_3d = "last_3d"
-    last_7d = "last_7d"
-    last_90d = "last_90d"
-    last_month = "last_month"
-    last_quarter = "last_quarter"
-    last_week_mon_sun = "last_week_mon_sun"
-    last_week_sun_sat = "last_week_sun_sat"
-    last_year = "last_year"
-    maximum = "maximum"
-    this_month = "this_month"
-    this_quarter = "this_quarter"
-    this_week_mon_today = "this_week_mon_today"
-    this_week_sun_today = "this_week_sun_today"
-    this_year = "this_year"
-    today = "today"
-    yesterday = "yesterday"
-
-
-class adcampaigninsights_action_attribution_windows_enum_param(str, Enum):
-    """adcampaigninsights_action_attribution_windows_enum_param enum values."""
-
-    VALUE_1D_CLICK = "1d_click"
-    VALUE_1D_EV = "1d_ev"
-    VALUE_1D_VIEW = "1d_view"
-    VALUE_28D_CLICK = "28d_click"
-    VALUE_28D_VIEW = "28d_view"
-    VALUE_28D_VIEW_ALL_CONVERSIONS = "28d_view_all_conversions"
-    VALUE_28D_VIEW_FIRST_CONVERSION = "28d_view_first_conversion"
-    VALUE_7D_CLICK = "7d_click"
-    VALUE_7D_VIEW = "7d_view"
-    VALUE_7D_VIEW_ALL_CONVERSIONS = "7d_view_all_conversions"
-    VALUE_7D_VIEW_FIRST_CONVERSION = "7d_view_first_conversion"
-    dda = "dda"
-    default = "default"
-    skan_click = "skan_click"
-    skan_click_second_postback = "skan_click_second_postback"
-    skan_click_third_postback = "skan_click_third_postback"
-    skan_view = "skan_view"
-    skan_view_second_postback = "skan_view_second_postback"
-    skan_view_third_postback = "skan_view_third_postback"
-
-
-class adcampaigninsights_action_breakdowns_enum_param(str, Enum):
-    """adcampaigninsights_action_breakdowns_enum_param enum values."""
-
-    action_canvas_component_name = "action_canvas_component_name"
-    action_carousel_card_id = "action_carousel_card_id"
-    action_carousel_card_name = "action_carousel_card_name"
-    action_destination = "action_destination"
-    action_device = "action_device"
-    action_reaction = "action_reaction"
-    action_target_id = "action_target_id"
-    action_type = "action_type"
-    action_video_sound = "action_video_sound"
-    action_video_type = "action_video_type"
-    conversion_destination = "conversion_destination"
-    matched_persona_id = "matched_persona_id"
-    matched_persona_name = "matched_persona_name"
-    signal_source_bucket = "signal_source_bucket"
-    standard_event_content_type = "standard_event_content_type"
-
-
-class adcampaigncopies_status_option_enum_param(str, Enum):
-    """adcampaigncopies_status_option_enum_param enum values."""
-
-    ACTIVE = "ACTIVE"
-    INHERITED_FROM_SOURCE = "INHERITED_FROM_SOURCE"
-    PAUSED = "PAUSED"
-
-
-class adcampaigninsights_level_enum_param(str, Enum):
-    """adcampaigninsights_level_enum_param enum values."""
-
-    account = "account"
-    ad = "ad"
-    adset = "adset"
-    campaign = "campaign"
-
-
-class adcampaigndelivery_estimate_optimization_goal_enum_param(str, Enum):
-    """adcampaigndelivery_estimate_optimization_goal_enum_param enum values."""
-
-    ADVERTISER_SILOED_VALUE = "ADVERTISER_SILOED_VALUE"
-    AD_RECALL_LIFT = "AD_RECALL_LIFT"
-    APP_INSTALLS = "APP_INSTALLS"
-    APP_INSTALLS_AND_OFFSITE_CONVERSIONS = "APP_INSTALLS_AND_OFFSITE_CONVERSIONS"
-    CONVERSATIONS = "CONVERSATIONS"
-    DERIVED_EVENTS = "DERIVED_EVENTS"
-    ENGAGED_USERS = "ENGAGED_USERS"
-    EVENT_RESPONSES = "EVENT_RESPONSES"
-    IMPRESSIONS = "IMPRESSIONS"
-    IN_APP_VALUE = "IN_APP_VALUE"
-    LANDING_PAGE_VIEWS = "LANDING_PAGE_VIEWS"
-    LEAD_GENERATION = "LEAD_GENERATION"
-    LINK_CLICKS = "LINK_CLICKS"
-    MEANINGFUL_CALL_ATTEMPT = "MEANINGFUL_CALL_ATTEMPT"
-    MESSAGING_APPOINTMENT_CONVERSION = "MESSAGING_APPOINTMENT_CONVERSION"
-    MESSAGING_PURCHASE_CONVERSION = "MESSAGING_PURCHASE_CONVERSION"
-    NONE = "NONE"
-    OFFSITE_CONVERSIONS = "OFFSITE_CONVERSIONS"
-    PAGE_LIKES = "PAGE_LIKES"
-    POST_ENGAGEMENT = "POST_ENGAGEMENT"
-    PROFILE_AND_PAGE_ENGAGEMENT = "PROFILE_AND_PAGE_ENGAGEMENT"
-    PROFILE_VISIT = "PROFILE_VISIT"
-    QUALITY_CALL = "QUALITY_CALL"
-    QUALITY_LEAD = "QUALITY_LEAD"
-    REACH = "REACH"
-    REMINDERS_SET = "REMINDERS_SET"
-    SUBSCRIBERS = "SUBSCRIBERS"
-    THRUPLAY = "THRUPLAY"
-    VALUE = "VALUE"
-    VISIT_INSTAGRAM_PROFILE = "VISIT_INSTAGRAM_PROFILE"
-
-
-class adcampaignasyncadrequests_statuses_enum_param(str, Enum):
-    """adcampaignasyncadrequests_statuses_enum_param enum values."""
-
-    CANCELED = "CANCELED"
-    CANCELED_DEPENDENCY = "CANCELED_DEPENDENCY"
-    ERROR = "ERROR"
-    ERROR_CONFLICTS = "ERROR_CONFLICTS"
-    ERROR_DEPENDENCY = "ERROR_DEPENDENCY"
-    INITIAL = "INITIAL"
-    IN_PROGRESS = "IN_PROGRESS"
-    PENDING_DEPENDENCY = "PENDING_DEPENDENCY"
-    PROCESS_BY_AD_ASYNC_ENGINE = "PROCESS_BY_AD_ASYNC_ENGINE"
-    PROCESS_BY_EVENT_PROCESSOR = "PROCESS_BY_EVENT_PROCESSOR"
-    SUCCESS = "SUCCESS"
-    USER_CANCELED = "USER_CANCELED"
-    USER_CANCELED_DEPENDENCY = "USER_CANCELED_DEPENDENCY"
-
-
-class adcampaignbudget_schedules_budget_value_type_enum_param(str, Enum):
-    """adcampaignbudget_schedules_budget_value_type_enum_param enum values."""
-
-    ABSOLUTE = "ABSOLUTE"
-    MULTIPLIER = "MULTIPLIER"
-
-
 class adcampaigncopies_date_preset_enum_param(str, Enum):
     """adcampaigncopies_date_preset_enum_param enum values."""
 
@@ -437,64 +467,34 @@ class adcampaigncopies_date_preset_enum_param(str, Enum):
     yesterday = "yesterday"
 
 
-class adcampaignmessage_delivery_estimate_optimization_goal_enum_param(str, Enum):
-    """adcampaignmessage_delivery_estimate_optimization_goal_enum_param enum values."""
+class adcampaignbudget_schedules_budget_value_type_enum_param(str, Enum):
+    """adcampaignbudget_schedules_budget_value_type_enum_param enum values."""
 
-    ADVERTISER_SILOED_VALUE = "ADVERTISER_SILOED_VALUE"
-    AD_RECALL_LIFT = "AD_RECALL_LIFT"
-    APP_INSTALLS = "APP_INSTALLS"
-    APP_INSTALLS_AND_OFFSITE_CONVERSIONS = "APP_INSTALLS_AND_OFFSITE_CONVERSIONS"
-    CONVERSATIONS = "CONVERSATIONS"
-    DERIVED_EVENTS = "DERIVED_EVENTS"
-    ENGAGED_USERS = "ENGAGED_USERS"
-    EVENT_RESPONSES = "EVENT_RESPONSES"
-    IMPRESSIONS = "IMPRESSIONS"
-    IN_APP_VALUE = "IN_APP_VALUE"
-    LANDING_PAGE_VIEWS = "LANDING_PAGE_VIEWS"
-    LEAD_GENERATION = "LEAD_GENERATION"
-    LINK_CLICKS = "LINK_CLICKS"
-    MEANINGFUL_CALL_ATTEMPT = "MEANINGFUL_CALL_ATTEMPT"
-    MESSAGING_APPOINTMENT_CONVERSION = "MESSAGING_APPOINTMENT_CONVERSION"
-    MESSAGING_PURCHASE_CONVERSION = "MESSAGING_PURCHASE_CONVERSION"
-    NONE = "NONE"
-    OFFSITE_CONVERSIONS = "OFFSITE_CONVERSIONS"
-    PAGE_LIKES = "PAGE_LIKES"
-    POST_ENGAGEMENT = "POST_ENGAGEMENT"
-    PROFILE_AND_PAGE_ENGAGEMENT = "PROFILE_AND_PAGE_ENGAGEMENT"
-    PROFILE_VISIT = "PROFILE_VISIT"
-    QUALITY_CALL = "QUALITY_CALL"
-    QUALITY_LEAD = "QUALITY_LEAD"
-    REACH = "REACH"
-    REMINDERS_SET = "REMINDERS_SET"
-    SUBSCRIBERS = "SUBSCRIBERS"
-    THRUPLAY = "THRUPLAY"
-    VALUE = "VALUE"
-    VISIT_INSTAGRAM_PROFILE = "VISIT_INSTAGRAM_PROFILE"
+    ABSOLUTE = "ABSOLUTE"
+    MULTIPLIER = "MULTIPLIER"
 
 
-class adcampaignads_date_preset_enum_param(str, Enum):
-    """adcampaignads_date_preset_enum_param enum values."""
+class adcampaignadlabels_execution_options_enum_param(str, Enum):
+    """adcampaignadlabels_execution_options_enum_param enum values."""
 
-    data_maximum = "data_maximum"
-    last_14d = "last_14d"
-    last_28d = "last_28d"
-    last_30d = "last_30d"
-    last_3d = "last_3d"
-    last_7d = "last_7d"
-    last_90d = "last_90d"
-    last_month = "last_month"
-    last_quarter = "last_quarter"
-    last_week_mon_sun = "last_week_mon_sun"
-    last_week_sun_sat = "last_week_sun_sat"
-    last_year = "last_year"
-    maximum = "maximum"
-    this_month = "this_month"
-    this_quarter = "this_quarter"
-    this_week_mon_today = "this_week_mon_today"
-    this_week_sun_today = "this_week_sun_today"
-    this_year = "this_year"
-    today = "today"
-    yesterday = "yesterday"
+    validate_only = "validate_only"
+
+
+class adcampaigncopies_effective_status_enum_param(str, Enum):
+    """adcampaigncopies_effective_status_enum_param enum values."""
+
+    ACTIVE = "ACTIVE"
+    ADSET_PAUSED = "ADSET_PAUSED"
+    ARCHIVED = "ARCHIVED"
+    CAMPAIGN_PAUSED = "CAMPAIGN_PAUSED"
+    DELETED = "DELETED"
+    DISAPPROVED = "DISAPPROVED"
+    IN_PROCESS = "IN_PROCESS"
+    PAUSED = "PAUSED"
+    PENDING_BILLING_INFO = "PENDING_BILLING_INFO"
+    PENDING_REVIEW = "PENDING_REVIEW"
+    PREAPPROVED = "PREAPPROVED"
+    WITH_ISSUES = "WITH_ISSUES"
 
 
 # Field literal type
@@ -678,8 +678,8 @@ class AdSetGetActivitiesParams(BaseModel):
     until: datetime | None = Field(None, description="until parameter")
 
 
-class AdSetDeleteAdlabelsParams(BaseModel):
-    """Parameters for AdSet.delete_adlabels()."""
+class AdSetDeleteAdLabelsParams(BaseModel):
+    """Parameters for AdSet.delete_ad_labels()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[dict[str, Any]] | None = Field(None, description="adlabels parameter")
@@ -688,8 +688,8 @@ class AdSetDeleteAdlabelsParams(BaseModel):
     )
 
 
-class AdSetCreateAdlabelParams(BaseModel):
-    """Parameters for AdSet.create_adlabel()."""
+class AdSetCreateAdLabelParams(BaseModel):
+    """Parameters for AdSet.create_ad_label()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[dict[str, Any]] | None = Field(None, description="adlabels parameter")
@@ -705,8 +705,8 @@ class AdSetGetAdrulesGovernedParams(BaseModel):
     pass_evaluation: bool | None = Field(None, description="pass_evaluation parameter")
 
 
-class AdSetGetAdsParams(BaseModel):
-    """Parameters for AdSet.get_ads()."""
+class AdSetGetAdSParams(BaseModel):
+    """Parameters for AdSet.get_ad_s()."""
 
     model_config = ConfigDict(extra="forbid")
     date_preset: adcampaignads_date_preset_enum_param | None = Field(
@@ -717,8 +717,8 @@ class AdSetGetAdsParams(BaseModel):
     updated_since: int | None = Field(None, description="updated_since parameter")
 
 
-class AdSetGetAsyncadrequestsParams(BaseModel):
-    """Parameters for AdSet.get_asyncadrequests()."""
+class AdSetGetAsyncAdRequestsParams(BaseModel):
+    """Parameters for AdSet.get_async_ad_requests()."""
 
     model_config = ConfigDict(extra="forbid")
     statuses: list[adcampaignasyncadrequests_statuses_enum_param] | None = Field(

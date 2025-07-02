@@ -1,73 +1,148 @@
-"""InstagramUser MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.instagramuser import InstagramUser
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookInstagramUser"
-instructions = """
-InstagramUser MCP Server for Facebook Business API.
-
-Provides typed access to all InstagramUser operations.
+"""
+Auto-generated MCP server for Facebook InstagramUser.
+DO NOT EDIT MANUALLY.
 """
 
-instagramuser_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.instagramuser import InstagramUser
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-instagramuser")
 
 
-# ---- CRUD Operations (1) ----
-@instagramuser_server.tool
-@wrapped_fn_tool
-def get_instagramuser(
-    instagramuser_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = InstagramUser(instagramuser_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (4) ----
-@instagramuser_server.tool
-@wrapped_fn_tool
-def get_agencies(
-    instagramuser_id: str,
+@mcp.tool()
+async def get_instagramuser(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return InstagramUser(instagramuser_id).get_agencies(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a InstagramUser.
+
+    Args:
+        object_id: The ID of the InstagramUser
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = InstagramUser(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@instagramuser_server.tool
-@wrapped_fn_tool
-def get_ar_effects(
-    instagramuser_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_agencies_for_instagramuser(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return InstagramUser(instagramuser_id).get_ar_effects(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Agencies for InstagramUser.
+
+    Args:
+        object_id: The ID of the InstagramUser
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_agencies result
+    """
+    result = InstagramUser(fbid=object_id).get_agencies(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@instagramuser_server.tool
-@wrapped_fn_tool
-def get_authorized_adaccounts(
-    instagramuser_id: str,
+@mcp.tool()
+async def get_ar_effects_for_instagramuser(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return InstagramUser(instagramuser_id).get_authorized_adaccounts(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Ar Effects for InstagramUser.
+
+    Args:
+        object_id: The ID of the InstagramUser
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ar_effects result
+    """
+    result = InstagramUser(fbid=object_id).get_ar_effects(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@instagramuser_server.tool
-@wrapped_fn_tool
-def get_upcoming_events(
-    instagramuser_id: str,
+@mcp.tool()
+async def get_authorized_ad_accounts_for_instagramuser(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return InstagramUser(instagramuser_id).get_upcoming_events(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Authorized Ad Accounts for InstagramUser.
+
+    Args:
+        object_id: The ID of the InstagramUser
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_authorized_ad_accounts result
+    """
+    result = InstagramUser(fbid=object_id).get_authorized_ad_accounts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_upcoming_events_for_instagramuser(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Upcoming Events for InstagramUser.
+
+    Args:
+        object_id: The ID of the InstagramUser
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_upcoming_events result
+    """
+    result = InstagramUser(fbid=object_id).get_upcoming_events(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+instagramuser_server = mcp

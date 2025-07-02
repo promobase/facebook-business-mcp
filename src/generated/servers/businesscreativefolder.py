@@ -1,32 +1,73 @@
-"""BusinessCreativeFolder MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.businesscreativefolder import BusinessCreativeFolder
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookBusinessCreativeFolder"
-instructions = """
-BusinessCreativeFolder MCP Server for Facebook Business API.
-
-Provides typed access to all BusinessCreativeFolder operations.
+"""
+Auto-generated MCP server for Facebook BusinessCreativeFolder.
+DO NOT EDIT MANUALLY.
 """
 
-businesscreativefolder_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.businesscreativefolder import BusinessCreativeFolder
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-businesscreativefolder")
 
 
-# ---- CRUD Operations (1) ----
-@businesscreativefolder_server.tool
-@wrapped_fn_tool
-def get_businesscreativefolder(
-    businesscreativefolder_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_businesscreativefolder(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
-) -> str:
-    obj = BusinessCreativeFolder(businesscreativefolder_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create a BusinessCreativeFolder.
+
+    Args:
+        object_id: The ID of the BusinessCreativeFolder
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = BusinessCreativeFolder(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_businesscreativefolder(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a BusinessCreativeFolder.
+
+    Args:
+        object_id: The ID of the BusinessCreativeFolder
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = BusinessCreativeFolder(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+businesscreativefolder_server = mcp

@@ -15,23 +15,11 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class adspixelassigned_users_tasks_enum_param(str, Enum):
-    """adspixelassigned_users_tasks_enum_param enum values."""
+class adspixeloffline_event_uploads_order_enum_param(str, Enum):
+    """adspixeloffline_event_uploads_order_enum_param enum values."""
 
-    AA_ANALYZE = "AA_ANALYZE"
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    EDIT = "EDIT"
-    UPLOAD = "UPLOAD"
-
-
-class adspixelagencies_permitted_tasks_enum_param(str, Enum):
-    """adspixelagencies_permitted_tasks_enum_param enum values."""
-
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    EDIT = "EDIT"
-    UPLOAD = "UPLOAD"
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
 
 
 class adspixeloffline_event_uploads_sort_by_enum_param(str, Enum):
@@ -46,13 +34,14 @@ class adspixeloffline_event_uploads_sort_by_enum_param(str, Enum):
     LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
 
 
-class adspixelda_checks_connection_method_enum_param(str, Enum):
-    """adspixelda_checks_connection_method_enum_param enum values."""
+class adspixelassigned_users_tasks_enum_param(str, Enum):
+    """adspixelassigned_users_tasks_enum_param enum values."""
 
-    ALL = "ALL"
-    APP = "APP"
-    BROWSER = "BROWSER"
-    SERVER = "SERVER"
+    AA_ANALYZE = "AA_ANALYZE"
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    EDIT = "EDIT"
+    UPLOAD = "UPLOAD"
 
 
 class adspixelstats_aggregation_enum_param(str, Enum):
@@ -76,11 +65,22 @@ class adspixelstats_aggregation_enum_param(str, Enum):
     url_by_rule = "url_by_rule"
 
 
-class adspixeloffline_event_uploads_order_enum_param(str, Enum):
-    """adspixeloffline_event_uploads_order_enum_param enum values."""
+class adspixelagencies_permitted_tasks_enum_param(str, Enum):
+    """adspixelagencies_permitted_tasks_enum_param enum values."""
 
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    EDIT = "EDIT"
+    UPLOAD = "UPLOAD"
+
+
+class adspixelda_checks_connection_method_enum_param(str, Enum):
+    """adspixelda_checks_connection_method_enum_param enum values."""
+
+    ALL = "ALL"
+    APP = "APP"
+    BROWSER = "BROWSER"
+    SERVER = "SERVER"
 
 
 # Field literal type
@@ -163,8 +163,8 @@ class AdsPixelFields(BaseModel):
     valid_entries: int = Field(None, alias="valid_entries")
 
 
-class AdsPixelGetAdaccountsParams(BaseModel):
-    """Parameters for AdsPixel.get_adaccounts()."""
+class AdsPixelGetAdAccountsParams(BaseModel):
+    """Parameters for AdsPixel.get_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     business: str | None = Field(None, description="business parameter")

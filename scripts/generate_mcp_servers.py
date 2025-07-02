@@ -1,143 +1,248 @@
+#!/usr/bin/env python3
 """
-Generate MCP servers with typed wrappers for Facebook Business SDK AdObjects.
+Generate MCP servers by parsing methods directly from Facebook Business SDK Python files.
 
-This script generates MCP servers that include both CRUD operations and edge methods
-with full type safety using the generated Pydantic models.
+This script uses AST to extract all method definitions from the SDK and generates
+MCP server wrappers that call these exact methods, ensuring 100% compatibility.
 """
 
+import ast
+import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from generate_models_unified import AdObjectSpec, ApiMethodInfo, load_spec_file
 from jinja2 import Template
 
 
 @dataclass
+class MethodInfo:
+    """Information about a method extracted from SDK."""
+
+    name: str
+    params: list[str]
+    is_crud: bool  # api_get, api_update, api_delete, api_create
+    is_edge: bool  # get_*, create_*, delete_*, etc.
+    http_method: Optional[str] = None  # GET, POST, DELETE
+    endpoint: Optional[str] = None
+    docstring: Optional[str] = None
+
+    @property
+    def is_api_method(self) -> bool:
+        """Check if this is an API method (CRUD or edge)."""
+        return self.is_crud or self.is_edge
+
+    @property
+    def method_type(self) -> str:
+        """Get the method type for categorization."""
+        if self.is_crud:
+            if self.name == "api_get":
+                return "read"
+            elif self.name == "api_update":
+                return "update"
+            elif self.name == "api_delete":
+                return "delete"
+            elif self.name == "api_create":
+                return "create"
+        elif self.is_edge:
+            if self.name.startswith("get_"):
+                return "get_edge"
+            elif self.name.startswith("create_"):
+                return "create_edge"
+            elif self.name.startswith("delete_"):
+                return "delete_edge"
+        return "other"
+
+
+@dataclass
 class AdObjectInfo:
-    """Information about a Facebook AdObject extracted from API specs."""
+    """Information about a Facebook AdObject extracted from SDK."""
 
     name: str  # e.g., "Campaign"
     module_path: str  # e.g., "campaign"
-    has_api_get: bool = False
-    has_api_update: bool = False
-    has_api_delete: bool = False
-    api_methods: list[ApiMethodInfo] = field(default_factory=list)  # Edge methods
+    class_name: str  # e.g., "Campaign"
+    parent_classes: list[str] = field(default_factory=list)
+    methods: dict[str, MethodInfo] = field(default_factory=dict)
+    fields: list[str] = field(default_factory=list)
+
+    @property
+    def has_crud(self) -> bool:
+        """Check if this object has any CRUD methods."""
+        return any(m.is_crud for m in self.methods.values())
+
+    @property
+    def has_edges(self) -> bool:
+        """Check if this object has any edge methods."""
+        return any(m.is_edge for m in self.methods.values())
+
+    @property
+    def needs_server(self) -> bool:
+        """Check if this object needs an MCP server."""
+        return self.has_crud or self.has_edges
 
 
-class APISpecParser:
-    """Parser for API spec JSON files to extract AdObject information."""
+class SDKMethodParser:
+    """Parser for Facebook SDK Python files using AST."""
 
-    def __init__(self):
-        # Path to the API specs
-        self.specs_path = Path("api_specs/specs")
-        # Path to SDK to check which AdObjects have CRUD methods
-        self.sdk_path = Path("/Users/ruizeli/dev/promobase/facebook-python-business-sdk")
+    def __init__(self, sdk_path: str):
+        self.sdk_path = Path(sdk_path)
         self.adobjects_path = self.sdk_path / "facebook_business" / "adobjects"
 
-    def find_spec_files(self) -> list[Path]:
-        """Find all spec JSON files."""
-        if not self.specs_path.exists():
+    def find_adobject_files(self) -> list[Path]:
+        """Find all AdObject Python files in the SDK."""
+        if not self.adobjects_path.exists():
             return []
-        return [f for f in self.specs_path.glob("*.json") if f.name != "enum_types.json"]
 
-    def check_crud_methods(self, module_path: str) -> tuple[bool, bool, bool]:
-        """Check if the AdObject has CRUD methods in the SDK."""
-        sdk_file = self.adobjects_path / f"{module_path}.py"
-        if not sdk_file.exists():
-            return False, False, False
+        # Skip these files as they're not actual AdObjects
+        skip_files = {
+            "__init__.py",
+            "abstractobject.py",
+            "abstractcrudobject.py",
+            "objectparser.py",
+            "serverside",
+        }
 
+        files = []
+        for file_path in self.adobjects_path.glob("*.py"):
+            if file_path.name not in skip_files and not file_path.name.startswith("_"):
+                files.append(file_path)
+
+        return sorted(files)
+
+    def parse_method_node(self, node: ast.FunctionDef) -> MethodInfo:
+        """Parse a method AST node to extract method information."""
+        # Get method name
+        name = node.name
+
+        # Get parameters (skip 'self')
+        params = []
+        for arg in node.args.args[1:]:  # Skip 'self'
+            params.append(arg.arg)
+
+        # Check if it's a CRUD method
+        is_crud = name in ["api_get", "api_update", "api_delete", "api_create"]
+
+        # Check if it's an edge method (public method that makes API calls)
+        is_edge = False
+        if not is_crud and not name.startswith("_"):
+            # Check if method contains FacebookRequest
+            for child in ast.walk(node):
+                if isinstance(child, ast.Call):
+                    if isinstance(child.func, ast.Name) and child.func.id == "FacebookRequest":
+                        is_edge = True
+                        break
+
+        # Extract HTTP method and endpoint from FacebookRequest if possible
+        http_method = None
+        endpoint = None
+
+        for child in ast.walk(node):
+            if isinstance(child, ast.Call):
+                if isinstance(child.func, ast.Name) and child.func.id == "FacebookRequest":
+                    # Extract method and endpoint from kwargs
+                    for keyword in child.keywords:
+                        if keyword.arg == "method":
+                            if isinstance(keyword.value, ast.Constant):
+                                http_method = keyword.value.value
+                        elif keyword.arg == "endpoint":
+                            if isinstance(keyword.value, ast.Constant):
+                                endpoint = keyword.value.value
+
+        # Get docstring
+        docstring = ast.get_docstring(node)
+
+        return MethodInfo(
+            name=name,
+            params=params,
+            is_crud=is_crud,
+            is_edge=is_edge,
+            http_method=http_method,
+            endpoint=endpoint,
+            docstring=docstring,
+        )
+
+    def parse_adobject_file(self, file_path: Path) -> Optional[AdObjectInfo]:
+        """Parse a single AdObject file to extract class and method information."""
         try:
-            with open(sdk_file) as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
 
-            has_get = bool(re.search(r"def\s+api_get\s*\(", content))
-            has_update = bool(re.search(r"def\s+api_update\s*\(", content))
-            has_delete = bool(re.search(r"def\s+api_delete\s*\(", content))
+            # Parse AST
+            tree = ast.parse(content)
 
-            return has_get, has_update, has_delete
-        except:
-            return False, False, False
+            # Find the main class (usually matches the filename)
+            module_name = file_path.stem
+            class_name = None
+            main_class = None
 
-    def parse_spec_file(self, file_path: Path) -> Optional[AdObjectInfo]:
-        """Parse a single spec file to extract AdObject information."""
-        try:
-            # Load spec using the unified loader
-            spec = load_spec_file(file_path, set())
-            if not spec:
+            for node in ast.walk(tree):
+                if isinstance(node, ast.ClassDef):
+                    # Look for a class that matches the module name (case-insensitive)
+                    if node.name.lower() == module_name.lower():
+                        class_name = node.name
+                        main_class = node
+                        break
+
+            if not main_class:
+                # Try to find the first class that inherits from AbstractCrudObject
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.ClassDef):
+                        for base in node.bases:
+                            if isinstance(base, ast.Name) and base.id == "AbstractCrudObject":
+                                class_name = node.name
+                                main_class = node
+                                break
+                        if main_class:
+                            break
+
+            if not main_class:
                 return None
 
-            # Check for CRUD methods in SDK
-            has_get, has_update, has_delete = self.check_crud_methods(spec.module_path)
+            # Extract parent classes
+            parent_classes = []
+            for base in main_class.bases:
+                if isinstance(base, ast.Name):
+                    parent_classes.append(base.id)
 
-            # Create AdObjectInfo
-            info = AdObjectInfo(
-                name=spec.name,
-                module_path=spec.module_path,
-                has_api_get=has_get,
-                has_api_update=has_update,
-                has_api_delete=has_delete,
-                api_methods=spec.apis,
+            # Extract methods
+            methods = {}
+            for node in main_class.body:
+                if isinstance(node, ast.FunctionDef):
+                    method_info = self.parse_method_node(node)
+                    if method_info.is_api_method:
+                        methods[method_info.name] = method_info
+
+            # Extract fields from Field class if it exists
+            fields = []
+            for node in main_class.body:
+                if isinstance(node, ast.ClassDef) and node.name == "Field":
+                    for field_node in node.body:
+                        if isinstance(field_node, ast.Assign):
+                            for target in field_node.targets:
+                                if isinstance(target, ast.Name):
+                                    fields.append(target.id)
+
+            return AdObjectInfo(
+                name=class_name,
+                module_path=module_name,
+                class_name=class_name,
+                parent_classes=parent_classes,
+                methods=methods,
+                fields=fields,
             )
-
-            return info
 
         except Exception as e:
             print(f"Error parsing {file_path}: {e}")
             return None
 
 
-@dataclass
-class MCPServerInfo:
-    """Information about an MCP server to generate."""
-
-    object_name: str  # e.g., "Campaign"
-    module_path: str  # e.g., "campaign"
-    has_api_get: bool = False
-    has_api_update: bool = False
-    has_api_delete: bool = False
-    has_update_params: bool = False  # Whether UpdateParams model exists
-    edge_methods: list[ApiMethodInfo] = None
-
-    def __post_init__(self):
-        if self.edge_methods is None:
-            self.edge_methods = []
-
-    @property
-    def needs_server(self) -> bool:
-        """Determine if this object needs an MCP server."""
-        # Need at least one CRUD operation or edge method
-        return (
-            self.has_api_get
-            or self.has_api_update
-            or self.has_api_delete
-            or len(self.edge_methods) > 0
-        )
-
-    @property
-    def server_name(self) -> str:
-        """Get the server name."""
-        return f"Facebook{self.object_name}"
-
-    @property
-    def variable_name(self) -> str:
-        """Get the server variable name."""
-        return f"{self.module_path}_server"
-
-    @property
-    def filename(self) -> str:
-        """Get the output filename."""
-        return f"{self.module_path}.py"
-
-
 class MCPServerGenerator:
-    """Generate MCP servers with typed wrappers for AdObjects."""
+    """Generate MCP servers from parsed SDK methods."""
 
     def __init__(self):
-        self.parser = APISpecParser()
-        # Load the Jinja templates
-        template_path = Path(__file__).parent / "server_template.jinja2"
+        # Load templates
+        template_path = Path(__file__).parent / "server_template_sdk.jinja2"
         with open(template_path) as f:
             self.server_template = Template(f.read())
 
@@ -145,125 +250,143 @@ class MCPServerGenerator:
         with open(init_template_path) as f:
             self.init_template = Template(f.read())
 
-    def analyze_adobject(self, adobject_info: AdObjectInfo) -> Optional[MCPServerInfo]:
-        """Analyze an AdObject to determine if it needs an MCP server."""
-        if not adobject_info:
-            return None
-
-        server_info = MCPServerInfo(
-            object_name=adobject_info.name,
-            module_path=adobject_info.module_path,
-            has_api_get=adobject_info.has_api_get,
-            has_api_update=adobject_info.has_api_update,
-            has_api_delete=adobject_info.has_api_delete,
-            edge_methods=adobject_info.api_methods,
-        )
-
-        return server_info if server_info.needs_server else None
-
-    def generate_server_file(
-        self, server_info: MCPServerInfo, adobject_info: AdObjectInfo, output_dir: Path
-    ) -> Path:
+    def generate_server_file(self, adobject_info: AdObjectInfo, output_dir: Path) -> Path:
         """Generate an MCP server file for an AdObject."""
+        # Group methods by type
+        crud_methods = []
+        edge_methods = []
+
+        for method in adobject_info.methods.values():
+            if method.is_crud:
+                crud_methods.append(method)
+            elif method.is_edge:
+                edge_methods.append(method)
+
+        # Sort methods
+        crud_methods.sort(key=lambda m: m.name)
+        edge_methods.sort(key=lambda m: m.name)
+
         # Prepare template context
         context = {
-            "object_name": server_info.object_name,
-            "module_path": server_info.module_path,
-            "has_api_get": server_info.has_api_get,
-            "has_api_update": server_info.has_api_update,
-            "has_api_delete": server_info.has_api_delete,
-            "crud_operations": any(
-                [server_info.has_api_get, server_info.has_api_update, server_info.has_api_delete]
-            ),
-            "crud_count": sum(
-                [server_info.has_api_get, server_info.has_api_update, server_info.has_api_delete]
-            ),
-            "edge_methods": server_info.edge_methods,
+            "object_name": adobject_info.name,
+            "module_path": adobject_info.module_path,
+            "class_name": adobject_info.class_name,
+            "crud_methods": crud_methods,
+            "edge_methods": edge_methods,
+            "has_crud": len(crud_methods) > 0,
+            "has_edges": len(edge_methods) > 0,
         }
 
-        # Render the template
+        # Render template
         content = self.server_template.render(**context)
 
         # Write file
-        output_file = output_dir / server_info.filename
+        output_file = output_dir / f"{adobject_info.module_path}.py"
         with open(output_file, "w") as f:
             f.write(content)
 
         return output_file
 
-    def generate_init_file(self, server_infos: list[MCPServerInfo], output_dir: Path):
+    def generate_init_file(self, adobject_infos: list[AdObjectInfo], output_dir: Path):
         """Generate __init__.py to export all servers."""
-        # Sort servers by module path
-        sorted_servers = sorted(server_infos, key=lambda x: x.module_path)
+        # Filter objects that need servers
+        server_objects = [obj for obj in adobject_infos if obj.needs_server]
 
-        # Render the template
-        content = self.init_template.render(servers=sorted_servers)
+        # Sort by module path
+        server_objects.sort(key=lambda x: x.module_path)
 
+        # Create server info for template
+        servers = []
+        for obj in server_objects:
+            servers.append(
+                {
+                    "module_path": obj.module_path,
+                    "object_name": obj.name,
+                    "server_name": f"Facebook{obj.name}",
+                    "variable_name": f"{obj.module_path}_server",
+                }
+            )
+
+        # Render template
+        content = self.init_template.render(servers=servers)
+
+        # Write file
         init_file = output_dir / "__init__.py"
         with open(init_file, "w") as f:
             f.write(content)
 
 
 def main():
-    """Generate MCP servers for all AdObjects with CRUD operations."""
-    generator = MCPServerGenerator()
-    parser = generator.parser
+    """Generate MCP servers by parsing SDK methods."""
+    # Create template if it doesn't exist
+    template_path = Path(__file__).parent / "server_template_sdk.jinja2"
+    if not template_path.exists():
+        raise FileNotFoundError(
+            f"Template file not found: {template_path}. Please create it based on the example."
+        )
+
+    # Initialize parser
+    sdk_path = "/Users/ruizeli/dev/promobase/facebook-python-business-sdk"
+    parser = SDKMethodParser(sdk_path)
 
     # Output directory
     output_dir = Path("src/generated/servers")
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Process all spec files
-    spec_files = parser.find_spec_files()
+    # Find and parse all AdObject files
+    print("Scanning Facebook SDK for AdObject files...")
+    adobject_files = parser.find_adobject_files()
+    print(f"Found {len(adobject_files)} AdObject files")
 
-    # Filter and analyze
-    server_infos = []
-    adobject_infos = {}
-    total_crud_objects = 0
-    total_edge_methods = 0
+    # Parse each file
+    adobject_infos = []
+    total_methods = 0
 
-    print("Analyzing API specs for MCP server generation...")
+    for file_path in adobject_files:
+        print(f"\nParsing {file_path.name}...")
+        adobject_info = parser.parse_adobject_file(file_path)
 
-    for spec_file in spec_files:
-        adobject_info = parser.parse_spec_file(spec_file)
-        if adobject_info:
-            server_info = generator.analyze_adobject(adobject_info)
-            if server_info:
-                server_infos.append(server_info)
-                adobject_infos[server_info.module_path] = adobject_info
-                if (
-                    server_info.has_api_get
-                    or server_info.has_api_update
-                    or server_info.has_api_delete
-                ):
-                    total_crud_objects += 1
-                total_edge_methods += len(server_info.edge_methods)
+        if adobject_info and adobject_info.needs_server:
+            adobject_infos.append(adobject_info)
+            method_count = len(adobject_info.methods)
+            total_methods += method_count
 
-    print(f"\nFound {len(server_infos)} AdObjects that need MCP servers:")
-    print(f"  - {total_crud_objects} with CRUD operations")
-    print(f"  - {total_edge_methods} total edge methods")
+            print(f"  ✓ {adobject_info.name}: {method_count} API methods")
 
-    # Generate server files for all objects
+            # Show method breakdown
+            crud_count = sum(1 for m in adobject_info.methods.values() if m.is_crud)
+            edge_count = sum(1 for m in adobject_info.methods.values() if m.is_edge)
+
+            if crud_count > 0:
+                crud_names = [m.name for m in adobject_info.methods.values() if m.is_crud]
+                print(f"    - CRUD: {crud_count} ({', '.join(crud_names)})")
+
+            if edge_count > 0:
+                print(f"    - Edge: {edge_count} methods")
+                # Show first few edge method names
+                edge_names = [m.name for m in adobject_info.methods.values() if m.is_edge][:5]
+                print(f"      Examples: {', '.join(edge_names)}")
+                if len(edge_names) < edge_count:
+                    print(f"      ... and {edge_count - len(edge_names)} more")
+
+    print(f"\n\nFound {len(adobject_infos)} AdObjects with API methods")
+    print(f"Total API methods to wrap: {total_methods}")
+
+    # Generate MCP servers
+    generator = MCPServerGenerator()
+
     print(f"\nGenerating MCP server files in {output_dir}/...")
 
-    generated_infos = []
-    for server_info in server_infos:
-        adobject_info = adobject_infos[server_info.module_path]
-        output_file = generator.generate_server_file(server_info, adobject_info, output_dir)
-        generated_infos.append(server_info)
+    for adobject_info in adobject_infos:
+        output_file = generator.generate_server_file(adobject_info, output_dir)
         print(f"  ✓ Generated {output_file.name}")
-        print(
-            f"    - CRUD: get={server_info.has_api_get}, update={server_info.has_api_update}, delete={server_info.has_api_delete}"
-        )
-        print(f"    - Edge methods: {len(server_info.edge_methods)}")
 
     # Generate __init__.py
-    generator.generate_init_file(generated_infos, output_dir)
+    generator.generate_init_file(adobject_infos, output_dir)
     print("\n✓ Generated __init__.py")
 
-    print(
-        f"\n✓ Generated {len(generated_infos)} MCP server files for all AdObjects with CRUD/edge methods"
-    )
+    print(f"\n✓ Successfully generated {len(adobject_infos)} MCP servers!")
+    print(f"✓ Total methods wrapped: {total_methods}")
 
 
 if __name__ == "__main__":

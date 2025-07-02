@@ -1,32 +1,45 @@
-"""AdProposal MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adproposal import AdProposal
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdProposal"
-instructions = """
-AdProposal MCP Server for Facebook Business API.
-
-Provides typed access to all AdProposal operations.
+"""
+Auto-generated MCP server for Facebook AdProposal.
+DO NOT EDIT MANUALLY.
 """
 
-adproposal_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adproposal import AdProposal
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adproposal")
 
 
-# ---- CRUD Operations (1) ----
-@adproposal_server.tool
-@wrapped_fn_tool
-def get_adproposal(
-    adproposal_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adproposal(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdProposal(adproposal_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdProposal.
+
+    Args:
+        object_id: The ID of the AdProposal
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdProposal(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adproposal_server = mcp

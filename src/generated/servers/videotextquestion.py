@@ -1,32 +1,45 @@
-"""VideoTextQuestion MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.videotextquestion import VideoTextQuestion
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookVideoTextQuestion"
-instructions = """
-VideoTextQuestion MCP Server for Facebook Business API.
-
-Provides typed access to all VideoTextQuestion operations.
+"""
+Auto-generated MCP server for Facebook VideoTextQuestion.
+DO NOT EDIT MANUALLY.
 """
 
-videotextquestion_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.videotextquestion import VideoTextQuestion
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-videotextquestion")
 
 
-# ---- CRUD Operations (1) ----
-@videotextquestion_server.tool
-@wrapped_fn_tool
-def get_videotextquestion(
-    videotextquestion_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_videotextquestion(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = VideoTextQuestion(videotextquestion_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a VideoTextQuestion.
+
+    Args:
+        object_id: The ID of the VideoTextQuestion
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = VideoTextQuestion(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+videotextquestion_server = mcp

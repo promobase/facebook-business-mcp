@@ -1,32 +1,45 @@
-"""DynamicPriceConfigByDate MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.dynamicpriceconfigbydate import DynamicPriceConfigByDate
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookDynamicPriceConfigByDate"
-instructions = """
-DynamicPriceConfigByDate MCP Server for Facebook Business API.
-
-Provides typed access to all DynamicPriceConfigByDate operations.
+"""
+Auto-generated MCP server for Facebook DynamicPriceConfigByDate.
+DO NOT EDIT MANUALLY.
 """
 
-dynamicpriceconfigbydate_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.dynamicpriceconfigbydate import DynamicPriceConfigByDate
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-dynamicpriceconfigbydate")
 
 
-# ---- CRUD Operations (1) ----
-@dynamicpriceconfigbydate_server.tool
-@wrapped_fn_tool
-def get_dynamicpriceconfigbydate(
-    dynamicpriceconfigbydate_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_dynamicpriceconfigbydate(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = DynamicPriceConfigByDate(dynamicpriceconfigbydate_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a DynamicPriceConfigByDate.
+
+    Args:
+        object_id: The ID of the DynamicPriceConfigByDate
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = DynamicPriceConfigByDate(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+dynamicpriceconfigbydate_server = mcp

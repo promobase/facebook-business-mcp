@@ -17,20 +17,15 @@ if TYPE_CHECKING:
     from .profile import ProfileFields
 
 
-class photocomments_comment_privacy_value_enum_param(str, Enum):
-    """photocomments_comment_privacy_value_enum_param enum values."""
+class photoinsights_period_enum_param(str, Enum):
+    """photoinsights_period_enum_param enum values."""
 
-    DECLINED_BY_ADMIN_ASSISTANT = "DECLINED_BY_ADMIN_ASSISTANT"
-    DEFAULT_PRIVACY = "DEFAULT_PRIVACY"
-    FRIENDS_AND_POST_OWNER = "FRIENDS_AND_POST_OWNER"
-    FRIENDS_ONLY = "FRIENDS_ONLY"
-    GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE = "GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE"
-    OWNER_OR_COMMENTER = "OWNER_OR_COMMENTER"
-    PENDING_APPROVAL = "PENDING_APPROVAL"
-    REMOVED_BY_ADMIN_ASSISTANT = "REMOVED_BY_ADMIN_ASSISTANT"
-    SIDE_CONVERSATION = "SIDE_CONVERSATION"
-    SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
-    SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
 
 
 class photocomments_order_enum_param(str, Enum):
@@ -45,17 +40,6 @@ class photocomments_filter_enum_param(str, Enum):
 
     stream = "stream"
     toplevel = "toplevel"
-
-
-class photoinsights_period_enum_param(str, Enum):
-    """photoinsights_period_enum_param enum values."""
-
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
 
 
 class photoinsights_date_preset_enum_param(str, Enum):
@@ -88,6 +72,22 @@ class photocomments_live_filter_enum_param(str, Enum):
 
     filter_low_quality = "filter_low_quality"
     no_filter = "no_filter"
+
+
+class photocomments_comment_privacy_value_enum_param(str, Enum):
+    """photocomments_comment_privacy_value_enum_param enum values."""
+
+    DECLINED_BY_ADMIN_ASSISTANT = "DECLINED_BY_ADMIN_ASSISTANT"
+    DEFAULT_PRIVACY = "DEFAULT_PRIVACY"
+    FRIENDS_AND_POST_OWNER = "FRIENDS_AND_POST_OWNER"
+    FRIENDS_ONLY = "FRIENDS_ONLY"
+    GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE = "GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE"
+    OWNER_OR_COMMENTER = "OWNER_OR_COMMENTER"
+    PENDING_APPROVAL = "PENDING_APPROVAL"
+    REMOVED_BY_ADMIN_ASSISTANT = "REMOVED_BY_ADMIN_ASSISTANT"
+    SIDE_CONVERSATION = "SIDE_CONVERSATION"
+    SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
+    SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
 
 
 # Field literal type

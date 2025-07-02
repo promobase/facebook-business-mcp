@@ -1,32 +1,45 @@
-"""VideoCopyrightRule MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.videocopyrightrule import VideoCopyrightRule
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookVideoCopyrightRule"
-instructions = """
-VideoCopyrightRule MCP Server for Facebook Business API.
-
-Provides typed access to all VideoCopyrightRule operations.
+"""
+Auto-generated MCP server for Facebook VideoCopyrightRule.
+DO NOT EDIT MANUALLY.
 """
 
-videocopyrightrule_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.videocopyrightrule import VideoCopyrightRule
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-videocopyrightrule")
 
 
-# ---- CRUD Operations (1) ----
-@videocopyrightrule_server.tool
-@wrapped_fn_tool
-def get_videocopyrightrule(
-    videocopyrightrule_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_videocopyrightrule(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = VideoCopyrightRule(videocopyrightrule_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a VideoCopyrightRule.
+
+    Args:
+        object_id: The ID of the VideoCopyrightRule
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = VideoCopyrightRule(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+videocopyrightrule_server = mcp

@@ -1,32 +1,45 @@
-"""IGMediaBoostEligibilityInfo MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfo
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookIGMediaBoostEligibilityInfo"
-instructions = """
-IGMediaBoostEligibilityInfo MCP Server for Facebook Business API.
-
-Provides typed access to all IGMediaBoostEligibilityInfo operations.
+"""
+Auto-generated MCP server for Facebook IGMediaBoostEligibilityInfo.
+DO NOT EDIT MANUALLY.
 """
 
-igmediaboosteligibilityinfo_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.igmediaboosteligibilityinfo import IGMediaBoostEligibilityInfo
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-igmediaboosteligibilityinfo")
 
 
-# ---- CRUD Operations (1) ----
-@igmediaboosteligibilityinfo_server.tool
-@wrapped_fn_tool
-def get_igmediaboosteligibilityinfo(
-    igmediaboosteligibilityinfo_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_igmediaboosteligibilityinfo(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = IGMediaBoostEligibilityInfo(igmediaboosteligibilityinfo_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a IGMediaBoostEligibilityInfo.
+
+    Args:
+        object_id: The ID of the IGMediaBoostEligibilityInfo
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = IGMediaBoostEligibilityInfo(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+igmediaboosteligibilityinfo_server = mcp

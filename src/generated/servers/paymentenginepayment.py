@@ -1,55 +1,98 @@
-"""PaymentEnginePayment MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.paymentenginepayment import PaymentEnginePayment
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPaymentEnginePayment"
-instructions = """
-PaymentEnginePayment MCP Server for Facebook Business API.
-
-Provides typed access to all PaymentEnginePayment operations.
+"""
+Auto-generated MCP server for Facebook PaymentEnginePayment.
+DO NOT EDIT MANUALLY.
 """
 
-paymentenginepayment_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.paymentenginepayment import PaymentEnginePayment
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-paymentenginepayment")
 
 
-# ---- CRUD Operations (1) ----
-@paymentenginepayment_server.tool
-@wrapped_fn_tool
-def get_paymentenginepayment(
-    paymentenginepayment_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = PaymentEnginePayment(paymentenginepayment_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@paymentenginepayment_server.tool
-@wrapped_fn_tool
-def create_dispute(
-    paymentenginepayment_id: str,
+@mcp.tool()
+async def get_paymentenginepayment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return PaymentEnginePayment(paymentenginepayment_id).create_dispute(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a PaymentEnginePayment.
+
+    Args:
+        object_id: The ID of the PaymentEnginePayment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PaymentEnginePayment(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@paymentenginepayment_server.tool
-@wrapped_fn_tool
-def create_refund(
-    paymentenginepayment_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def create_dispute_for_paymentenginepayment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return PaymentEnginePayment(paymentenginepayment_id).create_refund(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Dispute for PaymentEnginePayment.
+
+    Args:
+        object_id: The ID of the PaymentEnginePayment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_dispute result
+    """
+    result = PaymentEnginePayment(fbid=object_id).create_dispute(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def create_refund_for_paymentenginepayment(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create Refund for PaymentEnginePayment.
+
+    Args:
+        object_id: The ID of the PaymentEnginePayment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_refund result
+    """
+    result = PaymentEnginePayment(fbid=object_id).create_refund(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+paymentenginepayment_server = mcp

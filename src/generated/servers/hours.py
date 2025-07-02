@@ -1,32 +1,45 @@
-"""Hours MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.hours import Hours
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookHours"
-instructions = """
-Hours MCP Server for Facebook Business API.
-
-Provides typed access to all Hours operations.
+"""
+Auto-generated MCP server for Facebook Hours.
+DO NOT EDIT MANUALLY.
 """
 
-hours_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.hours import Hours
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-hours")
 
 
-# ---- CRUD Operations (1) ----
-@hours_server.tool
-@wrapped_fn_tool
-def get_hours(
-    hours_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_hours(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = Hours(hours_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a Hours.
+
+    Args:
+        object_id: The ID of the Hours
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Hours(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+hours_server = mcp

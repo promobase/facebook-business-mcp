@@ -1,34 +1,47 @@
-"""CTXPartnerAppWelcomeMessageFlow MCP Server."""
+"""
+Auto-generated MCP server for Facebook CTXPartnerAppWelcomeMessageFlow.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.ctxpartnerappwelcomemessageflow import (
     CTXPartnerAppWelcomeMessageFlow,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCTXPartnerAppWelcomeMessageFlow"
-instructions = """
-CTXPartnerAppWelcomeMessageFlow MCP Server for Facebook Business API.
-
-Provides typed access to all CTXPartnerAppWelcomeMessageFlow operations.
-"""
-
-ctxpartnerappwelcomemessageflow_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-ctxpartnerappwelcomemessageflow")
 
 
-# ---- CRUD Operations (1) ----
-@ctxpartnerappwelcomemessageflow_server.tool
-@wrapped_fn_tool
-def get_ctxpartnerappwelcomemessageflow(
-    ctxpartnerappwelcomemessageflow_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_ctxpartnerappwelcomemessageflow(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CTXPartnerAppWelcomeMessageFlow(ctxpartnerappwelcomemessageflow_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CTXPartnerAppWelcomeMessageFlow.
+
+    Args:
+        object_id: The ID of the CTXPartnerAppWelcomeMessageFlow
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CTXPartnerAppWelcomeMessageFlow(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+ctxpartnerappwelcomemessageflow_server = mcp

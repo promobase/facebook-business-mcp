@@ -1,32 +1,45 @@
-"""ALMAdAccountInfo MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.almadaccountinfo import ALMAdAccountInfo
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookALMAdAccountInfo"
-instructions = """
-ALMAdAccountInfo MCP Server for Facebook Business API.
-
-Provides typed access to all ALMAdAccountInfo operations.
+"""
+Auto-generated MCP server for Facebook ALMAdAccountInfo.
+DO NOT EDIT MANUALLY.
 """
 
-almadaccountinfo_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.almadaccountinfo import ALMAdAccountInfo
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-almadaccountinfo")
 
 
-# ---- CRUD Operations (1) ----
-@almadaccountinfo_server.tool
-@wrapped_fn_tool
-def get_almadaccountinfo(
-    almadaccountinfo_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_almadaccountinfo(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ALMAdAccountInfo(almadaccountinfo_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ALMAdAccountInfo.
+
+    Args:
+        object_id: The ID of the ALMAdAccountInfo
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ALMAdAccountInfo(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+almadaccountinfo_server = mcp

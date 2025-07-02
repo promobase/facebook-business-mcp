@@ -16,13 +16,15 @@ if TYPE_CHECKING:
     )
 
 
-class shadowigmediainsights_breakdown_enum_param(str, Enum):
-    """shadowigmediainsights_breakdown_enum_param enum values."""
+class shadowigmediainsights_period_enum_param(str, Enum):
+    """shadowigmediainsights_period_enum_param enum values."""
 
-    action_type = "action_type"
-    follow_type = "follow_type"
-    story_navigation_action_type = "story_navigation_action_type"
-    surface_type = "surface_type"
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
 
 
 class shadowigmediainsights_metric_enum_param(str, Enum):
@@ -49,15 +51,13 @@ class shadowigmediainsights_metric_enum_param(str, Enum):
     views = "views"
 
 
-class shadowigmediainsights_period_enum_param(str, Enum):
-    """shadowigmediainsights_period_enum_param enum values."""
+class shadowigmediainsights_breakdown_enum_param(str, Enum):
+    """shadowigmediainsights_breakdown_enum_param enum values."""
 
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
+    action_type = "action_type"
+    follow_type = "follow_type"
+    story_navigation_action_type = "story_navigation_action_type"
+    surface_type = "surface_type"
 
 
 # Field literal type

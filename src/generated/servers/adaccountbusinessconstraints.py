@@ -1,34 +1,48 @@
-"""AdAccountBusinessConstraints MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adaccountbusinessconstraints import AdAccountBusinessConstraints
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdAccountBusinessConstraints"
-instructions = """
-AdAccountBusinessConstraints MCP Server for Facebook Business API.
-
-Provides typed access to all AdAccountBusinessConstraints operations.
+"""
+Auto-generated MCP server for Facebook AdAccountBusinessConstraints.
+DO NOT EDIT MANUALLY.
 """
 
-adaccountbusinessconstraints_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adaccountbusinessconstraints import AdAccountBusinessConstraints
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adaccountbusinessconstraints")
 
 
-# ---- Edge Methods (1) ----
-@adaccountbusinessconstraints_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    adaccountbusinessconstraints_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_adaccountbusinessconstraints(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdAccountBusinessConstraints(adaccountbusinessconstraints_id).get_endpoint(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create a AdAccountBusinessConstraints.
+
+    Args:
+        object_id: The ID of the AdAccountBusinessConstraints
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = AdAccountBusinessConstraints(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Export the server
+adaccountbusinessconstraints_server = mcp

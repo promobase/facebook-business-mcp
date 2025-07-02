@@ -1,32 +1,45 @@
-"""CanvasTemplate MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.canvastemplate import CanvasTemplate
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCanvasTemplate"
-instructions = """
-CanvasTemplate MCP Server for Facebook Business API.
-
-Provides typed access to all CanvasTemplate operations.
+"""
+Auto-generated MCP server for Facebook CanvasTemplate.
+DO NOT EDIT MANUALLY.
 """
 
-canvastemplate_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.canvastemplate import CanvasTemplate
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-canvastemplate")
 
 
-# ---- CRUD Operations (1) ----
-@canvastemplate_server.tool
-@wrapped_fn_tool
-def get_canvastemplate(
-    canvastemplate_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_canvastemplate(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CanvasTemplate(canvastemplate_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CanvasTemplate.
+
+    Args:
+        object_id: The ID of the CanvasTemplate
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CanvasTemplate(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+canvastemplate_server = mcp

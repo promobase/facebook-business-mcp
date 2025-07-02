@@ -1,32 +1,45 @@
-"""Robot MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.robot import Robot
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookRobot"
-instructions = """
-Robot MCP Server for Facebook Business API.
-
-Provides typed access to all Robot operations.
+"""
+Auto-generated MCP server for Facebook Robot.
+DO NOT EDIT MANUALLY.
 """
 
-robot_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.robot import Robot
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-robot")
 
 
-# ---- CRUD Operations (1) ----
-@robot_server.tool
-@wrapped_fn_tool
-def get_robot(
-    robot_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_robot(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = Robot(robot_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a Robot.
+
+    Args:
+        object_id: The ID of the Robot
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Robot(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+robot_server = mcp

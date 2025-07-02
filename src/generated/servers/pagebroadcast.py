@@ -1,32 +1,45 @@
-"""PageBroadcast MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.pagebroadcast import PageBroadcast
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPageBroadcast"
-instructions = """
-PageBroadcast MCP Server for Facebook Business API.
-
-Provides typed access to all PageBroadcast operations.
+"""
+Auto-generated MCP server for Facebook PageBroadcast.
+DO NOT EDIT MANUALLY.
 """
 
-pagebroadcast_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.pagebroadcast import PageBroadcast
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-pagebroadcast")
 
 
-# ---- CRUD Operations (1) ----
-@pagebroadcast_server.tool
-@wrapped_fn_tool
-def get_pagebroadcast(
-    pagebroadcast_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_pagebroadcast(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = PageBroadcast(pagebroadcast_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a PageBroadcast.
+
+    Args:
+        object_id: The ID of the PageBroadcast
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PageBroadcast(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+pagebroadcast_server = mcp

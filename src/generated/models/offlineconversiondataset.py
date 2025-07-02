@@ -22,6 +22,13 @@ class offlineconversiondatasetshared_agencies_action_source_enum_param(str, Enum
     WEBSITE = "WEBSITE"
 
 
+class offlineconversiondatasetshared_accounts_action_source_enum_param(str, Enum):
+    """offlineconversiondatasetshared_accounts_action_source_enum_param enum values."""
+
+    PHYSICAL_STORE = "PHYSICAL_STORE"
+    WEBSITE = "WEBSITE"
+
+
 class offlineconversiondatasetuploads_order_enum_param(str, Enum):
     """offlineconversiondatasetuploads_order_enum_param enum values."""
 
@@ -29,12 +36,11 @@ class offlineconversiondatasetuploads_order_enum_param(str, Enum):
     DESCENDING = "DESCENDING"
 
 
-class offlineconversiondatasetstats_granularity_enum_param(str, Enum):
-    """offlineconversiondatasetstats_granularity_enum_param enum values."""
+class offlineconversiondatasetstats_aggr_time_enum_param(str, Enum):
+    """offlineconversiondatasetstats_aggr_time_enum_param enum values."""
 
-    daily = "daily"
-    hourly = "hourly"
-    six_hourly = "six_hourly"
+    event_time = "event_time"
+    upload_time = "upload_time"
 
 
 class offlineconversiondatasetuploads_sort_by_enum_param(str, Enum):
@@ -56,18 +62,12 @@ class offlineconversiondatasetaudiences_action_source_enum_param(str, Enum):
     WEBSITE = "WEBSITE"
 
 
-class offlineconversiondatasetstats_aggr_time_enum_param(str, Enum):
-    """offlineconversiondatasetstats_aggr_time_enum_param enum values."""
+class offlineconversiondatasetstats_granularity_enum_param(str, Enum):
+    """offlineconversiondatasetstats_granularity_enum_param enum values."""
 
-    event_time = "event_time"
-    upload_time = "upload_time"
-
-
-class offlineconversiondatasetshared_accounts_action_source_enum_param(str, Enum):
-    """offlineconversiondatasetshared_accounts_action_source_enum_param enum values."""
-
-    PHYSICAL_STORE = "PHYSICAL_STORE"
-    WEBSITE = "WEBSITE"
+    daily = "daily"
+    hourly = "hourly"
+    six_hourly = "six_hourly"
 
 
 # Field literal type
@@ -146,8 +146,8 @@ class OfflineConversionDataSetFields(BaseModel):
     valid_entries: int = Field(None, alias="valid_entries")
 
 
-class OfflineConversionDataSetGetAdaccountsParams(BaseModel):
-    """Parameters for OfflineConversionDataSet.get_adaccounts()."""
+class OfflineConversionDataSetGetAdAccountsParams(BaseModel):
+    """Parameters for OfflineConversionDataSet.get_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     business: str | None = Field(None, description="business parameter")
@@ -163,8 +163,8 @@ class OfflineConversionDataSetGetAudiencesParams(BaseModel):
     ad_account: str | None = Field(None, description="ad_account parameter")
 
 
-class OfflineConversionDataSetGetCustomconversionsParams(BaseModel):
-    """Parameters for OfflineConversionDataSet.get_customconversions()."""
+class OfflineConversionDataSetGetCustomConversionsParams(BaseModel):
+    """Parameters for OfflineConversionDataSet.get_custom_conversions()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_account: str | None = Field(None, description="ad_account parameter")

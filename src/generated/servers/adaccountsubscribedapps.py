@@ -1,34 +1,48 @@
-"""AdAccountSubscribedApps MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adaccountsubscribedapps import AdAccountSubscribedApps
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdAccountSubscribedApps"
-instructions = """
-AdAccountSubscribedApps MCP Server for Facebook Business API.
-
-Provides typed access to all AdAccountSubscribedApps operations.
+"""
+Auto-generated MCP server for Facebook AdAccountSubscribedApps.
+DO NOT EDIT MANUALLY.
 """
 
-adaccountsubscribedapps_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adaccountsubscribedapps import AdAccountSubscribedApps
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adaccountsubscribedapps")
 
 
-# ---- Edge Methods (1) ----
-@adaccountsubscribedapps_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    adaccountsubscribedapps_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_adaccountsubscribedapps(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdAccountSubscribedApps(adaccountsubscribedapps_id).get_endpoint(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create a AdAccountSubscribedApps.
+
+    Args:
+        object_id: The ID of the AdAccountSubscribedApps
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = AdAccountSubscribedApps(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Export the server
+adaccountsubscribedapps_server = mcp

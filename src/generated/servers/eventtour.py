@@ -1,32 +1,45 @@
-"""EventTour MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.eventtour import EventTour
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookEventTour"
-instructions = """
-EventTour MCP Server for Facebook Business API.
-
-Provides typed access to all EventTour operations.
+"""
+Auto-generated MCP server for Facebook EventTour.
+DO NOT EDIT MANUALLY.
 """
 
-eventtour_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.eventtour import EventTour
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-eventtour")
 
 
-# ---- CRUD Operations (1) ----
-@eventtour_server.tool
-@wrapped_fn_tool
-def get_eventtour(
-    eventtour_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_eventtour(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = EventTour(eventtour_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a EventTour.
+
+    Args:
+        object_id: The ID of the EventTour
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = EventTour(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+eventtour_server = mcp

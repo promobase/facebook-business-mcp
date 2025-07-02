@@ -1,103 +1,223 @@
-"""Album MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.album import Album
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAlbum"
-instructions = """
-Album MCP Server for Facebook Business API.
-
-Provides typed access to all Album operations.
+"""
+Auto-generated MCP server for Facebook Album.
+DO NOT EDIT MANUALLY.
 """
 
-album_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.album import Album
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-album")
 
 
-# ---- CRUD Operations (1) ----
-@album_server.tool
-@wrapped_fn_tool
-def get_album(
-    album_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Album(album_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (7) ----
-@album_server.tool
-@wrapped_fn_tool
-def get_comments(
-    album_id: str,
+@mcp.tool()
+async def get_album(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Album(album_id).get_comments(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Album(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@album_server.tool
-@wrapped_fn_tool
-def create_comment(
-    album_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_comment_for_album(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Album(album_id).create_comment(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Comment for Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_comment result
+    """
+    result = Album(fbid=object_id).create_comment(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@album_server.tool
-@wrapped_fn_tool
-def get_likes(
-    album_id: str,
+@mcp.tool()
+async def create_like_for_album(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Album(album_id).get_likes(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Like for Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_like result
+    """
+    result = Album(fbid=object_id).create_like(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@album_server.tool
-@wrapped_fn_tool
-def create_like(
-    album_id: str,
+@mcp.tool()
+async def create_photo_for_album(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Album(album_id).create_like(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Photo for Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_photo result
+    """
+    result = Album(fbid=object_id).create_photo(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@album_server.tool
-@wrapped_fn_tool
-def get_photos(
-    album_id: str,
+@mcp.tool()
+async def get_comments_for_album(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Album(album_id).get_photos(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Comments for Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_comments result
+    """
+    result = Album(fbid=object_id).get_comments(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@album_server.tool
-@wrapped_fn_tool
-def create_photo(
-    album_id: str,
+@mcp.tool()
+async def get_likes_for_album(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Album(album_id).create_photo(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Likes for Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_likes result
+    """
+    result = Album(fbid=object_id).get_likes(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@album_server.tool
-@wrapped_fn_tool
-def get_picture(
-    album_id: str,
+@mcp.tool()
+async def get_photos_for_album(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Album(album_id).get_picture(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Photos for Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_photos result
+    """
+    result = Album(fbid=object_id).get_photos(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_picture_for_album(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Picture for Album.
+
+    Args:
+        object_id: The ID of the Album
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_picture result
+    """
+    result = Album(fbid=object_id).get_picture(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+album_server = mcp

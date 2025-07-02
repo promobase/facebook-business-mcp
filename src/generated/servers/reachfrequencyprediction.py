@@ -1,32 +1,73 @@
-"""ReachFrequencyPrediction MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.reachfrequencyprediction import ReachFrequencyPrediction
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookReachFrequencyPrediction"
-instructions = """
-ReachFrequencyPrediction MCP Server for Facebook Business API.
-
-Provides typed access to all ReachFrequencyPrediction operations.
+"""
+Auto-generated MCP server for Facebook ReachFrequencyPrediction.
+DO NOT EDIT MANUALLY.
 """
 
-reachfrequencyprediction_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.reachfrequencyprediction import ReachFrequencyPrediction
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-reachfrequencyprediction")
 
 
-# ---- CRUD Operations (1) ----
-@reachfrequencyprediction_server.tool
-@wrapped_fn_tool
-def get_reachfrequencyprediction(
-    reachfrequencyprediction_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_reachfrequencyprediction(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
-) -> str:
-    obj = ReachFrequencyPrediction(reachfrequencyprediction_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create a ReachFrequencyPrediction.
+
+    Args:
+        object_id: The ID of the ReachFrequencyPrediction
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = ReachFrequencyPrediction(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_reachfrequencyprediction(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ReachFrequencyPrediction.
+
+    Args:
+        object_id: The ID of the ReachFrequencyPrediction
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ReachFrequencyPrediction(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+reachfrequencyprediction_server = mcp

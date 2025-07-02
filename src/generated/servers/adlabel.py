@@ -1,91 +1,226 @@
-"""AdLabel MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adlabel import AdLabel
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdLabel"
-instructions = """
-AdLabel MCP Server for Facebook Business API.
-
-Provides typed access to all AdLabel operations.
+"""
+Auto-generated MCP server for Facebook AdLabel.
+DO NOT EDIT MANUALLY.
 """
 
-adlabel_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adlabel import AdLabel
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adlabel")
 
 
-# ---- CRUD Operations (3) ----
-@adlabel_server.tool
-@wrapped_fn_tool
-def get_adlabel(
-    adlabel_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = AdLabel(adlabel_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@adlabel_server.tool
-@wrapped_fn_tool
-def update_adlabel(
-    adlabel_id: str,
+@mcp.tool()
+async def create_adlabel(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return AdLabel(adlabel_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create a AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = AdLabel(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adlabel_server.tool
-@wrapped_fn_tool
-def delete_adlabel(
-    adlabel_id: str,
-) -> str:
-    return AdLabel(adlabel_id).api_delete()
-
-
-# ---- Edge Methods (4) ----
-@adlabel_server.tool
-@wrapped_fn_tool
-def get_adcreatives(
-    adlabel_id: str,
+@mcp.tool()
+async def delete_adlabel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdLabel(adlabel_id).get_adcreatives(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = AdLabel(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adlabel_server.tool
-@wrapped_fn_tool
-def get_ads(
-    adlabel_id: str,
+@mcp.tool()
+async def get_adlabel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdLabel(adlabel_id).get_ads(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdLabel(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adlabel_server.tool
-@wrapped_fn_tool
-def get_adsets(
-    adlabel_id: str,
+@mcp.tool()
+async def update_adlabel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdLabel(adlabel_id).get_adsets(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = AdLabel(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adlabel_server.tool
-@wrapped_fn_tool
-def get_campaigns(
-    adlabel_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_ad_creatives_for_adlabel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdLabel(adlabel_id).get_campaigns(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Ad Creatives for AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ad_creatives result
+    """
+    result = AdLabel(fbid=object_id).get_ad_creatives(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_ad_sets_for_adlabel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Ad Sets for AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ad_sets result
+    """
+    result = AdLabel(fbid=object_id).get_ad_sets(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_ads_for_adlabel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Ads for AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ads result
+    """
+    result = AdLabel(fbid=object_id).get_ads(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_campaigns_for_adlabel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Campaigns for AdLabel.
+
+    Args:
+        object_id: The ID of the AdLabel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_campaigns result
+    """
+    result = AdLabel(fbid=object_id).get_campaigns(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adlabel_server = mcp

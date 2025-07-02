@@ -1,32 +1,45 @@
-"""PublisherWhiteList MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.publisherwhitelist import PublisherWhiteList
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPublisherWhiteList"
-instructions = """
-PublisherWhiteList MCP Server for Facebook Business API.
-
-Provides typed access to all PublisherWhiteList operations.
+"""
+Auto-generated MCP server for Facebook PublisherWhiteList.
+DO NOT EDIT MANUALLY.
 """
 
-publisherwhitelist_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.publisherwhitelist import PublisherWhiteList
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-publisherwhitelist")
 
 
-# ---- CRUD Operations (1) ----
-@publisherwhitelist_server.tool
-@wrapped_fn_tool
-def get_publisherwhitelist(
-    publisherwhitelist_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_publisherwhitelist(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = PublisherWhiteList(publisherwhitelist_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a PublisherWhiteList.
+
+    Args:
+        object_id: The ID of the PublisherWhiteList
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PublisherWhiteList(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+publisherwhitelist_server = mcp

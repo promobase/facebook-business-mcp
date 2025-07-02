@@ -1,43 +1,73 @@
-"""OmegaCustomerTrx MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.omegacustomertrx import OmegaCustomerTrx
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookOmegaCustomerTrx"
-instructions = """
-OmegaCustomerTrx MCP Server for Facebook Business API.
-
-Provides typed access to all OmegaCustomerTrx operations.
+"""
+Auto-generated MCP server for Facebook OmegaCustomerTrx.
+DO NOT EDIT MANUALLY.
 """
 
-omegacustomertrx_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.omegacustomertrx import OmegaCustomerTrx
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-omegacustomertrx")
 
 
-# ---- CRUD Operations (1) ----
-@omegacustomertrx_server.tool
-@wrapped_fn_tool
-def get_omegacustomertrx(
-    omegacustomertrx_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = OmegaCustomerTrx(omegacustomertrx_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@omegacustomertrx_server.tool
-@wrapped_fn_tool
-def get_campaigns(
-    omegacustomertrx_id: str,
+@mcp.tool()
+async def get_omegacustomertrx(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return OmegaCustomerTrx(omegacustomertrx_id).get_campaigns(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a OmegaCustomerTrx.
+
+    Args:
+        object_id: The ID of the OmegaCustomerTrx
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = OmegaCustomerTrx(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_campaigns_for_omegacustomertrx(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Campaigns for OmegaCustomerTrx.
+
+    Args:
+        object_id: The ID of the OmegaCustomerTrx
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_campaigns result
+    """
+    result = OmegaCustomerTrx(fbid=object_id).get_campaigns(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+omegacustomertrx_server = mcp

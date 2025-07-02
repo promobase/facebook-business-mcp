@@ -1,53 +1,98 @@
-"""RTBDynamicPost MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.rtbdynamicpost import RTBDynamicPost
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookRTBDynamicPost"
-instructions = """
-RTBDynamicPost MCP Server for Facebook Business API.
-
-Provides typed access to all RTBDynamicPost operations.
+"""
+Auto-generated MCP server for Facebook RTBDynamicPost.
+DO NOT EDIT MANUALLY.
 """
 
-rtbdynamicpost_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.rtbdynamicpost import RTBDynamicPost
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-rtbdynamicpost")
 
 
-# ---- CRUD Operations (1) ----
-@rtbdynamicpost_server.tool
-@wrapped_fn_tool
-def get_rtbdynamicpost(
-    rtbdynamicpost_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = RTBDynamicPost(rtbdynamicpost_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@rtbdynamicpost_server.tool
-@wrapped_fn_tool
-def get_comments(
-    rtbdynamicpost_id: str,
+@mcp.tool()
+async def get_rtbdynamicpost(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return RTBDynamicPost(rtbdynamicpost_id).get_comments(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a RTBDynamicPost.
+
+    Args:
+        object_id: The ID of the RTBDynamicPost
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = RTBDynamicPost(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@rtbdynamicpost_server.tool
-@wrapped_fn_tool
-def get_likes(
-    rtbdynamicpost_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_comments_for_rtbdynamicpost(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return RTBDynamicPost(rtbdynamicpost_id).get_likes(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Comments for RTBDynamicPost.
+
+    Args:
+        object_id: The ID of the RTBDynamicPost
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_comments result
+    """
+    result = RTBDynamicPost(fbid=object_id).get_comments(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_likes_for_rtbdynamicpost(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Likes for RTBDynamicPost.
+
+    Args:
+        object_id: The ID of the RTBDynamicPost
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_likes result
+    """
+    result = RTBDynamicPost(fbid=object_id).get_likes(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+rtbdynamicpost_server = mcp

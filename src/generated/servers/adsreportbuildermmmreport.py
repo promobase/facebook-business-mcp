@@ -1,32 +1,45 @@
-"""AdsReportBuilderMMMReport MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adsreportbuildermmmreport import AdsReportBuilderMMMReport
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsReportBuilderMMMReport"
-instructions = """
-AdsReportBuilderMMMReport MCP Server for Facebook Business API.
-
-Provides typed access to all AdsReportBuilderMMMReport operations.
+"""
+Auto-generated MCP server for Facebook AdsReportBuilderMMMReport.
+DO NOT EDIT MANUALLY.
 """
 
-adsreportbuildermmmreport_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adsreportbuildermmmreport import AdsReportBuilderMMMReport
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adsreportbuildermmmreport")
 
 
-# ---- CRUD Operations (1) ----
-@adsreportbuildermmmreport_server.tool
-@wrapped_fn_tool
-def get_adsreportbuildermmmreport(
-    adsreportbuildermmmreport_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adsreportbuildermmmreport(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdsReportBuilderMMMReport(adsreportbuildermmmreport_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdsReportBuilderMMMReport.
+
+    Args:
+        object_id: The ID of the AdsReportBuilderMMMReport
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsReportBuilderMMMReport(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adsreportbuildermmmreport_server = mcp

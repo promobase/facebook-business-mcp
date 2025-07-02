@@ -1,32 +1,45 @@
-"""CopyrightMediaMisuse MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.copyrightmediamisuse import CopyrightMediaMisuse
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCopyrightMediaMisuse"
-instructions = """
-CopyrightMediaMisuse MCP Server for Facebook Business API.
-
-Provides typed access to all CopyrightMediaMisuse operations.
+"""
+Auto-generated MCP server for Facebook CopyrightMediaMisuse.
+DO NOT EDIT MANUALLY.
 """
 
-copyrightmediamisuse_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.copyrightmediamisuse import CopyrightMediaMisuse
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-copyrightmediamisuse")
 
 
-# ---- CRUD Operations (1) ----
-@copyrightmediamisuse_server.tool
-@wrapped_fn_tool
-def get_copyrightmediamisuse(
-    copyrightmediamisuse_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_copyrightmediamisuse(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = CopyrightMediaMisuse(copyrightmediamisuse_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CopyrightMediaMisuse.
+
+    Args:
+        object_id: The ID of the CopyrightMediaMisuse
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CopyrightMediaMisuse(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+copyrightmediamisuse_server = mcp

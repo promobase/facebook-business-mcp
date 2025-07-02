@@ -1,32 +1,45 @@
-"""FavoriteCatalog MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.favoritecatalog import FavoriteCatalog
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookFavoriteCatalog"
-instructions = """
-FavoriteCatalog MCP Server for Facebook Business API.
-
-Provides typed access to all FavoriteCatalog operations.
+"""
+Auto-generated MCP server for Facebook FavoriteCatalog.
+DO NOT EDIT MANUALLY.
 """
 
-favoritecatalog_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.favoritecatalog import FavoriteCatalog
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-favoritecatalog")
 
 
-# ---- CRUD Operations (1) ----
-@favoritecatalog_server.tool
-@wrapped_fn_tool
-def get_favoritecatalog(
-    favoritecatalog_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_favoritecatalog(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = FavoriteCatalog(favoritecatalog_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a FavoriteCatalog.
+
+    Args:
+        object_id: The ID of the FavoriteCatalog
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = FavoriteCatalog(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+favoritecatalog_server = mcp

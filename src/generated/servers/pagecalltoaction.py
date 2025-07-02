@@ -1,50 +1,95 @@
-"""PageCallToAction MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.pagecalltoaction import PageCallToAction
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookPageCallToAction"
-instructions = """
-PageCallToAction MCP Server for Facebook Business API.
-
-Provides typed access to all PageCallToAction operations.
+"""
+Auto-generated MCP server for Facebook PageCallToAction.
+DO NOT EDIT MANUALLY.
 """
 
-pagecalltoaction_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.pagecalltoaction import PageCallToAction
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-pagecalltoaction")
 
 
-# ---- CRUD Operations (3) ----
-@pagecalltoaction_server.tool
-@wrapped_fn_tool
-def get_pagecalltoaction(
-    pagecalltoaction_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = PageCallToAction(pagecalltoaction_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@pagecalltoaction_server.tool
-@wrapped_fn_tool
-def update_pagecalltoaction(
-    pagecalltoaction_id: str,
+@mcp.tool()
+async def delete_pagecalltoaction(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return PageCallToAction(pagecalltoaction_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a PageCallToAction.
+
+    Args:
+        object_id: The ID of the PageCallToAction
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = PageCallToAction(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@pagecalltoaction_server.tool
-@wrapped_fn_tool
-def delete_pagecalltoaction(
-    pagecalltoaction_id: str,
-) -> str:
-    return PageCallToAction(pagecalltoaction_id).api_delete()
+@mcp.tool()
+async def get_pagecalltoaction(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a PageCallToAction.
+
+    Args:
+        object_id: The ID of the PageCallToAction
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = PageCallToAction(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_pagecalltoaction(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Update a PageCallToAction.
+
+    Args:
+        object_id: The ID of the PageCallToAction
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = PageCallToAction(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+pagecalltoaction_server = mcp

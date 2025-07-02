@@ -9,6 +9,27 @@ from typing import TYPE_CHECKING, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 
+class userinsights_breakdown_enum_param(str, Enum):
+    """userinsights_breakdown_enum_param enum values."""
+
+    age = "age"
+    city = "city"
+    contact_button_type = "contact_button_type"
+    country = "country"
+    follow_type = "follow_type"
+    gender = "gender"
+    media_product_type = "media_product_type"
+
+
+class iggraphusermessages_messaging_type_enum_param(str, Enum):
+    """iggraphusermessages_messaging_type_enum_param enum values."""
+
+    MESSAGE_TAG = "MESSAGE_TAG"
+    RESPONSE = "RESPONSE"
+    UPDATE = "UPDATE"
+    UTILITY = "UTILITY"
+
+
 class userinsights_metric_enum_param(str, Enum):
     """userinsights_metric_enum_param enum values."""
 
@@ -41,20 +62,15 @@ class userinsights_metric_enum_param(str, Enum):
     website_clicks = "website_clicks"
 
 
-class userconversations_platform_enum_param(str, Enum):
-    """userconversations_platform_enum_param enum values."""
+class userinsights_period_enum_param(str, Enum):
+    """userinsights_period_enum_param enum values."""
 
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-
-
-class iggraphusermessages_messaging_type_enum_param(str, Enum):
-    """iggraphusermessages_messaging_type_enum_param enum values."""
-
-    MESSAGE_TAG = "MESSAGE_TAG"
-    RESPONSE = "RESPONSE"
-    UPDATE = "UPDATE"
-    UTILITY = "UTILITY"
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
 
 
 class iggraphusermessenger_profile_fields_enum_param(str, Enum):
@@ -74,15 +90,40 @@ class iggraphusermessenger_profile_fields_enum_param(str, Enum):
     WHITELISTED_DOMAINS = "WHITELISTED_DOMAINS"
 
 
-class userinsights_period_enum_param(str, Enum):
-    """userinsights_period_enum_param enum values."""
+class userinsights_timeframe_enum_param(str, Enum):
+    """userinsights_timeframe_enum_param enum values."""
 
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
+    last_14_days = "last_14_days"
+    last_30_days = "last_30_days"
+    last_90_days = "last_90_days"
+    prev_month = "prev_month"
+    this_month = "this_month"
+    this_week = "this_week"
+
+
+class userconversations_platform_enum_param(str, Enum):
+    """userconversations_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class userinsights_metric_type_enum_param(str, Enum):
+    """userinsights_metric_type_enum_param enum values."""
+
+    default = "default"
+    time_series = "time_series"
+    total_value = "total_value"
+
+
+class iggraphusermessages_sender_action_enum_param(str, Enum):
+    """iggraphusermessages_sender_action_enum_param enum values."""
+
+    MARK_SEEN = "MARK_SEEN"
+    REACT = "REACT"
+    TYPING_OFF = "TYPING_OFF"
+    TYPING_ON = "TYPING_ON"
+    UNREACT = "UNREACT"
 
 
 class iggraphusersubscribed_apps_subscribed_fields_enum_param(str, Enum):
@@ -113,53 +154,12 @@ class iggraphusersubscribed_apps_subscribed_fields_enum_param(str, Enum):
     story_share = "story_share"
 
 
-class userinsights_breakdown_enum_param(str, Enum):
-    """userinsights_breakdown_enum_param enum values."""
-
-    age = "age"
-    city = "city"
-    contact_button_type = "contact_button_type"
-    country = "country"
-    follow_type = "follow_type"
-    gender = "gender"
-    media_product_type = "media_product_type"
-
-
 class iggraphuserwelcome_message_flows_eligible_platforms_enum_param(str, Enum):
     """iggraphuserwelcome_message_flows_eligible_platforms_enum_param enum values."""
 
     INSTAGRAM = "INSTAGRAM"
     MESSENGER = "MESSENGER"
     WHATSAPP = "WHATSAPP"
-
-
-class userinsights_metric_type_enum_param(str, Enum):
-    """userinsights_metric_type_enum_param enum values."""
-
-    default = "default"
-    time_series = "time_series"
-    total_value = "total_value"
-
-
-class iggraphusermessages_sender_action_enum_param(str, Enum):
-    """iggraphusermessages_sender_action_enum_param enum values."""
-
-    MARK_SEEN = "MARK_SEEN"
-    REACT = "REACT"
-    TYPING_OFF = "TYPING_OFF"
-    TYPING_ON = "TYPING_ON"
-    UNREACT = "UNREACT"
-
-
-class userinsights_timeframe_enum_param(str, Enum):
-    """userinsights_timeframe_enum_param enum values."""
-
-    last_14_days = "last_14_days"
-    last_30_days = "last_30_days"
-    last_90_days = "last_90_days"
-    prev_month = "prev_month"
-    this_month = "this_month"
-    this_week = "this_week"
 
 
 # Field literal type

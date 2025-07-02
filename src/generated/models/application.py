@@ -12,6 +12,14 @@ if TYPE_CHECKING:
     from .business import BusinessFields
 
 
+class applicationcodeless_event_mappings_mutation_method_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_mutation_method_enum_param enum values."""
+
+    ADD = "ADD"
+    DELETE = "DELETE"
+    REPLACE = "REPLACE"
+
+
 class applicationpermissions_status_enum_param(str, Enum):
     """applicationpermissions_status_enum_param enum values."""
 
@@ -19,40 +27,8 @@ class applicationpermissions_status_enum_param(str, Enum):
     unapproved = "unapproved"
 
 
-class applicationadnetworkanalytics_ordering_type_enum_param(str, Enum):
-    """applicationadnetworkanalytics_ordering_type_enum_param enum values."""
-
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
-
-
-class applicationapp_push_device_token_platform_enum_param(str, Enum):
-    """applicationapp_push_device_token_platform_enum_param enum values."""
-
-    ANDROID = "ANDROID"
-    IOS = "IOS"
-    UNKNOWN = "UNKNOWN"
-
-
-class applicationadnetworkanalytics_ordering_column_enum_param(str, Enum):
-    """applicationadnetworkanalytics_ordering_column_enum_param enum values."""
-
-    METRIC = "METRIC"
-    TIME = "TIME"
-    VALUE = "VALUE"
-
-
-class applicationda_checks_connection_method_enum_param(str, Enum):
-    """applicationda_checks_connection_method_enum_param enum values."""
-
-    ALL = "ALL"
-    APP = "APP"
-    BROWSER = "BROWSER"
-    SERVER = "SERVER"
-
-
-class applicationwhatsapp_business_solution_partner_permissions_enum_param(str, Enum):
-    """applicationwhatsapp_business_solution_partner_permissions_enum_param enum values."""
+class applicationwhatsapp_business_solution_owner_permissions_enum_param(str, Enum):
+    """applicationwhatsapp_business_solution_owner_permissions_enum_param enum values."""
 
     DEVELOP = "DEVELOP"
     MANAGE = "MANAGE"
@@ -66,30 +42,45 @@ class applicationwhatsapp_business_solution_partner_permissions_enum_param(str, 
     VIEW_TEMPLATES = "VIEW_TEMPLATES"
 
 
-class applicationadnetworkanalytics_aggregation_period_enum_param(str, Enum):
-    """applicationadnetworkanalytics_aggregation_period_enum_param enum values."""
+class applicationda_checks_connection_method_enum_param(str, Enum):
+    """applicationda_checks_connection_method_enum_param enum values."""
 
-    DAY = "DAY"
-    TOTAL = "TOTAL"
-
-
-class applicationcodeless_event_mappings_platform_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_platform_enum_param enum values."""
-
-    ANDROID = "ANDROID"
-    IOS = "IOS"
+    ALL = "ALL"
+    APP = "APP"
+    BROWSER = "BROWSER"
+    SERVER = "SERVER"
 
 
-class applicationactivities_user_id_type_enum_param(str, Enum):
-    """applicationactivities_user_id_type_enum_param enum values."""
+class applicationadnetworkanalytics_metrics_enum_param(str, Enum):
+    """applicationadnetworkanalytics_metrics_enum_param enum values."""
 
-    INSTANT_GAMES_PLAYER_ID = "INSTANT_GAMES_PLAYER_ID"
+    FB_AD_NETWORK_BIDDING_BID_RATE = "FB_AD_NETWORK_BIDDING_BID_RATE"
+    FB_AD_NETWORK_BIDDING_REQUEST = "FB_AD_NETWORK_BIDDING_REQUEST"
+    FB_AD_NETWORK_BIDDING_RESPONSE = "FB_AD_NETWORK_BIDDING_RESPONSE"
+    FB_AD_NETWORK_BIDDING_REVENUE = "FB_AD_NETWORK_BIDDING_REVENUE"
+    FB_AD_NETWORK_BIDDING_WIN_RATE = "FB_AD_NETWORK_BIDDING_WIN_RATE"
+    FB_AD_NETWORK_CLICK = "FB_AD_NETWORK_CLICK"
+    FB_AD_NETWORK_CPM = "FB_AD_NETWORK_CPM"
+    FB_AD_NETWORK_CTR = "FB_AD_NETWORK_CTR"
+    FB_AD_NETWORK_FILLED_REQUEST = "FB_AD_NETWORK_FILLED_REQUEST"
+    FB_AD_NETWORK_FILL_RATE = "FB_AD_NETWORK_FILL_RATE"
+    FB_AD_NETWORK_IMP = "FB_AD_NETWORK_IMP"
+    FB_AD_NETWORK_IMPRESSION_RATE = "FB_AD_NETWORK_IMPRESSION_RATE"
+    FB_AD_NETWORK_REQUEST = "FB_AD_NETWORK_REQUEST"
+    FB_AD_NETWORK_REVENUE = "FB_AD_NETWORK_REVENUE"
+    FB_AD_NETWORK_SHOW_RATE = "FB_AD_NETWORK_SHOW_RATE"
+    FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE = "FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE"
+    FB_AD_NETWORK_VIDEO_MRC = "FB_AD_NETWORK_VIDEO_MRC"
+    FB_AD_NETWORK_VIDEO_MRC_RATE = "FB_AD_NETWORK_VIDEO_MRC_RATE"
+    FB_AD_NETWORK_VIDEO_VIEW = "FB_AD_NETWORK_VIDEO_VIEW"
+    FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
 
 
-class applicationaccounts_type_enum_param(str, Enum):
-    """applicationaccounts_type_enum_param enum values."""
+class applicationadnetworkanalytics_ordering_type_enum_param(str, Enum):
+    """applicationadnetworkanalytics_ordering_type_enum_param enum values."""
 
-    TEST_USERS = "test-users"
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
 
 
 class applicationapp_indexing_platform_enum_param(str, Enum):
@@ -97,6 +88,27 @@ class applicationapp_indexing_platform_enum_param(str, Enum):
 
     ANDROID = "ANDROID"
     IOS = "IOS"
+
+
+class applicationmobile_sdk_gk_platform_enum_param(str, Enum):
+    """applicationmobile_sdk_gk_platform_enum_param enum values."""
+
+    ANDROID = "ANDROID"
+    IOS = "IOS"
+
+
+class applicationwhatsapp_business_solutions_role_enum_param(str, Enum):
+    """applicationwhatsapp_business_solutions_role_enum_param enum values."""
+
+    OWNER = "OWNER"
+    PARTNER = "PARTNER"
+
+
+class applicationcodeless_event_mappings_post_method_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_post_method_enum_param enum values."""
+
+    CODELESS = "CODELESS"
+    EYMT = "EYMT"
 
 
 class applicationadnetworkanalytics_breakdowns_enum_param(str, Enum):
@@ -125,8 +137,22 @@ class applicationadnetworkanalytics_breakdowns_enum_param(str, Enum):
     SDK_VERSION = "SDK_VERSION"
 
 
-class applicationwhatsapp_business_solution_owner_permissions_enum_param(str, Enum):
-    """applicationwhatsapp_business_solution_owner_permissions_enum_param enum values."""
+class applicationapp_indexing_request_type_enum_param(str, Enum):
+    """applicationapp_indexing_request_type_enum_param enum values."""
+
+    APP_INDEXING = "APP_INDEXING"
+    BUTTON_SAMPLING = "BUTTON_SAMPLING"
+    PLUGIN = "PLUGIN"
+
+
+class applicationaccounts_type_enum_param(str, Enum):
+    """applicationaccounts_type_enum_param enum values."""
+
+    TEST_USERS = "test-users"
+
+
+class applicationwhatsapp_business_solution_partner_permissions_enum_param(str, Enum):
+    """applicationwhatsapp_business_solution_partner_permissions_enum_param enum values."""
 
     DEVELOP = "DEVELOP"
     MANAGE = "MANAGE"
@@ -140,26 +166,33 @@ class applicationwhatsapp_business_solution_owner_permissions_enum_param(str, En
     VIEW_TEMPLATES = "VIEW_TEMPLATES"
 
 
-class applicationwhatsapp_business_solutions_role_enum_param(str, Enum):
-    """applicationwhatsapp_business_solutions_role_enum_param enum values."""
+class applicationadnetworkanalytics_ordering_column_enum_param(str, Enum):
+    """applicationadnetworkanalytics_ordering_column_enum_param enum values."""
 
-    OWNER = "OWNER"
-    PARTNER = "PARTNER"
-
-
-class applicationactivities_event_enum_param(str, Enum):
-    """applicationactivities_event_enum_param enum values."""
-
-    CUSTOM_APP_EVENTS = "CUSTOM_APP_EVENTS"
-    DEFERRED_APP_LINK = "DEFERRED_APP_LINK"
-    MOBILE_APP_INSTALL = "MOBILE_APP_INSTALL"
+    METRIC = "METRIC"
+    TIME = "TIME"
+    VALUE = "VALUE"
 
 
-class applicationcodeless_event_mappings_post_method_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_post_method_enum_param enum values."""
+class applicationactivities_user_id_type_enum_param(str, Enum):
+    """applicationactivities_user_id_type_enum_param enum values."""
 
-    CODELESS = "CODELESS"
-    EYMT = "EYMT"
+    INSTANT_GAMES_PLAYER_ID = "INSTANT_GAMES_PLAYER_ID"
+
+
+class applicationapp_push_device_token_platform_enum_param(str, Enum):
+    """applicationapp_push_device_token_platform_enum_param enum values."""
+
+    ANDROID = "ANDROID"
+    IOS = "IOS"
+    UNKNOWN = "UNKNOWN"
+
+
+class applicationadnetworkanalytics_aggregation_period_enum_param(str, Enum):
+    """applicationadnetworkanalytics_aggregation_period_enum_param enum values."""
+
+    DAY = "DAY"
+    TOTAL = "TOTAL"
 
 
 class applicationuploads_session_type_enum_param(str, Enum):
@@ -168,52 +201,19 @@ class applicationuploads_session_type_enum_param(str, Enum):
     attachment = "attachment"
 
 
-class applicationadnetworkanalytics_metrics_enum_param(str, Enum):
-    """applicationadnetworkanalytics_metrics_enum_param enum values."""
-
-    FB_AD_NETWORK_BIDDING_BID_RATE = "FB_AD_NETWORK_BIDDING_BID_RATE"
-    FB_AD_NETWORK_BIDDING_REQUEST = "FB_AD_NETWORK_BIDDING_REQUEST"
-    FB_AD_NETWORK_BIDDING_RESPONSE = "FB_AD_NETWORK_BIDDING_RESPONSE"
-    FB_AD_NETWORK_BIDDING_REVENUE = "FB_AD_NETWORK_BIDDING_REVENUE"
-    FB_AD_NETWORK_BIDDING_WIN_RATE = "FB_AD_NETWORK_BIDDING_WIN_RATE"
-    FB_AD_NETWORK_CLICK = "FB_AD_NETWORK_CLICK"
-    FB_AD_NETWORK_CPM = "FB_AD_NETWORK_CPM"
-    FB_AD_NETWORK_CTR = "FB_AD_NETWORK_CTR"
-    FB_AD_NETWORK_FILLED_REQUEST = "FB_AD_NETWORK_FILLED_REQUEST"
-    FB_AD_NETWORK_FILL_RATE = "FB_AD_NETWORK_FILL_RATE"
-    FB_AD_NETWORK_IMP = "FB_AD_NETWORK_IMP"
-    FB_AD_NETWORK_IMPRESSION_RATE = "FB_AD_NETWORK_IMPRESSION_RATE"
-    FB_AD_NETWORK_REQUEST = "FB_AD_NETWORK_REQUEST"
-    FB_AD_NETWORK_REVENUE = "FB_AD_NETWORK_REVENUE"
-    FB_AD_NETWORK_SHOW_RATE = "FB_AD_NETWORK_SHOW_RATE"
-    FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE = "FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE"
-    FB_AD_NETWORK_VIDEO_MRC = "FB_AD_NETWORK_VIDEO_MRC"
-    FB_AD_NETWORK_VIDEO_MRC_RATE = "FB_AD_NETWORK_VIDEO_MRC_RATE"
-    FB_AD_NETWORK_VIDEO_VIEW = "FB_AD_NETWORK_VIDEO_VIEW"
-    FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
-
-
-class applicationmobile_sdk_gk_platform_enum_param(str, Enum):
-    """applicationmobile_sdk_gk_platform_enum_param enum values."""
+class applicationcodeless_event_mappings_platform_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_platform_enum_param enum values."""
 
     ANDROID = "ANDROID"
     IOS = "IOS"
 
 
-class applicationcodeless_event_mappings_mutation_method_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_mutation_method_enum_param enum values."""
+class applicationactivities_event_enum_param(str, Enum):
+    """applicationactivities_event_enum_param enum values."""
 
-    ADD = "ADD"
-    DELETE = "DELETE"
-    REPLACE = "REPLACE"
-
-
-class applicationapp_indexing_request_type_enum_param(str, Enum):
-    """applicationapp_indexing_request_type_enum_param enum values."""
-
-    APP_INDEXING = "APP_INDEXING"
-    BUTTON_SAMPLING = "BUTTON_SAMPLING"
-    PLUGIN = "PLUGIN"
+    CUSTOM_APP_EVENTS = "CUSTOM_APP_EVENTS"
+    DEFERRED_APP_LINK = "DEFERRED_APP_LINK"
+    MOBILE_APP_INSTALL = "MOBILE_APP_INSTALL"
 
 
 # Field literal type
@@ -559,8 +559,8 @@ class ApplicationGetAdnetworkPlacementsParams(BaseModel):
     request_id: str | None = Field(None, description="request_id parameter")
 
 
-class ApplicationGetAdnetworkanalyticsParams(BaseModel):
-    """Parameters for Application.get_adnetworkanalytics()."""
+class ApplicationGetAdNetworkanalyticsParams(BaseModel):
+    """Parameters for Application.get_ad_networkanalytics()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: applicationadnetworkanalytics_aggregation_period_enum_param | None = Field(
@@ -585,8 +585,8 @@ class ApplicationGetAdnetworkanalyticsParams(BaseModel):
     until: datetime | None = Field(None, description="until parameter")
 
 
-class ApplicationCreateAdnetworkanalyticParams(BaseModel):
-    """Parameters for Application.create_adnetworkanalytic()."""
+class ApplicationCreateAdNetworkanalyticParams(BaseModel):
+    """Parameters for Application.create_ad_networkanalytic()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: applicationadnetworkanalytics_aggregation_period_enum_param | None = Field(
@@ -862,8 +862,8 @@ class ApplicationGetPermissionsParams(BaseModel):
     )
 
 
-class ApplicationGetProductsParams(BaseModel):
-    """Parameters for Application.get_products()."""
+class ApplicationGetProductSParams(BaseModel):
+    """Parameters for Application.get_product_s()."""
 
     model_config = ConfigDict(extra="forbid")
     product_ids: list[str] | None = Field(None, description="product_ids parameter")

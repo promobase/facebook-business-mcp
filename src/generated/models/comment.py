@@ -14,20 +14,18 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class commentcomments_comment_privacy_value_enum_param(str, Enum):
-    """commentcomments_comment_privacy_value_enum_param enum values."""
+class commentcomments_filter_enum_param(str, Enum):
+    """commentcomments_filter_enum_param enum values."""
 
-    DECLINED_BY_ADMIN_ASSISTANT = "DECLINED_BY_ADMIN_ASSISTANT"
-    DEFAULT_PRIVACY = "DEFAULT_PRIVACY"
-    FRIENDS_AND_POST_OWNER = "FRIENDS_AND_POST_OWNER"
-    FRIENDS_ONLY = "FRIENDS_ONLY"
-    GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE = "GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE"
-    OWNER_OR_COMMENTER = "OWNER_OR_COMMENTER"
-    PENDING_APPROVAL = "PENDING_APPROVAL"
-    REMOVED_BY_ADMIN_ASSISTANT = "REMOVED_BY_ADMIN_ASSISTANT"
-    SIDE_CONVERSATION = "SIDE_CONVERSATION"
-    SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
-    SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
+    stream = "stream"
+    toplevel = "toplevel"
+
+
+class commentcomments_order_enum_param(str, Enum):
+    """commentcomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 class commentreactions_type_enum_param(str, Enum):
@@ -54,18 +52,20 @@ class commentcomments_live_filter_enum_param(str, Enum):
     no_filter = "no_filter"
 
 
-class commentcomments_order_enum_param(str, Enum):
-    """commentcomments_order_enum_param enum values."""
+class commentcomments_comment_privacy_value_enum_param(str, Enum):
+    """commentcomments_comment_privacy_value_enum_param enum values."""
 
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
-
-
-class commentcomments_filter_enum_param(str, Enum):
-    """commentcomments_filter_enum_param enum values."""
-
-    stream = "stream"
-    toplevel = "toplevel"
+    DECLINED_BY_ADMIN_ASSISTANT = "DECLINED_BY_ADMIN_ASSISTANT"
+    DEFAULT_PRIVACY = "DEFAULT_PRIVACY"
+    FRIENDS_AND_POST_OWNER = "FRIENDS_AND_POST_OWNER"
+    FRIENDS_ONLY = "FRIENDS_ONLY"
+    GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE = "GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE"
+    OWNER_OR_COMMENTER = "OWNER_OR_COMMENTER"
+    PENDING_APPROVAL = "PENDING_APPROVAL"
+    REMOVED_BY_ADMIN_ASSISTANT = "REMOVED_BY_ADMIN_ASSISTANT"
+    SIDE_CONVERSATION = "SIDE_CONVERSATION"
+    SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
+    SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
 
 
 # Field literal type

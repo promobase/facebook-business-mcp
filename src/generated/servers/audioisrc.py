@@ -1,32 +1,45 @@
-"""AudioIsrc MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.audioisrc import AudioIsrc
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAudioIsrc"
-instructions = """
-AudioIsrc MCP Server for Facebook Business API.
-
-Provides typed access to all AudioIsrc operations.
+"""
+Auto-generated MCP server for Facebook AudioIsrc.
+DO NOT EDIT MANUALLY.
 """
 
-audioisrc_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.audioisrc import AudioIsrc
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-audioisrc")
 
 
-# ---- CRUD Operations (1) ----
-@audioisrc_server.tool
-@wrapped_fn_tool
-def get_audioisrc(
-    audioisrc_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_audioisrc(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AudioIsrc(audioisrc_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AudioIsrc.
+
+    Args:
+        object_id: The ID of the AudioIsrc
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AudioIsrc(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+audioisrc_server = mcp

@@ -1,32 +1,45 @@
-"""ResearchPollStudy MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.researchpollstudy import ResearchPollStudy
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookResearchPollStudy"
-instructions = """
-ResearchPollStudy MCP Server for Facebook Business API.
-
-Provides typed access to all ResearchPollStudy operations.
+"""
+Auto-generated MCP server for Facebook ResearchPollStudy.
+DO NOT EDIT MANUALLY.
 """
 
-researchpollstudy_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.researchpollstudy import ResearchPollStudy
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-researchpollstudy")
 
 
-# ---- CRUD Operations (1) ----
-@researchpollstudy_server.tool
-@wrapped_fn_tool
-def get_researchpollstudy(
-    researchpollstudy_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_researchpollstudy(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ResearchPollStudy(researchpollstudy_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ResearchPollStudy.
+
+    Args:
+        object_id: The ID of the ResearchPollStudy
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ResearchPollStudy(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+researchpollstudy_server = mcp

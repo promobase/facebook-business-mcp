@@ -1,91 +1,226 @@
-"""Hotel MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.hotel import Hotel
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookHotel"
-instructions = """
-Hotel MCP Server for Facebook Business API.
-
-Provides typed access to all Hotel operations.
+"""
+Auto-generated MCP server for Facebook Hotel.
+DO NOT EDIT MANUALLY.
 """
 
-hotel_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.hotel import Hotel
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-hotel")
 
 
-# ---- CRUD Operations (3) ----
-@hotel_server.tool
-@wrapped_fn_tool
-def get_hotel(
-    hotel_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Hotel(hotel_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@hotel_server.tool
-@wrapped_fn_tool
-def update_hotel(
-    hotel_id: str,
+@mcp.tool()
+async def create_hotel(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return Hotel(hotel_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create a Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = Hotel(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@hotel_server.tool
-@wrapped_fn_tool
-def delete_hotel(
-    hotel_id: str,
-) -> str:
-    return Hotel(hotel_id).api_delete()
-
-
-# ---- Edge Methods (4) ----
-@hotel_server.tool
-@wrapped_fn_tool
-def get_channels_to_integrity_status(
-    hotel_id: str,
+@mcp.tool()
+async def delete_hotel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Hotel(hotel_id).get_channels_to_integrity_status(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = Hotel(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@hotel_server.tool
-@wrapped_fn_tool
-def get_hotel_rooms(
-    hotel_id: str,
+@mcp.tool()
+async def get_hotel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Hotel(hotel_id).get_hotel_rooms(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Hotel(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@hotel_server.tool
-@wrapped_fn_tool
-def get_override_details(
-    hotel_id: str,
+@mcp.tool()
+async def update_hotel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Hotel(hotel_id).get_override_details(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = Hotel(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@hotel_server.tool
-@wrapped_fn_tool
-def get_videos_metadata(
-    hotel_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_channels_to_integrity_status_for_hotel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Hotel(hotel_id).get_videos_metadata(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Channels To Integrity Status for Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_channels_to_integrity_status result
+    """
+    result = Hotel(fbid=object_id).get_channels_to_integrity_status(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_hotel_rooms_for_hotel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Hotel Rooms for Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_hotel_rooms result
+    """
+    result = Hotel(fbid=object_id).get_hotel_rooms(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_override_details_for_hotel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Override Details for Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_override_details result
+    """
+    result = Hotel(fbid=object_id).get_override_details(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_videos_metadata_for_hotel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Videos Metadata for Hotel.
+
+    Args:
+        object_id: The ID of the Hotel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_videos_metadata result
+    """
+    result = Hotel(fbid=object_id).get_videos_metadata(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+hotel_server = mcp

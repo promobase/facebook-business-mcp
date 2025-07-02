@@ -1,32 +1,45 @@
-"""AdRuleExecutionSpec MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adruleexecutionspec import AdRuleExecutionSpec
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdRuleExecutionSpec"
-instructions = """
-AdRuleExecutionSpec MCP Server for Facebook Business API.
-
-Provides typed access to all AdRuleExecutionSpec operations.
+"""
+Auto-generated MCP server for Facebook AdRuleExecutionSpec.
+DO NOT EDIT MANUALLY.
 """
 
-adruleexecutionspec_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adruleexecutionspec import AdRuleExecutionSpec
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adruleexecutionspec")
 
 
-# ---- CRUD Operations (1) ----
-@adruleexecutionspec_server.tool
-@wrapped_fn_tool
-def get_adruleexecutionspec(
-    adruleexecutionspec_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adruleexecutionspec(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdRuleExecutionSpec(adruleexecutionspec_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdRuleExecutionSpec.
+
+    Args:
+        object_id: The ID of the AdRuleExecutionSpec
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdRuleExecutionSpec(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adruleexecutionspec_server = mcp

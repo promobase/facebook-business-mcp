@@ -1,32 +1,45 @@
-"""FranchiseProgramMember MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.franchiseprogrammember import FranchiseProgramMember
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookFranchiseProgramMember"
-instructions = """
-FranchiseProgramMember MCP Server for Facebook Business API.
-
-Provides typed access to all FranchiseProgramMember operations.
+"""
+Auto-generated MCP server for Facebook FranchiseProgramMember.
+DO NOT EDIT MANUALLY.
 """
 
-franchiseprogrammember_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.franchiseprogrammember import FranchiseProgramMember
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-franchiseprogrammember")
 
 
-# ---- CRUD Operations (1) ----
-@franchiseprogrammember_server.tool
-@wrapped_fn_tool
-def get_franchiseprogrammember(
-    franchiseprogrammember_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_franchiseprogrammember(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = FranchiseProgramMember(franchiseprogrammember_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a FranchiseProgramMember.
+
+    Args:
+        object_id: The ID of the FranchiseProgramMember
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = FranchiseProgramMember(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+franchiseprogrammember_server = mcp

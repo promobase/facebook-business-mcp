@@ -1,32 +1,45 @@
-"""BrandSafetyDownloadable MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.brandsafetydownloadable import BrandSafetyDownloadable
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookBrandSafetyDownloadable"
-instructions = """
-BrandSafetyDownloadable MCP Server for Facebook Business API.
-
-Provides typed access to all BrandSafetyDownloadable operations.
+"""
+Auto-generated MCP server for Facebook BrandSafetyDownloadable.
+DO NOT EDIT MANUALLY.
 """
 
-brandsafetydownloadable_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.brandsafetydownloadable import BrandSafetyDownloadable
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-brandsafetydownloadable")
 
 
-# ---- CRUD Operations (1) ----
-@brandsafetydownloadable_server.tool
-@wrapped_fn_tool
-def get_brandsafetydownloadable(
-    brandsafetydownloadable_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_brandsafetydownloadable(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = BrandSafetyDownloadable(brandsafetydownloadable_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a BrandSafetyDownloadable.
+
+    Args:
+        object_id: The ID of the BrandSafetyDownloadable
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = BrandSafetyDownloadable(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+brandsafetydownloadable_server = mcp

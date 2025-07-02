@@ -1,32 +1,45 @@
-"""OffsitePixel MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.offsitepixel import OffsitePixel
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookOffsitePixel"
-instructions = """
-OffsitePixel MCP Server for Facebook Business API.
-
-Provides typed access to all OffsitePixel operations.
+"""
+Auto-generated MCP server for Facebook OffsitePixel.
+DO NOT EDIT MANUALLY.
 """
 
-offsitepixel_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.offsitepixel import OffsitePixel
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-offsitepixel")
 
 
-# ---- CRUD Operations (1) ----
-@offsitepixel_server.tool
-@wrapped_fn_tool
-def get_offsitepixel(
-    offsitepixel_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_offsitepixel(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = OffsitePixel(offsitepixel_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a OffsitePixel.
+
+    Args:
+        object_id: The ID of the OffsitePixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = OffsitePixel(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+offsitepixel_server = mcp

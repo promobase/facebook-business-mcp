@@ -1,32 +1,45 @@
-"""FAMEKumo MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.famekumo import FAMEKumo
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookFAMEKumo"
-instructions = """
-FAMEKumo MCP Server for Facebook Business API.
-
-Provides typed access to all FAMEKumo operations.
+"""
+Auto-generated MCP server for Facebook FAMEKumo.
+DO NOT EDIT MANUALLY.
 """
 
-famekumo_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.famekumo import FAMEKumo
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-famekumo")
 
 
-# ---- CRUD Operations (1) ----
-@famekumo_server.tool
-@wrapped_fn_tool
-def get_famekumo(
-    famekumo_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_famekumo(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = FAMEKumo(famekumo_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a FAMEKumo.
+
+    Args:
+        object_id: The ID of the FAMEKumo
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = FAMEKumo(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+famekumo_server = mcp

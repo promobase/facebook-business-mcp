@@ -1,34 +1,47 @@
-"""AdsReportBuilderMMMReportScheduler MCP Server."""
+"""
+Auto-generated MCP server for Facebook AdsReportBuilderMMMReportScheduler.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.adsreportbuildermmmreportscheduler import (
     AdsReportBuilderMMMReportScheduler,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsReportBuilderMMMReportScheduler"
-instructions = """
-AdsReportBuilderMMMReportScheduler MCP Server for Facebook Business API.
-
-Provides typed access to all AdsReportBuilderMMMReportScheduler operations.
-"""
-
-adsreportbuildermmmreportscheduler_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adsreportbuildermmmreportscheduler")
 
 
-# ---- CRUD Operations (1) ----
-@adsreportbuildermmmreportscheduler_server.tool
-@wrapped_fn_tool
-def get_adsreportbuildermmmreportscheduler(
-    adsreportbuildermmmreportscheduler_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adsreportbuildermmmreportscheduler(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdsReportBuilderMMMReportScheduler(adsreportbuildermmmreportscheduler_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdsReportBuilderMMMReportScheduler.
+
+    Args:
+        object_id: The ID of the AdsReportBuilderMMMReportScheduler
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsReportBuilderMMMReportScheduler(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adsreportbuildermmmreportscheduler_server = mcp

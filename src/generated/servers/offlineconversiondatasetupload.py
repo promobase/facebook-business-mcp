@@ -1,59 +1,100 @@
-"""OfflineConversionDataSetUpload MCP Server."""
+"""
+Auto-generated MCP server for Facebook OfflineConversionDataSetUpload.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.offlineconversiondatasetupload import (
     OfflineConversionDataSetUpload,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookOfflineConversionDataSetUpload"
-instructions = """
-OfflineConversionDataSetUpload MCP Server for Facebook Business API.
-
-Provides typed access to all OfflineConversionDataSetUpload operations.
-"""
-
-offlineconversiondatasetupload_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-offlineconversiondatasetupload")
 
 
-# ---- CRUD Operations (1) ----
-@offlineconversiondatasetupload_server.tool
-@wrapped_fn_tool
-def get_offlineconversiondatasetupload(
-    offlineconversiondatasetupload_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = OfflineConversionDataSetUpload(offlineconversiondatasetupload_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@offlineconversiondatasetupload_server.tool
-@wrapped_fn_tool
-def get_progress(
-    offlineconversiondatasetupload_id: str,
+@mcp.tool()
+async def get_offlineconversiondatasetupload(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return OfflineConversionDataSetUpload(offlineconversiondatasetupload_id).get_progress(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a OfflineConversionDataSetUpload.
+
+    Args:
+        object_id: The ID of the OfflineConversionDataSetUpload
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = OfflineConversionDataSetUpload(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@offlineconversiondatasetupload_server.tool
-@wrapped_fn_tool
-def get_pull_sessions(
-    offlineconversiondatasetupload_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_progress_for_offlineconversiondatasetupload(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return OfflineConversionDataSetUpload(offlineconversiondatasetupload_id).get_pull_sessions(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get Progress for OfflineConversionDataSetUpload.
+
+    Args:
+        object_id: The ID of the OfflineConversionDataSetUpload
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_progress result
+    """
+    result = OfflineConversionDataSetUpload(fbid=object_id).get_progress(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+@mcp.tool()
+async def get_pull_sessions_for_offlineconversiondatasetupload(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Pull Sessions for OfflineConversionDataSetUpload.
+
+    Args:
+        object_id: The ID of the OfflineConversionDataSetUpload
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_pull_sessions result
+    """
+    result = OfflineConversionDataSetUpload(fbid=object_id).get_pull_sessions(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+offlineconversiondatasetupload_server = mcp

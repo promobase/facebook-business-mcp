@@ -273,8 +273,8 @@ class ProductSetGetMediaTitlesParams(BaseModel):
     filter: dict[str, Any] | None = Field(None, description="filter parameter")
 
 
-class ProductSetGetProductsParams(BaseModel):
-    """Parameters for ProductSet.get_products()."""
+class ProductSetGetProductSParams(BaseModel):
+    """Parameters for ProductSet.get_product_s()."""
 
     model_config = ConfigDict(extra="forbid")
     bulk_pagination: bool | None = Field(None, description="bulk_pagination parameter")

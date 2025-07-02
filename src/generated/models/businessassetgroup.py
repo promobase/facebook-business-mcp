@@ -12,26 +12,6 @@ if TYPE_CHECKING:
     from .business import BusinessFields
 
 
-class businessassetgroupassigned_users_pixel_tasks_enum_param(str, Enum):
-    """businessassetgroupassigned_users_pixel_tasks_enum_param enum values."""
-
-    AA_ANALYZE = "AA_ANALYZE"
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    EDIT = "EDIT"
-    UPLOAD = "UPLOAD"
-
-
-class businessassetgroupassigned_users_adaccount_tasks_enum_param(str, Enum):
-    """businessassetgroupassigned_users_adaccount_tasks_enum_param enum values."""
-
-    AA_ANALYZE = "AA_ANALYZE"
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    DRAFT = "DRAFT"
-    MANAGE = "MANAGE"
-
-
 class businessassetgroupassigned_users_page_tasks_enum_param(str, Enum):
     """businessassetgroupassigned_users_page_tasks_enum_param enum values."""
 
@@ -71,6 +51,26 @@ class businessassetgroupassigned_users_offline_conversion_data_set_tasks_enum_pa
     MANAGE = "MANAGE"
     UPLOAD = "UPLOAD"
     VIEW = "VIEW"
+
+
+class businessassetgroupassigned_users_pixel_tasks_enum_param(str, Enum):
+    """businessassetgroupassigned_users_pixel_tasks_enum_param enum values."""
+
+    AA_ANALYZE = "AA_ANALYZE"
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    EDIT = "EDIT"
+    UPLOAD = "UPLOAD"
+
+
+class businessassetgroupassigned_users_adaccount_tasks_enum_param(str, Enum):
+    """businessassetgroupassigned_users_adaccount_tasks_enum_param enum values."""
+
+    AA_ANALYZE = "AA_ANALYZE"
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    DRAFT = "DRAFT"
+    MANAGE = "MANAGE"
 
 
 # Field literal type

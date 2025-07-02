@@ -1,32 +1,45 @@
-"""MediaCopyrightAttribution MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.mediacopyrightattribution import MediaCopyrightAttribution
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookMediaCopyrightAttribution"
-instructions = """
-MediaCopyrightAttribution MCP Server for Facebook Business API.
-
-Provides typed access to all MediaCopyrightAttribution operations.
+"""
+Auto-generated MCP server for Facebook MediaCopyrightAttribution.
+DO NOT EDIT MANUALLY.
 """
 
-mediacopyrightattribution_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.mediacopyrightattribution import MediaCopyrightAttribution
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-mediacopyrightattribution")
 
 
-# ---- CRUD Operations (1) ----
-@mediacopyrightattribution_server.tool
-@wrapped_fn_tool
-def get_mediacopyrightattribution(
-    mediacopyrightattribution_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_mediacopyrightattribution(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = MediaCopyrightAttribution(mediacopyrightattribution_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a MediaCopyrightAttribution.
+
+    Args:
+        object_id: The ID of the MediaCopyrightAttribution
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = MediaCopyrightAttribution(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+mediacopyrightattribution_server = mcp

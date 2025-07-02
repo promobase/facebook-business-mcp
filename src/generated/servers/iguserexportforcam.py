@@ -1,65 +1,123 @@
-"""IGUserExportForCAM MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.iguserexportforcam import IGUserExportForCAM
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookIGUserExportForCAM"
-instructions = """
-IGUserExportForCAM MCP Server for Facebook Business API.
-
-Provides typed access to all IGUserExportForCAM operations.
+"""
+Auto-generated MCP server for Facebook IGUserExportForCAM.
+DO NOT EDIT MANUALLY.
 """
 
-iguserexportforcam_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.iguserexportforcam import IGUserExportForCAM
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-iguserexportforcam")
 
 
-# ---- CRUD Operations (1) ----
-@iguserexportforcam_server.tool
-@wrapped_fn_tool
-def get_iguserexportforcam(
-    iguserexportforcam_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = IGUserExportForCAM(iguserexportforcam_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (3) ----
-@iguserexportforcam_server.tool
-@wrapped_fn_tool
-def get_branded_content_media(
-    iguserexportforcam_id: str,
+@mcp.tool()
+async def get_iguserexportforcam(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGUserExportForCAM(iguserexportforcam_id).get_branded_content_media(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a IGUserExportForCAM.
+
+    Args:
+        object_id: The ID of the IGUserExportForCAM
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = IGUserExportForCAM(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@iguserexportforcam_server.tool
-@wrapped_fn_tool
-def get_insights(
-    iguserexportforcam_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_branded_content_media_for_iguserexportforcam(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGUserExportForCAM(iguserexportforcam_id).get_insights(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Branded Content Media for IGUserExportForCAM.
+
+    Args:
+        object_id: The ID of the IGUserExportForCAM
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_branded_content_media result
+    """
+    result = IGUserExportForCAM(fbid=object_id).get_branded_content_media(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@iguserexportforcam_server.tool
-@wrapped_fn_tool
-def get_recent_media(
-    iguserexportforcam_id: str,
+@mcp.tool()
+async def get_insights_for_iguserexportforcam(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGUserExportForCAM(iguserexportforcam_id).get_recent_media(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Insights for IGUserExportForCAM.
+
+    Args:
+        object_id: The ID of the IGUserExportForCAM
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_insights result
+    """
+    result = IGUserExportForCAM(fbid=object_id).get_insights(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_recent_media_for_iguserexportforcam(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Recent Media for IGUserExportForCAM.
+
+    Args:
+        object_id: The ID of the IGUserExportForCAM
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_recent_media result
+    """
+    result = IGUserExportForCAM(fbid=object_id).get_recent_media(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+iguserexportforcam_server = mcp

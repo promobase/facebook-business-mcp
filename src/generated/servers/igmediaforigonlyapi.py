@@ -1,83 +1,173 @@
-"""IGMediaForIGOnlyAPI MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.igmediaforigonlyapi import IGMediaForIGOnlyAPI
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookIGMediaForIGOnlyAPI"
-instructions = """
-IGMediaForIGOnlyAPI MCP Server for Facebook Business API.
-
-Provides typed access to all IGMediaForIGOnlyAPI operations.
+"""
+Auto-generated MCP server for Facebook IGMediaForIGOnlyAPI.
+DO NOT EDIT MANUALLY.
 """
 
-igmediaforigonlyapi_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.igmediaforigonlyapi import IGMediaForIGOnlyAPI
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-igmediaforigonlyapi")
 
 
-# ---- CRUD Operations (2) ----
-@igmediaforigonlyapi_server.tool
-@wrapped_fn_tool
-def get_igmediaforigonlyapi(
-    igmediaforigonlyapi_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = IGMediaForIGOnlyAPI(igmediaforigonlyapi_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@igmediaforigonlyapi_server.tool
-@wrapped_fn_tool
-def update_igmediaforigonlyapi(
-    igmediaforigonlyapi_id: str,
+@mcp.tool()
+async def get_igmediaforigonlyapi(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a IGMediaForIGOnlyAPI.
+
+    Args:
+        object_id: The ID of the IGMediaForIGOnlyAPI
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = IGMediaForIGOnlyAPI(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-# ---- Edge Methods (4) ----
-@igmediaforigonlyapi_server.tool
-@wrapped_fn_tool
-def get_children(
-    igmediaforigonlyapi_id: str,
+@mcp.tool()
+async def update_igmediaforigonlyapi(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).get_children(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a IGMediaForIGOnlyAPI.
+
+    Args:
+        object_id: The ID of the IGMediaForIGOnlyAPI
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = IGMediaForIGOnlyAPI(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@igmediaforigonlyapi_server.tool
-@wrapped_fn_tool
-def get_comments(
-    igmediaforigonlyapi_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_comment_for_igmediaforigonlyapi(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).get_comments(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Comment for IGMediaForIGOnlyAPI.
+
+    Args:
+        object_id: The ID of the IGMediaForIGOnlyAPI
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_comment result
+    """
+    result = IGMediaForIGOnlyAPI(fbid=object_id).create_comment(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@igmediaforigonlyapi_server.tool
-@wrapped_fn_tool
-def create_comment(
-    igmediaforigonlyapi_id: str,
+@mcp.tool()
+async def get_children_for_igmediaforigonlyapi(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).create_comment(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Children for IGMediaForIGOnlyAPI.
+
+    Args:
+        object_id: The ID of the IGMediaForIGOnlyAPI
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_children result
+    """
+    result = IGMediaForIGOnlyAPI(fbid=object_id).get_children(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@igmediaforigonlyapi_server.tool
-@wrapped_fn_tool
-def get_insights(
-    igmediaforigonlyapi_id: str,
+@mcp.tool()
+async def get_comments_for_igmediaforigonlyapi(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGMediaForIGOnlyAPI(igmediaforigonlyapi_id).get_insights(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Comments for IGMediaForIGOnlyAPI.
+
+    Args:
+        object_id: The ID of the IGMediaForIGOnlyAPI
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_comments result
+    """
+    result = IGMediaForIGOnlyAPI(fbid=object_id).get_comments(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_insights_for_igmediaforigonlyapi(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Insights for IGMediaForIGOnlyAPI.
+
+    Args:
+        object_id: The ID of the IGMediaForIGOnlyAPI
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_insights result
+    """
+    result = IGMediaForIGOnlyAPI(fbid=object_id).get_insights(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+igmediaforigonlyapi_server = mcp

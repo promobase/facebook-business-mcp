@@ -1,53 +1,98 @@
-"""Link MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.link import Link
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookLink"
-instructions = """
-Link MCP Server for Facebook Business API.
-
-Provides typed access to all Link operations.
+"""
+Auto-generated MCP server for Facebook Link.
+DO NOT EDIT MANUALLY.
 """
 
-link_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.link import Link
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-link")
 
 
-# ---- CRUD Operations (1) ----
-@link_server.tool
-@wrapped_fn_tool
-def get_link(
-    link_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Link(link_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@link_server.tool
-@wrapped_fn_tool
-def create_comment(
-    link_id: str,
+@mcp.tool()
+async def get_link(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Link(link_id).create_comment(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Link.
+
+    Args:
+        object_id: The ID of the Link
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Link(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@link_server.tool
-@wrapped_fn_tool
-def get_likes(
-    link_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_comment_for_link(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Link(link_id).get_likes(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Comment for Link.
+
+    Args:
+        object_id: The ID of the Link
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_comment result
+    """
+    result = Link(fbid=object_id).create_comment(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_likes_for_link(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Likes for Link.
+
+    Args:
+        object_id: The ID of the Link
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_likes result
+    """
+    result = Link(fbid=object_id).get_likes(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+link_server = mcp

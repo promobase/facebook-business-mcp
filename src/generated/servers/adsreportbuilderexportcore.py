@@ -1,32 +1,45 @@
-"""AdsReportBuilderExportCore MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adsreportbuilderexportcore import AdsReportBuilderExportCore
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsReportBuilderExportCore"
-instructions = """
-AdsReportBuilderExportCore MCP Server for Facebook Business API.
-
-Provides typed access to all AdsReportBuilderExportCore operations.
+"""
+Auto-generated MCP server for Facebook AdsReportBuilderExportCore.
+DO NOT EDIT MANUALLY.
 """
 
-adsreportbuilderexportcore_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adsreportbuilderexportcore import AdsReportBuilderExportCore
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adsreportbuilderexportcore")
 
 
-# ---- CRUD Operations (1) ----
-@adsreportbuilderexportcore_server.tool
-@wrapped_fn_tool
-def get_adsreportbuilderexportcore(
-    adsreportbuilderexportcore_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adsreportbuilderexportcore(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdsReportBuilderExportCore(adsreportbuilderexportcore_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdsReportBuilderExportCore.
+
+    Args:
+        object_id: The ID of the AdsReportBuilderExportCore
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsReportBuilderExportCore(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adsreportbuilderexportcore_server = mcp

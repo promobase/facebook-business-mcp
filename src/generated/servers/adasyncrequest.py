@@ -1,40 +1,70 @@
-"""AdAsyncRequest MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adasyncrequest import AdAsyncRequest
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdAsyncRequest"
-instructions = """
-AdAsyncRequest MCP Server for Facebook Business API.
-
-Provides typed access to all AdAsyncRequest operations.
+"""
+Auto-generated MCP server for Facebook AdAsyncRequest.
+DO NOT EDIT MANUALLY.
 """
 
-adasyncrequest_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adasyncrequest import AdAsyncRequest
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adasyncrequest")
 
 
-# ---- CRUD Operations (2) ----
-@adasyncrequest_server.tool
-@wrapped_fn_tool
-def get_adasyncrequest(
-    adasyncrequest_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def delete_adasyncrequest(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdAsyncRequest(adasyncrequest_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Delete a AdAsyncRequest.
+
+    Args:
+        object_id: The ID of the AdAsyncRequest
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = AdAsyncRequest(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adasyncrequest_server.tool
-@wrapped_fn_tool
-def delete_adasyncrequest(
-    adasyncrequest_id: str,
-) -> str:
-    return AdAsyncRequest(adasyncrequest_id).api_delete()
+@mcp.tool()
+async def get_adasyncrequest(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdAsyncRequest.
+
+    Args:
+        object_id: The ID of the AdAsyncRequest
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdAsyncRequest(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adasyncrequest_server = mcp

@@ -1,40 +1,98 @@
-"""StoreCatalogSettings MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.storecatalogsettings import StoreCatalogSettings
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookStoreCatalogSettings"
-instructions = """
-StoreCatalogSettings MCP Server for Facebook Business API.
-
-Provides typed access to all StoreCatalogSettings operations.
+"""
+Auto-generated MCP server for Facebook StoreCatalogSettings.
+DO NOT EDIT MANUALLY.
 """
 
-storecatalogsettings_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.storecatalogsettings import StoreCatalogSettings
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-storecatalogsettings")
 
 
-# ---- CRUD Operations (2) ----
-@storecatalogsettings_server.tool
-@wrapped_fn_tool
-def get_storecatalogsettings(
-    storecatalogsettings_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_storecatalogsettings(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
-) -> str:
-    obj = StoreCatalogSettings(storecatalogsettings_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create a StoreCatalogSettings.
+
+    Args:
+        object_id: The ID of the StoreCatalogSettings
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = StoreCatalogSettings(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@storecatalogsettings_server.tool
-@wrapped_fn_tool
-def delete_storecatalogsettings(
-    storecatalogsettings_id: str,
-) -> str:
-    return StoreCatalogSettings(storecatalogsettings_id).api_delete()
+@mcp.tool()
+async def delete_storecatalogsettings(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Delete a StoreCatalogSettings.
+
+    Args:
+        object_id: The ID of the StoreCatalogSettings
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = StoreCatalogSettings(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_storecatalogsettings(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a StoreCatalogSettings.
+
+    Args:
+        object_id: The ID of the StoreCatalogSettings
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = StoreCatalogSettings(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+storecatalogsettings_server = mcp

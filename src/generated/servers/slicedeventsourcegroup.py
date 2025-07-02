@@ -1,32 +1,45 @@
-"""SlicedEventSourceGroup MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.slicedeventsourcegroup import SlicedEventSourceGroup
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookSlicedEventSourceGroup"
-instructions = """
-SlicedEventSourceGroup MCP Server for Facebook Business API.
-
-Provides typed access to all SlicedEventSourceGroup operations.
+"""
+Auto-generated MCP server for Facebook SlicedEventSourceGroup.
+DO NOT EDIT MANUALLY.
 """
 
-slicedeventsourcegroup_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.slicedeventsourcegroup import SlicedEventSourceGroup
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-slicedeventsourcegroup")
 
 
-# ---- CRUD Operations (1) ----
-@slicedeventsourcegroup_server.tool
-@wrapped_fn_tool
-def get_slicedeventsourcegroup(
-    slicedeventsourcegroup_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_slicedeventsourcegroup(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = SlicedEventSourceGroup(slicedeventsourcegroup_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a SlicedEventSourceGroup.
+
+    Args:
+        object_id: The ID of the SlicedEventSourceGroup
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = SlicedEventSourceGroup(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+slicedeventsourcegroup_server = mcp

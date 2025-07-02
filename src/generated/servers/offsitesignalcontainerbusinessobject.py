@@ -1,59 +1,100 @@
-"""OffsiteSignalContainerBusinessObject MCP Server."""
+"""
+Auto-generated MCP server for Facebook OffsiteSignalContainerBusinessObject.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.offsitesignalcontainerbusinessobject import (
     OffsiteSignalContainerBusinessObject,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookOffsiteSignalContainerBusinessObject"
-instructions = """
-OffsiteSignalContainerBusinessObject MCP Server for Facebook Business API.
-
-Provides typed access to all OffsiteSignalContainerBusinessObject operations.
-"""
-
-offsitesignalcontainerbusinessobject_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-offsitesignalcontainerbusinessobject")
 
 
-# ---- CRUD Operations (1) ----
-@offsitesignalcontainerbusinessobject_server.tool
-@wrapped_fn_tool
-def get_offsitesignalcontainerbusinessobject(
-    offsitesignalcontainerbusinessobject_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = OffsiteSignalContainerBusinessObject(offsitesignalcontainerbusinessobject_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@offsitesignalcontainerbusinessobject_server.tool
-@wrapped_fn_tool
-def get_linked_application(
-    offsitesignalcontainerbusinessobject_id: str,
+@mcp.tool()
+async def get_offsitesignalcontainerbusinessobject(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return OffsiteSignalContainerBusinessObject(
-        offsitesignalcontainerbusinessobject_id
-    ).get_linked_application(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a OffsiteSignalContainerBusinessObject.
+
+    Args:
+        object_id: The ID of the OffsiteSignalContainerBusinessObject
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = OffsiteSignalContainerBusinessObject(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@offsitesignalcontainerbusinessobject_server.tool
-@wrapped_fn_tool
-def get_linked_page(
-    offsitesignalcontainerbusinessobject_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_linked_application_for_offsitesignalcontainerbusinessobject(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return OffsiteSignalContainerBusinessObject(
-        offsitesignalcontainerbusinessobject_id
-    ).get_linked_page(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Linked Application for OffsiteSignalContainerBusinessObject.
+
+    Args:
+        object_id: The ID of the OffsiteSignalContainerBusinessObject
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_linked_application result
+    """
+    result = OffsiteSignalContainerBusinessObject(fbid=object_id).get_linked_application(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_linked_page_for_offsitesignalcontainerbusinessobject(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Linked Page for OffsiteSignalContainerBusinessObject.
+
+    Args:
+        object_id: The ID of the OffsiteSignalContainerBusinessObject
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_linked_page result
+    """
+    result = OffsiteSignalContainerBusinessObject(fbid=object_id).get_linked_page(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+offsitesignalcontainerbusinessobject_server = mcp

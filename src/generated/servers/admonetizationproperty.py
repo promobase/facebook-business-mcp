@@ -1,69 +1,123 @@
-"""AdMonetizationProperty MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.admonetizationproperty import AdMonetizationProperty
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdMonetizationProperty"
-instructions = """
-AdMonetizationProperty MCP Server for Facebook Business API.
-
-Provides typed access to all AdMonetizationProperty operations.
+"""
+Auto-generated MCP server for Facebook AdMonetizationProperty.
+DO NOT EDIT MANUALLY.
 """
 
-admonetizationproperty_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.admonetizationproperty import AdMonetizationProperty
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-admonetizationproperty")
 
 
-# ---- CRUD Operations (1) ----
-@admonetizationproperty_server.tool
-@wrapped_fn_tool
-def get_admonetizationproperty(
-    admonetizationproperty_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = AdMonetizationProperty(admonetizationproperty_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (3) ----
-@admonetizationproperty_server.tool
-@wrapped_fn_tool
-def get_adnetworkanalytics(
-    admonetizationproperty_id: str,
+@mcp.tool()
+async def get_admonetizationproperty(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdMonetizationProperty(admonetizationproperty_id).get_adnetworkanalytics(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a AdMonetizationProperty.
+
+    Args:
+        object_id: The ID of the AdMonetizationProperty
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdMonetizationProperty(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@admonetizationproperty_server.tool
-@wrapped_fn_tool
-def create_adnetworkanalytic(
-    admonetizationproperty_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def create_ad_network_analytic_for_admonetizationproperty(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdMonetizationProperty(admonetizationproperty_id).create_adnetworkanalytic(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create Ad Network Analytic for AdMonetizationProperty.
+
+    Args:
+        object_id: The ID of the AdMonetizationProperty
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_ad_network_analytic result
+    """
+    result = AdMonetizationProperty(fbid=object_id).create_ad_network_analytic(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@admonetizationproperty_server.tool
-@wrapped_fn_tool
-def get_adnetworkanalytics_results(
-    admonetizationproperty_id: str,
+
+@mcp.tool()
+async def get_ad_network_analytics_for_admonetizationproperty(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdMonetizationProperty(admonetizationproperty_id).get_adnetworkanalytics_results(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get Ad Network Analytics for AdMonetizationProperty.
+
+    Args:
+        object_id: The ID of the AdMonetizationProperty
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ad_network_analytics result
+    """
+    result = AdMonetizationProperty(fbid=object_id).get_ad_network_analytics(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+@mcp.tool()
+async def get_ad_network_analytics_results_for_admonetizationproperty(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Ad Network Analytics Results for AdMonetizationProperty.
+
+    Args:
+        object_id: The ID of the AdMonetizationProperty
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ad_network_analytics_results result
+    """
+    result = AdMonetizationProperty(fbid=object_id).get_ad_network_analytics_results(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+admonetizationproperty_server = mcp

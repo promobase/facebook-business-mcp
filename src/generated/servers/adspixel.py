@@ -1,211 +1,526 @@
-"""AdsPixel MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adspixel import AdsPixel
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsPixel"
-instructions = """
-AdsPixel MCP Server for Facebook Business API.
-
-Provides typed access to all AdsPixel operations.
+"""
+Auto-generated MCP server for Facebook AdsPixel.
+DO NOT EDIT MANUALLY.
 """
 
-adspixel_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adspixel import AdsPixel
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adspixel")
 
 
-# ---- CRUD Operations (2) ----
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_adspixel(
-    adspixel_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = AdsPixel(adspixel_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def update_adspixel(
-    adspixel_id: str,
+@mcp.tool()
+async def create_adspixel(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return AdsPixel(adspixel_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create a AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = AdsPixel(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-# ---- Edge Methods (17) ----
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_adaccounts(
-    adspixel_id: str,
+@mcp.tool()
+async def get_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_adaccounts(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsPixel(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def delete_agencies(
-    adspixel_id: str,
-    params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).delete_agencies(params=params)
-
-
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_agencies(
-    adspixel_id: str,
+@mcp.tool()
+async def update_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_agencies(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = AdsPixel(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def create_agencie(
-    adspixel_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def create_agency_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).create_agencie(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Agency for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_agency result
+    """
+    result = AdsPixel(fbid=object_id).create_agency(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def create_ahp_config(
-    adspixel_id: str,
+@mcp.tool()
+async def create_ahp_config_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).create_ahp_config(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Ahp Config for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_ahp_config result
+    """
+    result = AdsPixel(fbid=object_id).create_ahp_config(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_assigned_users(
-    adspixel_id: str,
+@mcp.tool()
+async def create_assigned_user_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_assigned_users(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Assigned User for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_assigned_user result
+    """
+    result = AdsPixel(fbid=object_id).create_assigned_user(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def create_assigned_user(
-    adspixel_id: str,
+@mcp.tool()
+async def create_event_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).create_assigned_user(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Event for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_event result
+    """
+    result = AdsPixel(fbid=object_id).create_event(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_da_checks(
-    adspixel_id: str,
+@mcp.tool()
+async def create_shadow_traffic_helper_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_da_checks(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Shadow Traffic Helper for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_shadow_traffic_helper result
+    """
+    result = AdsPixel(fbid=object_id).create_shadow_traffic_helper(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def create_event(
-    adspixel_id: str,
+@mcp.tool()
+async def create_shared_account_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).create_event(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Create Shared Account for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_shared_account result
+    """
+    result = AdsPixel(fbid=object_id).create_shared_account(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_offline_event_uploads(
-    adspixel_id: str,
+@mcp.tool()
+async def delete_agencies_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_offline_event_uploads(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete Agencies for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete_agencies result
+    """
+    result = AdsPixel(fbid=object_id).delete_agencies(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_openbridge_configurations(
-    adspixel_id: str,
+@mcp.tool()
+async def delete_shared_accounts_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_openbridge_configurations(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete Shared Accounts for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete_shared_accounts result
+    """
+    result = AdsPixel(fbid=object_id).delete_shared_accounts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def create_shadowtraffichelper(
-    adspixel_id: str,
+@mcp.tool()
+async def get_ad_accounts_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).create_shadowtraffichelper(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Ad Accounts for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_ad_accounts result
+    """
+    result = AdsPixel(fbid=object_id).get_ad_accounts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def delete_shared_accounts(
-    adspixel_id: str,
-    params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).delete_shared_accounts(params=params)
-
-
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_shared_accounts(
-    adspixel_id: str,
+@mcp.tool()
+async def get_agencies_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_shared_accounts(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Agencies for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_agencies result
+    """
+    result = AdsPixel(fbid=object_id).get_agencies(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def create_shared_account(
-    adspixel_id: str,
+@mcp.tool()
+async def get_assigned_users_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).create_shared_account(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Assigned Users for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_assigned_users result
+    """
+    result = AdsPixel(fbid=object_id).get_assigned_users(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_shared_agencies(
-    adspixel_id: str,
+@mcp.tool()
+async def get_da_checks_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_shared_agencies(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Da Checks for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_da_checks result
+    """
+    result = AdsPixel(fbid=object_id).get_da_checks(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@adspixel_server.tool
-@wrapped_fn_tool
-def get_stats(
-    adspixel_id: str,
+@mcp.tool()
+async def get_offline_event_uploads_for_adspixel(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdsPixel(adspixel_id).get_stats(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Offline Event Uploads for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_offline_event_uploads result
+    """
+    result = AdsPixel(fbid=object_id).get_offline_event_uploads(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_open_bridge_configurations_for_adspixel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Open Bridge Configurations for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_open_bridge_configurations result
+    """
+    result = AdsPixel(fbid=object_id).get_open_bridge_configurations(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_shared_accounts_for_adspixel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Shared Accounts for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_shared_accounts result
+    """
+    result = AdsPixel(fbid=object_id).get_shared_accounts(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_shared_agencies_for_adspixel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Shared Agencies for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_shared_agencies result
+    """
+    result = AdsPixel(fbid=object_id).get_shared_agencies(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_stats_for_adspixel(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Stats for AdsPixel.
+
+    Args:
+        object_id: The ID of the AdsPixel
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_stats result
+    """
+    result = AdsPixel(fbid=object_id).get_stats(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adspixel_server = mcp

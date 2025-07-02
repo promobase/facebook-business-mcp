@@ -1,32 +1,45 @@
-"""WebsiteCreativeAssetSource MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.websitecreativeassetsource import WebsiteCreativeAssetSource
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookWebsiteCreativeAssetSource"
-instructions = """
-WebsiteCreativeAssetSource MCP Server for Facebook Business API.
-
-Provides typed access to all WebsiteCreativeAssetSource operations.
+"""
+Auto-generated MCP server for Facebook WebsiteCreativeAssetSource.
+DO NOT EDIT MANUALLY.
 """
 
-websitecreativeassetsource_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.websitecreativeassetsource import WebsiteCreativeAssetSource
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-websitecreativeassetsource")
 
 
-# ---- CRUD Operations (1) ----
-@websitecreativeassetsource_server.tool
-@wrapped_fn_tool
-def get_websitecreativeassetsource(
-    websitecreativeassetsource_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_websitecreativeassetsource(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = WebsiteCreativeAssetSource(websitecreativeassetsource_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a WebsiteCreativeAssetSource.
+
+    Args:
+        object_id: The ID of the WebsiteCreativeAssetSource
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = WebsiteCreativeAssetSource(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+websitecreativeassetsource_server = mcp

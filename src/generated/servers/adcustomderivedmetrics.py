@@ -1,32 +1,45 @@
-"""AdCustomDerivedMetrics MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adcustomderivedmetrics import AdCustomDerivedMetrics
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdCustomDerivedMetrics"
-instructions = """
-AdCustomDerivedMetrics MCP Server for Facebook Business API.
-
-Provides typed access to all AdCustomDerivedMetrics operations.
+"""
+Auto-generated MCP server for Facebook AdCustomDerivedMetrics.
+DO NOT EDIT MANUALLY.
 """
 
-adcustomderivedmetrics_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adcustomderivedmetrics import AdCustomDerivedMetrics
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adcustomderivedmetrics")
 
 
-# ---- CRUD Operations (1) ----
-@adcustomderivedmetrics_server.tool
-@wrapped_fn_tool
-def get_adcustomderivedmetrics(
-    adcustomderivedmetrics_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adcustomderivedmetrics(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdCustomDerivedMetrics(adcustomderivedmetrics_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdCustomDerivedMetrics.
+
+    Args:
+        object_id: The ID of the AdCustomDerivedMetrics
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdCustomDerivedMetrics(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adcustomderivedmetrics_server = mcp

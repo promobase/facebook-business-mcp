@@ -1,34 +1,48 @@
-"""AdAccountRecommendations MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adaccountrecommendations import AdAccountRecommendations
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdAccountRecommendations"
-instructions = """
-AdAccountRecommendations MCP Server for Facebook Business API.
-
-Provides typed access to all AdAccountRecommendations operations.
+"""
+Auto-generated MCP server for Facebook AdAccountRecommendations.
+DO NOT EDIT MANUALLY.
 """
 
-adaccountrecommendations_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adaccountrecommendations import AdAccountRecommendations
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adaccountrecommendations")
 
 
-# ---- Edge Methods (1) ----
-@adaccountrecommendations_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    adaccountrecommendations_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_adaccountrecommendations(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdAccountRecommendations(adaccountrecommendations_id).get_endpoint(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Create a AdAccountRecommendations.
+
+    Args:
+        object_id: The ID of the AdAccountRecommendations
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = AdAccountRecommendations(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+# Export the server
+adaccountrecommendations_server = mcp

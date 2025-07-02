@@ -152,6 +152,21 @@ class AdCreative_status(str, Enum):
     WITH_ISSUES = "WITH_ISSUES"
 
 
+class adcreativepreviews_render_type_enum_param(str, Enum):
+    """adcreativepreviews_render_type_enum_param enum values."""
+
+    FALLBACK = "FALLBACK"
+
+
+class adcreativepreviews_creative_feature_enum_param(str, Enum):
+    """adcreativepreviews_creative_feature_enum_param enum values."""
+
+    product_metadata_automation = "product_metadata_automation"
+    profile_card = "profile_card"
+    standard_enhancements_catalog = "standard_enhancements_catalog"
+    video_to_image = "video_to_image"
+
+
 class adcreativepreviews_ad_format_enum_param(str, Enum):
     """adcreativepreviews_ad_format_enum_param enum values."""
 
@@ -222,21 +237,6 @@ class adcreativepreviews_ad_format_enum_param(str, Enum):
     SUGGESTED_VIDEO_MOBILE = "SUGGESTED_VIDEO_MOBILE"
     WATCH_FEED_HOME = "WATCH_FEED_HOME"
     WATCH_FEED_MOBILE = "WATCH_FEED_MOBILE"
-
-
-class adcreativepreviews_render_type_enum_param(str, Enum):
-    """adcreativepreviews_render_type_enum_param enum values."""
-
-    FALLBACK = "FALLBACK"
-
-
-class adcreativepreviews_creative_feature_enum_param(str, Enum):
-    """adcreativepreviews_creative_feature_enum_param enum values."""
-
-    product_metadata_automation = "product_metadata_automation"
-    profile_card = "profile_card"
-    standard_enhancements_catalog = "standard_enhancements_catalog"
-    video_to_image = "video_to_image"
 
 
 # Field literal type
@@ -417,8 +417,8 @@ class AdCreativeFields(BaseModel):
     video_id: str = Field(None, alias="video_id")
 
 
-class AdCreativeCreateAdlabelParams(BaseModel):
-    """Parameters for AdCreative.create_adlabel()."""
+class AdCreativeCreateAdLabelParams(BaseModel):
+    """Parameters for AdCreative.create_ad_label()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[dict[str, Any]] | None = Field(None, description="adlabels parameter")

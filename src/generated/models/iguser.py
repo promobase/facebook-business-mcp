@@ -14,29 +14,6 @@ if TYPE_CHECKING:
     from .igmedia import IGMediaFields
 
 
-class shadowiguserinsights_breakdown_enum_param(str, Enum):
-    """shadowiguserinsights_breakdown_enum_param enum values."""
-
-    age = "age"
-    city = "city"
-    contact_button_type = "contact_button_type"
-    country = "country"
-    follow_type = "follow_type"
-    gender = "gender"
-    media_product_type = "media_product_type"
-
-
-class shadowiguserinsights_timeframe_enum_param(str, Enum):
-    """shadowiguserinsights_timeframe_enum_param enum values."""
-
-    last_14_days = "last_14_days"
-    last_30_days = "last_30_days"
-    last_90_days = "last_90_days"
-    prev_month = "prev_month"
-    this_month = "this_month"
-    this_week = "this_week"
-
-
 class shadowiguserupcoming_events_notification_subtypes_enum_param(str, Enum):
     """shadowiguserupcoming_events_notification_subtypes_enum_param enum values."""
 
@@ -55,12 +32,15 @@ class shadowiguserupcoming_events_notification_subtypes_enum_param(str, Enum):
     RESCHEDULED = "RESCHEDULED"
 
 
-class shadowiguserinsights_metric_type_enum_param(str, Enum):
-    """shadowiguserinsights_metric_type_enum_param enum values."""
+class shadowiguserinsights_timeframe_enum_param(str, Enum):
+    """shadowiguserinsights_timeframe_enum_param enum values."""
 
-    default = "default"
-    time_series = "time_series"
-    total_value = "total_value"
+    last_14_days = "last_14_days"
+    last_30_days = "last_30_days"
+    last_90_days = "last_90_days"
+    prev_month = "prev_month"
+    this_month = "this_month"
+    this_week = "this_week"
 
 
 class shadowiguserinsights_period_enum_param(str, Enum):
@@ -72,6 +52,14 @@ class shadowiguserinsights_period_enum_param(str, Enum):
     month = "month"
     total_over_range = "total_over_range"
     week = "week"
+
+
+class shadowiguserinsights_metric_type_enum_param(str, Enum):
+    """shadowiguserinsights_metric_type_enum_param enum values."""
+
+    default = "default"
+    time_series = "time_series"
+    total_value = "total_value"
 
 
 class shadowiguserinsights_metric_enum_param(str, Enum):
@@ -104,6 +92,18 @@ class shadowiguserinsights_metric_enum_param(str, Enum):
     total_interactions = "total_interactions"
     views = "views"
     website_clicks = "website_clicks"
+
+
+class shadowiguserinsights_breakdown_enum_param(str, Enum):
+    """shadowiguserinsights_breakdown_enum_param enum values."""
+
+    age = "age"
+    city = "city"
+    contact_button_type = "contact_button_type"
+    country = "country"
+    follow_type = "follow_type"
+    gender = "gender"
+    media_product_type = "media_product_type"
 
 
 # Field literal type

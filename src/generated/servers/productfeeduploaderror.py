@@ -1,57 +1,98 @@
-"""ProductFeedUploadError MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.productfeeduploaderror import ProductFeedUploadError
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProductFeedUploadError"
-instructions = """
-ProductFeedUploadError MCP Server for Facebook Business API.
-
-Provides typed access to all ProductFeedUploadError operations.
+"""
+Auto-generated MCP server for Facebook ProductFeedUploadError.
+DO NOT EDIT MANUALLY.
 """
 
-productfeeduploaderror_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.productfeeduploaderror import ProductFeedUploadError
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-productfeeduploaderror")
 
 
-# ---- CRUD Operations (1) ----
-@productfeeduploaderror_server.tool
-@wrapped_fn_tool
-def get_productfeeduploaderror(
-    productfeeduploaderror_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = ProductFeedUploadError(productfeeduploaderror_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@productfeeduploaderror_server.tool
-@wrapped_fn_tool
-def get_samples(
-    productfeeduploaderror_id: str,
+@mcp.tool()
+async def get_productfeeduploaderror(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ProductFeedUploadError(productfeeduploaderror_id).get_samples(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get a ProductFeedUploadError.
+
+    Args:
+        object_id: The ID of the ProductFeedUploadError
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ProductFeedUploadError(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@productfeeduploaderror_server.tool
-@wrapped_fn_tool
-def get_suggested_rules(
-    productfeeduploaderror_id: str,
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_samples_for_productfeeduploaderror(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ProductFeedUploadError(productfeeduploaderror_id).get_suggested_rules(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Get Samples for ProductFeedUploadError.
+
+    Args:
+        object_id: The ID of the ProductFeedUploadError
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_samples result
+    """
+    result = ProductFeedUploadError(fbid=object_id).get_samples(
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+@mcp.tool()
+async def get_suggested_rules_for_productfeeduploaderror(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Suggested Rules for ProductFeedUploadError.
+
+    Args:
+        object_id: The ID of the ProductFeedUploadError
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_suggested_rules result
+    """
+    result = ProductFeedUploadError(fbid=object_id).get_suggested_rules(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+productfeeduploaderror_server = mcp

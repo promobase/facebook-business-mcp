@@ -1,81 +1,173 @@
-"""MediaTitle MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.mediatitle import MediaTitle
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookMediaTitle"
-instructions = """
-MediaTitle MCP Server for Facebook Business API.
-
-Provides typed access to all MediaTitle operations.
+"""
+Auto-generated MCP server for Facebook MediaTitle.
+DO NOT EDIT MANUALLY.
 """
 
-mediatitle_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.mediatitle import MediaTitle
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-mediatitle")
 
 
-# ---- CRUD Operations (3) ----
-@mediatitle_server.tool
-@wrapped_fn_tool
-def get_mediatitle(
-    mediatitle_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = MediaTitle(mediatitle_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@mediatitle_server.tool
-@wrapped_fn_tool
-def update_mediatitle(
-    mediatitle_id: str,
+@mcp.tool()
+async def delete_mediatitle(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return MediaTitle(mediatitle_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a MediaTitle.
+
+    Args:
+        object_id: The ID of the MediaTitle
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = MediaTitle(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@mediatitle_server.tool
-@wrapped_fn_tool
-def delete_mediatitle(
-    mediatitle_id: str,
-) -> str:
-    return MediaTitle(mediatitle_id).api_delete()
-
-
-# ---- Edge Methods (3) ----
-@mediatitle_server.tool
-@wrapped_fn_tool
-def get_channels_to_integrity_status(
-    mediatitle_id: str,
+@mcp.tool()
+async def get_mediatitle(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return MediaTitle(mediatitle_id).get_channels_to_integrity_status(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a MediaTitle.
+
+    Args:
+        object_id: The ID of the MediaTitle
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = MediaTitle(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@mediatitle_server.tool
-@wrapped_fn_tool
-def get_override_details(
-    mediatitle_id: str,
+@mcp.tool()
+async def update_mediatitle(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return MediaTitle(mediatitle_id).get_override_details(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a MediaTitle.
+
+    Args:
+        object_id: The ID of the MediaTitle
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = MediaTitle(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@mediatitle_server.tool
-@wrapped_fn_tool
-def get_videos_metadata(
-    mediatitle_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_channels_to_integrity_status_for_mediatitle(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return MediaTitle(mediatitle_id).get_videos_metadata(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Channels To Integrity Status for MediaTitle.
+
+    Args:
+        object_id: The ID of the MediaTitle
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_channels_to_integrity_status result
+    """
+    result = MediaTitle(fbid=object_id).get_channels_to_integrity_status(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_override_details_for_mediatitle(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Override Details for MediaTitle.
+
+    Args:
+        object_id: The ID of the MediaTitle
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_override_details result
+    """
+    result = MediaTitle(fbid=object_id).get_override_details(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_videos_metadata_for_mediatitle(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Videos Metadata for MediaTitle.
+
+    Args:
+        object_id: The ID of the MediaTitle
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_videos_metadata result
+    """
+    result = MediaTitle(fbid=object_id).get_videos_metadata(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+mediatitle_server = mcp

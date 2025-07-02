@@ -1,32 +1,45 @@
-"""AdsNamingTemplate MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.adsnamingtemplate import AdsNamingTemplate
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdsNamingTemplate"
-instructions = """
-AdsNamingTemplate MCP Server for Facebook Business API.
-
-Provides typed access to all AdsNamingTemplate operations.
+"""
+Auto-generated MCP server for Facebook AdsNamingTemplate.
+DO NOT EDIT MANUALLY.
 """
 
-adsnamingtemplate_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.adsnamingtemplate import AdsNamingTemplate
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adsnamingtemplate")
 
 
-# ---- CRUD Operations (1) ----
-@adsnamingtemplate_server.tool
-@wrapped_fn_tool
-def get_adsnamingtemplate(
-    adsnamingtemplate_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_adsnamingtemplate(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdsNamingTemplate(adsnamingtemplate_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdsNamingTemplate.
+
+    Args:
+        object_id: The ID of the AdsNamingTemplate
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdsNamingTemplate(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adsnamingtemplate_server = mcp

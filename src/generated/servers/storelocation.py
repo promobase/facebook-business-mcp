@@ -1,32 +1,45 @@
-"""StoreLocation MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.storelocation import StoreLocation
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookStoreLocation"
-instructions = """
-StoreLocation MCP Server for Facebook Business API.
-
-Provides typed access to all StoreLocation operations.
+"""
+Auto-generated MCP server for Facebook StoreLocation.
+DO NOT EDIT MANUALLY.
 """
 
-storelocation_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.storelocation import StoreLocation
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-storelocation")
 
 
-# ---- CRUD Operations (1) ----
-@storelocation_server.tool
-@wrapped_fn_tool
-def get_storelocation(
-    storelocation_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_storelocation(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = StoreLocation(storelocation_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a StoreLocation.
+
+    Args:
+        object_id: The ID of the StoreLocation
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = StoreLocation(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+storelocation_server = mcp

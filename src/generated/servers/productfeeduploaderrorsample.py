@@ -1,32 +1,45 @@
-"""ProductFeedUploadErrorSample MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.productfeeduploaderrorsample import ProductFeedUploadErrorSample
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProductFeedUploadErrorSample"
-instructions = """
-ProductFeedUploadErrorSample MCP Server for Facebook Business API.
-
-Provides typed access to all ProductFeedUploadErrorSample operations.
+"""
+Auto-generated MCP server for Facebook ProductFeedUploadErrorSample.
+DO NOT EDIT MANUALLY.
 """
 
-productfeeduploaderrorsample_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.productfeeduploaderrorsample import ProductFeedUploadErrorSample
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-productfeeduploaderrorsample")
 
 
-# ---- CRUD Operations (1) ----
-@productfeeduploaderrorsample_server.tool
-@wrapped_fn_tool
-def get_productfeeduploaderrorsample(
-    productfeeduploaderrorsample_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_productfeeduploaderrorsample(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = ProductFeedUploadErrorSample(productfeeduploaderrorsample_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ProductFeedUploadErrorSample.
+
+    Args:
+        object_id: The ID of the ProductFeedUploadErrorSample
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ProductFeedUploadErrorSample(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+productfeeduploaderrorsample_server = mcp

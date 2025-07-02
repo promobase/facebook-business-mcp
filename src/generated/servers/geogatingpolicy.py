@@ -1,32 +1,45 @@
-"""GeoGatingPolicy MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.geogatingpolicy import GeoGatingPolicy
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookGeoGatingPolicy"
-instructions = """
-GeoGatingPolicy MCP Server for Facebook Business API.
-
-Provides typed access to all GeoGatingPolicy operations.
+"""
+Auto-generated MCP server for Facebook GeoGatingPolicy.
+DO NOT EDIT MANUALLY.
 """
 
-geogatingpolicy_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.geogatingpolicy import GeoGatingPolicy
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-geogatingpolicy")
 
 
-# ---- CRUD Operations (1) ----
-@geogatingpolicy_server.tool
-@wrapped_fn_tool
-def get_geogatingpolicy(
-    geogatingpolicy_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_geogatingpolicy(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = GeoGatingPolicy(geogatingpolicy_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a GeoGatingPolicy.
+
+    Args:
+        object_id: The ID of the GeoGatingPolicy
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = GeoGatingPolicy(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+geogatingpolicy_server = mcp

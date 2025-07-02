@@ -1,54 +1,97 @@
-"""ExtendedCreditAllocationConfig MCP Server."""
+"""
+Auto-generated MCP server for Facebook ExtendedCreditAllocationConfig.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.extendedcreditallocationconfig import (
     ExtendedCreditAllocationConfig,
 )
+from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookExtendedCreditAllocationConfig"
-instructions = """
-ExtendedCreditAllocationConfig MCP Server for Facebook Business API.
-
-Provides typed access to all ExtendedCreditAllocationConfig operations.
-"""
-
-extendedcreditallocationconfig_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-extendedcreditallocationconfig")
 
 
-# ---- CRUD Operations (3) ----
-@extendedcreditallocationconfig_server.tool
-@wrapped_fn_tool
-def get_extendedcreditallocationconfig(
-    extendedcreditallocationconfig_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = ExtendedCreditAllocationConfig(extendedcreditallocationconfig_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@extendedcreditallocationconfig_server.tool
-@wrapped_fn_tool
-def update_extendedcreditallocationconfig(
-    extendedcreditallocationconfig_id: str,
+@mcp.tool()
+async def delete_extendedcreditallocationconfig(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return ExtendedCreditAllocationConfig(extendedcreditallocationconfig_id).api_update(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    """
+    Delete a ExtendedCreditAllocationConfig.
+
+    Args:
+        object_id: The ID of the ExtendedCreditAllocationConfig
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = ExtendedCreditAllocationConfig(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
     )
 
+    return result
 
-@extendedcreditallocationconfig_server.tool
-@wrapped_fn_tool
-def delete_extendedcreditallocationconfig(
-    extendedcreditallocationconfig_id: str,
-) -> str:
-    return ExtendedCreditAllocationConfig(extendedcreditallocationconfig_id).api_delete()
+
+@mcp.tool()
+async def get_extendedcreditallocationconfig(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a ExtendedCreditAllocationConfig.
+
+    Args:
+        object_id: The ID of the ExtendedCreditAllocationConfig
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ExtendedCreditAllocationConfig(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_extendedcreditallocationconfig(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Update a ExtendedCreditAllocationConfig.
+
+    Args:
+        object_id: The ID of the ExtendedCreditAllocationConfig
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = ExtendedCreditAllocationConfig(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+extendedcreditallocationconfig_server = mcp

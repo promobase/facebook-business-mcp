@@ -1,32 +1,45 @@
-"""AdvAInstance MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.advainstance import AdvAInstance
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdvAInstance"
-instructions = """
-AdvAInstance MCP Server for Facebook Business API.
-
-Provides typed access to all AdvAInstance operations.
+"""
+Auto-generated MCP server for Facebook AdvAInstance.
+DO NOT EDIT MANUALLY.
 """
 
-advainstance_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.advainstance import AdvAInstance
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-advainstance")
 
 
-# ---- CRUD Operations (1) ----
-@advainstance_server.tool
-@wrapped_fn_tool
-def get_advainstance(
-    advainstance_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_advainstance(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AdvAInstance(advainstance_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AdvAInstance.
+
+    Args:
+        object_id: The ID of the AdvAInstance
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AdvAInstance(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+advainstance_server = mcp

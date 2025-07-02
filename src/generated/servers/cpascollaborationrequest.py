@@ -1,32 +1,73 @@
-"""CPASCollaborationRequest MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.cpascollaborationrequest import CPASCollaborationRequest
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookCPASCollaborationRequest"
-instructions = """
-CPASCollaborationRequest MCP Server for Facebook Business API.
-
-Provides typed access to all CPASCollaborationRequest operations.
+"""
+Auto-generated MCP server for Facebook CPASCollaborationRequest.
+DO NOT EDIT MANUALLY.
 """
 
-cpascollaborationrequest_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.cpascollaborationrequest import CPASCollaborationRequest
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-cpascollaborationrequest")
 
 
-# ---- CRUD Operations (1) ----
-@cpascollaborationrequest_server.tool
-@wrapped_fn_tool
-def get_cpascollaborationrequest(
-    cpascollaborationrequest_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_cpascollaborationrequest(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
-) -> str:
-    obj = CPASCollaborationRequest(cpascollaborationrequest_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create a CPASCollaborationRequest.
+
+    Args:
+        object_id: The ID of the CPASCollaborationRequest
+        parent_id: parent_id
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create result
+    """
+    result = CPASCollaborationRequest(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_cpascollaborationrequest(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a CPASCollaborationRequest.
+
+    Args:
+        object_id: The ID of the CPASCollaborationRequest
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = CPASCollaborationRequest(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+cpascollaborationrequest_server = mcp

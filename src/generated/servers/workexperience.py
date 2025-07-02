@@ -1,32 +1,45 @@
-"""WorkExperience MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.workexperience import WorkExperience
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookWorkExperience"
-instructions = """
-WorkExperience MCP Server for Facebook Business API.
-
-Provides typed access to all WorkExperience operations.
+"""
+Auto-generated MCP server for Facebook WorkExperience.
+DO NOT EDIT MANUALLY.
 """
 
-workexperience_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.workexperience import WorkExperience
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-workexperience")
 
 
-# ---- CRUD Operations (1) ----
-@workexperience_server.tool
-@wrapped_fn_tool
-def get_workexperience(
-    workexperience_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_workexperience(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = WorkExperience(workexperience_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a WorkExperience.
+
+    Args:
+        object_id: The ID of the WorkExperience
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = WorkExperience(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+workexperience_server = mcp

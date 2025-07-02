@@ -43220,8 +43220,8 @@ class IGMediaCreateProductTagParams(BaseModel):
     updated_tags: list[Any] = Field(...)
 
 
-class CampaignCreateAdlabelParams(BaseModel):
-    """Parameters for Campaign.create_adlabel()."""
+class CampaignCreateAdLabelParams(BaseModel):
+    """Parameters for Campaign.create_ad_label()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[Any] = Field(...)
@@ -43235,8 +43235,8 @@ class CampaignGetAdrulesGovernedParams(BaseModel):
     pass_evaluation: bool | None = Field(None)
 
 
-class CampaignGetAdsParams(BaseModel):
-    """Parameters for Campaign.get_ads()."""
+class CampaignGetAdSParams(BaseModel):
+    """Parameters for Campaign.get_ad_s()."""
 
     model_config = ConfigDict(extra="forbid")
     date_preset: adcampaigngroupads_date_preset_enum_param | None = Field(None)
@@ -43245,8 +43245,8 @@ class CampaignGetAdsParams(BaseModel):
     updated_since: int | None = Field(None)
 
 
-class CampaignGetAdsetsParams(BaseModel):
-    """Parameters for Campaign.get_adsets()."""
+class CampaignGetAdSetsParams(BaseModel):
+    """Parameters for Campaign.get_ad_sets()."""
 
     model_config = ConfigDict(extra="forbid")
     date_preset: adcampaigngroupadsets_date_preset_enum_param | None = Field(None)
@@ -43414,8 +43414,8 @@ class AdAccountGetAdSavedKeywordsParams(BaseModel):
     fields: list[str] | None = Field(None)
 
 
-class AdAccountCreateAdcreativeParams(BaseModel):
-    """Parameters for AdAccount.create_adcreative()."""
+class AdAccountCreateAdCreativeParams(BaseModel):
+    """Parameters for AdAccount.create_ad_creative()."""
 
     model_config = ConfigDict(extra="forbid")
     actor_id: int | None = Field(None)
@@ -43479,23 +43479,23 @@ class AdAccountCreateAdcreativeParams(BaseModel):
     use_page_actor_override: bool | None = Field(None)
 
 
-class AdAccountGetAdcreativesbylabelsParams(BaseModel):
-    """Parameters for AdAccount.get_adcreativesbylabels()."""
+class AdAccountGetAdCreativesByLabelsParams(BaseModel):
+    """Parameters for AdAccount.get_ad_creatives_by_labels()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_label_ids: list[str] = Field(...)
     operator: adaccountadcreativesbylabels_operator_enum_param | None = Field(None)
 
 
-class AdAccountDeleteAdimagesParams(BaseModel):
-    """Parameters for AdAccount.delete_adimages()."""
+class AdAccountDeleteAdImagesParams(BaseModel):
+    """Parameters for AdAccount.delete_ad_images()."""
 
     model_config = ConfigDict(extra="forbid")
     hash: str = Field(...)
 
 
-class AdAccountGetAdimagesParams(BaseModel):
-    """Parameters for AdAccount.get_adimages()."""
+class AdAccountGetAdImagesParams(BaseModel):
+    """Parameters for AdAccount.get_ad_images()."""
 
     model_config = ConfigDict(extra="forbid")
     biz_tag_id: int | None = Field(None)
@@ -43507,23 +43507,23 @@ class AdAccountGetAdimagesParams(BaseModel):
     selected_hashes: list[str] | None = Field(None)
 
 
-class AdAccountCreateAdimageParams(BaseModel):
-    """Parameters for AdAccount.create_adimage()."""
+class AdAccountCreateAdImageParams(BaseModel):
+    """Parameters for AdAccount.create_ad_image()."""
 
     model_config = ConfigDict(extra="forbid")
     bytes: str | None = Field(None)
     copy_from: dict[str, Any] | None = Field(None)
 
 
-class AdAccountCreateAdlabelParams(BaseModel):
-    """Parameters for AdAccount.create_adlabel()."""
+class AdAccountCreateAdLabelParams(BaseModel):
+    """Parameters for AdAccount.create_ad_label()."""
 
     model_config = ConfigDict(extra="forbid")
     name: str = Field(...)
 
 
-class AdAccountCreateAdplayableParams(BaseModel):
-    """Parameters for AdAccount.create_adplayable()."""
+class AdAccountCreateAdPlayableParams(BaseModel):
+    """Parameters for AdAccount.create_ad_playable()."""
 
     model_config = ConfigDict(extra="forbid")
     app_id: str | None = Field(None)
@@ -43557,8 +43557,8 @@ class AdAccountCreateAdrulesLibraryParams(BaseModel):
     ui_creation_source: adaccountadrules_library_ui_creation_source_enum_param | None = Field(None)
 
 
-class AdAccountGetAdsParams(BaseModel):
-    """Parameters for AdAccount.get_ads()."""
+class AdAccountGetAdSParams(BaseModel):
+    """Parameters for AdAccount.get_ad_s()."""
 
     model_config = ConfigDict(extra="forbid")
     date_preset: adaccountads_date_preset_enum_param | None = Field(None)
@@ -43568,7 +43568,7 @@ class AdAccountGetAdsParams(BaseModel):
 
 
 class AdAccountCreateAdParams(BaseModel):
-    """Parameters for AdAccount.create_ad()."""
+    """Parameters for AdAccount.create_ad_()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_schedule_end_time: datetime | None = Field(None)
@@ -43610,16 +43610,16 @@ class AdAccountGetAdsVolumeParams(BaseModel):
     show_breakdown_by_actor: bool | None = Field(None)
 
 
-class AdAccountGetAdsbylabelsParams(BaseModel):
-    """Parameters for AdAccount.get_adsbylabels()."""
+class AdAccountGetAdSByLabelsParams(BaseModel):
+    """Parameters for AdAccount.get_ad_s_by_labels()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_label_ids: list[str] = Field(...)
     operator: adaccountadsbylabels_operator_enum_param | None = Field(None)
 
 
-class AdAccountGetAdsetsParams(BaseModel):
-    """Parameters for AdAccount.get_adsets()."""
+class AdAccountGetAdSetsParams(BaseModel):
+    """Parameters for AdAccount.get_ad_sets()."""
 
     model_config = ConfigDict(extra="forbid")
     date_preset: adaccountadsets_date_preset_enum_param | None = Field(None)
@@ -43629,8 +43629,8 @@ class AdAccountGetAdsetsParams(BaseModel):
     updated_since: int | None = Field(None)
 
 
-class AdAccountCreateAdsetParams(BaseModel):
-    """Parameters for AdAccount.create_adset()."""
+class AdAccountCreateAdSetParams(BaseModel):
+    """Parameters for AdAccount.create_ad_set()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[Any] | None = Field(None)
@@ -43700,23 +43700,23 @@ class AdAccountCreateAdsetParams(BaseModel):
     tune_for_category: adaccountadsets_tune_for_category_enum_param | None = Field(None)
 
 
-class AdAccountGetAdsetsbylabelsParams(BaseModel):
-    """Parameters for AdAccount.get_adsetsbylabels()."""
+class AdAccountGetAdSetsByLabelsParams(BaseModel):
+    """Parameters for AdAccount.get_ad_sets_by_labels()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_label_ids: list[str] = Field(...)
     operator: adaccountadsetsbylabels_operator_enum_param | None = Field(None)
 
 
-class AdAccountGetAdspixelsParams(BaseModel):
-    """Parameters for AdAccount.get_adspixels()."""
+class AdAccountGetAdSpixelsParams(BaseModel):
+    """Parameters for AdAccount.get_ad_spixels()."""
 
     model_config = ConfigDict(extra="forbid")
     sort_by: adaccountadspixels_sort_by_enum_param | None = Field(None)
 
 
-class AdAccountCreateAdspixelParams(BaseModel):
-    """Parameters for AdAccount.create_adspixel()."""
+class AdAccountCreateAdSpixelParams(BaseModel):
+    """Parameters for AdAccount.create_ad_spixel()."""
 
     model_config = ConfigDict(extra="forbid")
     name: str | None = Field(None)
@@ -43730,15 +43730,15 @@ class AdAccountGetAdvertisableApplicationsParams(BaseModel):
     business_id: str | None = Field(None)
 
 
-class AdAccountDeleteAdvideosParams(BaseModel):
-    """Parameters for AdAccount.delete_advideos()."""
+class AdAccountDeleteAdVideosParams(BaseModel):
+    """Parameters for AdAccount.delete_ad_videos()."""
 
     model_config = ConfigDict(extra="forbid")
     video_id: str = Field(...)
 
 
-class AdAccountGetAdvideosParams(BaseModel):
-    """Parameters for AdAccount.get_advideos()."""
+class AdAccountGetAdVideosParams(BaseModel):
+    """Parameters for AdAccount.get_ad_videos()."""
 
     model_config = ConfigDict(extra="forbid")
     max_aspect_ratio: float | None = Field(None)
@@ -43752,8 +43752,8 @@ class AdAccountGetAdvideosParams(BaseModel):
     title: str | None = Field(None)
 
 
-class AdAccountCreateAdvideoParams(BaseModel):
-    """Parameters for AdAccount.create_advideo()."""
+class AdAccountCreateAdVideoParams(BaseModel):
+    """Parameters for AdAccount.create_ad_video()."""
 
     model_config = ConfigDict(extra="forbid")
     application_id: str | None = Field(None)
@@ -43882,15 +43882,15 @@ class AdAccountGetAsyncRequestsParams(BaseModel):
     type: adaccountasync_requests_type_enum_param | None = Field(None)
 
 
-class AdAccountGetAsyncadcreativesParams(BaseModel):
-    """Parameters for AdAccount.get_asyncadcreatives()."""
+class AdAccountGetAsyncAdCreativesParams(BaseModel):
+    """Parameters for AdAccount.get_async_ad_creatives()."""
 
     model_config = ConfigDict(extra="forbid")
     is_completed: bool | None = Field(None)
 
 
-class AdAccountCreateAsyncadcreativeParams(BaseModel):
-    """Parameters for AdAccount.create_asyncadcreative()."""
+class AdAccountCreateAsyncAdCreativeParams(BaseModel):
+    """Parameters for AdAccount.create_async_ad_creative()."""
 
     model_config = ConfigDict(extra="forbid")
     creative_spec: Any = Field(...)
@@ -43899,15 +43899,15 @@ class AdAccountCreateAsyncadcreativeParams(BaseModel):
     notification_uri: str | None = Field(None)
 
 
-class AdAccountGetAsyncadrequestsetsParams(BaseModel):
-    """Parameters for AdAccount.get_asyncadrequestsets()."""
+class AdAccountGetAsyncAdrequestsetsParams(BaseModel):
+    """Parameters for AdAccount.get_async_adrequestsets()."""
 
     model_config = ConfigDict(extra="forbid")
     is_completed: bool | None = Field(None)
 
 
-class AdAccountCreateAsyncadrequestsetParams(BaseModel):
-    """Parameters for AdAccount.create_asyncadrequestset()."""
+class AdAccountCreateAsyncAdrequestsetParams(BaseModel):
+    """Parameters for AdAccount.create_async_adrequestset()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_specs: list[Any] = Field(...)
@@ -43992,8 +43992,8 @@ class AdAccountCreateCampaignParams(BaseModel):
     topline_id: str | None = Field(None)
 
 
-class AdAccountGetCampaignsbylabelsParams(BaseModel):
-    """Parameters for AdAccount.get_campaignsbylabels()."""
+class AdAccountGetCampaignsByLabelsParams(BaseModel):
+    """Parameters for AdAccount.get_campaigns_by_labels()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_label_ids: list[str] = Field(...)
@@ -44007,8 +44007,8 @@ class AdAccountGetConnectedInstagramAccountsWithIabpParams(BaseModel):
     business_id: str | None = Field(None)
 
 
-class AdAccountGetCustomaudiencesParams(BaseModel):
-    """Parameters for AdAccount.get_customaudiences()."""
+class AdAccountGetCustomAudiencesParams(BaseModel):
+    """Parameters for AdAccount.get_custom_audiences()."""
 
     model_config = ConfigDict(extra="forbid")
     business_id: str | None = Field(None)
@@ -44018,8 +44018,8 @@ class AdAccountGetCustomaudiencesParams(BaseModel):
     pixel_id: str | None = Field(None)
 
 
-class AdAccountCreateCustomaudienceParams(BaseModel):
-    """Parameters for AdAccount.create_customaudience()."""
+class AdAccountCreateCustomAudienceParams(BaseModel):
+    """Parameters for AdAccount.create_custom_audience()."""
 
     model_config = ConfigDict(extra="forbid")
     allowed_domains: list[str] | None = Field(None)
@@ -44065,16 +44065,16 @@ class AdAccountCreateCustomaudienceParams(BaseModel):
     whats_app_business_phone_number_id: str | None = Field(None)
 
 
-class AdAccountCreateCustomaudiencestoParams(BaseModel):
-    """Parameters for AdAccount.create_customaudiencesto()."""
+class AdAccountCreateCustomAudiencestoParams(BaseModel):
+    """Parameters for AdAccount.create_custom_audiencesto()."""
 
     model_config = ConfigDict(extra="forbid")
     business_id: str | None = Field(None)
     tos_id: str = Field(...)
 
 
-class AdAccountCreateCustomconversionParams(BaseModel):
-    """Parameters for AdAccount.create_customconversion()."""
+class AdAccountCreateCustomConversionParams(BaseModel):
+    """Parameters for AdAccount.create_custom_conversion()."""
 
     model_config = ConfigDict(extra="forbid")
     action_source_type: adaccountcustomconversions_action_source_type_enum_param | None = Field(
@@ -44378,8 +44378,8 @@ class AdAccountGetTargetingsearchParams(BaseModel):
     whitelisted_types: list[Any] | None = Field(None)
 
 
-class AdAccountGetTargetingsentencelinesParams(BaseModel):
-    """Parameters for AdAccount.get_targetingsentencelines()."""
+class AdAccountGetTargetingSentenceLinesParams(BaseModel):
+    """Parameters for AdAccount.get_targeting_sentence_lines()."""
 
     model_config = ConfigDict(extra="forbid")
     discard_ages: bool | None = Field(None)
@@ -44476,8 +44476,8 @@ class FlightGetOverrideDetailsParams(BaseModel):
     type: flightoverride_details_type_enum_param | None = Field(None)
 
 
-class AdCreateAdlabelParams(BaseModel):
-    """Parameters for Ad.create_adlabel()."""
+class AdCreateAdLabelParams(BaseModel):
+    """Parameters for Ad.create_ad_label()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[Any] = Field(...)
@@ -44601,22 +44601,22 @@ class EventSourceGroupCreateSharedAccountParams(BaseModel):
     accounts: list[str] = Field(...)
 
 
-class CustomAudienceDeleteAdaccountsParams(BaseModel):
-    """Parameters for CustomAudience.delete_adaccounts()."""
+class CustomAudienceDeleteAdAccountsParams(BaseModel):
+    """Parameters for CustomAudience.delete_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     adaccounts: list[str] | None = Field(None)
 
 
-class CustomAudienceGetAdaccountsParams(BaseModel):
-    """Parameters for CustomAudience.get_adaccounts()."""
+class CustomAudienceGetAdAccountsParams(BaseModel):
+    """Parameters for CustomAudience.get_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     permissions: str | None = Field(None)
 
 
-class CustomAudienceCreateAdaccountParams(BaseModel):
-    """Parameters for CustomAudience.create_adaccount()."""
+class CustomAudienceCreateAdAccountParams(BaseModel):
+    """Parameters for CustomAudience.create_ad_account()."""
 
     model_config = ConfigDict(extra="forbid")
     adaccounts: list[str] | None = Field(None)
@@ -44625,8 +44625,8 @@ class CustomAudienceCreateAdaccountParams(BaseModel):
     replace: bool | None = Field(None)
 
 
-class CustomAudienceGetAdsParams(BaseModel):
-    """Parameters for CustomAudience.get_ads()."""
+class CustomAudienceGetAdSParams(BaseModel):
+    """Parameters for CustomAudience.get_ad_s()."""
 
     model_config = ConfigDict(extra="forbid")
     effective_status: list[str] | None = Field(None)
@@ -45012,8 +45012,8 @@ class WhatsAppBusinessAccountGetWelcomeMessageSequencesParams(BaseModel):
     sequence_id: str | None = Field(None)
 
 
-class AdMonetizationPropertyGetAdnetworkanalyticsParams(BaseModel):
-    """Parameters for AdMonetizationProperty.get_adnetworkanalytics()."""
+class AdMonetizationPropertyGetAdNetworkanalyticsParams(BaseModel):
+    """Parameters for AdMonetizationProperty.get_ad_networkanalytics()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: (
@@ -45034,8 +45034,8 @@ class AdMonetizationPropertyGetAdnetworkanalyticsParams(BaseModel):
     until: datetime | None = Field(None)
 
 
-class AdMonetizationPropertyCreateAdnetworkanalyticParams(BaseModel):
-    """Parameters for AdMonetizationProperty.create_adnetworkanalytic()."""
+class AdMonetizationPropertyCreateAdNetworkanalyticParams(BaseModel):
+    """Parameters for AdMonetizationProperty.create_ad_networkanalytic()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: (
@@ -45469,8 +45469,8 @@ class ProductCatalogGetProductSetsBatchParams(BaseModel):
     handle: str = Field(...)
 
 
-class ProductCatalogGetProductsParams(BaseModel):
-    """Parameters for ProductCatalog.get_products()."""
+class ProductCatalogGetProductSParams(BaseModel):
+    """Parameters for ProductCatalog.get_product_s()."""
 
     model_config = ConfigDict(extra="forbid")
     bulk_pagination: bool | None = Field(None)
@@ -45481,7 +45481,7 @@ class ProductCatalogGetProductsParams(BaseModel):
 
 
 class ProductCatalogCreateProductParams(BaseModel):
-    """Parameters for ProductCatalog.create_product()."""
+    """Parameters for ProductCatalog.create_product_()."""
 
     model_config = ConfigDict(extra="forbid")
     additional_image_urls: list[str] | None = Field(None)
@@ -45821,8 +45821,8 @@ class BusinessCreateAdStudieParams(BaseModel):
     viewers: list[int] | None = Field(None)
 
 
-class BusinessCreateAdaccountParams(BaseModel):
-    """Parameters for Business.create_adaccount()."""
+class BusinessCreateAdAccountParams(BaseModel):
+    """Parameters for Business.create_ad_account()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_account_created_from_bm_flag: bool | None = Field(None)
@@ -45854,8 +45854,8 @@ class BusinessCreateAdnetworkApplicationParams(BaseModel):
     name: str = Field(...)
 
 
-class BusinessGetAdnetworkanalyticsParams(BaseModel):
-    """Parameters for Business.get_adnetworkanalytics()."""
+class BusinessGetAdNetworkanalyticsParams(BaseModel):
+    """Parameters for Business.get_ad_networkanalytics()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: businessadnetworkanalytics_aggregation_period_enum_param | None = Field(
@@ -45872,8 +45872,8 @@ class BusinessGetAdnetworkanalyticsParams(BaseModel):
     until: datetime | None = Field(None)
 
 
-class BusinessCreateAdnetworkanalyticParams(BaseModel):
-    """Parameters for Business.create_adnetworkanalytic()."""
+class BusinessCreateAdNetworkanalyticParams(BaseModel):
+    """Parameters for Business.create_ad_networkanalytic()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: businessadnetworkanalytics_aggregation_period_enum_param | None = Field(
@@ -45922,8 +45922,8 @@ class BusinessGetAdsReportingMmmReportsParams(BaseModel):
     filtering: list[Any] | None = Field(None)
 
 
-class BusinessGetAdspixelsParams(BaseModel):
-    """Parameters for Business.get_adspixels()."""
+class BusinessGetAdSpixelsParams(BaseModel):
+    """Parameters for Business.get_ad_spixels()."""
 
     model_config = ConfigDict(extra="forbid")
     id_filter: str | None = Field(None)
@@ -45931,8 +45931,8 @@ class BusinessGetAdspixelsParams(BaseModel):
     sort_by: businessadspixels_sort_by_enum_param | None = Field(None)
 
 
-class BusinessCreateAdspixelParams(BaseModel):
-    """Parameters for Business.create_adspixel()."""
+class BusinessCreateAdSpixelParams(BaseModel):
+    """Parameters for Business.create_ad_spixel()."""
 
     model_config = ConfigDict(extra="forbid")
     is_crm: bool | None = Field(None)
@@ -46061,8 +46061,8 @@ class BusinessCreateCreativeFolderParams(BaseModel):
     parent_folder_id: str | None = Field(None)
 
 
-class BusinessCreateCustomconversionParams(BaseModel):
-    """Parameters for Business.create_customconversion()."""
+class BusinessCreateCustomConversionParams(BaseModel):
+    """Parameters for Business.create_custom_conversion()."""
 
     model_config = ConfigDict(extra="forbid")
     action_source_type: businesscustomconversions_action_source_type_enum_param | None = Field(None)
@@ -46597,8 +46597,8 @@ class ProductSetGetMediaTitlesParams(BaseModel):
     filter: dict[str, Any] | None = Field(None)
 
 
-class ProductSetGetProductsParams(BaseModel):
-    """Parameters for ProductSet.get_products()."""
+class ProductSetGetProductSParams(BaseModel):
+    """Parameters for ProductSet.get_product_s()."""
 
     model_config = ConfigDict(extra="forbid")
     bulk_pagination: bool | None = Field(None)
@@ -46671,8 +46671,8 @@ class ProductFeedGetMediaTitlesParams(BaseModel):
     filter: dict[str, Any] | None = Field(None)
 
 
-class ProductFeedGetProductsParams(BaseModel):
-    """Parameters for ProductFeed.get_products()."""
+class ProductFeedGetProductSParams(BaseModel):
+    """Parameters for ProductFeed.get_product_s()."""
 
     model_config = ConfigDict(extra="forbid")
     bulk_pagination: bool | None = Field(None)
@@ -46951,8 +46951,8 @@ class TransactableItemGetOverrideDetailsParams(BaseModel):
     type: transactableitemoverride_details_type_enum_param | None = Field(None)
 
 
-class OfflineConversionDataSetGetAdaccountsParams(BaseModel):
-    """Parameters for OfflineConversionDataSet.get_adaccounts()."""
+class OfflineConversionDataSetGetAdAccountsParams(BaseModel):
+    """Parameters for OfflineConversionDataSet.get_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     business: str = Field(...)
@@ -46966,8 +46966,8 @@ class OfflineConversionDataSetGetAudiencesParams(BaseModel):
     ad_account: str | None = Field(None)
 
 
-class OfflineConversionDataSetGetCustomconversionsParams(BaseModel):
-    """Parameters for OfflineConversionDataSet.get_customconversions()."""
+class OfflineConversionDataSetGetCustomConversionsParams(BaseModel):
+    """Parameters for OfflineConversionDataSet.get_custom_conversions()."""
 
     model_config = ConfigDict(extra="forbid")
     ad_account: str | None = Field(None)
@@ -47408,16 +47408,16 @@ class AdSetGetActivitiesParams(BaseModel):
     until: datetime | None = Field(None)
 
 
-class AdSetDeleteAdlabelsParams(BaseModel):
-    """Parameters for AdSet.delete_adlabels()."""
+class AdSetDeleteAdLabelsParams(BaseModel):
+    """Parameters for AdSet.delete_ad_labels()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[Any] = Field(...)
     execution_options: list[Any] | None = Field(None)
 
 
-class AdSetCreateAdlabelParams(BaseModel):
-    """Parameters for AdSet.create_adlabel()."""
+class AdSetCreateAdLabelParams(BaseModel):
+    """Parameters for AdSet.create_ad_label()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[Any] = Field(...)
@@ -47431,8 +47431,8 @@ class AdSetGetAdrulesGovernedParams(BaseModel):
     pass_evaluation: bool | None = Field(None)
 
 
-class AdSetGetAdsParams(BaseModel):
-    """Parameters for AdSet.get_ads()."""
+class AdSetGetAdSParams(BaseModel):
+    """Parameters for AdSet.get_ad_s()."""
 
     model_config = ConfigDict(extra="forbid")
     date_preset: adcampaignads_date_preset_enum_param | None = Field(None)
@@ -47441,8 +47441,8 @@ class AdSetGetAdsParams(BaseModel):
     updated_since: int | None = Field(None)
 
 
-class AdSetGetAsyncadrequestsParams(BaseModel):
-    """Parameters for AdSet.get_asyncadrequests()."""
+class AdSetGetAsyncAdRequestsParams(BaseModel):
+    """Parameters for AdSet.get_async_ad_requests()."""
 
     model_config = ConfigDict(extra="forbid")
     statuses: list[Any] | None = Field(None)
@@ -47592,7 +47592,7 @@ class PublisherBlockListGetPagedWebPublishersParams(BaseModel):
 
 
 class ProductGroupCreateProductParams(BaseModel):
-    """Parameters for ProductGroup.create_product()."""
+    """Parameters for ProductGroup.create_product_()."""
 
     model_config = ConfigDict(extra="forbid")
     additional_image_urls: list[str] | None = Field(None)
@@ -48605,8 +48605,8 @@ class AdVideoGetVideoInsightsParams(BaseModel):
     until: datetime | None = Field(None)
 
 
-class AdCreativeCreateAdlabelParams(BaseModel):
-    """Parameters for AdCreative.create_adlabel()."""
+class AdCreativeCreateAdLabelParams(BaseModel):
+    """Parameters for AdCreative.create_ad_label()."""
 
     model_config = ConfigDict(extra="forbid")
     adlabels: list[Any] = Field(...)
@@ -48632,8 +48632,8 @@ class AdCreativeGetPreviewsParams(BaseModel):
     width: int | None = Field(None)
 
 
-class AdsPixelGetAdaccountsParams(BaseModel):
-    """Parameters for AdsPixel.get_adaccounts()."""
+class AdsPixelGetAdAccountsParams(BaseModel):
+    """Parameters for AdsPixel.get_ad_accounts()."""
 
     model_config = ConfigDict(extra="forbid")
     business: str = Field(...)
@@ -48745,15 +48745,15 @@ class AdsPixelGetStatsParams(BaseModel):
     start_time: datetime | None = Field(None)
 
 
-class GroupDeleteAdminsParams(BaseModel):
-    """Parameters for Group.delete_admins()."""
+class GroupDeleteAdMinsParams(BaseModel):
+    """Parameters for Group.delete_ad_mins()."""
 
     model_config = ConfigDict(extra="forbid")
     uid: int = Field(...)
 
 
-class GroupCreateAdminParams(BaseModel):
-    """Parameters for Group.create_admin()."""
+class GroupCreateAdMinParams(BaseModel):
+    """Parameters for Group.create_ad_min()."""
 
     model_config = ConfigDict(extra="forbid")
     uid: int = Field(...)
@@ -49204,8 +49204,8 @@ class ApplicationGetAdnetworkPlacementsParams(BaseModel):
     request_id: str | None = Field(None)
 
 
-class ApplicationGetAdnetworkanalyticsParams(BaseModel):
-    """Parameters for Application.get_adnetworkanalytics()."""
+class ApplicationGetAdNetworkanalyticsParams(BaseModel):
+    """Parameters for Application.get_ad_networkanalytics()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: applicationadnetworkanalytics_aggregation_period_enum_param | None = Field(
@@ -49222,8 +49222,8 @@ class ApplicationGetAdnetworkanalyticsParams(BaseModel):
     until: datetime | None = Field(None)
 
 
-class ApplicationCreateAdnetworkanalyticParams(BaseModel):
-    """Parameters for Application.create_adnetworkanalytic()."""
+class ApplicationCreateAdNetworkanalyticParams(BaseModel):
+    """Parameters for Application.create_ad_networkanalytic()."""
 
     model_config = ConfigDict(extra="forbid")
     aggregation_period: applicationadnetworkanalytics_aggregation_period_enum_param | None = Field(
@@ -49465,8 +49465,8 @@ class ApplicationGetPermissionsParams(BaseModel):
     status: list[Any] | None = Field(None)
 
 
-class ApplicationGetProductsParams(BaseModel):
-    """Parameters for Application.get_products()."""
+class ApplicationGetProductSParams(BaseModel):
+    """Parameters for Application.get_product_s()."""
 
     model_config = ConfigDict(extra="forbid")
     product_ids: list[str] | None = Field(None)

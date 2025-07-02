@@ -1,32 +1,45 @@
-"""LiveVideoAdCampaignConfig MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.livevideoadcampaignconfig import LiveVideoAdCampaignConfig
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookLiveVideoAdCampaignConfig"
-instructions = """
-LiveVideoAdCampaignConfig MCP Server for Facebook Business API.
-
-Provides typed access to all LiveVideoAdCampaignConfig operations.
+"""
+Auto-generated MCP server for Facebook LiveVideoAdCampaignConfig.
+DO NOT EDIT MANUALLY.
 """
 
-livevideoadcampaignconfig_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.livevideoadcampaignconfig import LiveVideoAdCampaignConfig
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-livevideoadcampaignconfig")
 
 
-# ---- CRUD Operations (1) ----
-@livevideoadcampaignconfig_server.tool
-@wrapped_fn_tool
-def get_livevideoadcampaignconfig(
-    livevideoadcampaignconfig_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_livevideoadcampaignconfig(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = LiveVideoAdCampaignConfig(livevideoadcampaignconfig_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a LiveVideoAdCampaignConfig.
+
+    Args:
+        object_id: The ID of the LiveVideoAdCampaignConfig
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = LiveVideoAdCampaignConfig(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+livevideoadcampaignconfig_server = mcp

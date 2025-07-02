@@ -1,53 +1,98 @@
-"""ShadowIGHashtag MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.shadowighashtag import ShadowIGHashtag
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookShadowIGHashtag"
-instructions = """
-ShadowIGHashtag MCP Server for Facebook Business API.
-
-Provides typed access to all ShadowIGHashtag operations.
+"""
+Auto-generated MCP server for Facebook ShadowIGHashtag.
+DO NOT EDIT MANUALLY.
 """
 
-shadowighashtag_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.shadowighashtag import ShadowIGHashtag
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-shadowighashtag")
 
 
-# ---- CRUD Operations (1) ----
-@shadowighashtag_server.tool
-@wrapped_fn_tool
-def get_shadowighashtag(
-    shadowighashtag_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = ShadowIGHashtag(shadowighashtag_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (2) ----
-@shadowighashtag_server.tool
-@wrapped_fn_tool
-def get_recent_media(
-    shadowighashtag_id: str,
+@mcp.tool()
+async def get_shadowighashtag(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ShadowIGHashtag(shadowighashtag_id).get_recent_media(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a ShadowIGHashtag.
+
+    Args:
+        object_id: The ID of the ShadowIGHashtag
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = ShadowIGHashtag(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@shadowighashtag_server.tool
-@wrapped_fn_tool
-def get_top_media(
-    shadowighashtag_id: str,
+# Edge Methods
+
+
+@mcp.tool()
+async def get_recent_media_for_shadowighashtag(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ShadowIGHashtag(shadowighashtag_id).get_top_media(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get Recent Media for ShadowIGHashtag.
+
+    Args:
+        object_id: The ID of the ShadowIGHashtag
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_recent_media result
+    """
+    result = ShadowIGHashtag(fbid=object_id).get_recent_media(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_top_media_for_shadowighashtag(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Top Media for ShadowIGHashtag.
+
+    Args:
+        object_id: The ID of the ShadowIGHashtag
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_top_media result
+    """
+    result = ShadowIGHashtag(fbid=object_id).get_top_media(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+shadowighashtag_server = mcp

@@ -12,15 +12,13 @@ if TYPE_CHECKING:
     from .profile import ProfileFields
 
 
-class commercemerchantsettingscommerce_orders_filters_enum_param(str, Enum):
-    """commercemerchantsettingscommerce_orders_filters_enum_param enum values."""
+class commercemerchantsettingscommerce_orders_state_enum_param(str, Enum):
+    """commercemerchantsettingscommerce_orders_state_enum_param enum values."""
 
-    HAS_CANCELLATIONS = "HAS_CANCELLATIONS"
-    HAS_FULFILLMENTS = "HAS_FULFILLMENTS"
-    HAS_REFUNDS = "HAS_REFUNDS"
-    NO_CANCELLATIONS = "NO_CANCELLATIONS"
-    NO_REFUNDS = "NO_REFUNDS"
-    NO_SHIPMENTS = "NO_SHIPMENTS"
+    COMPLETED = "COMPLETED"
+    CREATED = "CREATED"
+    FB_PROCESSING = "FB_PROCESSING"
+    IN_PROGRESS = "IN_PROGRESS"
 
 
 class commercemerchantsettingsreturns_statuses_enum_param(str, Enum):
@@ -33,13 +31,15 @@ class commercemerchantsettingsreturns_statuses_enum_param(str, Enum):
     REQUESTED = "REQUESTED"
 
 
-class commercemerchantsettingscommerce_orders_state_enum_param(str, Enum):
-    """commercemerchantsettingscommerce_orders_state_enum_param enum values."""
+class commercemerchantsettingscommerce_orders_filters_enum_param(str, Enum):
+    """commercemerchantsettingscommerce_orders_filters_enum_param enum values."""
 
-    COMPLETED = "COMPLETED"
-    CREATED = "CREATED"
-    FB_PROCESSING = "FB_PROCESSING"
-    IN_PROGRESS = "IN_PROGRESS"
+    HAS_CANCELLATIONS = "HAS_CANCELLATIONS"
+    HAS_FULFILLMENTS = "HAS_FULFILLMENTS"
+    HAS_REFUNDS = "HAS_REFUNDS"
+    NO_CANCELLATIONS = "NO_CANCELLATIONS"
+    NO_REFUNDS = "NO_REFUNDS"
+    NO_SHIPMENTS = "NO_SHIPMENTS"
 
 
 # Field literal type

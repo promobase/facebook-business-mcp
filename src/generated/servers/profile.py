@@ -1,43 +1,73 @@
-"""Profile MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.profile import Profile
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookProfile"
-instructions = """
-Profile MCP Server for Facebook Business API.
-
-Provides typed access to all Profile operations.
+"""
+Auto-generated MCP server for Facebook Profile.
+DO NOT EDIT MANUALLY.
 """
 
-profile_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.profile import Profile
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-profile")
 
 
-# ---- CRUD Operations (1) ----
-@profile_server.tool
-@wrapped_fn_tool
-def get_profile(
-    profile_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Profile(profile_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@profile_server.tool
-@wrapped_fn_tool
-def get_picture(
-    profile_id: str,
+@mcp.tool()
+async def get_profile(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Profile(profile_id).get_picture(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Profile.
+
+    Args:
+        object_id: The ID of the Profile
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Profile(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def get_picture_for_profile(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Picture for Profile.
+
+    Args:
+        object_id: The ID of the Profile
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_picture result
+    """
+    result = Profile(fbid=object_id).get_picture(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+profile_server = mcp

@@ -1,71 +1,148 @@
-"""IGComment MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.igcomment import IGComment
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookIGComment"
-instructions = """
-IGComment MCP Server for Facebook Business API.
-
-Provides typed access to all IGComment operations.
+"""
+Auto-generated MCP server for Facebook IGComment.
+DO NOT EDIT MANUALLY.
 """
 
-igcomment_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.igcomment import IGComment
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-igcomment")
 
 
-# ---- CRUD Operations (3) ----
-@igcomment_server.tool
-@wrapped_fn_tool
-def get_igcomment(
-    igcomment_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = IGComment(igcomment_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-@igcomment_server.tool
-@wrapped_fn_tool
-def update_igcomment(
-    igcomment_id: str,
+@mcp.tool()
+async def delete_igcomment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> str:
-    return IGComment(igcomment_id).api_update(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Delete a IGComment.
+
+    Args:
+        object_id: The ID of the IGComment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The delete result
+    """
+    result = IGComment(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@igcomment_server.tool
-@wrapped_fn_tool
-def delete_igcomment(
-    igcomment_id: str,
-) -> str:
-    return IGComment(igcomment_id).api_delete()
-
-
-# ---- Edge Methods (2) ----
-@igcomment_server.tool
-@wrapped_fn_tool
-def get_replies(
-    igcomment_id: str,
+@mcp.tool()
+async def get_igcomment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGComment(igcomment_id).get_replies(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a IGComment.
+
+    Args:
+        object_id: The ID of the IGComment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = IGComment(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@igcomment_server.tool
-@wrapped_fn_tool
-def create_replie(
-    igcomment_id: str,
+@mcp.tool()
+async def update_igcomment(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return IGComment(igcomment_id).create_replie(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Update a IGComment.
+
+    Args:
+        object_id: The ID of the IGComment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The update result
+    """
+    result = IGComment(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def create_reply_for_igcomment(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create Reply for IGComment.
+
+    Args:
+        object_id: The ID of the IGComment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_reply result
+    """
+    result = IGComment(fbid=object_id).create_reply(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_replies_for_igcomment(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get Replies for IGComment.
+
+    Args:
+        object_id: The ID of the IGComment
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get_replies result
+    """
+    result = IGComment(fbid=object_id).get_replies(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+igcomment_server = mcp

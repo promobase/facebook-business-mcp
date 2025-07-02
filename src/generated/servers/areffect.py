@@ -1,32 +1,45 @@
-"""AREffect MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.areffect import AREffect
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAREffect"
-instructions = """
-AREffect MCP Server for Facebook Business API.
-
-Provides typed access to all AREffect operations.
+"""
+Auto-generated MCP server for Facebook AREffect.
+DO NOT EDIT MANUALLY.
 """
 
-areffect_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.areffect import AREffect
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-areffect")
 
 
-# ---- CRUD Operations (1) ----
-@areffect_server.tool
-@wrapped_fn_tool
-def get_areffect(
-    areffect_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def get_areffect(
+    object_id: str,
     fields: list[str] = [],
-) -> str:
-    obj = AREffect(areffect_id)
-    return obj.api_get(fields=fields)
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Get a AREffect.
+
+    Args:
+        object_id: The ID of the AREffect
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = AREffect(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+areffect_server = mcp

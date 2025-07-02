@@ -1,43 +1,73 @@
-"""Status MCP Server."""
-
-from typing import Any
-
-from facebook_business.adobjects.status import Status
-from fastmcp import FastMCP
-
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookStatus"
-instructions = """
-Status MCP Server for Facebook Business API.
-
-Provides typed access to all Status operations.
+"""
+Auto-generated MCP server for Facebook Status.
+DO NOT EDIT MANUALLY.
 """
 
-status_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+from typing import Any, Optional
+
+from facebook_business.adobjects.status import Status
+from facebook_business.api import FacebookAdsApi
+from fastmcp import FastMCP
+
+# Initialize FastMCP server
+mcp = FastMCP("facebook-status")
 
 
-# ---- CRUD Operations (1) ----
-@status_server.tool
-@wrapped_fn_tool
-def get_status(
-    status_id: str,
-    fields: list[str] = [],
-) -> str:
-    obj = Status(status_id)
-    return obj.api_get(fields=fields)
+# CRUD Operations
 
 
-# ---- Edge Methods (1) ----
-@status_server.tool
-@wrapped_fn_tool
-def create_like(
-    status_id: str,
+@mcp.tool()
+async def get_status(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return Status(status_id).create_like(fields=fields, params=params)
+) -> dict[str, Any]:
+    """
+    Get a Status.
+
+    Args:
+        object_id: The ID of the Status
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The get result
+    """
+    result = Status(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Edge Methods
+
+
+@mcp.tool()
+async def create_like_for_status(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    """
+    Create Like for Status.
+
+    Args:
+        object_id: The ID of the Status
+        fields: Fields to return
+        params: Additional parameters
+
+    Returns:
+        The create_like result
+    """
+    result = Status(fbid=object_id).create_like(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+status_server = mcp
