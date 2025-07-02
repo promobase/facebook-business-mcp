@@ -3,7 +3,6 @@ from typing import Any
 from facebook_business.adobjects.adaccount import AdAccount
 from fastmcp import FastMCP
 
-# from src.generated.models import AdAccount
 from src.utils import wrapped_fn_tool
 
 server_name = "FacebookAdAccount"
@@ -19,7 +18,6 @@ adaccount_server = FastMCP(
 )
 
 
-# ---- CRUD Operations (2) ----
 @adaccount_server.tool
 @wrapped_fn_tool
 def get_adaccount(
@@ -27,11 +25,5 @@ def get_adaccount(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> str:
-    """Get a AdAccount object by ID.
-
-    Args:
-        adaccount_id: The ID of the AdAccount.
-        fields: Fields to retrieve. Available fields: See AdAccountField type.
-    """
     obj = AdAccount(adaccount_id)
     return obj.api_get(fields=fields, params=params)
