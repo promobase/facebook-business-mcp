@@ -185,7 +185,6 @@ class MCPServerGenerator:
         imports = [
             f'"""{server_info.object_name} MCP Server with typed wrappers."""',
             "",
-            "from __future__ import annotations",
             "",
             f"from facebook_business.adobjects.{server_info.module_path} import {server_info.object_name}",
             "from fastmcp import FastMCP",
