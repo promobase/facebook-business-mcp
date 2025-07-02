@@ -3,7 +3,7 @@ from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 from src.config import get_config_from_env
-from src.generated.servers.adaccount import adaccount_server
+from src.servers.adaccount import adaccount_server
 from src.utils import handle_facebook_errors
 
 instructions = """
