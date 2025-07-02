@@ -12,36 +12,19 @@ if TYPE_CHECKING:
     from .business import BusinessFields
 
 
-class admonetizationpropertyadnetworkanalytics_ordering_type_enum_param(str, Enum):
-    """admonetizationpropertyadnetworkanalytics_ordering_type_enum_param enum values."""
+class admonetizationpropertyadnetworkanalytics_ordering_column_enum_param(str, Enum):
+    """admonetizationpropertyadnetworkanalytics_ordering_column_enum_param enum values."""
 
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
+    METRIC = "METRIC"
+    TIME = "TIME"
+    VALUE = "VALUE"
 
 
-class admonetizationpropertyadnetworkanalytics_metrics_enum_param(str, Enum):
-    """admonetizationpropertyadnetworkanalytics_metrics_enum_param enum values."""
+class admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param(str, Enum):
+    """admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param enum values."""
 
-    FB_AD_NETWORK_BIDDING_BID_RATE = "FB_AD_NETWORK_BIDDING_BID_RATE"
-    FB_AD_NETWORK_BIDDING_REQUEST = "FB_AD_NETWORK_BIDDING_REQUEST"
-    FB_AD_NETWORK_BIDDING_RESPONSE = "FB_AD_NETWORK_BIDDING_RESPONSE"
-    FB_AD_NETWORK_BIDDING_REVENUE = "FB_AD_NETWORK_BIDDING_REVENUE"
-    FB_AD_NETWORK_BIDDING_WIN_RATE = "FB_AD_NETWORK_BIDDING_WIN_RATE"
-    FB_AD_NETWORK_CLICK = "FB_AD_NETWORK_CLICK"
-    FB_AD_NETWORK_CPM = "FB_AD_NETWORK_CPM"
-    FB_AD_NETWORK_CTR = "FB_AD_NETWORK_CTR"
-    FB_AD_NETWORK_FILLED_REQUEST = "FB_AD_NETWORK_FILLED_REQUEST"
-    FB_AD_NETWORK_FILL_RATE = "FB_AD_NETWORK_FILL_RATE"
-    FB_AD_NETWORK_IMP = "FB_AD_NETWORK_IMP"
-    FB_AD_NETWORK_IMPRESSION_RATE = "FB_AD_NETWORK_IMPRESSION_RATE"
-    FB_AD_NETWORK_REQUEST = "FB_AD_NETWORK_REQUEST"
-    FB_AD_NETWORK_REVENUE = "FB_AD_NETWORK_REVENUE"
-    FB_AD_NETWORK_SHOW_RATE = "FB_AD_NETWORK_SHOW_RATE"
-    FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE = "FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE"
-    FB_AD_NETWORK_VIDEO_MRC = "FB_AD_NETWORK_VIDEO_MRC"
-    FB_AD_NETWORK_VIDEO_MRC_RATE = "FB_AD_NETWORK_VIDEO_MRC_RATE"
-    FB_AD_NETWORK_VIDEO_VIEW = "FB_AD_NETWORK_VIDEO_VIEW"
-    FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
+    DAY = "DAY"
+    TOTAL = "TOTAL"
 
 
 class admonetizationpropertyadnetworkanalytics_breakdowns_enum_param(str, Enum):
@@ -70,19 +53,36 @@ class admonetizationpropertyadnetworkanalytics_breakdowns_enum_param(str, Enum):
     SDK_VERSION = "SDK_VERSION"
 
 
-class admonetizationpropertyadnetworkanalytics_ordering_column_enum_param(str, Enum):
-    """admonetizationpropertyadnetworkanalytics_ordering_column_enum_param enum values."""
+class admonetizationpropertyadnetworkanalytics_metrics_enum_param(str, Enum):
+    """admonetizationpropertyadnetworkanalytics_metrics_enum_param enum values."""
 
-    METRIC = "METRIC"
-    TIME = "TIME"
-    VALUE = "VALUE"
+    FB_AD_NETWORK_BIDDING_BID_RATE = "FB_AD_NETWORK_BIDDING_BID_RATE"
+    FB_AD_NETWORK_BIDDING_REQUEST = "FB_AD_NETWORK_BIDDING_REQUEST"
+    FB_AD_NETWORK_BIDDING_RESPONSE = "FB_AD_NETWORK_BIDDING_RESPONSE"
+    FB_AD_NETWORK_BIDDING_REVENUE = "FB_AD_NETWORK_BIDDING_REVENUE"
+    FB_AD_NETWORK_BIDDING_WIN_RATE = "FB_AD_NETWORK_BIDDING_WIN_RATE"
+    FB_AD_NETWORK_CLICK = "FB_AD_NETWORK_CLICK"
+    FB_AD_NETWORK_CPM = "FB_AD_NETWORK_CPM"
+    FB_AD_NETWORK_CTR = "FB_AD_NETWORK_CTR"
+    FB_AD_NETWORK_FILLED_REQUEST = "FB_AD_NETWORK_FILLED_REQUEST"
+    FB_AD_NETWORK_FILL_RATE = "FB_AD_NETWORK_FILL_RATE"
+    FB_AD_NETWORK_IMP = "FB_AD_NETWORK_IMP"
+    FB_AD_NETWORK_IMPRESSION_RATE = "FB_AD_NETWORK_IMPRESSION_RATE"
+    FB_AD_NETWORK_REQUEST = "FB_AD_NETWORK_REQUEST"
+    FB_AD_NETWORK_REVENUE = "FB_AD_NETWORK_REVENUE"
+    FB_AD_NETWORK_SHOW_RATE = "FB_AD_NETWORK_SHOW_RATE"
+    FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE = "FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE"
+    FB_AD_NETWORK_VIDEO_MRC = "FB_AD_NETWORK_VIDEO_MRC"
+    FB_AD_NETWORK_VIDEO_MRC_RATE = "FB_AD_NETWORK_VIDEO_MRC_RATE"
+    FB_AD_NETWORK_VIDEO_VIEW = "FB_AD_NETWORK_VIDEO_VIEW"
+    FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
 
 
-class admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param(str, Enum):
-    """admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param enum values."""
+class admonetizationpropertyadnetworkanalytics_ordering_type_enum_param(str, Enum):
+    """admonetizationpropertyadnetworkanalytics_ordering_type_enum_param enum values."""
 
-    DAY = "DAY"
-    TOTAL = "TOTAL"
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
 
 
 # Field literal type

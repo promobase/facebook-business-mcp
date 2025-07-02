@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.adruleexecutionspec import AdRuleExecutionSpec
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -17,23 +16,56 @@ mcp = FastMCP("facebook-adruleexecutionspec")
 
 
 @mcp.tool()
+async def create_adruleexecutionspec(
+    object_id: str,
+    parent_id: Optional[Any] = None,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdRuleExecutionSpec(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_adruleexecutionspec(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdRuleExecutionSpec(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
 async def get_adruleexecutionspec(
     object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a AdRuleExecutionSpec.
-
-    Args:
-        object_id: The ID of the AdRuleExecutionSpec
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = AdRuleExecutionSpec(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_adruleexecutionspec(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdRuleExecutionSpec(fbid=object_id).api_update(
         fields=fields,
         params=params,
     )

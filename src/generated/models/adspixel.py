@@ -15,13 +15,6 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class adspixeloffline_event_uploads_order_enum_param(str, Enum):
-    """adspixeloffline_event_uploads_order_enum_param enum values."""
-
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
-
-
 class adspixeloffline_event_uploads_sort_by_enum_param(str, Enum):
     """adspixeloffline_event_uploads_sort_by_enum_param enum values."""
 
@@ -34,14 +27,11 @@ class adspixeloffline_event_uploads_sort_by_enum_param(str, Enum):
     LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
 
 
-class adspixelassigned_users_tasks_enum_param(str, Enum):
-    """adspixelassigned_users_tasks_enum_param enum values."""
+class adspixeloffline_event_uploads_order_enum_param(str, Enum):
+    """adspixeloffline_event_uploads_order_enum_param enum values."""
 
-    AA_ANALYZE = "AA_ANALYZE"
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    EDIT = "EDIT"
-    UPLOAD = "UPLOAD"
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
 
 
 class adspixelstats_aggregation_enum_param(str, Enum):
@@ -68,6 +58,16 @@ class adspixelstats_aggregation_enum_param(str, Enum):
 class adspixelagencies_permitted_tasks_enum_param(str, Enum):
     """adspixelagencies_permitted_tasks_enum_param enum values."""
 
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    EDIT = "EDIT"
+    UPLOAD = "UPLOAD"
+
+
+class adspixelassigned_users_tasks_enum_param(str, Enum):
+    """adspixelassigned_users_tasks_enum_param enum values."""
+
+    AA_ANALYZE = "AA_ANALYZE"
     ADVERTISE = "ADVERTISE"
     ANALYZE = "ANALYZE"
     EDIT = "EDIT"

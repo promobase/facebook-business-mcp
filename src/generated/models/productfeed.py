@@ -39,6 +39,14 @@ class ProductFeed_quoted_fields_mode(str, Enum):
     ON = "ON"
 
 
+class productfeedproducts_error_priority_enum_param(str, Enum):
+    """productfeedproducts_error_priority_enum_param enum values."""
+
+    HIGH = "HIGH"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+
+
 class productfeedrules_rule_type_enum_param(str, Enum):
     """productfeedrules_rule_type_enum_param enum values."""
 
@@ -47,14 +55,6 @@ class productfeedrules_rule_type_enum_param(str, Enum):
     mapping_rule = "mapping_rule"
     regex_replace_rule = "regex_replace_rule"
     value_mapping_rule = "value_mapping_rule"
-
-
-class productfeedproducts_error_priority_enum_param(str, Enum):
-    """productfeedproducts_error_priority_enum_param enum values."""
-
-    HIGH = "HIGH"
-    LOW = "LOW"
-    MEDIUM = "MEDIUM"
 
 
 class productfeedproducts_error_type_enum_param(str, Enum):

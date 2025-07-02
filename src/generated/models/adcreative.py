@@ -152,21 +152,6 @@ class AdCreative_status(str, Enum):
     WITH_ISSUES = "WITH_ISSUES"
 
 
-class adcreativepreviews_render_type_enum_param(str, Enum):
-    """adcreativepreviews_render_type_enum_param enum values."""
-
-    FALLBACK = "FALLBACK"
-
-
-class adcreativepreviews_creative_feature_enum_param(str, Enum):
-    """adcreativepreviews_creative_feature_enum_param enum values."""
-
-    product_metadata_automation = "product_metadata_automation"
-    profile_card = "profile_card"
-    standard_enhancements_catalog = "standard_enhancements_catalog"
-    video_to_image = "video_to_image"
-
-
 class adcreativepreviews_ad_format_enum_param(str, Enum):
     """adcreativepreviews_ad_format_enum_param enum values."""
 
@@ -237,6 +222,21 @@ class adcreativepreviews_ad_format_enum_param(str, Enum):
     SUGGESTED_VIDEO_MOBILE = "SUGGESTED_VIDEO_MOBILE"
     WATCH_FEED_HOME = "WATCH_FEED_HOME"
     WATCH_FEED_MOBILE = "WATCH_FEED_MOBILE"
+
+
+class adcreativepreviews_creative_feature_enum_param(str, Enum):
+    """adcreativepreviews_creative_feature_enum_param enum values."""
+
+    product_metadata_automation = "product_metadata_automation"
+    profile_card = "profile_card"
+    standard_enhancements_catalog = "standard_enhancements_catalog"
+    video_to_image = "video_to_image"
+
+
+class adcreativepreviews_render_type_enum_param(str, Enum):
+    """adcreativepreviews_render_type_enum_param enum values."""
+
+    FALLBACK = "FALLBACK"
 
 
 # Field literal type

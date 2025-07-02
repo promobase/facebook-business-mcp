@@ -1,32 +1,77 @@
-"""AdKeywordStats MCP Server."""
+"""
+Auto-generated MCP server for Facebook AdKeywordStats.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.adkeywordstats import AdKeywordStats
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookAdKeywordStats"
-instructions = """
-AdKeywordStats MCP Server for Facebook Business API.
-
-Provides typed access to all AdKeywordStats operations.
-"""
-
-adkeywordstats_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-adkeywordstats")
 
 
-# ---- Edge Methods (1) ----
-@adkeywordstats_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    adkeywordstats_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_adkeywordstats(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return AdKeywordStats(adkeywordstats_id).get_endpoint(fields=fields, params=params)
+) -> dict[str, Any]:
+    result = AdKeywordStats(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_adkeywordstats(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdKeywordStats(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_adkeywordstats(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdKeywordStats(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_adkeywordstats(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdKeywordStats(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+adkeywordstats_server = mcp

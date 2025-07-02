@@ -19,13 +19,6 @@ if TYPE_CHECKING:
     from .videostatus import VideoStatusFields
 
 
-class videocomments_filter_enum_param(str, Enum):
-    """videocomments_filter_enum_param enum values."""
-
-    stream = "stream"
-    toplevel = "toplevel"
-
-
 class videocomments_order_enum_param(str, Enum):
     """videocomments_order_enum_param enum values."""
 
@@ -33,11 +26,15 @@ class videocomments_order_enum_param(str, Enum):
     reverse_chronological = "reverse_chronological"
 
 
-class videocomments_live_filter_enum_param(str, Enum):
-    """videocomments_live_filter_enum_param enum values."""
+class videovideo_insights_period_enum_param(str, Enum):
+    """videovideo_insights_period_enum_param enum values."""
 
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
 
 
 class videocomments_comment_privacy_value_enum_param(str, Enum):
@@ -56,15 +53,18 @@ class videocomments_comment_privacy_value_enum_param(str, Enum):
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
 
 
-class videovideo_insights_period_enum_param(str, Enum):
-    """videovideo_insights_period_enum_param enum values."""
+class videocomments_filter_enum_param(str, Enum):
+    """videocomments_filter_enum_param enum values."""
 
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
+    stream = "stream"
+    toplevel = "toplevel"
+
+
+class videocomments_live_filter_enum_param(str, Enum):
+    """videocomments_live_filter_enum_param enum values."""
+
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
 
 
 # Field literal type

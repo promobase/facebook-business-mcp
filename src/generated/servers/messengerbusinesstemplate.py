@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.messengerbusinesstemplate import MessengerBusinessTemplate
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -17,22 +16,41 @@ mcp = FastMCP("facebook-messengerbusinesstemplate")
 
 
 @mcp.tool()
+async def create_messengerbusinesstemplate(
+    object_id: str,
+    parent_id: Optional[Any] = None,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = MessengerBusinessTemplate(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_messengerbusinesstemplate(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = MessengerBusinessTemplate(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
 async def get_messengerbusinesstemplate(
     object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a MessengerBusinessTemplate.
-
-    Args:
-        object_id: The ID of the MessengerBusinessTemplate
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = MessengerBusinessTemplate(fbid=object_id).api_get(
         fields=fields,
         params=params,
@@ -47,17 +65,6 @@ async def update_messengerbusinesstemplate(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Update a MessengerBusinessTemplate.
-
-    Args:
-        object_id: The ID of the MessengerBusinessTemplate
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The update result
-    """
     result = MessengerBusinessTemplate(fbid=object_id).api_update(
         fields=fields,
         params=params,

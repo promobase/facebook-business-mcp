@@ -1,34 +1,77 @@
-"""BroadTargetingCategories MCP Server."""
+"""
+Auto-generated MCP server for Facebook BroadTargetingCategories.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.broadtargetingcategories import BroadTargetingCategories
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookBroadTargetingCategories"
-instructions = """
-BroadTargetingCategories MCP Server for Facebook Business API.
-
-Provides typed access to all BroadTargetingCategories operations.
-"""
-
-broadtargetingcategories_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-broadtargetingcategories")
 
 
-# ---- Edge Methods (1) ----
-@broadtargetingcategories_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    broadtargetingcategories_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_broadtargetingcategories(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return BroadTargetingCategories(broadtargetingcategories_id).get_endpoint(
-        fields=fields, params=params
+) -> dict[str, Any]:
+    result = BroadTargetingCategories(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
     )
+
+    return result
+
+
+@mcp.tool()
+async def delete_broadtargetingcategories(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = BroadTargetingCategories(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_broadtargetingcategories(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = BroadTargetingCategories(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_broadtargetingcategories(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = BroadTargetingCategories(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+broadtargetingcategories_server = mcp

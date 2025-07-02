@@ -13,27 +13,6 @@ if TYPE_CHECKING:
     from .productvariant import ProductVariantFields
 
 
-class productgroupproducts_gender_enum_param(str, Enum):
-    """productgroupproducts_gender_enum_param enum values."""
-
-    female = "female"
-    male = "male"
-    unisex = "unisex"
-
-
-class productgroupproducts_condition_enum_param(str, Enum):
-    """productgroupproducts_condition_enum_param enum values."""
-
-    cpo = "cpo"
-    new = "new"
-    open_box_new = "open_box_new"
-    refurbished = "refurbished"
-    used = "used"
-    used_fair = "used_fair"
-    used_good = "used_good"
-    used_like_new = "used_like_new"
-
-
 class productgroupproducts_visibility_enum_param(str, Enum):
     """productgroupproducts_visibility_enum_param enum values."""
 
@@ -53,6 +32,35 @@ class productgroupproducts_availability_enum_param(str, Enum):
     preorder = "preorder"
 
 
+class productgroupproducts_condition_enum_param(str, Enum):
+    """productgroupproducts_condition_enum_param enum values."""
+
+    cpo = "cpo"
+    new = "new"
+    open_box_new = "open_box_new"
+    refurbished = "refurbished"
+    used = "used"
+    used_fair = "used_fair"
+    used_good = "used_good"
+    used_like_new = "used_like_new"
+
+
+class productgroupproducts_marked_for_product_launch_enum_param(str, Enum):
+    """productgroupproducts_marked_for_product_launch_enum_param enum values."""
+
+    default = "default"
+    marked = "marked"
+    not_marked = "not_marked"
+
+
+class productgroupproducts_gender_enum_param(str, Enum):
+    """productgroupproducts_gender_enum_param enum values."""
+
+    female = "female"
+    male = "male"
+    unisex = "unisex"
+
+
 class productgroupproducts_age_group_enum_param(str, Enum):
     """productgroupproducts_age_group_enum_param enum values."""
 
@@ -63,14 +71,6 @@ class productgroupproducts_age_group_enum_param(str, Enum):
     newborn = "newborn"
     teen = "teen"
     toddler = "toddler"
-
-
-class productgroupproducts_marked_for_product_launch_enum_param(str, Enum):
-    """productgroupproducts_marked_for_product_launch_enum_param enum values."""
-
-    default = "default"
-    marked = "marked"
-    not_marked = "not_marked"
 
 
 class productgroupproducts_commerce_tax_category_enum_param(str, Enum):

@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.adstudycell import AdStudyCell
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -17,22 +16,41 @@ mcp = FastMCP("facebook-adstudycell")
 
 
 @mcp.tool()
+async def create_adstudycell(
+    object_id: str,
+    parent_id: Optional[Any] = None,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdStudyCell(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_adstudycell(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdStudyCell(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
 async def get_adstudycell(
     object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a AdStudyCell.
-
-    Args:
-        object_id: The ID of the AdStudyCell
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = AdStudyCell(fbid=object_id).api_get(
         fields=fields,
         params=params,
@@ -47,17 +65,6 @@ async def update_adstudycell(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Update a AdStudyCell.
-
-    Args:
-        object_id: The ID of the AdStudyCell
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The update result
-    """
     result = AdStudyCell(fbid=object_id).api_update(
         fields=fields,
         params=params,
@@ -75,17 +82,6 @@ async def get_ad_accounts_for_adstudycell(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Ad Accounts for AdStudyCell.
-
-    Args:
-        object_id: The ID of the AdStudyCell
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_ad_accounts result
-    """
     result = AdStudyCell(fbid=object_id).get_ad_accounts(
         fields=fields,
         params=params,
@@ -100,17 +96,6 @@ async def get_ad_sets_for_adstudycell(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Ad Sets for AdStudyCell.
-
-    Args:
-        object_id: The ID of the AdStudyCell
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_ad_sets result
-    """
     result = AdStudyCell(fbid=object_id).get_ad_sets(
         fields=fields,
         params=params,
@@ -125,17 +110,6 @@ async def get_campaigns_for_adstudycell(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Campaigns for AdStudyCell.
-
-    Args:
-        object_id: The ID of the AdStudyCell
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_campaigns result
-    """
     result = AdStudyCell(fbid=object_id).get_campaigns(
         fields=fields,
         params=params,

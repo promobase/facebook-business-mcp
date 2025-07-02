@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.videocopyright import VideoCopyright
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -17,22 +16,41 @@ mcp = FastMCP("facebook-videocopyright")
 
 
 @mcp.tool()
+async def create_videocopyright(
+    object_id: str,
+    parent_id: Optional[Any] = None,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = VideoCopyright(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_videocopyright(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = VideoCopyright(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
 async def get_videocopyright(
     object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a VideoCopyright.
-
-    Args:
-        object_id: The ID of the VideoCopyright
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = VideoCopyright(fbid=object_id).api_get(
         fields=fields,
         params=params,
@@ -47,17 +65,6 @@ async def update_videocopyright(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Update a VideoCopyright.
-
-    Args:
-        object_id: The ID of the VideoCopyright
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The update result
-    """
     result = VideoCopyright(fbid=object_id).api_update(
         fields=fields,
         params=params,
@@ -75,17 +82,6 @@ async def get_update_records_for_videocopyright(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Update Records for VideoCopyright.
-
-    Args:
-        object_id: The ID of the VideoCopyright
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_update_records result
-    """
     result = VideoCopyright(fbid=object_id).get_update_records(
         fields=fields,
         params=params,

@@ -17,13 +17,6 @@ if TYPE_CHECKING:
     from .videocopyright import VideoCopyrightFields
 
 
-class livevideocomments_order_enum_param(str, Enum):
-    """livevideocomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
-
-
 class livevideoreactions_type_enum_param(str, Enum):
     """livevideoreactions_type_enum_param enum values."""
 
@@ -53,6 +46,13 @@ class livevideocomments_filter_enum_param(str, Enum):
 
     stream = "stream"
     toplevel = "toplevel"
+
+
+class livevideocomments_order_enum_param(str, Enum):
+    """livevideocomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 # Field literal type

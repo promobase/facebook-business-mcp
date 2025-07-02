@@ -12,18 +12,18 @@ if TYPE_CHECKING:
     from .dynamicpostchildattachment import DynamicPostChildAttachmentFields
 
 
-class rtbdynamicpostcomments_order_enum_param(str, Enum):
-    """rtbdynamicpostcomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
-
-
 class rtbdynamicpostcomments_filter_enum_param(str, Enum):
     """rtbdynamicpostcomments_filter_enum_param enum values."""
 
     stream = "stream"
     toplevel = "toplevel"
+
+
+class rtbdynamicpostcomments_order_enum_param(str, Enum):
+    """rtbdynamicpostcomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 class rtbdynamicpostcomments_live_filter_enum_param(str, Enum):

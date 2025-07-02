@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.offlineproductitem import OfflineProductItem
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -17,23 +16,56 @@ mcp = FastMCP("facebook-offlineproductitem")
 
 
 @mcp.tool()
+async def create_offlineproductitem(
+    object_id: str,
+    parent_id: Optional[Any] = None,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = OfflineProductItem(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_offlineproductitem(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = OfflineProductItem(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
 async def get_offlineproductitem(
     object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a OfflineProductItem.
-
-    Args:
-        object_id: The ID of the OfflineProductItem
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = OfflineProductItem(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_offlineproductitem(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = OfflineProductItem(fbid=object_id).api_update(
         fields=fields,
         params=params,
     )
@@ -50,17 +82,6 @@ async def get_channels_to_integrity_status_for_offlineproductitem(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Channels To Integrity Status for OfflineProductItem.
-
-    Args:
-        object_id: The ID of the OfflineProductItem
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_channels_to_integrity_status result
-    """
     result = OfflineProductItem(fbid=object_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
@@ -75,17 +96,6 @@ async def get_override_details_for_offlineproductitem(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Override Details for OfflineProductItem.
-
-    Args:
-        object_id: The ID of the OfflineProductItem
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_override_details result
-    """
     result = OfflineProductItem(fbid=object_id).get_override_details(
         fields=fields,
         params=params,

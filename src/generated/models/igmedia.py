@@ -16,17 +16,6 @@ if TYPE_CHECKING:
     )
 
 
-class shadowigmediainsights_period_enum_param(str, Enum):
-    """shadowigmediainsights_period_enum_param enum values."""
-
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
-
-
 class shadowigmediainsights_metric_enum_param(str, Enum):
     """shadowigmediainsights_metric_enum_param enum values."""
 
@@ -49,6 +38,17 @@ class shadowigmediainsights_metric_enum_param(str, Enum):
     total_interactions = "total_interactions"
     video_views = "video_views"
     views = "views"
+
+
+class shadowigmediainsights_period_enum_param(str, Enum):
+    """shadowigmediainsights_period_enum_param enum values."""
+
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
 
 
 class shadowigmediainsights_breakdown_enum_param(str, Enum):

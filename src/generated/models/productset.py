@@ -13,6 +13,14 @@ if TYPE_CHECKING:
     from .productsetmetadata import ProductSetMetadataFields
 
 
+class productsetproducts_error_priority_enum_param(str, Enum):
+    """productsetproducts_error_priority_enum_param enum values."""
+
+    HIGH = "HIGH"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+
+
 class productsetproducts_error_type_enum_param(str, Enum):
     """productsetproducts_error_type_enum_param enum values."""
 
@@ -183,14 +191,6 @@ class productsetproducts_error_type_enum_param(str, Enum):
     WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER = "WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER"
     WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION = "WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION"
     WHATSAPP_POLICY_VIOLATION = "WHATSAPP_POLICY_VIOLATION"
-
-
-class productsetproducts_error_priority_enum_param(str, Enum):
-    """productsetproducts_error_priority_enum_param enum values."""
-
-    HIGH = "HIGH"
-    LOW = "LOW"
-    MEDIUM = "MEDIUM"
 
 
 # Field literal type

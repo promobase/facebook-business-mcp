@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.omegacustomertrx import OmegaCustomerTrx
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -17,23 +16,56 @@ mcp = FastMCP("facebook-omegacustomertrx")
 
 
 @mcp.tool()
+async def create_omegacustomertrx(
+    object_id: str,
+    parent_id: Optional[Any] = None,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = OmegaCustomerTrx(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_omegacustomertrx(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = OmegaCustomerTrx(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
 async def get_omegacustomertrx(
     object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a OmegaCustomerTrx.
-
-    Args:
-        object_id: The ID of the OmegaCustomerTrx
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = OmegaCustomerTrx(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_omegacustomertrx(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = OmegaCustomerTrx(fbid=object_id).api_update(
         fields=fields,
         params=params,
     )
@@ -50,17 +82,6 @@ async def get_campaigns_for_omegacustomertrx(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Campaigns for OmegaCustomerTrx.
-
-    Args:
-        object_id: The ID of the OmegaCustomerTrx
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_campaigns result
-    """
     result = OmegaCustomerTrx(fbid=object_id).get_campaigns(
         fields=fields,
         params=params,

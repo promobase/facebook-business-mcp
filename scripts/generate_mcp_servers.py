@@ -207,10 +207,57 @@ class SDKMethodParser:
 
             # Extract methods
             methods = {}
+
+            # Check if class inherits from AbstractCrudObject
+            inherits_crud = "AbstractCrudObject" in parent_classes
+
+            # Look for get_endpoint method
+            endpoint = None
+            for node in main_class.body:
+                if isinstance(node, ast.FunctionDef) and node.name == "get_endpoint":
+                    # Try to extract the return value
+                    for child in ast.walk(node):
+                        if isinstance(child, ast.Return) and isinstance(child.value, ast.Constant):
+                            endpoint = child.value.value
+                            break
+
+            # If it inherits from AbstractCrudObject, assume it has all CRUD methods
+            if inherits_crud:
+                # Add default CRUD methods
+                crud_method_names = ["api_get", "api_create", "api_update", "api_delete"]
+                for method_name in crud_method_names:
+                    # Default params based on the method
+                    if method_name == "api_create":
+                        params = [
+                            "parent_id",
+                            "fields",
+                            "params",
+                            "batch",
+                            "success",
+                            "failure",
+                            "pending",
+                        ]
+                    else:
+                        params = ["fields", "params", "batch", "success", "failure", "pending"]
+
+                    methods[method_name] = MethodInfo(
+                        name=method_name,
+                        params=params,
+                        is_crud=True,
+                        is_edge=False,
+                        http_method="POST"
+                        if method_name in ["api_create", "api_update"]
+                        else ("DELETE" if method_name == "api_delete" else "GET"),
+                        endpoint=endpoint,
+                        docstring=f"Standard {method_name} method inherited from AbstractCrudObject",
+                    )
+
+            # Parse methods in the class body (these might override the inherited ones)
             for node in main_class.body:
                 if isinstance(node, ast.FunctionDef):
                     method_info = self.parse_method_node(node)
                     if method_info.is_api_method:
+                        # Override any inherited method with the actual implementation
                         methods[method_info.name] = method_info
 
             # Extract fields from Field class if it exists

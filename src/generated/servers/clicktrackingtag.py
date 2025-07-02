@@ -1,42 +1,77 @@
-"""ClickTrackingTag MCP Server."""
+"""
+Auto-generated MCP server for Facebook ClickTrackingTag.
+DO NOT EDIT MANUALLY.
+"""
 
-from typing import Any
+from typing import Any, Optional
 
 from facebook_business.adobjects.clicktrackingtag import ClickTrackingTag
 from fastmcp import FastMCP
 
-from src.utils import wrapped_fn_tool
-
-# Server setup
-server_name = "FacebookClickTrackingTag"
-instructions = """
-ClickTrackingTag MCP Server for Facebook Business API.
-
-Provides typed access to all ClickTrackingTag operations.
-"""
-
-clicktrackingtag_server = FastMCP(
-    name=server_name,
-    instructions=instructions,
-)
+# Initialize FastMCP server
+mcp = FastMCP("facebook-clicktrackingtag")
 
 
-# ---- Edge Methods (2) ----
-@clicktrackingtag_server.tool
-@wrapped_fn_tool
-def get_endpoint(
-    clicktrackingtag_id: str,
+# CRUD Operations
+
+
+@mcp.tool()
+async def create_clicktrackingtag(
+    object_id: str,
+    parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ClickTrackingTag(clicktrackingtag_id).get_endpoint(fields=fields, params=params)
+) -> dict[str, Any]:
+    result = ClickTrackingTag(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
 
 
-@clicktrackingtag_server.tool
-@wrapped_fn_tool
-def get_node_path(
-    clicktrackingtag_id: str,
+@mcp.tool()
+async def delete_clicktrackingtag(
+    object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-):
-    return ClickTrackingTag(clicktrackingtag_id).get_node_path(fields=fields, params=params)
+) -> dict[str, Any]:
+    result = ClickTrackingTag(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def get_clicktrackingtag(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = ClickTrackingTag(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_clicktrackingtag(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = ClickTrackingTag(fbid=object_id).api_update(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+# Export the server
+clicktrackingtag_server = mcp

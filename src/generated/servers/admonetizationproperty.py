@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.admonetizationproperty import AdMonetizationProperty
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -17,23 +16,56 @@ mcp = FastMCP("facebook-admonetizationproperty")
 
 
 @mcp.tool()
+async def create_admonetizationproperty(
+    object_id: str,
+    parent_id: Optional[Any] = None,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdMonetizationProperty(fbid=object_id).api_create(
+        parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_admonetizationproperty(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdMonetizationProperty(fbid=object_id).api_delete(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
 async def get_admonetizationproperty(
     object_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a AdMonetizationProperty.
-
-    Args:
-        object_id: The ID of the AdMonetizationProperty
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = AdMonetizationProperty(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_admonetizationproperty(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdMonetizationProperty(fbid=object_id).api_update(
         fields=fields,
         params=params,
     )
@@ -50,17 +82,6 @@ async def create_ad_network_analytic_for_admonetizationproperty(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Create Ad Network Analytic for AdMonetizationProperty.
-
-    Args:
-        object_id: The ID of the AdMonetizationProperty
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The create_ad_network_analytic result
-    """
     result = AdMonetizationProperty(fbid=object_id).create_ad_network_analytic(
         fields=fields,
         params=params,
@@ -75,17 +96,6 @@ async def get_ad_network_analytics_for_admonetizationproperty(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Ad Network Analytics for AdMonetizationProperty.
-
-    Args:
-        object_id: The ID of the AdMonetizationProperty
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_ad_network_analytics result
-    """
     result = AdMonetizationProperty(fbid=object_id).get_ad_network_analytics(
         fields=fields,
         params=params,
@@ -100,17 +110,6 @@ async def get_ad_network_analytics_results_for_admonetizationproperty(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get Ad Network Analytics Results for AdMonetizationProperty.
-
-    Args:
-        object_id: The ID of the AdMonetizationProperty
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get_ad_network_analytics_results result
-    """
     result = AdMonetizationProperty(fbid=object_id).get_ad_network_analytics_results(
         fields=fields,
         params=params,

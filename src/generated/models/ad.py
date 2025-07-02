@@ -69,30 +69,13 @@ class Ad_status(str, Enum):
     PAUSED = "PAUSED"
 
 
-class adgroupinsights_action_breakdowns_enum_param(str, Enum):
-    """adgroupinsights_action_breakdowns_enum_param enum values."""
+class adgroupinsights_level_enum_param(str, Enum):
+    """adgroupinsights_level_enum_param enum values."""
 
-    action_canvas_component_name = "action_canvas_component_name"
-    action_carousel_card_id = "action_carousel_card_id"
-    action_carousel_card_name = "action_carousel_card_name"
-    action_destination = "action_destination"
-    action_device = "action_device"
-    action_reaction = "action_reaction"
-    action_target_id = "action_target_id"
-    action_type = "action_type"
-    action_video_sound = "action_video_sound"
-    action_video_type = "action_video_type"
-    conversion_destination = "conversion_destination"
-    matched_persona_id = "matched_persona_id"
-    matched_persona_name = "matched_persona_name"
-    signal_source_bucket = "signal_source_bucket"
-    standard_event_content_type = "standard_event_content_type"
-
-
-class adgrouppreviews_render_type_enum_param(str, Enum):
-    """adgrouppreviews_render_type_enum_param enum values."""
-
-    FALLBACK = "FALLBACK"
+    account = "account"
+    ad = "ad"
+    adset = "adset"
+    campaign = "campaign"
 
 
 class adgroupcopies_date_preset_enum_param(str, Enum):
@@ -120,21 +103,28 @@ class adgroupcopies_date_preset_enum_param(str, Enum):
     yesterday = "yesterday"
 
 
-class adgrouppreviews_creative_feature_enum_param(str, Enum):
-    """adgrouppreviews_creative_feature_enum_param enum values."""
+class adgroupinsights_action_attribution_windows_enum_param(str, Enum):
+    """adgroupinsights_action_attribution_windows_enum_param enum values."""
 
-    product_metadata_automation = "product_metadata_automation"
-    profile_card = "profile_card"
-    standard_enhancements_catalog = "standard_enhancements_catalog"
-    video_to_image = "video_to_image"
-
-
-class adgroupcopies_status_option_enum_param(str, Enum):
-    """adgroupcopies_status_option_enum_param enum values."""
-
-    ACTIVE = "ACTIVE"
-    INHERITED_FROM_SOURCE = "INHERITED_FROM_SOURCE"
-    PAUSED = "PAUSED"
+    VALUE_1D_CLICK = "1d_click"
+    VALUE_1D_EV = "1d_ev"
+    VALUE_1D_VIEW = "1d_view"
+    VALUE_28D_CLICK = "28d_click"
+    VALUE_28D_VIEW = "28d_view"
+    VALUE_28D_VIEW_ALL_CONVERSIONS = "28d_view_all_conversions"
+    VALUE_28D_VIEW_FIRST_CONVERSION = "28d_view_first_conversion"
+    VALUE_7D_CLICK = "7d_click"
+    VALUE_7D_VIEW = "7d_view"
+    VALUE_7D_VIEW_ALL_CONVERSIONS = "7d_view_all_conversions"
+    VALUE_7D_VIEW_FIRST_CONVERSION = "7d_view_first_conversion"
+    dda = "dda"
+    default = "default"
+    skan_click = "skan_click"
+    skan_click_second_postback = "skan_click_second_postback"
+    skan_click_third_postback = "skan_click_third_postback"
+    skan_view = "skan_view"
+    skan_view_second_postback = "skan_view_second_postback"
+    skan_view_third_postback = "skan_view_third_postback"
 
 
 class adgroupinsights_date_preset_enum_param(str, Enum):
@@ -162,118 +152,44 @@ class adgroupinsights_date_preset_enum_param(str, Enum):
     yesterday = "yesterday"
 
 
-class adgroupinsights_level_enum_param(str, Enum):
-    """adgroupinsights_level_enum_param enum values."""
+class adgroupinsights_summary_action_breakdowns_enum_param(str, Enum):
+    """adgroupinsights_summary_action_breakdowns_enum_param enum values."""
 
-    account = "account"
-    ad = "ad"
-    adset = "adset"
-    campaign = "campaign"
-
-
-class adgroupinsights_action_attribution_windows_enum_param(str, Enum):
-    """adgroupinsights_action_attribution_windows_enum_param enum values."""
-
-    VALUE_1D_CLICK = "1d_click"
-    VALUE_1D_EV = "1d_ev"
-    VALUE_1D_VIEW = "1d_view"
-    VALUE_28D_CLICK = "28d_click"
-    VALUE_28D_VIEW = "28d_view"
-    VALUE_28D_VIEW_ALL_CONVERSIONS = "28d_view_all_conversions"
-    VALUE_28D_VIEW_FIRST_CONVERSION = "28d_view_first_conversion"
-    VALUE_7D_CLICK = "7d_click"
-    VALUE_7D_VIEW = "7d_view"
-    VALUE_7D_VIEW_ALL_CONVERSIONS = "7d_view_all_conversions"
-    VALUE_7D_VIEW_FIRST_CONVERSION = "7d_view_first_conversion"
-    dda = "dda"
-    default = "default"
-    skan_click = "skan_click"
-    skan_click_second_postback = "skan_click_second_postback"
-    skan_click_third_postback = "skan_click_third_postback"
-    skan_view = "skan_view"
-    skan_view_second_postback = "skan_view_second_postback"
-    skan_view_third_postback = "skan_view_third_postback"
-
-
-class adgroupinsights_action_report_time_enum_param(str, Enum):
-    """adgroupinsights_action_report_time_enum_param enum values."""
-
-    conversion = "conversion"
-    impression = "impression"
-    lifetime = "lifetime"
-    mixed = "mixed"
-
-
-class adgroupinsights_breakdowns_enum_param(str, Enum):
-    """adgroupinsights_breakdowns_enum_param enum values."""
-
-    ad_extension_domain = "ad_extension_domain"
-    ad_extension_url = "ad_extension_url"
-    ad_format_asset = "ad_format_asset"
-    age = "age"
-    app_id = "app_id"
-    body_asset = "body_asset"
-    breakdown_ad_objective = "breakdown_ad_objective"
-    breakdown_reporting_ad_id = "breakdown_reporting_ad_id"
-    call_to_action_asset = "call_to_action_asset"
-    coarse_conversion_value = "coarse_conversion_value"
-    comscore_market = "comscore_market"
-    comscore_market_code = "comscore_market_code"
+    action_canvas_component_name = "action_canvas_component_name"
+    action_carousel_card_id = "action_carousel_card_id"
+    action_carousel_card_name = "action_carousel_card_name"
+    action_destination = "action_destination"
+    action_device = "action_device"
+    action_reaction = "action_reaction"
+    action_target_id = "action_target_id"
+    action_type = "action_type"
+    action_video_sound = "action_video_sound"
+    action_video_type = "action_video_type"
     conversion_destination = "conversion_destination"
-    country = "country"
-    creative_relaxation_asset_type = "creative_relaxation_asset_type"
-    description_asset = "description_asset"
-    device_platform = "device_platform"
-    dma = "dma"
-    fidelity_type = "fidelity_type"
-    flexible_format_asset_type = "flexible_format_asset_type"
-    frequency_value = "frequency_value"
-    gen_ai_asset_type = "gen_ai_asset_type"
-    gender = "gender"
-    hourly_stats_aggregated_by_advertiser_time_zone = (
-        "hourly_stats_aggregated_by_advertiser_time_zone"
-    )
-    hourly_stats_aggregated_by_audience_time_zone = "hourly_stats_aggregated_by_audience_time_zone"
-    hsid = "hsid"
-    image_asset = "image_asset"
-    impression_device = "impression_device"
-    impression_view_time_advertiser_hour_v2 = "impression_view_time_advertiser_hour_v2"
-    is_auto_advance = "is_auto_advance"
-    is_conversion_id_modeled = "is_conversion_id_modeled"
-    is_rendered_as_delayed_skip_ad = "is_rendered_as_delayed_skip_ad"
-    landing_destination = "landing_destination"
-    link_url_asset = "link_url_asset"
-    marketing_messages_btn_name = "marketing_messages_btn_name"
-    mdsa_landing_destination = "mdsa_landing_destination"
-    media_asset_url = "media_asset_url"
-    media_creator = "media_creator"
-    media_destination_url = "media_destination_url"
-    media_format = "media_format"
-    media_origin_url = "media_origin_url"
-    media_text_content = "media_text_content"
-    media_type = "media_type"
-    mmm = "mmm"
-    place_page_id = "place_page_id"
-    platform_position = "platform_position"
-    postback_sequence_index = "postback_sequence_index"
-    product_id = "product_id"
-    publisher_platform = "publisher_platform"
-    redownload = "redownload"
-    region = "region"
+    matched_persona_id = "matched_persona_id"
+    matched_persona_name = "matched_persona_name"
     signal_source_bucket = "signal_source_bucket"
-    skan_campaign_id = "skan_campaign_id"
-    skan_conversion_id = "skan_conversion_id"
-    skan_version = "skan_version"
-    sot_attribution_model_type = "sot_attribution_model_type"
-    sot_attribution_window = "sot_attribution_window"
-    sot_channel = "sot_channel"
-    sot_event_type = "sot_event_type"
-    sot_source = "sot_source"
     standard_event_content_type = "standard_event_content_type"
-    title_asset = "title_asset"
-    user_persona_id = "user_persona_id"
-    user_persona_name = "user_persona_name"
-    video_asset = "video_asset"
+
+
+class adgroupcopies_status_option_enum_param(str, Enum):
+    """adgroupcopies_status_option_enum_param enum values."""
+
+    ACTIVE = "ACTIVE"
+    INHERITED_FROM_SOURCE = "INHERITED_FROM_SOURCE"
+    PAUSED = "PAUSED"
+
+
+class adgrouppreviews_render_type_enum_param(str, Enum):
+    """adgrouppreviews_render_type_enum_param enum values."""
+
+    FALLBACK = "FALLBACK"
+
+
+class adgroupadlabels_execution_options_enum_param(str, Enum):
+    """adgroupadlabels_execution_options_enum_param enum values."""
+
+    validate_only = "validate_only"
 
 
 class adgrouppreviews_ad_format_enum_param(str, Enum):
@@ -348,14 +264,98 @@ class adgrouppreviews_ad_format_enum_param(str, Enum):
     WATCH_FEED_MOBILE = "WATCH_FEED_MOBILE"
 
 
-class adgroupadlabels_execution_options_enum_param(str, Enum):
-    """adgroupadlabels_execution_options_enum_param enum values."""
+class adgroupinsights_action_report_time_enum_param(str, Enum):
+    """adgroupinsights_action_report_time_enum_param enum values."""
 
-    validate_only = "validate_only"
+    conversion = "conversion"
+    impression = "impression"
+    lifetime = "lifetime"
+    mixed = "mixed"
 
 
-class adgroupinsights_summary_action_breakdowns_enum_param(str, Enum):
-    """adgroupinsights_summary_action_breakdowns_enum_param enum values."""
+class adgrouppreviews_creative_feature_enum_param(str, Enum):
+    """adgrouppreviews_creative_feature_enum_param enum values."""
+
+    product_metadata_automation = "product_metadata_automation"
+    profile_card = "profile_card"
+    standard_enhancements_catalog = "standard_enhancements_catalog"
+    video_to_image = "video_to_image"
+
+
+class adgroupinsights_breakdowns_enum_param(str, Enum):
+    """adgroupinsights_breakdowns_enum_param enum values."""
+
+    ad_extension_domain = "ad_extension_domain"
+    ad_extension_url = "ad_extension_url"
+    ad_format_asset = "ad_format_asset"
+    age = "age"
+    app_id = "app_id"
+    body_asset = "body_asset"
+    breakdown_ad_objective = "breakdown_ad_objective"
+    breakdown_reporting_ad_id = "breakdown_reporting_ad_id"
+    call_to_action_asset = "call_to_action_asset"
+    coarse_conversion_value = "coarse_conversion_value"
+    comscore_market = "comscore_market"
+    comscore_market_code = "comscore_market_code"
+    conversion_destination = "conversion_destination"
+    country = "country"
+    creative_relaxation_asset_type = "creative_relaxation_asset_type"
+    description_asset = "description_asset"
+    device_platform = "device_platform"
+    dma = "dma"
+    fidelity_type = "fidelity_type"
+    flexible_format_asset_type = "flexible_format_asset_type"
+    frequency_value = "frequency_value"
+    gen_ai_asset_type = "gen_ai_asset_type"
+    gender = "gender"
+    hourly_stats_aggregated_by_advertiser_time_zone = (
+        "hourly_stats_aggregated_by_advertiser_time_zone"
+    )
+    hourly_stats_aggregated_by_audience_time_zone = "hourly_stats_aggregated_by_audience_time_zone"
+    hsid = "hsid"
+    image_asset = "image_asset"
+    impression_device = "impression_device"
+    impression_view_time_advertiser_hour_v2 = "impression_view_time_advertiser_hour_v2"
+    is_auto_advance = "is_auto_advance"
+    is_conversion_id_modeled = "is_conversion_id_modeled"
+    is_rendered_as_delayed_skip_ad = "is_rendered_as_delayed_skip_ad"
+    landing_destination = "landing_destination"
+    link_url_asset = "link_url_asset"
+    marketing_messages_btn_name = "marketing_messages_btn_name"
+    mdsa_landing_destination = "mdsa_landing_destination"
+    media_asset_url = "media_asset_url"
+    media_creator = "media_creator"
+    media_destination_url = "media_destination_url"
+    media_format = "media_format"
+    media_origin_url = "media_origin_url"
+    media_text_content = "media_text_content"
+    media_type = "media_type"
+    mmm = "mmm"
+    place_page_id = "place_page_id"
+    platform_position = "platform_position"
+    postback_sequence_index = "postback_sequence_index"
+    product_id = "product_id"
+    publisher_platform = "publisher_platform"
+    redownload = "redownload"
+    region = "region"
+    signal_source_bucket = "signal_source_bucket"
+    skan_campaign_id = "skan_campaign_id"
+    skan_conversion_id = "skan_conversion_id"
+    skan_version = "skan_version"
+    sot_attribution_model_type = "sot_attribution_model_type"
+    sot_attribution_window = "sot_attribution_window"
+    sot_channel = "sot_channel"
+    sot_event_type = "sot_event_type"
+    sot_source = "sot_source"
+    standard_event_content_type = "standard_event_content_type"
+    title_asset = "title_asset"
+    user_persona_id = "user_persona_id"
+    user_persona_name = "user_persona_name"
+    video_asset = "video_asset"
+
+
+class adgroupinsights_action_breakdowns_enum_param(str, Enum):
+    """adgroupinsights_action_breakdowns_enum_param enum values."""
 
     action_canvas_component_name = "action_canvas_component_name"
     action_carousel_card_id = "action_carousel_card_id"

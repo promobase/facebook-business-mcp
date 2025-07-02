@@ -14,24 +14,6 @@ if TYPE_CHECKING:
     from .place import PlaceFields
 
 
-class albumphotos_backdated_time_granularity_enum_param(str, Enum):
-    """albumphotos_backdated_time_granularity_enum_param enum values."""
-
-    day = "day"
-    hour = "hour"
-    min = "min"
-    month = "month"
-    none = "none"
-    year = "year"
-
-
-class albumcomments_filter_enum_param(str, Enum):
-    """albumcomments_filter_enum_param enum values."""
-
-    stream = "stream"
-    toplevel = "toplevel"
-
-
 class albumcomments_comment_privacy_value_enum_param(str, Enum):
     """albumcomments_comment_privacy_value_enum_param enum values."""
 
@@ -48,6 +30,46 @@ class albumcomments_comment_privacy_value_enum_param(str, Enum):
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
 
 
+class albumcomments_filter_enum_param(str, Enum):
+    """albumcomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
+
+
+class albumpicture_type_enum_param(str, Enum):
+    """albumpicture_type_enum_param enum values."""
+
+    album = "album"
+    small = "small"
+    thumbnail = "thumbnail"
+
+
+class albumcomments_order_enum_param(str, Enum):
+    """albumcomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
+
+
+class albumcomments_live_filter_enum_param(str, Enum):
+    """albumcomments_live_filter_enum_param enum values."""
+
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
+
+
+class albumphotos_backdated_time_granularity_enum_param(str, Enum):
+    """albumphotos_backdated_time_granularity_enum_param enum values."""
+
+    day = "day"
+    hour = "hour"
+    min = "min"
+    month = "month"
+    none = "none"
+    year = "year"
+
+
 class albumphotos_unpublished_content_type_enum_param(str, Enum):
     """albumphotos_unpublished_content_type_enum_param enum values."""
 
@@ -58,28 +80,6 @@ class albumphotos_unpublished_content_type_enum_param(str, Enum):
     REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
     SCHEDULED = "SCHEDULED"
     SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class albumcomments_live_filter_enum_param(str, Enum):
-    """albumcomments_live_filter_enum_param enum values."""
-
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
-
-
-class albumcomments_order_enum_param(str, Enum):
-    """albumcomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
-
-
-class albumpicture_type_enum_param(str, Enum):
-    """albumpicture_type_enum_param enum values."""
-
-    album = "album"
-    small = "small"
-    thumbnail = "thumbnail"
 
 
 # Field literal type

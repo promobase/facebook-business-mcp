@@ -21,28 +21,47 @@ if TYPE_CHECKING:
     from .videouploadlimits import VideoUploadLimitsFields
 
 
-class userlive_videos_broadcast_status_enum_param(str, Enum):
-    """userlive_videos_broadcast_status_enum_param enum values."""
+class userbusinesses_vertical_enum_param(str, Enum):
+    """userbusinesses_vertical_enum_param enum values."""
 
-    LIVE = "LIVE"
-    LIVE_STOPPED = "LIVE_STOPPED"
-    PROCESSING = "PROCESSING"
-    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
-    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
-    SCHEDULED_LIVE = "SCHEDULED_LIVE"
-    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
-    UNPUBLISHED = "UNPUBLISHED"
-    VOD = "VOD"
+    ADVERTISING = "ADVERTISING"
+    AUTOMOTIVE = "AUTOMOTIVE"
+    CONSUMER_PACKAGED_GOODS = "CONSUMER_PACKAGED_GOODS"
+    ECOMMERCE = "ECOMMERCE"
+    EDUCATION = "EDUCATION"
+    ENERGY_AND_UTILITIES = "ENERGY_AND_UTILITIES"
+    ENTERTAINMENT_AND_MEDIA = "ENTERTAINMENT_AND_MEDIA"
+    FINANCIAL_SERVICES = "FINANCIAL_SERVICES"
+    GAMING = "GAMING"
+    GOVERNMENT_AND_POLITICS = "GOVERNMENT_AND_POLITICS"
+    HEALTH = "HEALTH"
+    LUXURY = "LUXURY"
+    MARKETING = "MARKETING"
+    NON_PROFIT = "NON_PROFIT"
+    NOT_SET = "NOT_SET"
+    ORGANIZATIONS_AND_ASSOCIATIONS = "ORGANIZATIONS_AND_ASSOCIATIONS"
+    OTHER = "OTHER"
+    PROFESSIONAL_SERVICES = "PROFESSIONAL_SERVICES"
+    RESTAURANT = "RESTAURANT"
+    RETAIL = "RETAIL"
+    TECHNOLOGY = "TECHNOLOGY"
+    TELECOM = "TELECOM"
+    TRAVEL = "TRAVEL"
 
 
-class userlive_videos_status_enum_param(str, Enum):
-    """userlive_videos_status_enum_param enum values."""
+class userlive_videos_stream_type_enum_param(str, Enum):
+    """userlive_videos_stream_type_enum_param enum values."""
 
-    LIVE_NOW = "LIVE_NOW"
-    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
-    SCHEDULED_LIVE = "SCHEDULED_LIVE"
-    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
-    UNPUBLISHED = "UNPUBLISHED"
+    AMBIENT = "AMBIENT"
+    REGULAR = "REGULAR"
+
+
+class userpermissions_status_enum_param(str, Enum):
+    """userpermissions_status_enum_param enum values."""
+
+    declined = "declined"
+    expired = "expired"
+    granted = "granted"
 
 
 class uservideos_formatting_enum_param(str, Enum):
@@ -52,12 +71,71 @@ class uservideos_formatting_enum_param(str, Enum):
     PLAINTEXT = "PLAINTEXT"
 
 
-class usernotifications_filtering_enum_param(str, Enum):
-    """usernotifications_filtering_enum_param enum values."""
+class userfeed_unpublished_content_type_enum_param(str, Enum):
+    """userfeed_unpublished_content_type_enum_param enum values."""
 
-    ema = "ema"
-    groups = "groups"
-    groups_social = "groups_social"
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
+class userlive_videos_source_enum_param(str, Enum):
+    """userlive_videos_source_enum_param enum values."""
+
+    owner = "owner"
+    target = "target"
+
+
+class usernotifications_type_enum_param(str, Enum):
+    """usernotifications_type_enum_param enum values."""
+
+    content_update = "content_update"
+    generic = "generic"
+
+
+class uservideos_upload_phase_enum_param(str, Enum):
+    """uservideos_upload_phase_enum_param enum values."""
+
+    cancel = "cancel"
+    finish = "finish"
+    start = "start"
+    transfer = "transfer"
+
+
+class userlive_videos_spatial_audio_format_enum_param(str, Enum):
+    """userlive_videos_spatial_audio_format_enum_param enum values."""
+
+    ambiX_4 = "ambiX_4"
+
+
+class userad_studies_type_enum_param(str, Enum):
+    """userad_studies_type_enum_param enum values."""
+
+    BACKEND_AB_TESTING = "BACKEND_AB_TESTING"
+    CONTINUOUS_LIFT_CONFIG = "CONTINUOUS_LIFT_CONFIG"
+    GEO_LIFT = "GEO_LIFT"
+    LIFT = "LIFT"
+    SPLIT_TEST = "SPLIT_TEST"
+
+
+class userfeed_formatting_enum_param(str, Enum):
+    """userfeed_formatting_enum_param enum values."""
+
+    MARKDOWN = "MARKDOWN"
+    PLAINTEXT = "PLAINTEXT"
+
+
+class userbusinesses_survey_business_type_enum_param(str, Enum):
+    """userbusinesses_survey_business_type_enum_param enum values."""
+
+    ADVERTISER = "ADVERTISER"
+    AGENCY = "AGENCY"
+    APP_DEVELOPER = "APP_DEVELOPER"
+    PUBLISHER = "PUBLISHER"
 
 
 class userconversations_platform_enum_param(str, Enum):
@@ -553,6 +631,66 @@ class userbusinesses_timezone_id_enum_param(str, Enum):
     VALUE_480 = "480"
 
 
+class uservideos_swap_mode_enum_param(str, Enum):
+    """uservideos_swap_mode_enum_param enum values."""
+
+    replace = "replace"
+
+
+class userlive_videos_status_enum_param(str, Enum):
+    """userlive_videos_status_enum_param enum values."""
+
+    LIVE_NOW = "LIVE_NOW"
+    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
+    SCHEDULED_LIVE = "SCHEDULED_LIVE"
+    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
+    UNPUBLISHED = "UNPUBLISHED"
+
+
+class userlive_videos_broadcast_status_enum_param(str, Enum):
+    """userlive_videos_broadcast_status_enum_param enum values."""
+
+    LIVE = "LIVE"
+    LIVE_STOPPED = "LIVE_STOPPED"
+    PROCESSING = "PROCESSING"
+    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
+    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
+    SCHEDULED_LIVE = "SCHEDULED_LIVE"
+    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
+    UNPUBLISHED = "UNPUBLISHED"
+    VOD = "VOD"
+
+
+class userfeed_target_surface_enum_param(str, Enum):
+    """userfeed_target_surface_enum_param enum values."""
+
+    STORY = "STORY"
+    TIMELINE = "TIMELINE"
+
+
+class uservideos_content_category_enum_param(str, Enum):
+    """uservideos_content_category_enum_param enum values."""
+
+    BEAUTY_FASHION = "BEAUTY_FASHION"
+    BUSINESS = "BUSINESS"
+    CARS_TRUCKS = "CARS_TRUCKS"
+    COMEDY = "COMEDY"
+    CUTE_ANIMALS = "CUTE_ANIMALS"
+    ENTERTAINMENT = "ENTERTAINMENT"
+    FAMILY = "FAMILY"
+    FOOD_HEALTH = "FOOD_HEALTH"
+    HOME = "HOME"
+    LIFESTYLE = "LIFESTYLE"
+    MUSIC = "MUSIC"
+    NEWS = "NEWS"
+    OTHER = "OTHER"
+    POLITICS = "POLITICS"
+    SCIENCE = "SCIENCE"
+    SPORTS = "SPORTS"
+    TECHNOLOGY = "TECHNOLOGY"
+    VIDEO_GAMING = "VIDEO_GAMING"
+
+
 class userevents_type_enum_param(str, Enum):
     """userevents_type_enum_param enum values."""
 
@@ -563,40 +701,16 @@ class userevents_type_enum_param(str, Enum):
     not_replied = "not_replied"
 
 
-class userbusinesses_vertical_enum_param(str, Enum):
-    """userbusinesses_vertical_enum_param enum values."""
+class userphotos_unpublished_content_type_enum_param(str, Enum):
+    """userphotos_unpublished_content_type_enum_param enum values."""
 
-    ADVERTISING = "ADVERTISING"
-    AUTOMOTIVE = "AUTOMOTIVE"
-    CONSUMER_PACKAGED_GOODS = "CONSUMER_PACKAGED_GOODS"
-    ECOMMERCE = "ECOMMERCE"
-    EDUCATION = "EDUCATION"
-    ENERGY_AND_UTILITIES = "ENERGY_AND_UTILITIES"
-    ENTERTAINMENT_AND_MEDIA = "ENTERTAINMENT_AND_MEDIA"
-    FINANCIAL_SERVICES = "FINANCIAL_SERVICES"
-    GAMING = "GAMING"
-    GOVERNMENT_AND_POLITICS = "GOVERNMENT_AND_POLITICS"
-    HEALTH = "HEALTH"
-    LUXURY = "LUXURY"
-    MARKETING = "MARKETING"
-    NON_PROFIT = "NON_PROFIT"
-    NOT_SET = "NOT_SET"
-    ORGANIZATIONS_AND_ASSOCIATIONS = "ORGANIZATIONS_AND_ASSOCIATIONS"
-    OTHER = "OTHER"
-    PROFESSIONAL_SERVICES = "PROFESSIONAL_SERVICES"
-    RESTAURANT = "RESTAURANT"
-    RETAIL = "RETAIL"
-    TECHNOLOGY = "TECHNOLOGY"
-    TELECOM = "TELECOM"
-    TRAVEL = "TRAVEL"
-
-
-class userpermissions_status_enum_param(str, Enum):
-    """userpermissions_status_enum_param enum values."""
-
-    declined = "declined"
-    expired = "expired"
-    granted = "granted"
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
 
 
 class userfeed_backdated_time_granularity_enum_param(str, Enum):
@@ -610,20 +724,46 @@ class userfeed_backdated_time_granularity_enum_param(str, Enum):
     year = "year"
 
 
-class userbusinesses_survey_business_type_enum_param(str, Enum):
-    """userbusinesses_survey_business_type_enum_param enum values."""
+class userphotos_backdated_time_granularity_enum_param(str, Enum):
+    """userphotos_backdated_time_granularity_enum_param enum values."""
 
-    ADVERTISER = "ADVERTISER"
-    AGENCY = "AGENCY"
-    APP_DEVELOPER = "APP_DEVELOPER"
-    PUBLISHER = "PUBLISHER"
+    day = "day"
+    hour = "hour"
+    min = "min"
+    month = "month"
+    none = "none"
+    year = "year"
 
 
-class usernotifications_type_enum_param(str, Enum):
-    """usernotifications_type_enum_param enum values."""
+class userfeed_post_surfaces_blacklist_enum_param(str, Enum):
+    """userfeed_post_surfaces_blacklist_enum_param enum values."""
 
-    content_update = "content_update"
-    generic = "generic"
+    VALUE_1 = "1"
+    VALUE_2 = "2"
+    VALUE_3 = "3"
+    VALUE_4 = "4"
+    VALUE_5 = "5"
+
+
+class userlive_videos_stereoscopic_mode_enum_param(str, Enum):
+    """userlive_videos_stereoscopic_mode_enum_param enum values."""
+
+    LEFT_RIGHT = "LEFT_RIGHT"
+    MONO = "MONO"
+    TOP_BOTTOM = "TOP_BOTTOM"
+
+
+class userfeed_place_attachment_setting_enum_param(str, Enum):
+    """userfeed_place_attachment_setting_enum_param enum values."""
+
+    VALUE_1 = "1"
+    VALUE_2 = "2"
+
+
+class userfundraisers_fundraiser_type_enum_param(str, Enum):
+    """userfundraisers_fundraiser_type_enum_param enum values."""
+
+    person_for_charity = "person_for_charity"
 
 
 class uservideos_container_type_enum_param(str, Enum):
@@ -780,143 +920,6 @@ class uservideos_container_type_enum_param(str, Enum):
     YOUR_DAY = "YOUR_DAY"
 
 
-class userlive_videos_stereoscopic_mode_enum_param(str, Enum):
-    """userlive_videos_stereoscopic_mode_enum_param enum values."""
-
-    LEFT_RIGHT = "LEFT_RIGHT"
-    MONO = "MONO"
-    TOP_BOTTOM = "TOP_BOTTOM"
-
-
-class userfeed_posting_to_redspace_enum_param(str, Enum):
-    """userfeed_posting_to_redspace_enum_param enum values."""
-
-    disabled = "disabled"
-    enabled = "enabled"
-
-
-class userfeed_target_surface_enum_param(str, Enum):
-    """userfeed_target_surface_enum_param enum values."""
-
-    STORY = "STORY"
-    TIMELINE = "TIMELINE"
-
-
-class uservideos_swap_mode_enum_param(str, Enum):
-    """uservideos_swap_mode_enum_param enum values."""
-
-    replace = "replace"
-
-
-class userphotos_type_enum_param(str, Enum):
-    """userphotos_type_enum_param enum values."""
-
-    tagged = "tagged"
-    uploaded = "uploaded"
-
-
-class uservideos_original_projection_type_enum_param(str, Enum):
-    """uservideos_original_projection_type_enum_param enum values."""
-
-    cubemap = "cubemap"
-    equirectangular = "equirectangular"
-    half_equirectangular = "half_equirectangular"
-
-
-class userlive_videos_source_enum_param(str, Enum):
-    """userlive_videos_source_enum_param enum values."""
-
-    owner = "owner"
-    target = "target"
-
-
-class userad_studies_type_enum_param(str, Enum):
-    """userad_studies_type_enum_param enum values."""
-
-    BACKEND_AB_TESTING = "BACKEND_AB_TESTING"
-    CONTINUOUS_LIFT_CONFIG = "CONTINUOUS_LIFT_CONFIG"
-    GEO_LIFT = "GEO_LIFT"
-    LIFT = "LIFT"
-    SPLIT_TEST = "SPLIT_TEST"
-
-
-class userpicture_type_enum_param(str, Enum):
-    """userpicture_type_enum_param enum values."""
-
-    album = "album"
-    large = "large"
-    normal = "normal"
-    small = "small"
-    square = "square"
-
-
-class userfeed_formatting_enum_param(str, Enum):
-    """userfeed_formatting_enum_param enum values."""
-
-    MARKDOWN = "MARKDOWN"
-    PLAINTEXT = "PLAINTEXT"
-
-
-class userlive_videos_stream_type_enum_param(str, Enum):
-    """userlive_videos_stream_type_enum_param enum values."""
-
-    AMBIENT = "AMBIENT"
-    REGULAR = "REGULAR"
-
-
-class userfeed_unpublished_content_type_enum_param(str, Enum):
-    """userfeed_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class userphotos_backdated_time_granularity_enum_param(str, Enum):
-    """userphotos_backdated_time_granularity_enum_param enum values."""
-
-    day = "day"
-    hour = "hour"
-    min = "min"
-    month = "month"
-    none = "none"
-    year = "year"
-
-
-class uservideos_type_enum_param(str, Enum):
-    """uservideos_type_enum_param enum values."""
-
-    TAGGED = "TAGGED"
-    UPLOADED = "UPLOADED"
-
-
-class uservideos_content_category_enum_param(str, Enum):
-    """uservideos_content_category_enum_param enum values."""
-
-    BEAUTY_FASHION = "BEAUTY_FASHION"
-    BUSINESS = "BUSINESS"
-    CARS_TRUCKS = "CARS_TRUCKS"
-    COMEDY = "COMEDY"
-    CUTE_ANIMALS = "CUTE_ANIMALS"
-    ENTERTAINMENT = "ENTERTAINMENT"
-    FAMILY = "FAMILY"
-    FOOD_HEALTH = "FOOD_HEALTH"
-    HOME = "HOME"
-    LIFESTYLE = "LIFESTYLE"
-    MUSIC = "MUSIC"
-    NEWS = "NEWS"
-    OTHER = "OTHER"
-    POLITICS = "POLITICS"
-    SCIENCE = "SCIENCE"
-    SPORTS = "SPORTS"
-    TECHNOLOGY = "TECHNOLOGY"
-    VIDEO_GAMING = "VIDEO_GAMING"
-
-
 class uservideos_unpublished_content_type_enum_param(str, Enum):
     """uservideos_unpublished_content_type_enum_param enum values."""
 
@@ -929,41 +932,51 @@ class uservideos_unpublished_content_type_enum_param(str, Enum):
     SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
 
 
-class userfundraisers_fundraiser_type_enum_param(str, Enum):
-    """userfundraisers_fundraiser_type_enum_param enum values."""
+class userpicture_type_enum_param(str, Enum):
+    """userpicture_type_enum_param enum values."""
 
-    person_for_charity = "person_for_charity"
-
-
-class userphotos_unpublished_content_type_enum_param(str, Enum):
-    """userphotos_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+    album = "album"
+    large = "large"
+    normal = "normal"
+    small = "small"
+    square = "square"
 
 
-class userfeed_post_surfaces_blacklist_enum_param(str, Enum):
-    """userfeed_post_surfaces_blacklist_enum_param enum values."""
+class uservideos_original_projection_type_enum_param(str, Enum):
+    """uservideos_original_projection_type_enum_param enum values."""
 
-    VALUE_1 = "1"
-    VALUE_2 = "2"
-    VALUE_3 = "3"
-    VALUE_4 = "4"
-    VALUE_5 = "5"
+    cubemap = "cubemap"
+    equirectangular = "equirectangular"
+    half_equirectangular = "half_equirectangular"
 
 
-class uservideos_upload_phase_enum_param(str, Enum):
-    """uservideos_upload_phase_enum_param enum values."""
+class uservideos_type_enum_param(str, Enum):
+    """uservideos_type_enum_param enum values."""
 
-    cancel = "cancel"
-    finish = "finish"
-    start = "start"
-    transfer = "transfer"
+    TAGGED = "TAGGED"
+    UPLOADED = "UPLOADED"
+
+
+class userphotos_type_enum_param(str, Enum):
+    """userphotos_type_enum_param enum values."""
+
+    tagged = "tagged"
+    uploaded = "uploaded"
+
+
+class usernotifications_filtering_enum_param(str, Enum):
+    """usernotifications_filtering_enum_param enum values."""
+
+    ema = "ema"
+    groups = "groups"
+    groups_social = "groups_social"
+
+
+class userfeed_posting_to_redspace_enum_param(str, Enum):
+    """userfeed_posting_to_redspace_enum_param enum values."""
+
+    disabled = "disabled"
+    enabled = "enabled"
 
 
 class userlive_videos_projection_enum_param(str, Enum):
@@ -972,19 +985,6 @@ class userlive_videos_projection_enum_param(str, Enum):
     CUBEMAP = "CUBEMAP"
     EQUIRECTANGULAR = "EQUIRECTANGULAR"
     HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
-
-
-class userfeed_place_attachment_setting_enum_param(str, Enum):
-    """userfeed_place_attachment_setting_enum_param enum values."""
-
-    VALUE_1 = "1"
-    VALUE_2 = "2"
-
-
-class userlive_videos_spatial_audio_format_enum_param(str, Enum):
-    """userlive_videos_spatial_audio_format_enum_param enum values."""
-
-    ambiX_4 = "ambiX_4"
 
 
 # Field literal type

@@ -6,7 +6,6 @@ DO NOT EDIT MANUALLY.
 from typing import Any, Optional
 
 from facebook_business.adobjects.adplacepageset import AdPlacePageSet
-from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -23,20 +22,22 @@ async def create_adplacepageset(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Create a AdPlacePageSet.
-
-    Args:
-        object_id: The ID of the AdPlacePageSet
-        parent_id: parent_id
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The create result
-    """
     result = AdPlacePageSet(fbid=object_id).api_create(
         parent_id=parent_id,
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def delete_adplacepageset(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdPlacePageSet(fbid=object_id).api_delete(
         fields=fields,
         params=params,
     )
@@ -50,18 +51,21 @@ async def get_adplacepageset(
     fields: list[str] = [],
     params: dict[str, Any] = {},
 ) -> dict[str, Any]:
-    """
-    Get a AdPlacePageSet.
-
-    Args:
-        object_id: The ID of the AdPlacePageSet
-        fields: Fields to return
-        params: Additional parameters
-
-    Returns:
-        The get result
-    """
     result = AdPlacePageSet(fbid=object_id).api_get(
+        fields=fields,
+        params=params,
+    )
+
+    return result
+
+
+@mcp.tool()
+async def update_adplacepageset(
+    object_id: str,
+    fields: list[str] = [],
+    params: dict[str, Any] = {},
+) -> dict[str, Any]:
+    result = AdPlacePageSet(fbid=object_id).api_update(
         fields=fields,
         params=params,
     )

@@ -16,6 +16,56 @@ if TYPE_CHECKING:
     from .profile import ProfileFields
 
 
+class postcomments_filter_enum_param(str, Enum):
+    """postcomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
+
+
+class postinsights_period_enum_param(str, Enum):
+    """postinsights_period_enum_param enum values."""
+
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
+
+
+class postcomments_order_enum_param(str, Enum):
+    """postcomments_order_enum_param enum values."""
+
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
+
+
+class postinsights_date_preset_enum_param(str, Enum):
+    """postinsights_date_preset_enum_param enum values."""
+
+    data_maximum = "data_maximum"
+    last_14d = "last_14d"
+    last_28d = "last_28d"
+    last_30d = "last_30d"
+    last_3d = "last_3d"
+    last_7d = "last_7d"
+    last_90d = "last_90d"
+    last_month = "last_month"
+    last_quarter = "last_quarter"
+    last_week_mon_sun = "last_week_mon_sun"
+    last_week_sun_sat = "last_week_sun_sat"
+    last_year = "last_year"
+    maximum = "maximum"
+    this_month = "this_month"
+    this_quarter = "this_quarter"
+    this_week_mon_today = "this_week_mon_today"
+    this_week_sun_today = "this_week_sun_today"
+    this_year = "this_year"
+    today = "today"
+    yesterday = "yesterday"
+
+
 class postreactions_type_enum_param(str, Enum):
     """postreactions_type_enum_param enum values."""
 
@@ -54,56 +104,6 @@ class postcomments_comment_privacy_value_enum_param(str, Enum):
     SIDE_CONVERSATION = "SIDE_CONVERSATION"
     SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
-
-
-class postinsights_date_preset_enum_param(str, Enum):
-    """postinsights_date_preset_enum_param enum values."""
-
-    data_maximum = "data_maximum"
-    last_14d = "last_14d"
-    last_28d = "last_28d"
-    last_30d = "last_30d"
-    last_3d = "last_3d"
-    last_7d = "last_7d"
-    last_90d = "last_90d"
-    last_month = "last_month"
-    last_quarter = "last_quarter"
-    last_week_mon_sun = "last_week_mon_sun"
-    last_week_sun_sat = "last_week_sun_sat"
-    last_year = "last_year"
-    maximum = "maximum"
-    this_month = "this_month"
-    this_quarter = "this_quarter"
-    this_week_mon_today = "this_week_mon_today"
-    this_week_sun_today = "this_week_sun_today"
-    this_year = "this_year"
-    today = "today"
-    yesterday = "yesterday"
-
-
-class postcomments_order_enum_param(str, Enum):
-    """postcomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
-
-
-class postinsights_period_enum_param(str, Enum):
-    """postinsights_period_enum_param enum values."""
-
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
-
-
-class postcomments_filter_enum_param(str, Enum):
-    """postcomments_filter_enum_param enum values."""
-
-    stream = "stream"
-    toplevel = "toplevel"
 
 
 # Field literal type
