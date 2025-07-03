@@ -65,7 +65,7 @@ class {{ spec_name }}Fields(BaseModel):
 {%- if spec.fields %}
     
 {%- for field in spec.fields %}
-    {{ field.python_name }}: {{ field.python_type }} | None = Field(None, alias="{{ field.name }}")
+    {{ field.python_name }}: {{ field.python_type }} = Field(None, alias="{{ field.name }}")
 {%- endfor %}
 {%- else %}
     pass  # No fields defined
@@ -117,6 +117,8 @@ class {{ model_name }}(BaseModel):
 {%- endif %}
 {%- elif param_type == 'Object' or param_type.startswith('map') %}
 {%- set python_type = 'dict[str, Any]' %}
+{%- elif param_type in specs %}
+{%- set python_type = param_type + 'Fields' %}
 {%- else %}
 {%- set python_type = 'Any' %}
 {%- endif %}
@@ -150,5 +152,16 @@ __all__ = [
     # Field Models
 {%- for spec_name in specs.keys()|sort %}
     "{{ spec_name }}Fields",
+{%- endfor %}
+    
+    # API Parameter Models
+{%- for spec_name, spec in specs.items()|sort %}
+{%- for api in spec.apis %}
+{%- if api.params %}
+{%- set method_name = api.method_name %}
+{%- set model_name = spec_name + method_name.split('_')|map('capitalize')|join('') + 'Params' %}
+    "{{ model_name }}",
+{%- endif %}
+{%- endfor %}
 {%- endfor %}
 ]

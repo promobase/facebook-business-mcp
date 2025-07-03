@@ -105,29 +105,11 @@ def wrapped_fn_tool(f: Callable) -> Callable:
     return wrapper
 
 
-def wrapped_adaccount_tool(f: Callable) -> Callable:
-    "for ad account object"
-
-    @with_adaccount_id
-    @wrapped_fn_tool
-    def wrapper(adaccount_id: str, *args, **kwargs):
-        return f(adaccount_id, *args, **kwargs)
-
-    return wrapper
-
-
-def with_adaccount_id(fn: Callable) -> Callable:
-    """Decorator to ensure the first argument is an ad account ID."""
-
-    @wraps(fn)
-    def wrapper(adaccount_id: str, *args, **kwargs):
-        if not adaccount_id:
-            raise ValueError("adaccount_id must be provided")
-        if not adaccount_id.startswith("act_"):
-            adaccount_id = "act_" + adaccount_id
-        return fn(adaccount_id, *args, **kwargs)
-
-    return wrapper
+def use_adaccount_id(id: str) -> str:
+    """Utility to ensure ad account ID is prefixed with 'act_'."""
+    if not id.startswith("act_"):
+        id = "act_" + id
+    return id
 
 
 #  ---- utils for source code extraction ----
