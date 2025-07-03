@@ -80,7 +80,7 @@ bump = "true"
 
 [tool.hatch.build.targets.wheel]
 # The source location for the package.
-packages = ["facebook_business_mcp", "src"]
+packages = ["facebook_business_mcp"]
 
 
 # ---- Settings ----

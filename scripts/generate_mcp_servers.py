@@ -377,7 +377,7 @@ def main():
     parser = SDKMethodParser(sdk_path)
 
     # Output directory
-    output_dir = Path("src/generated/servers")
+    output_dir = Path("facebook_business_mcp/generated/servers")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Find and parse all AdObject files

@@ -2,19 +2,14 @@
 
 import asyncio
 import sys
-from pathlib import Path
 
-# Add parent directory to path to allow imports when run as module
-parent_dir = Path(__file__).parent.parent
-if parent_dir not in sys.path:
-    sys.path.insert(0, str(parent_dir))
-
-from src import create_root_mcp
-from src.config import initialize_facebook_api
-from src.utils import get_logger, load_dotenv
+from . import create_root_mcp
+from .config import initialize_facebook_api
+from .utils import get_logger, load_dotenv
 
 logger = get_logger(__name__)
 
+# Load .env from current working directory
 load_dotenv(".env")
 
 

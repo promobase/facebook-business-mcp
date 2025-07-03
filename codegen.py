@@ -231,8 +231,8 @@ class CodegenRunner:
         print("\n📁 Generated files:")
 
         generated_dirs = [
-            ("src/generated/models/", "Pydantic models for AdObjects"),
-            ("src/generated/servers/", "MCP tool servers for AdObjects"),
+            ("facebook_business_mcp/generated/models/", "Pydantic models for AdObjects"),
+            ("facebook_business_mcp/generated/servers/", "MCP tool servers for AdObjects"),
         ]
 
         for dir_path, description in generated_dirs:

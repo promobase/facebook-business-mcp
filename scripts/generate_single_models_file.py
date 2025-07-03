@@ -20,7 +20,7 @@ def main():
     # Paths
     specs_dir = Path("api_specs/specs")
     enum_file = specs_dir / "enum_types.json"
-    models_dir = Path("src/generated/models")
+    models_dir = Path("facebook_business_mcp/generated/models")
     models_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Loading enum types from {enum_file}...")

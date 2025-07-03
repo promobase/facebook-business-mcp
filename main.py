@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-"""Local development entry point - imports from the package."""
+"""Local development entry point."""
 
-from facebook_business_mcp.__main__ import main
+import sys
+from pathlib import Path
 
+# For local development, run the package as a module
 if __name__ == "__main__":
-    main()
+    # This allows running with: python main.py or uv run main.py
+    import subprocess
+
+    subprocess.run([sys.executable, "-m", "facebook_business_mcp"], cwd=Path(__file__).parent)
