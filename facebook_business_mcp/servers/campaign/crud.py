@@ -3,10 +3,8 @@
 This module provides basic Create, Read, Update, and Delete operations for Facebook campaigns.
 """
 
-from typing import Any, Dict, List
+from typing import Any
 
-from facebook_business.adobjects.campaign import Campaign
-from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.campaign import Campaign
 from facebook_business.adobjects.adaccount import AdAccount
 
@@ -55,8 +53,7 @@ def campaign_api_create(
         account_id = f"act_{account_id}"
 
     account = AdAccount(account_id)
-    campaign = account.create_campaign(fields=fields, params=params)
-    return campaign.export_all_data()
+    return account.create_campaign(fields=fields, params=params)
 
 
 @handle_facebook_errors

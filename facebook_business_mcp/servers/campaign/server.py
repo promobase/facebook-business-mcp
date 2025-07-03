@@ -23,11 +23,7 @@ from .crud import (
     campaign_api_get,
     campaign_api_update,
 )
-from .insights import (
-    campaign_get_ad_studies,
-    campaign_get_insights,
-    campaign_get_insights_async,
-)
+
 
 server_name = "FacebookCampaign"
 instructions = """
@@ -37,8 +33,9 @@ Provides typed access to all Campaign operations including:
 - CRUD operations (create, read, update, delete)
 - Ad Sets management
 - Ads management
-- Insights and analytics
 - Campaign copying
+
+Note: Insights operations are now in the dedicated Insights server.
 """
 
 # Initialize server
@@ -63,10 +60,6 @@ server.tool(campaign_get_ads)
 server.tool(campaign_create_ad_label)
 server.tool(campaign_get_ad_rules_governed)
 
-# Insights operations
-server.tool(campaign_get_insights)
-server.tool(campaign_get_insights_async)
-server.tool(campaign_get_ad_studies)
 
 # Copy operations
 server.tool(campaign_get_copies)
