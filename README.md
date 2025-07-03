@@ -1,18 +1,24 @@
+<div align="center">
+  <img src="assets/OpenPromo.svg" alt="OpenPromo Logo" width="340" height="50" />
+</div>
+
+---
+
+<div align="center">
+
+[![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/) [![MCP](https://img.shields.io/badge/MCP-Protocol-green)](https://modelcontextprotocol.io/) [![Facebook API](https://img.shields.io/badge/Facebook-Business_API-1877F2?logo=facebook)](https://developers.facebook.com/docs/marketing-apis) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Code style: pyright](https://img.shields.io/badge/code%20style-pyright-000000.svg)](https://github.com/psf/pyright)
+
+</div>
+
 # Facebook Business MCP Server
 
-Opensource by @PromoBase
-
-Unofficial MCP server implementation for Facebook Business API.
-
-## Overview
-
-This server provides access to Facebook Business API through the Model Context Protocol (MCP), allowing LLMs to interact with Facebook advertising data and operations.
+Unofficial MCP server implementation for [Facebook Business API](https://developers.facebook.com/docs/business-sdk/). You can use this with any clients/LLMs to manage your ad campaigns, ads, etc.
 
 ## Features
 
-- **Ad Account Management**: Get account information and insights
-- **Campaign Operations**: Retrieve campaign data and details
-- **Health Checks**: Verify API connectivity and configuration
+- **Complete**: implementation is wrapped on top of api specs & python sdk, for full typesafty.
+- **MCP Compliant**: Built with [FastMCP](https://gofastmcp.com/getting-started/welcome) for seamless integration with any MCP-compatible client or LLM.
+- **Easy Setup**: Simple configuration with environment variables and immediate connectivity to Facebook Business API.
 
 ## Setup
 
@@ -33,25 +39,8 @@ This server provides access to Facebook Business API through the Model Context P
 
 3. Run the server:
    ```bash
-   uv run python main.py
+   uv run  main.py
    ```
-
-## Available Tools
-
-- `get_ad_account(account_id?)` - Get ad account information
-- `get_campaigns(account_id?, limit?)` - List campaigns for an account
-- `get_campaign(campaign_id)` - Get specific campaign details
-- `health_check()` - Check API connectivity
-
-## Configuration
-
-The server uses environment variables for configuration:
-
-- `FACEBOOK_APP_ID` - Your Facebook App ID (required)
-- `FACEBOOK_APP_SECRET` - Your Facebook App Secret (required)
-- `FACEBOOK_ACCESS_TOKEN` - Your Facebook Access Token (required)
-- `FACEBOOK_AD_ACCOUNT_ID` - Default Ad Account ID (optional)
-- `FACEBOOK_API_VERSION` - API version to use (default: v21.0)
 
 ## License
 

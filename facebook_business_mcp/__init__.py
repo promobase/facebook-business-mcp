@@ -64,12 +64,14 @@ def create_root_mcp() -> FastMCP:
         config = get_config_from_env()
         return config.get("ad_account_id", "No default ad account configured")
 
-    @mcp.prompt
+    @mcp.prompt()
     def test_prompt():
+        """A simple test prompt to verify MCP functionality."""
         return "This is a test prompt"
 
     @mcp.resource("data://app-status")
     def test_resource():
+        """show case a resource that can be mounted in MCP"""
         return "This is a test resource"
 
     mcp.mount(adaccount_server)
