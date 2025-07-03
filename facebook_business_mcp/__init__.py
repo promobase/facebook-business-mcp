@@ -4,6 +4,7 @@ from fastmcp import FastMCP
 
 from .config import get_config_from_env
 from .servers.adaccount import adaccount_server
+from .servers.campaign import server as campaign_server
 from .utils import handle_facebook_errors
 
 __version__ = "0.1.0"
@@ -69,5 +70,6 @@ def create_root_mcp() -> FastMCP:
         return "This is a test resource"
 
     mcp.mount(adaccount_server)
+    mcp.mount(campaign_server)
 
     return mcp
