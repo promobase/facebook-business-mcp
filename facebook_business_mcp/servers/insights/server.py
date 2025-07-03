@@ -4,22 +4,22 @@ from fastmcp import FastMCP
 
 # Import all insights operations
 from .operations import (
-    get_insights,
-    get_insights_async,
     account_get_insights,
     account_get_insights_async,
-    campaign_get_insights,
-    campaign_get_insights_async,
-    adset_get_insights,
-    adset_get_insights_async,
     ad_get_insights,
     ad_get_insights_async,
+    adset_get_insights,
+    adset_get_insights_async,
+    campaign_get_insights,
+    campaign_get_insights_async,
+    get_insights,
+    get_insights_async,
 )
 from .specialized import (
+    adset_get_ad_studies,
     adset_get_delivery_estimate,
     adset_get_message_delivery_estimate,
     campaign_get_ad_studies,
-    adset_get_ad_studies,
 )
 
 server_name = "FacebookInsights"

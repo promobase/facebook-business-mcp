@@ -24,7 +24,6 @@ from .crud import (
     campaign_api_update,
 )
 
-
 server_name = "FacebookCampaign"
 instructions = """
 Campaign MCP Server for Facebook Business API.

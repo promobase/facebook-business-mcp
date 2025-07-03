@@ -11924,7 +11924,7 @@ class page_food_styles(str, Enum):
     Brazilian = "Brazilian"
     Breakfast = "Breakfast"
     British = "British"
-    Brunch = "Brunch"
+    Branch = "Branch"
     Buffets = "Buffets"
     Burgers = "Burgers"
     Burmese = "Burmese"
@@ -21035,7 +21035,7 @@ BusinessRequestField = Literal[
     "permitted_tasks",
     "request_status",
     "request_type",
-    "requestor",
+    "requester",
 ]
 
 
@@ -32544,7 +32544,7 @@ class BusinessRequestFields(BaseModel):
     permitted_tasks: list[str] | None = Field(None, alias="permitted_tasks")
     request_status: str | None = Field(None, alias="request_status")
     request_type: str | None = Field(None, alias="request_type")
-    requestor: str | None = Field(None, alias="requestor")
+    requester: str | None = Field(None, alias="requester")
 
 
 class AdNetworkAnalyticsSyncQueryResultFields(BaseModel):
