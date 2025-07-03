@@ -9,7 +9,7 @@ from facebook_business_mcp.utils import use_adaccount_id, wrapped_fn_tool
 
 
 @wrapped_fn_tool
-def get_ad_creatives(
+def adaccount_get_ad_creatives(
     adaccount_id: str,
     fields: list[str] = [],
 ) -> list[AdAccountField]:

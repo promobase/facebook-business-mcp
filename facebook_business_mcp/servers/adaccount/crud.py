@@ -8,7 +8,7 @@ from facebook_business_mcp.utils import use_adaccount_id, wrapped_fn_tool
 
 
 @wrapped_fn_tool
-def api_get(adaccount_id: str, fields: list[str] = []) -> AdAccount:
+def adaccount_api_get(adaccount_id: str, fields: list[str] = []) -> AdAccount:
     """get ad account by ID
     Specify fields to retrieve.
     """
@@ -18,7 +18,7 @@ def api_get(adaccount_id: str, fields: list[str] = []) -> AdAccount:
 
 
 @wrapped_fn_tool
-def api_update(
+def adaccount_api_update(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},

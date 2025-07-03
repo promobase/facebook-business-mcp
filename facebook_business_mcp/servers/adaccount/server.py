@@ -2,11 +2,11 @@
 
 from fastmcp import FastMCP
 
-from .ad_creatives import get_ad_creatives
-from .ad_sets import get_ad_sets
-from .ads import get_ads
-from .campaigns import delete_campaigns, get_campaigns
-from .crud import api_get, api_update
+from .ad_creatives import adaccount_get_ad_creatives
+from .ad_sets import adaccount_get_ad_sets
+from .ads import adaccount_get_ads
+from .campaigns import adaccount_delete_campaigns, adaccount_get_campaigns
+from .crud import adaccount_api_get, adaccount_api_update
 
 server_name = "FacebookAdAccount"
 instructions = """
@@ -27,10 +27,10 @@ adaccount_server = FastMCP(
 )
 
 # Register all tools
-adaccount_server.tool(api_get)
-adaccount_server.tool(api_update)
-adaccount_server.tool(get_campaigns)
-adaccount_server.tool(delete_campaigns)
-adaccount_server.tool(get_ad_sets)
-adaccount_server.tool(get_ads)
-adaccount_server.tool(get_ad_creatives)
+adaccount_server.tool(adaccount_api_get)
+adaccount_server.tool(adaccount_api_update)
+adaccount_server.tool(adaccount_get_campaigns)
+adaccount_server.tool(adaccount_delete_campaigns)
+adaccount_server.tool(adaccount_get_ad_sets)
+adaccount_server.tool(adaccount_get_ads)
+adaccount_server.tool(adaccount_get_ad_creatives)

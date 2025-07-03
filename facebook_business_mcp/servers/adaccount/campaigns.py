@@ -9,7 +9,7 @@ from facebook_business_mcp.utils import use_adaccount_id, wrapped_fn_tool
 
 
 @wrapped_fn_tool
-def get_campaigns(
+def adaccount_get_campaigns(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
@@ -21,7 +21,7 @@ def get_campaigns(
 
 
 @wrapped_fn_tool
-def delete_campaigns(
+def adaccount_delete_campaigns(
     adaccount_id: str,
     params: dict[
         str,

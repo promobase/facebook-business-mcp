@@ -9,7 +9,7 @@ from facebook_business_mcp.utils import use_adaccount_id, wrapped_fn_tool
 
 
 @wrapped_fn_tool
-def get_ads(
+def adaccount_get_ads(
     adaccount_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},

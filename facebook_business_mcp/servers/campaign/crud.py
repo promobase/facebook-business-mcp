@@ -12,7 +12,7 @@ from facebook_business_mcp.utils import handle_facebook_errors
 
 
 @handle_facebook_errors
-def campaign_api_get(
+def api_get(
     campaign_id: str, fields: list[str] = [], params: dict[str, Any] = {}
 ) -> dict[str, Any]:
     """Get a campaign using the Facebook API.
@@ -33,9 +33,7 @@ def campaign_api_get(
 
 
 @handle_facebook_errors
-def campaign_api_create(
-    account_id: str, params: dict[str, Any], fields: list[str] = []
-) -> dict[str, Any]:
+def api_create(account_id: str, params: dict[str, Any], fields: list[str] = []) -> dict[str, Any]:
     """Create a campaign using the Facebook API.
 
     This is a direct wrapper around AdAccount.create_campaign().

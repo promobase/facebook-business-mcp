@@ -14,20 +14,19 @@ __version__ = "0.1.0"
 __all__ = ["create_root_mcp", "__version__", "get_config_from_env", "handle_facebook_errors"]
 
 instructions = """
-Facebook Business MCP Server - Three-Layer Architecture
+This is MCP server implementation of Facebook Business API.
+It provides tools to interact with Facebook's business api using LLMs.
 
-🚀 QUICK START: Use workflow servers for common tasks:
-- campaign_management: Create and manage complete campaigns
-- reporting: Generate performance reports and analytics  
-- audience: Create and manage custom/lookalike audiences
+Each tool has a `domain`, following the format of <doman>_<tool_name>.
 
-📊 CORE OPERATIONS: Use resource servers for specific operations:
-- ad_account, campaign, adset, ad: Streamlined essential operations
+Facebook's marketing structure is hierarchical:
+- Ad Account: The top-level entity for managing ads.
+- (L1)Campaign: A collection of ad sets.
+- (L2)Ad Set: A group of ads with shared settings.
+- (L3)Ad: The actual advertisement.
+- Ad Creative: The actual content of the ad.
+- Insights: Performance data for ads, ad sets, and campaigns.
 
-🔧 ADVANCED: Use universal server for any SDK operation:
-- universal: Direct access to any Facebook SDK method
-
-Each server has focused tools optimized for specific use cases.
 """
 
 
