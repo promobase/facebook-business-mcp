@@ -4,7 +4,7 @@ from typing import Any
 
 from facebook_business.adobjects.adaccount import AdAccount
 
-from src.generated.models import AdAccountField
+from src.generated.models import AdAccountField, AdAccountGetAdSetsParams
 from src.utils import use_adaccount_id, wrapped_fn_tool
 
 
@@ -12,7 +12,7 @@ from src.utils import use_adaccount_id, wrapped_fn_tool
 def get_ad_sets(
     adaccount_id: str,
     fields: list[str] = [],
-    params: dict[str, Any] = {},
+    params: AdAccountGetAdSetsParams = {},
 ) -> list[AdAccountField]:
     """get all ad sets of an ad account"""
     adaccount_id = use_adaccount_id(adaccount_id)

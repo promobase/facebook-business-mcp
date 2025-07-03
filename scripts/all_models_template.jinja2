@@ -60,7 +60,7 @@ class {{ spec_name }}Fields(BaseModel):
     """Pydantic model for {{ spec_name }} fields."""
     model_config = ConfigDict(
         populate_by_alias=True,
-        extra='forbid'
+        extra='allow'
     )
 {%- if spec.fields %}
     
@@ -85,7 +85,7 @@ class {{ spec_name }}Fields(BaseModel):
 {%- set model_name = spec_name + method_name.split('_')|map('capitalize')|join('') + 'Params' %}
 class {{ model_name }}(BaseModel):
     """Parameters for {{ spec_name }}.{{ method_name }}()."""
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra='allow')
     
 {%- for param in api.params %}
 {%- set param_name = param.name %}

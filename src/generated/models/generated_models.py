@@ -27774,7 +27774,7 @@ ProductCatalogPricingVariablesBatchField = Literal[
 class WhatsAppBusinessHealthStatusFields(BaseModel):
     """Pydantic model for WhatsAppBusinessHealthStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     additional_info: list[str] | None = Field(None, alias="additional_info")
     can_send_message: str | None = Field(None, alias="can_send_message")
     entity_type: str | None = Field(None, alias="entity_type")
@@ -27785,7 +27785,7 @@ class WhatsAppBusinessHealthStatusFields(BaseModel):
 class AdVolumeFields(BaseModel):
     """Pydantic model for AdVolume fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_volume_break_down: list[dict[str, Any]] | None = Field(None, alias="ad_volume_break_down")
     ads_running_or_in_review_count: int | None = Field(None, alias="ads_running_or_in_review_count")
     future_limit_activation_date: str | None = Field(None, alias="future_limit_activation_date")
@@ -27805,7 +27805,7 @@ class AdVolumeFields(BaseModel):
 class DynamicPostChildAttachmentFields(BaseModel):
     """Pydantic model for DynamicPostChildAttachment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     image_url: str | None = Field(None, alias="image_url")
     link: str | None = Field(None, alias="link")
@@ -27817,7 +27817,7 @@ class DynamicPostChildAttachmentFields(BaseModel):
 class AdAssetFeedSpecFields(BaseModel):
     """Pydantic model for AdAssetFeedSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_formats: list[str] | None = Field(None, alias="ad_formats")
     additional_data: AdAssetFeedAdditionalDataFields | None = Field(None, alias="additional_data")
     app_product_page_id: str | None = Field(None, alias="app_product_page_id")
@@ -27859,7 +27859,7 @@ class AdAssetFeedSpecFields(BaseModel):
 class OfflineProductItemFields(BaseModel):
     """Pydantic model for OfflineProductItem fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     brand: str | None = Field(None, alias="brand")
     category: str | None = Field(None, alias="category")
@@ -27883,7 +27883,7 @@ class OfflineProductItemFields(BaseModel):
 class AdCreativeLinkDataCallToActionValueFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataCallToActionValue fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_destination: str | None = Field(None, alias="app_destination")
     app_link: str | None = Field(None, alias="app_link")
     application: str | None = Field(None, alias="application")
@@ -27901,7 +27901,7 @@ class AdCreativeLinkDataCallToActionValueFields(BaseModel):
 class BusinessFranchiseConfigFields(BaseModel):
     """Pydantic model for BusinessFranchiseConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     active_partner_count: int | None = Field(None, alias="active_partner_count")
     agency_business: BusinessFields | None = Field(None, alias="agency_business")
     agency_business_asset_group: BusinessAssetGroupFields | None = Field(
@@ -27924,7 +27924,7 @@ class BusinessFranchiseConfigFields(BaseModel):
 class TransactionFields(BaseModel):
     """Pydantic model for Transaction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     app_amount: dict[str, Any] | None = Field(None, alias="app_amount")
     billing_end_time: int | None = Field(None, alias="billing_end_time")
@@ -27952,7 +27952,7 @@ class TransactionFields(BaseModel):
 class IGMediaFields(BaseModel):
     """Pydantic model for IGMedia fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     alt_text: str | None = Field(None, alias="alt_text")
     boost_eligibility_info: IGMediaBoostEligibilityInfoFields | None = Field(
         None, alias="boost_eligibility_info"
@@ -27983,7 +27983,7 @@ class IGMediaFields(BaseModel):
 class IGBCAdsPermissionFields(BaseModel):
     """Pydantic model for IGBCAdsPermission fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     permission_type: str | None = Field(None, alias="permission_type")
     status: str | None = Field(None, alias="status")
@@ -27992,7 +27992,7 @@ class IGBCAdsPermissionFields(BaseModel):
 class AdPlacePageSetFields(BaseModel):
     """Pydantic model for AdPlacePageSet fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     id: str | None = Field(None, alias="id")
     location_types: list[str] | None = Field(None, alias="location_types")
@@ -28004,7 +28004,7 @@ class AdPlacePageSetFields(BaseModel):
 class RightsManagerInsightsFields(BaseModel):
     """Pydantic model for RightsManagerInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     error: str | None = Field(None, alias="error")
     error_message: str | None = Field(None, alias="error_message")
     metadata: list[dict[str, dict[str, Any]]] | None = Field(None, alias="metadata")
@@ -28017,7 +28017,7 @@ class RightsManagerInsightsFields(BaseModel):
 class AdsTextSuggestionsFields(BaseModel):
     """Pydantic model for AdsTextSuggestions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     bodies: list[dict[str, Any]] | None = Field(None, alias="bodies")
     descriptions: list[dict[str, Any]] | None = Field(None, alias="descriptions")
@@ -28030,7 +28030,7 @@ class AdsTextSuggestionsFields(BaseModel):
 class AdCampaignGroupStructureTreeFields(BaseModel):
     """Pydantic model for AdCampaignGroupStructureTree fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     children: list[AdCampaignGroupStructureTreeFields] | None = Field(None, alias="children")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -28040,7 +28040,7 @@ class AdCampaignGroupStructureTreeFields(BaseModel):
 class TargetingGeoLocationRegionFields(BaseModel):
     """Pydantic model for TargetingGeoLocationRegion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     key: str | None = Field(None, alias="key")
     name: str | None = Field(None, alias="name")
@@ -28049,7 +28049,7 @@ class TargetingGeoLocationRegionFields(BaseModel):
 class CanvasTemplateFields(BaseModel):
     """Pydantic model for CanvasTemplate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     channels: list[dict[str, list[dict[str, str]]]] | None = Field(None, alias="channels")
     description: str | None = Field(None, alias="description")
     document: CanvasFields | None = Field(None, alias="document")
@@ -28069,7 +28069,7 @@ class CanvasTemplateFields(BaseModel):
 class TargetingSentenceLineFields(BaseModel):
     """Pydantic model for TargetingSentenceLine fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     params: TargetingFields | None = Field(None, alias="params")
     targetingsentencelines: dict[str, Any] | None = Field(None, alias="targetingsentencelines")
@@ -28078,7 +28078,7 @@ class TargetingSentenceLineFields(BaseModel):
 class AdRuleScheduleSpecFields(BaseModel):
     """Pydantic model for AdRuleScheduleSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     schedule: list[AdRuleScheduleFields] | None = Field(None, alias="schedule")
     schedule_type: str | None = Field(None, alias="schedule_type")
 
@@ -28086,7 +28086,7 @@ class AdRuleScheduleSpecFields(BaseModel):
 class CustomAudiencesTOSFields(BaseModel):
     """Pydantic model for CustomAudiencesTOS fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     content: str | None = Field(None, alias="content")
     id: str | None = Field(None, alias="id")
     type: str | None = Field(None, alias="type")
@@ -28095,7 +28095,7 @@ class CustomAudiencesTOSFields(BaseModel):
 class CampaignFields(BaseModel):
     """Pydantic model for Campaign fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     adlabels: list[AdLabelFields] | None = Field(None, alias="adlabels")
     advantage_state_info: AdCampaignGroupAdvantageStateFields | None = Field(
@@ -28147,7 +28147,7 @@ class CampaignFields(BaseModel):
 class EventTicketTierFields(BaseModel):
     """Pydantic model for EventTicketTier fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     currency: str | None = Field(None, alias="currency")
     description: str | None = Field(None, alias="description")
     end_sales_time: datetime | None = Field(None, alias="end_sales_time")
@@ -28171,7 +28171,7 @@ class EventTicketTierFields(BaseModel):
 class DynamicContentSetFields(BaseModel):
     """Pydantic model for DynamicContentSet fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business_id: str | None = Field(None, alias="business_id")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -28180,7 +28180,7 @@ class DynamicContentSetFields(BaseModel):
 class MusicVideoCopyrightFields(BaseModel):
     """Pydantic model for MusicVideoCopyright fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     displayed_matches_count: int | None = Field(None, alias="displayed_matches_count")
     id: str | None = Field(None, alias="id")
@@ -28200,7 +28200,7 @@ class MusicVideoCopyrightFields(BaseModel):
 class SmartPixelInsightsFields(BaseModel):
     """Pydantic model for SmartPixelInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     source: str | None = Field(None, alias="source")
     stats: list[dict[str, Any]] | None = Field(None, alias="stats")
 
@@ -28208,7 +28208,7 @@ class SmartPixelInsightsFields(BaseModel):
 class CustomAudiencesharedAccountInfoFields(BaseModel):
     """Pydantic model for CustomAudiencesharedAccountInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     account_name: str | None = Field(None, alias="account_name")
     business_id: str | None = Field(None, alias="business_id")
@@ -28219,7 +28219,7 @@ class CustomAudiencesharedAccountInfoFields(BaseModel):
 class AdAssetFeedSpecAssetCustomizationRuleFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecAssetCustomizationRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     body_label: AdAssetFeedSpecAssetLabelFields | None = Field(None, alias="body_label")
     call_to_action_label: AdAssetFeedSpecAssetLabelFields | None = Field(
         None, alias="call_to_action_label"
@@ -28246,7 +28246,7 @@ class AdAssetFeedSpecAssetCustomizationRuleFields(BaseModel):
 class AdsPixelRealTimeEventLogResultFields(BaseModel):
     """Pydantic model for AdsPixelRealTimeEventLogResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     data_json: str | None = Field(None, alias="data_json")
     dedup_data: str | None = Field(None, alias="dedup_data")
     device_type: str | None = Field(None, alias="device_type")
@@ -28265,7 +28265,7 @@ class AdsPixelRealTimeEventLogResultFields(BaseModel):
 class AdvAInstanceFields(BaseModel):
     """Pydantic model for AdvAInstance fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     instance_type: str | None = Field(None, alias="instance_type")
     name: str | None = Field(None, alias="name")
@@ -28275,7 +28275,7 @@ class AdvAInstanceFields(BaseModel):
 class KeyValueFields(BaseModel):
     """Pydantic model for KeyValue fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     key: str | None = Field(None, alias="key")
     value: str | None = Field(None, alias="value")
 
@@ -28283,7 +28283,7 @@ class KeyValueFields(BaseModel):
 class DirectDebitFields(BaseModel):
     """Pydantic model for DirectDebit fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bank_account_last_4: str | None = Field(None, alias="bank_account_last_4")
     bank_code_last_4: str | None = Field(None, alias="bank_code_last_4")
     bank_name: str | None = Field(None, alias="bank_name")
@@ -28301,7 +28301,7 @@ class DirectDebitFields(BaseModel):
 class PageUpcomingChangeFields(BaseModel):
     """Pydantic model for PageUpcomingChange fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     change_type: str | None = Field(None, alias="change_type")
     effective_time: datetime | None = Field(None, alias="effective_time")
     id: str | None = Field(None, alias="id")
@@ -28313,7 +28313,7 @@ class PageUpcomingChangeFields(BaseModel):
 class ReachFrequencyEstimatesPlacementBreakdownFields(BaseModel):
     """Pydantic model for ReachFrequencyEstimatesPlacementBreakdown fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     android: list[float] | None = Field(None, alias="android")
     audience_network: list[float] | None = Field(None, alias="audience_network")
     desktop: list[float] | None = Field(None, alias="desktop")
@@ -28335,7 +28335,7 @@ class ReachFrequencyEstimatesPlacementBreakdownFields(BaseModel):
 class AnalyticsSegmentFields(BaseModel):
     """Pydantic model for AnalyticsSegment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_audience_ineligiblity_reasons: list[str] | None = Field(
         None, alias="custom_audience_ineligiblity_reasons"
     )
@@ -28360,14 +28360,14 @@ class AnalyticsSegmentFields(BaseModel):
 class ContactsMessengerSyncConfigFields(BaseModel):
     """Pydantic model for ContactsMessengerSyncConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     enabled: bool | None = Field(None, alias="enabled")
 
 
 class ChildEventFields(BaseModel):
     """Pydantic model for ChildEvent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     end_time: str | None = Field(None, alias="end_time")
     id: str | None = Field(None, alias="id")
     start_time: str | None = Field(None, alias="start_time")
@@ -28377,7 +28377,7 @@ class ChildEventFields(BaseModel):
 class TargetingGeoLocationElectoralDistrictFields(BaseModel):
     """Pydantic model for TargetingGeoLocationElectoralDistrict fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     deprecation_code: str | None = Field(None, alias="deprecation_code")
     electoral_district: str | None = Field(None, alias="electoral_district")
@@ -28388,14 +28388,14 @@ class TargetingGeoLocationElectoralDistrictFields(BaseModel):
 class AdAssetFeedSpecEventsFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecEvents fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class AudienceFunnelFields(BaseModel):
     """Pydantic model for AudienceFunnel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_type_param_name: str | None = Field(None, alias="audience_type_param_name")
     audience_type_param_tags: list[dict[str, str]] | None = Field(
         None, alias="audience_type_param_tags"
@@ -28408,7 +28408,7 @@ class AudienceFunnelFields(BaseModel):
 class AdsSegmentsFields(BaseModel):
     """Pydantic model for AdsSegments fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     daily_audience_size: int | None = Field(None, alias="daily_audience_size")
     daily_impressions: int | None = Field(None, alias="daily_impressions")
     description: str | None = Field(None, alias="description")
@@ -28423,7 +28423,7 @@ class AdsSegmentsFields(BaseModel):
 class AdExportPresetFields(BaseModel):
     """Pydantic model for AdExportPreset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_time: datetime | None = Field(None, alias="created_time")
     fields: list[str] | None = Field(None, alias="fields")
     id: str | None = Field(None, alias="id")
@@ -28435,7 +28435,7 @@ class AdExportPresetFields(BaseModel):
 class ImageReferenceMatchFields(BaseModel):
     """Pydantic model for ImageReferenceMatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     conflicting_countries: list[str] | None = Field(None, alias="conflicting_countries")
     country_resolution_history: list[dict[str, list[dict[str, Any]]]] | None = Field(
         None, alias="country_resolution_history"
@@ -28468,7 +28468,7 @@ class ImageReferenceMatchFields(BaseModel):
 class LeadGenQuestionOptionFields(BaseModel):
     """Pydantic model for LeadGenQuestionOption fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     key: str | None = Field(None, alias="key")
     value: str | None = Field(None, alias="value")
 
@@ -28476,7 +28476,7 @@ class LeadGenQuestionOptionFields(BaseModel):
 class CollaborativeAdsShareSettingsFields(BaseModel):
     """Pydantic model for CollaborativeAdsShareSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     agency_business: BusinessFields | None = Field(None, alias="agency_business")
     id: str | None = Field(None, alias="id")
     product_catalog_proxy_id: str | None = Field(None, alias="product_catalog_proxy_id")
@@ -28488,7 +28488,7 @@ class CollaborativeAdsShareSettingsFields(BaseModel):
 class LiveVideoTargetingFields(BaseModel):
     """Pydantic model for LiveVideoTargeting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     age_max: int | None = Field(None, alias="age_max")
     age_min: int | None = Field(None, alias="age_min")
     excluded_countries: list[str] | None = Field(None, alias="excluded_countries")
@@ -28498,21 +28498,21 @@ class LiveVideoTargetingFields(BaseModel):
 class AdCreativeTextDataFields(BaseModel):
     """Pydantic model for AdCreativeTextData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     message: str | None = Field(None, alias="message")
 
 
 class AnalyticsEntityUserConfigFields(BaseModel):
     """Pydantic model for AnalyticsEntityUserConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     dismissed_notices: list[str] | None = Field(None, alias="dismissed_notices")
 
 
 class IGMediaForIGOnlyAPIFields(BaseModel):
     """Pydantic model for IGMediaForIGOnlyAPI fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     alt_text: str | None = Field(None, alias="alt_text")
     caption: str | None = Field(None, alias="caption")
     comments_count: int | None = Field(None, alias="comments_count")
@@ -28534,7 +28534,7 @@ class IGMediaForIGOnlyAPIFields(BaseModel):
 class AdCampaignOptimizationEventFields(BaseModel):
     """Pydantic model for AdCampaignOptimizationEvent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_conversion_id: str | None = Field(None, alias="custom_conversion_id")
     event_sequence: int | None = Field(None, alias="event_sequence")
     event_type: str | None = Field(None, alias="event_type")
@@ -28543,7 +28543,7 @@ class AdCampaignOptimizationEventFields(BaseModel):
 class PrivacyFields(BaseModel):
     """Pydantic model for Privacy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     allow: str | None = Field(None, alias="allow")
     deny: str | None = Field(None, alias="deny")
     description: str | None = Field(None, alias="description")
@@ -28555,7 +28555,7 @@ class PrivacyFields(BaseModel):
 class BlindPigFields(BaseModel):
     """Pydantic model for BlindPig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -28563,7 +28563,7 @@ class BlindPigFields(BaseModel):
 class AttributionSpecFields(BaseModel):
     """Pydantic model for AttributionSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event_type: str | None = Field(None, alias="event_type")
     window_days: int | None = Field(None, alias="window_days")
 
@@ -28571,7 +28571,7 @@ class AttributionSpecFields(BaseModel):
 class AdsOptimalDeliveryGrowthOpportunityFields(BaseModel):
     """Pydantic model for AdsOptimalDeliveryGrowthOpportunity fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     child_metadata: list[dict[str, dict[str, Any]]] | None = Field(None, alias="child_metadata")
     metadata: dict[str, Any] | None = Field(None, alias="metadata")
     optimization_type: str | None = Field(None, alias="optimization_type")
@@ -28580,7 +28580,7 @@ class AdsOptimalDeliveryGrowthOpportunityFields(BaseModel):
 class ALMGuidanceFields(BaseModel):
     """Pydantic model for ALMGuidance fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     guidances: list[dict[str, Any]] | None = Field(None, alias="guidances")
     opportunity_score: float | None = Field(None, alias="opportunity_score")
@@ -28591,7 +28591,7 @@ class ALMGuidanceFields(BaseModel):
 class UserIDForPageFields(BaseModel):
     """Pydantic model for UserIDForPage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     page: PageFields | None = Field(None, alias="page")
 
@@ -28599,7 +28599,7 @@ class UserIDForPageFields(BaseModel):
 class AdAccountFields(BaseModel):
     """Pydantic model for AdAccount fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     account_status: int | None = Field(None, alias="account_status")
     ad_account_promotable_objects: AdAccountPromotableObjectsFields | None = Field(
@@ -28698,7 +28698,7 @@ class AdAccountFields(BaseModel):
 class LeadGenDirectCRMIntegrationConfigFields(BaseModel):
     """Pydantic model for LeadGenDirectCRMIntegrationConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     auth_id: str | None = Field(None, alias="auth_id")
     creation_time: datetime | None = Field(None, alias="creation_time")
     id: str | None = Field(None, alias="id")
@@ -28712,7 +28712,7 @@ class LeadGenDirectCRMIntegrationConfigFields(BaseModel):
 class SignalsIWLExtractorFields(BaseModel):
     """Pydantic model for SignalsIWLExtractor fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     domain_uri: str | None = Field(None, alias="domain_uri")
     event_type: str | None = Field(None, alias="event_type")
     extractor_type: str | None = Field(None, alias="extractor_type")
@@ -28722,7 +28722,7 @@ class SignalsIWLExtractorFields(BaseModel):
 class SingleOwnerAdditionalProfileFields(BaseModel):
     """Pydantic model for SingleOwnerAdditionalProfile fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     user_name: str | None = Field(None, alias="user_name")
@@ -28731,7 +28731,7 @@ class SingleOwnerAdditionalProfileFields(BaseModel):
 class DynamicARMetadataFields(BaseModel):
     """Pydantic model for DynamicARMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     anchor_point: list[float] | None = Field(None, alias="anchor_point")
     container_effect_enum: int | None = Field(None, alias="container_effect_enum")
     effect_icon_url: str | None = Field(None, alias="effect_icon_url")
@@ -28749,14 +28749,14 @@ class DynamicARMetadataFields(BaseModel):
 class ProductItemLandingPageDataFields(BaseModel):
     """Pydantic model for ProductItemLandingPageData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     availability: dict[str, Any] | None = Field(None, alias="availability")
 
 
 class BusinessAdAccountRequestFields(BaseModel):
     """Pydantic model for BusinessAdAccountRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account: AdAccountFields | None = Field(None, alias="ad_account")
     id: str | None = Field(None, alias="id")
 
@@ -28764,7 +28764,7 @@ class BusinessAdAccountRequestFields(BaseModel):
 class FlightFields(BaseModel):
     """Pydantic model for Flight fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     category_specific_fields: CatalogSubVerticalListFields | None = Field(
         None, alias="category_specific_fields"
@@ -28807,7 +28807,7 @@ class FlightFields(BaseModel):
 class CustomConversionActivitiesFields(BaseModel):
     """Pydantic model for CustomConversionActivities fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: int | None = Field(None, alias="app_id")
     data: str | None = Field(None, alias="data")
     event_type: str | None = Field(None, alias="event_type")
@@ -28817,7 +28817,7 @@ class CustomConversionActivitiesFields(BaseModel):
 class AdFields(BaseModel):
     """Pydantic model for Ad fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     ad_active_time: str | None = Field(None, alias="ad_active_time")
     ad_review_feedback: AdgroupReviewFeedbackFields | None = Field(None, alias="ad_review_feedback")
@@ -28870,7 +28870,7 @@ class AdFields(BaseModel):
 class HotelRoomFields(BaseModel):
     """Pydantic model for HotelRoom fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     base_price: str | None = Field(None, alias="base_price")
     currency: str | None = Field(None, alias="currency")
@@ -28887,7 +28887,7 @@ class HotelRoomFields(BaseModel):
 class AdCreativeOmnichannelLinkSpecFields(BaseModel):
     """Pydantic model for AdCreativeOmnichannelLinkSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app: dict[str, Any] | None = Field(None, alias="app")
     web: dict[str, Any] | None = Field(None, alias="web")
 
@@ -28895,7 +28895,7 @@ class AdCreativeOmnichannelLinkSpecFields(BaseModel):
 class LiveVideoAdBreakConfigFields(BaseModel):
     """Pydantic model for LiveVideoAdBreakConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     default_ad_break_duration: int | None = Field(None, alias="default_ad_break_duration")
     failure_reason_polling_interval: int | None = Field(
         None, alias="failure_reason_polling_interval"
@@ -28913,7 +28913,7 @@ class LiveVideoAdBreakConfigFields(BaseModel):
 class SplitTestWinnerFields(BaseModel):
     """Pydantic model for SplitTestWinner fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_object_level: str | None = Field(None, alias="ad_object_level")
     confidences: list[dict[str, float]] | None = Field(None, alias="confidences")
     winner_ad_object_id: str | None = Field(None, alias="winner_ad_object_id")
@@ -28922,14 +28922,14 @@ class SplitTestWinnerFields(BaseModel):
 class CampaignActionsDataFields(BaseModel):
     """Pydantic model for CampaignActionsData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class IDNameFields(BaseModel):
     """Pydantic model for IDName fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -28937,7 +28937,7 @@ class IDNameFields(BaseModel):
 class AdsPixelRawFiresResultFields(BaseModel):
     """Pydantic model for AdsPixelRawFiresResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     data_json: str | None = Field(None, alias="data_json")
     device_type: str | None = Field(None, alias="device_type")
     event: str | None = Field(None, alias="event")
@@ -28951,7 +28951,7 @@ class AdsPixelRawFiresResultFields(BaseModel):
 class RecommendedPagePostFields(BaseModel):
     """Pydantic model for RecommendedPagePost fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     intent_score: float | None = Field(None, alias="intent_score")
     is_ig_media: bool | None = Field(None, alias="is_ig_media")
     post_id: str | None = Field(None, alias="post_id")
@@ -28960,7 +28960,7 @@ class RecommendedPagePostFields(BaseModel):
 class CopyrightReferenceContainerFields(BaseModel):
     """Pydantic model for CopyrightReferenceContainer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     content_type: str | None = Field(None, alias="content_type")
     copyright_creation_time: datetime | None = Field(None, alias="copyright_creation_time")
     download_hd_url: str | None = Field(None, alias="download_hd_url")
@@ -28979,7 +28979,7 @@ class CopyrightReferenceContainerFields(BaseModel):
 class BusinessCreativeFolderFields(BaseModel):
     """Pydantic model for BusinessCreativeFolder fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     creation_time: datetime | None = Field(None, alias="creation_time")
     creative_insight_permissions: list[dict[str, str]] | None = Field(
@@ -28995,7 +28995,7 @@ class BusinessCreativeFolderFields(BaseModel):
 class UserIDForAppFields(BaseModel):
     """Pydantic model for UserIDForApp fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app: ApplicationFields | None = Field(None, alias="app")
     id: str | None = Field(None, alias="id")
 
@@ -29003,14 +29003,14 @@ class UserIDForAppFields(BaseModel):
 class AMOneshopSettingsFields(BaseModel):
     """Pydantic model for AMOneshopSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class AdCampaignDeliveryStatsUnsupportedReasonsFields(BaseModel):
     """Pydantic model for AdCampaignDeliveryStatsUnsupportedReasons fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     reason_data: list[dict[str, str]] | None = Field(None, alias="reason_data")
     reason_type: str | None = Field(None, alias="reason_type")
 
@@ -29018,7 +29018,7 @@ class AdCampaignDeliveryStatsUnsupportedReasonsFields(BaseModel):
 class AdRecommendationFields(BaseModel):
     """Pydantic model for AdRecommendation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     blame_field: str | None = Field(None, alias="blame_field")
     code: int | None = Field(None, alias="code")
     confidence: dict[str, Any] | None = Field(None, alias="confidence")
@@ -29034,7 +29034,7 @@ class AdRecommendationFields(BaseModel):
 class PageAppWithLeadsAccessFields(BaseModel):
     """Pydantic model for PageAppWithLeadsAccess fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_access_leads: bool | None = Field(None, alias="can_access_leads")
     type: str | None = Field(None, alias="type")
 
@@ -29042,7 +29042,7 @@ class PageAppWithLeadsAccessFields(BaseModel):
 class AdAssetFeedSpecGroupRuleFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecGroupRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     body_label: AdAssetFeedSpecAssetLabelFields | None = Field(None, alias="body_label")
     caption_label: AdAssetFeedSpecAssetLabelFields | None = Field(None, alias="caption_label")
     description_label: AdAssetFeedSpecAssetLabelFields | None = Field(
@@ -29057,7 +29057,7 @@ class AdAssetFeedSpecGroupRuleFields(BaseModel):
 class PageCrmsWithLeadsAccessFields(BaseModel):
     """Pydantic model for PageCrmsWithLeadsAccess fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_access_leads: bool | None = Field(None, alias="can_access_leads")
     id: str | None = Field(None, alias="id")
     integration_type: str | None = Field(None, alias="integration_type")
@@ -29067,7 +29067,7 @@ class PageCrmsWithLeadsAccessFields(BaseModel):
 class BusinessObjectTransferOwnershipAgreementFields(BaseModel):
     """Pydantic model for BusinessObjectTransferOwnershipAgreement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     receiving_business: BusinessFields | None = Field(None, alias="receiving_business")
     requesting_business: BusinessFields | None = Field(None, alias="requesting_business")
@@ -29077,7 +29077,7 @@ class BusinessObjectTransferOwnershipAgreementFields(BaseModel):
 class LiveVideoRecommendedEncoderSettingsFields(BaseModel):
     """Pydantic model for LiveVideoRecommendedEncoderSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audio_codec_settings: dict[str, Any] | None = Field(None, alias="audio_codec_settings")
     streaming_protocol: str | None = Field(None, alias="streaming_protocol")
     video_codec_settings: dict[str, Any] | None = Field(None, alias="video_codec_settings")
@@ -29086,7 +29086,7 @@ class LiveVideoRecommendedEncoderSettingsFields(BaseModel):
 class PageCallToActionFields(BaseModel):
     """Pydantic model for PageCallToAction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     android_app: ApplicationFields | None = Field(None, alias="android_app")
     android_deeplink: str | None = Field(None, alias="android_deeplink")
     android_destination_type: str | None = Field(None, alias="android_destination_type")
@@ -29111,7 +29111,7 @@ class PageCallToActionFields(BaseModel):
 class AdCampaignGroupStatsFields(BaseModel):
     """Pydantic model for AdCampaignGroupStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: dict[str, int] | None = Field(None, alias="actions")
     campaign_group_id: str | None = Field(None, alias="campaign_group_id")
     clicks: int | None = Field(None, alias="clicks")
@@ -29132,7 +29132,7 @@ class AdCampaignGroupStatsFields(BaseModel):
 class BusinessRoleRequestFields(BaseModel):
     """Pydantic model for BusinessRoleRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_by: dict[str, Any] | None = Field(None, alias="created_by")
     created_time: datetime | None = Field(None, alias="created_time")
     email: str | None = Field(None, alias="email")
@@ -29154,7 +29154,7 @@ class BusinessRoleRequestFields(BaseModel):
 class OfflineTermsOfServiceFields(BaseModel):
     """Pydantic model for OfflineTermsOfService fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     accept_time: int | None = Field(None, alias="accept_time")
     id: str | None = Field(None, alias="id")
     signed_by_user: UserFields | None = Field(None, alias="signed_by_user")
@@ -29163,7 +29163,7 @@ class OfflineTermsOfServiceFields(BaseModel):
 class AdAccountAdLimitsInsightsFields(BaseModel):
     """Pydantic model for AdAccountAdLimitsInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     date_start: str | None = Field(None, alias="date_start")
     date_stop: str | None = Field(None, alias="date_stop")
 
@@ -29171,7 +29171,7 @@ class AdAccountAdLimitsInsightsFields(BaseModel):
 class AdCreativeRecommenderSettingsFields(BaseModel):
     """Pydantic model for AdCreativeRecommenderSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     preferred_events: list[str] | None = Field(None, alias="preferred_events")
     product_sales_channel: str | None = Field(None, alias="product_sales_channel")
 
@@ -29179,7 +29179,7 @@ class AdCreativeRecommenderSettingsFields(BaseModel):
 class ExtendedCreditApplicationFields(BaseModel):
     """Pydantic model for ExtendedCreditApplication fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     billing_country: str | None = Field(None, alias="billing_country")
     city: str | None = Field(None, alias="city")
     cnpj: str | None = Field(None, alias="cnpj")
@@ -29210,7 +29210,7 @@ class ExtendedCreditApplicationFields(BaseModel):
 class AdCreativeFormatTransformationSpecFields(BaseModel):
     """Pydantic model for AdCreativeFormatTransformationSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     data_source: list[str] | None = Field(None, alias="data_source")
     format: str | None = Field(None, alias="format")
 
@@ -29218,7 +29218,7 @@ class AdCreativeFormatTransformationSpecFields(BaseModel):
 class ProductVisualVariantFields(BaseModel):
     """Pydantic model for ProductVisualVariant fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     items: list[ProductItemFields] | None = Field(None, alias="items")
     unique_key: str | None = Field(None, alias="unique_key")
 
@@ -29226,7 +29226,7 @@ class ProductVisualVariantFields(BaseModel):
 class AudiencePermissionForActionsFields(BaseModel):
     """Pydantic model for AudiencePermissionForActions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_edit: bool | None = Field(None, alias="can_edit")
     can_see_insight: bool | None = Field(None, alias="can_see_insight")
     can_share: bool | None = Field(None, alias="can_share")
@@ -29237,7 +29237,7 @@ class AudiencePermissionForActionsFields(BaseModel):
 class AdsCreationSavedStateFields(BaseModel):
     """Pydantic model for AdsCreationSavedState fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account: AdAccountFields | None = Field(None, alias="ad_account")
     id: str | None = Field(None, alias="id")
     serialized_store_data: str | None = Field(None, alias="serialized_store_data")
@@ -29248,7 +29248,7 @@ class AdsCreationSavedStateFields(BaseModel):
 class EducationExperienceFields(BaseModel):
     """Pydantic model for EducationExperience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     classes: list[ExperienceFields] | None = Field(None, alias="classes")
     concentration: list[PageFields] | None = Field(None, alias="concentration")
     degree: PageFields | None = Field(None, alias="degree")
@@ -29262,7 +29262,7 @@ class EducationExperienceFields(BaseModel):
 class MessengerAdsPartialAutomatedStepListFields(BaseModel):
     """Pydantic model for MessengerAdsPartialAutomatedStepList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     fblead_form: LeadgenFormFields | None = Field(None, alias="fblead_form")
     first_step_id: str | None = Field(None, alias="first_step_id")
     id: str | None = Field(None, alias="id")
@@ -29275,7 +29275,7 @@ class MessengerAdsPartialAutomatedStepListFields(BaseModel):
 class TabFields(BaseModel):
     """Pydantic model for Tab fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     application: ApplicationFields | None = Field(None, alias="application")
     custom_image_url: str | None = Field(None, alias="custom_image_url")
     custom_name: str | None = Field(None, alias="custom_name")
@@ -29291,7 +29291,7 @@ class TabFields(BaseModel):
 class AudioCopyrightFields(BaseModel):
     """Pydantic model for AudioCopyright fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     displayed_matches_count: int | None = Field(None, alias="displayed_matches_count")
     id: str | None = Field(None, alias="id")
@@ -29313,7 +29313,7 @@ class AudioCopyrightFields(BaseModel):
 class BrandedContentAdErrorFields(BaseModel):
     """Pydantic model for BrandedContentAdError fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     blame_field_spec: list[str] | None = Field(None, alias="blame_field_spec")
     error_code: int | None = Field(None, alias="error_code")
     error_description: str | None = Field(None, alias="error_description")
@@ -29326,21 +29326,21 @@ class BrandedContentAdErrorFields(BaseModel):
 class WithAsset3DFields(BaseModel):
     """Pydantic model for WithAsset3D fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class AdCreativeDestinationSpecFields(BaseModel):
     """Pydantic model for AdCreativeDestinationSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     destination_type: str | None = Field(None, alias="destination_type")
 
 
 class WoodhengePurchasedPAYGReceiptFields(BaseModel):
     """Pydantic model for WoodhengePurchasedPAYGReceipt fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     number_of_subscriptions_purchased: int | None = Field(
         None, alias="number_of_subscriptions_purchased"
@@ -29352,7 +29352,7 @@ class WoodhengePurchasedPAYGReceiptFields(BaseModel):
 class ProductSetTaxonCategoryFields(BaseModel):
     """Pydantic model for ProductSetTaxonCategory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     category_id: int | None = Field(None, alias="category_id")
     category_name: str | None = Field(None, alias="category_name")
     image_url: str | None = Field(None, alias="image_url")
@@ -29361,7 +29361,7 @@ class ProductSetTaxonCategoryFields(BaseModel):
 class CanvasFields(BaseModel):
     """Pydantic model for Canvas fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     background_color: str | None = Field(None, alias="background_color")
     body_elements: list[dict[str, Any]] | None = Field(None, alias="body_elements")
     business_id: str | None = Field(None, alias="business_id")
@@ -29396,7 +29396,7 @@ class CanvasFields(BaseModel):
 class AdConversionValuesFields(BaseModel):
     """Pydantic model for AdConversionValues fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adgroup_id: str | None = Field(None, alias="adgroup_id")
     campaign_id: str | None = Field(None, alias="campaign_id")
     values: dict[str, Any] | None = Field(None, alias="values")
@@ -29405,7 +29405,7 @@ class AdConversionValuesFields(BaseModel):
 class CatalogContentVersionConfigFields(BaseModel):
     """Pydantic model for CatalogContentVersionConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     version: str | None = Field(None, alias="version")
@@ -29414,7 +29414,7 @@ class CatalogContentVersionConfigFields(BaseModel):
 class CustomConversionStatsResultFields(BaseModel):
     """Pydantic model for CustomConversionStatsResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     aggregation: dict[str, Any] | None = Field(None, alias="aggregation")
     data: list[dict[str, Any]] | None = Field(None, alias="data")
     timestamp: datetime | None = Field(None, alias="timestamp")
@@ -29423,7 +29423,7 @@ class CustomConversionStatsResultFields(BaseModel):
 class ShadowIGUserCatalogProductSearchFields(BaseModel):
     """Pydantic model for ShadowIGUserCatalogProductSearch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     image_url: str | None = Field(None, alias="image_url")
     is_checkout_flow: bool | None = Field(None, alias="is_checkout_flow")
     merchant_id: int | None = Field(None, alias="merchant_id")
@@ -29439,14 +29439,14 @@ class ShadowIGUserCatalogProductSearchFields(BaseModel):
 class AdCreativeHouseShopsAdsSellerContentFields(BaseModel):
     """Pydantic model for AdCreativeHouseShopsAdsSellerContent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class ProductVariantFields(BaseModel):
     """Pydantic model for ProductVariant fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     label: str | None = Field(None, alias="label")
     options: list[str] | None = Field(None, alias="options")
     product_field: str | None = Field(None, alias="product_field")
@@ -29455,7 +29455,7 @@ class ProductVariantFields(BaseModel):
 class McomInvoiceStatusFields(BaseModel):
     """Pydantic model for McomInvoiceStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bank_account_number: str | None = Field(None, alias="bank_account_number")
     bank_code: str | None = Field(None, alias="bank_code")
     invoice_id: str | None = Field(None, alias="invoice_id")
@@ -29473,7 +29473,7 @@ class McomInvoiceStatusFields(BaseModel):
 class DeliveryInfoFields(BaseModel):
     """Pydantic model for DeliveryInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     active_accelerated_campaign_count: int | None = Field(
         None, alias="active_accelerated_campaign_count"
     )
@@ -29533,7 +29533,7 @@ class DeliveryInfoFields(BaseModel):
 class EventSourceGroupFields(BaseModel):
     """Pydantic model for EventSourceGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     event_sources: list[ExternalEventSourceFields] | None = Field(None, alias="event_sources")
     id: str | None = Field(None, alias="id")
@@ -29544,7 +29544,7 @@ class EventSourceGroupFields(BaseModel):
 class AnalyticsPlatformMetricsConfigFields(BaseModel):
     """Pydantic model for AnalyticsPlatformMetricsConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     has_a2u: bool | None = Field(None, alias="has_a2u")
     has_api_calls: bool | None = Field(None, alias="has_api_calls")
     has_app_invites: bool | None = Field(None, alias="has_app_invites")
@@ -29559,7 +29559,7 @@ class AnalyticsPlatformMetricsConfigFields(BaseModel):
 class AdStudyObjectiveOffsiteDatasetsFields(BaseModel):
     """Pydantic model for AdStudyObjectiveOffsiteDatasets fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event_names: list[str] | None = Field(None, alias="event_names")
     id: str | None = Field(None, alias="id")
 
@@ -29567,14 +29567,14 @@ class AdStudyObjectiveOffsiteDatasetsFields(BaseModel):
 class BrandSafetyCampaignConfigFields(BaseModel):
     """Pydantic model for BrandSafetyCampaignConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     comment_moderation_filter: str | None = Field(None, alias="comment_moderation_filter")
 
 
 class PlatformImageSourceFields(BaseModel):
     """Pydantic model for PlatformImageSource fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     height: int | None = Field(None, alias="height")
     source: str | None = Field(None, alias="source")
     width: int | None = Field(None, alias="width")
@@ -29583,7 +29583,7 @@ class PlatformImageSourceFields(BaseModel):
 class PageMessageResponsivenessMetricsFields(BaseModel):
     """Pydantic model for PageMessageResponsivenessMetrics fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_very_responsive: bool | None = Field(None, alias="is_very_responsive")
     response_rate: float | None = Field(None, alias="response_rate")
     response_time: float | None = Field(None, alias="response_time")
@@ -29592,7 +29592,7 @@ class PageMessageResponsivenessMetricsFields(BaseModel):
 class PageCTXMessagingFeatureLimitFields(BaseModel):
     """Pydantic model for PageCTXMessagingFeatureLimit fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     messaging_feature_limit_duration: int | None = Field(
         None, alias="messaging_feature_limit_duration"
     )
@@ -29603,7 +29603,7 @@ class PageCTXMessagingFeatureLimitFields(BaseModel):
 class PersonalAdsPersonaFields(BaseModel):
     """Pydantic model for PersonalAdsPersona fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     email: str | None = Field(None, alias="email")
     first_name: str | None = Field(None, alias="first_name")
     id: str | None = Field(None, alias="id")
@@ -29614,7 +29614,7 @@ class PersonalAdsPersonaFields(BaseModel):
 class AdAccountTargetingUnifiedFields(BaseModel):
     """Pydantic model for AdAccountTargetingUnified fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_size_lower_bound: int | None = Field(None, alias="audience_size_lower_bound")
     audience_size_upper_bound: int | None = Field(None, alias="audience_size_upper_bound")
     conversion_lift: float | None = Field(None, alias="conversion_lift")
@@ -29643,7 +29643,7 @@ class AdAccountTargetingUnifiedFields(BaseModel):
 class DeliveryCheckFields(BaseModel):
     """Pydantic model for DeliveryCheck fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     check_name: str | None = Field(None, alias="check_name")
     description: str | None = Field(None, alias="description")
     extra_info: DeliveryCheckExtraInfoFields | None = Field(None, alias="extra_info")
@@ -29653,7 +29653,7 @@ class DeliveryCheckFields(BaseModel):
 class SlicedEventSourceGroupFields(BaseModel):
     """Pydantic model for SlicedEventSourceGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event_source_group: EventSourceGroupFields | None = Field(None, alias="event_source_group")
     filter: str | None = Field(None, alias="filter")
     id: str | None = Field(None, alias="id")
@@ -29663,7 +29663,7 @@ class SlicedEventSourceGroupFields(BaseModel):
 class CustomAudienceSessionFields(BaseModel):
     """Pydantic model for CustomAudienceSession fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     end_time: str | None = Field(None, alias="end_time")
     num_invalid_entries: str | None = Field(None, alias="num_invalid_entries")
     num_matched: str | None = Field(None, alias="num_matched")
@@ -29677,14 +29677,14 @@ class CustomAudienceSessionFields(BaseModel):
 class CanvasPreviewFields(BaseModel):
     """Pydantic model for CanvasPreview fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     body: str | None = Field(None, alias="body")
 
 
 class DACheckFields(BaseModel):
     """Pydantic model for DACheck fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_uri: str | None = Field(None, alias="action_uri")
     description: str | None = Field(None, alias="description")
     key: str | None = Field(None, alias="key")
@@ -29696,7 +29696,7 @@ class DACheckFields(BaseModel):
 class AudienceSharingAccountValidFields(BaseModel):
     """Pydantic model for AudienceSharingAccountValid fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     account_type: str | None = Field(None, alias="account_type")
     business_id: str | None = Field(None, alias="business_id")
@@ -29710,14 +29710,14 @@ class AudienceSharingAccountValidFields(BaseModel):
 class AdsPixelSignalsIWLFeedbackNuxFields(BaseModel):
     """Pydantic model for AdsPixelSignalsIWLFeedbackNux fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     should_ask_to_rate: bool | None = Field(None, alias="should_ask_to_rate")
 
 
 class EventExternalTicketInfoFields(BaseModel):
     """Pydantic model for EventExternalTicketInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     max_sales_price: CurrencyAmountFields | None = Field(None, alias="max_sales_price")
     min_sales_price: CurrencyAmountFields | None = Field(None, alias="min_sales_price")
@@ -29727,7 +29727,7 @@ class EventExternalTicketInfoFields(BaseModel):
 class ResearchPollStudyFields(BaseModel):
     """Pydantic model for ResearchPollStudy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account: AdAccountFields | None = Field(None, alias="account")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -29736,14 +29736,14 @@ class ResearchPollStudyFields(BaseModel):
 class UserContextFields(BaseModel):
     """Pydantic model for UserContext fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class ALMEndAdvertiserInfoFields(BaseModel):
     """Pydantic model for ALMEndAdvertiserInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     estimated_ad_budget: int | None = Field(None, alias="estimated_ad_budget")
     id: str | None = Field(None, alias="id")
     parent_advertiser_id: str | None = Field(None, alias="parent_advertiser_id")
@@ -29754,7 +29754,7 @@ class ALMEndAdvertiserInfoFields(BaseModel):
 class PremiumMusicVideoFields(BaseModel):
     """Pydantic model for PremiumMusicVideo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: str | None = Field(None, alias="creation_time")
     cross_post_videos: list[dict[str, Any]] | None = Field(None, alias="cross_post_videos")
     eligible_cross_post_pages: list[dict[str, Any]] | None = Field(
@@ -29774,7 +29774,7 @@ class PremiumMusicVideoFields(BaseModel):
 class PersonaFields(BaseModel):
     """Pydantic model for Persona fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     profile_picture_url: str | None = Field(None, alias="profile_picture_url")
@@ -29783,7 +29783,7 @@ class PersonaFields(BaseModel):
 class CreditPartitionActionOptionsFields(BaseModel):
     """Pydantic model for CreditPartitionActionOptions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     liability_type: dict[str, Any] | None = Field(None, alias="liability_type")
     partition_type: dict[str, Any] | None = Field(None, alias="partition_type")
     send_bill_to: dict[str, Any] | None = Field(None, alias="send_bill_to")
@@ -29792,14 +29792,14 @@ class CreditPartitionActionOptionsFields(BaseModel):
 class CanvasBodyElementFields(BaseModel):
     """Pydantic model for CanvasBodyElement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     element: dict[str, Any] | None = Field(None, alias="element")
 
 
 class AdAccountSubsidyAmountDetailsFields(BaseModel):
     """Pydantic model for AdAccountSubsidyAmountDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     entered_amount: CurrencyAmountFields | None = Field(None, alias="entered_amount")
     fee_amount: CurrencyAmountFields | None = Field(None, alias="fee_amount")
     total_amount: CurrencyAmountFields | None = Field(None, alias="total_amount")
@@ -29808,7 +29808,7 @@ class AdAccountSubsidyAmountDetailsFields(BaseModel):
 class AdCampaignDeliveryStatsFields(BaseModel):
     """Pydantic model for AdCampaignDeliveryStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bid_recommendation: int | None = Field(None, alias="bid_recommendation")
     current_average_cost: float | None = Field(None, alias="current_average_cost")
     last_significant_edit_ts: int | None = Field(None, alias="last_significant_edit_ts")
@@ -29824,7 +29824,7 @@ class AdCampaignDeliveryStatsFields(BaseModel):
 class InstagramInsightsValueFields(BaseModel):
     """Pydantic model for InstagramInsightsValue fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     end_time: datetime | None = Field(None, alias="end_time")
     value: dict[str, Any] | None = Field(None, alias="value")
 
@@ -29832,7 +29832,7 @@ class InstagramInsightsValueFields(BaseModel):
 class FantasyGameFields(BaseModel):
     """Pydantic model for FantasyGame fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -29840,7 +29840,7 @@ class FantasyGameFields(BaseModel):
 class IGVideoCopyrightCheckStatusFields(BaseModel):
     """Pydantic model for IGVideoCopyrightCheckStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     matches_found: bool | None = Field(None, alias="matches_found")
     status: str | None = Field(None, alias="status")
 
@@ -29848,7 +29848,7 @@ class IGVideoCopyrightCheckStatusFields(BaseModel):
 class McomPayoutsFields(BaseModel):
     """Pydantic model for McomPayouts fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     number_of_orders: int | None = Field(None, alias="number_of_orders")
     order_ids: list[str] | None = Field(None, alias="order_ids")
     payout_amount: dict[str, Any] | None = Field(None, alias="payout_amount")
@@ -29861,7 +29861,7 @@ class McomPayoutsFields(BaseModel):
 class CustomAudienceFields(BaseModel):
     """Pydantic model for CustomAudience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     approximate_count_lower_bound: int | None = Field(None, alias="approximate_count_lower_bound")
     approximate_count_upper_bound: int | None = Field(None, alias="approximate_count_upper_bound")
@@ -29919,7 +29919,7 @@ class CustomAudienceFields(BaseModel):
 class AdAccountReachEstimateFields(BaseModel):
     """Pydantic model for AdAccountReachEstimate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     estimate_ready: bool | None = Field(None, alias="estimate_ready")
     users_lower_bound: int | None = Field(None, alias="users_lower_bound")
     users_upper_bound: int | None = Field(None, alias="users_upper_bound")
@@ -29928,7 +29928,7 @@ class AdAccountReachEstimateFields(BaseModel):
 class AdgroupMetadataFields(BaseModel):
     """Pydantic model for AdgroupMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_standard_enhancements_edit_source: int | None = Field(
         None, alias="ad_standard_enhancements_edit_source"
     )
@@ -29943,7 +29943,7 @@ class AdgroupMetadataFields(BaseModel):
 class PrivacyOptionFields(BaseModel):
     """Pydantic model for PrivacyOption fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     icon_src: str | None = Field(None, alias="icon_src")
     id: str | None = Field(None, alias="id")
@@ -29955,7 +29955,7 @@ class PrivacyOptionFields(BaseModel):
 class FranchiseProgramFields(BaseModel):
     """Pydantic model for FranchiseProgram fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business_asset_group: BusinessAssetGroupFields | None = Field(
         None, alias="business_asset_group"
     )
@@ -29977,7 +29977,7 @@ class FranchiseProgramFields(BaseModel):
 class AdsReportBuilderSavedReportFields(BaseModel):
     """Pydantic model for AdsReportBuilderSavedReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_report_time: str | None = Field(None, alias="action_report_time")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     attribution_windows: list[str] | None = Field(None, alias="attribution_windows")
@@ -30026,7 +30026,7 @@ class AdsReportBuilderSavedReportFields(BaseModel):
 class AnalyticsFunnelQueryResultFields(BaseModel):
     """Pydantic model for AnalyticsFunnelQueryResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     query_id: str | None = Field(None, alias="query_id")
     status: str | None = Field(None, alias="status")
 
@@ -30034,14 +30034,14 @@ class AnalyticsFunnelQueryResultFields(BaseModel):
 class ProductCatalogUserActionsFields(BaseModel):
     """Pydantic model for ProductCatalogUserActions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: list[str] | None = Field(None, alias="actions")
 
 
 class AdgroupIssuesInfoFields(BaseModel):
     """Pydantic model for AdgroupIssuesInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     error_code: int | None = Field(None, alias="error_code")
     error_message: str | None = Field(None, alias="error_message")
     error_summary: str | None = Field(None, alias="error_summary")
@@ -30053,14 +30053,14 @@ class AdgroupIssuesInfoFields(BaseModel):
 class ProductCatalogImageSettingsOperationFields(BaseModel):
     """Pydantic model for ProductCatalogImageSettingsOperation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     transformation_type: str | None = Field(None, alias="transformation_type")
 
 
 class IGUserExportForCAMFields(BaseModel):
     """Pydantic model for IGUserExportForCAM fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     age_bucket: str | None = Field(None, alias="age_bucket")
     biography: str | None = Field(None, alias="biography")
     country: str | None = Field(None, alias="country")
@@ -30080,7 +30080,7 @@ class IGUserExportForCAMFields(BaseModel):
 class AudioAssetFields(BaseModel):
     """Pydantic model for AudioAsset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     all_ddex_featured_artists: str | None = Field(None, alias="all_ddex_featured_artists")
     all_ddex_main_artists: str | None = Field(None, alias="all_ddex_main_artists")
     audio_cluster_id: str | None = Field(None, alias="audio_cluster_id")
@@ -30105,14 +30105,14 @@ class AudioAssetFields(BaseModel):
 class AdAccountTrackingDataFields(BaseModel):
     """Pydantic model for AdAccountTrackingData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     tracking_specs: ConversionActionQueryFields | None = Field(None, alias="tracking_specs")
 
 
 class ReachFrequencyAdFormatFields(BaseModel):
     """Pydantic model for ReachFrequencyAdFormat fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     details: dict[str, Any] | None = Field(None, alias="details")
     type: str | None = Field(None, alias="type")
 
@@ -30120,7 +30120,7 @@ class ReachFrequencyAdFormatFields(BaseModel):
 class WhatsAppBusinessAccountFields(BaseModel):
     """Pydantic model for WhatsAppBusinessAccount fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_review_status: str | None = Field(None, alias="account_review_status")
     analytics: dict[str, Any] | None = Field(None, alias="analytics")
     auth_international_rate_eligibility: dict[str, Any] | None = Field(
@@ -30162,7 +30162,7 @@ class WhatsAppBusinessAccountFields(BaseModel):
 class ExtendedCreditEmailFields(BaseModel):
     """Pydantic model for ExtendedCreditEmail fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     email: str | None = Field(None, alias="email")
     id: str | None = Field(None, alias="id")
 
@@ -30170,14 +30170,14 @@ class ExtendedCreditEmailFields(BaseModel):
 class AdMonetizationPropertyFields(BaseModel):
     """Pydantic model for AdMonetizationProperty fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     owner_business: BusinessFields | None = Field(None, alias="owner_business")
 
 
 class BrandedContentShadowIGMediaIDFields(BaseModel):
     """Pydantic model for BrandedContentShadowIGMediaID fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     eligibility_errors: list[str] | None = Field(None, alias="eligibility_errors")
     has_permission_for_partnership_ad: bool | None = Field(
         None, alias="has_permission_for_partnership_ad"
@@ -30193,7 +30193,7 @@ class BrandedContentShadowIGMediaIDFields(BaseModel):
 class ReachFrequencyEstimatesCurveFields(BaseModel):
     """Pydantic model for ReachFrequencyEstimatesCurve fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     budget: list[int] | None = Field(None, alias="budget")
     conversion: list[int] | None = Field(None, alias="conversion")
     impression: list[int] | None = Field(None, alias="impression")
@@ -30207,7 +30207,7 @@ class ReachFrequencyEstimatesCurveFields(BaseModel):
 class VehicleFields(BaseModel):
     """Pydantic model for Vehicle fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     address: dict[str, Any] | None = Field(None, alias="address")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     availability: str | None = Field(None, alias="availability")
@@ -30284,7 +30284,7 @@ class VehicleFields(BaseModel):
 class WhatsAppPaymentCapabilitiesFields(BaseModel):
     """Pydantic model for WhatsAppPaymentCapabilities fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_enabled: bool | None = Field(None, alias="is_enabled")
     payment_capability_details: list[dict[str, Any]] | None = Field(
         None, alias="payment_capability_details"
@@ -30294,7 +30294,7 @@ class WhatsAppPaymentCapabilitiesFields(BaseModel):
 class AdPromotedObjectFields(BaseModel):
     """Pydantic model for AdPromotedObject fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     application_id: str | None = Field(None, alias="application_id")
     boosted_product_set_id: str | None = Field(None, alias="boosted_product_set_id")
     conversion_goal_id: str | None = Field(None, alias="conversion_goal_id")
@@ -30342,7 +30342,7 @@ class AdPromotedObjectFields(BaseModel):
 class OfflineConversionDataSetPermissionsFields(BaseModel):
     """Pydantic model for OfflineConversionDataSetPermissions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_edit: bool | None = Field(None, alias="can_edit")
     can_edit_or_upload: bool | None = Field(None, alias="can_edit_or_upload")
     can_upload: bool | None = Field(None, alias="can_upload")
@@ -30354,7 +30354,7 @@ class OfflineConversionDataSetPermissionsFields(BaseModel):
 class PaymentEnginePaymentFields(BaseModel):
     """Pydantic model for PaymentEnginePayment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: list[dict[str, Any]] | None = Field(None, alias="actions")
     application: ApplicationFields | None = Field(None, alias="application")
     country: str | None = Field(None, alias="country")
@@ -30380,7 +30380,7 @@ class PaymentEnginePaymentFields(BaseModel):
 class LeadGenAppointmentSlotsByDayFields(BaseModel):
     """Pydantic model for LeadGenAppointmentSlotsByDay fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     appointment_slots: list[LeadGenAppointmentTimeSlotFields] | None = Field(
         None, alias="appointment_slots"
     )
@@ -30390,7 +30390,7 @@ class LeadGenAppointmentSlotsByDayFields(BaseModel):
 class AdRuleExecutionSpecFields(BaseModel):
     """Pydantic model for AdRuleExecutionSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     execution_options: list[AdRuleExecutionOptionsFields] | None = Field(
         None, alias="execution_options"
     )
@@ -30401,21 +30401,21 @@ class AdRuleExecutionSpecFields(BaseModel):
 class CatalogItemValidationErrorListFields(BaseModel):
     """Pydantic model for CatalogItemValidationErrorList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     errors: list[dict[str, Any]] | None = Field(None, alias="errors")
 
 
 class TargetingGeoLocationLocationClusterFields(BaseModel):
     """Pydantic model for TargetingGeoLocationLocationCluster fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     key: int | None = Field(None, alias="key")
 
 
 class AnalyticsQueryResultFields(BaseModel):
     """Pydantic model for AnalyticsQueryResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     query_id: str | None = Field(None, alias="query_id")
     status: str | None = Field(None, alias="status")
 
@@ -30423,7 +30423,7 @@ class AnalyticsQueryResultFields(BaseModel):
 class IGAccessTokenForIGOnlyAPIFields(BaseModel):
     """Pydantic model for IGAccessTokenForIGOnlyAPI fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     access_token: str | None = Field(None, alias="access_token")
     expires_in: int | None = Field(None, alias="expires_in")
     token_type: str | None = Field(None, alias="token_type")
@@ -30432,7 +30432,7 @@ class IGAccessTokenForIGOnlyAPIFields(BaseModel):
 class VideoStatusProcessingPhaseFields(BaseModel):
     """Pydantic model for VideoStatusProcessingPhase fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     errors: list[VideoStatusErrorFields] | None = Field(None, alias="errors")
     status: str | None = Field(None, alias="status")
 
@@ -30440,7 +30440,7 @@ class VideoStatusProcessingPhaseFields(BaseModel):
 class ProductItemCommerceInsightsFields(BaseModel):
     """Pydantic model for ProductItemCommerceInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     message_sends: int | None = Field(None, alias="message_sends")
     organic_impressions: int | None = Field(None, alias="organic_impressions")
     paid_impressions: int | None = Field(None, alias="paid_impressions")
@@ -30449,7 +30449,7 @@ class ProductItemCommerceInsightsFields(BaseModel):
 class AdAccountAAACompatibleAdObjectsFields(BaseModel):
     """Pydantic model for AdAccountAAACompatibleAdObjects fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adgroup_ids: list[str] | None = Field(None, alias="adgroup_ids")
     campaign_group_ids: list[str] | None = Field(None, alias="campaign_group_ids")
     campaign_ids: list[str] | None = Field(None, alias="campaign_ids")
@@ -30458,7 +30458,7 @@ class AdAccountAAACompatibleAdObjectsFields(BaseModel):
 class ProductItemInsightsFields(BaseModel):
     """Pydantic model for ProductItemInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_click_count: int | None = Field(None, alias="ad_click_count")
     ad_impression_count: int | None = Field(None, alias="ad_impression_count")
     add_to_cart_count: int | None = Field(None, alias="add_to_cart_count")
@@ -30469,7 +30469,7 @@ class ProductItemInsightsFields(BaseModel):
 class AdsPixelStatsFields(BaseModel):
     """Pydantic model for AdsPixelStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     count: int | None = Field(None, alias="count")
     diagnostics_hourly_last_timestamp: datetime | None = Field(
         None, alias="diagnostics_hourly_last_timestamp"
@@ -30481,7 +30481,7 @@ class AdsPixelStatsFields(BaseModel):
 class AdAssetDescriptionFields(BaseModel):
     """Pydantic model for AdAssetDescription fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     text: str | None = Field(None, alias="text")
     url_tags: str | None = Field(None, alias="url_tags")
@@ -30490,7 +30490,7 @@ class AdAssetDescriptionFields(BaseModel):
 class AdCreativeShopSpecFields(BaseModel):
     """Pydantic model for AdCreativeShopSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     collection_id: str | None = Field(None, alias="collection_id")
     landing_view: str | None = Field(None, alias="landing_view")
     shop_id: str | None = Field(None, alias="shop_id")
@@ -30499,7 +30499,7 @@ class AdCreativeShopSpecFields(BaseModel):
 class ReachFrequencyDayPartFields(BaseModel):
     """Pydantic model for ReachFrequencyDayPart fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     days: list[int] | None = Field(None, alias="days")
     end_minute: int | None = Field(None, alias="end_minute")
     start_minute: int | None = Field(None, alias="start_minute")
@@ -30508,7 +30508,7 @@ class ReachFrequencyDayPartFields(BaseModel):
 class BusinessOwnedObjectOnBehalfOfRequestFields(BaseModel):
     """Pydantic model for BusinessOwnedObjectOnBehalfOfRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business_owned_object: str | None = Field(None, alias="business_owned_object")
     id: str | None = Field(None, alias="id")
     receiving_business: BusinessFields | None = Field(None, alias="receiving_business")
@@ -30519,7 +30519,7 @@ class BusinessOwnedObjectOnBehalfOfRequestFields(BaseModel):
 class ProductCatalogFields(BaseModel):
     """Pydantic model for ProductCatalog fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_to_collaborative_ads_share_settings: CollaborativeAdsShareSettingsFields | None = (
         Field(None, alias="ad_account_to_collaborative_ads_share_settings")
     )
@@ -30554,7 +30554,7 @@ class ProductCatalogFields(BaseModel):
 class ProductItemSubscriptionInfoFields(BaseModel):
     """Pydantic model for ProductItemSubscriptionInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_subscribable: bool | None = Field(None, alias="is_subscribable")
     subscription_billing_period: int | None = Field(None, alias="subscription_billing_period")
     subscription_billing_type: str | None = Field(None, alias="subscription_billing_type")
@@ -30563,7 +30563,7 @@ class ProductItemSubscriptionInfoFields(BaseModel):
 class VideoPollFields(BaseModel):
     """Pydantic model for VideoPoll fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     close_after_voting: bool | None = Field(None, alias="close_after_voting")
     default_open: bool | None = Field(None, alias="default_open")
     id: str | None = Field(None, alias="id")
@@ -30576,7 +30576,7 @@ class VideoPollFields(BaseModel):
 class AdEntityTargetSpendFields(BaseModel):
     """Pydantic model for AdEntityTargetSpend fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount: str | None = Field(None, alias="amount")
     has_error: bool | None = Field(None, alias="has_error")
     is_accurate: bool | None = Field(None, alias="is_accurate")
@@ -30587,7 +30587,7 @@ class AdEntityTargetSpendFields(BaseModel):
 class CampaignGroupBrandConfigurationFields(BaseModel):
     """Pydantic model for CampaignGroupBrandConfiguration fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     brand_product_name: str | None = Field(None, alias="brand_product_name")
     locale: str | None = Field(None, alias="locale")
     vertical: str | None = Field(None, alias="vertical")
@@ -30596,7 +30596,7 @@ class CampaignGroupBrandConfigurationFields(BaseModel):
 class PlayableContentFields(BaseModel):
     """Pydantic model for PlayableContent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     owner: ProfileFields | None = Field(None, alias="owner")
@@ -30605,7 +30605,7 @@ class PlayableContentFields(BaseModel):
 class ShadowIGMediaProductTagsFields(BaseModel):
     """Pydantic model for ShadowIGMediaProductTags fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     image_url: str | None = Field(None, alias="image_url")
     is_checkout: bool | None = Field(None, alias="is_checkout")
     merchant_id: int | None = Field(None, alias="merchant_id")
@@ -30622,7 +30622,7 @@ class ShadowIGMediaProductTagsFields(BaseModel):
 class BusinessAssetGroupFields(BaseModel):
     """Pydantic model for BusinessAssetGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     owner_business: BusinessFields | None = Field(None, alias="owner_business")
@@ -30631,7 +30631,7 @@ class BusinessAssetGroupFields(BaseModel):
 class PageAboutStoryComposedBlockEntityRangesFields(BaseModel):
     """Pydantic model for PageAboutStoryComposedBlockEntityRanges fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     key: str | None = Field(None, alias="key")
     length: int | None = Field(None, alias="length")
     offset: int | None = Field(None, alias="offset")
@@ -30640,7 +30640,7 @@ class PageAboutStoryComposedBlockEntityRangesFields(BaseModel):
 class BusinessObjectFields(BaseModel):
     """Pydantic model for BusinessObject fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     asset: dict[str, Any] | None = Field(None, alias="asset")
     asset_type: str | None = Field(None, alias="asset_type")
     id: str | None = Field(None, alias="id")
@@ -30651,7 +30651,7 @@ class BusinessObjectFields(BaseModel):
 class AdCreativePromotionMetadataSpecFields(BaseModel):
     """Pydantic model for AdCreativePromotionMetadataSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     end_date: int | None = Field(None, alias="end_date")
     id: str | None = Field(None, alias="id")
     promotion_source: str | None = Field(None, alias="promotion_source")
@@ -30664,7 +30664,7 @@ class AdCreativePromotionMetadataSpecFields(BaseModel):
 class TargetingSubscriberUniverseFields(BaseModel):
     """Pydantic model for TargetingSubscriberUniverse fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     messenger_subscriber_source: IDNameFields | None = Field(
         None, alias="messenger_subscriber_source"
     )
@@ -30677,14 +30677,14 @@ class TargetingSubscriberUniverseFields(BaseModel):
 class TextWithEntitiesFields(BaseModel):
     """Pydantic model for TextWithEntities fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     text: str | None = Field(None, alias="text")
 
 
 class IGCommentFields(BaseModel):
     """Pydantic model for IGComment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     from_: IGCommentFromUserFields | None = Field(None, alias="from")
     hidden: bool | None = Field(None, alias="hidden")
     id: str | None = Field(None, alias="id")
@@ -30701,7 +30701,7 @@ class IGCommentFields(BaseModel):
 class ShadowIGUserPartnershipAdsMediaErrorsFields(BaseModel):
     """Pydantic model for ShadowIGUserPartnershipAdsMediaErrors fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_code: str | None = Field(None, alias="ad_code")
     error_codes: str | None = Field(None, alias="error_codes")
     errors: list[str] | None = Field(None, alias="errors")
@@ -30711,7 +30711,7 @@ class ShadowIGUserPartnershipAdsMediaErrorsFields(BaseModel):
 class UserPageOneTimeOptInTokenSettingsFields(BaseModel):
     """Pydantic model for UserPageOneTimeOptInTokenSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_timestamp: int | None = Field(None, alias="creation_timestamp")
     next_eligible_time: int | None = Field(None, alias="next_eligible_time")
     notification_messages_frequency: str | None = Field(
@@ -30729,7 +30729,7 @@ class UserPageOneTimeOptInTokenSettingsFields(BaseModel):
 class AdLimitSettingFields(BaseModel):
     """Pydantic model for AdLimitSetting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     limit_allocation_by_page_advertisers: list[dict[str, int]] | None = Field(
         None, alias="limit_allocation_by_page_advertisers"
     )
@@ -30738,7 +30738,7 @@ class AdLimitSettingFields(BaseModel):
 class ReportingAudienceFields(BaseModel):
     """Pydantic model for ReportingAudience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_audiences: list[RawCustomAudienceFields] | None = Field(None, alias="custom_audiences")
     custom_audiences_url_param_name: str | None = Field(
         None, alias="custom_audiences_url_param_name"
@@ -30751,7 +30751,7 @@ class ReportingAudienceFields(BaseModel):
 class PartnershipAdContentSearchMediaFields(BaseModel):
     """Pydantic model for PartnershipAdContentSearchMedia fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ig_ad_code_sponsor_count: int | None = Field(None, alias="ig_ad_code_sponsor_count")
     ig_ad_code_sponsors: list[FBPageAndInstagramAccountFields] | None = Field(
         None, alias="ig_ad_code_sponsors"
@@ -30767,7 +30767,7 @@ class PartnershipAdContentSearchMediaFields(BaseModel):
 class AdAccountSpendCapChangeHistoryFields(BaseModel):
     """Pydantic model for AdAccountSpendCapChangeHistory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action: str | None = Field(None, alias="action")
     spend_cap: int | None = Field(None, alias="spend_cap")
     time_start: str | None = Field(None, alias="time_start")
@@ -30777,7 +30777,7 @@ class AdAccountSpendCapChangeHistoryFields(BaseModel):
 class ReachFrequencyCurveLowerConfidenceRangeFields(BaseModel):
     """Pydantic model for ReachFrequencyCurveLowerConfidenceRange fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     impression_lower: list[int] | None = Field(None, alias="impression_lower")
     num_points: int | None = Field(None, alias="num_points")
     reach: list[int] | None = Field(None, alias="reach")
@@ -30789,7 +30789,7 @@ class ReachFrequencyCurveLowerConfidenceRangeFields(BaseModel):
 class AdCreativeLinkDataImageLayerSpecFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataImageLayerSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     blending_mode: dict[str, Any] | None = Field(None, alias="blending_mode")
     content: dict[str, Any] | None = Field(None, alias="content")
     frame_auto_show_enroll_status: str | None = Field(None, alias="frame_auto_show_enroll_status")
@@ -30809,7 +30809,7 @@ class AdCreativeLinkDataImageLayerSpecFields(BaseModel):
 class TargetingGeoLocationGeoEntitiesFields(BaseModel):
     """Pydantic model for TargetingGeoLocationGeoEntities fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     key: str | None = Field(None, alias="key")
     name: str | None = Field(None, alias="name")
@@ -30820,14 +30820,14 @@ class TargetingGeoLocationGeoEntitiesFields(BaseModel):
 class OfflineConversionDataSetUsageFields(BaseModel):
     """Pydantic model for OfflineConversionDataSetUsage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     num_lift_studies: int | None = Field(None, alias="num_lift_studies")
 
 
 class VideoThumbnailFields(BaseModel):
     """Pydantic model for VideoThumbnail fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     height: int | None = Field(None, alias="height")
     id: str | None = Field(None, alias="id")
     is_preferred: bool | None = Field(None, alias="is_preferred")
@@ -30840,7 +30840,7 @@ class VideoThumbnailFields(BaseModel):
 class ExternalEventSourceCPASEventsDebuggingFields(BaseModel):
     """Pydantic model for ExternalEventSourceCPASEventsDebugging fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actual_event_time: int | None = Field(None, alias="actual_event_time")
     app_version: str | None = Field(None, alias="app_version")
     content_url: str | None = Field(None, alias="content_url")
@@ -30855,7 +30855,7 @@ class ExternalEventSourceCPASEventsDebuggingFields(BaseModel):
 class AdAssetFeedSpecCaptionFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecCaption fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     text: str | None = Field(None, alias="text")
     url_tags: str | None = Field(None, alias="url_tags")
@@ -30864,7 +30864,7 @@ class AdAssetFeedSpecCaptionFields(BaseModel):
 class HasLeadAccessFields(BaseModel):
     """Pydantic model for HasLeadAccess fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_has_leads_permission: bool | None = Field(None, alias="app_has_leads_permission")
     can_access_lead: bool | None = Field(None, alias="can_access_lead")
     enabled_lead_access_manager: bool | None = Field(None, alias="enabled_lead_access_manager")
@@ -30879,7 +30879,7 @@ class HasLeadAccessFields(BaseModel):
 class CollaborativeAdsPartnerBusinessesFields(BaseModel):
     """Pydantic model for CollaborativeAdsPartnerBusinesses fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     collaborative_ads_partner_businesses_info: list[BusinessFields] | None = Field(
         None, alias="collaborative_ads_partner_businesses_info"
     )
@@ -30891,7 +30891,7 @@ class CollaborativeAdsPartnerBusinessesFields(BaseModel):
 class BusinessFields(BaseModel):
     """Pydantic model for Business fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     block_offline_analytics: bool | None = Field(None, alias="block_offline_analytics")
     collaborative_ads_managed_partner_business_info: ManagedPartnerBusinessFields | None = Field(
         None, alias="collaborative_ads_managed_partner_business_info"
@@ -30925,14 +30925,14 @@ class BusinessFields(BaseModel):
 class SocialWifiSiteFields(BaseModel):
     """Pydantic model for SocialWifiSite fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class IGUserMessengerProfileFields(BaseModel):
     """Pydantic model for IGUserMessengerProfile fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ice_breakers: list[dict[str, Any]] | None = Field(None, alias="ice_breakers")
     persistent_menu: list[dict[str, Any]] | None = Field(None, alias="persistent_menu")
 
@@ -30940,7 +30940,7 @@ class IGUserMessengerProfileFields(BaseModel):
 class AdCreativeLinkDataImageOverlaySpecFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataImageOverlaySpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_text_type: dict[str, Any] | None = Field(None, alias="custom_text_type")
     float_with_margin: bool | None = Field(None, alias="float_with_margin")
     overlay_template: dict[str, Any] | None = Field(None, alias="overlay_template")
@@ -30954,7 +30954,7 @@ class AdCreativeLinkDataImageOverlaySpecFields(BaseModel):
 class SalesRightsInventoryManagementFields(BaseModel):
     """Pydantic model for SalesRightsInventoryManagement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     available_impressions: int | None = Field(None, alias="available_impressions")
     booked_impressions: int | None = Field(None, alias="booked_impressions")
     overbooked_impressions: int | None = Field(None, alias="overbooked_impressions")
@@ -30967,7 +30967,7 @@ class SalesRightsInventoryManagementFields(BaseModel):
 class AdCreativeObjectStorySpecFields(BaseModel):
     """Pydantic model for AdCreativeObjectStorySpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     instagram_user_id: str | None = Field(None, alias="instagram_user_id")
     link_data: AdCreativeLinkDataFields | None = Field(None, alias="link_data")
     page_id: str | None = Field(None, alias="page_id")
@@ -30981,7 +30981,7 @@ class AdCreativeObjectStorySpecFields(BaseModel):
 class AdAsyncRequestSetFields(BaseModel):
     """Pydantic model for AdAsyncRequestSet fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     canceled_count: int | None = Field(None, alias="canceled_count")
     created_time: datetime | None = Field(None, alias="created_time")
     error_count: int | None = Field(None, alias="error_count")
@@ -31005,7 +31005,7 @@ class AdAsyncRequestSetFields(BaseModel):
 class AssignedUserFields(BaseModel):
     """Pydantic model for AssignedUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -31015,7 +31015,7 @@ class AssignedUserFields(BaseModel):
 class AdKpiShiftFields(BaseModel):
     """Pydantic model for AdKpiShift fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_set: AdSetFields | None = Field(None, alias="ad_set")
     cost_per_result_shift: float | None = Field(None, alias="cost_per_result_shift")
     enough_effective_days: bool | None = Field(None, alias="enough_effective_days")
@@ -31027,7 +31027,7 @@ class AdKpiShiftFields(BaseModel):
 class LeadGenPostSubmissionCheckResultFields(BaseModel):
     """Pydantic model for LeadGenPostSubmissionCheckResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     api_call_result: str | None = Field(None, alias="api_call_result")
     api_error_message: str | None = Field(None, alias="api_error_message")
     shown_thank_you_page: str | None = Field(None, alias="shown_thank_you_page")
@@ -31036,14 +31036,14 @@ class LeadGenPostSubmissionCheckResultFields(BaseModel):
 class CustomAudienceHealthFields(BaseModel):
     """Pydantic model for CustomAudienceHealth fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     health: list[dict[str, Any]] | None = Field(None, alias="health")
 
 
 class ReachFrequencyActivityFields(BaseModel):
     """Pydantic model for ReachFrequencyActivity fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     campaign_active: bool | None = Field(None, alias="campaign_active")
     campaign_started: bool | None = Field(None, alias="campaign_started")
@@ -31055,7 +31055,7 @@ class ReachFrequencyActivityFields(BaseModel):
 class BusinessUserFields(BaseModel):
     """Pydantic model for BusinessUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     business_role_request: BusinessRoleRequestFields | None = Field(
         None, alias="business_role_request"
@@ -31078,7 +31078,7 @@ class BusinessUserFields(BaseModel):
 class AdCreativeTemplateURLSpecFields(BaseModel):
     """Pydantic model for AdCreativeTemplateURLSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     android: dict[str, Any] | None = Field(None, alias="android")
     config: dict[str, Any] | None = Field(None, alias="config")
     ios: dict[str, Any] | None = Field(None, alias="ios")
@@ -31091,7 +31091,7 @@ class AdCreativeTemplateURLSpecFields(BaseModel):
 class CustomAudienceSharingStatusFields(BaseModel):
     """Pydantic model for CustomAudienceSharingStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     sharing_relationship_id: int | None = Field(None, alias="sharing_relationship_id")
     status: str | None = Field(None, alias="status")
 
@@ -31099,7 +31099,7 @@ class CustomAudienceSharingStatusFields(BaseModel):
 class ProductFeedRulePreviewSampleFields(BaseModel):
     """Pydantic model for ProductFeedRulePreviewSample fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     properties_after: list[dict[str, str]] | None = Field(None, alias="properties_after")
     properties_before: list[dict[str, str]] | None = Field(None, alias="properties_before")
 
@@ -31107,14 +31107,14 @@ class ProductFeedRulePreviewSampleFields(BaseModel):
 class FBLiteToNTTransitionsFields(BaseModel):
     """Pydantic model for FBLiteToNTTransitions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     transition: dict[str, Any] | None = Field(None, alias="transition")
 
 
 class BusinessVideoFields(BaseModel):
     """Pydantic model for BusinessVideo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     id: str | None = Field(None, alias="id")
     media_library_url: str | None = Field(None, alias="media_library_url")
@@ -31125,7 +31125,7 @@ class BusinessVideoFields(BaseModel):
 class TargetingFields(BaseModel):
     """Pydantic model for Targeting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adgroup_id: str | None = Field(None, alias="adgroup_id")
     age_max: int | None = Field(None, alias="age_max")
     age_min: int | None = Field(None, alias="age_min")
@@ -31277,7 +31277,7 @@ class TargetingFields(BaseModel):
 class AdsPixelEventPredictionFields(BaseModel):
     """Pydantic model for AdsPixelEventPrediction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     dismissed: bool | None = Field(None, alias="dismissed")
     event_type: str | None = Field(None, alias="event_type")
     rule: str | None = Field(None, alias="rule")
@@ -31286,7 +31286,7 @@ class AdsPixelEventPredictionFields(BaseModel):
 class DeliveryCheckExtraInfoFields(BaseModel):
     """Pydantic model for DeliveryCheckExtraInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adgroup_ids: list[str] | None = Field(None, alias="adgroup_ids")
     campaign_ids: list[str] | None = Field(None, alias="campaign_ids")
     countries: list[str] | None = Field(None, alias="countries")
@@ -31295,7 +31295,7 @@ class DeliveryCheckExtraInfoFields(BaseModel):
 class TargetingGeoLocationFields(BaseModel):
     """Pydantic model for TargetingGeoLocation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     cities: list[TargetingGeoLocationCityFields] | None = Field(None, alias="cities")
     countries: list[str] | None = Field(None, alias="countries")
     country_groups: list[str] | None = Field(None, alias="country_groups")
@@ -31340,14 +31340,14 @@ class TargetingGeoLocationFields(BaseModel):
 class CustomAudienceAdAccountFields(BaseModel):
     """Pydantic model for CustomAudienceAdAccount fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class ColumnSuggestionsFields(BaseModel):
     """Pydantic model for ColumnSuggestions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     explanations: dict[str, Any] | None = Field(None, alias="explanations")
     format: list[str] | None = Field(None, alias="format")
     objective: list[str] | None = Field(None, alias="objective")
@@ -31357,7 +31357,7 @@ class ColumnSuggestionsFields(BaseModel):
 class ArAdsDataContainerFields(BaseModel):
     """Pydantic model for ArAdsDataContainer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     camera_facing_override: str | None = Field(None, alias="camera_facing_override")
     creation_time: datetime | None = Field(None, alias="creation_time")
     effect: list[dict[str, Any]] | None = Field(None, alias="effect")
@@ -31370,7 +31370,7 @@ class ArAdsDataContainerFields(BaseModel):
 class WindowsAppLinkFields(BaseModel):
     """Pydantic model for WindowsAppLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     app_name: str | None = Field(None, alias="app_name")
     package_family_name: str | None = Field(None, alias="package_family_name")
@@ -31380,7 +31380,7 @@ class WindowsAppLinkFields(BaseModel):
 class ProductSetFields(BaseModel):
     """Pydantic model for ProductSet fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     auto_creation_url: str | None = Field(None, alias="auto_creation_url")
     filter: str | None = Field(None, alias="filter")
     id: str | None = Field(None, alias="id")
@@ -31396,7 +31396,7 @@ class ProductSetFields(BaseModel):
 class AdAccountURLForAssetExtractionFields(BaseModel):
     """Pydantic model for AdAccountURLForAssetExtraction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     source_type: str | None = Field(None, alias="source_type")
     source_url: str | None = Field(None, alias="source_url")
 
@@ -31404,7 +31404,7 @@ class AdAccountURLForAssetExtractionFields(BaseModel):
 class EngagementFields(BaseModel):
     """Pydantic model for Engagement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     count: int | None = Field(None, alias="count")
     count_string: str | None = Field(None, alias="count_string")
     count_string_with_like: str | None = Field(None, alias="count_string_with_like")
@@ -31417,7 +31417,7 @@ class EngagementFields(BaseModel):
 class ContentDeliveryReportFields(BaseModel):
     """Pydantic model for ContentDeliveryReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     content_id: str | None = Field(None, alias="content_id")
     content_name: str | None = Field(None, alias="content_name")
     content_url: str | None = Field(None, alias="content_url")
@@ -31430,7 +31430,7 @@ class ContentDeliveryReportFields(BaseModel):
 class VideoStatusPublishingPhaseFields(BaseModel):
     """Pydantic model for VideoStatusPublishingPhase fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     errors: list[VideoStatusErrorFields] | None = Field(None, alias="errors")
     publish_status: str | None = Field(None, alias="publish_status")
     publish_time: datetime | None = Field(None, alias="publish_time")
@@ -31440,7 +31440,7 @@ class VideoStatusPublishingPhaseFields(BaseModel):
 class BrandedContentEligibleSponsorIDsFields(BaseModel):
     """Pydantic model for BrandedContentEligibleSponsorIDs fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     fb_page: PageFields | None = Field(None, alias="fb_page")
     ig_account_v2: IGUserFields | None = Field(None, alias="ig_account_v2")
     ig_approval_needed: bool | None = Field(None, alias="ig_approval_needed")
@@ -31449,7 +31449,7 @@ class BrandedContentEligibleSponsorIDsFields(BaseModel):
 class IGShoppingReviewStatusReasonWithHelpMessageFields(BaseModel):
     """Pydantic model for IGShoppingReviewStatusReasonWithHelpMessage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     code: str | None = Field(None, alias="code")
     help_url: str | None = Field(None, alias="help_url")
     message: str | None = Field(None, alias="message")
@@ -31458,7 +31458,7 @@ class IGShoppingReviewStatusReasonWithHelpMessageFields(BaseModel):
 class AdSavedReportFields(BaseModel):
     """Pydantic model for AdSavedReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_owner: ApplicationFields | None = Field(None, alias="app_owner")
     breakdowns: list[str] | None = Field(None, alias="breakdowns")
     builtin_column_set: str | None = Field(None, alias="builtin_column_set")
@@ -31482,7 +31482,7 @@ class AdSavedReportFields(BaseModel):
 class AdAccountPaymentDetailsFields(BaseModel):
     """Pydantic model for AdAccountPaymentDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount: CurrencyAmountFields | None = Field(None, alias="amount")
     create_date: int | None = Field(None, alias="create_date")
     id: str | None = Field(None, alias="id")
@@ -31494,7 +31494,7 @@ class AdAccountPaymentDetailsFields(BaseModel):
 class AdRuleHistoryResultFields(BaseModel):
     """Pydantic model for AdRuleHistoryResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: list[AdRuleHistoryResultActionFields] | None = Field(None, alias="actions")
     object_id: str | None = Field(None, alias="object_id")
     object_type: dict[str, Any] | None = Field(None, alias="object_type")
@@ -31503,7 +31503,7 @@ class AdRuleHistoryResultFields(BaseModel):
 class LeadGenConditionalQuestionsGroupQuestionsFields(BaseModel):
     """Pydantic model for LeadGenConditionalQuestionsGroupQuestions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field_key: str | None = Field(None, alias="field_key")
     input_type: str | None = Field(None, alias="input_type")
     name: str | None = Field(None, alias="name")
@@ -31512,7 +31512,7 @@ class LeadGenConditionalQuestionsGroupQuestionsFields(BaseModel):
 class AsyncSessionFields(BaseModel):
     """Pydantic model for AsyncSession fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app: ApplicationFields | None = Field(None, alias="app")
     complete_time: datetime | None = Field(None, alias="complete_time")
     error_code: int | None = Field(None, alias="error_code")
@@ -31533,7 +31533,7 @@ class AsyncSessionFields(BaseModel):
 class AdAccountCreationRequestFields(BaseModel):
     """Pydantic model for AdAccountCreationRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_accounts_currency: str | None = Field(None, alias="ad_accounts_currency")
     ad_accounts_info: list[dict[str, Any]] | None = Field(None, alias="ad_accounts_info")
     additional_comment: str | None = Field(None, alias="additional_comment")
@@ -31578,7 +31578,7 @@ class AdAccountCreationRequestFields(BaseModel):
 class PageUserPermissionsFields(BaseModel):
     """Pydantic model for PageUserPermissions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     business_persona: str | None = Field(None, alias="business_persona")
     created_by: ProfileFields | None = Field(None, alias="created_by")
@@ -31594,14 +31594,14 @@ class PageUserPermissionsFields(BaseModel):
 class PlatformSessionKeyFields(BaseModel):
     """Pydantic model for PlatformSessionKey fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class LocationFields(BaseModel):
     """Pydantic model for Location fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     city: str | None = Field(None, alias="city")
     city_id: int | None = Field(None, alias="city_id")
     country: str | None = Field(None, alias="country")
@@ -31620,7 +31620,7 @@ class LocationFields(BaseModel):
 class AdAssetCustomizationRuleCustomizationSpecFields(BaseModel):
     """Pydantic model for AdAssetCustomizationRuleCustomizationSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     age_max: int | None = Field(None, alias="age_max")
     age_min: int | None = Field(None, alias="age_min")
     audience_network_positions: list[str] | None = Field(None, alias="audience_network_positions")
@@ -31636,7 +31636,7 @@ class AdAssetCustomizationRuleCustomizationSpecFields(BaseModel):
 class CustomAudienceSharedAccountCampaignInfoFields(BaseModel):
     """Pydantic model for CustomAudienceSharedAccountCampaignInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     account_name: str | None = Field(None, alias="account_name")
     adset_excluding_count: int | None = Field(None, alias="adset_excluding_count")
@@ -31650,7 +31650,7 @@ class CustomAudienceSharedAccountCampaignInfoFields(BaseModel):
 class ManagementSiteLinkFields(BaseModel):
     """Pydantic model for ManagementSiteLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     id: str | None = Field(None, alias="id")
     link_domain: str | None = Field(None, alias="link_domain")
@@ -31665,7 +31665,7 @@ class ManagementSiteLinkFields(BaseModel):
 class DeliveryWindowFields(BaseModel):
     """Pydantic model for DeliveryWindow fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad: int | None = Field(None, alias="ad")
     ae: int | None = Field(None, alias="ae")
     af: int | None = Field(None, alias="af")
@@ -31923,7 +31923,7 @@ class DeliveryWindowFields(BaseModel):
 class BidScheduleFields(BaseModel):
     """Pydantic model for BidSchedule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_object_id: str | None = Field(None, alias="ad_object_id")
     bid_recurrence_type: str | None = Field(None, alias="bid_recurrence_type")
     bid_timezone: str | None = Field(None, alias="bid_timezone")
@@ -31937,7 +31937,7 @@ class BidScheduleFields(BaseModel):
 class AdCreativeWhatsAppChannelSpecFields(BaseModel):
     """Pydantic model for AdCreativeWhatsAppChannelSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     channel_id: str | None = Field(None, alias="channel_id")
     channel_url: str | None = Field(None, alias="channel_url")
 
@@ -31945,7 +31945,7 @@ class AdCreativeWhatsAppChannelSpecFields(BaseModel):
 class AdgroupReviewFeedbackFields(BaseModel):
     """Pydantic model for AdgroupReviewFeedback fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     global_: dict[str, str] | None = Field(None, alias="global")
     placement_specific: AdgroupPlacementSpecificReviewFeedbackFields | None = Field(
         None, alias="placement_specific"
@@ -31955,7 +31955,7 @@ class AdgroupReviewFeedbackFields(BaseModel):
 class AdjacentContentDeliveryReportFields(BaseModel):
     """Pydantic model for AdjacentContentDeliveryReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_id: str | None = Field(None, alias="ad_id")
     content: list[dict[str, Any]] | None = Field(None, alias="content")
     impression_id: str | None = Field(None, alias="impression_id")
@@ -31964,7 +31964,7 @@ class AdjacentContentDeliveryReportFields(BaseModel):
 class CurrencyAmountFields(BaseModel):
     """Pydantic model for CurrencyAmount fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount: str | None = Field(None, alias="amount")
     amount_in_hundredths: str | None = Field(None, alias="amount_in_hundredths")
     currency: str | None = Field(None, alias="currency")
@@ -31974,7 +31974,7 @@ class CurrencyAmountFields(BaseModel):
 class PageRestaurantServicesFields(BaseModel):
     """Pydantic model for PageRestaurantServices fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     catering: bool | None = Field(None, alias="catering")
     delivery: bool | None = Field(None, alias="delivery")
     groups: bool | None = Field(None, alias="groups")
@@ -31990,14 +31990,14 @@ class PageRestaurantServicesFields(BaseModel):
 class AdCampaignBidConstraintFields(BaseModel):
     """Pydantic model for AdCampaignBidConstraint fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     roas_average_floor: int | None = Field(None, alias="roas_average_floor")
 
 
 class TargetingGeoLocationPlaceFields(BaseModel):
     """Pydantic model for TargetingGeoLocationPlace fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     distance_unit: str | None = Field(None, alias="distance_unit")
     key: str | None = Field(None, alias="key")
@@ -32012,7 +32012,7 @@ class TargetingGeoLocationPlaceFields(BaseModel):
 class ChinaBusinessOnboardingVettingRequestFields(BaseModel):
     """Pydantic model for ChinaBusinessOnboardingVettingRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_creation_request_status: str | None = Field(
         None, alias="ad_account_creation_request_status"
     )
@@ -32065,7 +32065,7 @@ class ChinaBusinessOnboardingVettingRequestFields(BaseModel):
 class AdAccountAAASimilarCampaignsFields(BaseModel):
     """Pydantic model for AdAccountAAASimilarCampaigns fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     similar_campaign_limit: int | None = Field(None, alias="similar_campaign_limit")
     similar_campaigns_info: list[dict[str, dict[str, Any]]] | None = Field(
         None, alias="similar_campaigns_info"
@@ -32076,7 +32076,7 @@ class AdAccountAAASimilarCampaignsFields(BaseModel):
 class AdReportRunFields(BaseModel):
     """Pydantic model for AdReportRun fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     async_percent_completion: int | None = Field(None, alias="async_percent_completion")
     async_report_url: str | None = Field(None, alias="async_report_url")
@@ -32098,28 +32098,28 @@ class AdReportRunFields(BaseModel):
 class PaymentPricepointsFields(BaseModel):
     """Pydantic model for PaymentPricepoints fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     mobile: list[dict[str, Any]] | None = Field(None, alias="mobile")
 
 
 class RecommendedIGMediaFields(BaseModel):
     """Pydantic model for RecommendedIGMedia fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     intent_score: float | None = Field(None, alias="intent_score")
 
 
 class TargetingProspectingAudienceFields(BaseModel):
     """Pydantic model for TargetingProspectingAudience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     sources: list[dict[str, Any]] | None = Field(None, alias="sources")
 
 
 class ProductCatalogDiagnosticGroupFields(BaseModel):
     """Pydantic model for ProductCatalogDiagnosticGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     affected_channels: list[str] | None = Field(None, alias="affected_channels")
     affected_entity: dict[str, Any] | None = Field(None, alias="affected_entity")
     affected_features: list[dict[str, Any]] | None = Field(None, alias="affected_features")
@@ -32136,7 +32136,7 @@ class ProductCatalogDiagnosticGroupFields(BaseModel):
 class AdStudyObjectiveFields(BaseModel):
     """Pydantic model for AdStudyObjective fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     is_primary: bool | None = Field(None, alias="is_primary")
     last_updated_results: str | None = Field(None, alias="last_updated_results")
@@ -32148,7 +32148,7 @@ class AdStudyObjectiveFields(BaseModel):
 class AdsSignalDiagnosticIssueFields(BaseModel):
     """Pydantic model for AdsSignalDiagnosticIssue fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     data_source_id: AdsPixelFields | None = Field(None, alias="data_source_id")
     data_source_type: str | None = Field(None, alias="data_source_type")
     diagnostic_type: str | None = Field(None, alias="diagnostic_type")
@@ -32164,7 +32164,7 @@ class AdsSignalDiagnosticIssueFields(BaseModel):
 class CPASAdvertiserPartnershipRecommendationFields(BaseModel):
     """Pydantic model for CPASAdvertiserPartnershipRecommendation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     advertiser_business_id: str | None = Field(None, alias="advertiser_business_id")
     brand_business_id: str | None = Field(None, alias="brand_business_id")
     brands: list[str] | None = Field(None, alias="brands")
@@ -32179,7 +32179,7 @@ class CPASAdvertiserPartnershipRecommendationFields(BaseModel):
 class ProductFeedFields(BaseModel):
     """Pydantic model for ProductFeed fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     created_time: datetime | None = Field(None, alias="created_time")
     default_currency: str | None = Field(None, alias="default_currency")
@@ -32205,14 +32205,14 @@ class ProductFeedFields(BaseModel):
 class AuthLinkFields(BaseModel):
     """Pydantic model for AuthLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     link: str | None = Field(None, alias="link")
 
 
 class BusinessPageRequestFields(BaseModel):
     """Pydantic model for BusinessPageRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     page: PageFields | None = Field(None, alias="page")
 
@@ -32220,7 +32220,7 @@ class BusinessPageRequestFields(BaseModel):
 class BAPIDomainFields(BaseModel):
     """Pydantic model for BAPIDomain fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     domain: str | None = Field(None, alias="domain")
     in_cool_down_until: int | None = Field(None, alias="in_cool_down_until")
     is_eligible_for_vo: bool | None = Field(None, alias="is_eligible_for_vo")
@@ -32230,7 +32230,7 @@ class BAPIDomainFields(BaseModel):
 class ReachFrequencyPredictionFields(BaseModel):
     """Pydantic model for ReachFrequencyPrediction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: int | None = Field(None, alias="account_id")
     activity_status: ReachFrequencyActivityFields | None = Field(None, alias="activity_status")
     ad_formats: list[ReachFrequencyAdFormatFields] | None = Field(None, alias="ad_formats")
@@ -32344,7 +32344,7 @@ class ReachFrequencyPredictionFields(BaseModel):
 class AdCreativeAdDisclaimerFields(BaseModel):
     """Pydantic model for AdCreativeAdDisclaimer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     text: str | None = Field(None, alias="text")
     title: str | None = Field(None, alias="title")
     url: str | None = Field(None, alias="url")
@@ -32353,7 +32353,7 @@ class AdCreativeAdDisclaimerFields(BaseModel):
 class AdsReportBuilderExportCoreFields(BaseModel):
     """Pydantic model for AdsReportBuilderExportCore fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     async_percent_completion: int | None = Field(None, alias="async_percent_completion")
     async_report_url: str | None = Field(None, alias="async_report_url")
     async_status: str | None = Field(None, alias="async_status")
@@ -32377,7 +32377,7 @@ class AdsReportBuilderExportCoreFields(BaseModel):
 class AdCreativeStaticFallbackSpecFields(BaseModel):
     """Pydantic model for AdCreativeStaticFallbackSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     call_to_action: AdCreativeLinkDataCallToActionFields | None = Field(
         None, alias="call_to_action"
     )
@@ -32391,7 +32391,7 @@ class AdCreativeStaticFallbackSpecFields(BaseModel):
 class CommerceSettingsFields(BaseModel):
     """Pydantic model for CommerceSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     inventory: int | None = Field(None, alias="inventory")
     total_inventory: int | None = Field(None, alias="total_inventory")
 
@@ -32399,7 +32399,7 @@ class CommerceSettingsFields(BaseModel):
 class ManagedPartnerExtendedCreditFields(BaseModel):
     """Pydantic model for ManagedPartnerExtendedCredit fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     max_balance: CurrencyAmountFields | None = Field(None, alias="max_balance")
     receiving_credit_allocation_config: ExtendedCreditAllocationConfigFields | None = Field(
@@ -32410,7 +32410,7 @@ class ManagedPartnerExtendedCreditFields(BaseModel):
 class BusinessAdvertisableApplicationsResultFields(BaseModel):
     """Pydantic model for BusinessAdvertisableApplicationsResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     are_app_events_unavailable: bool | None = Field(None, alias="are_app_events_unavailable")
     business: BusinessFields | None = Field(None, alias="business")
     has_insight_permission: bool | None = Field(None, alias="has_insight_permission")
@@ -32422,7 +32422,7 @@ class BusinessAdvertisableApplicationsResultFields(BaseModel):
 class LifeEventFields(BaseModel):
     """Pydantic model for LifeEvent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     end_time: datetime | None = Field(None, alias="end_time")
     from_: PageFields | None = Field(None, alias="from")
@@ -32436,7 +32436,7 @@ class LifeEventFields(BaseModel):
 class ProductItemVideoDataFields(BaseModel):
     """Pydantic model for ProductItemVideoData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     tags: list[str] | None = Field(None, alias="tags")
     url: str | None = Field(None, alias="url")
 
@@ -32444,14 +32444,14 @@ class ProductItemVideoDataFields(BaseModel):
 class AdAccountRelatedIcoStudyFields(BaseModel):
     """Pydantic model for AdAccountRelatedIcoStudy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class AdsDatasetFields(BaseModel):
     """Pydantic model for AdsDataset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_proxy: bool | None = Field(None, alias="can_proxy")
     collection_rate: float | None = Field(None, alias="collection_rate")
     config: str | None = Field(None, alias="config")
@@ -32527,7 +32527,7 @@ class AdsDatasetFields(BaseModel):
 class PageSettingsFields(BaseModel):
     """Pydantic model for PageSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     setting: str | None = Field(None, alias="setting")
     value: dict[str, Any] | None = Field(None, alias="value")
 
@@ -32535,7 +32535,7 @@ class PageSettingsFields(BaseModel):
 class BusinessRequestFields(BaseModel):
     """Pydantic model for BusinessRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     accessor: BusinessFields | None = Field(None, alias="accessor")
     creation_time: datetime | None = Field(None, alias="creation_time")
     id: str | None = Field(None, alias="id")
@@ -32550,7 +32550,7 @@ class BusinessRequestFields(BaseModel):
 class AdNetworkAnalyticsSyncQueryResultFields(BaseModel):
     """Pydantic model for AdNetworkAnalyticsSyncQueryResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     omitted_results: list[dict[str, Any]] | None = Field(None, alias="omitted_results")
     query_id: str | None = Field(None, alias="query_id")
     results: list[dict[str, Any]] | None = Field(None, alias="results")
@@ -32559,7 +32559,7 @@ class AdNetworkAnalyticsSyncQueryResultFields(BaseModel):
 class InstagramRelatedProductTagsFields(BaseModel):
     """Pydantic model for InstagramRelatedProductTags fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     checkout_setting: str | None = Field(None, alias="checkout_setting")
     id: int | None = Field(None, alias="id")
     image_uri: str | None = Field(None, alias="image_uri")
@@ -32571,7 +32571,7 @@ class InstagramRelatedProductTagsFields(BaseModel):
 class ConnectionsTargetingFields(BaseModel):
     """Pydantic model for ConnectionsTargeting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -32579,7 +32579,7 @@ class ConnectionsTargetingFields(BaseModel):
 class ExtendedCreditFields(BaseModel):
     """Pydantic model for ExtendedCredit fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     allocated_amount: CurrencyAmountFields | None = Field(None, alias="allocated_amount")
     balance: CurrencyAmountFields | None = Field(None, alias="balance")
     credit_available: CurrencyAmountFields | None = Field(None, alias="credit_available")
@@ -32606,7 +32606,7 @@ class ExtendedCreditFields(BaseModel):
 class CommercePayoutFields(BaseModel):
     """Pydantic model for CommercePayout fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount: dict[str, Any] | None = Field(None, alias="amount")
     payout_date: str | None = Field(None, alias="payout_date")
     payout_reference_id: str | None = Field(None, alias="payout_reference_id")
@@ -32617,7 +32617,7 @@ class CommercePayoutFields(BaseModel):
 class IGUpcomingEventFields(BaseModel):
     """Pydantic model for IGUpcomingEvent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     end_time: datetime | None = Field(None, alias="end_time")
     id: str | None = Field(None, alias="id")
     notification_subtypes: list[str] | None = Field(None, alias="notification_subtypes")
@@ -32629,7 +32629,7 @@ class IGUpcomingEventFields(BaseModel):
 class AdRuleScheduleFields(BaseModel):
     """Pydantic model for AdRuleSchedule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     days: list[int] | None = Field(None, alias="days")
     end_minute: int | None = Field(None, alias="end_minute")
     start_minute: int | None = Field(None, alias="start_minute")
@@ -32638,7 +32638,7 @@ class AdRuleScheduleFields(BaseModel):
 class AdLightCampaignFields(BaseModel):
     """Pydantic model for AdLightCampaign fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     campaign_id: str | None = Field(None, alias="campaign_id")
     id: str | None = Field(None, alias="id")
 
@@ -32646,7 +32646,7 @@ class AdLightCampaignFields(BaseModel):
 class ResellerGuidanceFields(BaseModel):
     """Pydantic model for ResellerGuidance fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_first_spend_date: str | None = Field(None, alias="ad_account_first_spend_date")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     adopted_guidance_l7d: list[str] | None = Field(None, alias="adopted_guidance_l7d")
@@ -32666,7 +32666,7 @@ class ResellerGuidanceFields(BaseModel):
 class CurrencyFields(BaseModel):
     """Pydantic model for Currency fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     currency_offset: int | None = Field(None, alias="currency_offset")
     usd_exchange: float | None = Field(None, alias="usd_exchange")
     usd_exchange_inverse: float | None = Field(None, alias="usd_exchange_inverse")
@@ -32676,7 +32676,7 @@ class CurrencyFields(BaseModel):
 class ProductItemOfferFields(BaseModel):
     """Pydantic model for ProductItemOffer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     availability_area: list[dict[str, Any]] | None = Field(None, alias="availability_area")
     availability_radius: float | None = Field(None, alias="availability_radius")
     id: str | None = Field(None, alias="id")
@@ -32685,7 +32685,7 @@ class ProductItemOfferFields(BaseModel):
 class WorkUserFrontlineFields(BaseModel):
     """Pydantic model for WorkUserFrontline fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     has_access: bool | None = Field(None, alias="has_access")
     is_frontline: bool | None = Field(None, alias="is_frontline")
 
@@ -32693,7 +32693,7 @@ class WorkUserFrontlineFields(BaseModel):
 class PermissionFields(BaseModel):
     """Pydantic model for Permission fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     permission: str | None = Field(None, alias="permission")
     status: str | None = Field(None, alias="status")
 
@@ -32701,7 +32701,7 @@ class PermissionFields(BaseModel):
 class AdAssetBodyFields(BaseModel):
     """Pydantic model for AdAssetBody fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     text: str | None = Field(None, alias="text")
     url_tags: str | None = Field(None, alias="url_tags")
@@ -32710,7 +32710,7 @@ class AdAssetBodyFields(BaseModel):
 class ReachFrequencyCurveUpperConfidenceRangeFields(BaseModel):
     """Pydantic model for ReachFrequencyCurveUpperConfidenceRange fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     impression_upper: list[int] | None = Field(None, alias="impression_upper")
     num_points: int | None = Field(None, alias="num_points")
     reach: list[int] | None = Field(None, alias="reach")
@@ -32722,7 +32722,7 @@ class ReachFrequencyCurveUpperConfidenceRangeFields(BaseModel):
 class WebsiteCreativeAssetSuggestionsFields(BaseModel):
     """Pydantic model for WebsiteCreativeAssetSuggestions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     extraction_status: str | None = Field(None, alias="extraction_status")
     id: str | None = Field(None, alias="id")
@@ -32732,7 +32732,7 @@ class WebsiteCreativeAssetSuggestionsFields(BaseModel):
 class CheckBatchRequestStatusFields(BaseModel):
     """Pydantic model for CheckBatchRequestStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     errors: list[dict[str, Any]] | None = Field(None, alias="errors")
     errors_total_count: int | None = Field(None, alias="errors_total_count")
     handle: str | None = Field(None, alias="handle")
@@ -32745,7 +32745,7 @@ class CheckBatchRequestStatusFields(BaseModel):
 class UserPaymentMobilePricepointsFields(BaseModel):
     """Pydantic model for UserPaymentMobilePricepoints fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     mobile_country: str | None = Field(None, alias="mobile_country")
     phone_number_last4: str | None = Field(None, alias="phone_number_last4")
     pricepoints: list[dict[str, Any]] | None = Field(None, alias="pricepoints")
@@ -32755,7 +32755,7 @@ class UserPaymentMobilePricepointsFields(BaseModel):
 class WhatsAppBusinessProfileFields(BaseModel):
     """Pydantic model for WhatsAppBusinessProfile fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name_verification: dict[str, Any] | None = Field(None, alias="name_verification")
     whatsapp_business_api_data: dict[str, Any] | None = Field(
@@ -32766,14 +32766,14 @@ class WhatsAppBusinessProfileFields(BaseModel):
 class LoomConfigFields(BaseModel):
     """Pydantic model for LoomConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class AdCreativeBrandedContentAdsFields(BaseModel):
     """Pydantic model for AdCreativeBrandedContentAds fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_format: int | None = Field(None, alias="ad_format")
     content_search_input: str | None = Field(None, alias="content_search_input")
     creator_ad_permission_type: str | None = Field(None, alias="creator_ad_permission_type")
@@ -32801,14 +32801,14 @@ class AdCreativeBrandedContentAdsFields(BaseModel):
 class AdCreativeMediaSourcingSpecFields(BaseModel):
     """Pydantic model for AdCreativeMediaSourcingSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class BrandRequestFields(BaseModel):
     """Pydantic model for BrandRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_countries: list[str] | None = Field(None, alias="ad_countries")
     additional_contacts: list[str] | None = Field(None, alias="additional_contacts")
     approval_level: int | None = Field(None, alias="approval_level")
@@ -32835,7 +32835,7 @@ class BrandRequestFields(BaseModel):
 class BusinessManagedPartnerEligibilityFields(BaseModel):
     """Pydantic model for BusinessManagedPartnerEligibility fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_eligible: bool | None = Field(None, alias="is_eligible")
     reason_code: str | None = Field(None, alias="reason_code")
     reason_description: str | None = Field(None, alias="reason_description")
@@ -32844,7 +32844,7 @@ class BusinessManagedPartnerEligibilityFields(BaseModel):
 class LeadGenAppointmentBookingInfoFields(BaseModel):
     """Pydantic model for LeadGenAppointmentBookingInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     advertiser_timezone_offset: str | None = Field(None, alias="advertiser_timezone_offset")
     appointment_durations: list[str] | None = Field(None, alias="appointment_durations")
     appointment_slots_by_day: list[LeadGenAppointmentSlotsByDayFields] | None = Field(
@@ -32855,7 +32855,7 @@ class LeadGenAppointmentBookingInfoFields(BaseModel):
 class WearableDevicePublicKeyFields(BaseModel):
     """Pydantic model for WearableDevicePublicKey fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     base64_encoded_public_key: str | None = Field(None, alias="base64_encoded_public_key")
     creation_time_on_device: datetime | None = Field(None, alias="creation_time_on_device")
     device_uuid: str | None = Field(None, alias="device_uuid")
@@ -32869,7 +32869,7 @@ class WearableDevicePublicKeyFields(BaseModel):
 class AdRuleTriggerFields(BaseModel):
     """Pydantic model for AdRuleTrigger fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field: str | None = Field(None, alias="field")
     operator: dict[str, Any] | None = Field(None, alias="operator")
     type: dict[str, Any] | None = Field(None, alias="type")
@@ -32879,14 +32879,14 @@ class AdRuleTriggerFields(BaseModel):
 class AdCreativePlatformCustomizationFields(BaseModel):
     """Pydantic model for AdCreativePlatformCustomization fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     instagram: dict[str, Any] | None = Field(None, alias="instagram")
 
 
 class AdRuleExecutionOptionsFields(BaseModel):
     """Pydantic model for AdRuleExecutionOptions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field: str | None = Field(None, alias="field")
     operator: dict[str, Any] | None = Field(None, alias="operator")
     value: dict[str, Any] | None = Field(None, alias="value")
@@ -32895,7 +32895,7 @@ class AdRuleExecutionOptionsFields(BaseModel):
 class AdAccountAdRulesCountByTypeFields(BaseModel):
     """Pydantic model for AdAccountAdRulesCountByType fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     count: int | None = Field(None, alias="count")
     evaluation_type: str | None = Field(None, alias="evaluation_type")
 
@@ -32903,7 +32903,7 @@ class AdAccountAdRulesCountByTypeFields(BaseModel):
 class AudioReleaseFields(BaseModel):
     """Pydantic model for AudioRelease fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     album_title: str | None = Field(None, alias="album_title")
     asset_availability_status: list[dict[int, dict[str, Any]]] | None = Field(
         None, alias="asset_availability_status"
@@ -32927,7 +32927,7 @@ class AudioReleaseFields(BaseModel):
 class UnifiedThreadFields(BaseModel):
     """Pydantic model for UnifiedThread fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_reply: bool | None = Field(None, alias="can_reply")
     folder: str | None = Field(None, alias="folder")
     former_participants: dict[str, Any] | None = Field(None, alias="former_participants")
@@ -32950,14 +32950,14 @@ class UnifiedThreadFields(BaseModel):
 class BrandedContentShadowIGUserIDFields(BaseModel):
     """Pydantic model for BrandedContentShadowIGUserID fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class CustomAudienceGroupFields(BaseModel):
     """Pydantic model for CustomAudienceGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_type_param_name: str | None = Field(None, alias="audience_type_param_name")
     existing_customer_tag: str | None = Field(None, alias="existing_customer_tag")
     new_customer_tag: str | None = Field(None, alias="new_customer_tag")
@@ -32966,7 +32966,7 @@ class CustomAudienceGroupFields(BaseModel):
 class AdAccountLiveVideoAdvertiserFields(BaseModel):
     """Pydantic model for AdAccountLiveVideoAdvertiser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_lva_toggle_on: bool | None = Field(None, alias="is_lva_toggle_on")
     lva_default_budget: int | None = Field(None, alias="lva_default_budget")
     should_default_current_live: bool | None = Field(None, alias="should_default_current_live")
@@ -32977,7 +32977,7 @@ class AdAccountLiveVideoAdvertiserFields(BaseModel):
 class UniqueAdCreativeFields(BaseModel):
     """Pydantic model for UniqueAdCreative fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     sample_creative: AdCreativeFields | None = Field(None, alias="sample_creative")
     visual_hash: int | None = Field(None, alias="visual_hash")
 
@@ -32985,7 +32985,7 @@ class UniqueAdCreativeFields(BaseModel):
 class AdAsyncRequestSetNotificationResultFields(BaseModel):
     """Pydantic model for AdAsyncRequestSetNotificationResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     response: str | None = Field(None, alias="response")
     status: str | None = Field(None, alias="status")
 
@@ -32993,21 +32993,21 @@ class AdAsyncRequestSetNotificationResultFields(BaseModel):
 class CampaignGroupCollaborativeAdsPartnerInfoFields(BaseModel):
     """Pydantic model for CampaignGroupCollaborativeAdsPartnerInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class CatalogBasedTargetingFields(BaseModel):
     """Pydantic model for CatalogBasedTargeting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     geo_targeting_type: str | None = Field(None, alias="geo_targeting_type")
 
 
 class IPObjectFields(BaseModel):
     """Pydantic model for IPObject fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ip_permission: str | None = Field(None, alias="ip_permission")
     user: dict[str, Any] | None = Field(None, alias="user")
 
@@ -33015,7 +33015,7 @@ class IPObjectFields(BaseModel):
 class AdsInsightsFields(BaseModel):
     """Pydantic model for AdsInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_currency: str | None = Field(None, alias="account_currency")
     account_id: str | None = Field(None, alias="account_id")
     account_name: str | None = Field(None, alias="account_name")
@@ -33416,7 +33416,7 @@ class AdsInsightsFields(BaseModel):
 class ProductCatalogLocalizationSettingsFields(BaseModel):
     """Pydantic model for ProductCatalogLocalizationSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     default_country: str | None = Field(None, alias="default_country")
     default_language: str | None = Field(None, alias="default_language")
     id: str | None = Field(None, alias="id")
@@ -33425,7 +33425,7 @@ class ProductCatalogLocalizationSettingsFields(BaseModel):
 class MessageDeliveryEstimateFields(BaseModel):
     """Pydantic model for MessageDeliveryEstimate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     estimate_cost: float | None = Field(None, alias="estimate_cost")
     estimate_cost_lower_bound: float | None = Field(None, alias="estimate_cost_lower_bound")
     estimate_cost_upper_bound: float | None = Field(None, alias="estimate_cost_upper_bound")
@@ -33440,7 +33440,7 @@ class MessageDeliveryEstimateFields(BaseModel):
 class AdAsyncRequestFields(BaseModel):
     """Pydantic model for AdAsyncRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     async_request_set: AdAsyncRequestSetFields | None = Field(None, alias="async_request_set")
     created_time: datetime | None = Field(None, alias="created_time")
     id: str | None = Field(None, alias="id")
@@ -33455,7 +33455,7 @@ class AdAsyncRequestFields(BaseModel):
 class CommentFields(BaseModel):
     """Pydantic model for Comment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     admin_creator: UserFields | None = Field(None, alias="admin_creator")
     application: ApplicationFields | None = Field(None, alias="application")
     attachment: dict[str, Any] | None = Field(None, alias="attachment")
@@ -33486,7 +33486,7 @@ class CommentFields(BaseModel):
 class AdCreativePhotoDataFields(BaseModel):
     """Pydantic model for AdCreativePhotoData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     branded_content_shared_to_sponsor_status: str | None = Field(
         None, alias="branded_content_shared_to_sponsor_status"
     )
@@ -33502,7 +33502,7 @@ class AdCreativePhotoDataFields(BaseModel):
 class PagePostExperimentFields(BaseModel):
     """Pydantic model for PagePostExperiment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     auto_resolve_settings: dict[str, Any] | None = Field(None, alias="auto_resolve_settings")
     control_video_id: str | None = Field(None, alias="control_video_id")
     creation_time: datetime | None = Field(None, alias="creation_time")
@@ -33528,7 +33528,7 @@ class PagePostExperimentFields(BaseModel):
 class AutomotiveModelFields(BaseModel):
     """Pydantic model for AutomotiveModel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     automotive_model_id: str | None = Field(None, alias="automotive_model_id")
     availability: str | None = Field(None, alias="availability")
@@ -33575,14 +33575,14 @@ class AutomotiveModelFields(BaseModel):
 class CPASSetupFields(BaseModel):
     """Pydantic model for CPASSetup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class CatalogSubVerticalListFields(BaseModel):
     """Pydantic model for CatalogSubVerticalList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     appliances: dict[str, Any] | None = Field(None, alias="appliances")
     baby_feeding: dict[str, Any] | None = Field(None, alias="baby_feeding")
     baby_transport: dict[str, Any] | None = Field(None, alias="baby_transport")
@@ -33664,7 +33664,7 @@ class CatalogSubVerticalListFields(BaseModel):
 class MerchantComplianceFields(BaseModel):
     """Pydantic model for MerchantCompliance fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     active_campaigns: int | None = Field(None, alias="active_campaigns")
     compliance_status: str | None = Field(None, alias="compliance_status")
     count_down_start_time: int | None = Field(None, alias="count_down_start_time")
@@ -33675,7 +33675,7 @@ class MerchantComplianceFields(BaseModel):
 class AnalyticsUserConfigFields(BaseModel):
     """Pydantic model for AnalyticsUserConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     demo_app_nux_config: dict[str, Any] | None = Field(None, alias="demo_app_nux_config")
     flags: list[dict[str, str]] | None = Field(None, alias="flags")
     id: str | None = Field(None, alias="id")
@@ -33684,7 +33684,7 @@ class AnalyticsUserConfigFields(BaseModel):
 class AdCreativeRewardInfoFields(BaseModel):
     """Pydantic model for AdCreativeRewardInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     reward_offer_id: str | None = Field(None, alias="reward_offer_id")
     reward_program_id: str | None = Field(None, alias="reward_program_id")
 
@@ -33692,7 +33692,7 @@ class AdCreativeRewardInfoFields(BaseModel):
 class AdAccountPromotionProgressBarFields(BaseModel):
     """Pydantic model for AdAccountPromotionProgressBar fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adaccount_permission: bool | None = Field(None, alias="adaccount_permission")
     coupon_currency: str | None = Field(None, alias="coupon_currency")
     coupon_value: int | None = Field(None, alias="coupon_value")
@@ -33706,7 +33706,7 @@ class AdAccountPromotionProgressBarFields(BaseModel):
 class IGProductTaggingInvalidationErrorFields(BaseModel):
     """Pydantic model for IGProductTaggingInvalidationError fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     taggability_state: str | None = Field(None, alias="taggability_state")
     title: str | None = Field(None, alias="title")
@@ -33715,7 +33715,7 @@ class IGProductTaggingInvalidationErrorFields(BaseModel):
 class AdCreativeLinkDataMomentFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataMoment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     type: dict[str, Any] | None = Field(None, alias="type")
 
@@ -33723,7 +33723,7 @@ class AdCreativeLinkDataMomentFields(BaseModel):
 class AdToplineDetailFields(BaseModel):
     """Pydantic model for AdToplineDetail fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     active_status: int | None = Field(None, alias="active_status")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     flight_end_date: datetime | None = Field(None, alias="flight_end_date")
@@ -33743,7 +33743,7 @@ class AdToplineDetailFields(BaseModel):
 class VideoListFields(BaseModel):
     """Pydantic model for VideoList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     description: str | None = Field(None, alias="description")
     id: str | None = Field(None, alias="id")
@@ -33758,7 +33758,7 @@ class VideoListFields(BaseModel):
 class LeadGenThankYouPageFields(BaseModel):
     """Pydantic model for LeadGenThankYouPage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     body: str | None = Field(None, alias="body")
     business_phone_number: str | None = Field(None, alias="business_phone_number")
     button_text: str | None = Field(None, alias="button_text")
@@ -33776,7 +33776,7 @@ class LeadGenThankYouPageFields(BaseModel):
 class AdPreviewFields(BaseModel):
     """Pydantic model for AdPreview fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     body: str | None = Field(None, alias="body")
     transformation_spec: dict[str, Any] | None = Field(None, alias="transformation_spec")
 
@@ -33784,7 +33784,7 @@ class AdPreviewFields(BaseModel):
 class AdRuleHistoryFields(BaseModel):
     """Pydantic model for AdRuleHistory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     evaluation_spec: AdRuleEvaluationSpecFields | None = Field(None, alias="evaluation_spec")
     exception_code: int | None = Field(None, alias="exception_code")
     exception_message: str | None = Field(None, alias="exception_message")
@@ -33798,14 +33798,14 @@ class AdRuleHistoryFields(BaseModel):
 class AdAccountAppSetupRequirementsFields(BaseModel):
     """Pydantic model for AdAccountAppSetupRequirements fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class ProductCatalogUserTasksFields(BaseModel):
     """Pydantic model for ProductCatalogUserTasks fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     tasks: list[str] | None = Field(None, alias="tasks")
 
@@ -33813,7 +33813,7 @@ class ProductCatalogUserTasksFields(BaseModel):
 class AdsConversionGoalFields(BaseModel):
     """Pydantic model for AdsConversionGoal fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     conversion_event_value_source: str | None = Field(None, alias="conversion_event_value_source")
     description: str | None = Field(None, alias="description")
@@ -33827,7 +33827,7 @@ class AdsConversionGoalFields(BaseModel):
 class ChatPluginFields(BaseModel):
     """Pydantic model for ChatPlugin fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     alignment: str | None = Field(None, alias="alignment")
     desktop_bottom_spacing: str | None = Field(None, alias="desktop_bottom_spacing")
     desktop_side_spacing: str | None = Field(None, alias="desktop_side_spacing")
@@ -33845,7 +33845,7 @@ class ChatPluginFields(BaseModel):
 class BrandSafetyDownloadableFields(BaseModel):
     """Pydantic model for BrandSafetyDownloadable fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_context_id: str | None = Field(None, alias="account_context_id")
     async_job_percent_complete: int | None = Field(None, alias="async_job_percent_complete")
     async_job_status: str | None = Field(None, alias="async_job_status")
@@ -33858,7 +33858,7 @@ class BrandSafetyDownloadableFields(BaseModel):
 class PageCTXDefaultGreetingTextFields(BaseModel):
     """Pydantic model for PageCTXDefaultGreetingText fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ctd: str | None = Field(None, alias="ctd")
     ctm: str | None = Field(None, alias="ctm")
     ctwa: str | None = Field(None, alias="ctwa")
@@ -33867,7 +33867,7 @@ class PageCTXDefaultGreetingTextFields(BaseModel):
 class AdAssetFeedSpecLinkURLFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecLinkURL fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     carousel_see_more_url: str | None = Field(None, alias="carousel_see_more_url")
     deeplink_url: str | None = Field(None, alias="deeplink_url")
@@ -33880,7 +33880,7 @@ class AdAssetFeedSpecLinkURLFields(BaseModel):
 class LeadGenConditionalQuestionsGroupChoicesFields(BaseModel):
     """Pydantic model for LeadGenConditionalQuestionsGroupChoices fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     customized_token: str | None = Field(None, alias="customized_token")
     next_question_choices: list[LeadGenConditionalQuestionsGroupChoicesFields] | None = Field(
         None, alias="next_question_choices"
@@ -33891,7 +33891,7 @@ class LeadGenConditionalQuestionsGroupChoicesFields(BaseModel):
 class BizInboxOffsiteEmailAccountFields(BaseModel):
     """Pydantic model for BizInboxOffsiteEmailAccount fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     email_address: str | None = Field(None, alias="email_address")
     id: str | None = Field(None, alias="id")
 
@@ -33899,7 +33899,7 @@ class BizInboxOffsiteEmailAccountFields(BaseModel):
 class AdAssetFeedSpecBodyFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecBody fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     text: str | None = Field(None, alias="text")
     url_tags: str | None = Field(None, alias="url_tags")
@@ -33908,7 +33908,7 @@ class AdAssetFeedSpecBodyFields(BaseModel):
 class AdAccountUserFields(BaseModel):
     """Pydantic model for AdAccountUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     tasks: list[str] | None = Field(None, alias="tasks")
@@ -33917,7 +33917,7 @@ class AdAccountUserFields(BaseModel):
 class PlacementFields(BaseModel):
     """Pydantic model for Placement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_network_positions: list[str] | None = Field(None, alias="audience_network_positions")
     device_platforms: list[dict[str, Any]] | None = Field(None, alias="device_platforms")
     effective_audience_network_positions: list[str] | None = Field(
@@ -33955,7 +33955,7 @@ class PlacementFields(BaseModel):
 class FundingSourceDetailsCouponTieringFields(BaseModel):
     """Pydantic model for FundingSourceDetailsCouponTiering fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     coupon_tiering_new: dict[str, Any] | None = Field(None, alias="coupon_tiering_new")
     coupon_tiering_reactivation: dict[str, Any] | None = Field(
         None, alias="coupon_tiering_reactivation"
@@ -33965,14 +33965,14 @@ class FundingSourceDetailsCouponTieringFields(BaseModel):
 class AdLightCampaignGroupFields(BaseModel):
     """Pydantic model for AdLightCampaignGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class AdAccountCampaignAttributionOptionInfoFields(BaseModel):
     """Pydantic model for AdAccountCampaignAttributionOptionInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_eligible: bool | None = Field(None, alias="is_eligible")
     value: str | None = Field(None, alias="value")
 
@@ -33980,7 +33980,7 @@ class AdAccountCampaignAttributionOptionInfoFields(BaseModel):
 class AdDraftFields(BaseModel):
     """Pydantic model for AdDraft fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     api_version: str | None = Field(None, alias="api_version")
     async_request_set: AdAsyncRequestSetFields | None = Field(None, alias="async_request_set")
@@ -34001,14 +34001,14 @@ class AdDraftFields(BaseModel):
 class AdAccountDsaRecommendationsFields(BaseModel):
     """Pydantic model for AdAccountDsaRecommendations fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     recommendations: list[str] | None = Field(None, alias="recommendations")
 
 
 class BusinessImageFields(BaseModel):
     """Pydantic model for BusinessImage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     creation_time: datetime | None = Field(None, alias="creation_time")
     hash: str | None = Field(None, alias="hash")
@@ -34024,7 +34024,7 @@ class BusinessImageFields(BaseModel):
 class AsyncRequestFields(BaseModel):
     """Pydantic model for AsyncRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: int | None = Field(None, alias="id")
     result: str | None = Field(None, alias="result")
     status: int | None = Field(None, alias="status")
@@ -34034,7 +34034,7 @@ class AsyncRequestFields(BaseModel):
 class WebsiteCreativeInfoFields(BaseModel):
     """Pydantic model for WebsiteCreativeInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     image_urls: list[str] | None = Field(None, alias="image_urls")
     link_url: str | None = Field(None, alias="link_url")
@@ -34043,7 +34043,7 @@ class WebsiteCreativeInfoFields(BaseModel):
 class ExtendedCreditInvoiceGroupFields(BaseModel):
     """Pydantic model for ExtendedCreditInvoiceGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     auto_enroll: bool | None = Field(None, alias="auto_enroll")
     bill_to_address: CRMAddressFields | None = Field(None, alias="bill_to_address")
     customer_po_number: str | None = Field(None, alias="customer_po_number")
@@ -34058,7 +34058,7 @@ class ExtendedCreditInvoiceGroupFields(BaseModel):
 class TargetingGeoLocationCityFields(BaseModel):
     """Pydantic model for TargetingGeoLocationCity fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     distance_unit: str | None = Field(None, alias="distance_unit")
     key: str | None = Field(None, alias="key")
@@ -34071,7 +34071,7 @@ class TargetingGeoLocationCityFields(BaseModel):
 class IGShoppingReviewStatusFields(BaseModel):
     """Pydantic model for IGShoppingReviewStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     onsite_eligibility: IGShoppingReviewStatusOnsiteEligibilityFields | None = Field(
         None, alias="onsite_eligibility"
     )
@@ -34084,7 +34084,7 @@ class IGShoppingReviewStatusFields(BaseModel):
 class DynamicItemDisplayBundleFolderFields(BaseModel):
     """Pydantic model for DynamicItemDisplayBundleFolder fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     categorization_criteria: str | None = Field(None, alias="categorization_criteria")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -34096,7 +34096,7 @@ class DynamicItemDisplayBundleFolderFields(BaseModel):
 class PageChangeProposalFields(BaseModel):
     """Pydantic model for PageChangeProposal fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     acceptance_status: str | None = Field(None, alias="acceptance_status")
     category: str | None = Field(None, alias="category")
     id: str | None = Field(None, alias="id")
@@ -34108,7 +34108,7 @@ class PageChangeProposalFields(BaseModel):
 class RTBDynamicPostFields(BaseModel):
     """Pydantic model for RTBDynamicPost fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     child_attachments: list[DynamicPostChildAttachmentFields] | None = Field(
         None, alias="child_attachments"
     )
@@ -34127,14 +34127,14 @@ class RTBDynamicPostFields(BaseModel):
 class AdAccountMaxBidFields(BaseModel):
     """Pydantic model for AdAccountMaxBid fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     max_bid: int | None = Field(None, alias="max_bid")
 
 
 class VideoStatusErrorFields(BaseModel):
     """Pydantic model for VideoStatusError fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     code: int | None = Field(None, alias="code")
     message: str | None = Field(None, alias="message")
 
@@ -34142,7 +34142,7 @@ class VideoStatusErrorFields(BaseModel):
 class EventRegistrationSettingFields(BaseModel):
     """Pydantic model for EventRegistrationSetting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     questions: str | None = Field(None, alias="questions")
     target_type: str | None = Field(None, alias="target_type")
@@ -34152,7 +34152,7 @@ class EventRegistrationSettingFields(BaseModel):
 class LiveVideoFields(BaseModel):
     """Pydantic model for LiveVideo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_break_config: LiveVideoAdBreakConfigFields | None = Field(None, alias="ad_break_config")
     ad_break_failure_reason: str | None = Field(None, alias="ad_break_failure_reason")
     broadcast_start_time: datetime | None = Field(None, alias="broadcast_start_time")
@@ -34187,7 +34187,7 @@ class LiveVideoFields(BaseModel):
 class AdConversionsFields(BaseModel):
     """Pydantic model for AdConversions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     adgroup_id: str | None = Field(None, alias="adgroup_id")
     campaign_id: str | None = Field(None, alias="campaign_id")
@@ -34197,7 +34197,7 @@ class AdConversionsFields(BaseModel):
 class BusinessProductCatalogTOSFields(BaseModel):
     """Pydantic model for BusinessProductCatalogTOS fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     accepted: bool | None = Field(None, alias="accepted")
     content: str | None = Field(None, alias="content")
 
@@ -34205,7 +34205,7 @@ class BusinessProductCatalogTOSFields(BaseModel):
 class BusinessAssetSharingAgreementFields(BaseModel):
     """Pydantic model for BusinessAssetSharingAgreement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     initiator: BusinessFields | None = Field(None, alias="initiator")
     recipient: BusinessFields | None = Field(None, alias="recipient")
@@ -34217,7 +34217,7 @@ class BusinessAssetSharingAgreementFields(BaseModel):
 class AdCreationPackageConfigFields(BaseModel):
     """Pydantic model for AdCreationPackageConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     api_version: str | None = Field(None, alias="api_version")
     id: str | None = Field(None, alias="id")
     is_eligible_for_default_opt_in: bool | None = Field(
@@ -34231,7 +34231,7 @@ class AdCreationPackageConfigFields(BaseModel):
 class ContentPublishingLimitResponseFields(BaseModel):
     """Pydantic model for ContentPublishingLimitResponse fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     config: dict[str, Any] | None = Field(None, alias="config")
     quota_usage: int | None = Field(None, alias="quota_usage")
 
@@ -34239,21 +34239,21 @@ class ContentPublishingLimitResponseFields(BaseModel):
 class EndStudyCriteriaFields(BaseModel):
     """Pydantic model for EndStudyCriteria fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class CollaborativeAdsPartnerInfoListItemFields(BaseModel):
     """Pydantic model for CollaborativeAdsPartnerInfoListItem fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class CopyrightMediaMisuseFields(BaseModel):
     """Pydantic model for CopyrightMediaMisuse fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audio_segments: list[dict[str, Any]] | None = Field(None, alias="audio_segments")
     creation_time: datetime | None = Field(None, alias="creation_time")
     disabled_audio_segments: list[dict[str, Any]] | None = Field(
@@ -34284,7 +34284,7 @@ class CopyrightMediaMisuseFields(BaseModel):
 class AdCreativeLinkDataCallToActionFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataCallToAction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     type: dict[str, Any] | None = Field(None, alias="type")
     value: AdCreativeLinkDataCallToActionValueFields | None = Field(None, alias="value")
 
@@ -34292,7 +34292,7 @@ class AdCreativeLinkDataCallToActionFields(BaseModel):
 class VideoStatusUploadingPhaseFields(BaseModel):
     """Pydantic model for VideoStatusUploadingPhase fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bytes_transferred: int | None = Field(None, alias="bytes_transferred")
     errors: list[VideoStatusErrorFields] | None = Field(None, alias="errors")
     source_file_size: int | None = Field(None, alias="source_file_size")
@@ -34302,7 +34302,7 @@ class VideoStatusUploadingPhaseFields(BaseModel):
 class AdCreativeBrandedContentAdsPartnersFields(BaseModel):
     """Pydantic model for AdCreativeBrandedContentAdsPartners fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     fb_page_id: str | None = Field(None, alias="fb_page_id")
     has_create_ads_access: bool | None = Field(None, alias="has_create_ads_access")
     identity_type: str | None = Field(None, alias="identity_type")
@@ -34313,7 +34313,7 @@ class AdCreativeBrandedContentAdsPartnersFields(BaseModel):
 class StoriesFields(BaseModel):
     """Pydantic model for Stories fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: str | None = Field(None, alias="creation_time")
     media_id: str | None = Field(None, alias="media_id")
     media_type: str | None = Field(None, alias="media_type")
@@ -34325,7 +34325,7 @@ class StoriesFields(BaseModel):
 class InstagramInsightsResultFields(BaseModel):
     """Pydantic model for InstagramInsightsResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -34338,7 +34338,7 @@ class InstagramInsightsResultFields(BaseModel):
 class AdsPixelSignalsIWLNuxFields(BaseModel):
     """Pydantic model for AdsPixelSignalsIWLNux fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     background_color: str | None = Field(None, alias="background_color")
     content: str | None = Field(None, alias="content")
     content_color: str | None = Field(None, alias="content_color")
@@ -34349,7 +34349,7 @@ class AdsPixelSignalsIWLNuxFields(BaseModel):
 class ProductFeedRuleSuggestionFields(BaseModel):
     """Pydantic model for ProductFeedRuleSuggestion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     attribute: str | None = Field(None, alias="attribute")
     params: list[dict[str, str]] | None = Field(None, alias="params")
     type: str | None = Field(None, alias="type")
@@ -34358,7 +34358,7 @@ class ProductFeedRuleSuggestionFields(BaseModel):
 class MediaCopyrightAttributionFields(BaseModel):
     """Pydantic model for MediaCopyrightAttribution fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     attribution_ig_target_id: str | None = Field(None, alias="attribution_ig_target_id")
     attribution_target_email_address: str | None = Field(
         None, alias="attribution_target_email_address"
@@ -34382,7 +34382,7 @@ class MediaCopyrightAttributionFields(BaseModel):
 class BusinessProjectFields(BaseModel):
     """Pydantic model for BusinessProject fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     created_time: datetime | None = Field(None, alias="created_time")
     creator: dict[str, Any] | None = Field(None, alias="creator")
@@ -34393,7 +34393,7 @@ class BusinessProjectFields(BaseModel):
 class AdStudyFields(BaseModel):
     """Pydantic model for AdStudy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     canceled_time: datetime | None = Field(None, alias="canceled_time")
     client_business: BusinessFields | None = Field(None, alias="client_business")
@@ -34417,7 +34417,7 @@ class AdStudyFields(BaseModel):
 class AdgroupPlacementSpecificReviewFeedbackFields(BaseModel):
     """Pydantic model for AdgroupPlacementSpecificReviewFeedback fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_admin: dict[str, str] | None = Field(None, alias="account_admin")
     ad: dict[str, str] | None = Field(None, alias="ad")
     ads_conversion_experiences: dict[str, str] | None = Field(
@@ -34464,7 +34464,7 @@ class AdgroupPlacementSpecificReviewFeedbackFields(BaseModel):
 class CTXPartnerAppWelcomeMessageFlowFields(BaseModel):
     """Pydantic model for CTXPartnerAppWelcomeMessageFlow fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     compatible_platforms: list[str] | None = Field(None, alias="compatible_platforms")
     eligible_platforms: list[str] | None = Field(None, alias="eligible_platforms")
     id: str | None = Field(None, alias="id")
@@ -34479,7 +34479,7 @@ class CTXPartnerAppWelcomeMessageFlowFields(BaseModel):
 class TransactableItemFields(BaseModel):
     """Pydantic model for TransactableItem fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_title: str | None = Field(None, alias="action_title")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     category_specific_fields: CatalogSubVerticalListFields | None = Field(
@@ -34507,7 +34507,7 @@ class TransactableItemFields(BaseModel):
 class AdToplineFields(BaseModel):
     """Pydantic model for AdTopline fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     client_approval_date: datetime | None = Field(None, alias="client_approval_date")
     created_by: str | None = Field(None, alias="created_by")
@@ -34548,7 +34548,7 @@ class AdToplineFields(BaseModel):
 class AdCreativeLinkDataCustomOverlaySpecFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataCustomOverlaySpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     background_color: dict[str, Any] | None = Field(None, alias="background_color")
     float_with_margin: bool | None = Field(None, alias="float_with_margin")
     font: dict[str, Any] | None = Field(None, alias="font")
@@ -34562,7 +34562,7 @@ class AdCreativeLinkDataCustomOverlaySpecFields(BaseModel):
 class OfflineConversionDataSetFields(BaseModel):
     """Pydantic model for OfflineConversionDataSet fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     automatic_matching_fields: list[str] | None = Field(None, alias="automatic_matching_fields")
     business: BusinessFields | None = Field(None, alias="business")
     can_proxy: bool | None = Field(None, alias="can_proxy")
@@ -34602,7 +34602,7 @@ class OfflineConversionDataSetFields(BaseModel):
 class AdsPixelDeliveryRecommendationsFields(BaseModel):
     """Pydantic model for AdsPixelDeliveryRecommendations fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_event_type: str | None = Field(None, alias="custom_event_type")
     optimization_goal: str | None = Field(None, alias="optimization_goal")
 
@@ -34610,7 +34610,7 @@ class AdsPixelDeliveryRecommendationsFields(BaseModel):
 class AdCreativeFeaturesSpecFields(BaseModel):
     """Pydantic model for AdCreativeFeaturesSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adapt_to_placement: AdCreativeFeatureDetailsFields | None = Field(
         None, alias="adapt_to_placement"
     )
@@ -34717,7 +34717,7 @@ class AdCreativeFeaturesSpecFields(BaseModel):
 class ProductFeedUploadErrorSampleFields(BaseModel):
     """Pydantic model for ProductFeedUploadErrorSample fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     retailer_id: str | None = Field(None, alias="retailer_id")
     row_number: int | None = Field(None, alias="row_number")
@@ -34726,7 +34726,7 @@ class ProductFeedUploadErrorSampleFields(BaseModel):
 class WITUserFields(BaseModel):
     """Pydantic model for WITUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     access_token: str | None = Field(None, alias="access_token")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -34735,7 +34735,7 @@ class WITUserFields(BaseModel):
 class HighDemandPeriodTimeSuggestionWeeklySegmentFields(BaseModel):
     """Pydantic model for HighDemandPeriodTimeSuggestionWeeklySegment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     days: list[str] | None = Field(None, alias="days")
     end_minute: int | None = Field(None, alias="end_minute")
     start_minute: int | None = Field(None, alias="start_minute")
@@ -34745,7 +34745,7 @@ class HighDemandPeriodTimeSuggestionWeeklySegmentFields(BaseModel):
 class AdNetworkAnalyticsAsyncQueryResultFields(BaseModel):
     """Pydantic model for AdNetworkAnalyticsAsyncQueryResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     data: dict[str, Any] | None = Field(None, alias="data")
     omitted_results: list[dict[str, Any]] | None = Field(None, alias="omitted_results")
     query_id: str | None = Field(None, alias="query_id")
@@ -34756,7 +34756,7 @@ class AdNetworkAnalyticsAsyncQueryResultFields(BaseModel):
 class AdCampaignGroupMetricsMetadataFields(BaseModel):
     """Pydantic model for AdCampaignGroupMetricsMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     budget_optimization: list[str] | None = Field(None, alias="budget_optimization")
     duplication_flow_tips: list[str] | None = Field(None, alias="duplication_flow_tips")
 
@@ -34764,7 +34764,7 @@ class AdCampaignGroupMetricsMetadataFields(BaseModel):
 class AdCreativeMarketingMessageStructuredSpecFields(BaseModel):
     """Pydantic model for AdCreativeMarketingMessageStructuredSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     buttons: list[dict[str, Any]] | None = Field(None, alias="buttons")
     footer: str | None = Field(None, alias="footer")
     greeting: str | None = Field(None, alias="greeting")
@@ -34779,7 +34779,7 @@ class AdCreativeMarketingMessageStructuredSpecFields(BaseModel):
 class AdAccountAmountSpentHistoryFields(BaseModel):
     """Pydantic model for AdAccountAmountSpentHistory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount_spent: int | None = Field(None, alias="amount_spent")
     spend_cap: int | None = Field(None, alias="spend_cap")
     time_start: str | None = Field(None, alias="time_start")
@@ -34789,7 +34789,7 @@ class AdAccountAmountSpentHistoryFields(BaseModel):
 class TargetingProductAudienceSpecFields(BaseModel):
     """Pydantic model for TargetingProductAudienceSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     exclusions: list[TargetingProductAudienceSubSpecFields] | None = Field(None, alias="exclusions")
     inclusions: list[TargetingProductAudienceSubSpecFields] | None = Field(None, alias="inclusions")
     product_set_id: str | None = Field(None, alias="product_set_id")
@@ -34798,7 +34798,7 @@ class TargetingProductAudienceSpecFields(BaseModel):
 class BlockedUserInfoFields(BaseModel):
     """Pydantic model for BlockedUserInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     block_time: datetime | None = Field(None, alias="block_time")
     block_type: str | None = Field(None, alias="block_type")
     fbid: str | None = Field(None, alias="fbid")
@@ -34809,7 +34809,7 @@ class BlockedUserInfoFields(BaseModel):
 class AudienceOverlapFields(BaseModel):
     """Pydantic model for AudienceOverlap fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     estimated_reach: int | None = Field(None, alias="estimated_reach")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -34819,7 +34819,7 @@ class AudienceOverlapFields(BaseModel):
 class CommerceOrderFields(BaseModel):
     """Pydantic model for CommerceOrder fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     buyer_details: dict[str, Any] | None = Field(None, alias="buyer_details")
     channel: str | None = Field(None, alias="channel")
     contains_bopis_items: bool | None = Field(None, alias="contains_bopis_items")
@@ -34842,7 +34842,7 @@ class CommerceOrderFields(BaseModel):
 class ProductSetUsageFields(BaseModel):
     """Pydantic model for ProductSetUsage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     product_set: ProductSetFields | None = Field(None, alias="product_set")
     usage_type: str | None = Field(None, alias="usage_type")
@@ -34851,21 +34851,21 @@ class ProductSetUsageFields(BaseModel):
 class AdAccountAllPaymentMethodsFields(BaseModel):
     """Pydantic model for AdAccountAllPaymentMethods fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class CTXOptimizationEligibilityFields(BaseModel):
     """Pydantic model for CTXOptimizationEligibility fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ctm: dict[str, Any] | None = Field(None, alias="ctm")
 
 
 class EventFields(BaseModel):
     """Pydantic model for Event fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     attending_count: int | None = Field(None, alias="attending_count")
     can_guests_invite: bool | None = Field(None, alias="can_guests_invite")
     category: dict[str, Any] | None = Field(None, alias="category")
@@ -34911,7 +34911,7 @@ class EventFields(BaseModel):
 class VideoTextQuestionFields(BaseModel):
     """Pydantic model for VideoTextQuestion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     question_target_id: str | None = Field(None, alias="question_target_id")
     question_text: str | None = Field(None, alias="question_text")
@@ -34921,7 +34921,7 @@ class VideoTextQuestionFields(BaseModel):
 class ExperienceFields(BaseModel):
     """Pydantic model for Experience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     from_: dict[str, Any] | None = Field(None, alias="from")
     id: str | None = Field(None, alias="id")
@@ -34932,7 +34932,7 @@ class ExperienceFields(BaseModel):
 class AudioSubLabelFields(BaseModel):
     """Pydantic model for AudioSubLabel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     expiration_timestamp: datetime | None = Field(None, alias="expiration_timestamp")
     flagged_timestamp: datetime | None = Field(None, alias="flagged_timestamp")
     id: str | None = Field(None, alias="id")
@@ -34945,7 +34945,7 @@ class AudioSubLabelFields(BaseModel):
 class LeadGenPrivacyPolicyFields(BaseModel):
     """Pydantic model for LeadGenPrivacyPolicy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     link_text: str | None = Field(None, alias="link_text")
     url: str | None = Field(None, alias="url")
 
@@ -34953,7 +34953,7 @@ class LeadGenPrivacyPolicyFields(BaseModel):
 class AdColumnSizesFields(BaseModel):
     """Pydantic model for AdColumnSizes fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     admarket_account: AdAccountFields | None = Field(None, alias="admarket_account")
     app_id: str | None = Field(None, alias="app_id")
     columns: list[dict[str, str]] | None = Field(None, alias="columns")
@@ -34968,7 +34968,7 @@ class AdColumnSizesFields(BaseModel):
 class VideoCopyrightFields(BaseModel):
     """Pydantic model for VideoCopyright fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     content_category: str | None = Field(None, alias="content_category")
     copyright_content_id: str | None = Field(None, alias="copyright_content_id")
     creator: UserFields | None = Field(None, alias="creator")
@@ -34996,7 +34996,7 @@ class VideoCopyrightFields(BaseModel):
 class ImageCopyrightDisputeFields(BaseModel):
     """Pydantic model for ImageCopyrightDispute fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     appeal_form_data: str | None = Field(None, alias="appeal_form_data")
     dispute_form_data: str | None = Field(None, alias="dispute_form_data")
     expiration_time: datetime | None = Field(None, alias="expiration_time")
@@ -35011,7 +35011,7 @@ class ImageCopyrightDisputeFields(BaseModel):
 class ProductFeedUploadFields(BaseModel):
     """Pydantic model for ProductFeedUpload fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     end_time: datetime | None = Field(None, alias="end_time")
     error_count: int | None = Field(None, alias="error_count")
     error_report: ProductFeedUploadErrorReportFields | None = Field(None, alias="error_report")
@@ -35030,7 +35030,7 @@ class ProductFeedUploadFields(BaseModel):
 class VideoCopyrightConditionGroupFields(BaseModel):
     """Pydantic model for VideoCopyrightConditionGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action: str | None = Field(None, alias="action")
     conditions: list[dict[str, Any]] | None = Field(None, alias="conditions")
     validity_status: str | None = Field(None, alias="validity_status")
@@ -35039,7 +35039,7 @@ class VideoCopyrightConditionGroupFields(BaseModel):
 class CPASAdCreationTemplateFields(BaseModel):
     """Pydantic model for CPASAdCreationTemplate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     id: str | None = Field(None, alias="id")
     is_unused_template: bool | None = Field(None, alias="is_unused_template")
@@ -35052,7 +35052,7 @@ class CPASAdCreationTemplateFields(BaseModel):
 class LeadGenURLEntityAtRangesFields(BaseModel):
     """Pydantic model for LeadGenURLEntityAtRanges fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     length: int | None = Field(None, alias="length")
     offset: int | None = Field(None, alias="offset")
     url: str | None = Field(None, alias="url")
@@ -35061,7 +35061,7 @@ class LeadGenURLEntityAtRangesFields(BaseModel):
 class ExternalEventSourceFields(BaseModel):
     """Pydantic model for ExternalEventSource fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     source_type: str | None = Field(None, alias="source_type")
@@ -35070,7 +35070,7 @@ class ExternalEventSourceFields(BaseModel):
 class ALMGuidanceMetricsFields(BaseModel):
     """Pydantic model for ALMGuidanceMetrics fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     adopted_objects: list[dict[str, Any]] | None = Field(None, alias="adopted_objects")
     guidance_name: str | None = Field(None, alias="guidance_name")
@@ -35098,7 +35098,7 @@ class ALMGuidanceMetricsFields(BaseModel):
 class UserLeadGenDisclaimerResponseFields(BaseModel):
     """Pydantic model for UserLeadGenDisclaimerResponse fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     checkbox_key: str | None = Field(None, alias="checkbox_key")
     is_checked: str | None = Field(None, alias="is_checked")
 
@@ -35106,7 +35106,7 @@ class UserLeadGenDisclaimerResponseFields(BaseModel):
 class DeliveryStatusFields(BaseModel):
     """Pydantic model for DeliveryStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     status: str | None = Field(None, alias="status")
     substatuses: list[str] | None = Field(None, alias="substatuses")
 
@@ -35114,14 +35114,14 @@ class DeliveryStatusFields(BaseModel):
 class AdCreativeInsightsFields(BaseModel):
     """Pydantic model for AdCreativeInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     aesthetics: list[dict[str, str]] | None = Field(None, alias="aesthetics")
 
 
 class AdsPixelEventLastFiredTimeFields(BaseModel):
     """Pydantic model for AdsPixelEventLastFiredTime fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event: str | None = Field(None, alias="event")
     last_fired_time: int | None = Field(None, alias="last_fired_time")
 
@@ -35129,7 +35129,7 @@ class AdsPixelEventLastFiredTimeFields(BaseModel):
 class AdNetworkAnalyticsAsyncQueryExportFields(BaseModel):
     """Pydantic model for AdNetworkAnalyticsAsyncQueryExport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     export_link: str | None = Field(None, alias="export_link")
     query_id: str | None = Field(None, alias="query_id")
     status: str | None = Field(None, alias="status")
@@ -35138,7 +35138,7 @@ class AdNetworkAnalyticsAsyncQueryExportFields(BaseModel):
 class AdCreativeRegionalRegulationDisclaimerFields(BaseModel):
     """Pydantic model for AdCreativeRegionalRegulationDisclaimer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     australia_finserv: dict[str, Any] | None = Field(None, alias="australia_finserv")
     india_finserv: dict[str, Any] | None = Field(None, alias="india_finserv")
     singapore_universal: dict[str, Any] | None = Field(None, alias="singapore_universal")
@@ -35149,7 +35149,7 @@ class AdCreativeRegionalRegulationDisclaimerFields(BaseModel):
 class AdsValueAdjustmentRuleCollectionFields(BaseModel):
     """Pydantic model for AdsValueAdjustmentRuleCollection fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     is_default_setting: bool | None = Field(None, alias="is_default_setting")
     name: str | None = Field(None, alias="name")
@@ -35160,7 +35160,7 @@ class AdsValueAdjustmentRuleCollectionFields(BaseModel):
 class IGUserFields(BaseModel):
     """Pydantic model for IGUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     biography: str | None = Field(None, alias="biography")
     business_discovery: IGUserFields | None = Field(None, alias="business_discovery")
     followers_count: int | None = Field(None, alias="followers_count")
@@ -35187,7 +35187,7 @@ class IGUserFields(BaseModel):
 class CPASParentCatalogSettingsFields(BaseModel):
     """Pydantic model for CPASParentCatalogSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     attribution_windows: list[str] | None = Field(None, alias="attribution_windows")
     default_currency: str | None = Field(None, alias="default_currency")
     disable_use_as_parent_catalog: bool | None = Field(None, alias="disable_use_as_parent_catalog")
@@ -35197,7 +35197,7 @@ class CPASParentCatalogSettingsFields(BaseModel):
 class AgencyClientDeclarationFields(BaseModel):
     """Pydantic model for AgencyClientDeclaration fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     agency_representing_client: int | None = Field(None, alias="agency_representing_client")
     client_based_in_france: int | None = Field(None, alias="client_based_in_france")
     client_city: str | None = Field(None, alias="client_city")
@@ -35217,7 +35217,7 @@ class AgencyClientDeclarationFields(BaseModel):
 class RegionalRegulationIdentitiesFields(BaseModel):
     """Pydantic model for RegionalRegulationIdentities fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     australia_finserv_beneficiary: str | None = Field(None, alias="australia_finserv_beneficiary")
     australia_finserv_payer: str | None = Field(None, alias="australia_finserv_payer")
     india_finserv_beneficiary: str | None = Field(None, alias="india_finserv_beneficiary")
@@ -35235,7 +35235,7 @@ class RegionalRegulationIdentitiesFields(BaseModel):
 class CanvasAdSettingsFields(BaseModel):
     """Pydantic model for CanvasAdSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_canvas_collection_eligible: bool | None = Field(None, alias="is_canvas_collection_eligible")
     lead_form_created_time: int | None = Field(None, alias="lead_form_created_time")
     lead_form_name: str | None = Field(None, alias="lead_form_name")
@@ -35248,7 +35248,7 @@ class CanvasAdSettingsFields(BaseModel):
 class AppLinksFields(BaseModel):
     """Pydantic model for AppLinks fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     android: list[AndroidAppLinkFields] | None = Field(None, alias="android")
     id: str | None = Field(None, alias="id")
     ios: list[IosAppLinkFields] | None = Field(None, alias="ios")
@@ -35263,7 +35263,7 @@ class AppLinksFields(BaseModel):
 class AdSavedLocationFields(BaseModel):
     """Pydantic model for AdSavedLocation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     cities: list[TargetingGeoLocationCityFields] | None = Field(None, alias="cities")
     countries: list[str] | None = Field(None, alias="countries")
     country_groups: list[str] | None = Field(None, alias="country_groups")
@@ -35281,7 +35281,7 @@ class AdSavedLocationFields(BaseModel):
 class ThirdPartyMeasurementReportDatasetFields(BaseModel):
     """Pydantic model for ThirdPartyMeasurementReportDataset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     category: str | None = Field(None, alias="category")
     id: str | None = Field(None, alias="id")
     partner: BusinessFields | None = Field(None, alias="partner")
@@ -35292,7 +35292,7 @@ class ThirdPartyMeasurementReportDatasetFields(BaseModel):
 class HomeListingFields(BaseModel):
     """Pydantic model for HomeListing fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ac_type: str | None = Field(None, alias="ac_type")
     additional_fees_description: str | None = Field(None, alias="additional_fees_description")
     address: dict[str, Any] | None = Field(None, alias="address")
@@ -35359,7 +35359,7 @@ class HomeListingFields(BaseModel):
 class GeoGatingPolicyFields(BaseModel):
     """Pydantic model for GeoGatingPolicy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     after_schedule: str | None = Field(None, alias="after_schedule")
     exclude_country: list[str] | None = Field(None, alias="exclude_country")
     id: str | None = Field(None, alias="id")
@@ -35372,7 +35372,7 @@ class GeoGatingPolicyFields(BaseModel):
 class AdPlacePageSetMetadataFields(BaseModel):
     """Pydantic model for AdPlacePageSetMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience: dict[str, Any] | None = Field(None, alias="audience")
     custom: dict[str, Any] | None = Field(None, alias="custom")
     extra_data: str | None = Field(None, alias="extra_data")
@@ -35382,7 +35382,7 @@ class AdPlacePageSetMetadataFields(BaseModel):
 class McomOnboardingStatusFields(BaseModel):
     """Pydantic model for McomOnboardingStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     onboarding_status: str | None = Field(None, alias="onboarding_status")
     page_id: str | None = Field(None, alias="page_id")
 
@@ -35390,7 +35390,7 @@ class McomOnboardingStatusFields(BaseModel):
 class AdCreativeLinkDataAppLinkSpecFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataAppLinkSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     android: list[AndroidAppLinkFields] | None = Field(None, alias="android")
     ios: list[IosAppLinkFields] | None = Field(None, alias="ios")
     ipad: list[IosAppLinkFields] | None = Field(None, alias="ipad")
@@ -35400,14 +35400,14 @@ class AdCreativeLinkDataAppLinkSpecFields(BaseModel):
 class AdDynamicCreativeFields(BaseModel):
     """Pydantic model for AdDynamicCreative fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     preview_url: str | None = Field(None, alias="preview_url")
 
 
 class AdAccountDefaultDestinationFields(BaseModel):
     """Pydantic model for AdAccountDefaultDestination fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     destination_id: str | None = Field(None, alias="destination_id")
     destination_url: str | None = Field(None, alias="destination_url")
 
@@ -35415,7 +35415,7 @@ class AdAccountDefaultDestinationFields(BaseModel):
 class ManagedPartnerBusinessFields(BaseModel):
     """Pydantic model for ManagedPartnerBusiness fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account: AdAccountFields | None = Field(None, alias="ad_account")
     catalog_segment: ProductCatalogFields | None = Field(None, alias="catalog_segment")
     extended_credit: ManagedPartnerExtendedCreditFields | None = Field(
@@ -35430,7 +35430,7 @@ class ManagedPartnerBusinessFields(BaseModel):
 class CommerceMerchantSettingsFields(BaseModel):
     """Pydantic model for CommerceMerchantSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     checkout_config: str | None = Field(None, alias="checkout_config")
     checkout_message: str | None = Field(None, alias="checkout_message")
     contact_email: str | None = Field(None, alias="contact_email")
@@ -35454,7 +35454,7 @@ class CommerceMerchantSettingsFields(BaseModel):
 class AdCreativePlaceDataFields(BaseModel):
     """Pydantic model for AdCreativePlaceData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     address_string: str | None = Field(None, alias="address_string")
     label: str | None = Field(None, alias="label")
     latitude: float | None = Field(None, alias="latitude")
@@ -35466,7 +35466,7 @@ class AdCreativePlaceDataFields(BaseModel):
 class ExtendedCreditInfoFields(BaseModel):
     """Pydantic model for ExtendedCreditInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     credit_left: str | None = Field(None, alias="credit_left")
     credit_revoked: bool | None = Field(None, alias="credit_revoked")
     credit_used: str | None = Field(None, alias="credit_used")
@@ -35476,7 +35476,7 @@ class ExtendedCreditInfoFields(BaseModel):
 class PlaceTagFields(BaseModel):
     """Pydantic model for PlaceTag fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_time: datetime | None = Field(None, alias="created_time")
     id: str | None = Field(None, alias="id")
     place: PageFields | None = Field(None, alias="place")
@@ -35485,7 +35485,7 @@ class PlaceTagFields(BaseModel):
 class AdsMcmeConversionFields(BaseModel):
     """Pydantic model for AdsMcmeConversion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     description: str | None = Field(None, alias="description")
     id: str | None = Field(None, alias="id")
@@ -35498,7 +35498,7 @@ class AdsMcmeConversionFields(BaseModel):
 class ShopFields(BaseModel):
     """Pydantic model for Shop fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     commerce_merchant_settings: CommerceMerchantSettingsFields | None = Field(
         None, alias="commerce_merchant_settings"
     )
@@ -35513,7 +35513,7 @@ class ShopFields(BaseModel):
 class ProductItemShippingFields(BaseModel):
     """Pydantic model for ProductItemShipping fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     shipping_country: str | None = Field(None, alias="shipping_country")
     shipping_price_currency: str | None = Field(None, alias="shipping_price_currency")
     shipping_price_value: float | None = Field(None, alias="shipping_price_value")
@@ -35524,7 +35524,7 @@ class ProductItemShippingFields(BaseModel):
 class AdsReportBuilderMMMReportSchedulerFields(BaseModel):
     """Pydantic model for AdsReportBuilderMMMReportScheduler fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_ids: list[str] | None = Field(None, alias="ad_account_ids")
     filtering: list[dict[str, Any]] | None = Field(None, alias="filtering")
     id: str | None = Field(None, alias="id")
@@ -35535,7 +35535,7 @@ class AdsReportBuilderMMMReportSchedulerFields(BaseModel):
 class ReachFrequencySpecFields(BaseModel):
     """Pydantic model for ReachFrequencySpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     countries: list[str] | None = Field(None, alias="countries")
     default_creation_data: dict[str, Any] | None = Field(None, alias="default_creation_data")
     global_io_max_campaign_duration: int | None = Field(
@@ -35553,7 +35553,7 @@ class ReachFrequencySpecFields(BaseModel):
 class CreativeMulticellTestConfigFields(BaseModel):
     """Pydantic model for CreativeMulticellTestConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     budget_percentage: int | None = Field(None, alias="budget_percentage")
     configured_cell_count: int | None = Field(None, alias="configured_cell_count")
     daily_budget: int | None = Field(None, alias="daily_budget")
@@ -35565,7 +35565,7 @@ class CreativeMulticellTestConfigFields(BaseModel):
 class UserPaymentModulesOptionsFields(BaseModel):
     """Pydantic model for UserPaymentModulesOptions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     available_payment_options: list[dict[str, Any]] | None = Field(
         None, alias="available_payment_options"
@@ -35577,7 +35577,7 @@ class UserPaymentModulesOptionsFields(BaseModel):
 class ContentBlockListFields(BaseModel):
     """Pydantic model for ContentBlockList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -35586,14 +35586,14 @@ class ContentBlockListFields(BaseModel):
 class AdCreativeGenerativeAssetSpecFields(BaseModel):
     """Pydantic model for AdCreativeGenerativeAssetSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class AdCreativePhotoDataMediaElementsFields(BaseModel):
     """Pydantic model for AdCreativePhotoDataMediaElements fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     element_id: str | None = Field(None, alias="element_id")
     element_type: str | None = Field(None, alias="element_type")
     x: float | None = Field(None, alias="x")
@@ -35603,7 +35603,7 @@ class AdCreativePhotoDataMediaElementsFields(BaseModel):
 class PhotoMetadataFields(BaseModel):
     """Pydantic model for PhotoMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     camera_make: str | None = Field(None, alias="camera_make")
     camera_model: str | None = Field(None, alias="camera_model")
     datetime_modified: datetime | None = Field(None, alias="datetime_modified")
@@ -35621,7 +35621,7 @@ class PhotoMetadataFields(BaseModel):
 class CopyrightAudioAssetFields(BaseModel):
     """Pydantic model for CopyrightAudioAsset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audio_availability_status: str | None = Field(None, alias="audio_availability_status")
     audio_library_policy: list[dict[str, list[dict[str, dict[str, Any]]]]] | None = Field(
         None, alias="audio_library_policy"
@@ -35636,7 +35636,7 @@ class CopyrightAudioAssetFields(BaseModel):
 class AdsAnomalyDetectionFields(BaseModel):
     """Pydantic model for AdsAnomalyDetection fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     anomaly_data: list[dict[str, Any]] | None = Field(None, alias="anomaly_data")
     day: int | None = Field(None, alias="day")
 
@@ -35644,7 +35644,7 @@ class AdsAnomalyDetectionFields(BaseModel):
 class AdStudyCellFields(BaseModel):
     """Pydantic model for AdStudyCell fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_entities_count: int | None = Field(None, alias="ad_entities_count")
     control_percentage: float | None = Field(None, alias="control_percentage")
     id: str | None = Field(None, alias="id")
@@ -35655,7 +35655,7 @@ class AdStudyCellFields(BaseModel):
 class AdAssetFeedSpecCallToActionFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecCallToAction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     type: str | None = Field(None, alias="type")
     value: AdCreativeLinkDataCallToActionValueFields | None = Field(None, alias="value")
@@ -35664,7 +35664,7 @@ class AdAssetFeedSpecCallToActionFields(BaseModel):
 class ValueBasedEligibleSourceFields(BaseModel):
     """Pydantic model for ValueBasedEligibleSource fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     title: str | None = Field(None, alias="title")
     type: str | None = Field(None, alias="type")
@@ -35673,7 +35673,7 @@ class ValueBasedEligibleSourceFields(BaseModel):
 class AdAssetFeedSpecCarouselFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecCarousel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     child_attachments: list[AdAssetFeedSpecCarouselChildAttachmentFields] | None = Field(
         None, alias="child_attachments"
@@ -35685,7 +35685,7 @@ class AdAssetFeedSpecCarouselFields(BaseModel):
 class BusinessApplicationRequestFields(BaseModel):
     """Pydantic model for BusinessApplicationRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     application: ApplicationFields | None = Field(None, alias="application")
     id: str | None = Field(None, alias="id")
 
@@ -35693,7 +35693,7 @@ class BusinessApplicationRequestFields(BaseModel):
 class P2MInvoicePaymentsFields(BaseModel):
     """Pydantic model for P2MInvoicePayments fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     page_id: str | None = Field(None, alias="page_id")
     payments: list[dict[str, Any]] | None = Field(None, alias="payments")
 
@@ -35701,7 +35701,7 @@ class P2MInvoicePaymentsFields(BaseModel):
 class CustomAudienceIntegrityFlagsAndAppealStatusFields(BaseModel):
     """Pydantic model for CustomAudienceIntegrityFlagsAndAppealStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     closeout_time: int | None = Field(None, alias="closeout_time")
     flagged_fields: list[str] | None = Field(None, alias="flagged_fields")
     latest_appeal_requestor: str | None = Field(None, alias="latest_appeal_requestor")
@@ -35712,7 +35712,7 @@ class CustomAudienceIntegrityFlagsAndAppealStatusFields(BaseModel):
 class MediaTitleFields(BaseModel):
     """Pydantic model for MediaTitle fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     category_specific_fields: CatalogSubVerticalListFields | None = Field(
         None, alias="category_specific_fields"
@@ -35741,7 +35741,7 @@ class MediaTitleFields(BaseModel):
 class OverrideDetailsFields(BaseModel):
     """Pydantic model for OverrideDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     key: str | None = Field(None, alias="key")
     type: str | None = Field(None, alias="type")
     values: dict[str, Any] | None = Field(None, alias="values")
@@ -35750,7 +35750,7 @@ class OverrideDetailsFields(BaseModel):
 class AdPlacementFields(BaseModel):
     """Pydantic model for AdPlacement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bundle_id: str | None = Field(None, alias="bundle_id")
     display_format: str | None = Field(None, alias="display_format")
     external_placement_id: str | None = Field(None, alias="external_placement_id")
@@ -35765,7 +35765,7 @@ class AdPlacementFields(BaseModel):
 class AndroidAppLinkFields(BaseModel):
     """Pydantic model for AndroidAppLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_name: str | None = Field(None, alias="app_name")
     class_: str | None = Field(None, alias="class")
     package: str | None = Field(None, alias="package")
@@ -35775,7 +35775,7 @@ class AndroidAppLinkFields(BaseModel):
 class AdsActionStatsFields(BaseModel):
     """Pydantic model for AdsActionStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field_1d_click: str | None = Field(None, alias="1d_click")
     field_1d_click_all_conversions: str | None = Field(None, alias="1d_click_all_conversions")
     field_1d_click_first_conversion: str | None = Field(None, alias="1d_click_first_conversion")
@@ -35840,7 +35840,7 @@ class AdsActionStatsFields(BaseModel):
 class CreatorAssetCreativeFields(BaseModel):
     """Pydantic model for CreatorAssetCreative fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     image_url: str | None = Field(None, alias="image_url")
     moderation_status: str | None = Field(None, alias="moderation_status")
@@ -35853,7 +35853,7 @@ class CreatorAssetCreativeFields(BaseModel):
 class TargetingAutomationFields(BaseModel):
     """Pydantic model for TargetingAutomation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     advantage_audience: int | None = Field(None, alias="advantage_audience")
     individual_setting: dict[str, Any] | None = Field(None, alias="individual_setting")
     shared_audiences: int | None = Field(None, alias="shared_audiences")
@@ -35863,7 +35863,7 @@ class TargetingAutomationFields(BaseModel):
 class AdAccountAdRulesHistoryFields(BaseModel):
     """Pydantic model for AdAccountAdRulesHistory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     evaluation_spec: AdRuleEvaluationSpecFields | None = Field(None, alias="evaluation_spec")
     exception_code: int | None = Field(None, alias="exception_code")
     exception_message: str | None = Field(None, alias="exception_message")
@@ -35878,7 +35878,7 @@ class AdAccountAdRulesHistoryFields(BaseModel):
 class AdContractFields(BaseModel):
     """Pydantic model for AdContract fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     account_mgr_fbid: str | None = Field(None, alias="account_mgr_fbid")
     account_mgr_name: str | None = Field(None, alias="account_mgr_name")
@@ -35925,7 +35925,7 @@ class AdContractFields(BaseModel):
 class MediaCopyrightUpdateRecordFields(BaseModel):
     """Pydantic model for MediaCopyrightUpdateRecord fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_types: list[str] | None = Field(None, alias="action_types")
     actor: UserFields | None = Field(None, alias="actor")
     actor_type: str | None = Field(None, alias="actor_type")
@@ -35938,7 +35938,7 @@ class MediaCopyrightUpdateRecordFields(BaseModel):
 class PageCTSTopicFields(BaseModel):
     """Pydantic model for PageCTSTopic fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     frequency: str | None = Field(None, alias="frequency")
     image_hash: str | None = Field(None, alias="image_hash")
@@ -35950,7 +35950,7 @@ class PageCTSTopicFields(BaseModel):
 class IGCommentFromUserFields(BaseModel):
     """Pydantic model for IGCommentFromUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     self_ig_scoped_id: str | None = Field(None, alias="self_ig_scoped_id")
     username: str | None = Field(None, alias="username")
@@ -35959,7 +35959,7 @@ class IGCommentFromUserFields(BaseModel):
 class LeadFields(BaseModel):
     """Pydantic model for Lead fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_id: str | None = Field(None, alias="ad_id")
     ad_name: str | None = Field(None, alias="ad_name")
     adset_id: str | None = Field(None, alias="adset_id")
@@ -35988,7 +35988,7 @@ class LeadFields(BaseModel):
 class AdCreativeFeatureCustomizationsFields(BaseModel):
     """Pydantic model for AdCreativeFeatureCustomizations fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     background_color: str | None = Field(None, alias="background_color")
     catalog_feed_tag_name: str | None = Field(None, alias="catalog_feed_tag_name")
     font_name: str | None = Field(None, alias="font_name")
@@ -36002,7 +36002,7 @@ class AdCreativeFeatureCustomizationsFields(BaseModel):
 class AdAccountIosFourteenCampaignLimitsFields(BaseModel):
     """Pydantic model for AdAccountIosFourteenCampaignLimits fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     campaign_group_limit: int | None = Field(None, alias="campaign_group_limit")
     campaign_group_limits_details: list[dict[str, Any]] | None = Field(
         None, alias="campaign_group_limits_details"
@@ -36013,7 +36013,7 @@ class AdAccountIosFourteenCampaignLimitsFields(BaseModel):
 class BusinessImageTBusinessFolderPathItemFields(BaseModel):
     """Pydantic model for BusinessImageTBusinessFolderPathItem fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     parent_folder_id: str | None = Field(None, alias="parent_folder_id")
     type: str | None = Field(None, alias="type")
@@ -36022,7 +36022,7 @@ class BusinessImageTBusinessFolderPathItemFields(BaseModel):
 class CTXDefaultOptimizationConfigFields(BaseModel):
     """Pydantic model for CTXDefaultOptimizationConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     destination_type: str | None = Field(None, alias="destination_type")
     objective: str | None = Field(None, alias="objective")
     optimization_goal: str | None = Field(None, alias="optimization_goal")
@@ -36031,7 +36031,7 @@ class CTXDefaultOptimizationConfigFields(BaseModel):
 class AdsPaymentCycleFields(BaseModel):
     """Pydantic model for AdsPaymentCycle fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     created_time: datetime | None = Field(None, alias="created_time")
     multiplier: int | None = Field(None, alias="multiplier")
@@ -36043,7 +36043,7 @@ class AdsPaymentCycleFields(BaseModel):
 class RichMediaElementFields(BaseModel):
     """Pydantic model for RichMediaElement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     element: dict[str, Any] | None = Field(None, alias="element")
     element_type: str | None = Field(None, alias="element_type")
     name: str | None = Field(None, alias="name")
@@ -36052,7 +36052,7 @@ class RichMediaElementFields(BaseModel):
 class LookalikeSpecFields(BaseModel):
     """Pydantic model for LookalikeSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     is_financial_service: bool | None = Field(None, alias="is_financial_service")
     origin: list[dict[str, Any]] | None = Field(None, alias="origin")
@@ -36070,7 +36070,7 @@ class LookalikeSpecFields(BaseModel):
 class AdCampaignGroupAdvantageStateFields(BaseModel):
     """Pydantic model for AdCampaignGroupAdvantageState fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     advantage_audience_state: str | None = Field(None, alias="advantage_audience_state")
     advantage_budget_state: str | None = Field(None, alias="advantage_budget_state")
     advantage_placement_state: str | None = Field(None, alias="advantage_placement_state")
@@ -36080,7 +36080,7 @@ class AdCampaignGroupAdvantageStateFields(BaseModel):
 class AdsPixelCAPIIntegrationQualityFields(BaseModel):
     """Pydantic model for AdsPixelCAPIIntegrationQuality fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     acr: dict[str, Any] | None = Field(None, alias="acr")
     data_freshness: dict[str, Any] | None = Field(None, alias="data_freshness")
     dedupe_key_feedback: list[dict[str, Any]] | None = Field(None, alias="dedupe_key_feedback")
@@ -36095,7 +36095,7 @@ class AdsPixelCAPIIntegrationQualityFields(BaseModel):
 class ProductCatalogImageSettingsFields(BaseModel):
     """Pydantic model for ProductCatalogImageSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     carousel_ad: ProductCatalogImageSettingsOperationFields | None = Field(
         None, alias="carousel_ad"
     )
@@ -36105,7 +36105,7 @@ class ProductCatalogImageSettingsFields(BaseModel):
 class RevSharePolicyFields(BaseModel):
     """Pydantic model for RevSharePolicy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     policy_id: str | None = Field(None, alias="policy_id")
     policy_name: str | None = Field(None, alias="policy_name")
 
@@ -36113,7 +36113,7 @@ class RevSharePolicyFields(BaseModel):
 class CanvasCollectionThumbnailFields(BaseModel):
     """Pydantic model for CanvasCollectionThumbnail fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     element_child_index: int | None = Field(None, alias="element_child_index")
     element_id: str | None = Field(None, alias="element_id")
     photo: PhotoFields | None = Field(None, alias="photo")
@@ -36122,7 +36122,7 @@ class CanvasCollectionThumbnailFields(BaseModel):
 class AdCreativeSiteLinksSpecFields(BaseModel):
     """Pydantic model for AdCreativeSiteLinksSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_site_link_sticky: bool | None = Field(None, alias="is_site_link_sticky")
     site_link_hash: str | None = Field(None, alias="site_link_hash")
     site_link_id: str | None = Field(None, alias="site_link_id")
@@ -36136,7 +36136,7 @@ class AdCreativeSiteLinksSpecFields(BaseModel):
 class DestinationFields(BaseModel):
     """Pydantic model for Destination fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     address: str | None = Field(None, alias="address")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     category_specific_fields: CatalogSubVerticalListFields | None = Field(
@@ -36172,7 +36172,7 @@ class DestinationFields(BaseModel):
 class AdSetFields(BaseModel):
     """Pydantic model for AdSet fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     adlabels: list[AdLabelFields] | None = Field(None, alias="adlabels")
     adset_schedule: list[DayPartFields] | None = Field(None, alias="adset_schedule")
@@ -36268,7 +36268,7 @@ class AdSetFields(BaseModel):
 class AdCampaignMultiAdsFields(BaseModel):
     """Pydantic model for AdCampaignMultiAds fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     enroll_status: str | None = Field(None, alias="enroll_status")
     source_type: str | None = Field(None, alias="source_type")
 
@@ -36276,7 +36276,7 @@ class AdCampaignMultiAdsFields(BaseModel):
 class InsightsValueFields(BaseModel):
     """Pydantic model for InsightsValue fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     campaign_id: str | None = Field(None, alias="campaign_id")
     earning_source: str | None = Field(None, alias="earning_source")
     end_time: datetime | None = Field(None, alias="end_time")
@@ -36298,7 +36298,7 @@ class InsightsValueFields(BaseModel):
 class CanvasDynamicSettingFields(BaseModel):
     """Pydantic model for CanvasDynamicSetting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     child_documents: list[CanvasFields] | None = Field(None, alias="child_documents")
     product_set_id: str | None = Field(None, alias="product_set_id")
 
@@ -36306,7 +36306,7 @@ class CanvasDynamicSettingFields(BaseModel):
 class AdsQuickViewsFields(BaseModel):
     """Pydantic model for AdsQuickViews fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     attribution_windows: list[str] | None = Field(None, alias="attribution_windows")
     breakdowns: list[str] | None = Field(None, alias="breakdowns")
     column_fields: list[str] | None = Field(None, alias="column_fields")
@@ -36322,7 +36322,7 @@ class AdsQuickViewsFields(BaseModel):
 class PlaceTopicFields(BaseModel):
     """Pydantic model for PlaceTopic fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     count: int | None = Field(None, alias="count")
     has_children: bool | None = Field(None, alias="has_children")
     icon_url: str | None = Field(None, alias="icon_url")
@@ -36336,7 +36336,7 @@ class PlaceTopicFields(BaseModel):
 class AdKeywordsFields(BaseModel):
     """Pydantic model for AdKeywords fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     brands: list[str] | None = Field(None, alias="brands")
     product_categories: list[str] | None = Field(None, alias="product_categories")
     product_names: list[str] | None = Field(None, alias="product_names")
@@ -36346,7 +36346,7 @@ class AdKeywordsFields(BaseModel):
 class AdsPixelEventSuggestionRuleFields(BaseModel):
     """Pydantic model for AdsPixelEventSuggestionRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field_7d_volume: int | None = Field(None, alias="7d_volume")
     dismissed: bool | None = Field(None, alias="dismissed")
     end_time: datetime | None = Field(None, alias="end_time")
@@ -36360,7 +36360,7 @@ class AdsPixelEventSuggestionRuleFields(BaseModel):
 class OfflineConversionDataSetActivitiesFields(BaseModel):
     """Pydantic model for OfflineConversionDataSetActivities fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actor_id: int | None = Field(None, alias="actor_id")
     actor_name: str | None = Field(None, alias="actor_name")
     adaccount_id: int | None = Field(None, alias="adaccount_id")
@@ -36375,7 +36375,7 @@ class OfflineConversionDataSetActivitiesFields(BaseModel):
 class AdImageFields(BaseModel):
     """Pydantic model for AdImage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     created_time: datetime | None = Field(None, alias="created_time")
     creatives: list[str] | None = Field(None, alias="creatives")
@@ -36400,7 +36400,7 @@ class AdImageFields(BaseModel):
 class AdAssetVideoFields(BaseModel):
     """Pydantic model for AdAssetVideo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     caption_ids: list[str] | None = Field(None, alias="caption_ids")
     id: str | None = Field(None, alias="id")
     source_image_url: str | None = Field(None, alias="source_image_url")
@@ -36417,7 +36417,7 @@ class AdAssetVideoFields(BaseModel):
 class IGUserSubscribedAppsDataFields(BaseModel):
     """Pydantic model for IGUserSubscribedAppsData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     subscribed_fields: list[str] | None = Field(None, alias="subscribed_fields")
 
@@ -36425,7 +36425,7 @@ class IGUserSubscribedAppsDataFields(BaseModel):
 class CatalogItemRejectionReasonsFields(BaseModel):
     """Pydantic model for CatalogItemRejectionReasons fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     capability: str | None = Field(None, alias="capability")
     rejection_information: list[dict[str, Any]] | None = Field(None, alias="rejection_information")
 
@@ -36433,7 +36433,7 @@ class CatalogItemRejectionReasonsFields(BaseModel):
 class ProductCatalogCategoryFields(BaseModel):
     """Pydantic model for ProductCatalogCategory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     criteria_value: str | None = Field(None, alias="criteria_value")
     description: str | None = Field(None, alias="description")
     destination_uri: str | None = Field(None, alias="destination_uri")
@@ -36446,7 +36446,7 @@ class ProductCatalogCategoryFields(BaseModel):
 class TargetingGeoLocationPoliticalDistrictFields(BaseModel):
     """Pydantic model for TargetingGeoLocationPoliticalDistrict fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     key: str | None = Field(None, alias="key")
     name: str | None = Field(None, alias="name")
@@ -36456,7 +36456,7 @@ class TargetingGeoLocationPoliticalDistrictFields(BaseModel):
 class AdsCustomPivotsPreviewFields(BaseModel):
     """Pydantic model for AdsCustomPivotsPreview fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     account_name: str | None = Field(None, alias="account_name")
     ad_id: str | None = Field(None, alias="ad_id")
@@ -36471,7 +36471,7 @@ class AdsCustomPivotsPreviewFields(BaseModel):
 class ShadowIGHashtagFields(BaseModel):
     """Pydantic model for ShadowIGHashtag fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -36479,7 +36479,7 @@ class ShadowIGHashtagFields(BaseModel):
 class AdCampaignFrequencyControlSpecsFields(BaseModel):
     """Pydantic model for AdCampaignFrequencyControlSpecs fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event: str | None = Field(None, alias="event")
     interval_days: int | None = Field(None, alias="interval_days")
     max_frequency: int | None = Field(None, alias="max_frequency")
@@ -36488,7 +36488,7 @@ class AdCampaignFrequencyControlSpecsFields(BaseModel):
 class AppPublisherFields(BaseModel):
     """Pydantic model for AppPublisher fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     content_id: str | None = Field(None, alias="content_id")
     icon_url: str | None = Field(None, alias="icon_url")
     id: str | None = Field(None, alias="id")
@@ -36501,7 +36501,7 @@ class AppPublisherFields(BaseModel):
 class HoursFields(BaseModel):
     """Pydantic model for Hours fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     permanent_status: str | None = Field(None, alias="permanent_status")
 
@@ -36509,7 +36509,7 @@ class HoursFields(BaseModel):
 class AdAccountBusinessConstraintsFields(BaseModel):
     """Pydantic model for AdAccountBusinessConstraints fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_controls: dict[str, Any] | None = Field(None, alias="audience_controls")
     campaigns_with_error: list[str] | None = Field(None, alias="campaigns_with_error")
     placement_controls: dict[str, Any] | None = Field(None, alias="placement_controls")
@@ -36519,7 +36519,7 @@ class AdAccountBusinessConstraintsFields(BaseModel):
 class InstagramThreadFields(BaseModel):
     """Pydantic model for InstagramThread fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     folder: str | None = Field(None, alias="folder")
     id: str | None = Field(None, alias="id")
     participants: dict[str, Any] | None = Field(None, alias="participants")
@@ -36529,7 +36529,7 @@ class InstagramThreadFields(BaseModel):
 class TimeSuggestionFields(BaseModel):
     """Pydantic model for TimeSuggestion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     high_demand_periods: list[dict[str, Any]] | None = Field(None, alias="high_demand_periods")
     is_enabled: bool | None = Field(None, alias="is_enabled")
 
@@ -36537,14 +36537,14 @@ class TimeSuggestionFields(BaseModel):
 class ANBlockedBICategoryFields(BaseModel):
     """Pydantic model for ANBlockedBICategory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     key: str | None = Field(None, alias="key")
 
 
 class AdAssetTargetRuleTargetingFields(BaseModel):
     """Pydantic model for AdAssetTargetRuleTargeting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     age_max: int | None = Field(None, alias="age_max")
     age_min: int | None = Field(None, alias="age_min")
     audience_network_positions: list[str] | None = Field(None, alias="audience_network_positions")
@@ -36559,7 +36559,7 @@ class AdAssetTargetRuleTargetingFields(BaseModel):
 class StoreLocationFields(BaseModel):
     """Pydantic model for StoreLocation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     full_address: str | None = Field(None, alias="full_address")
     hours: dict[str, Any] | None = Field(None, alias="hours")
     id: str | None = Field(None, alias="id")
@@ -36573,14 +36573,14 @@ class StoreLocationFields(BaseModel):
 class AdAccountYouthAdsAdvertiserFields(BaseModel):
     """Pydantic model for AdAccountYouthAdsAdvertiser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_youth_ads_advertiser: bool | None = Field(None, alias="is_youth_ads_advertiser")
 
 
 class AdCreativeImageDataMediaElementsFields(BaseModel):
     """Pydantic model for AdCreativeImageDataMediaElements fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     element_id: str | None = Field(None, alias="element_id")
     element_type: str | None = Field(None, alias="element_type")
     x: float | None = Field(None, alias="x")
@@ -36590,7 +36590,7 @@ class AdCreativeImageDataMediaElementsFields(BaseModel):
 class PublisherBlockListFields(BaseModel):
     """Pydantic model for PublisherBlockList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_publishers: list[AppPublisherFields] | None = Field(None, alias="app_publishers")
     business_owner_id: str | None = Field(None, alias="business_owner_id")
     id: str | None = Field(None, alias="id")
@@ -36606,7 +36606,7 @@ class PublisherBlockListFields(BaseModel):
 class AppRequestFields(BaseModel):
     """Pydantic model for AppRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_type: str | None = Field(None, alias="action_type")
     application: ApplicationFields | None = Field(None, alias="application")
     created_time: datetime | None = Field(None, alias="created_time")
@@ -36621,7 +36621,7 @@ class AppRequestFields(BaseModel):
 class StreamFilterFields(BaseModel):
     """Pydantic model for StreamFilter fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     filter_key: str | None = Field(None, alias="filter_key")
     name: str | None = Field(None, alias="name")
     type: str | None = Field(None, alias="type")
@@ -36630,7 +36630,7 @@ class StreamFilterFields(BaseModel):
 class ScimCompanyUserPhoneNumberFields(BaseModel):
     """Pydantic model for ScimCompanyUserPhoneNumber fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     number: str | None = Field(None, alias="number")
     primary: bool | None = Field(None, alias="primary")
     type: str | None = Field(None, alias="type")
@@ -36639,7 +36639,7 @@ class ScimCompanyUserPhoneNumberFields(BaseModel):
 class AdCreativeVideoDataFields(BaseModel):
     """Pydantic model for AdCreativeVideoData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     additional_image_index: int | None = Field(None, alias="additional_image_index")
     branded_content_shared_to_sponsor_status: str | None = Field(
         None, alias="branded_content_shared_to_sponsor_status"
@@ -36674,7 +36674,7 @@ class AdCreativeVideoDataFields(BaseModel):
 class MessagingFeatureStatusFields(BaseModel):
     """Pydantic model for MessagingFeatureStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     hop_v2: bool | None = Field(None, alias="hop_v2")
     ig_multi_app: bool | None = Field(None, alias="ig_multi_app")
     msgr_multi_app: bool | None = Field(None, alias="msgr_multi_app")
@@ -36683,7 +36683,7 @@ class MessagingFeatureStatusFields(BaseModel):
 class FBImageCopyrightMatchFields(BaseModel):
     """Pydantic model for FBImageCopyrightMatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     added_to_dashboard_time: datetime | None = Field(None, alias="added_to_dashboard_time")
     applied_actions: list[dict[str, dict[str, Any]]] | None = Field(None, alias="applied_actions")
     audit_log: list[dict[str, Any]] | None = Field(None, alias="audit_log")
@@ -36705,7 +36705,7 @@ class FBImageCopyrightMatchFields(BaseModel):
 class BusinessAdsReportingReportSpecsFields(BaseModel):
     """Pydantic model for BusinessAdsReportingReportSpecs fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_report_time: str | None = Field(None, alias="action_report_time")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     ad_account_ids: list[str] | None = Field(None, alias="ad_account_ids")
@@ -36756,7 +36756,7 @@ class BusinessAdsReportingReportSpecsFields(BaseModel):
 class AdActivityFields(BaseModel):
     """Pydantic model for AdActivity fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actor_id: str | None = Field(None, alias="actor_id")
     actor_name: str | None = Field(None, alias="actor_name")
     application_id: str | None = Field(None, alias="application_id")
@@ -36774,7 +36774,7 @@ class AdActivityFields(BaseModel):
 class AdCreativeCollectionThumbnailInfoFields(BaseModel):
     """Pydantic model for AdCreativeCollectionThumbnailInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     element_child_index: int | None = Field(None, alias="element_child_index")
     element_crops: AdsImageCropsFields | None = Field(None, alias="element_crops")
     element_id: str | None = Field(None, alias="element_id")
@@ -36783,7 +36783,7 @@ class AdCreativeCollectionThumbnailInfoFields(BaseModel):
 class AdAssetFeedSpecAssetLabelFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecAssetLabel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -36791,7 +36791,7 @@ class AdAssetFeedSpecAssetLabelFields(BaseModel):
 class RobotFields(BaseModel):
     """Pydantic model for Robot fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bringup_vars: list[dict[str, str]] | None = Field(None, alias="bringup_vars")
     configurations: list[dict[str, str]] | None = Field(None, alias="configurations")
     data_center: str | None = Field(None, alias="data_center")
@@ -36809,7 +36809,7 @@ class RobotFields(BaseModel):
 class AdsHistogramStatsFields(BaseModel):
     """Pydantic model for AdsHistogramStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field_1d_click: list[int] | None = Field(None, alias="1d_click")
     field_1d_click_all_conversions: list[int] | None = Field(None, alias="1d_click_all_conversions")
     field_1d_click_first_conversion: list[int] | None = Field(
@@ -36886,7 +36886,7 @@ class AdsHistogramStatsFields(BaseModel):
 class ProductGroupFields(BaseModel):
     """Pydantic model for ProductGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     product_catalog: ProductCatalogFields | None = Field(None, alias="product_catalog")
     retailer_id: str | None = Field(None, alias="retailer_id")
@@ -36896,7 +36896,7 @@ class ProductGroupFields(BaseModel):
 class OffsitePixelFields(BaseModel):
     """Pydantic model for OffsitePixel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creator: str | None = Field(None, alias="creator")
     id: str | None = Field(None, alias="id")
     js_pixel: str | None = Field(None, alias="js_pixel")
@@ -36908,7 +36908,7 @@ class OffsitePixelFields(BaseModel):
 class AdAssetTitleFields(BaseModel):
     """Pydantic model for AdAssetTitle fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     text: str | None = Field(None, alias="text")
     url_tags: str | None = Field(None, alias="url_tags")
@@ -36917,7 +36917,7 @@ class AdAssetTitleFields(BaseModel):
 class HighDemandPeriodFields(BaseModel):
     """Pydantic model for HighDemandPeriod fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_object_id: str | None = Field(None, alias="ad_object_id")
     budget_value: int | None = Field(None, alias="budget_value")
     budget_value_type: str | None = Field(None, alias="budget_value_type")
@@ -36933,7 +36933,7 @@ class HighDemandPeriodFields(BaseModel):
 class UserFields(BaseModel):
     """Pydantic model for User fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     about: str | None = Field(None, alias="about")
     age_range: AgeRangeFields | None = Field(None, alias="age_range")
     avatar_2d_profile_picture: AvatarProfilePictureFields | None = Field(
@@ -37000,7 +37000,7 @@ class UserFields(BaseModel):
 class CatalogAdvertiserInsightFields(BaseModel):
     """Pydantic model for CatalogAdvertiserInsight fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     category: str | None = Field(None, alias="category")
     country: str | None = Field(None, alias="country")
 
@@ -37008,7 +37008,7 @@ class CatalogAdvertiserInsightFields(BaseModel):
 class ProfilePictureSourceFields(BaseModel):
     """Pydantic model for ProfilePictureSource fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bottom: int | None = Field(None, alias="bottom")
     cache_key: str | None = Field(None, alias="cache_key")
     height: int | None = Field(None, alias="height")
@@ -37023,7 +37023,7 @@ class ProfilePictureSourceFields(BaseModel):
 class UserPaymentMethodsInfoFields(BaseModel):
     """Pydantic model for UserPaymentMethodsInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     available_card_types: list[str] | None = Field(None, alias="available_card_types")
     available_payment_methods: list[str] | None = Field(None, alias="available_payment_methods")
@@ -37040,7 +37040,7 @@ class UserPaymentMethodsInfoFields(BaseModel):
 class ProductFeedScheduleFields(BaseModel):
     """Pydantic model for ProductFeedSchedule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     day_of_month: int | None = Field(None, alias="day_of_month")
     day_of_week: str | None = Field(None, alias="day_of_week")
     hour: int | None = Field(None, alias="hour")
@@ -37056,7 +37056,7 @@ class ProductFeedScheduleFields(BaseModel):
 class AdKeywordStatsFields(BaseModel):
     """Pydantic model for AdKeywordStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: list[AdsActionStatsFields] | None = Field(None, alias="actions")
     clicks: int | None = Field(None, alias="clicks")
     cost_per_total_action: float | None = Field(None, alias="cost_per_total_action")
@@ -37082,7 +37082,7 @@ class AdKeywordStatsFields(BaseModel):
 class BusinessCreativeFields(BaseModel):
     """Pydantic model for BusinessCreative fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     duration: int | None = Field(None, alias="duration")
     hash: str | None = Field(None, alias="hash")
@@ -37099,7 +37099,7 @@ class BusinessCreativeFields(BaseModel):
 class CustomUserSettingsFields(BaseModel):
     """Pydantic model for CustomUserSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     page_level_persistent_menu: list[dict[str, Any]] | None = Field(
         None, alias="page_level_persistent_menu"
     )
@@ -37111,7 +37111,7 @@ class CustomUserSettingsFields(BaseModel):
 class McomInvoiceListsFields(BaseModel):
     """Pydantic model for McomInvoiceLists fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     invoice_details: list[McomInvoiceDetailsFields] | None = Field(None, alias="invoice_details")
     invoice_ids: list[str] | None = Field(None, alias="invoice_ids")
     page_id: str | None = Field(None, alias="page_id")
@@ -37120,7 +37120,7 @@ class McomInvoiceListsFields(BaseModel):
 class LeadGenContextCardFields(BaseModel):
     """Pydantic model for LeadGenContextCard fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     button_text: str | None = Field(None, alias="button_text")
     content: list[str] | None = Field(None, alias="content")
     cover_photo: PhotoFields | None = Field(None, alias="cover_photo")
@@ -37132,7 +37132,7 @@ class LeadGenContextCardFields(BaseModel):
 class ImageCopyrightFields(BaseModel):
     """Pydantic model for ImageCopyright fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     artist: str | None = Field(None, alias="artist")
     copyright_monitoring_status: str | None = Field(None, alias="copyright_monitoring_status")
     creation_time: datetime | None = Field(None, alias="creation_time")
@@ -37157,14 +37157,14 @@ class ImageCopyrightFields(BaseModel):
 class ApacMonSellerStatusAPIContainerFields(BaseModel):
     """Pydantic model for ApacMonSellerStatusAPIContainer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class AdCampaignIssuesInfoFields(BaseModel):
     """Pydantic model for AdCampaignIssuesInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     error_code: int | None = Field(None, alias="error_code")
     error_message: str | None = Field(None, alias="error_message")
     error_summary: str | None = Field(None, alias="error_summary")
@@ -37176,7 +37176,7 @@ class AdCampaignIssuesInfoFields(BaseModel):
 class AdAccountAdVolumeFields(BaseModel):
     """Pydantic model for AdAccountAdVolume fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actor_id: str | None = Field(None, alias="actor_id")
     actor_name: str | None = Field(None, alias="actor_name")
     ad_limit_scope_business: BusinessFields | None = Field(None, alias="ad_limit_scope_business")
@@ -37204,7 +37204,7 @@ class AdAccountAdVolumeFields(BaseModel):
 class PreapprovalReviewFields(BaseModel):
     """Pydantic model for PreapprovalReview fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     comp_type: str | None = Field(None, alias="comp_type")
     crow_component_id: int | None = Field(None, alias="crow_component_id")
     is_human_reviewed: bool | None = Field(None, alias="is_human_reviewed")
@@ -37215,7 +37215,7 @@ class PreapprovalReviewFields(BaseModel):
 class URLFields(BaseModel):
     """Pydantic model for URL fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     engagement: dict[str, Any] | None = Field(None, alias="engagement")
     id: str | None = Field(None, alias="id")
     og_object: dict[str, Any] | None = Field(None, alias="og_object")
@@ -37226,7 +37226,7 @@ class URLFields(BaseModel):
 class AdAssetFeedAdditionalDataFields(BaseModel):
     """Pydantic model for AdAssetFeedAdditionalData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     automated_product_tags: bool | None = Field(None, alias="automated_product_tags")
     brand_page_id: str | None = Field(None, alias="brand_page_id")
     is_click_to_message: bool | None = Field(None, alias="is_click_to_message")
@@ -37240,7 +37240,7 @@ class AdAssetFeedAdditionalDataFields(BaseModel):
 class AdAccountUserSettingsFields(BaseModel):
     """Pydantic model for AdAccountUserSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     acf_should_opt_out_video_adjustments: bool | None = Field(
         None, alias="acf_should_opt_out_video_adjustments"
     )
@@ -37382,7 +37382,7 @@ class AdAccountUserSettingsFields(BaseModel):
 class LocalServiceBusinessFields(BaseModel):
     """Pydantic model for LocalServiceBusiness fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     address: dict[str, Any] | None = Field(None, alias="address")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     availability: dict[str, Any] | None = Field(None, alias="availability")
@@ -37430,7 +37430,7 @@ class LocalServiceBusinessFields(BaseModel):
 class MessengerDestinationPageWelcomeMessageFields(BaseModel):
     """Pydantic model for MessengerDestinationPageWelcomeMessage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     page_welcome_message_body: str | None = Field(None, alias="page_welcome_message_body")
     page_welcome_message_type: str | None = Field(None, alias="page_welcome_message_type")
@@ -37442,7 +37442,7 @@ class MessengerDestinationPageWelcomeMessageFields(BaseModel):
 class AudioIsrcFields(BaseModel):
     """Pydantic model for AudioIsrc fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     all_kg_featured_artists: str | None = Field(None, alias="all_kg_featured_artists")
     all_kg_main_artists: str | None = Field(None, alias="all_kg_main_artists")
     artist_profile_picture_url: str | None = Field(None, alias="artist_profile_picture_url")
@@ -37459,7 +37459,7 @@ class AudioIsrcFields(BaseModel):
 class WhitehatFBDLRunFields(BaseModel):
     """Pydantic model for WhitehatFBDLRun fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     id: str | None = Field(None, alias="id")
     is_pinned: bool | None = Field(None, alias="is_pinned")
@@ -37473,7 +37473,7 @@ class WhitehatFBDLRunFields(BaseModel):
 class CustomAudienceStatusFields(BaseModel):
     """Pydantic model for CustomAudienceStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     code: int | None = Field(None, alias="code")
     description: str | None = Field(None, alias="description")
 
@@ -37481,7 +37481,7 @@ class CustomAudienceStatusFields(BaseModel):
 class AdCustomizationRuleSpecFields(BaseModel):
     """Pydantic model for AdCustomizationRuleSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     caption: str | None = Field(None, alias="caption")
     customization_spec: dict[str, Any] | None = Field(None, alias="customization_spec")
     description: str | None = Field(None, alias="description")
@@ -37499,7 +37499,7 @@ class AdCustomizationRuleSpecFields(BaseModel):
 class AdProposalFields(BaseModel):
     """Pydantic model for AdProposal fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_proposal_type_name: str | None = Field(None, alias="ad_proposal_type_name")
     adaccount: AdAccountFields | None = Field(None, alias="adaccount")
     creation_time: datetime | None = Field(None, alias="creation_time")
@@ -37524,7 +37524,7 @@ class AdProposalFields(BaseModel):
 class PageInsightsAsyncExportRunFields(BaseModel):
     """Pydantic model for PageInsightsAsyncExportRun fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     data_level: str | None = Field(None, alias="data_level")
     filters: list[dict[str, Any]] | None = Field(None, alias="filters")
     format: str | None = Field(None, alias="format")
@@ -37539,7 +37539,7 @@ class PageInsightsAsyncExportRunFields(BaseModel):
 class VideoGroupFields(BaseModel):
     """Pydantic model for VideoGroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_time: str | None = Field(None, alias="created_time")
     description: str | None = Field(None, alias="description")
     disable_reason: str | None = Field(None, alias="disable_reason")
@@ -37562,7 +37562,7 @@ class VideoGroupFields(BaseModel):
 class AdRuleEvaluationSpecFields(BaseModel):
     """Pydantic model for AdRuleEvaluationSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     evaluation_type: dict[str, Any] | None = Field(None, alias="evaluation_type")
     filters: list[AdRuleFiltersFields] | None = Field(None, alias="filters")
     trigger: AdRuleTriggerFields | None = Field(None, alias="trigger")
@@ -37571,7 +37571,7 @@ class AdRuleEvaluationSpecFields(BaseModel):
 class AppOptimizedCustomEventsFields(BaseModel):
     """Pydantic model for AppOptimizedCustomEvents fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: int | None = Field(None, alias="app_id")
     app_name: str | None = Field(None, alias="app_name")
     event_names: list[str] | None = Field(None, alias="event_names")
@@ -37580,7 +37580,7 @@ class AppOptimizedCustomEventsFields(BaseModel):
 class CTWAWhatsAppNumbersInfoFields(BaseModel):
     """Pydantic model for CTWAWhatsAppNumbersInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_manage_wa_flows: bool | None = Field(None, alias="can_manage_wa_flows")
     formatted_whatsapp_number: str | None = Field(None, alias="formatted_whatsapp_number")
     is_business_number: bool | None = Field(None, alias="is_business_number")
@@ -37595,7 +37595,7 @@ class CTWAWhatsAppNumbersInfoFields(BaseModel):
 class OfflineConversionDataSetOptimizationStatusFields(BaseModel):
     """Pydantic model for OfflineConversionDataSetOptimizationStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event: str | None = Field(None, alias="event")
     last_changed_time: int | None = Field(None, alias="last_changed_time")
     last_detected_time: int | None = Field(None, alias="last_detected_time")
@@ -37605,7 +37605,7 @@ class OfflineConversionDataSetOptimizationStatusFields(BaseModel):
 class AdAccountDefaultObjectiveFields(BaseModel):
     """Pydantic model for AdAccountDefaultObjective fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     default_objective_for_user: dict[str, Any] | None = Field(
         None, alias="default_objective_for_user"
     )
@@ -37615,14 +37615,14 @@ class AdAccountDefaultObjectiveFields(BaseModel):
 class AdAccountAdsRecommendedAudiosFields(BaseModel):
     """Pydantic model for AdAccountAdsRecommendedAudios fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audio_assets: list[int] | None = Field(None, alias="audio_assets")
 
 
 class BrandSafetyBlockListUsageFields(BaseModel):
     """Pydantic model for BrandSafetyBlockListUsage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     current_usage: int | None = Field(None, alias="current_usage")
     new_usage: int | None = Field(None, alias="new_usage")
     platform: str | None = Field(None, alias="platform")
@@ -37633,7 +37633,7 @@ class BrandSafetyBlockListUsageFields(BaseModel):
 class PageRestaurantSpecialtiesFields(BaseModel):
     """Pydantic model for PageRestaurantSpecialties fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     breakfast: int | None = Field(None, alias="breakfast")
     coffee: int | None = Field(None, alias="coffee")
     dinner: int | None = Field(None, alias="dinner")
@@ -37644,7 +37644,7 @@ class PageRestaurantSpecialtiesFields(BaseModel):
 class InstagramUserFields(BaseModel):
     """Pydantic model for InstagramUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     follow_count: int | None = Field(None, alias="follow_count")
     followed_by_count: int | None = Field(None, alias="followed_by_count")
     has_profile_picture: bool | None = Field(None, alias="has_profile_picture")
@@ -37662,7 +37662,7 @@ class InstagramUserFields(BaseModel):
 class FBPageAndInstagramAccountFields(BaseModel):
     """Pydantic model for FBPageAndInstagramAccount fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_permissions: list[str] | None = Field(None, alias="ad_permissions")
     bc_permission_status: str | None = Field(None, alias="bc_permission_status")
     bc_permissions: list[dict[str, str]] | None = Field(None, alias="bc_permissions")
@@ -37673,14 +37673,14 @@ class FBPageAndInstagramAccountFields(BaseModel):
 class SecuritySettingsFields(BaseModel):
     """Pydantic model for SecuritySettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class AdCustomDerivedMetricsFields(BaseModel):
     """Pydantic model for AdCustomDerivedMetrics fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     business: BusinessFields | None = Field(None, alias="business")
     creation_time: datetime | None = Field(None, alias="creation_time")
@@ -37703,7 +37703,7 @@ class AdCustomDerivedMetricsFields(BaseModel):
 class AdsPixelRecentEventsResultFields(BaseModel):
     """Pydantic model for AdsPixelRecentEventsResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     count: int | None = Field(None, alias="count")
     event: str | None = Field(None, alias="event")
 
@@ -37711,7 +37711,7 @@ class AdsPixelRecentEventsResultFields(BaseModel):
 class BusinessTrafficAnalysisReportFields(BaseModel):
     """Pydantic model for BusinessTrafficAnalysisReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_location: list[dict[str, Any]] | None = Field(None, alias="audience_location")
     event_category: list[dict[str, Any]] | None = Field(None, alias="event_category")
     traffic_analysis_impressions: list[dict[str, Any]] | None = Field(
@@ -37722,7 +37722,7 @@ class BusinessTrafficAnalysisReportFields(BaseModel):
 class LeadGenCustomDisclaimerBodyFields(BaseModel):
     """Pydantic model for LeadGenCustomDisclaimerBody fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     text: str | None = Field(None, alias="text")
     url_entities: list[LeadGenURLEntityAtRangesFields] | None = Field(None, alias="url_entities")
 
@@ -37730,7 +37730,7 @@ class LeadGenCustomDisclaimerBodyFields(BaseModel):
 class AdCampaignDeliveryEstimateFields(BaseModel):
     """Pydantic model for AdCampaignDeliveryEstimate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     daily_outcomes_curve: list[OutcomePredictionPointFields] | None = Field(
         None, alias="daily_outcomes_curve"
     )
@@ -37746,7 +37746,7 @@ class AdCampaignDeliveryEstimateFields(BaseModel):
 class IGMediaBoostEligibilityInfoFields(BaseModel):
     """Pydantic model for IGMediaBoostEligibilityInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     boost_ineligible_reason: str | None = Field(None, alias="boost_ineligible_reason")
     eligible_to_boost: bool | None = Field(None, alias="eligible_to_boost")
 
@@ -37754,7 +37754,7 @@ class IGMediaBoostEligibilityInfoFields(BaseModel):
 class ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields(BaseModel):
     """Pydantic model for ShadowIGUserCTXPartnerAppWelcomeMessageFlow fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     compatible_platforms: list[str] | None = Field(None, alias="compatible_platforms")
     eligible_platforms: list[str] | None = Field(None, alias="eligible_platforms")
     id: str | None = Field(None, alias="id")
@@ -37768,7 +37768,7 @@ class ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields(BaseModel):
 class EventTicketSettingFields(BaseModel):
     """Pydantic model for EventTicketSetting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     ticket_delivery_type: str | None = Field(None, alias="ticket_delivery_type")
 
@@ -37776,7 +37776,7 @@ class EventTicketSettingFields(BaseModel):
 class TargetingGeoLocationZipFields(BaseModel):
     """Pydantic model for TargetingGeoLocationZip fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     key: str | None = Field(None, alias="key")
     name: str | None = Field(None, alias="name")
@@ -37787,14 +37787,14 @@ class TargetingGeoLocationZipFields(BaseModel):
 class AdAccountRecommendationsFields(BaseModel):
     """Pydantic model for AdAccountRecommendations fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     recommendations: list[dict[str, Any]] | None = Field(None, alias="recommendations")
 
 
 class IGResumableVideoUploadStatusFields(BaseModel):
     """Pydantic model for IGResumableVideoUploadStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     processing_phase: VideoStatusProcessingPhaseFields | None = Field(
         None, alias="processing_phase"
     )
@@ -37804,7 +37804,7 @@ class IGResumableVideoUploadStatusFields(BaseModel):
 class ThirdPartyPartnerPanelRequestFields(BaseModel):
     """Pydantic model for ThirdPartyPartnerPanelRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adentities_ids: list[str] | None = Field(None, alias="adentities_ids")
     country: str | None = Field(None, alias="country")
     created_time: datetime | None = Field(None, alias="created_time")
@@ -37823,7 +37823,7 @@ class ThirdPartyPartnerPanelRequestFields(BaseModel):
 class CreditCardFields(BaseModel):
     """Pydantic model for CreditCard fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     billing_address: dict[str, Any] | None = Field(None, alias="billing_address")
     card_cobadging: str | None = Field(None, alias="card_cobadging")
     card_holder_name: str | None = Field(None, alias="card_holder_name")
@@ -37852,7 +37852,7 @@ class CreditCardFields(BaseModel):
 class EntityAtTextRangeFields(BaseModel):
     """Pydantic model for EntityAtTextRange fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     length: int | None = Field(None, alias="length")
     name: str | None = Field(None, alias="name")
@@ -37864,21 +37864,21 @@ class EntityAtTextRangeFields(BaseModel):
 class AdRecommendationDataFields(BaseModel):
     """Pydantic model for AdRecommendationData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     link: str | None = Field(None, alias="link")
 
 
 class AdCreativeInstagramBrandedContentFields(BaseModel):
     """Pydantic model for AdCreativeInstagramBrandedContent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     sponsor_id: str | None = Field(None, alias="sponsor_id")
 
 
 class UserCoverPhotoFields(BaseModel):
     """Pydantic model for UserCoverPhoto fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     offset_x: float | None = Field(None, alias="offset_x")
     offset_y: float | None = Field(None, alias="offset_y")
     source: str | None = Field(None, alias="source")
@@ -37887,7 +37887,7 @@ class UserCoverPhotoFields(BaseModel):
 class MessagingFeatureReviewFields(BaseModel):
     """Pydantic model for MessagingFeatureReview fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     feature: str | None = Field(None, alias="feature")
     status: str | None = Field(None, alias="status")
 
@@ -37895,7 +37895,7 @@ class MessagingFeatureReviewFields(BaseModel):
 class OrderIDAttributionsFields(BaseModel):
     """Pydantic model for OrderIDAttributions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     attribution_type: str | None = Field(None, alias="attribution_type")
     attributions: list[dict[str, Any]] | None = Field(None, alias="attributions")
@@ -37910,7 +37910,7 @@ class OrderIDAttributionsFields(BaseModel):
 class ProductItemErrorFields(BaseModel):
     """Pydantic model for ProductItemError fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     error_priority: str | None = Field(None, alias="error_priority")
     error_type: str | None = Field(None, alias="error_type")
@@ -37920,7 +37920,7 @@ class ProductItemErrorFields(BaseModel):
 class TargetingGeoLocationMarketFields(BaseModel):
     """Pydantic model for TargetingGeoLocationMarket fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     country: str | None = Field(None, alias="country")
     key: str | None = Field(None, alias="key")
     market_type: str | None = Field(None, alias="market_type")
@@ -37930,7 +37930,7 @@ class TargetingGeoLocationMarketFields(BaseModel):
 class LiveVideoInputStreamFields(BaseModel):
     """Pydantic model for LiveVideoInputStream fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     dash_ingest_url: str | None = Field(None, alias="dash_ingest_url")
     dash_preview_url: str | None = Field(None, alias="dash_preview_url")
     id: str | None = Field(None, alias="id")
@@ -37944,7 +37944,7 @@ class LiveVideoInputStreamFields(BaseModel):
 class AdAccountAgencyFeeConfigFields(BaseModel):
     """Pydantic model for AdAccountAgencyFeeConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_add_agency_fee_to_invoice: bool | None = Field(None, alias="can_add_agency_fee_to_invoice")
     default_agency_fee_pct: float | None = Field(None, alias="default_agency_fee_pct")
     id: str | None = Field(None, alias="id")
@@ -37955,7 +37955,7 @@ class AdAccountAgencyFeeConfigFields(BaseModel):
 class SavedMessageResponseFields(BaseModel):
     """Pydantic model for SavedMessageResponse fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     image: str | None = Field(None, alias="image")
     is_enabled: bool | None = Field(None, alias="is_enabled")
@@ -37966,7 +37966,7 @@ class SavedMessageResponseFields(BaseModel):
 class AdCreativeLinkDataTemplateVideoSpecFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataTemplateVideoSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     categorization_criteria: str | None = Field(None, alias="categorization_criteria")
     customization: list[dict[str, str]] | None = Field(None, alias="customization")
     template_id: str | None = Field(None, alias="template_id")
@@ -37975,7 +37975,7 @@ class AdCreativeLinkDataTemplateVideoSpecFields(BaseModel):
 class AdRuleHistoryResultActionFields(BaseModel):
     """Pydantic model for AdRuleHistoryResultAction fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action: str | None = Field(None, alias="action")
     field: str | None = Field(None, alias="field")
     new_value: str | None = Field(None, alias="new_value")
@@ -37985,7 +37985,7 @@ class AdRuleHistoryResultActionFields(BaseModel):
 class MessengerBusinessTemplateFields(BaseModel):
     """Pydantic model for MessengerBusinessTemplate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     category: str | None = Field(None, alias="category")
     components: list[dict[str, Any]] | None = Field(None, alias="components")
     creation_time: int | None = Field(None, alias="creation_time")
@@ -38006,7 +38006,7 @@ class MessengerBusinessTemplateFields(BaseModel):
 class MailingAddressFields(BaseModel):
     """Pydantic model for MailingAddress fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     city: str | None = Field(None, alias="city")
     city_page: PageFields | None = Field(None, alias="city_page")
     country: str | None = Field(None, alias="country")
@@ -38020,7 +38020,7 @@ class MailingAddressFields(BaseModel):
 class OffsiteSignalContainerBusinessObjectFields(BaseModel):
     """Pydantic model for OffsiteSignalContainerBusinessObject fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     id: str | None = Field(None, alias="id")
     is_eligible_for_sharing_to_ad_account: bool | None = Field(
@@ -38037,7 +38037,7 @@ class OffsiteSignalContainerBusinessObjectFields(BaseModel):
 class CustomAudienceDataSourceFields(BaseModel):
     """Pydantic model for CustomAudienceDataSource fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_params: str | None = Field(None, alias="creation_params")
     sub_type: dict[str, Any] | None = Field(None, alias="sub_type")
     type: dict[str, Any] | None = Field(None, alias="type")
@@ -38046,7 +38046,7 @@ class CustomAudienceDataSourceFields(BaseModel):
 class AdAccountSpendLimitFields(BaseModel):
     """Pydantic model for AdAccountSpendLimit fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount_spent: str | None = Field(None, alias="amount_spent")
     group_id: str | None = Field(None, alias="group_id")
     limit_id: str | None = Field(None, alias="limit_id")
@@ -38059,7 +38059,7 @@ class AdAccountSpendLimitFields(BaseModel):
 class LeadGenCustomDisclaimerFields(BaseModel):
     """Pydantic model for LeadGenCustomDisclaimer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     body: LeadGenCustomDisclaimerBodyFields | None = Field(None, alias="body")
     checkboxes: list[LeadGenLegalContentCheckboxFields] | None = Field(None, alias="checkboxes")
     title: str | None = Field(None, alias="title")
@@ -38068,7 +38068,7 @@ class LeadGenCustomDisclaimerFields(BaseModel):
 class ProductCatalogCheckMarketplacePartnerSellersStatusFields(BaseModel):
     """Pydantic model for ProductCatalogCheckMarketplacePartnerSellersStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     sample_errors: list[dict[str, Any]] | None = Field(None, alias="sample_errors")
     session_id: str | None = Field(None, alias="session_id")
     status: str | None = Field(None, alias="status")
@@ -38077,7 +38077,7 @@ class ProductCatalogCheckMarketplacePartnerSellersStatusFields(BaseModel):
 class AdAssetFeedSpecCarouselChildAttachmentFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecCarouselChildAttachment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     body_label: AdAssetFeedSpecAssetLabelFields | None = Field(None, alias="body_label")
     call_to_action_type_label: AdAssetFeedSpecAssetLabelFields | None = Field(
         None, alias="call_to_action_type_label"
@@ -38099,7 +38099,7 @@ class AdAssetFeedSpecCarouselChildAttachmentFields(BaseModel):
 class ProductSetMetadataFields(BaseModel):
     """Pydantic model for ProductSetMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     cover_image_url: str | None = Field(None, alias="cover_image_url")
     description: str | None = Field(None, alias="description")
     external_url: str | None = Field(None, alias="external_url")
@@ -38109,14 +38109,14 @@ class ProductSetMetadataFields(BaseModel):
 class AdsTabularFields(BaseModel):
     """Pydantic model for AdsTabular fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     rows: list[dict[str, Any]] | None = Field(None, alias="rows")
 
 
 class BusinessTagFields(BaseModel):
     """Pydantic model for BusinessTag fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -38124,7 +38124,7 @@ class BusinessTagFields(BaseModel):
 class AdsImageCropsFields(BaseModel):
     """Pydantic model for AdsImageCrops fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field_100x100: list[dict[str, Any]] | None = Field(None, alias="100x100")
     field_100x72: list[dict[str, Any]] | None = Field(None, alias="100x72")
     field_191x100: list[dict[str, Any]] | None = Field(None, alias="191x100")
@@ -38137,7 +38137,7 @@ class AdsImageCropsFields(BaseModel):
 class DynamicItemDisplayBundleFields(BaseModel):
     """Pydantic model for DynamicItemDisplayBundle fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     additional_urls: list[dict[str, str]] | None = Field(None, alias="additional_urls")
     description: str | None = Field(None, alias="description")
     id: str | None = Field(None, alias="id")
@@ -38150,7 +38150,7 @@ class DynamicItemDisplayBundleFields(BaseModel):
 class ProductCatalogImageSettingsInternalFields(BaseModel):
     """Pydantic model for ProductCatalogImageSettingsInternal fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     carousel_ad: ProductCatalogImageSettingsOperationFields | None = Field(
         None, alias="carousel_ad"
     )
@@ -38161,7 +38161,7 @@ class ProductCatalogImageSettingsInternalFields(BaseModel):
 class BusinessPartnerPremiumOptionsFields(BaseModel):
     """Pydantic model for BusinessPartnerPremiumOptions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     enable_basket_insight: bool | None = Field(None, alias="enable_basket_insight")
     enable_extended_audience_retargeting: bool | None = Field(
         None, alias="enable_extended_audience_retargeting"
@@ -38174,7 +38174,7 @@ class BusinessPartnerPremiumOptionsFields(BaseModel):
 class FranchiseProgramMemberFields(BaseModel):
     """Pydantic model for FranchiseProgramMember fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     end_date: datetime | None = Field(None, alias="end_date")
     id: str | None = Field(None, alias="id")
@@ -38188,7 +38188,7 @@ class FranchiseProgramMemberFields(BaseModel):
 class AdStudyObjectiveIDFields(BaseModel):
     """Pydantic model for AdStudyObjectiveID fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event_names: list[str] | None = Field(None, alias="event_names")
     id: str | None = Field(None, alias="id")
     type: str | None = Field(None, alias="type")
@@ -38197,7 +38197,7 @@ class AdStudyObjectiveIDFields(BaseModel):
 class OutcomePredictionPointFields(BaseModel):
     """Pydantic model for OutcomePredictionPoint fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: float | None = Field(None, alias="actions")
     impressions: float | None = Field(None, alias="impressions")
     reach: float | None = Field(None, alias="reach")
@@ -38207,7 +38207,7 @@ class OutcomePredictionPointFields(BaseModel):
 class LeadGenThankYouPageGatedFileFields(BaseModel):
     """Pydantic model for LeadGenThankYouPageGatedFile fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     file_cdn_url: str | None = Field(None, alias="file_cdn_url")
     file_name: str | None = Field(None, alias="file_name")
     file_size_bytes: int | None = Field(None, alias="file_size_bytes")
@@ -38217,7 +38217,7 @@ class LeadGenThankYouPageGatedFileFields(BaseModel):
 class EventTourFields(BaseModel):
     """Pydantic model for EventTour fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     dominant_color: str | None = Field(None, alias="dominant_color")
     end_time: str | None = Field(None, alias="end_time")
@@ -38236,7 +38236,7 @@ class EventTourFields(BaseModel):
 class PageAboutStoryComposedBlockFields(BaseModel):
     """Pydantic model for PageAboutStoryComposedBlock fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     depth: int | None = Field(None, alias="depth")
     entity_ranges: list[PageAboutStoryComposedBlockEntityRangesFields] | None = Field(
         None, alias="entity_ranges"
@@ -38251,7 +38251,7 @@ class PageAboutStoryComposedBlockFields(BaseModel):
 class AdsPixelDomainLastFiredTimeFields(BaseModel):
     """Pydantic model for AdsPixelDomainLastFiredTime fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     domain_name: str | None = Field(None, alias="domain_name")
     last_fired_time: int | None = Field(None, alias="last_fired_time")
 
@@ -38259,7 +38259,7 @@ class AdsPixelDomainLastFiredTimeFields(BaseModel):
 class AdAssetFeedSpecDescriptionFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecDescription fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     text: str | None = Field(None, alias="text")
     url_tags: str | None = Field(None, alias="url_tags")
@@ -38268,7 +38268,7 @@ class AdAssetFeedSpecDescriptionFields(BaseModel):
 class AdCreativePortraitCustomizationsFields(BaseModel):
     """Pydantic model for AdCreativePortraitCustomizations fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     carousel_delivery_mode: str | None = Field(None, alias="carousel_delivery_mode")
     specifications: list[dict[str, Any]] | None = Field(None, alias="specifications")
 
@@ -38276,7 +38276,7 @@ class AdCreativePortraitCustomizationsFields(BaseModel):
 class LeadGenAppointmentTimeSlotFields(BaseModel):
     """Pydantic model for LeadGenAppointmentTimeSlot fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     end_time: int | None = Field(None, alias="end_time")
     start_time: int | None = Field(None, alias="start_time")
 
@@ -38284,7 +38284,7 @@ class LeadGenAppointmentTimeSlotFields(BaseModel):
 class AdCreativeFeatureDetailsFields(BaseModel):
     """Pydantic model for AdCreativeFeatureDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     customizations: AdCreativeFeatureCustomizationsFields | None = Field(
         None, alias="customizations"
     )
@@ -38294,14 +38294,14 @@ class AdCreativeFeatureDetailsFields(BaseModel):
 class CreativeAssetTagFields(BaseModel):
     """Pydantic model for CreativeAssetTag fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     name: str | None = Field(None, alias="name")
 
 
 class LeadGenDraftQuestionFields(BaseModel):
     """Pydantic model for LeadGenDraftQuestion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     conditional_questions_choices: list[LeadGenConditionalQuestionsGroupChoicesFields] | None = (
         Field(None, alias="conditional_questions_choices")
     )
@@ -38319,7 +38319,7 @@ class LeadGenDraftQuestionFields(BaseModel):
 class SavedAudienceFields(BaseModel):
     """Pydantic model for SavedAudience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account: AdAccountFields | None = Field(None, alias="account")
     approximate_count_lower_bound: int | None = Field(None, alias="approximate_count_lower_bound")
     approximate_count_upper_bound: int | None = Field(None, alias="approximate_count_upper_bound")
@@ -38345,7 +38345,7 @@ class SavedAudienceFields(BaseModel):
 class AdRuleFields(BaseModel):
     """Pydantic model for AdRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     created_by: UserFields | None = Field(None, alias="created_by")
     created_time: datetime | None = Field(None, alias="created_time")
@@ -38362,7 +38362,7 @@ class AdRuleFields(BaseModel):
 class LeadGenFormPreviewDetailsFields(BaseModel):
     """Pydantic model for LeadGenFormPreviewDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     call_business_text: str | None = Field(None, alias="call_business_text")
     call_to_action_title: str | None = Field(None, alias="call_to_action_title")
     chat_on_messenger_text: str | None = Field(None, alias="chat_on_messenger_text")
@@ -38452,7 +38452,7 @@ class LeadGenFormPreviewDetailsFields(BaseModel):
 class LeadgenFormFields(BaseModel):
     """Pydantic model for LeadgenForm fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     allow_organic_lead: bool | None = Field(None, alias="allow_organic_lead")
     block_display_for_non_targeted_viewer: bool | None = Field(
         None, alias="block_display_for_non_targeted_viewer"
@@ -38483,14 +38483,14 @@ class LeadgenFormFields(BaseModel):
 class PageThreadOwnerFields(BaseModel):
     """Pydantic model for PageThreadOwner fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     thread_owner: dict[str, Any] | None = Field(None, alias="thread_owner")
 
 
 class ProductFeedUploadErrorFields(BaseModel):
     """Pydantic model for ProductFeedUploadError fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     affected_surfaces: list[dict[str, Any]] | None = Field(None, alias="affected_surfaces")
     description: str | None = Field(None, alias="description")
     error_type: str | None = Field(None, alias="error_type")
@@ -38503,7 +38503,7 @@ class ProductFeedUploadErrorFields(BaseModel):
 class AdLabelFields(BaseModel):
     """Pydantic model for AdLabel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account: AdAccountFields | None = Field(None, alias="account")
     created_time: datetime | None = Field(None, alias="created_time")
     id: str | None = Field(None, alias="id")
@@ -38514,7 +38514,7 @@ class AdLabelFields(BaseModel):
 class CalibratorExistingRuleFields(BaseModel):
     """Pydantic model for CalibratorExistingRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field_7d_volume: int | None = Field(None, alias="7d_volume")
     creation_source: str | None = Field(None, alias="creation_source")
     creation_time: datetime | None = Field(None, alias="creation_time")
@@ -38531,7 +38531,7 @@ class CalibratorExistingRuleFields(BaseModel):
 class VideoCopyrightMatchFields(BaseModel):
     """Pydantic model for VideoCopyrightMatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_date: datetime | None = Field(None, alias="created_date")
     id: str | None = Field(None, alias="id")
     last_modified_user: UserFields | None = Field(None, alias="last_modified_user")
@@ -38545,14 +38545,14 @@ class VideoCopyrightMatchFields(BaseModel):
 class ProductItemUnitPriceFields(BaseModel):
     """Pydantic model for ProductItemUnitPrice fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class StoreCatalogSettingsFields(BaseModel):
     """Pydantic model for StoreCatalogSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     page: PageFields | None = Field(None, alias="page")
 
@@ -38560,7 +38560,7 @@ class StoreCatalogSettingsFields(BaseModel):
 class PartnerAccountLinkingFields(BaseModel):
     """Pydantic model for PartnerAccountLinking fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adaccount: AdAccountFields | None = Field(None, alias="adaccount")
     app: ApplicationFields | None = Field(None, alias="app")
     business: BusinessFields | None = Field(None, alias="business")
@@ -38574,7 +38574,7 @@ class PartnerAccountLinkingFields(BaseModel):
 class CommerceOrderTransactionDetailFields(BaseModel):
     """Pydantic model for CommerceOrderTransactionDetail fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     merchant_order_id: str | None = Field(None, alias="merchant_order_id")
     net_payment_amount: dict[str, Any] | None = Field(None, alias="net_payment_amount")
     order_created: str | None = Field(None, alias="order_created")
@@ -38593,7 +38593,7 @@ class CommerceOrderTransactionDetailFields(BaseModel):
 class WebsiteCreativeAssetSourceFields(BaseModel):
     """Pydantic model for WebsiteCreativeAssetSource fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     source_url: str | None = Field(None, alias="source_url")
 
@@ -38601,7 +38601,7 @@ class WebsiteCreativeAssetSourceFields(BaseModel):
 class MinimumBudgetFields(BaseModel):
     """Pydantic model for MinimumBudget fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     currency: str | None = Field(None, alias="currency")
     min_daily_budget_high_freq: int | None = Field(None, alias="min_daily_budget_high_freq")
     min_daily_budget_imp: int | None = Field(None, alias="min_daily_budget_imp")
@@ -38612,7 +38612,7 @@ class MinimumBudgetFields(BaseModel):
 class LeadGenThankYouPageGatedPromoFields(BaseModel):
     """Pydantic model for LeadGenThankYouPageGatedPromo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     online_offer_url: str | None = Field(None, alias="online_offer_url")
     online_promo_code: str | None = Field(None, alias="online_promo_code")
@@ -38621,7 +38621,7 @@ class LeadGenThankYouPageGatedPromoFields(BaseModel):
 class PlaceFields(BaseModel):
     """Pydantic model for Place fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     location: LocationFields | None = Field(None, alias="location")
     name: str | None = Field(None, alias="name")
@@ -38631,7 +38631,7 @@ class PlaceFields(BaseModel):
 class AdCreativeInteractiveComponentsSpecFields(BaseModel):
     """Pydantic model for AdCreativeInteractiveComponentsSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     child_attachments: list[dict[str, Any]] | None = Field(None, alias="child_attachments")
     components: list[dict[str, Any]] | None = Field(None, alias="components")
 
@@ -38639,7 +38639,7 @@ class AdCreativeInteractiveComponentsSpecFields(BaseModel):
 class WoodhengeSupporterFields(BaseModel):
     """Pydantic model for WoodhengeSupporter fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     id: str | None = Field(None, alias="id")
     is_gifted_subscription: bool | None = Field(None, alias="is_gifted_subscription")
@@ -38653,7 +38653,7 @@ class WoodhengeSupporterFields(BaseModel):
 class BusinessMediaAdPlacementValidationResultFields(BaseModel):
     """Pydantic model for BusinessMediaAdPlacementValidationResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_placement: str | None = Field(None, alias="ad_placement")
     ad_placement_label: str | None = Field(None, alias="ad_placement_label")
     error_messages: list[str] | None = Field(None, alias="error_messages")
@@ -38663,7 +38663,7 @@ class BusinessMediaAdPlacementValidationResultFields(BaseModel):
 class FundraiserPersonToCharityFields(BaseModel):
     """Pydantic model for FundraiserPersonToCharity fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount_raised: int | None = Field(None, alias="amount_raised")
     charity_id: str | None = Field(None, alias="charity_id")
     currency: str | None = Field(None, alias="currency")
@@ -38691,7 +38691,7 @@ class FundraiserPersonToCharityFields(BaseModel):
 class ShadowIGUserCatalogProductVariantFields(BaseModel):
     """Pydantic model for ShadowIGUserCatalogProductVariant fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     product_id: int | None = Field(None, alias="product_id")
     variant_name: str | None = Field(None, alias="variant_name")
 
@@ -38699,7 +38699,7 @@ class ShadowIGUserCatalogProductVariantFields(BaseModel):
 class IGBoostMediaAdFields(BaseModel):
     """Pydantic model for IGBoostMediaAd fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_id: str | None = Field(None, alias="ad_id")
     ad_status: str | None = Field(None, alias="ad_status")
 
@@ -38707,7 +38707,7 @@ class IGBoostMediaAdFields(BaseModel):
 class OrganizationFields(BaseModel):
     """Pydantic model for Organization fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     legal_entity_name: str | None = Field(None, alias="legal_entity_name")
     owner_business: BusinessFields | None = Field(None, alias="owner_business")
@@ -38716,14 +38716,14 @@ class OrganizationFields(BaseModel):
 class AdAccountBankInfoListFields(BaseModel):
     """Pydantic model for AdAccountBankInfoList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     banks: list[dict[str, Any]] | None = Field(None, alias="banks")
 
 
 class CPASCollaborationRequestFields(BaseModel):
     """Pydantic model for CPASCollaborationRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     brands: list[str] | None = Field(None, alias="brands")
     contact_email: str | None = Field(None, alias="contact_email")
     contact_first_name: str | None = Field(None, alias="contact_first_name")
@@ -38739,7 +38739,7 @@ class CPASCollaborationRequestFields(BaseModel):
 class BroadTargetingCategoriesFields(BaseModel):
     """Pydantic model for BroadTargetingCategories fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     category_description: str | None = Field(None, alias="category_description")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -38757,7 +38757,7 @@ class BroadTargetingCategoriesFields(BaseModel):
 class VideoStatsFields(BaseModel):
     """Pydantic model for VideoStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     aggregate: list[dict[str, dict[str, Any]]] | None = Field(None, alias="aggregate")
     error: str | None = Field(None, alias="error")
     metadata: list[dict[str, dict[str, Any]]] | None = Field(None, alias="metadata")
@@ -38771,7 +38771,7 @@ class VideoStatsFields(BaseModel):
 class ConversionHealthKPIFields(BaseModel):
     """Pydantic model for ConversionHealthKPI fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     health_indicator: str | None = Field(None, alias="health_indicator")
     impacted_browsers_match_rate: float | None = Field(None, alias="impacted_browsers_match_rate")
     impacted_browsers_match_rate_mom_trend: float | None = Field(
@@ -38794,7 +38794,7 @@ class ConversionHealthKPIFields(BaseModel):
 class PagePostFields(BaseModel):
     """Pydantic model for PagePost fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: dict[str, Any] | None = Field(None, alias="actions")
     admin_creator: dict[str, Any] | None = Field(None, alias="admin_creator")
     allowed_advertising_objectives: list[str] | None = Field(
@@ -38857,7 +38857,7 @@ class PagePostFields(BaseModel):
 class AnalyticsConfigFields(BaseModel):
     """Pydantic model for AnalyticsConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     analytics_access_for_authorized_ad_account: bool | None = Field(
         None, alias="analytics_access_for_authorized_ad_account"
     )
@@ -38911,7 +38911,7 @@ class AnalyticsConfigFields(BaseModel):
 class WindowsPhoneAppLinkFields(BaseModel):
     """Pydantic model for WindowsPhoneAppLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     app_name: str | None = Field(None, alias="app_name")
     url: str | None = Field(None, alias="url")
@@ -38920,14 +38920,14 @@ class WindowsPhoneAppLinkFields(BaseModel):
 class AdCampaignPacedBidInfoFields(BaseModel):
     """Pydantic model for AdCampaignPacedBidInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     bidding_status: str | None = Field(None, alias="bidding_status")
 
 
 class UserAvailableCatalogsFields(BaseModel):
     """Pydantic model for UserAvailableCatalogs fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     catalog_id: str | None = Field(None, alias="catalog_id")
     catalog_name: str | None = Field(None, alias="catalog_name")
     product_count: int | None = Field(None, alias="product_count")
@@ -38937,7 +38937,7 @@ class UserAvailableCatalogsFields(BaseModel):
 class TimezoneOffsetFields(BaseModel):
     """Pydantic model for TimezoneOffset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     abbr: str | None = Field(None, alias="abbr")
     isdst: bool | None = Field(None, alias="isdst")
     offset: int | None = Field(None, alias="offset")
@@ -38948,7 +38948,7 @@ class TimezoneOffsetFields(BaseModel):
 class JobOpeningFields(BaseModel):
     """Pydantic model for JobOpening fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     address: str | None = Field(None, alias="address")
     application_callback_url: str | None = Field(None, alias="application_callback_url")
     created_time: datetime | None = Field(None, alias="created_time")
@@ -38979,7 +38979,7 @@ class JobOpeningFields(BaseModel):
 class VoipInfoFields(BaseModel):
     """Pydantic model for VoipInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     has_mobile_app: bool | None = Field(None, alias="has_mobile_app")
     has_permission: bool | None = Field(None, alias="has_permission")
     is_callable: bool | None = Field(None, alias="is_callable")
@@ -38992,7 +38992,7 @@ class VoipInfoFields(BaseModel):
 class ExtendedCreditAllocationConfigFields(BaseModel):
     """Pydantic model for ExtendedCreditAllocationConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     currency_amount: CurrencyAmountFields | None = Field(None, alias="currency_amount")
     id: str | None = Field(None, alias="id")
     liability_type: str | None = Field(None, alias="liability_type")
@@ -39008,7 +39008,7 @@ class ExtendedCreditAllocationConfigFields(BaseModel):
 class AdCreativeFacebookBrandedContentFields(BaseModel):
     """Pydantic model for AdCreativeFacebookBrandedContent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     shared_to_sponsor_status: str | None = Field(None, alias="shared_to_sponsor_status")
     sponsor_page_id: str | None = Field(None, alias="sponsor_page_id")
     sponsor_relationship: str | None = Field(None, alias="sponsor_relationship")
@@ -39017,7 +39017,7 @@ class AdCreativeFacebookBrandedContentFields(BaseModel):
 class AdsUserSettingsFields(BaseModel):
     """Pydantic model for AdsUserSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     a_plus_c_survey_seen: bool | None = Field(None, alias="a_plus_c_survey_seen")
     add_overlays_opt_in_status: str | None = Field(None, alias="add_overlays_opt_in_status")
     adgroup_name_template: dict[str, Any] | None = Field(None, alias="adgroup_name_template")
@@ -39169,7 +39169,7 @@ class AdsUserSettingsFields(BaseModel):
 class HotelFields(BaseModel):
     """Pydantic model for Hotel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     address: str | None = Field(None, alias="address")
     applinks: CatalogItemAppLinksFields | None = Field(None, alias="applinks")
     brand: str | None = Field(None, alias="brand")
@@ -39216,7 +39216,7 @@ class HotelFields(BaseModel):
 class EntWithSponsorFields(BaseModel):
     """Pydantic model for EntWithSponsor fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     owner_linked_instagram_user_v1_id: str | None = Field(
         None, alias="owner_linked_instagram_user_v1_id"
@@ -39229,7 +39229,7 @@ class EntWithSponsorFields(BaseModel):
 class AdsTargetingInsightsFields(BaseModel):
     """Pydantic model for AdsTargetingInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_size: int | None = Field(None, alias="audience_size")
     clicks: int | None = Field(None, alias="clicks")
     conversion_cost: float | None = Field(None, alias="conversion_cost")
@@ -39246,7 +39246,7 @@ class AdsTargetingInsightsFields(BaseModel):
 class BusinessVideoTBusinessFolderPathItemFields(BaseModel):
     """Pydantic model for BusinessVideoTBusinessFolderPathItem fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     parent_folder_id: str | None = Field(None, alias="parent_folder_id")
     type: str | None = Field(None, alias="type")
@@ -39255,7 +39255,7 @@ class BusinessVideoTBusinessFolderPathItemFields(BaseModel):
 class CreativeHistoryFields(BaseModel):
     """Pydantic model for CreativeHistory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creative_fingerprint: int | None = Field(None, alias="creative_fingerprint")
     time_ranges: list[dict[str, Any]] | None = Field(None, alias="time_ranges")
 
@@ -39263,7 +39263,7 @@ class CreativeHistoryFields(BaseModel):
 class McomInvoiceDetailsFields(BaseModel):
     """Pydantic model for McomInvoiceDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     additional_amounts: list[dict[str, Any]] | None = Field(None, alias="additional_amounts")
     buyer_notes: str | None = Field(None, alias="buyer_notes")
     currency_amount: dict[str, Any] | None = Field(None, alias="currency_amount")
@@ -39288,7 +39288,7 @@ class McomInvoiceDetailsFields(BaseModel):
 class WhatsAppBusinessPreVerifiedPhoneNumberFields(BaseModel):
     """Pydantic model for WhatsAppBusinessPreVerifiedPhoneNumber fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     code_verification_status: dict[str, Any] | None = Field(None, alias="code_verification_status")
     code_verification_time: datetime | None = Field(None, alias="code_verification_time")
     id: str | None = Field(None, alias="id")
@@ -39300,7 +39300,7 @@ class WhatsAppBusinessPreVerifiedPhoneNumberFields(BaseModel):
 class AdCreativeLinkDataFields(BaseModel):
     """Pydantic model for AdCreativeLinkData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_context: str | None = Field(None, alias="ad_context")
     additional_image_index: int | None = Field(None, alias="additional_image_index")
     app_link_spec: AdCreativeLinkDataAppLinkSpecFields | None = Field(None, alias="app_link_spec")
@@ -39364,7 +39364,7 @@ class AdCreativeLinkDataFields(BaseModel):
 class WifiInformationFields(BaseModel):
     """Pydantic model for WifiInformation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     network_access_type: str | None = Field(None, alias="network_access_type")
@@ -39373,7 +39373,7 @@ class WifiInformationFields(BaseModel):
 class AdAccountPrepayDetailsFields(BaseModel):
     """Pydantic model for AdAccountPrepayDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     default_funding_amount: CurrencyAmountFields | None = Field(
         None, alias="default_funding_amount"
     )
@@ -39387,7 +39387,7 @@ class AdAccountPrepayDetailsFields(BaseModel):
 class AdBidAdjustmentsFields(BaseModel):
     """Pydantic model for AdBidAdjustments fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     age_range: dict[str, float] | None = Field(None, alias="age_range")
     page_types: dict[str, Any] | None = Field(None, alias="page_types")
     user_groups: str | None = Field(None, alias="user_groups")
@@ -39396,14 +39396,14 @@ class AdBidAdjustmentsFields(BaseModel):
 class AvatarFields(BaseModel):
     """Pydantic model for Avatar fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class AudienceSharingRecipientAccountsFields(BaseModel):
     """Pydantic model for AudienceSharingRecipientAccounts fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     account_name: str | None = Field(None, alias="account_name")
     account_type: str | None = Field(None, alias="account_type")
@@ -39418,7 +39418,7 @@ class AudienceSharingRecipientAccountsFields(BaseModel):
 class MessengerProfileFields(BaseModel):
     """Pydantic model for MessengerProfile fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_linking_url: str | None = Field(None, alias="account_linking_url")
     commands: list[dict[str, Any]] | None = Field(None, alias="commands")
     get_started: dict[str, Any] | None = Field(None, alias="get_started")
@@ -39434,7 +39434,7 @@ class MessengerProfileFields(BaseModel):
 class AdsReportBuilderFields(BaseModel):
     """Pydantic model for AdsReportBuilder fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     headers: dict[str, Any] | None = Field(None, alias="headers")
     rows: list[dict[str, Any]] | None = Field(None, alias="rows")
     skan_readiness_status: list[dict[str, str]] | None = Field(None, alias="skan_readiness_status")
@@ -39443,7 +39443,7 @@ class AdsReportBuilderFields(BaseModel):
 class VideoStatusFields(BaseModel):
     """Pydantic model for VideoStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     copyright_check_status: VideoCopyrightCheckStatusFields | None = Field(
         None, alias="copyright_check_status"
     )
@@ -39461,7 +39461,7 @@ class VideoStatusFields(BaseModel):
 class ProductImageFields(BaseModel):
     """Pydantic model for ProductImage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     height: int | None = Field(None, alias="height")
     id: str | None = Field(None, alias="id")
     image_url: str | None = Field(None, alias="image_url")
@@ -39471,7 +39471,7 @@ class ProductImageFields(BaseModel):
 class ProductItemFields(BaseModel):
     """Pydantic model for ProductItem fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     additional_image_cdn_urls: list[list[dict[str, str]]] | None = Field(
         None, alias="additional_image_cdn_urls"
     )
@@ -39580,7 +39580,7 @@ class ProductItemFields(BaseModel):
 class PartnerCategoryFields(BaseModel):
     """Pydantic model for PartnerCategory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     approximate_count: int | None = Field(None, alias="approximate_count")
     country: str | None = Field(None, alias="country")
     description: str | None = Field(None, alias="description")
@@ -39597,7 +39597,7 @@ class PartnerCategoryFields(BaseModel):
 class PageLeadsAccessConfigFields(BaseModel):
     """Pydantic model for PageLeadsAccessConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     page: PageFields | None = Field(None, alias="page")
 
@@ -39605,7 +39605,7 @@ class PageLeadsAccessConfigFields(BaseModel):
 class ProductDeliveryPreferenceFields(BaseModel):
     """Pydantic model for ProductDeliveryPreference fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_object_id: str | None = Field(None, alias="ad_object_id")
     id: str | None = Field(None, alias="id")
     product_priority: str | None = Field(None, alias="product_priority")
@@ -39615,7 +39615,7 @@ class ProductDeliveryPreferenceFields(BaseModel):
 class TrackingAndConversionWithDefaultsFields(BaseModel):
     """Pydantic model for TrackingAndConversionWithDefaults fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_conversion: list[dict[str, Any]] | None = Field(None, alias="custom_conversion")
     custom_tracking: list[dict[str, Any]] | None = Field(None, alias="custom_tracking")
     default_conversion: list[dict[str, Any]] | None = Field(None, alias="default_conversion")
@@ -39625,7 +39625,7 @@ class TrackingAndConversionWithDefaultsFields(BaseModel):
 class AdAccountDeliveryEstimateFields(BaseModel):
     """Pydantic model for AdAccountDeliveryEstimate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     daily_outcomes_curve: list[OutcomePredictionPointFields] | None = Field(
         None, alias="daily_outcomes_curve"
     )
@@ -39641,7 +39641,7 @@ class AdAccountDeliveryEstimateFields(BaseModel):
 class ProductCatalogProductSetsBatchFields(BaseModel):
     """Pydantic model for ProductCatalogProductSetsBatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     errors: list[dict[str, Any]] | None = Field(None, alias="errors")
     errors_total_count: int | None = Field(None, alias="errors_total_count")
     handle: str | None = Field(None, alias="handle")
@@ -39651,7 +39651,7 @@ class ProductCatalogProductSetsBatchFields(BaseModel):
 class ProductItemLocalInfoFields(BaseModel):
     """Pydantic model for ProductItemLocalInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     availability_circle_origin: ProductItemLocalInfoLatLongShapeFields | None = Field(
         None, alias="availability_circle_origin"
     )
@@ -39674,14 +39674,14 @@ class ProductItemLocalInfoFields(BaseModel):
 class AdCreativeFeatureActionMetadataFields(BaseModel):
     """Pydantic model for AdCreativeFeatureActionMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     type: str | None = Field(None, alias="type")
 
 
 class AdRuleFiltersFields(BaseModel):
     """Pydantic model for AdRuleFilters fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     field: str | None = Field(None, alias="field")
     operator: dict[str, Any] | None = Field(None, alias="operator")
     value: dict[str, Any] | None = Field(None, alias="value")
@@ -39690,7 +39690,7 @@ class AdRuleFiltersFields(BaseModel):
 class TaggableSubjectFields(BaseModel):
     """Pydantic model for TaggableSubject fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -39698,7 +39698,7 @@ class TaggableSubjectFields(BaseModel):
 class AdAccountMatchedSearchApplicationsEdgeDataFields(BaseModel):
     """Pydantic model for AdAccountMatchedSearchApplicationsEdgeData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     are_app_events_unavailable: bool | None = Field(None, alias="are_app_events_unavailable")
     icon_url: str | None = Field(None, alias="icon_url")
@@ -39712,7 +39712,7 @@ class AdAccountMatchedSearchApplicationsEdgeDataFields(BaseModel):
 class CatalogWebsiteOnboardingSettingsFields(BaseModel):
     """Pydantic model for CatalogWebsiteOnboardingSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     quality_band: str | None = Field(None, alias="quality_band")
     status: str | None = Field(None, alias="status")
@@ -39721,7 +39721,7 @@ class CatalogWebsiteOnboardingSettingsFields(BaseModel):
 class CloudbridgeDatasetStatusFields(BaseModel):
     """Pydantic model for CloudbridgeDatasetStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_redacted_event: list[str] | None = Field(None, alias="app_redacted_event")
     app_sensitive_params: list[dict[str, list[str]]] | None = Field(
         None, alias="app_sensitive_params"
@@ -39735,7 +39735,7 @@ class CloudbridgeDatasetStatusFields(BaseModel):
 class PageGetStartedNullstateFields(BaseModel):
     """Pydantic model for PageGetStartedNullstate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     cta_title: str | None = Field(None, alias="cta_title")
     processed_greeting: str | None = Field(None, alias="processed_greeting")
     responsiveness: str | None = Field(None, alias="responsiveness")
@@ -39744,7 +39744,7 @@ class PageGetStartedNullstateFields(BaseModel):
 class MediaFingerprintFields(BaseModel):
     """Pydantic model for MediaFingerprint fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     duration_in_sec: float | None = Field(None, alias="duration_in_sec")
     fingerprint_content_type: str | None = Field(None, alias="fingerprint_content_type")
     fingerprint_type: str | None = Field(None, alias="fingerprint_type")
@@ -39757,7 +39757,7 @@ class MediaFingerprintFields(BaseModel):
 class AdLimitsEnforcementDataFields(BaseModel):
     """Pydantic model for AdLimitsEnforcementData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_limit_on_page: int | None = Field(None, alias="ad_limit_on_page")
     ad_limit_on_scope: int | None = Field(None, alias="ad_limit_on_scope")
     ad_volume_on_page: int | None = Field(None, alias="ad_volume_on_page")
@@ -39769,7 +39769,7 @@ class AdLimitsEnforcementDataFields(BaseModel):
 class AdAssetFeedSpecImageFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecImage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     hash: str | None = Field(None, alias="hash")
     image_crops: AdsImageCropsFields | None = Field(None, alias="image_crops")
@@ -39780,7 +39780,7 @@ class AdAssetFeedSpecImageFields(BaseModel):
 class LeadGenLegalContentFields(BaseModel):
     """Pydantic model for LeadGenLegalContent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_disclaimer: LeadGenCustomDisclaimerFields | None = Field(None, alias="custom_disclaimer")
     id: str | None = Field(None, alias="id")
     privacy_policy: LeadGenPrivacyPolicyFields | None = Field(None, alias="privacy_policy")
@@ -39789,7 +39789,7 @@ class LeadGenLegalContentFields(BaseModel):
 class InstagramBusinessAssetFields(BaseModel):
     """Pydantic model for InstagramBusinessAsset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     ig_user_id: str | None = Field(None, alias="ig_user_id")
     ig_username: str | None = Field(None, alias="ig_username")
@@ -39798,7 +39798,7 @@ class InstagramBusinessAssetFields(BaseModel):
 class LeadGenLegalContentCheckboxFields(BaseModel):
     """Pydantic model for LeadGenLegalContentCheckbox fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     is_checked_by_default: bool | None = Field(None, alias="is_checked_by_default")
     is_required: bool | None = Field(None, alias="is_required")
@@ -39809,14 +39809,14 @@ class LeadGenLegalContentCheckboxFields(BaseModel):
 class OpenGraphContextFields(BaseModel):
     """Pydantic model for OpenGraphContext fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class UserNotificationSeenStateDataFields(BaseModel):
     """Pydantic model for UserNotificationSeenStateData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     seen_state: str | None = Field(None, alias="seen_state")
 
@@ -39824,7 +39824,7 @@ class UserNotificationSeenStateDataFields(BaseModel):
 class UserMobileConfigFields(BaseModel):
     """Pydantic model for UserMobileConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     section_name: str | None = Field(None, alias="section_name")
     value: dict[str, Any] | None = Field(None, alias="value")
 
@@ -39832,7 +39832,7 @@ class UserMobileConfigFields(BaseModel):
 class CoverPhotoFields(BaseModel):
     """Pydantic model for CoverPhoto fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     cover_id: str | None = Field(None, alias="cover_id")
     id: str | None = Field(None, alias="id")
     offset_x: float | None = Field(None, alias="offset_x")
@@ -39843,7 +39843,7 @@ class CoverPhotoFields(BaseModel):
 class CatalogItemOverrideFields(BaseModel):
     """Pydantic model for CatalogItemOverride fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     local_info: ProductItemLocalInfoFields | None = Field(None, alias="local_info")
     override_type: str | None = Field(None, alias="override_type")
@@ -39853,7 +39853,7 @@ class CatalogItemOverrideFields(BaseModel):
 class AdsPixelStatsResultFields(BaseModel):
     """Pydantic model for AdsPixelStatsResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     aggregation: str | None = Field(None, alias="aggregation")
     data: list[AdsPixelStatsFields] | None = Field(None, alias="data")
     start_time: datetime | None = Field(None, alias="start_time")
@@ -39862,7 +39862,7 @@ class AdsPixelStatsResultFields(BaseModel):
 class CPASBusinessSetupConfigFields(BaseModel):
     """Pydantic model for CPASBusinessSetupConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     accepted_collab_ads_tos: bool | None = Field(None, alias="accepted_collab_ads_tos")
     business: BusinessFields | None = Field(None, alias="business")
     business_capabilities_status: list[dict[str, str]] | None = Field(
@@ -39877,7 +39877,7 @@ class CPASBusinessSetupConfigFields(BaseModel):
 class FundingSourceDetailsCouponFields(BaseModel):
     """Pydantic model for FundingSourceDetailsCoupon fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount: int | None = Field(None, alias="amount")
     campaign_ids: list[int] | None = Field(None, alias="campaign_ids")
     child_ad_account_id: str | None = Field(None, alias="child_ad_account_id")
@@ -39898,7 +39898,7 @@ class FundingSourceDetailsCouponFields(BaseModel):
 class AdsNamingTemplateFields(BaseModel):
     """Pydantic model for AdsNamingTemplate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     api_fields: list[list[dict[str, list[dict[str, str]]]]] | None = Field(None, alias="api_fields")
     api_version: str | None = Field(None, alias="api_version")
     field_order: list[str] | None = Field(None, alias="field_order")
@@ -39915,7 +39915,7 @@ class AdsNamingTemplateFields(BaseModel):
 class ThirdPartyPartnerLiftRequestFields(BaseModel):
     """Pydantic model for ThirdPartyPartnerLiftRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_entities: list[str] | None = Field(None, alias="ad_entities")
     country: str | None = Field(None, alias="country")
     created_time: datetime | None = Field(None, alias="created_time")
@@ -39939,14 +39939,14 @@ class ThirdPartyPartnerLiftRequestFields(BaseModel):
 class AdsEligibilityFields(BaseModel):
     """Pydantic model for AdsEligibility fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     live_shopping: dict[str, Any] | None = Field(None, alias="live_shopping")
 
 
 class UserLeadGenFieldDataFields(BaseModel):
     """Pydantic model for UserLeadGenFieldData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     name: str | None = Field(None, alias="name")
     values: list[str] | None = Field(None, alias="values")
 
@@ -39954,7 +39954,7 @@ class UserLeadGenFieldDataFields(BaseModel):
 class AlbumFields(BaseModel):
     """Pydantic model for Album fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     backdated_time: datetime | None = Field(None, alias="backdated_time")
     backdated_time_granularity: str | None = Field(None, alias="backdated_time_granularity")
     can_backdate: bool | None = Field(None, alias="can_backdate")
@@ -39983,7 +39983,7 @@ class AlbumFields(BaseModel):
 class VideoUploadLimitsFields(BaseModel):
     """Pydantic model for VideoUploadLimits fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     length: int | None = Field(None, alias="length")
     size: int | None = Field(None, alias="size")
 
@@ -39991,7 +39991,7 @@ class VideoUploadLimitsFields(BaseModel):
 class MessagingAppsInfoFields(BaseModel):
     """Pydantic model for MessagingAppsInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ctd_support_only_for_ig_app: bool | None = Field(None, alias="ctd_support_only_for_ig_app")
     has_instagram_messaging_permission: bool | None = Field(
         None, alias="has_instagram_messaging_permission"
@@ -40006,7 +40006,7 @@ class MessagingAppsInfoFields(BaseModel):
 class FavoriteCatalogFields(BaseModel):
     """Pydantic model for FavoriteCatalog fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     catalog: ProductCatalogFields | None = Field(None, alias="catalog")
     id: str | None = Field(None, alias="id")
 
@@ -40014,7 +40014,7 @@ class FavoriteCatalogFields(BaseModel):
 class LiveVideoErrorFields(BaseModel):
     """Pydantic model for LiveVideoError fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     error_code: int | None = Field(None, alias="error_code")
     error_message: str | None = Field(None, alias="error_message")
@@ -40024,7 +40024,7 @@ class LiveVideoErrorFields(BaseModel):
 class ProductItemImporterAddressFields(BaseModel):
     """Pydantic model for ProductItemImporterAddress fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     city: str | None = Field(None, alias="city")
     country: str | None = Field(None, alias="country")
     postal_code: str | None = Field(None, alias="postal_code")
@@ -40036,7 +40036,7 @@ class ProductItemImporterAddressFields(BaseModel):
 class VideoCopyrightSegmentFields(BaseModel):
     """Pydantic model for VideoCopyrightSegment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     duration_in_sec: float | None = Field(None, alias="duration_in_sec")
     media_type: str | None = Field(None, alias="media_type")
     start_time_in_sec: float | None = Field(None, alias="start_time_in_sec")
@@ -40045,7 +40045,7 @@ class VideoCopyrightSegmentFields(BaseModel):
 class BusinessCreativeInsightsFields(BaseModel):
     """Pydantic model for BusinessCreativeInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: list[AdsActionStatsFields] | None = Field(None, alias="actions")
     age: str | None = Field(None, alias="age")
     country: str | None = Field(None, alias="country")
@@ -40069,7 +40069,7 @@ class BusinessCreativeInsightsFields(BaseModel):
 class DynamicPriceConfigByDateFields(BaseModel):
     """Pydantic model for DynamicPriceConfigByDate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     checkin_date: str | None = Field(None, alias="checkin_date")
     prices: str | None = Field(None, alias="prices")
     prices_pretty: list[dict[str, Any]] | None = Field(None, alias="prices_pretty")
@@ -40078,7 +40078,7 @@ class DynamicPriceConfigByDateFields(BaseModel):
 class AdgroupFacebookFeedbackFields(BaseModel):
     """Pydantic model for AdgroupFacebookFeedback fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     preview: str | None = Field(None, alias="preview")
 
@@ -40086,7 +40086,7 @@ class AdgroupFacebookFeedbackFields(BaseModel):
 class EmailImportFields(BaseModel):
     """Pydantic model for EmailImport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     lists: list[dict[str, Any]] | None = Field(None, alias="lists")
     total: int | None = Field(None, alias="total")
 
@@ -40094,7 +40094,7 @@ class EmailImportFields(BaseModel):
 class AdAssetOnsiteDestinationsFields(BaseModel):
     """Pydantic model for AdAssetOnsiteDestinations fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     auto_optimization: str | None = Field(None, alias="auto_optimization")
     details_page_product_id: str | None = Field(None, alias="details_page_product_id")
     shop_collection_product_set_id: str | None = Field(None, alias="shop_collection_product_set_id")
@@ -40105,7 +40105,7 @@ class AdAssetOnsiteDestinationsFields(BaseModel):
 class TargetingRelaxationFields(BaseModel):
     """Pydantic model for TargetingRelaxation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     custom_audience: int | None = Field(None, alias="custom_audience")
     lookalike: int | None = Field(None, alias="lookalike")
 
@@ -40113,7 +40113,7 @@ class TargetingRelaxationFields(BaseModel):
 class ProductDaEventSamplesBatchFields(BaseModel):
     """Pydantic model for ProductDaEventSamplesBatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     samples: list[dict[str, Any]] | None = Field(None, alias="samples")
     time_start: int | None = Field(None, alias="time_start")
     time_stop: int | None = Field(None, alias="time_stop")
@@ -40122,7 +40122,7 @@ class ProductDaEventSamplesBatchFields(BaseModel):
 class PagePaymentOptionsFields(BaseModel):
     """Pydantic model for PagePaymentOptions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amex: int | None = Field(None, alias="amex")
     cash_only: int | None = Field(None, alias="cash_only")
     discover: int | None = Field(None, alias="discover")
@@ -40133,7 +40133,7 @@ class PagePaymentOptionsFields(BaseModel):
 class AdVideoFields(BaseModel):
     """Pydantic model for AdVideo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_breaks: list[int] | None = Field(None, alias="ad_breaks")
     admin_creator: UserFields | None = Field(None, alias="admin_creator")
     audio_isrc: AudioIsrcFields | None = Field(None, alias="audio_isrc")
@@ -40190,7 +40190,7 @@ class AdVideoFields(BaseModel):
 class MeasurementReportFields(BaseModel):
     """Pydantic model for MeasurementReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     download_urls: list[str] | None = Field(None, alias="download_urls")
     id: str | None = Field(None, alias="id")
     metadata: dict[str, Any] | None = Field(None, alias="metadata")
@@ -40201,7 +40201,7 @@ class MeasurementReportFields(BaseModel):
 class PageUserWithLeadsAccessFields(BaseModel):
     """Pydantic model for PageUserWithLeadsAccess fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     active_on_business: bool | None = Field(None, alias="active_on_business")
     business_role: str | None = Field(None, alias="business_role")
     can_access_leads: bool | None = Field(None, alias="can_access_leads")
@@ -40211,7 +40211,7 @@ class PageUserWithLeadsAccessFields(BaseModel):
 class AdAssetImageFields(BaseModel):
     """Pydantic model for AdAssetImage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     hash: str | None = Field(None, alias="hash")
     id: str | None = Field(None, alias="id")
     image_crops: AdsImageCropsFields | None = Field(None, alias="image_crops")
@@ -40224,7 +40224,7 @@ class AdAssetImageFields(BaseModel):
 class AdCreativeFields(BaseModel):
     """Pydantic model for AdCreative fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     actor_id: str | None = Field(None, alias="actor_id")
     ad_disclaimer_spec: AdCreativeAdDisclaimerFields | None = Field(
@@ -40338,7 +40338,7 @@ class AdCreativeFields(BaseModel):
 class AdAccountOptimizationGoalsAEMv2EligibilityFields(BaseModel):
     """Pydantic model for AdAccountOptimizationGoalsAEMv2Eligibility fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_disabled: bool | None = Field(None, alias="is_disabled")
     optimization_goal: dict[str, Any] | None = Field(None, alias="optimization_goal")
 
@@ -40346,7 +40346,7 @@ class AdAccountOptimizationGoalsAEMv2EligibilityFields(BaseModel):
 class PageAboutStoryComposedBlockInlineStyleFields(BaseModel):
     """Pydantic model for PageAboutStoryComposedBlockInlineStyle fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     length: int | None = Field(None, alias="length")
     offset: int | None = Field(None, alias="offset")
     style: str | None = Field(None, alias="style")
@@ -40355,7 +40355,7 @@ class PageAboutStoryComposedBlockInlineStyleFields(BaseModel):
 class AdCampaignGroupAgencyFeeConfigForApiFields(BaseModel):
     """Pydantic model for AdCampaignGroupAgencyFeeConfigForApi fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     agency_fee_pct: float | None = Field(None, alias="agency_fee_pct")
     is_agency_fee_disabled: bool | None = Field(None, alias="is_agency_fee_disabled")
     is_default_agency_fee: bool | None = Field(None, alias="is_default_agency_fee")
@@ -40364,7 +40364,7 @@ class AdCampaignGroupAgencyFeeConfigForApiFields(BaseModel):
 class BusinessAgreementFields(BaseModel):
     """Pydantic model for BusinessAgreement fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     request_status: str | None = Field(None, alias="request_status")
 
@@ -40372,7 +40372,7 @@ class BusinessAgreementFields(BaseModel):
 class InsightsResultFields(BaseModel):
     """Pydantic model for InsightsResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     description_from_api_doc: str | None = Field(None, alias="description_from_api_doc")
     id: str | None = Field(None, alias="id")
@@ -40385,7 +40385,7 @@ class InsightsResultFields(BaseModel):
 class AdSavedKeywordsFields(BaseModel):
     """Pydantic model for AdSavedKeywords fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account: AdAccountFields | None = Field(None, alias="account")
     id: str | None = Field(None, alias="id")
     keywords: AdKeywordsFields | None = Field(None, alias="keywords")
@@ -40398,7 +40398,7 @@ class AdSavedKeywordsFields(BaseModel):
 class RecommendationFields(BaseModel):
     """Pydantic model for Recommendation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_time: datetime | None = Field(None, alias="created_time")
     has_rating: bool | None = Field(None, alias="has_rating")
     has_review: bool | None = Field(None, alias="has_review")
@@ -40412,7 +40412,7 @@ class RecommendationFields(BaseModel):
 class CatalogSmartPixelSettingsFields(BaseModel):
     """Pydantic model for CatalogSmartPixelSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     allowed_domains: list[str] | None = Field(None, alias="allowed_domains")
     available_property_filters: list[str] | None = Field(None, alias="available_property_filters")
     catalog: ProductCatalogFields | None = Field(None, alias="catalog")
@@ -40436,7 +40436,7 @@ class CatalogSmartPixelSettingsFields(BaseModel):
 class VideoCopyrightCheckStatusFields(BaseModel):
     """Pydantic model for VideoCopyrightCheckStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     matches_found: bool | None = Field(None, alias="matches_found")
     status: str | None = Field(None, alias="status")
 
@@ -40444,7 +40444,7 @@ class VideoCopyrightCheckStatusFields(BaseModel):
 class AdCreativeDegreesOfFreedomSpecFields(BaseModel):
     """Pydantic model for AdCreativeDegreesOfFreedomSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_handle_type: str | None = Field(None, alias="ad_handle_type")
     creative_features_spec: AdCreativeFeaturesSpecFields | None = Field(
         None, alias="creative_features_spec"
@@ -40464,7 +40464,7 @@ class AdCreativeDegreesOfFreedomSpecFields(BaseModel):
 class AdsPixelFields(BaseModel):
     """Pydantic model for AdsPixel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     automatic_matching_fields: list[str] | None = Field(None, alias="automatic_matching_fields")
     can_proxy: bool | None = Field(None, alias="can_proxy")
     code: str | None = Field(None, alias="code")
@@ -40506,7 +40506,7 @@ class AdsPixelFields(BaseModel):
 class OpenBridgeConfigurationFields(BaseModel):
     """Pydantic model for OpenBridgeConfiguration fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     active: bool | None = Field(None, alias="active")
     cloud_provider: str | None = Field(None, alias="cloud_provider")
     cloud_region: str | None = Field(None, alias="cloud_region")
@@ -40530,7 +40530,7 @@ class OpenBridgeConfigurationFields(BaseModel):
 class LeadGenClientValidationRulesFields(BaseModel):
     """Pydantic model for LeadGenClientValidationRules fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     exclude_emoji_and_special_chars_enabled: bool | None = Field(
         None, alias="exclude_emoji_and_special_chars_enabled"
     )
@@ -40541,7 +40541,7 @@ class LeadGenClientValidationRulesFields(BaseModel):
 class AdAccountCustomAudienceLimitsFields(BaseModel):
     """Pydantic model for AdAccountCustomAudienceLimits fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience_update_quota_in_total: int | None = Field(None, alias="audience_update_quota_in_total")
     audience_update_quota_left: float | None = Field(None, alias="audience_update_quota_left")
     has_hit_audience_update_limit: bool | None = Field(None, alias="has_hit_audience_update_limit")
@@ -40554,7 +40554,7 @@ class AdAccountCustomAudienceLimitsFields(BaseModel):
 class GroupFields(BaseModel):
     """Pydantic model for Group fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     archived: bool | None = Field(None, alias="archived")
     cover: CoverPhotoFields | None = Field(None, alias="cover")
     created_time: datetime | None = Field(None, alias="created_time")
@@ -40579,7 +40579,7 @@ class GroupFields(BaseModel):
 class PartnerIntegrationLinkedFields(BaseModel):
     """Pydantic model for PartnerIntegrationLinked fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ads_pixel: AdsPixelFields | None = Field(None, alias="ads_pixel")
     application: ApplicationFields | None = Field(None, alias="application")
     completed_integration_types: list[str] | None = Field(None, alias="completed_integration_types")
@@ -40605,7 +40605,7 @@ class PartnerIntegrationLinkedFields(BaseModel):
 class RightsManagerDataExportFields(BaseModel):
     """Pydantic model for RightsManagerDataExport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     download_uri: str | None = Field(None, alias="download_uri")
     export_scope: str | None = Field(None, alias="export_scope")
     id: str | None = Field(None, alias="id")
@@ -40618,7 +40618,7 @@ class RightsManagerDataExportFields(BaseModel):
 class IGShoppingProductAppealFields(BaseModel):
     """Pydantic model for IGShoppingProductAppeal fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     eligible_for_appeal: bool | None = Field(None, alias="eligible_for_appeal")
     product_appeal_status: str | None = Field(None, alias="product_appeal_status")
     product_id: int | None = Field(None, alias="product_id")
@@ -40629,7 +40629,7 @@ class IGShoppingProductAppealFields(BaseModel):
 class AIGeneratedProductImageFields(BaseModel):
     """Pydantic model for AIGeneratedProductImage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     flagged_for_manual_review: bool | None = Field(None, alias="flagged_for_manual_review")
     transformed_image_url: str | None = Field(None, alias="transformed_image_url")
 
@@ -40637,7 +40637,7 @@ class AIGeneratedProductImageFields(BaseModel):
 class PageUserMessageThreadLabelFields(BaseModel):
     """Pydantic model for PageUserMessageThreadLabel fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     page_label_name: str | None = Field(None, alias="page_label_name")
 
@@ -40645,7 +40645,7 @@ class PageUserMessageThreadLabelFields(BaseModel):
 class CatalogItemAppLinksFields(BaseModel):
     """Pydantic model for CatalogItemAppLinks fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     android: list[AndroidAppLinkFields] | None = Field(None, alias="android")
     ios: list[IosAppLinkFields] | None = Field(None, alias="ios")
     ipad: list[IosAppLinkFields] | None = Field(None, alias="ipad")
@@ -40659,7 +40659,7 @@ class CatalogItemAppLinksFields(BaseModel):
 class InstagramShoppingMerchantReviewMessageFields(BaseModel):
     """Pydantic model for InstagramShoppingMerchantReviewMessage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     help_url: str | None = Field(None, alias="help_url")
     message: str | None = Field(None, alias="message")
 
@@ -40667,7 +40667,7 @@ class InstagramShoppingMerchantReviewMessageFields(BaseModel):
 class TargetingGeoLocationCustomLocationFields(BaseModel):
     """Pydantic model for TargetingGeoLocationCustomLocation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     address_string: str | None = Field(None, alias="address_string")
     country: str | None = Field(None, alias="country")
     country_group: str | None = Field(None, alias="country_group")
@@ -40687,7 +40687,7 @@ class TargetingGeoLocationCustomLocationFields(BaseModel):
 class WorkExperienceFields(BaseModel):
     """Pydantic model for WorkExperience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     employer: PageFields | None = Field(None, alias="employer")
     end_date: str | None = Field(None, alias="end_date")
@@ -40703,7 +40703,7 @@ class WorkExperienceFields(BaseModel):
 class IosAppLinkFields(BaseModel):
     """Pydantic model for IosAppLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_name: str | None = Field(None, alias="app_name")
     app_store_id: str | None = Field(None, alias="app_store_id")
     url: str | None = Field(None, alias="url")
@@ -40712,7 +40712,7 @@ class IosAppLinkFields(BaseModel):
 class BCPCampaignFields(BaseModel):
     """Pydantic model for BCPCampaign fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ads_permission_required: bool | None = Field(None, alias="ads_permission_required")
     application_deadline: str | None = Field(None, alias="application_deadline")
     campaign_goal: str | None = Field(None, alias="campaign_goal")
@@ -40737,7 +40737,7 @@ class BCPCampaignFields(BaseModel):
 class CallAdsPhoneDataFields(BaseModel):
     """Pydantic model for CallAdsPhoneData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     call_ads_phone_data_use_case: str | None = Field(None, alias="call_ads_phone_data_use_case")
     callback_variant: str | None = Field(None, alias="callback_variant")
     destination_website_url: str | None = Field(None, alias="destination_website_url")
@@ -40749,7 +40749,7 @@ class CallAdsPhoneDataFields(BaseModel):
 class AudiencePermissionFields(BaseModel):
     """Pydantic model for AudiencePermission fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audience: CustomAudienceFields | None = Field(None, alias="audience")
     share_account_id: str | None = Field(None, alias="share_account_id")
     share_account_name: str | None = Field(None, alias="share_account_name")
@@ -40758,7 +40758,7 @@ class AudiencePermissionFields(BaseModel):
 class DraftPostFields(BaseModel):
     """Pydantic model for DraftPost fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     admin_creator: UserFields | None = Field(None, alias="admin_creator")
     creation_time: datetime | None = Field(None, alias="creation_time")
     feed_audience_description: str | None = Field(None, alias="feed_audience_description")
@@ -40781,7 +40781,7 @@ class DraftPostFields(BaseModel):
 class PaymentRequestDetailsFields(BaseModel):
     """Pydantic model for PaymentRequestDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount: dict[str, Any] | None = Field(None, alias="amount")
     creation_time: int | None = Field(None, alias="creation_time")
     note: str | None = Field(None, alias="note")
@@ -40796,7 +40796,7 @@ class PaymentRequestDetailsFields(BaseModel):
 class AdsReportBuilderMMMReportFields(BaseModel):
     """Pydantic model for AdsReportBuilderMMMReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     async_status: str | None = Field(None, alias="async_status")
     export_format: str | None = Field(None, alias="export_format")
     export_name: str | None = Field(None, alias="export_name")
@@ -40810,7 +40810,7 @@ class AdsReportBuilderMMMReportFields(BaseModel):
 class TargetingGeoLocationLocationExpansionFields(BaseModel):
     """Pydantic model for TargetingGeoLocationLocationExpansion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     allowed: bool | None = Field(None, alias="allowed")
     intent: str | None = Field(None, alias="intent")
 
@@ -40818,7 +40818,7 @@ class TargetingGeoLocationLocationExpansionFields(BaseModel):
 class ConversionActionQueryFields(BaseModel):
     """Pydantic model for ConversionActionQuery fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_type: list[dict[str, Any]] | None = Field(None, alias="action.type")
     application: list[dict[str, Any]] | None = Field(None, alias="application")
     conversion_id: list[str] | None = Field(None, alias="conversion_id")
@@ -40850,7 +40850,7 @@ class ConversionActionQueryFields(BaseModel):
 class CustomAudienceSaltsFields(BaseModel):
     """Pydantic model for CustomAudienceSalts fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: int | None = Field(None, alias="app_id")
     public_key: str | None = Field(None, alias="public_key")
     salts: list[dict[str, Any]] | None = Field(None, alias="salts")
@@ -40860,7 +40860,7 @@ class CustomAudienceSaltsFields(BaseModel):
 class AvatarProfilePictureFields(BaseModel):
     """Pydantic model for AvatarProfilePicture fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     url: str | None = Field(None, alias="url")
 
@@ -40868,7 +40868,7 @@ class AvatarProfilePictureFields(BaseModel):
 class WebAppLinkFields(BaseModel):
     """Pydantic model for WebAppLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     should_fallback: bool | None = Field(None, alias="should_fallback")
     url: str | None = Field(None, alias="url")
 
@@ -40876,7 +40876,7 @@ class WebAppLinkFields(BaseModel):
 class LeadGenQuestionFields(BaseModel):
     """Pydantic model for LeadGenQuestion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     conditional_questions_choices: list[LeadGenConditionalQuestionsGroupChoicesFields] | None = (
         Field(None, alias="conditional_questions_choices")
     )
@@ -40895,7 +40895,7 @@ class LeadGenQuestionFields(BaseModel):
 class AdAssetLinkURLFields(BaseModel):
     """Pydantic model for AdAssetLinkURL fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     android_deeplink_url: str | None = Field(None, alias="android_deeplink_url")
     carousel_see_more_url: str | None = Field(None, alias="carousel_see_more_url")
     deeplink_url: str | None = Field(None, alias="deeplink_url")
@@ -40910,7 +40910,7 @@ class AdAssetLinkURLFields(BaseModel):
 class AdvertiserVerificationStatusFields(BaseModel):
     """Pydantic model for AdvertiserVerificationStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     banner_type: str | None = Field(None, alias="banner_type")
     grace_period_ends_at: datetime | None = Field(None, alias="grace_period_ends_at")
     ufac_redirect_uri: str | None = Field(None, alias="ufac_redirect_uri")
@@ -40920,7 +40920,7 @@ class AdvertiserVerificationStatusFields(BaseModel):
 class AdsPivotRulesFields(BaseModel):
     """Pydantic model for AdsPivotRules fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     creator: ProfileFields | None = Field(None, alias="creator")
     description: str | None = Field(None, alias="description")
@@ -40936,7 +40936,7 @@ class AdsPivotRulesFields(BaseModel):
 class DynamicVideoMetadataFields(BaseModel):
     """Pydantic model for DynamicVideoMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     tags: list[str] | None = Field(None, alias="tags")
     url: str | None = Field(None, alias="url")
@@ -40946,7 +40946,7 @@ class DynamicVideoMetadataFields(BaseModel):
 class BusinessSettingLogsDataFields(BaseModel):
     """Pydantic model for BusinessSettingLogsData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actor: dict[str, Any] | None = Field(None, alias="actor")
     event_object: dict[str, Any] | None = Field(None, alias="event_object")
     event_time: str | None = Field(None, alias="event_time")
@@ -40957,7 +40957,7 @@ class BusinessSettingLogsDataFields(BaseModel):
 class ALMAdAccountInfoFields(BaseModel):
     """Pydantic model for ALMAdAccountInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_id: str | None = Field(None, alias="ad_account_id")
     id: str | None = Field(None, alias="id")
     managed_by: str | None = Field(None, alias="managed_by")
@@ -40972,7 +40972,7 @@ class ALMAdAccountInfoFields(BaseModel):
 class ThirdPartyPartnerViewabilityRequestFields(BaseModel):
     """Pydantic model for ThirdPartyPartnerViewabilityRequest fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_time: datetime | None = Field(None, alias="created_time")
     description: str | None = Field(None, alias="description")
     ds: str | None = Field(None, alias="ds")
@@ -40989,7 +40989,7 @@ class ThirdPartyPartnerViewabilityRequestFields(BaseModel):
 class ApplicationFields(BaseModel):
     """Pydantic model for Application fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     aam_rules: str | None = Field(None, alias="aam_rules")
     an_ad_space_limit: int | None = Field(None, alias="an_ad_space_limit")
     an_platforms: list[str] | None = Field(None, alias="an_platforms")
@@ -41121,7 +41121,7 @@ class ApplicationFields(BaseModel):
 class McomInvoiceBankAccountFields(BaseModel):
     """Pydantic model for McomInvoiceBankAccount fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     num_pending_verification_accounts: int | None = Field(
         None, alias="num_pending_verification_accounts"
     )
@@ -41135,7 +41135,7 @@ class McomInvoiceBankAccountFields(BaseModel):
 class PrivateLiftStudyInstanceFields(BaseModel):
     """Pydantic model for PrivateLiftStudyInstance fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     breakdown_key: str | None = Field(None, alias="breakdown_key")
     created_time: datetime | None = Field(None, alias="created_time")
     feature_list: list[str] | None = Field(None, alias="feature_list")
@@ -41152,7 +41152,7 @@ class PrivateLiftStudyInstanceFields(BaseModel):
 class IGUserForIGOnlyAPIFields(BaseModel):
     """Pydantic model for IGUserForIGOnlyAPI fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_type: str | None = Field(None, alias="account_type")
     biography: str | None = Field(None, alias="biography")
     followers_count: int | None = Field(None, alias="followers_count")
@@ -41169,7 +41169,7 @@ class IGUserForIGOnlyAPIFields(BaseModel):
 class IGRefreshAccessTokenForIGOnlyAPIFields(BaseModel):
     """Pydantic model for IGRefreshAccessTokenForIGOnlyAPI fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     access_token: str | None = Field(None, alias="access_token")
     expires_in: int | None = Field(None, alias="expires_in")
     permissions: str | None = Field(None, alias="permissions")
@@ -41179,7 +41179,7 @@ class IGRefreshAccessTokenForIGOnlyAPIFields(BaseModel):
 class ProductCatalogDataSourceFields(BaseModel):
     """Pydantic model for ProductCatalogDataSource fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     id: str | None = Field(None, alias="id")
     ingestion_source_type: str | None = Field(None, alias="ingestion_source_type")
@@ -41190,14 +41190,14 @@ class ProductCatalogDataSourceFields(BaseModel):
 class FAMEKumoFields(BaseModel):
     """Pydantic model for FAMEKumo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
 
 
 class WebPublisherFields(BaseModel):
     """Pydantic model for WebPublisher fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     domain_url: str | None = Field(None, alias="domain_url")
     id: str | None = Field(None, alias="id")
     publisher_name: str | None = Field(None, alias="publisher_name")
@@ -41206,14 +41206,14 @@ class WebPublisherFields(BaseModel):
 class ProductItemInvalidationErrorFields(BaseModel):
     """Pydantic model for ProductItemInvalidationError fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class WorkAccessCodeFields(BaseModel):
     """Pydantic model for WorkAccessCode fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     code: str | None = Field(None, alias="code")
     expiration_time: datetime | None = Field(None, alias="expiration_time")
 
@@ -41221,7 +41221,7 @@ class WorkAccessCodeFields(BaseModel):
 class PageCTXBudgetSimilarAdvertiserBudgetRecommendationFields(BaseModel):
     """Pydantic model for PageCTXBudgetSimilarAdvertiserBudgetRecommendation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     budget: str | None = Field(None, alias="budget")
     reported_conversion: str | None = Field(None, alias="reported_conversion")
 
@@ -41229,7 +41229,7 @@ class PageCTXBudgetSimilarAdvertiserBudgetRecommendationFields(BaseModel):
 class LinkFields(BaseModel):
     """Pydantic model for Link fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     caption: str | None = Field(None, alias="caption")
     created_time: datetime | None = Field(None, alias="created_time")
     description: str | None = Field(None, alias="description")
@@ -41247,7 +41247,7 @@ class LinkFields(BaseModel):
 class MessengerCallSettingsFields(BaseModel):
     """Pydantic model for MessengerCallSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audio_enabled: bool | None = Field(None, alias="audio_enabled")
     call_hours: dict[str, Any] | None = Field(None, alias="call_hours")
     call_routing: str | None = Field(None, alias="call_routing")
@@ -41257,7 +41257,7 @@ class MessengerCallSettingsFields(BaseModel):
 class AdAccountASLScheduleFields(BaseModel):
     """Pydantic model for AdAccountASLSchedule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account: AdAccountFields | None = Field(None, alias="ad_account")
     id: str | None = Field(None, alias="id")
     time_created: datetime | None = Field(None, alias="time_created")
@@ -41267,7 +41267,7 @@ class AdAccountASLScheduleFields(BaseModel):
 class CatalogCollectionFields(BaseModel):
     """Pydantic model for CatalogCollection fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     description: str | None = Field(None, alias="description")
     title: str | None = Field(None, alias="title")
     url: str | None = Field(None, alias="url")
@@ -41276,7 +41276,7 @@ class CatalogCollectionFields(BaseModel):
 class ProductFeedUploadProgressFields(BaseModel):
     """Pydantic model for ProductFeedUploadProgress fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pos: int | None = Field(None, alias="pos")
     size: int | None = Field(None, alias="size")
     step: str | None = Field(None, alias="step")
@@ -41287,7 +41287,7 @@ class ProductFeedUploadProgressFields(BaseModel):
 class ProductEventStatFields(BaseModel):
     """Pydantic model for ProductEventStat fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     date_start: str | None = Field(None, alias="date_start")
     date_stop: str | None = Field(None, alias="date_stop")
     device_type: dict[str, Any] | None = Field(None, alias="device_type")
@@ -41308,7 +41308,7 @@ class ProductEventStatFields(BaseModel):
 class WorkUserBadgesFields(BaseModel):
     """Pydantic model for WorkUserBadges fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     category: str | None = Field(None, alias="category")
     description: str | None = Field(None, alias="description")
     icon: str | None = Field(None, alias="icon")
@@ -41319,7 +41319,7 @@ class WorkUserBadgesFields(BaseModel):
 class CPASSetupPageStructureProgressFields(BaseModel):
     """Pydantic model for CPASSetupPageStructureProgress fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     issues: list[dict[str, Any]] | None = Field(None, alias="issues")
     name: str | None = Field(None, alias="name")
@@ -41328,7 +41328,7 @@ class CPASSetupPageStructureProgressFields(BaseModel):
 class AdAccountSubscribedAppsFields(BaseModel):
     """Pydantic model for AdAccountSubscribedApps fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     app_id: str | None = Field(None, alias="app_id")
     app_name: str | None = Field(None, alias="app_name")
 
@@ -41336,7 +41336,7 @@ class AdAccountSubscribedAppsFields(BaseModel):
 class CPASMerchantConfigFields(BaseModel):
     """Pydantic model for CPASMerchantConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     accepted_tos: bool | None = Field(None, alias="accepted_tos")
     beta_features: list[str] | None = Field(None, alias="beta_features")
     business_outcomes_status: list[dict[str, str]] | None = Field(
@@ -41353,7 +41353,7 @@ class CPASMerchantConfigFields(BaseModel):
 class LiveVideoAdCampaignConfigFields(BaseModel):
     """Pydantic model for LiveVideoAdCampaignConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     live_video_ad_type: str | None = Field(None, alias="live_video_ad_type")
 
@@ -41361,7 +41361,7 @@ class LiveVideoAdCampaignConfigFields(BaseModel):
 class ThreadsUserFields(BaseModel):
     """Pydantic model for ThreadsUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     threads_user_id: str | None = Field(None, alias="threads_user_id")
     threads_user_profile_pic: str | None = Field(None, alias="threads_user_profile_pic")
 
@@ -41369,7 +41369,7 @@ class ThreadsUserFields(BaseModel):
 class PageParkingFields(BaseModel):
     """Pydantic model for PageParking fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     lot: int | None = Field(None, alias="lot")
     street: int | None = Field(None, alias="street")
     valet: int | None = Field(None, alias="valet")
@@ -41378,14 +41378,14 @@ class PageParkingFields(BaseModel):
 class AdsGuidanceQEExposureFields(BaseModel):
     """Pydantic model for AdsGuidanceQEExposure fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_exposed: bool | None = Field(None, alias="account_exposed")
 
 
 class PageCategoryFields(BaseModel):
     """Pydantic model for PageCategory fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     api_enum: str | None = Field(None, alias="api_enum")
     fb_page_categories: list[PageCategoryFields] | None = Field(None, alias="fb_page_categories")
     id: str | None = Field(None, alias="id")
@@ -41395,7 +41395,7 @@ class PageCategoryFields(BaseModel):
 class PageGameBotQuotaInformationFields(BaseModel):
     """Pydantic model for PageGameBotQuotaInformation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     count: int | None = Field(None, alias="count")
     time_window: int | None = Field(None, alias="time_window")
 
@@ -41403,7 +41403,7 @@ class PageGameBotQuotaInformationFields(BaseModel):
 class AdsPixelItemPriceFields(BaseModel):
     """Pydantic model for AdsPixelItemPrice fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     date: str | None = Field(None, alias="date")
     item_price_coverage: str | None = Field(None, alias="item_price_coverage")
 
@@ -41411,7 +41411,7 @@ class AdsPixelItemPriceFields(BaseModel):
 class AdAccountRecommendedCamapaignBudgetFields(BaseModel):
     """Pydantic model for AdAccountRecommendedCamapaignBudget fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     daily: str | None = Field(None, alias="daily")
     lifetime: str | None = Field(None, alias="lifetime")
     objective: str | None = Field(None, alias="objective")
@@ -41420,7 +41420,7 @@ class AdAccountRecommendedCamapaignBudgetFields(BaseModel):
 class AdAssetFeedAdditionalDataPageNudgeMessageFields(BaseModel):
     """Pydantic model for AdAssetFeedAdditionalDataPageNudgeMessage fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     enabled: bool | None = Field(None, alias="enabled")
     quick_replies: list[dict[str, Any]] | None = Field(None, alias="quick_replies")
     text: str | None = Field(None, alias="text")
@@ -41429,7 +41429,7 @@ class AdAssetFeedAdditionalDataPageNudgeMessageFields(BaseModel):
 class AdAssetFeedSpecTitleFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecTitle fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     text: str | None = Field(None, alias="text")
     url_tags: str | None = Field(None, alias="url_tags")
@@ -41438,7 +41438,7 @@ class AdAssetFeedSpecTitleFields(BaseModel):
 class AdCreativeLinkDataChildAttachmentFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataChildAttachment fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     call_to_action: AdCreativeLinkDataCallToActionFields | None = Field(
         None, alias="call_to_action"
     )
@@ -41457,7 +41457,7 @@ class AdCreativeLinkDataChildAttachmentFields(BaseModel):
 class AdCreativeAssetGroupsSpecFields(BaseModel):
     """Pydantic model for AdCreativeAssetGroupsSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     groups: list[dict[str, Any]] | None = Field(None, alias="groups")
     origin: str | None = Field(None, alias="origin")
 
@@ -41465,7 +41465,7 @@ class AdCreativeAssetGroupsSpecFields(BaseModel):
 class WhatsAppBusinessPartnerClientVerificationSubmissionFields(BaseModel):
     """Pydantic model for WhatsAppBusinessPartnerClientVerificationSubmission fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     client_business_id: str | None = Field(None, alias="client_business_id")
     id: str | None = Field(None, alias="id")
     rejection_reasons: list[dict[str, Any]] | None = Field(None, alias="rejection_reasons")
@@ -41478,7 +41478,7 @@ class WhatsAppBusinessPartnerClientVerificationSubmissionFields(BaseModel):
 class AgeRangeFields(BaseModel):
     """Pydantic model for AgeRange fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     max: int | None = Field(None, alias="max")
     min: int | None = Field(None, alias="min")
 
@@ -41486,7 +41486,7 @@ class AgeRangeFields(BaseModel):
 class AdCreativePostClickConfigurationFields(BaseModel):
     """Pydantic model for AdCreativePostClickConfiguration fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     post_click_item_description: str | None = Field(None, alias="post_click_item_description")
     post_click_item_headline: str | None = Field(None, alias="post_click_item_headline")
 
@@ -41494,7 +41494,7 @@ class AdCreativePostClickConfigurationFields(BaseModel):
 class LinkedInstagramAccountDataFields(BaseModel):
     """Pydantic model for LinkedInstagramAccountData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     access_token: str | None = Field(None, alias="access_token")
     analytics_claim: str | None = Field(None, alias="analytics_claim")
     full_name: str | None = Field(None, alias="full_name")
@@ -41506,14 +41506,14 @@ class LinkedInstagramAccountDataFields(BaseModel):
 class FBPayButtonLoginFields(BaseModel):
     """Pydantic model for FBPayButtonLogin fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class CRMAddressFields(BaseModel):
     """Pydantic model for CRMAddress fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     city: str | None = Field(None, alias="city")
     cnpj_tax_id: str | None = Field(None, alias="cnpj_tax_id")
     country: str | None = Field(None, alias="country")
@@ -41533,7 +41533,7 @@ class CRMAddressFields(BaseModel):
 class AdAccountSmartSuggestedAdsFields(BaseModel):
     """Pydantic model for AdAccountSmartSuggestedAds fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_creative_spec: str | None = Field(None, alias="ad_creative_spec")
     description: str | None = Field(None, alias="description")
     guidance_spec: list[str] | None = Field(None, alias="guidance_spec")
@@ -41543,14 +41543,14 @@ class AdAccountSmartSuggestedAdsFields(BaseModel):
 class CustomAudienceCapabilitiesFields(BaseModel):
     """Pydantic model for CustomAudienceCapabilities fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     capabilities: dict[str, Any] | None = Field(None, alias="capabilities")
 
 
 class ALMEventFields(BaseModel):
     """Pydantic model for ALMEvent fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_ids: list[str] | None = Field(None, alias="ad_account_ids")
     campaign_ids: list[str] | None = Field(None, alias="campaign_ids")
     channel: str | None = Field(None, alias="channel")
@@ -41568,14 +41568,14 @@ class ALMEventFields(BaseModel):
 class CASSSetupOfflineEventSetProgressFields(BaseModel):
     """Pydantic model for CASSSetupOfflineEventSetProgress fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class PublisherDeliveryReportFields(BaseModel):
     """Pydantic model for PublisherDeliveryReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     content_types: list[str] | None = Field(None, alias="content_types")
     estimated_impressions: int | None = Field(None, alias="estimated_impressions")
     name: str | None = Field(None, alias="name")
@@ -41586,7 +41586,7 @@ class PublisherDeliveryReportFields(BaseModel):
 class AdsPixelCapabilityOverrideFields(BaseModel):
     """Pydantic model for AdsPixelCapabilityOverride fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     capability: str | None = Field(None, alias="capability")
     id: str | None = Field(None, alias="id")
     override_value: str | None = Field(None, alias="override_value")
@@ -41596,7 +41596,7 @@ class AdsPixelCapabilityOverrideFields(BaseModel):
 class FinanceObjectFields(BaseModel):
     """Pydantic model for FinanceObject fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     finance_permission: str | None = Field(None, alias="finance_permission")
     user: dict[str, Any] | None = Field(None, alias="user")
 
@@ -41604,7 +41604,7 @@ class FinanceObjectFields(BaseModel):
 class MIXInsightsResultFields(BaseModel):
     """Pydantic model for MIXInsightsResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     daily_age_gender_breakdown: list[dict[str, list[dict[str, int]]]] | None = Field(
         None, alias="daily_age_gender_breakdown"
     )
@@ -41653,7 +41653,7 @@ class MIXInsightsResultFields(BaseModel):
 class PageDirectIntegrationCrmWithLeadsAccessFields(BaseModel):
     """Pydantic model for PageDirectIntegrationCrmWithLeadsAccess fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_access_leads: bool | None = Field(None, alias="can_access_leads")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
@@ -41662,7 +41662,7 @@ class PageDirectIntegrationCrmWithLeadsAccessFields(BaseModel):
 class PagePublisherFields(BaseModel):
     """Pydantic model for PagePublisher fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     global_parent_id: str | None = Field(None, alias="global_parent_id")
     icon: str | None = Field(None, alias="icon")
     id: str | None = Field(None, alias="id")
@@ -41673,7 +41673,7 @@ class PagePublisherFields(BaseModel):
 class StatusFields(BaseModel):
     """Pydantic model for Status fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     event: EventFields | None = Field(None, alias="event")
     from_: dict[str, Any] | None = Field(None, alias="from")
     id: str | None = Field(None, alias="id")
@@ -41685,14 +41685,14 @@ class StatusFields(BaseModel):
 class ContextualBundlingSpecFields(BaseModel):
     """Pydantic model for ContextualBundlingSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     status: str | None = Field(None, alias="status")
 
 
 class RawCustomAudienceFields(BaseModel):
     """Pydantic model for RawCustomAudience fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -41700,7 +41700,7 @@ class RawCustomAudienceFields(BaseModel):
 class WhatsappSubscribedAppsInfoFields(BaseModel):
     """Pydantic model for WhatsappSubscribedAppsInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     page_whatsapp_number: str | None = Field(None, alias="page_whatsapp_number")
     subscribed_apps: list[dict[str, Any]] | None = Field(None, alias="subscribed_apps")
 
@@ -41708,7 +41708,7 @@ class WhatsappSubscribedAppsInfoFields(BaseModel):
 class FundingSourceDetailsFields(BaseModel):
     """Pydantic model for FundingSourceDetails fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     coupon: FundingSourceDetailsCouponFields | None = Field(None, alias="coupon")
     coupons: list[FundingSourceDetailsCouponFields] | None = Field(None, alias="coupons")
     display_string: str | None = Field(None, alias="display_string")
@@ -41719,7 +41719,7 @@ class FundingSourceDetailsFields(BaseModel):
 class OmegaCustomerTrxFields(BaseModel):
     """Pydantic model for OmegaCustomerTrx fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account_ids: list[str] | None = Field(None, alias="ad_account_ids")
     advertiser_name: str | None = Field(None, alias="advertiser_name")
     amount: str | None = Field(None, alias="amount")
@@ -41744,7 +41744,7 @@ class OmegaCustomerTrxFields(BaseModel):
 class AdLightAdgroupFields(BaseModel):
     """Pydantic model for AdLightAdgroup fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adset_id: str | None = Field(None, alias="adset_id")
     id: str | None = Field(None, alias="id")
 
@@ -41752,21 +41752,21 @@ class AdLightAdgroupFields(BaseModel):
 class NullNodeFields(BaseModel):
     """Pydantic model for NullNode fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     pass  # No fields defined
 
 
 class TargetingMarketingMessageChannelsFields(BaseModel):
     """Pydantic model for TargetingMarketingMessageChannels fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     whatsapp: IDNameFields | None = Field(None, alias="whatsapp")
 
 
 class AdAccountPaymentOptionsFields(BaseModel):
     """Pydantic model for AdAccountPaymentOptions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     available_altpay_options: list[dict[str, Any]] | None = Field(
         None, alias="available_altpay_options"
     )
@@ -41780,7 +41780,7 @@ class AdAccountPaymentOptionsFields(BaseModel):
 class PaymentSubscriptionFields(BaseModel):
     """Pydantic model for PaymentSubscription fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount: str | None = Field(None, alias="amount")
     app_param_data: str | None = Field(None, alias="app_param_data")
     application: ApplicationFields | None = Field(None, alias="application")
@@ -41810,7 +41810,7 @@ class PaymentSubscriptionFields(BaseModel):
 class PartnerStudyFields(BaseModel):
     """Pydantic model for PartnerStudy fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     additional_info: str | None = Field(None, alias="additional_info")
     brand: str | None = Field(None, alias="brand")
     client_name: str | None = Field(None, alias="client_name")
@@ -41836,7 +41836,7 @@ class PartnerStudyFields(BaseModel):
 class AdsStartYourDayWidgetFields(BaseModel):
     """Pydantic model for AdsStartYourDayWidget fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     widget_id: str | None = Field(None, alias="widget_id")
 
@@ -41844,7 +41844,7 @@ class AdsStartYourDayWidgetFields(BaseModel):
 class ShadowIGMediaBuilderFields(BaseModel):
     """Pydantic model for ShadowIGMediaBuilder fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     copyright_check_status: IGVideoCopyrightCheckStatusFields | None = Field(
         None, alias="copyright_check_status"
     )
@@ -41857,7 +41857,7 @@ class ShadowIGMediaBuilderFields(BaseModel):
 class AdAssetFeedSpecVideoFields(BaseModel):
     """Pydantic model for AdAssetFeedSpecVideo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adlabels: list[AdAssetFeedSpecAssetLabelFields] | None = Field(None, alias="adlabels")
     caption_ids: list[str] | None = Field(None, alias="caption_ids")
     thumbnail_hash: str | None = Field(None, alias="thumbnail_hash")
@@ -41869,7 +41869,7 @@ class AdAssetFeedSpecVideoFields(BaseModel):
 class AdAccountUserPermissionsFields(BaseModel):
     """Pydantic model for AdAccountUserPermissions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business: BusinessFields | None = Field(None, alias="business")
     business_persona: dict[str, Any] | None = Field(None, alias="business_persona")
     created_by: UserFields | None = Field(None, alias="created_by")
@@ -41885,7 +41885,7 @@ class AdAccountUserPermissionsFields(BaseModel):
 class ShadowIGMediaCollaboratorsFields(BaseModel):
     """Pydantic model for ShadowIGMediaCollaborators fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     invite_status: str | None = Field(None, alias="invite_status")
     username: str | None = Field(None, alias="username")
@@ -41894,7 +41894,7 @@ class ShadowIGMediaCollaboratorsFields(BaseModel):
 class TargetingProductAudienceSubSpecFields(BaseModel):
     """Pydantic model for TargetingProductAudienceSubSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     retention_seconds: str | None = Field(None, alias="retention_seconds")
     rule: str | None = Field(None, alias="rule")
 
@@ -41902,7 +41902,7 @@ class TargetingProductAudienceSubSpecFields(BaseModel):
 class PagePartnerWithLeadsAccessFields(BaseModel):
     """Pydantic model for PagePartnerWithLeadsAccess fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_access_leads: bool | None = Field(None, alias="can_access_leads")
     partner_business: BusinessFields | None = Field(None, alias="partner_business")
     permitted_tasks: list[str] | None = Field(None, alias="permitted_tasks")
@@ -41911,7 +41911,7 @@ class PagePartnerWithLeadsAccessFields(BaseModel):
 class SiteLinkFields(BaseModel):
     """Pydantic model for SiteLink fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     link_image_hash: str | None = Field(None, alias="link_image_hash")
     link_title: str | None = Field(None, alias="link_title")
@@ -41922,7 +41922,7 @@ class SiteLinkFields(BaseModel):
 class CatalogWebsiteSettingsFields(BaseModel):
     """Pydantic model for CatalogWebsiteSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     is_allowed_to_crawl: bool | None = Field(None, alias="is_allowed_to_crawl")
 
@@ -41930,7 +41930,7 @@ class CatalogWebsiteSettingsFields(BaseModel):
 class CloudGameFields(BaseModel):
     """Pydantic model for CloudGame fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
     owner: ProfileFields | None = Field(None, alias="owner")
@@ -41945,7 +41945,7 @@ class CloudGameFields(BaseModel):
 class AppRequestFormerRecipientFields(BaseModel):
     """Pydantic model for AppRequestFormerRecipient fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     recipient_id: str | None = Field(None, alias="recipient_id")
 
@@ -41953,7 +41953,7 @@ class AppRequestFormerRecipientFields(BaseModel):
 class SystemUserFields(BaseModel):
     """Pydantic model for SystemUser fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     created_by: UserFields | None = Field(None, alias="created_by")
     created_time: datetime | None = Field(None, alias="created_time")
     finance_permission: str | None = Field(None, alias="finance_permission")
@@ -41965,7 +41965,7 @@ class SystemUserFields(BaseModel):
 class VideoCopyrightRuleFields(BaseModel):
     """Pydantic model for VideoCopyrightRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     condition_groups: list[VideoCopyrightConditionGroupFields] | None = Field(
         None, alias="condition_groups"
     )
@@ -41980,7 +41980,7 @@ class VideoCopyrightRuleFields(BaseModel):
 class PublisherWhiteListFields(BaseModel):
     """Pydantic model for PublisherWhiteList fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     business_owner_id: str | None = Field(None, alias="business_owner_id")
     id: str | None = Field(None, alias="id")
     last_updated_time: datetime | None = Field(None, alias="last_updated_time")
@@ -41992,7 +41992,7 @@ class PublisherWhiteListFields(BaseModel):
 class TargetingDynamicRuleFields(BaseModel):
     """Pydantic model for TargetingDynamicRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_type: str | None = Field(None, alias="action.type")
     ad_group_id: str | None = Field(None, alias="ad_group_id")
     campaign_group_id: str | None = Field(None, alias="campaign_group_id")
@@ -42006,7 +42006,7 @@ class TargetingDynamicRuleFields(BaseModel):
 class WhatsAppBusinessHealthStatusForMessageSendFields(BaseModel):
     """Pydantic model for WhatsAppBusinessHealthStatusForMessageSend fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_send_message: str | None = Field(None, alias="can_send_message")
     entities: list[WhatsAppBusinessHealthStatusFields] | None = Field(None, alias="entities")
 
@@ -42014,7 +42014,7 @@ class WhatsAppBusinessHealthStatusForMessageSendFields(BaseModel):
 class VideoCopyrightGeoGateFields(BaseModel):
     """Pydantic model for VideoCopyrightGeoGate fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     excluded_countries: list[str] | None = Field(None, alias="excluded_countries")
     included_countries: list[str] | None = Field(None, alias="included_countries")
 
@@ -42022,7 +42022,7 @@ class VideoCopyrightGeoGateFields(BaseModel):
 class PageStartInfoFields(BaseModel):
     """Pydantic model for PageStartInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     date: dict[str, Any] | None = Field(None, alias="date")
     type: str | None = Field(None, alias="type")
 
@@ -42030,7 +42030,7 @@ class PageStartInfoFields(BaseModel):
 class AdsPixelMicrodataStatsFields(BaseModel):
     """Pydantic model for AdsPixelMicrodataStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     allowed_domains: list[str] | None = Field(None, alias="allowed_domains")
     errors_stats_for_time_ranges: list[dict[str, Any]] | None = Field(
         None, alias="errors_stats_for_time_ranges"
@@ -42045,7 +42045,7 @@ class AdsPixelMicrodataStatsFields(BaseModel):
 class AudioVisualReferenceMatchFields(BaseModel):
     """Pydantic model for AudioVisualReferenceMatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     audio_conflicting_segments: list[dict[str, Any]] | None = Field(
         None, alias="audio_conflicting_segments"
     )
@@ -42107,7 +42107,7 @@ class AudioVisualReferenceMatchFields(BaseModel):
 class DayPartFields(BaseModel):
     """Pydantic model for DayPart fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     days: list[int] | None = Field(None, alias="days")
     end_minute: int | None = Field(None, alias="end_minute")
     start_minute: int | None = Field(None, alias="start_minute")
@@ -42117,7 +42117,7 @@ class DayPartFields(BaseModel):
 class ProductItemLocalInfoLatLongShapeFields(BaseModel):
     """Pydantic model for ProductItemLocalInfoLatLongShape fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     latitude: float | None = Field(None, alias="latitude")
     longitude: float | None = Field(None, alias="longitude")
 
@@ -42125,14 +42125,14 @@ class ProductItemLocalInfoLatLongShapeFields(BaseModel):
 class AdDefaultValuesFields(BaseModel):
     """Pydantic model for AdDefaultValues fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     campaign_group: dict[str, Any] | None = Field(None, alias="campaign_group")
 
 
 class CustomConversionFields(BaseModel):
     """Pydantic model for CustomConversion fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     aggregation_rule: str | None = Field(None, alias="aggregation_rule")
     business: BusinessFields | None = Field(None, alias="business")
@@ -42159,7 +42159,7 @@ class CustomConversionFields(BaseModel):
 class UserDeviceFields(BaseModel):
     """Pydantic model for UserDevice fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     hardware: str | None = Field(None, alias="hardware")
     os: str | None = Field(None, alias="os")
 
@@ -42167,7 +42167,7 @@ class UserDeviceFields(BaseModel):
 class CommerceMerchantSettingsSetupStatusFields(BaseModel):
     """Pydantic model for CommerceMerchantSettingsSetupStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     deals_setup: str | None = Field(None, alias="deals_setup")
     marketplace_approval_status: str | None = Field(None, alias="marketplace_approval_status")
     marketplace_approval_status_details: dict[str, Any] | None = Field(
@@ -42181,7 +42181,7 @@ class CommerceMerchantSettingsSetupStatusFields(BaseModel):
 class ProductCatalogHotelRoomsBatchFields(BaseModel):
     """Pydantic model for ProductCatalogHotelRoomsBatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     errors: list[dict[str, Any]] | None = Field(None, alias="errors")
     errors_total_count: int | None = Field(None, alias="errors_total_count")
     handle: str | None = Field(None, alias="handle")
@@ -42191,7 +42191,7 @@ class ProductCatalogHotelRoomsBatchFields(BaseModel):
 class AdCreativeProductDataFields(BaseModel):
     """Pydantic model for AdCreativeProductData fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     product_id: str | None = Field(None, alias="product_id")
     product_source: str | None = Field(None, alias="product_source")
 
@@ -42199,7 +42199,7 @@ class AdCreativeProductDataFields(BaseModel):
 class PageFields(BaseModel):
     """Pydantic model for Page fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     about: str | None = Field(None, alias="about")
     access_token: str | None = Field(None, alias="access_token")
     ad_campaign: AdSetFields | None = Field(None, alias="ad_campaign")
@@ -42396,7 +42396,7 @@ class PageFields(BaseModel):
 class AdCreativeSourcingSpecFields(BaseModel):
     """Pydantic model for AdCreativeSourcingSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     associated_product_set_id: str | None = Field(None, alias="associated_product_set_id")
     brand: dict[str, Any] | None = Field(None, alias="brand")
     dynamic_site_links_spec: dict[str, Any] | None = Field(None, alias="dynamic_site_links_spec")
@@ -42415,7 +42415,7 @@ class AdCreativeSourcingSpecFields(BaseModel):
 class AdCreativeVideoDataMediaElementsFields(BaseModel):
     """Pydantic model for AdCreativeVideoDataMediaElements fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     element_id: str | None = Field(None, alias="element_id")
     element_type: str | None = Field(None, alias="element_type")
 
@@ -42423,7 +42423,7 @@ class AdCreativeVideoDataMediaElementsFields(BaseModel):
 class AdCampaignMetricsMetadataFields(BaseModel):
     """Pydantic model for AdCampaignMetricsMetadata fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     boosted_component_optimization: list[str] | None = Field(
         None, alias="boosted_component_optimization"
     )
@@ -42441,7 +42441,7 @@ class AdCampaignMetricsMetadataFields(BaseModel):
 class AdAssetCallToActionTypeFields(BaseModel):
     """Pydantic model for AdAssetCallToActionType fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -42449,7 +42449,7 @@ class AdAssetCallToActionTypeFields(BaseModel):
 class ProductCatalogFacetsFields(BaseModel):
     """Pydantic model for ProductCatalogFacets fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     facets: list[dict[str, list[dict[str, Any]]]] | None = Field(None, alias="facets")
     item_count: int | None = Field(None, alias="item_count")
 
@@ -42457,7 +42457,7 @@ class ProductCatalogFacetsFields(BaseModel):
 class ScheduledPostFields(BaseModel):
     """Pydantic model for ScheduledPost fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     admin_creator: UserFields | None = Field(None, alias="admin_creator")
     creation_time: datetime | None = Field(None, alias="creation_time")
     feed_audience_description: str | None = Field(None, alias="feed_audience_description")
@@ -42480,7 +42480,7 @@ class ScheduledPostFields(BaseModel):
 class AdAccountBillingDatePreferenceFields(BaseModel):
     """Pydantic model for AdAccountBillingDatePreference fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_account: AdAccountFields | None = Field(None, alias="ad_account")
     day_of_month: int | None = Field(None, alias="day_of_month")
     id: str | None = Field(None, alias="id")
@@ -42492,7 +42492,7 @@ class AdAccountBillingDatePreferenceFields(BaseModel):
 class OfflineConversionDataSetUploadFields(BaseModel):
     """Pydantic model for OfflineConversionDataSetUpload fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     api_calls: int | None = Field(None, alias="api_calls")
     creation_time: int | None = Field(None, alias="creation_time")
     duplicate_entries: int | None = Field(None, alias="duplicate_entries")
@@ -42512,7 +42512,7 @@ class OfflineConversionDataSetUploadFields(BaseModel):
 class CopyrightOwnershipTransferFields(BaseModel):
     """Pydantic model for CopyrightOwnershipTransfer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     receiving_rights_holder: ProfileFields | None = Field(None, alias="receiving_rights_holder")
     sending_rights_holder: ProfileFields | None = Field(None, alias="sending_rights_holder")
@@ -42524,7 +42524,7 @@ class CopyrightOwnershipTransferFields(BaseModel):
 class AdCampaignConversionValueExpressionSpecFields(BaseModel):
     """Pydantic model for AdCampaignConversionValueExpressionSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adjustment_sign: str | None = Field(None, alias="adjustment_sign")
     adjustment_weight: int | None = Field(None, alias="adjustment_weight")
     destination_type: str | None = Field(None, alias="destination_type")
@@ -42533,7 +42533,7 @@ class AdCampaignConversionValueExpressionSpecFields(BaseModel):
 class ProfileFields(BaseModel):
     """Pydantic model for Profile fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     can_post: bool | None = Field(None, alias="can_post")
     id: str | None = Field(None, alias="id")
     link: str | None = Field(None, alias="link")
@@ -42550,7 +42550,7 @@ class ProfileFields(BaseModel):
 class MCExperienceConfigForApiFields(BaseModel):
     """Pydantic model for MCExperienceConfigForApi fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_campaign_enabled: bool | None = Field(None, alias="is_campaign_enabled")
     is_terms_signed: bool | None = Field(None, alias="is_terms_signed")
     merchant_type: str | None = Field(None, alias="merchant_type")
@@ -42559,7 +42559,7 @@ class MCExperienceConfigForApiFields(BaseModel):
 class AppEventConfigFields(BaseModel):
     """Pydantic model for AppEventConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     breakdowns_config: list[dict[str, Any]] | None = Field(None, alias="breakdowns_config")
     builtin_fields_config: list[dict[str, Any]] | None = Field(None, alias="builtin_fields_config")
     deprecated_events_config: list[dict[str, Any]] | None = Field(
@@ -42612,7 +42612,7 @@ class AppEventConfigFields(BaseModel):
 class AdCampaignStatsFields(BaseModel):
     """Pydantic model for AdCampaignStats fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     account_id: str | None = Field(None, alias="account_id")
     actions: dict[str, Any] | None = Field(None, alias="actions")
     adgroup_id: str | None = Field(None, alias="adgroup_id")
@@ -42642,7 +42642,7 @@ class AdCampaignStatsFields(BaseModel):
 class CPASLsbImageBankFields(BaseModel):
     """Pydantic model for CPASLsbImageBank fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     ad_group_id: str | None = Field(None, alias="ad_group_id")
     catalog_segment_proxy_id: str | None = Field(None, alias="catalog_segment_proxy_id")
     id: str | None = Field(None, alias="id")
@@ -42651,7 +42651,7 @@ class CPASLsbImageBankFields(BaseModel):
 class AdCampaignGroupIncrementalConversionOptimizationConfigFields(BaseModel):
     """Pydantic model for AdCampaignGroupIncrementalConversionOptimizationConfig fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     action_type: str | None = Field(None, alias="action_type")
     ad_study_end_time: datetime | None = Field(None, alias="ad_study_end_time")
     ad_study_id: str | None = Field(None, alias="ad_study_id")
@@ -42667,7 +42667,7 @@ class AdCampaignGroupIncrementalConversionOptimizationConfigFields(BaseModel):
 class FlexibleTargetingFields(BaseModel):
     """Pydantic model for FlexibleTargeting fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     behaviors: list[IDNameFields] | None = Field(None, alias="behaviors")
     college_years: list[int] | None = Field(None, alias="college_years")
     connections: list[IDNameFields] | None = Field(None, alias="connections")
@@ -42701,7 +42701,7 @@ class FlexibleTargetingFields(BaseModel):
 class CopyrightAttributionInsightsFields(BaseModel):
     """Pydantic model for CopyrightAttributionInsights fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     l7_attribution_page_view: int | None = Field(None, alias="l7_attribution_page_view")
     l7_attribution_page_view_delta: float | None = Field(
         None, alias="l7_attribution_page_view_delta"
@@ -42716,7 +42716,7 @@ class CopyrightAttributionInsightsFields(BaseModel):
 class ProductFeedRuleFields(BaseModel):
     """Pydantic model for ProductFeedRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     attribute: str | None = Field(None, alias="attribute")
     id: str | None = Field(None, alias="id")
     params: list[dict[str, str]] | None = Field(None, alias="params")
@@ -42726,7 +42726,7 @@ class ProductFeedRuleFields(BaseModel):
 class ProductFeedUploadErrorReportFields(BaseModel):
     """Pydantic model for ProductFeedUploadErrorReport fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     file_handle: str | None = Field(None, alias="file_handle")
     report_status: str | None = Field(None, alias="report_status")
 
@@ -42734,7 +42734,7 @@ class ProductFeedUploadErrorReportFields(BaseModel):
 class ThirdPartyPartnerPanelScheduledFields(BaseModel):
     """Pydantic model for ThirdPartyPartnerPanelScheduled fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     adentities_ids: list[str] | None = Field(None, alias="adentities_ids")
     cadence: str | None = Field(None, alias="cadence")
     country: str | None = Field(None, alias="country")
@@ -42754,7 +42754,7 @@ class ThirdPartyPartnerPanelScheduledFields(BaseModel):
 class PageLocationsBreakdownFields(BaseModel):
     """Pydantic model for PageLocationsBreakdown fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     location_id: str | None = Field(None, alias="location_id")
     location_name: str | None = Field(None, alias="location_name")
     location_type: str | None = Field(None, alias="location_type")
@@ -42773,7 +42773,7 @@ class PageLocationsBreakdownFields(BaseModel):
 class AdsPixelDomainControlRuleFields(BaseModel):
     """Pydantic model for AdsPixelDomainControlRule fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     domain_list: list[dict[str, Any]] | None = Field(None, alias="domain_list")
     type: str | None = Field(None, alias="type")
 
@@ -42781,7 +42781,7 @@ class AdsPixelDomainControlRuleFields(BaseModel):
 class PhotoFields(BaseModel):
     """Pydantic model for Photo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     album: AlbumFields | None = Field(None, alias="album")
     alt_text: str | None = Field(None, alias="alt_text")
     alt_text_custom: str | None = Field(None, alias="alt_text_custom")
@@ -42814,7 +42814,7 @@ class PhotoFields(BaseModel):
 class CatalogItemChannelsToIntegrityStatusFields(BaseModel):
     """Pydantic model for CatalogItemChannelsToIntegrityStatus fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     channels: list[str] | None = Field(None, alias="channels")
     rejection_information: dict[str, Any] | None = Field(None, alias="rejection_information")
 
@@ -42822,7 +42822,7 @@ class CatalogItemChannelsToIntegrityStatusFields(BaseModel):
 class IGShoppingReviewStatusOnsiteEligibilityFields(BaseModel):
     """Pydantic model for IGShoppingReviewStatusOnsiteEligibility fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_eligible: bool | None = Field(None, alias="is_eligible")
     reasons: list[IGShoppingReviewStatusReasonWithHelpMessageFields] | None = Field(
         None, alias="reasons"
@@ -42832,7 +42832,7 @@ class IGShoppingReviewStatusOnsiteEligibilityFields(BaseModel):
 class PostFields(BaseModel):
     """Pydantic model for Post fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     actions: dict[str, Any] | None = Field(None, alias="actions")
     admin_creator: dict[str, Any] | None = Field(None, alias="admin_creator")
     allowed_advertising_objectives: list[str] | None = Field(
@@ -42902,7 +42902,7 @@ class PostFields(BaseModel):
 class ExternalMerchantSettingsFields(BaseModel):
     """Pydantic model for ExternalMerchantSettings fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     connect_woo: str | None = Field(None, alias="connect_woo")
     external_platform: str | None = Field(None, alias="external_platform")
     id: str | None = Field(None, alias="id")
@@ -42911,7 +42911,7 @@ class ExternalMerchantSettingsFields(BaseModel):
 class DatasetFields(BaseModel):
     """Pydantic model for Dataset fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -42919,7 +42919,7 @@ class DatasetFields(BaseModel):
 class IGVideoCopyrightCheckMatchesInformationFields(BaseModel):
     """Pydantic model for IGVideoCopyrightCheckMatchesInformation fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     copyright_matches: list[dict[str, Any]] | None = Field(None, alias="copyright_matches")
     status: IGVideoCopyrightCheckStatusFields | None = Field(None, alias="status")
 
@@ -42927,7 +42927,7 @@ class IGVideoCopyrightCheckMatchesInformationFields(BaseModel):
 class InstantArticleInsightsQueryResultFields(BaseModel):
     """Pydantic model for InstantArticleInsightsQueryResult fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     breakdowns: dict[str, str] | None = Field(None, alias="breakdowns")
     name: str | None = Field(None, alias="name")
     time: datetime | None = Field(None, alias="time")
@@ -42937,7 +42937,7 @@ class InstantArticleInsightsQueryResultFields(BaseModel):
 class PageBroadcastFields(BaseModel):
     """Pydantic model for PageBroadcast fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     scheduled_time: str | None = Field(None, alias="scheduled_time")
     status: str | None = Field(None, alias="status")
@@ -42946,7 +42946,7 @@ class PageBroadcastFields(BaseModel):
 class LeadGenDataDraftFields(BaseModel):
     """Pydantic model for LeadGenDataDraft fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     block_display_for_non_targeted_viewer: bool | None = Field(
         None, alias="block_display_for_non_targeted_viewer"
     )
@@ -42971,7 +42971,7 @@ class LeadGenDataDraftFields(BaseModel):
 class AdCampaignLearningStageInfoFields(BaseModel):
     """Pydantic model for AdCampaignLearningStageInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     attribution_windows: list[str] | None = Field(None, alias="attribution_windows")
     conversions: int | None = Field(None, alias="conversions")
     last_sig_edit_ts: int | None = Field(None, alias="last_sig_edit_ts")
@@ -42981,7 +42981,7 @@ class AdCampaignLearningStageInfoFields(BaseModel):
 class PartnershipAdsIdentityFields(BaseModel):
     """Pydantic model for PartnershipAdsIdentity fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     is_saved: bool | None = Field(None, alias="is_saved")
     post_types: list[str] | None = Field(None, alias="post_types")
     secondary_identities: list[dict[str, Any]] | None = Field(None, alias="secondary_identities")
@@ -42990,7 +42990,7 @@ class PartnershipAdsIdentityFields(BaseModel):
 class AdCreativeLinkDataSponsorshipInfoSpecFields(BaseModel):
     """Pydantic model for AdCreativeLinkDataSponsorshipInfoSpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     sponsor_image_url: str | None = Field(None, alias="sponsor_image_url")
     sponsor_name: str | None = Field(None, alias="sponsor_name")
 
@@ -42998,14 +42998,14 @@ class AdCreativeLinkDataSponsorshipInfoSpecFields(BaseModel):
 class AdAssetMessageExtensionsFields(BaseModel):
     """Pydantic model for AdAssetMessageExtensions fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     type: str | None = Field(None, alias="type")
 
 
 class VehicleOfferFields(BaseModel):
     """Pydantic model for VehicleOffer fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     amount_currency: str | None = Field(None, alias="amount_currency")
     amount_percentage: float | None = Field(None, alias="amount_percentage")
     amount_price: str | None = Field(None, alias="amount_price")
@@ -43074,7 +43074,7 @@ class VehicleOfferFields(BaseModel):
 class MusicWorkCopyrightFields(BaseModel):
     """Pydantic model for MusicWorkCopyright fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     available_ui_actions: list[str] | None = Field(None, alias="available_ui_actions")
     claim_status: str | None = Field(None, alias="claim_status")
     creation_time: datetime | None = Field(None, alias="creation_time")
@@ -43095,7 +43095,7 @@ class MusicWorkCopyrightFields(BaseModel):
 class OwnedDomainFields(BaseModel):
     """Pydantic model for OwnedDomain fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     domain_name: str | None = Field(None, alias="domain_name")
     id: str | None = Field(None, alias="id")
     owner_business: BusinessFields | None = Field(None, alias="owner_business")
@@ -43106,7 +43106,7 @@ class OwnedDomainFields(BaseModel):
 class AdCreativeVideoDataCustomOverlaySpecFields(BaseModel):
     """Pydantic model for AdCreativeVideoDataCustomOverlaySpec fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     background_color: str | None = Field(None, alias="background_color")
     background_opacity: dict[str, Any] | None = Field(None, alias="background_opacity")
     duration: int | None = Field(None, alias="duration")
@@ -43122,14 +43122,14 @@ class AdCreativeVideoDataCustomOverlaySpecFields(BaseModel):
 class AdCreativeContextualMultiAdsFields(BaseModel):
     """Pydantic model for AdCreativeContextualMultiAds fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     enroll_status: str | None = Field(None, alias="enroll_status")
 
 
 class WorkSkillFields(BaseModel):
     """Pydantic model for WorkSkill fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     id: str | None = Field(None, alias="id")
     name: str | None = Field(None, alias="name")
 
@@ -43137,7 +43137,7 @@ class WorkSkillFields(BaseModel):
 class AREffectFields(BaseModel):
     """Pydantic model for AREffect fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     creation_time: datetime | None = Field(None, alias="creation_time")
     id: str | None = Field(None, alias="id")
     last_modified_time: datetime | None = Field(None, alias="last_modified_time")
@@ -43149,7 +43149,7 @@ class AREffectFields(BaseModel):
 class AdAccountPromotableObjectsFields(BaseModel):
     """Pydantic model for AdAccountPromotableObjects fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     promotable_app_ids: list[str] | None = Field(None, alias="promotable_app_ids")
     promotable_page_ids: list[str] | None = Field(None, alias="promotable_page_ids")
     promotable_urls: list[str] | None = Field(None, alias="promotable_urls")
@@ -43158,7 +43158,7 @@ class AdAccountPromotableObjectsFields(BaseModel):
 class ExternalEventSourceCPASEventsDebuggingInfoFields(BaseModel):
     """Pydantic model for ExternalEventSourceCPASEventsDebuggingInfo fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     counts: int | None = Field(None, alias="counts")
     diagnostic: str | None = Field(None, alias="diagnostic")
     event_name: str | None = Field(None, alias="event_name")
@@ -43167,7 +43167,7 @@ class ExternalEventSourceCPASEventsDebuggingInfoFields(BaseModel):
 class ProductCatalogPricingVariablesBatchFields(BaseModel):
     """Pydantic model for ProductCatalogPricingVariablesBatch fields."""
 
-    model_config = ConfigDict(populate_by_alias=True, extra="forbid")
+    model_config = ConfigDict(populate_by_alias=True, extra="allow")
     errors: list[dict[str, Any]] | None = Field(None, alias="errors")
     errors_total_count: int | None = Field(None, alias="errors_total_count")
     handle: str | None = Field(None, alias="handle")
@@ -43182,7 +43182,7 @@ class ProductCatalogPricingVariablesBatchFields(BaseModel):
 class OfflineProductItemGetOverrideDetailsParams(BaseModel):
     """Parameters for OfflineProductItem.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: offlineproductitemoverride_details_type_enum_param | None = Field(None)
 
@@ -43190,7 +43190,7 @@ class OfflineProductItemGetOverrideDetailsParams(BaseModel):
 class IGMediaCreateBrandedContentPartnerPromoteParams(BaseModel):
     """Parameters for IGMedia.create_branded_content_partner_promote()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     permission: bool = Field(...)
     sponsor_id: int = Field(...)
 
@@ -43198,7 +43198,7 @@ class IGMediaCreateBrandedContentPartnerPromoteParams(BaseModel):
 class IGMediaCreateCommentParams(BaseModel):
     """Parameters for IGMedia.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_id: str | None = Field(None)
     message: str | None = Field(None)
 
@@ -43206,7 +43206,7 @@ class IGMediaCreateCommentParams(BaseModel):
 class IGMediaGetInsightsParams(BaseModel):
     """Parameters for IGMedia.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdown: list[Any] | None = Field(None)
     metric: list[Any] = Field(...)
     period: list[Any] | None = Field(None)
@@ -43215,7 +43215,7 @@ class IGMediaGetInsightsParams(BaseModel):
 class IGMediaCreateProductTagParams(BaseModel):
     """Parameters for IGMedia.create_product_tag()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     child_index: int | None = Field(None)
     updated_tags: list[Any] = Field(...)
 
@@ -43223,7 +43223,7 @@ class IGMediaCreateProductTagParams(BaseModel):
 class CampaignCreateAdLabelParams(BaseModel):
     """Parameters for Campaign.create_ad_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adlabels: list[Any] = Field(...)
     execution_options: list[Any] | None = Field(None)
 
@@ -43231,14 +43231,14 @@ class CampaignCreateAdLabelParams(BaseModel):
 class CampaignGetAdrulesGovernedParams(BaseModel):
     """Parameters for Campaign.get_adrules_governed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     pass_evaluation: bool | None = Field(None)
 
 
 class CampaignGetAdSParams(BaseModel):
     """Parameters for Campaign.get_ad_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adcampaigngroupads_date_preset_enum_param | None = Field(None)
     effective_status: list[str] | None = Field(None)
     time_range: dict[str, Any] | None = Field(None)
@@ -43248,7 +43248,7 @@ class CampaignGetAdSParams(BaseModel):
 class CampaignGetAdSetsParams(BaseModel):
     """Parameters for Campaign.get_ad_sets()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adcampaigngroupadsets_date_preset_enum_param | None = Field(None)
     effective_status: list[Any] | None = Field(None)
     is_completed: bool | None = Field(None)
@@ -43258,7 +43258,7 @@ class CampaignGetAdSetsParams(BaseModel):
 class CampaignCreateBudgetScheduleParams(BaseModel):
     """Parameters for Campaign.create_budget_schedule()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     budget_value: int = Field(...)
     budget_value_type: adcampaigngroupbudget_schedules_budget_value_type_enum_param = Field(...)
     time_end: int = Field(...)
@@ -43268,7 +43268,7 @@ class CampaignCreateBudgetScheduleParams(BaseModel):
 class CampaignGetCopiesParams(BaseModel):
     """Parameters for Campaign.get_copies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adcampaigngroupcopies_date_preset_enum_param | None = Field(None)
     effective_status: list[Any] | None = Field(None)
     is_completed: bool | None = Field(None)
@@ -43278,7 +43278,7 @@ class CampaignGetCopiesParams(BaseModel):
 class CampaignCreateCopieParams(BaseModel):
     """Parameters for Campaign.create_copie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     deep_copy: bool | None = Field(None)
     end_time: datetime | None = Field(None)
     rename_options: dict[str, Any] | None = Field(None)
@@ -43289,7 +43289,7 @@ class CampaignCreateCopieParams(BaseModel):
 class CampaignGetInsightsParams(BaseModel):
     """Parameters for Campaign.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adcampaigngroupinsights_action_report_time_enum_param | None = Field(None)
@@ -43317,7 +43317,7 @@ class CampaignGetInsightsParams(BaseModel):
 class CampaignCreateInsightParams(BaseModel):
     """Parameters for Campaign.create_insight()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adcampaigngroupinsights_action_report_time_enum_param | None = Field(None)
@@ -43345,14 +43345,14 @@ class CampaignCreateInsightParams(BaseModel):
 class IGMediaForIGOnlyAPICreateCommentParams(BaseModel):
     """Parameters for IGMediaForIGOnlyAPI.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     message: str | None = Field(None)
 
 
 class IGMediaForIGOnlyAPIGetInsightsParams(BaseModel):
     """Parameters for IGMediaForIGOnlyAPI.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdown: list[Any] | None = Field(None)
     metric: list[Any] = Field(...)
     period: list[Any] | None = Field(None)
@@ -43361,7 +43361,7 @@ class IGMediaForIGOnlyAPIGetInsightsParams(BaseModel):
 class AdAccountCreateAccountControlParams(BaseModel):
     """Parameters for AdAccount.create_account_control()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     audience_controls: dict[str, Any] = Field(...)
     placement_controls: dict[str, Any] | None = Field(None)
 
@@ -43369,7 +43369,7 @@ class AdAccountCreateAccountControlParams(BaseModel):
 class AdAccountGetActivitiesParams(BaseModel):
     """Parameters for AdAccount.get_activities()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     add_children: bool | None = Field(None)
     after: str | None = Field(None)
     business_id: str | None = Field(None)
@@ -43386,7 +43386,7 @@ class AdAccountGetActivitiesParams(BaseModel):
 class AdAccountCreateAdPlacePageSetParams(BaseModel):
     """Parameters for AdAccount.create_ad_place_page_set()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     location_types: list[Any] | None = Field(None)
     name: str = Field(...)
     parent_page: str = Field(...)
@@ -43398,7 +43398,7 @@ class AdAccountCreateAdPlacePageSetParams(BaseModel):
 class AdAccountCreateAdPlacePageSetsAsyncParams(BaseModel):
     """Parameters for AdAccount.create_ad_place_page_sets_async()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     location_types: list[Any] | None = Field(None)
     name: str = Field(...)
     parent_page: str = Field(...)
@@ -43410,14 +43410,14 @@ class AdAccountCreateAdPlacePageSetsAsyncParams(BaseModel):
 class AdAccountGetAdSavedKeywordsParams(BaseModel):
     """Parameters for AdAccount.get_ad_saved_keywords()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     fields: list[str] | None = Field(None)
 
 
 class AdAccountCreateAdCreativeParams(BaseModel):
     """Parameters for AdAccount.create_ad_creative()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     actor_id: int | None = Field(None)
     ad_disclaimer_spec: dict[str, Any] | None = Field(None)
     adlabels: list[Any] | None = Field(None)
@@ -43482,7 +43482,7 @@ class AdAccountCreateAdCreativeParams(BaseModel):
 class AdAccountGetAdCreativesByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_ad_creatives_by_labels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_label_ids: list[str] = Field(...)
     operator: adaccountadcreativesbylabels_operator_enum_param | None = Field(None)
 
@@ -43490,14 +43490,14 @@ class AdAccountGetAdCreativesByLabelsParams(BaseModel):
 class AdAccountDeleteAdImagesParams(BaseModel):
     """Parameters for AdAccount.delete_ad_images()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     hash: str = Field(...)
 
 
 class AdAccountGetAdImagesParams(BaseModel):
     """Parameters for AdAccount.get_ad_images()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     biz_tag_id: int | None = Field(None)
     business_id: str | None = Field(None)
     hashes: list[str] | None = Field(None)
@@ -43510,7 +43510,7 @@ class AdAccountGetAdImagesParams(BaseModel):
 class AdAccountCreateAdImageParams(BaseModel):
     """Parameters for AdAccount.create_ad_image()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bytes: str | None = Field(None)
     copy_from: dict[str, Any] | None = Field(None)
 
@@ -43518,14 +43518,14 @@ class AdAccountCreateAdImageParams(BaseModel):
 class AdAccountCreateAdLabelParams(BaseModel):
     """Parameters for AdAccount.create_ad_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str = Field(...)
 
 
 class AdAccountCreateAdPlayableParams(BaseModel):
     """Parameters for AdAccount.create_ad_playable()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
     name: str = Field(...)
     session_id: str | None = Field(None)
@@ -43537,7 +43537,7 @@ class AdAccountCreateAdPlayableParams(BaseModel):
 class AdAccountGetAdrulesHistoryParams(BaseModel):
     """Parameters for AdAccount.get_adrules_history()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action: adaccountadrules_history_action_enum_param | None = Field(None)
     evaluation_type: adaccountadrules_history_evaluation_type_enum_param | None = Field(None)
     hide_no_changes: bool | None = Field(None)
@@ -43547,7 +43547,7 @@ class AdAccountGetAdrulesHistoryParams(BaseModel):
 class AdAccountCreateAdrulesLibraryParams(BaseModel):
     """Parameters for AdAccount.create_adrules_library()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     account_id: str | None = Field(None)
     evaluation_spec: dict[str, Any] = Field(...)
     execution_spec: dict[str, Any] = Field(...)
@@ -43560,7 +43560,7 @@ class AdAccountCreateAdrulesLibraryParams(BaseModel):
 class AdAccountGetAdSParams(BaseModel):
     """Parameters for AdAccount.get_ad_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adaccountads_date_preset_enum_param | None = Field(None)
     effective_status: list[str] | None = Field(None)
     time_range: dict[str, Any] | None = Field(None)
@@ -43570,7 +43570,7 @@ class AdAccountGetAdSParams(BaseModel):
 class AdAccountCreateAdParams(BaseModel):
     """Parameters for AdAccount.create_ad_()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_schedule_end_time: datetime | None = Field(None)
     ad_schedule_start_time: datetime | None = Field(None)
     adlabels: list[Any] | None = Field(None)
@@ -43597,14 +43597,14 @@ class AdAccountCreateAdParams(BaseModel):
 class AdAccountGetAdsReportingMmmReportsParams(BaseModel):
     """Parameters for AdAccount.get_ads_reporting_mmm_reports()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filtering: list[Any] | None = Field(None)
 
 
 class AdAccountGetAdsVolumeParams(BaseModel):
     """Parameters for AdAccount.get_ads_volume()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     page_id: str | None = Field(None)
     recommendation_type: adaccountads_volume_recommendation_type_enum_param | None = Field(None)
     show_breakdown_by_actor: bool | None = Field(None)
@@ -43613,7 +43613,7 @@ class AdAccountGetAdsVolumeParams(BaseModel):
 class AdAccountGetAdSByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_ad_s_by_labels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_label_ids: list[str] = Field(...)
     operator: adaccountadsbylabels_operator_enum_param | None = Field(None)
 
@@ -43621,7 +43621,7 @@ class AdAccountGetAdSByLabelsParams(BaseModel):
 class AdAccountGetAdSetsParams(BaseModel):
     """Parameters for AdAccount.get_ad_sets()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adaccountadsets_date_preset_enum_param | None = Field(None)
     effective_status: list[Any] | None = Field(None)
     is_completed: bool | None = Field(None)
@@ -43632,7 +43632,7 @@ class AdAccountGetAdSetsParams(BaseModel):
 class AdAccountCreateAdSetParams(BaseModel):
     """Parameters for AdAccount.create_ad_set()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adlabels: list[Any] | None = Field(None)
     adset_schedule: list[Any] | None = Field(None)
     attribution_spec: list[Any] | None = Field(None)
@@ -43703,7 +43703,7 @@ class AdAccountCreateAdSetParams(BaseModel):
 class AdAccountGetAdSetsByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_ad_sets_by_labels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_label_ids: list[str] = Field(...)
     operator: adaccountadsetsbylabels_operator_enum_param | None = Field(None)
 
@@ -43711,21 +43711,21 @@ class AdAccountGetAdSetsByLabelsParams(BaseModel):
 class AdAccountGetAdSpixelsParams(BaseModel):
     """Parameters for AdAccount.get_ad_spixels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     sort_by: adaccountadspixels_sort_by_enum_param | None = Field(None)
 
 
 class AdAccountCreateAdSpixelParams(BaseModel):
     """Parameters for AdAccount.create_ad_spixel()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str | None = Field(None)
 
 
 class AdAccountGetAdvertisableApplicationsParams(BaseModel):
     """Parameters for AdAccount.get_advertisable_applications()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
     business_id: str | None = Field(None)
 
@@ -43733,14 +43733,14 @@ class AdAccountGetAdvertisableApplicationsParams(BaseModel):
 class AdAccountDeleteAdVideosParams(BaseModel):
     """Parameters for AdAccount.delete_ad_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     video_id: str = Field(...)
 
 
 class AdAccountGetAdVideosParams(BaseModel):
     """Parameters for AdAccount.get_ad_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     max_aspect_ratio: float | None = Field(None)
     maxheight: int | None = Field(None)
     maxlength: int | None = Field(None)
@@ -43755,7 +43755,7 @@ class AdAccountGetAdVideosParams(BaseModel):
 class AdAccountCreateAdVideoParams(BaseModel):
     """Parameters for AdAccount.create_ad_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     application_id: str | None = Field(None)
     asked_fun_fact_prompt_id: int | None = Field(None)
     audio_story_wave_animation_handle: str | None = Field(None)
@@ -43832,14 +43832,14 @@ class AdAccountCreateAdVideoParams(BaseModel):
 class AdAccountDeleteAgenciesParams(BaseModel):
     """Parameters for AdAccount.delete_agencies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class AdAccountCreateAgencieParams(BaseModel):
     """Parameters for AdAccount.create_agencie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
     permitted_tasks: list[Any] | None = Field(None)
 
@@ -43847,21 +43847,21 @@ class AdAccountCreateAgencieParams(BaseModel):
 class AdAccountDeleteAssignedUsersParams(BaseModel):
     """Parameters for AdAccount.delete_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user: int = Field(...)
 
 
 class AdAccountGetAssignedUsersParams(BaseModel):
     """Parameters for AdAccount.get_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class AdAccountCreateAssignedUserParams(BaseModel):
     """Parameters for AdAccount.create_assigned_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tasks: list[Any] | None = Field(None)
     user: int = Field(...)
 
@@ -43869,7 +43869,7 @@ class AdAccountCreateAssignedUserParams(BaseModel):
 class AdAccountCreateAsyncBatchRequestParams(BaseModel):
     """Parameters for AdAccount.create_async_batch_request()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adbatch: list[Any] = Field(...)
     name: str = Field(...)
 
@@ -43877,7 +43877,7 @@ class AdAccountCreateAsyncBatchRequestParams(BaseModel):
 class AdAccountGetAsyncRequestsParams(BaseModel):
     """Parameters for AdAccount.get_async_requests()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     status: adaccountasync_requests_status_enum_param | None = Field(None)
     type: adaccountasync_requests_type_enum_param | None = Field(None)
 
@@ -43885,14 +43885,14 @@ class AdAccountGetAsyncRequestsParams(BaseModel):
 class AdAccountGetAsyncAdCreativesParams(BaseModel):
     """Parameters for AdAccount.get_async_ad_creatives()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     is_completed: bool | None = Field(None)
 
 
 class AdAccountCreateAsyncAdCreativeParams(BaseModel):
     """Parameters for AdAccount.create_async_ad_creative()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     creative_spec: AdCreativeFields = Field(...)
     name: str = Field(...)
     notification_mode: adaccountasyncadcreatives_notification_mode_enum_param | None = Field(None)
@@ -43902,14 +43902,14 @@ class AdAccountCreateAsyncAdCreativeParams(BaseModel):
 class AdAccountGetAsyncAdrequestsetsParams(BaseModel):
     """Parameters for AdAccount.get_async_adrequestsets()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     is_completed: bool | None = Field(None)
 
 
 class AdAccountCreateAsyncAdrequestsetParams(BaseModel):
     """Parameters for AdAccount.create_async_adrequestset()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_specs: list[Any] = Field(...)
     name: str = Field(...)
     notification_mode: adaccountasyncadrequestsets_notification_mode_enum_param | None = Field(None)
@@ -43919,14 +43919,14 @@ class AdAccountCreateAsyncAdrequestsetParams(BaseModel):
 class AdAccountCreateBlockListDraftParams(BaseModel):
     """Parameters for AdAccount.create_block_list_draft()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     publisher_urls_file: Any = Field(...)
 
 
 class AdAccountCreateBrandSafetyContentFilterLevelParams(BaseModel):
     """Parameters for AdAccount.create_brand_safety_content_filter_level()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     brand_safety_content_filter_levels: list[Any] = Field(...)
     business_id: str | None = Field(None)
 
@@ -43934,21 +43934,21 @@ class AdAccountCreateBrandSafetyContentFilterLevelParams(BaseModel):
 class AdAccountGetBroadtargetingcategoriesParams(BaseModel):
     """Parameters for AdAccount.get_broadtargetingcategories()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     custom_categories_only: bool | None = Field(None)
 
 
 class AdAccountGetBusinessprojectsParams(BaseModel):
     """Parameters for AdAccount.get_businessprojects()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str | None = Field(None)
 
 
 class AdAccountDeleteCampaignsParams(BaseModel):
     """Parameters for AdAccount.delete_campaigns()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     before_date: datetime | None = Field(None)
     delete_offset: int | None = Field(None)
     delete_strategy: adaccountcampaigns_delete_strategy_enum_param = Field(...)
@@ -43958,7 +43958,7 @@ class AdAccountDeleteCampaignsParams(BaseModel):
 class AdAccountGetCampaignsParams(BaseModel):
     """Parameters for AdAccount.get_campaigns()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adaccountcampaigns_date_preset_enum_param | None = Field(None)
     effective_status: list[Any] | None = Field(None)
     is_completed: bool | None = Field(None)
@@ -43968,7 +43968,7 @@ class AdAccountGetCampaignsParams(BaseModel):
 class AdAccountCreateCampaignParams(BaseModel):
     """Parameters for AdAccount.create_campaign()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adlabels: list[Any] | None = Field(None)
     bid_strategy: adaccountcampaigns_bid_strategy_enum_param | None = Field(None)
     buying_type: str | None = Field(None)
@@ -43995,7 +43995,7 @@ class AdAccountCreateCampaignParams(BaseModel):
 class AdAccountGetCampaignsByLabelsParams(BaseModel):
     """Parameters for AdAccount.get_campaigns_by_labels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_label_ids: list[str] = Field(...)
     operator: adaccountcampaignsbylabels_operator_enum_param | None = Field(None)
 
@@ -44003,14 +44003,14 @@ class AdAccountGetCampaignsByLabelsParams(BaseModel):
 class AdAccountGetConnectedInstagramAccountsWithIabpParams(BaseModel):
     """Parameters for AdAccount.get_connected_instagram_accounts_with_iabp()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business_id: str | None = Field(None)
 
 
 class AdAccountGetCustomAudiencesParams(BaseModel):
     """Parameters for AdAccount.get_custom_audiences()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business_id: str | None = Field(None)
     fetch_primary_audience: bool | None = Field(None)
     fields: list[str] | None = Field(None)
@@ -44021,7 +44021,7 @@ class AdAccountGetCustomAudiencesParams(BaseModel):
 class AdAccountCreateCustomAudienceParams(BaseModel):
     """Parameters for AdAccount.create_custom_audience()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allowed_domains: list[str] | None = Field(None)
     associated_audience_id: int | None = Field(None)
     claim_objective: adaccountcustomaudiences_claim_objective_enum_param | None = Field(None)
@@ -44068,7 +44068,7 @@ class AdAccountCreateCustomAudienceParams(BaseModel):
 class AdAccountCreateCustomAudiencestoParams(BaseModel):
     """Parameters for AdAccount.create_custom_audiencesto()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business_id: str | None = Field(None)
     tos_id: str = Field(...)
 
@@ -44076,7 +44076,7 @@ class AdAccountCreateCustomAudiencestoParams(BaseModel):
 class AdAccountCreateCustomConversionParams(BaseModel):
     """Parameters for AdAccount.create_custom_conversion()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_source_type: adaccountcustomconversions_action_source_type_enum_param | None = Field(
         None
     )
@@ -44092,7 +44092,7 @@ class AdAccountCreateCustomConversionParams(BaseModel):
 class AdAccountGetDeliveryEstimateParams(BaseModel):
     """Parameters for AdAccount.get_delivery_estimate()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     optimization_goal: adaccountdelivery_estimate_optimization_goal_enum_param = Field(...)
     promoted_object: dict[str, Any] | None = Field(None)
     targeting_spec: TargetingFields = Field(...)
@@ -44101,14 +44101,14 @@ class AdAccountGetDeliveryEstimateParams(BaseModel):
 class AdAccountGetDeprecatedtargetingadsetsParams(BaseModel):
     """Parameters for AdAccount.get_deprecatedtargetingadsets()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: str | None = Field(None)
 
 
 class AdAccountGetGeneratepreviewsParams(BaseModel):
     """Parameters for AdAccount.get_generatepreviews()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_format: adaccountgeneratepreviews_ad_format_enum_param = Field(...)
     creative: AdCreativeFields = Field(...)
     creative_feature: adaccountgeneratepreviews_creative_feature_enum_param | None = Field(None)
@@ -44129,7 +44129,7 @@ class AdAccountGetGeneratepreviewsParams(BaseModel):
 class AdAccountGetInsightsParams(BaseModel):
     """Parameters for AdAccount.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adaccountinsights_action_report_time_enum_param | None = Field(None)
@@ -44157,7 +44157,7 @@ class AdAccountGetInsightsParams(BaseModel):
 class AdAccountCreateInsightParams(BaseModel):
     """Parameters for AdAccount.create_insight()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adaccountinsights_action_report_time_enum_param | None = Field(None)
@@ -44185,14 +44185,14 @@ class AdAccountCreateInsightParams(BaseModel):
 class AdAccountGetIosFourteenCampaignLimitsParams(BaseModel):
     """Parameters for AdAccount.get_ios_fourteen_campaign_limits()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str = Field(...)
 
 
 class AdAccountGetMatchedSearchApplicationsParams(BaseModel):
     """Parameters for AdAccount.get_matched_search_applications()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_incomplete_app: bool | None = Field(None)
     app_store: adaccountmatched_search_applications_app_store_enum_param = Field(...)
     app_store_country: str | None = Field(None)
@@ -44205,21 +44205,21 @@ class AdAccountGetMatchedSearchApplicationsParams(BaseModel):
 class AdAccountGetMinimumBudgetsParams(BaseModel):
     """Parameters for AdAccount.get_minimum_budgets()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bid_amount: int | None = Field(None)
 
 
 class AdAccountGetOnbehalfRequestsParams(BaseModel):
     """Parameters for AdAccount.get_onbehalf_requests()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     status: adaccountonbehalf_requests_status_enum_param | None = Field(None)
 
 
 class AdAccountCreateProductAudienceParams(BaseModel):
     """Parameters for AdAccount.create_product_audience()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allowed_domains: list[str] | None = Field(None)
     associated_audience_id: int | None = Field(None)
     claim_objective: adaccountproduct_audiences_claim_objective_enum_param | None = Field(None)
@@ -44244,14 +44244,14 @@ class AdAccountCreateProductAudienceParams(BaseModel):
 class AdAccountCreatePublisherBlockListParams(BaseModel):
     """Parameters for AdAccount.create_publisher_block_list()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str | None = Field(None)
 
 
 class AdAccountGetReachestimateParams(BaseModel):
     """Parameters for AdAccount.get_reachestimate()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adgroup_ids: list[str] | None = Field(None)
     caller_id: str | None = Field(None)
     concepts: str | None = Field(None)
@@ -44264,7 +44264,7 @@ class AdAccountGetReachestimateParams(BaseModel):
 class AdAccountCreateReachfrequencypredictionParams(BaseModel):
     """Parameters for AdAccount.create_reachfrequencyprediction()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action: adaccountreachfrequencypredictions_action_enum_param | None = Field(None)
     ad_formats: list[Any] | None = Field(None)
     auction_entry_option_index: int | None = Field(None)
@@ -44312,7 +44312,7 @@ class AdAccountCreateReachfrequencypredictionParams(BaseModel):
 class AdAccountCreateRecommendationParams(BaseModel):
     """Parameters for AdAccount.create_recommendation()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asc_fragmentation_parameters: dict[str, Any] | None = Field(None)
     autoflow_parameters: dict[str, Any] | None = Field(None)
     fragmentation_parameters: dict[str, Any] | None = Field(None)
@@ -44324,7 +44324,7 @@ class AdAccountCreateRecommendationParams(BaseModel):
 class AdAccountGetSavedAudiencesParams(BaseModel):
     """Parameters for AdAccount.get_saved_audiences()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business_id: str | None = Field(None)
     fields: list[str] | None = Field(None)
     filtering: list[Any] | None = Field(None)
@@ -44333,21 +44333,21 @@ class AdAccountGetSavedAudiencesParams(BaseModel):
 class AdAccountDeleteSubscribedAppsParams(BaseModel):
     """Parameters for AdAccount.delete_subscribed_apps()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
 
 
 class AdAccountCreateSubscribedAppParams(BaseModel):
     """Parameters for AdAccount.create_subscribed_app()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
 
 
 class AdAccountGetTargetingbrowseParams(BaseModel):
     """Parameters for AdAccount.get_targetingbrowse()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     excluded_category: str | None = Field(None)
     include_nodes: bool | None = Field(None)
     is_exclusion: bool | None = Field(None)
@@ -44360,7 +44360,7 @@ class AdAccountGetTargetingbrowseParams(BaseModel):
 class AdAccountGetTargetingsearchParams(BaseModel):
     """Parameters for AdAccount.get_targetingsearch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_only_fat_head_interests: bool | None = Field(None)
     app_store: adaccounttargetingsearch_app_store_enum_param | None = Field(None)
     countries: list[str] | None = Field(None)
@@ -44381,7 +44381,7 @@ class AdAccountGetTargetingsearchParams(BaseModel):
 class AdAccountGetTargetingSentenceLinesParams(BaseModel):
     """Parameters for AdAccount.get_targeting_sentence_lines()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     discard_ages: bool | None = Field(None)
     discard_placements: bool | None = Field(None)
     hide_targeting_spec_from_return: bool | None = Field(None)
@@ -44391,7 +44391,7 @@ class AdAccountGetTargetingSentenceLinesParams(BaseModel):
 class AdAccountGetTargetingsuggestionsParams(BaseModel):
     """Parameters for AdAccount.get_targetingsuggestions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_store: adaccounttargetingsuggestions_app_store_enum_param | None = Field(None)
     countries: list[str] | None = Field(None)
     limit_type: adaccounttargetingsuggestions_limit_type_enum_param | None = Field(None)
@@ -44408,7 +44408,7 @@ class AdAccountGetTargetingsuggestionsParams(BaseModel):
 class AdAccountGetTargetingvalidationParams(BaseModel):
     """Parameters for AdAccount.get_targetingvalidation()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     id_list: list[Any] | None = Field(None)
     is_exclusion: bool | None = Field(None)
     name_list: list[str] | None = Field(None)
@@ -44418,14 +44418,14 @@ class AdAccountGetTargetingvalidationParams(BaseModel):
 class AdAccountCreateTrackingParams(BaseModel):
     """Parameters for AdAccount.create_tracking()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tracking_specs: dict[str, Any] = Field(...)
 
 
 class AdAccountDeleteUsersofanyaudienceParams(BaseModel):
     """Parameters for AdAccount.delete_usersofanyaudience()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     namespace: str | None = Field(None)
     payload: dict[str, Any] | None = Field(None)
     session: dict[str, Any] | None = Field(None)
@@ -44434,7 +44434,7 @@ class AdAccountDeleteUsersofanyaudienceParams(BaseModel):
 class AdAccountGetValueRuleSetParams(BaseModel):
     """Parameters for AdAccount.get_value_rule_set()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     product_type: adaccountvalue_rule_set_product_type_enum_param | None = Field(None)
     status: adaccountvalue_rule_set_status_enum_param | None = Field(None)
 
@@ -44442,7 +44442,7 @@ class AdAccountGetValueRuleSetParams(BaseModel):
 class AdAccountCreateValueRuleSetParams(BaseModel):
     """Parameters for AdAccount.create_value_rule_set()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str = Field(...)
     product_type: adaccountvalue_rule_set_product_type_enum_param | None = Field(None)
     rules: list[Any] = Field(...)
@@ -44451,7 +44451,7 @@ class AdAccountCreateValueRuleSetParams(BaseModel):
 class AdAccountGetVideoAdsParams(BaseModel):
     """Parameters for AdAccount.get_video_ads()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
     until: datetime | None = Field(None)
 
@@ -44459,7 +44459,7 @@ class AdAccountGetVideoAdsParams(BaseModel):
 class AdAccountCreateVideoAdParams(BaseModel):
     """Parameters for AdAccount.create_video_ad()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     description: str | None = Field(None)
     privacy: str | None = Field(None)
     title: str | None = Field(None)
@@ -44471,7 +44471,7 @@ class AdAccountCreateVideoAdParams(BaseModel):
 class FlightGetOverrideDetailsParams(BaseModel):
     """Parameters for Flight.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: flightoverride_details_type_enum_param | None = Field(None)
 
@@ -44479,7 +44479,7 @@ class FlightGetOverrideDetailsParams(BaseModel):
 class AdCreateAdLabelParams(BaseModel):
     """Parameters for Ad.create_ad_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adlabels: list[Any] = Field(...)
     execution_options: list[Any] | None = Field(None)
 
@@ -44487,14 +44487,14 @@ class AdCreateAdLabelParams(BaseModel):
 class AdGetAdrulesGovernedParams(BaseModel):
     """Parameters for Ad.get_adrules_governed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     pass_evaluation: bool | None = Field(None)
 
 
 class AdGetCopiesParams(BaseModel):
     """Parameters for Ad.get_copies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adgroupcopies_date_preset_enum_param | None = Field(None)
     effective_status: list[str] | None = Field(None)
     time_range: dict[str, Any] | None = Field(None)
@@ -44504,7 +44504,7 @@ class AdGetCopiesParams(BaseModel):
 class AdCreateCopieParams(BaseModel):
     """Parameters for Ad.create_copie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adset_id: str | None = Field(None)
     creative_parameters: AdCreativeFields | None = Field(None)
     rename_options: dict[str, Any] | None = Field(None)
@@ -44514,7 +44514,7 @@ class AdCreateCopieParams(BaseModel):
 class AdGetInsightsParams(BaseModel):
     """Parameters for Ad.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adgroupinsights_action_report_time_enum_param | None = Field(None)
@@ -44542,7 +44542,7 @@ class AdGetInsightsParams(BaseModel):
 class AdCreateInsightParams(BaseModel):
     """Parameters for Ad.create_insight()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adgroupinsights_action_report_time_enum_param | None = Field(None)
@@ -44570,7 +44570,7 @@ class AdCreateInsightParams(BaseModel):
 class AdGetPreviewsParams(BaseModel):
     """Parameters for Ad.get_previews()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_format: adgrouppreviews_ad_format_enum_param = Field(...)
     creative_feature: adgrouppreviews_creative_feature_enum_param | None = Field(None)
     dynamic_asset_label: str | None = Field(None)
@@ -44590,35 +44590,35 @@ class AdGetPreviewsParams(BaseModel):
 class CanvasGetPreviewsParams(BaseModel):
     """Parameters for Canvas.get_previews()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user_ids: list[int] | None = Field(None)
 
 
 class EventSourceGroupCreateSharedAccountParams(BaseModel):
     """Parameters for EventSourceGroup.create_shared_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     accounts: list[str] = Field(...)
 
 
 class CustomAudienceDeleteAdAccountsParams(BaseModel):
     """Parameters for CustomAudience.delete_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adaccounts: list[str] | None = Field(None)
 
 
 class CustomAudienceGetAdAccountsParams(BaseModel):
     """Parameters for CustomAudience.get_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     permissions: str | None = Field(None)
 
 
 class CustomAudienceCreateAdAccountParams(BaseModel):
     """Parameters for CustomAudience.create_ad_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adaccounts: list[str] | None = Field(None)
     permissions: str | None = Field(None)
     relationship_type: list[str] | None = Field(None)
@@ -44628,7 +44628,7 @@ class CustomAudienceCreateAdAccountParams(BaseModel):
 class CustomAudienceGetAdSParams(BaseModel):
     """Parameters for CustomAudience.get_ad_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     effective_status: list[str] | None = Field(None)
     status: list[str] | None = Field(None)
 
@@ -44636,7 +44636,7 @@ class CustomAudienceGetAdSParams(BaseModel):
 class CustomAudienceGetHealthParams(BaseModel):
     """Parameters for CustomAudience.get_health()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     calculated_date: str | None = Field(None)
     processed_date: str | None = Field(None)
     value_aggregation_duration: int | None = Field(None)
@@ -44648,14 +44648,14 @@ class CustomAudienceGetHealthParams(BaseModel):
 class CustomAudienceGetSaltsParams(BaseModel):
     """Parameters for CustomAudience.get_salts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     params: list[str] | None = Field(None)
 
 
 class CustomAudienceCreateSaltParams(BaseModel):
     """Parameters for CustomAudience.create_salt()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     salt: str = Field(...)
     valid_from: datetime = Field(...)
     valid_to: datetime = Field(...)
@@ -44664,14 +44664,14 @@ class CustomAudienceCreateSaltParams(BaseModel):
 class CustomAudienceGetSessionsParams(BaseModel):
     """Parameters for CustomAudience.get_sessions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     session_id: int | None = Field(None)
 
 
 class CustomAudienceDeleteUsersParams(BaseModel):
     """Parameters for CustomAudience.delete_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     namespace: str | None = Field(None)
     payload: dict[str, Any] | None = Field(None)
     session: dict[str, Any] | None = Field(None)
@@ -44680,7 +44680,7 @@ class CustomAudienceDeleteUsersParams(BaseModel):
 class CustomAudienceCreateUserParams(BaseModel):
     """Parameters for CustomAudience.create_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     namespace: str | None = Field(None)
     payload: dict[str, Any] | None = Field(None)
     session: dict[str, Any] | None = Field(None)
@@ -44689,7 +44689,7 @@ class CustomAudienceCreateUserParams(BaseModel):
 class CustomAudienceCreateUsersreplaceParams(BaseModel):
     """Parameters for CustomAudience.create_usersreplace()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     namespace: str | None = Field(None)
     payload: dict[str, Any] = Field(...)
     session: dict[str, Any] = Field(...)
@@ -44698,7 +44698,7 @@ class CustomAudienceCreateUsersreplaceParams(BaseModel):
 class IGUserExportForCAMGetInsightsParams(BaseModel):
     """Parameters for IGUserExportForCAM.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdown: iguserexportforcaminsights_breakdown_enum_param | None = Field(None)
     metrics: list[Any] | None = Field(None)
     period: iguserexportforcaminsights_period_enum_param | None = Field(None)
@@ -44708,21 +44708,21 @@ class IGUserExportForCAMGetInsightsParams(BaseModel):
 class WhatsAppBusinessAccountDeleteAssignedUsersParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.delete_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user: int = Field(...)
 
 
 class WhatsAppBusinessAccountGetAssignedUsersParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class WhatsAppBusinessAccountCreateAssignedUserParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_assigned_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tasks: list[Any] = Field(...)
     user: int = Field(...)
 
@@ -44730,7 +44730,7 @@ class WhatsAppBusinessAccountCreateAssignedUserParams(BaseModel):
 class WhatsAppBusinessAccountGetCallAnalyticsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_call_analytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     country_codes: list[str] | None = Field(None)
     dimensions: list[Any] | None = Field(None)
     directions: list[Any] | None = Field(None)
@@ -44744,7 +44744,7 @@ class WhatsAppBusinessAccountGetCallAnalyticsParams(BaseModel):
 class WhatsAppBusinessAccountGetConversationAnalyticsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_conversation_analytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     conversation_categories: list[Any] | None = Field(None)
     conversation_directions: list[Any] | None = Field(None)
     conversation_types: list[Any] | None = Field(None)
@@ -44760,14 +44760,14 @@ class WhatsAppBusinessAccountGetConversationAnalyticsParams(BaseModel):
 class WhatsAppBusinessAccountCreateDatasetParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_dataset()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     dataset_name: str | None = Field(None)
 
 
 class WhatsAppBusinessAccountCreateFlowParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_flow()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     categories: list[Any] = Field(...)
     clone_flow_id: str | None = Field(None)
     endpoint_uri: str | None = Field(None)
@@ -44779,7 +44779,7 @@ class WhatsAppBusinessAccountCreateFlowParams(BaseModel):
 class WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_generate_payment_configuration_oauth_link()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     configuration_name: str = Field(...)
     redirect_url: str | None = Field(None)
 
@@ -44787,7 +44787,7 @@ class WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams(B
 class WhatsAppBusinessAccountGetMessageTemplatePreviewsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_message_template_previews()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     add_security_recommendation: bool | None = Field(None)
     button_types: list[Any] | None = Field(None)
     category: whatsappbusinessaccountmessage_template_previews_category_enum_param = Field(...)
@@ -44798,7 +44798,7 @@ class WhatsAppBusinessAccountGetMessageTemplatePreviewsParams(BaseModel):
 class WhatsAppBusinessAccountDeleteMessageTemplatesParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.delete_message_templates()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     hsm_id: str | None = Field(None)
     name: str = Field(...)
 
@@ -44806,7 +44806,7 @@ class WhatsAppBusinessAccountDeleteMessageTemplatesParams(BaseModel):
 class WhatsAppBusinessAccountGetMessageTemplatesParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_message_templates()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     category: list[Any] | None = Field(None)
     content: str | None = Field(None)
     language: list[str] | None = Field(None)
@@ -44819,7 +44819,7 @@ class WhatsAppBusinessAccountGetMessageTemplatesParams(BaseModel):
 class WhatsAppBusinessAccountCreateMessageTemplateParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_message_template()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_category_change: bool | None = Field(None)
     category: whatsappbusinessaccountmessage_templates_category_enum_param = Field(...)
     components: list[Any] | None = Field(None)
@@ -44845,7 +44845,7 @@ class WhatsAppBusinessAccountCreateMessageTemplateParams(BaseModel):
 class WhatsAppBusinessAccountCreateMigrateFlowParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_migrate_flow()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     source_flow_names: list[str] | None = Field(None)
     source_waba_id: str = Field(...)
 
@@ -44853,7 +44853,7 @@ class WhatsAppBusinessAccountCreateMigrateFlowParams(BaseModel):
 class WhatsAppBusinessAccountCreateMigrateMessageTemplateParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_migrate_message_template()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     page_number: int | None = Field(None)
     source_waba_id: str = Field(...)
 
@@ -44861,21 +44861,21 @@ class WhatsAppBusinessAccountCreateMigrateMessageTemplateParams(BaseModel):
 class WhatsAppBusinessAccountDeletePaymentConfigurationParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.delete_payment_configuration()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     configuration_name: str = Field(...)
 
 
 class WhatsAppBusinessAccountGetPaymentConfigurationParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_payment_configuration()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     configuration_name: str = Field(...)
 
 
 class WhatsAppBusinessAccountCreatePaymentConfigurationParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_payment_configuration()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     configuration_name: str = Field(...)
     data_endpoint_url: str | None = Field(None)
     merchant_category_code: str | None = Field(None)
@@ -44890,7 +44890,7 @@ class WhatsAppBusinessAccountCreatePaymentConfigurationParams(BaseModel):
 class WhatsAppBusinessAccountCreatePhoneNumberParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_phone_number()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     cc: str | None = Field(None)
     migrate_phone_number: bool | None = Field(None)
     phone_number: str | None = Field(None)
@@ -44901,7 +44901,7 @@ class WhatsAppBusinessAccountCreatePhoneNumberParams(BaseModel):
 class WhatsAppBusinessAccountGetPricingAnalyticsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_pricing_analytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     country_codes: list[str] | None = Field(None)
     dimensions: list[Any] | None = Field(None)
     end: int = Field(...)
@@ -44917,28 +44917,28 @@ class WhatsAppBusinessAccountGetPricingAnalyticsParams(BaseModel):
 class WhatsAppBusinessAccountDeleteProductCatalogsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.delete_product_catalogs()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     catalog_id: str = Field(...)
 
 
 class WhatsAppBusinessAccountCreateProductCatalogParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_product_catalog()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     catalog_id: str = Field(...)
 
 
 class WhatsAppBusinessAccountCreateSetOboMobilityIntentParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_set_obo_mobility_intent()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     solution_id: str | None = Field(None)
 
 
 class WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_set_solution_migration_intent()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
     solution_id: str | None = Field(None)
 
@@ -44946,7 +44946,7 @@ class WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams(BaseModel):
 class WhatsAppBusinessAccountCreateSubscribedAppParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_subscribed_app()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     override_callback_uri: str | None = Field(None)
     verify_token: str | None = Field(None)
 
@@ -44954,7 +44954,7 @@ class WhatsAppBusinessAccountCreateSubscribedAppParams(BaseModel):
 class WhatsAppBusinessAccountGetTemplateAnalyticsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_template_analytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end: datetime = Field(...)
     granularity: whatsappbusinessaccounttemplate_analytics_granularity_enum_param = Field(...)
     metric_types: list[Any] | None = Field(None)
@@ -44968,7 +44968,7 @@ class WhatsAppBusinessAccountGetTemplateAnalyticsParams(BaseModel):
 class WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_template_group_analytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end: datetime = Field(...)
     granularity: whatsappbusinessaccounttemplate_group_analytics_granularity_enum_param = Field(...)
     metric_types: list[Any] | None = Field(None)
@@ -44979,7 +44979,7 @@ class WhatsAppBusinessAccountGetTemplateGroupAnalyticsParams(BaseModel):
 class WhatsAppBusinessAccountCreateTemplateGroupParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_template_group()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     description: str = Field(...)
     name: str = Field(...)
     whatsapp_business_templates: list[str] = Field(...)
@@ -44988,7 +44988,7 @@ class WhatsAppBusinessAccountCreateTemplateGroupParams(BaseModel):
 class WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_template_performance_metrics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str | None = Field(None)
     template_id: str | None = Field(None)
 
@@ -44996,7 +44996,7 @@ class WhatsAppBusinessAccountGetTemplatePerformanceMetricsParams(BaseModel):
 class WhatsAppBusinessAccountCreateUpsertMessageTemplateParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.create_upsert_message_template()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     category: whatsappbusinessaccountupsert_message_templates_category_enum_param = Field(...)
     components: list[Any] = Field(...)
     languages: list[str] = Field(...)
@@ -45007,7 +45007,7 @@ class WhatsAppBusinessAccountCreateUpsertMessageTemplateParams(BaseModel):
 class WhatsAppBusinessAccountGetWelcomeMessageSequencesParams(BaseModel):
     """Parameters for WhatsAppBusinessAccount.get_welcome_message_sequences()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
     sequence_id: str | None = Field(None)
 
@@ -45015,7 +45015,7 @@ class WhatsAppBusinessAccountGetWelcomeMessageSequencesParams(BaseModel):
 class AdMonetizationPropertyGetAdNetworkanalyticsParams(BaseModel):
     """Parameters for AdMonetizationProperty.get_ad_networkanalytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation_period: (
         admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param | None
     ) = Field(None)
@@ -45037,7 +45037,7 @@ class AdMonetizationPropertyGetAdNetworkanalyticsParams(BaseModel):
 class AdMonetizationPropertyCreateAdNetworkanalyticParams(BaseModel):
     """Parameters for AdMonetizationProperty.create_ad_networkanalytic()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation_period: (
         admonetizationpropertyadnetworkanalytics_aggregation_period_enum_param | None
     ) = Field(None)
@@ -45058,14 +45058,14 @@ class AdMonetizationPropertyCreateAdNetworkanalyticParams(BaseModel):
 class AdMonetizationPropertyGetAdnetworkanalyticsResultsParams(BaseModel):
     """Parameters for AdMonetizationProperty.get_adnetworkanalytics_results()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     query_ids: list[str] | None = Field(None)
 
 
 class VehicleGetOverrideDetailsParams(BaseModel):
     """Parameters for Vehicle.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: vehicleoverride_details_type_enum_param | None = Field(None)
 
@@ -45073,14 +45073,14 @@ class VehicleGetOverrideDetailsParams(BaseModel):
 class PaymentEnginePaymentCreateDisputeParams(BaseModel):
     """Parameters for PaymentEnginePayment.create_dispute()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     reason: paymentenginepaymentdispute_reason_enum_param = Field(...)
 
 
 class PaymentEnginePaymentCreateRefundParams(BaseModel):
     """Parameters for PaymentEnginePayment.create_refund()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     amount: float = Field(...)
     currency: str = Field(...)
     reason: paymentenginepaymentrefunds_reason_enum_param | None = Field(None)
@@ -45089,14 +45089,14 @@ class PaymentEnginePaymentCreateRefundParams(BaseModel):
 class ProductCatalogDeleteAgenciesParams(BaseModel):
     """Parameters for ProductCatalog.delete_agencies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class ProductCatalogCreateAgencieParams(BaseModel):
     """Parameters for ProductCatalog.create_agencie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
     permitted_roles: list[Any] | None = Field(None)
     permitted_tasks: list[Any] | None = Field(None)
@@ -45107,21 +45107,21 @@ class ProductCatalogCreateAgencieParams(BaseModel):
 class ProductCatalogDeleteAssignedUsersParams(BaseModel):
     """Parameters for ProductCatalog.delete_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user: int = Field(...)
 
 
 class ProductCatalogGetAssignedUsersParams(BaseModel):
     """Parameters for ProductCatalog.get_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class ProductCatalogCreateAssignedUserParams(BaseModel):
     """Parameters for ProductCatalog.create_assigned_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tasks: list[Any] = Field(...)
     user: int = Field(...)
 
@@ -45129,7 +45129,7 @@ class ProductCatalogCreateAssignedUserParams(BaseModel):
 class ProductCatalogGetAutomotiveModelsParams(BaseModel):
     """Parameters for ProductCatalog.get_automotive_models()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -45137,7 +45137,7 @@ class ProductCatalogGetAutomotiveModelsParams(BaseModel):
 class ProductCatalogCreateBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_upsert: bool | None = Field(None)
     fbe_external_business_id: str | None = Field(None)
     requests: list[Any] = Field(...)
@@ -45147,14 +45147,14 @@ class ProductCatalogCreateBatchParams(BaseModel):
 class ProductCatalogCreateCatalogStoreParams(BaseModel):
     """Parameters for ProductCatalog.create_catalog_store()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     page: str = Field(...)
 
 
 class ProductCatalogGetCategoriesParams(BaseModel):
     """Parameters for ProductCatalog.get_categories()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     categorization_criteria: productcatalogcategories_categorization_criteria_enum_param = Field(
         ...
     )
@@ -45164,14 +45164,14 @@ class ProductCatalogGetCategoriesParams(BaseModel):
 class ProductCatalogCreateCategorieParams(BaseModel):
     """Parameters for ProductCatalog.create_categorie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     data: list[Any] = Field(...)
 
 
 class ProductCatalogGetCheckBatchRequestStatusParams(BaseModel):
     """Parameters for ProductCatalog.get_check_batch_request_status()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     error_priority: productcatalogcheck_batch_request_status_error_priority_enum_param | None = (
         Field(None)
     )
@@ -45182,14 +45182,14 @@ class ProductCatalogGetCheckBatchRequestStatusParams(BaseModel):
 class ProductCatalogGetCheckMarketplacePartnerSellersStatusParams(BaseModel):
     """Parameters for ProductCatalog.get_check_marketplace_partner_sellers_status()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     session_id: str = Field(...)
 
 
 class ProductCatalogCreateCpasLsbImageBankParams(BaseModel):
     """Parameters for ProductCatalog.create_cpas_lsb_image_bank()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_group_id: int | None = Field(None)
     agency_business_id: int | None = Field(None)
     backup_image_urls: list[str] = Field(...)
@@ -45198,7 +45198,7 @@ class ProductCatalogCreateCpasLsbImageBankParams(BaseModel):
 class ProductCatalogGetCreatorAssetCreativesParams(BaseModel):
     """Parameters for ProductCatalog.get_creator_asset_creatives()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     moderation_status: productcatalogcreator_asset_creatives_moderation_status_enum_param | None = (
         Field(None)
     )
@@ -45207,7 +45207,7 @@ class ProductCatalogGetCreatorAssetCreativesParams(BaseModel):
 class ProductCatalogGetDataSourcesParams(BaseModel):
     """Parameters for ProductCatalog.get_data_sources()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ingestion_source_type: productcatalogdata_sources_ingestion_source_type_enum_param | None = (
         Field(None)
     )
@@ -45216,7 +45216,7 @@ class ProductCatalogGetDataSourcesParams(BaseModel):
 class ProductCatalogGetDestinationsParams(BaseModel):
     """Parameters for ProductCatalog.get_destinations()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -45224,7 +45224,7 @@ class ProductCatalogGetDestinationsParams(BaseModel):
 class ProductCatalogGetDiagnosticsParams(BaseModel):
     """Parameters for ProductCatalog.get_diagnostics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     affected_channels: list[Any] | None = Field(None)
     affected_entities: list[Any] | None = Field(None)
     affected_features: list[Any] | None = Field(None)
@@ -45235,28 +45235,28 @@ class ProductCatalogGetDiagnosticsParams(BaseModel):
 class ProductCatalogGetEventStatsParams(BaseModel):
     """Parameters for ProductCatalog.get_event_stats()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdowns: list[Any] | None = Field(None)
 
 
 class ProductCatalogDeleteExternalEventSourcesParams(BaseModel):
     """Parameters for ProductCatalog.delete_external_event_sources()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     external_event_sources: dict[str, Any] | None = Field(None)
 
 
 class ProductCatalogCreateExternalEventSourceParams(BaseModel):
     """Parameters for ProductCatalog.create_external_event_source()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     external_event_sources: dict[str, Any] | None = Field(None)
 
 
 class ProductCatalogGetFlightsParams(BaseModel):
     """Parameters for ProductCatalog.get_flights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -45264,7 +45264,7 @@ class ProductCatalogGetFlightsParams(BaseModel):
 class ProductCatalogCreateGeolocatedItemsBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_geolocated_items_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_upsert: bool | None = Field(None)
     item_type: str = Field(...)
     requests: dict[str, Any] = Field(...)
@@ -45273,7 +45273,7 @@ class ProductCatalogCreateGeolocatedItemsBatchParams(BaseModel):
 class ProductCatalogGetHomeListingsParams(BaseModel):
     """Parameters for ProductCatalog.get_home_listings()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -45281,7 +45281,7 @@ class ProductCatalogGetHomeListingsParams(BaseModel):
 class ProductCatalogCreateHomeListingParams(BaseModel):
     """Parameters for ProductCatalog.create_home_listing()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     address: dict[str, Any] = Field(...)
     availability: str = Field(...)
     currency: str = Field(...)
@@ -45302,14 +45302,14 @@ class ProductCatalogCreateHomeListingParams(BaseModel):
 class ProductCatalogGetHotelRoomsBatchParams(BaseModel):
     """Parameters for ProductCatalog.get_hotel_rooms_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     handle: str = Field(...)
 
 
 class ProductCatalogCreateHotelRoomsBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_hotel_rooms_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     file: Any | None = Field(None)
     password: str | None = Field(None)
     standard: productcataloghotel_rooms_batch_standard_enum_param = Field(...)
@@ -45321,7 +45321,7 @@ class ProductCatalogCreateHotelRoomsBatchParams(BaseModel):
 class ProductCatalogGetHotelsParams(BaseModel):
     """Parameters for ProductCatalog.get_hotels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -45329,7 +45329,7 @@ class ProductCatalogGetHotelsParams(BaseModel):
 class ProductCatalogCreateHotelParams(BaseModel):
     """Parameters for ProductCatalog.create_hotel()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     address: dict[str, Any] = Field(...)
     applinks: dict[str, Any] | None = Field(None)
     base_price: int | None = Field(None)
@@ -45348,7 +45348,7 @@ class ProductCatalogCreateHotelParams(BaseModel):
 class ProductCatalogCreateItemsBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_items_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_upsert: bool | None = Field(None)
     item_sub_type: productcatalogitems_batch_item_sub_type_enum_param | None = Field(None)
     item_type: str = Field(...)
@@ -45359,7 +45359,7 @@ class ProductCatalogCreateItemsBatchParams(BaseModel):
 class ProductCatalogCreateLocalizedItemsBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_localized_items_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_upsert: bool | None = Field(None)
     item_type: str = Field(...)
     requests: dict[str, Any] = Field(...)
@@ -45369,14 +45369,14 @@ class ProductCatalogCreateLocalizedItemsBatchParams(BaseModel):
 class ProductCatalogCreateMarketplacePartnerSellersDetailParams(BaseModel):
     """Parameters for ProductCatalog.create_marketplace_partner_sellers_detail()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     requests: dict[str, Any] = Field(...)
 
 
 class ProductCatalogCreateMarketplacePartnerSignalParams(BaseModel):
     """Parameters for ProductCatalog.create_marketplace_partner_signal()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     event_name: productcatalogmarketplace_partner_signals_event_name_enum_param = Field(...)
     event_source_url: str | None = Field(None)
     event_time: datetime = Field(...)
@@ -45387,14 +45387,14 @@ class ProductCatalogCreateMarketplacePartnerSignalParams(BaseModel):
 class ProductCatalogGetPricingVariablesBatchParams(BaseModel):
     """Parameters for ProductCatalog.get_pricing_variables_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     handle: str = Field(...)
 
 
 class ProductCatalogCreatePricingVariablesBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_pricing_variables_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     file: Any | None = Field(None)
     password: str | None = Field(None)
     standard: productcatalogpricing_variables_batch_standard_enum_param = Field(...)
@@ -45406,7 +45406,7 @@ class ProductCatalogCreatePricingVariablesBatchParams(BaseModel):
 class ProductCatalogCreateProductFeedParams(BaseModel):
     """Parameters for ProductCatalog.create_product_feed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     country: str | None = Field(None)
     default_currency: str | None = Field(None)
     deletion_enabled: bool | None = Field(None)
@@ -45435,7 +45435,7 @@ class ProductCatalogCreateProductFeedParams(BaseModel):
 class ProductCatalogCreateProductGroupParams(BaseModel):
     """Parameters for ProductCatalog.create_product_group()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     retailer_id: str | None = Field(None)
     variants: list[Any] | None = Field(None)
 
@@ -45443,7 +45443,7 @@ class ProductCatalogCreateProductGroupParams(BaseModel):
 class ProductCatalogGetProductSetsParams(BaseModel):
     """Parameters for ProductCatalog.get_product_sets()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ancestor_id: str | None = Field(None)
     has_children: bool | None = Field(None)
     parent_id: str | None = Field(None)
@@ -45453,7 +45453,7 @@ class ProductCatalogGetProductSetsParams(BaseModel):
 class ProductCatalogCreateProductSetParams(BaseModel):
     """Parameters for ProductCatalog.create_product_set()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: dict[str, Any] | None = Field(None)
     metadata: dict[str, Any] | None = Field(None)
     name: str = Field(...)
@@ -45465,14 +45465,14 @@ class ProductCatalogCreateProductSetParams(BaseModel):
 class ProductCatalogGetProductSetsBatchParams(BaseModel):
     """Parameters for ProductCatalog.get_product_sets_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     handle: str = Field(...)
 
 
 class ProductCatalogGetProductSParams(BaseModel):
     """Parameters for ProductCatalog.get_product_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     error_priority: productcatalogproducts_error_priority_enum_param | None = Field(None)
     error_type: productcatalogproducts_error_type_enum_param | None = Field(None)
@@ -45483,7 +45483,7 @@ class ProductCatalogGetProductSParams(BaseModel):
 class ProductCatalogCreateProductParams(BaseModel):
     """Parameters for ProductCatalog.create_product_()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     additional_image_urls: list[str] | None = Field(None)
     additional_variant_attributes: dict[str, Any] | None = Field(None)
     age_group: productcatalogproducts_age_group_enum_param | None = Field(None)
@@ -45573,14 +45573,14 @@ class ProductCatalogCreateProductParams(BaseModel):
 class ProductCatalogCreateUpdateGeneratedImageConfigParams(BaseModel):
     """Parameters for ProductCatalog.create_update_generated_image_config()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     data: list[Any] = Field(...)
 
 
 class ProductCatalogGetVehicleOffersParams(BaseModel):
     """Parameters for ProductCatalog.get_vehicle_offers()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -45588,7 +45588,7 @@ class ProductCatalogGetVehicleOffersParams(BaseModel):
 class ProductCatalogGetVehiclesParams(BaseModel):
     """Parameters for ProductCatalog.get_vehicles()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -45596,7 +45596,7 @@ class ProductCatalogGetVehiclesParams(BaseModel):
 class ProductCatalogCreateVehicleParams(BaseModel):
     """Parameters for ProductCatalog.create_vehicle()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     address: dict[str, Any] = Field(...)
     applinks: dict[str, Any] | None = Field(None)
     availability: productcatalogvehicles_availability_enum_param | None = Field(None)
@@ -45632,7 +45632,7 @@ class ProductCatalogCreateVehicleParams(BaseModel):
 class ProductCatalogCreateVersionItemsBatchParams(BaseModel):
     """Parameters for ProductCatalog.create_version_items_batch()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_upsert: bool | None = Field(None)
     item_type: str = Field(...)
     item_version: str = Field(...)
@@ -45643,21 +45643,21 @@ class ProductCatalogCreateVersionItemsBatchParams(BaseModel):
 class BusinessAssetGroupDeleteAssignedUsersParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user: int = Field(...)
 
 
 class BusinessAssetGroupGetAssignedUsersParams(BaseModel):
     """Parameters for BusinessAssetGroup.get_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class BusinessAssetGroupCreateAssignedUserParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_assigned_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adaccount_tasks: list[Any] | None = Field(None)
     offline_conversion_data_set_tasks: list[Any] | None = Field(None)
     page_tasks: list[Any] | None = Field(None)
@@ -45668,112 +45668,112 @@ class BusinessAssetGroupCreateAssignedUserParams(BaseModel):
 class BusinessAssetGroupDeleteContainedAdaccountsParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_contained_adaccounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupCreateContainedAdaccountParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_contained_adaccount()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupDeleteContainedApplicationsParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_contained_applications()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupCreateContainedApplicationParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_contained_application()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupDeleteContainedCustomConversionsParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_contained_custom_conversions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupCreateContainedCustomConversionParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_contained_custom_conversion()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupDeleteContainedInstagramAccountsParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_contained_instagram_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupCreateContainedInstagramAccountParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_contained_instagram_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupDeleteContainedPagesParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_contained_pages()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupCreateContainedPageParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_contained_page()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupDeleteContainedPixelsParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_contained_pixels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupCreateContainedPixelParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_contained_pixel()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupDeleteContainedProductCatalogsParams(BaseModel):
     """Parameters for BusinessAssetGroup.delete_contained_product_catalogs()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class BusinessAssetGroupCreateContainedProductCatalogParams(BaseModel):
     """Parameters for BusinessAssetGroup.create_contained_product_catalog()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset_id: str = Field(...)
 
 
 class IGCommentCreateReplieParams(BaseModel):
     """Parameters for IGComment.create_replie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     message: str | None = Field(None)
 
 
 class BusinessCreateAccessTokenParams(BaseModel):
     """Parameters for Business.create_access_token()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str = Field(...)
     fbe_external_business_id: str | None = Field(None)
     scope: list[Any] = Field(...)
@@ -45783,7 +45783,7 @@ class BusinessCreateAccessTokenParams(BaseModel):
 class BusinessGetAdAccountInfosParams(BaseModel):
     """Parameters for Business.get_ad_account_infos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account_id: str | None = Field(None)
     parent_advertiser_id: str | None = Field(None)
     user_id: str | None = Field(None)
@@ -45792,21 +45792,21 @@ class BusinessGetAdAccountInfosParams(BaseModel):
 class BusinessDeleteAdAccountsParams(BaseModel):
     """Parameters for Business.delete_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adaccount_id: str = Field(...)
 
 
 class BusinessCreateAdReviewRequestParams(BaseModel):
     """Parameters for Business.create_ad_review_request()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account_ids: list[str] | None = Field(None)
 
 
 class BusinessCreateAdStudieParams(BaseModel):
     """Parameters for Business.create_ad_studie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     cells: list[Any] = Field(...)
     client_business: str | None = Field(None)
     confidence_level: float | None = Field(None)
@@ -45824,7 +45824,7 @@ class BusinessCreateAdStudieParams(BaseModel):
 class BusinessCreateAdAccountParams(BaseModel):
     """Parameters for Business.create_ad_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account_created_from_bm_flag: bool | None = Field(None)
     currency: str = Field(...)
     end_advertiser: dict[str, Any] = Field(...)
@@ -45843,21 +45843,21 @@ class BusinessCreateAdAccountParams(BaseModel):
 class BusinessCreateAddPhoneNumberParams(BaseModel):
     """Parameters for Business.create_add_phone_number()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     phone_number: str = Field(...)
 
 
 class BusinessCreateAdnetworkApplicationParams(BaseModel):
     """Parameters for Business.create_adnetwork_application()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str = Field(...)
 
 
 class BusinessGetAdNetworkanalyticsParams(BaseModel):
     """Parameters for Business.get_ad_networkanalytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation_period: businessadnetworkanalytics_aggregation_period_enum_param | None = Field(
         None
     )
@@ -45875,7 +45875,7 @@ class BusinessGetAdNetworkanalyticsParams(BaseModel):
 class BusinessCreateAdNetworkanalyticParams(BaseModel):
     """Parameters for Business.create_ad_networkanalytic()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation_period: businessadnetworkanalytics_aggregation_period_enum_param | None = Field(
         None
     )
@@ -45892,14 +45892,14 @@ class BusinessCreateAdNetworkanalyticParams(BaseModel):
 class BusinessGetAdnetworkanalyticsResultsParams(BaseModel):
     """Parameters for Business.get_adnetworkanalytics_results()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     query_ids: list[str] | None = Field(None)
 
 
 class BusinessGetAdsDatasetParams(BaseModel):
     """Parameters for Business.get_ads_dataset()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     id_filter: str | None = Field(None)
     name_filter: str | None = Field(None)
     sort_by: businessads_dataset_sort_by_enum_param | None = Field(None)
@@ -45908,7 +45908,7 @@ class BusinessGetAdsDatasetParams(BaseModel):
 class BusinessCreateAdsDatasetParams(BaseModel):
     """Parameters for Business.create_ads_dataset()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account_id: str | None = Field(None)
     app_id: str | None = Field(None)
     is_crm: bool | None = Field(None)
@@ -45918,14 +45918,14 @@ class BusinessCreateAdsDatasetParams(BaseModel):
 class BusinessGetAdsReportingMmmReportsParams(BaseModel):
     """Parameters for Business.get_ads_reporting_mmm_reports()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filtering: list[Any] | None = Field(None)
 
 
 class BusinessGetAdSpixelsParams(BaseModel):
     """Parameters for Business.get_ad_spixels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     id_filter: str | None = Field(None)
     name_filter: str | None = Field(None)
     sort_by: businessadspixels_sort_by_enum_param | None = Field(None)
@@ -45934,7 +45934,7 @@ class BusinessGetAdSpixelsParams(BaseModel):
 class BusinessCreateAdSpixelParams(BaseModel):
     """Parameters for Business.create_ad_spixel()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     is_crm: bool | None = Field(None)
     name: str = Field(...)
 
@@ -45942,28 +45942,28 @@ class BusinessCreateAdSpixelParams(BaseModel):
 class BusinessDeleteAgenciesParams(BaseModel):
     """Parameters for Business.delete_agencies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class BusinessCreateBlockListDraftParams(BaseModel):
     """Parameters for Business.create_block_list_draft()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     publisher_urls_file: Any = Field(...)
 
 
 class BusinessCreateBmReviewRequestParams(BaseModel):
     """Parameters for Business.create_bm_review_request()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business_manager_ids: list[str] = Field(...)
 
 
 class BusinessGetBusinessInvoicesParams(BaseModel):
     """Parameters for Business.get_business_invoices()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_date: str | None = Field(None)
     invoice_id: str | None = Field(None)
     issue_end_date: str | None = Field(None)
@@ -45976,7 +45976,7 @@ class BusinessGetBusinessInvoicesParams(BaseModel):
 class BusinessCreateBusinessUserParams(BaseModel):
     """Parameters for Business.create_business_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     email: str = Field(...)
     invited_user_type: list[Any] | None = Field(None)
     role: businessbusiness_users_role_enum_param | None = Field(None)
@@ -45986,28 +45986,28 @@ class BusinessCreateBusinessUserParams(BaseModel):
 class BusinessCreateClaimCustomConversionParams(BaseModel):
     """Parameters for Business.create_claim_custom_conversion()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     custom_conversion_id: str = Field(...)
 
 
 class BusinessGetClientAdAccountsParams(BaseModel):
     """Parameters for Business.get_client_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     search_query: str | None = Field(None)
 
 
 class BusinessCreateClientAppParams(BaseModel):
     """Parameters for Business.create_client_app()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: dict[str, Any] = Field(...)
 
 
 class BusinessCreateClientPageParams(BaseModel):
     """Parameters for Business.create_client_page()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     page_id: int = Field(...)
     permitted_tasks: list[Any] | None = Field(None)
 
@@ -46015,21 +46015,21 @@ class BusinessCreateClientPageParams(BaseModel):
 class BusinessDeleteClientsParams(BaseModel):
     """Parameters for Business.delete_clients()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class BusinessGetCollaborativeAdsCollaborationRequestsParams(BaseModel):
     """Parameters for Business.get_collaborative_ads_collaboration_requests()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     status: str | None = Field(None)
 
 
 class BusinessCreateCollaborativeAdsCollaborationRequestParams(BaseModel):
     """Parameters for Business.create_collaborative_ads_collaboration_request()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     brands: list[str] = Field(...)
     contact_email: str = Field(...)
     contact_first_name: str = Field(...)
@@ -46045,7 +46045,7 @@ class BusinessCreateCollaborativeAdsCollaborationRequestParams(BaseModel):
 class BusinessCreateCpasBusinessSetupConfigParams(BaseModel):
     """Parameters for Business.create_cpas_business_setup_config()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     accepted_collab_ads_tos: bool | None = Field(None)
     ad_accounts: list[str] | None = Field(None)
     business_capabilities_status: dict[str, Any] | None = Field(None)
@@ -46055,7 +46055,7 @@ class BusinessCreateCpasBusinessSetupConfigParams(BaseModel):
 class BusinessCreateCreativeFolderParams(BaseModel):
     """Parameters for Business.create_creative_folder()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     description: str | None = Field(None)
     name: str = Field(...)
     parent_folder_id: str | None = Field(None)
@@ -46064,7 +46064,7 @@ class BusinessCreateCreativeFolderParams(BaseModel):
 class BusinessCreateCustomConversionParams(BaseModel):
     """Parameters for Business.create_custom_conversion()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_source_type: businesscustomconversions_action_source_type_enum_param | None = Field(None)
     advanced_rule: str | None = Field(None)
     custom_event_type: businesscustomconversions_custom_event_type_enum_param = Field(...)
@@ -46078,7 +46078,7 @@ class BusinessCreateCustomConversionParams(BaseModel):
 class BusinessCreateEventSourceGroupParams(BaseModel):
     """Parameters for Business.create_event_source_group()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     event_sources: list[str] = Field(...)
     name: str = Field(...)
 
@@ -46086,21 +46086,21 @@ class BusinessCreateEventSourceGroupParams(BaseModel):
 class BusinessGetExtendedcreditapplicationsParams(BaseModel):
     """Parameters for Business.get_extendedcreditapplications()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     only_show_pending: bool | None = Field(None)
 
 
 class BusinessGetExtendedcreditsParams(BaseModel):
     """Parameters for Business.get_extendedcredits()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     order_by_is_owned_credential: bool | None = Field(None)
 
 
 class BusinessCreateImageParams(BaseModel):
     """Parameters for Business.create_image()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_placements_validation_only: bool | None = Field(None)
     bytes: str | None = Field(None)
     creative_folder_id: str = Field(...)
@@ -46111,7 +46111,7 @@ class BusinessCreateImageParams(BaseModel):
 class BusinessGetInitiatedAudienceSharingRequestsParams(BaseModel):
     """Parameters for Business.get_initiated_audience_sharing_requests()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     recipient_id: str | None = Field(None)
     request_status: businessinitiated_audience_sharing_requests_request_status_enum_param | None = (
         Field(None)
@@ -46121,21 +46121,21 @@ class BusinessGetInitiatedAudienceSharingRequestsParams(BaseModel):
 class BusinessDeleteInstagramAccountsParams(BaseModel):
     """Parameters for Business.delete_instagram_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     instagram_account: str = Field(...)
 
 
 class BusinessDeleteManagedBusinessesParams(BaseModel):
     """Parameters for Business.delete_managed_businesses()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     existing_client_business_id: str = Field(...)
 
 
 class BusinessCreateManagedBusinesseParams(BaseModel):
     """Parameters for Business.create_managed_businesse()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     child_business_external_id: str | None = Field(None)
     existing_client_business_id: str | None = Field(None)
     name: str | None = Field(None)
@@ -46152,14 +46152,14 @@ class BusinessCreateManagedBusinesseParams(BaseModel):
 class BusinessGetManagedPartnerAdsFundingSourceDetailsParams(BaseModel):
     """Parameters for Business.get_managed_partner_ads_funding_source_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     year_quarter: str | None = Field(None)
 
 
 class BusinessCreateManagedPartnerBusinessSetupParams(BaseModel):
     """Parameters for Business.create_managed_partner_business_setup()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     active_ad_account_id: str | None = Field(None)
     active_page_id: int | None = Field(None)
     partner_facebook_page_url: str | None = Field(None)
@@ -46172,7 +46172,7 @@ class BusinessCreateManagedPartnerBusinessSetupParams(BaseModel):
 class BusinessDeleteManagedPartnerBusinessesParams(BaseModel):
     """Parameters for Business.delete_managed_partner_businesses()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     child_business_external_id: str | None = Field(None)
     child_business_id: str | None = Field(None)
 
@@ -46180,7 +46180,7 @@ class BusinessDeleteManagedPartnerBusinessesParams(BaseModel):
 class BusinessCreateManagedPartnerBusinesseParams(BaseModel):
     """Parameters for Business.create_managed_partner_businesse()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account_currency: str | None = Field(None)
     catalog_id: str = Field(...)
     child_business_external_id: str | None = Field(None)
@@ -46211,14 +46211,14 @@ class BusinessCreateManagedPartnerBusinesseParams(BaseModel):
 class BusinessCreateOnboardPartnersToMmLiteParams(BaseModel):
     """Parameters for Business.create_onboard_partners_to_mm_lite()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     solution_id: str | None = Field(None)
 
 
 class BusinessCreateOpenbridgeConfigurationParams(BaseModel):
     """Parameters for Business.create_openbridge_configuration()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     active: bool | None = Field(None)
     cloud_provider: str | None = Field(None)
     cloud_region: str | None = Field(None)
@@ -46241,35 +46241,35 @@ class BusinessCreateOpenbridgeConfigurationParams(BaseModel):
 class BusinessGetOwnedAdAccountsParams(BaseModel):
     """Parameters for Business.get_owned_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     search_query: str | None = Field(None)
 
 
 class BusinessCreateOwnedAdAccountParams(BaseModel):
     """Parameters for Business.create_owned_ad_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adaccount_id: str = Field(...)
 
 
 class BusinessCreateOwnedAppParams(BaseModel):
     """Parameters for Business.create_owned_app()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: dict[str, Any] = Field(...)
 
 
 class BusinessDeleteOwnedBusinessesParams(BaseModel):
     """Parameters for Business.delete_owned_businesses()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     client_id: str = Field(...)
 
 
 class BusinessGetOwnedBusinessesParams(BaseModel):
     """Parameters for Business.get_owned_businesses()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     child_business_external_id: str | None = Field(None)
     client_user_id: int | None = Field(None)
 
@@ -46277,7 +46277,7 @@ class BusinessGetOwnedBusinessesParams(BaseModel):
 class BusinessCreateOwnedBusinesseParams(BaseModel):
     """Parameters for Business.create_owned_businesse()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     child_business_external_id: str | None = Field(None)
     name: str = Field(...)
     page_permitted_tasks: list[Any] | None = Field(None)
@@ -46296,7 +46296,7 @@ class BusinessCreateOwnedBusinesseParams(BaseModel):
 class BusinessCreateOwnedPageParams(BaseModel):
     """Parameters for Business.create_owned_page()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     code: str | None = Field(None)
     entry_point: str | None = Field(None)
     page_id: int = Field(...)
@@ -46305,7 +46305,7 @@ class BusinessCreateOwnedPageParams(BaseModel):
 class BusinessCreateOwnedProductCatalogParams(BaseModel):
     """Parameters for Business.create_owned_product_catalog()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     additional_vertical_option: (
         businessowned_product_catalogs_additional_vertical_option_enum_param | None
     ) = Field(None)
@@ -46325,14 +46325,14 @@ class BusinessCreateOwnedProductCatalogParams(BaseModel):
 class BusinessDeletePagesParams(BaseModel):
     """Parameters for Business.delete_pages()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     page_id: int = Field(...)
 
 
 class BusinessCreatePartnerPremiumOptionParams(BaseModel):
     """Parameters for Business.create_partner_premium_option()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     catalog_segment_id: str | None = Field(None)
     enable_basket_insight: bool = Field(...)
     enable_extended_audience_retargeting: bool = Field(...)
@@ -46344,14 +46344,14 @@ class BusinessCreatePartnerPremiumOptionParams(BaseModel):
 class BusinessGetPendingUsersParams(BaseModel):
     """Parameters for Business.get_pending_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     email: str | None = Field(None)
 
 
 class BusinessGetPictureParams(BaseModel):
     """Parameters for Business.get_picture()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     height: int | None = Field(None)
     redirect: bool | None = Field(None)
     type: businesspicture_type_enum_param | None = Field(None)
@@ -46361,7 +46361,7 @@ class BusinessGetPictureParams(BaseModel):
 class BusinessGetPreverifiedNumbersParams(BaseModel):
     """Parameters for Business.get_preverified_numbers()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     code_verification_status: (
         businesspreverified_numbers_code_verification_status_enum_param | None
     ) = Field(None)
@@ -46371,7 +46371,7 @@ class BusinessGetPreverifiedNumbersParams(BaseModel):
 class BusinessGetReceivedAudienceSharingRequestsParams(BaseModel):
     """Parameters for Business.get_received_audience_sharing_requests()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     initiator_id: str | None = Field(None)
     request_status: businessreceived_audience_sharing_requests_request_status_enum_param | None = (
         Field(None)
@@ -46381,14 +46381,14 @@ class BusinessGetReceivedAudienceSharingRequestsParams(BaseModel):
 class BusinessGetSelfCertifiedWhatsappBusinessSubmissionsParams(BaseModel):
     """Parameters for Business.get_self_certified_whatsapp_business_submissions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_business_id: str | None = Field(None)
 
 
 class BusinessCreateSelfCertifyWhatsappBusineParams(BaseModel):
     """Parameters for Business.create_self_certify_whatsapp_busine()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     average_monthly_revenue_spend_with_partner: dict[str, Any] | None = Field(None)
     business_documents: list[Any] = Field(...)
     business_vertical: (
@@ -46405,7 +46405,7 @@ class BusinessCreateSelfCertifyWhatsappBusineParams(BaseModel):
 class BusinessCreateSetupManagedPartnerAdaccountParams(BaseModel):
     """Parameters for Business.create_setup_managed_partner_adaccount()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     credit_line_id: str = Field(...)
     marketplace_business_id: str = Field(...)
     subvertical_v2: businesssetup_managed_partner_adaccounts_subvertical_v2_enum_param = Field(...)
@@ -46416,7 +46416,7 @@ class BusinessCreateSetupManagedPartnerAdaccountParams(BaseModel):
 class BusinessDeleteSharePreverifiedNumbersParams(BaseModel):
     """Parameters for Business.delete_share_preverified_numbers()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     partner_business_id: str = Field(...)
     preverified_id: str = Field(...)
 
@@ -46424,7 +46424,7 @@ class BusinessDeleteSharePreverifiedNumbersParams(BaseModel):
 class BusinessCreateSharePreverifiedNumberParams(BaseModel):
     """Parameters for Business.create_share_preverified_number()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     partner_business_id: str = Field(...)
     preverified_id: str = Field(...)
 
@@ -46432,7 +46432,7 @@ class BusinessCreateSharePreverifiedNumberParams(BaseModel):
 class BusinessCreateSystemUserAccessTokenParams(BaseModel):
     """Parameters for Business.create_system_user_access_token()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset: list[Any] | None = Field(None)
     fetch_only: bool | None = Field(None)
     scope: list[Any] | None = Field(None)
@@ -46443,7 +46443,7 @@ class BusinessCreateSystemUserAccessTokenParams(BaseModel):
 class BusinessCreateSystemUserParams(BaseModel):
     """Parameters for Business.create_system_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str = Field(...)
     role: businesssystem_users_role_enum_param | None = Field(None)
     system_user_id: int | None = Field(None)
@@ -46452,7 +46452,7 @@ class BusinessCreateSystemUserParams(BaseModel):
 class BusinessCreateVideoParams(BaseModel):
     """Parameters for Business.create_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_placements_validation_only: bool | None = Field(None)
     application_id: str | None = Field(None)
     asked_fun_fact_prompt_id: int | None = Field(None)
@@ -46531,28 +46531,28 @@ class BusinessCreateVideoParams(BaseModel):
 class AdAsyncRequestSetGetRequestsParams(BaseModel):
     """Parameters for AdAsyncRequestSet.get_requests()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     statuses: list[Any] | None = Field(None)
 
 
 class BusinessUserGetAssignedBusinessAssetGroupsParams(BaseModel):
     """Parameters for BusinessUser.get_assigned_business_asset_groups()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     contained_asset_id: str | None = Field(None)
 
 
 class BusinessUserGetAssignedPagesParams(BaseModel):
     """Parameters for BusinessUser.get_assigned_pages()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     pages: list[Any] | None = Field(None)
 
 
 class ProductSetGetAutomotiveModelsParams(BaseModel):
     """Parameters for ProductSet.get_automotive_models()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46560,7 +46560,7 @@ class ProductSetGetAutomotiveModelsParams(BaseModel):
 class ProductSetGetDestinationsParams(BaseModel):
     """Parameters for ProductSet.get_destinations()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46568,7 +46568,7 @@ class ProductSetGetDestinationsParams(BaseModel):
 class ProductSetGetFlightsParams(BaseModel):
     """Parameters for ProductSet.get_flights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46576,7 +46576,7 @@ class ProductSetGetFlightsParams(BaseModel):
 class ProductSetGetHomeListingsParams(BaseModel):
     """Parameters for ProductSet.get_home_listings()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46584,7 +46584,7 @@ class ProductSetGetHomeListingsParams(BaseModel):
 class ProductSetGetHotelsParams(BaseModel):
     """Parameters for ProductSet.get_hotels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46592,7 +46592,7 @@ class ProductSetGetHotelsParams(BaseModel):
 class ProductSetGetMediaTitlesParams(BaseModel):
     """Parameters for ProductSet.get_media_titles()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46600,7 +46600,7 @@ class ProductSetGetMediaTitlesParams(BaseModel):
 class ProductSetGetProductSParams(BaseModel):
     """Parameters for ProductSet.get_product_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     error_priority: productsetproducts_error_priority_enum_param | None = Field(None)
     error_type: productsetproducts_error_type_enum_param | None = Field(None)
@@ -46610,7 +46610,7 @@ class ProductSetGetProductSParams(BaseModel):
 class ProductSetGetVehicleOffersParams(BaseModel):
     """Parameters for ProductSet.get_vehicle_offers()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46618,7 +46618,7 @@ class ProductSetGetVehicleOffersParams(BaseModel):
 class ProductSetGetVehiclesParams(BaseModel):
     """Parameters for ProductSet.get_vehicles()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46626,7 +46626,7 @@ class ProductSetGetVehiclesParams(BaseModel):
 class ProductFeedGetAutomotiveModelsParams(BaseModel):
     """Parameters for ProductFeed.get_automotive_models()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46634,7 +46634,7 @@ class ProductFeedGetAutomotiveModelsParams(BaseModel):
 class ProductFeedGetDestinationsParams(BaseModel):
     """Parameters for ProductFeed.get_destinations()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46642,7 +46642,7 @@ class ProductFeedGetDestinationsParams(BaseModel):
 class ProductFeedGetFlightsParams(BaseModel):
     """Parameters for ProductFeed.get_flights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46650,7 +46650,7 @@ class ProductFeedGetFlightsParams(BaseModel):
 class ProductFeedGetHomeListingsParams(BaseModel):
     """Parameters for ProductFeed.get_home_listings()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46658,7 +46658,7 @@ class ProductFeedGetHomeListingsParams(BaseModel):
 class ProductFeedGetHotelsParams(BaseModel):
     """Parameters for ProductFeed.get_hotels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46666,7 +46666,7 @@ class ProductFeedGetHotelsParams(BaseModel):
 class ProductFeedGetMediaTitlesParams(BaseModel):
     """Parameters for ProductFeed.get_media_titles()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46674,7 +46674,7 @@ class ProductFeedGetMediaTitlesParams(BaseModel):
 class ProductFeedGetProductSParams(BaseModel):
     """Parameters for ProductFeed.get_product_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     error_priority: productfeedproducts_error_priority_enum_param | None = Field(None)
     error_type: productfeedproducts_error_type_enum_param | None = Field(None)
@@ -46684,7 +46684,7 @@ class ProductFeedGetProductSParams(BaseModel):
 class ProductFeedCreateRuleParams(BaseModel):
     """Parameters for ProductFeed.create_rule()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attribute: str = Field(...)
     params: dict[str, Any] | None = Field(None)
     rule_type: productfeedrules_rule_type_enum_param = Field(...)
@@ -46693,21 +46693,21 @@ class ProductFeedCreateRuleParams(BaseModel):
 class ProductFeedCreateSupplementaryFeedAssocParams(BaseModel):
     """Parameters for ProductFeed.create_supplementary_feed_assoc()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     assoc_data: list[Any] = Field(...)
 
 
 class ProductFeedCreateUploadScheduleParams(BaseModel):
     """Parameters for ProductFeed.create_upload_schedule()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     upload_schedule: str | None = Field(None)
 
 
 class ProductFeedCreateUploadParams(BaseModel):
     """Parameters for ProductFeed.create_upload()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     fbe_external_business_id: str | None = Field(None)
     file: Any | None = Field(None)
     password: str | None = Field(None)
@@ -46719,7 +46719,7 @@ class ProductFeedCreateUploadParams(BaseModel):
 class ProductFeedGetVehicleOffersParams(BaseModel):
     """Parameters for ProductFeed.get_vehicle_offers()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46727,7 +46727,7 @@ class ProductFeedGetVehicleOffersParams(BaseModel):
 class ProductFeedGetVehiclesParams(BaseModel):
     """Parameters for ProductFeed.get_vehicles()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bulk_pagination: bool | None = Field(None)
     filter: dict[str, Any] | None = Field(None)
 
@@ -46735,7 +46735,7 @@ class ProductFeedGetVehiclesParams(BaseModel):
 class ExtendedCreditCreateExtendedCreditInvoiceGroupParams(BaseModel):
     """Parameters for ExtendedCredit.create_extended_credit_invoice_group()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     emails: list[str] = Field(...)
     name: str = Field(...)
 
@@ -46743,14 +46743,14 @@ class ExtendedCreditCreateExtendedCreditInvoiceGroupParams(BaseModel):
 class ExtendedCreditGetOwningCreditAllocationConfigsParams(BaseModel):
     """Parameters for ExtendedCredit.get_owning_credit_allocation_configs()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     receiving_business_id: str | None = Field(None)
 
 
 class ExtendedCreditCreateOwningCreditAllocationConfigParams(BaseModel):
     """Parameters for ExtendedCredit.create_owning_credit_allocation_config()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     amount: dict[str, Any] | None = Field(None)
     liability_type: (
         extendedcreditowning_credit_allocation_configs_liability_type_enum_param | None
@@ -46767,7 +46767,7 @@ class ExtendedCreditCreateOwningCreditAllocationConfigParams(BaseModel):
 class ExtendedCreditCreateWhatsappCreditAttachParams(BaseModel):
     """Parameters for ExtendedCredit.create_whatsapp_credit_attach()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     waba_currency: str = Field(...)
     waba_id: str = Field(...)
 
@@ -46775,14 +46775,14 @@ class ExtendedCreditCreateWhatsappCreditAttachParams(BaseModel):
 class ExtendedCreditCreateWhatsappCreditSharingParams(BaseModel):
     """Parameters for ExtendedCredit.create_whatsapp_credit_sharing()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     receiving_business_id: str = Field(...)
 
 
 class ExtendedCreditCreateWhatsappCreditSharingAndAttachParams(BaseModel):
     """Parameters for ExtendedCredit.create_whatsapp_credit_sharing_and_attach()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     waba_currency: str = Field(...)
     waba_id: str = Field(...)
 
@@ -46790,14 +46790,14 @@ class ExtendedCreditCreateWhatsappCreditSharingAndAttachParams(BaseModel):
 class UnifiedThreadGetMessagesParams(BaseModel):
     """Parameters for UnifiedThread.get_messages()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     source: unifiedthreadmessages_source_enum_param | None = Field(None)
 
 
 class CommentGetCommentsParams(BaseModel):
     """Parameters for Comment.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: commentcomments_filter_enum_param | None = Field(None)
     live_filter: commentcomments_live_filter_enum_param | None = Field(None)
     order: commentcomments_order_enum_param | None = Field(None)
@@ -46807,7 +46807,7 @@ class CommentGetCommentsParams(BaseModel):
 class CommentCreateCommentParams(BaseModel):
     """Parameters for Comment.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attachment_id: str | None = Field(None)
     attachment_share_url: str | None = Field(None)
     attachment_url: str | None = Field(None)
@@ -46826,7 +46826,7 @@ class CommentCreateCommentParams(BaseModel):
 class CommentDeleteLikesParams(BaseModel):
     """Parameters for Comment.delete_likes()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     tracking: str | None = Field(None)
@@ -46835,7 +46835,7 @@ class CommentDeleteLikesParams(BaseModel):
 class CommentCreateLikeParams(BaseModel):
     """Parameters for Comment.create_like()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     tracking: str | None = Field(None)
@@ -46844,14 +46844,14 @@ class CommentCreateLikeParams(BaseModel):
 class CommentGetReactionsParams(BaseModel):
     """Parameters for Comment.get_reactions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: commentreactions_type_enum_param | None = Field(None)
 
 
 class AutomotiveModelGetOverrideDetailsParams(BaseModel):
     """Parameters for AutomotiveModel.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: automotivemodeloverride_details_type_enum_param | None = Field(None)
 
@@ -46859,21 +46859,21 @@ class AutomotiveModelGetOverrideDetailsParams(BaseModel):
 class ExtendedCreditInvoiceGroupDeleteAdAccountsParams(BaseModel):
     """Parameters for ExtendedCreditInvoiceGroup.delete_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account_id: str = Field(...)
 
 
 class ExtendedCreditInvoiceGroupCreateAdAccountParams(BaseModel):
     """Parameters for ExtendedCreditInvoiceGroup.create_ad_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account_id: str = Field(...)
 
 
 class RTBDynamicPostGetCommentsParams(BaseModel):
     """Parameters for RTBDynamicPost.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: rtbdynamicpostcomments_filter_enum_param | None = Field(None)
     live_filter: rtbdynamicpostcomments_live_filter_enum_param | None = Field(None)
     order: rtbdynamicpostcomments_order_enum_param | None = Field(None)
@@ -46883,14 +46883,14 @@ class RTBDynamicPostGetCommentsParams(BaseModel):
 class LiveVideoGetBlockedUsersParams(BaseModel):
     """Parameters for LiveVideo.get_blocked_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     uid: str | None = Field(None)
 
 
 class LiveVideoGetCommentsParams(BaseModel):
     """Parameters for LiveVideo.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: livevideocomments_filter_enum_param | None = Field(None)
     live_filter: livevideocomments_live_filter_enum_param | None = Field(None)
     order: livevideocomments_order_enum_param | None = Field(None)
@@ -46900,7 +46900,7 @@ class LiveVideoGetCommentsParams(BaseModel):
 class LiveVideoCreatePollParams(BaseModel):
     """Parameters for LiveVideo.create_poll()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     close_after_voting: bool | None = Field(None)
     correct_option: int | None = Field(None)
     default_open: bool | None = Field(None)
@@ -46913,21 +46913,21 @@ class LiveVideoCreatePollParams(BaseModel):
 class LiveVideoGetReactionsParams(BaseModel):
     """Parameters for LiveVideo.get_reactions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: livevideoreactions_type_enum_param | None = Field(None)
 
 
 class StoriesGetInsightsParams(BaseModel):
     """Parameters for Stories.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     metric: list[Any] | None = Field(None)
 
 
 class AdStudyCreateCheckpointParams(BaseModel):
     """Parameters for AdStudy.create_checkpoint()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     checkpoint_data: str = Field(...)
     checkpoint_name: str = Field(...)
     component: str = Field(...)
@@ -46938,7 +46938,7 @@ class AdStudyCreateCheckpointParams(BaseModel):
 class AdStudyCreateInstanceParams(BaseModel):
     """Parameters for AdStudy.create_instance()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdown_key: dict[str, Any] = Field(...)
     run_id: str | None = Field(None)
 
@@ -46946,7 +46946,7 @@ class AdStudyCreateInstanceParams(BaseModel):
 class TransactableItemGetOverrideDetailsParams(BaseModel):
     """Parameters for TransactableItem.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: transactableitemoverride_details_type_enum_param | None = Field(None)
 
@@ -46954,14 +46954,14 @@ class TransactableItemGetOverrideDetailsParams(BaseModel):
 class OfflineConversionDataSetGetAdAccountsParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class OfflineConversionDataSetGetAudiencesParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_audiences()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_source: offlineconversiondatasetaudiences_action_source_enum_param | None = Field(None)
     ad_account: str | None = Field(None)
 
@@ -46969,14 +46969,14 @@ class OfflineConversionDataSetGetAudiencesParams(BaseModel):
 class OfflineConversionDataSetGetCustomConversionsParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_custom_conversions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_account: str | None = Field(None)
 
 
 class OfflineConversionDataSetGetSharedAccountsParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_shared_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_source: offlineconversiondatasetshared_accounts_action_source_enum_param = Field(...)
     business: str = Field(...)
 
@@ -46984,14 +46984,14 @@ class OfflineConversionDataSetGetSharedAccountsParams(BaseModel):
 class OfflineConversionDataSetGetSharedAgenciesParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_shared_agencies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_source: offlineconversiondatasetshared_agencies_action_source_enum_param = Field(...)
 
 
 class OfflineConversionDataSetGetStatsParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_stats()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggr_time: offlineconversiondatasetstats_aggr_time_enum_param | None = Field(None)
     end: int | None = Field(None)
     granularity: offlineconversiondatasetstats_granularity_enum_param | None = Field(None)
@@ -47003,7 +47003,7 @@ class OfflineConversionDataSetGetStatsParams(BaseModel):
 class OfflineConversionDataSetGetUploadsParams(BaseModel):
     """Parameters for OfflineConversionDataSet.get_uploads()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time: datetime | None = Field(None)
     order: offlineconversiondatasetuploads_order_enum_param | None = Field(None)
     sort_by: offlineconversiondatasetuploads_sort_by_enum_param | None = Field(None)
@@ -47014,7 +47014,7 @@ class OfflineConversionDataSetGetUploadsParams(BaseModel):
 class CommerceOrderCreateAcknowledgeOrderParams(BaseModel):
     """Parameters for CommerceOrder.create_acknowledge_order()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     idempotency_key: str = Field(...)
     merchant_order_reference: str | None = Field(None)
 
@@ -47022,7 +47022,7 @@ class CommerceOrderCreateAcknowledgeOrderParams(BaseModel):
 class CommerceOrderCreateCancellationParams(BaseModel):
     """Parameters for CommerceOrder.create_cancellation()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     cancel_reason: dict[str, Any] | None = Field(None)
     idempotency_key: str = Field(...)
     items: list[Any] | None = Field(None)
@@ -47032,7 +47032,7 @@ class CommerceOrderCreateCancellationParams(BaseModel):
 class CommerceOrderCreateItemUpdateParams(BaseModel):
     """Parameters for CommerceOrder.create_item_update()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     items: list[Any] = Field(...)
     merchant_order_reference: str = Field(...)
 
@@ -47040,7 +47040,7 @@ class CommerceOrderCreateItemUpdateParams(BaseModel):
 class CommerceOrderCreateRefundParams(BaseModel):
     """Parameters for CommerceOrder.create_refund()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adjustment_amount: dict[str, Any] | None = Field(None)
     deductions: list[Any] | None = Field(None)
     idempotency_key: str = Field(...)
@@ -47054,7 +47054,7 @@ class CommerceOrderCreateRefundParams(BaseModel):
 class CommerceOrderGetReturnsParams(BaseModel):
     """Parameters for CommerceOrder.get_returns()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     merchant_return_id: str | None = Field(None)
     statuses: list[Any] | None = Field(None)
 
@@ -47062,7 +47062,7 @@ class CommerceOrderGetReturnsParams(BaseModel):
 class CommerceOrderCreateReturnParams(BaseModel):
     """Parameters for CommerceOrder.create_return()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     items: list[Any] = Field(...)
     merchant_return_id: str | None = Field(None)
     return_message: str | None = Field(None)
@@ -47072,7 +47072,7 @@ class CommerceOrderCreateReturnParams(BaseModel):
 class CommerceOrderCreateShipmentParams(BaseModel):
     """Parameters for CommerceOrder.create_shipment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     external_redemption_link: str | None = Field(None)
     external_shipment_id: str | None = Field(None)
     fulfillment: dict[str, Any] | None = Field(None)
@@ -47088,7 +47088,7 @@ class CommerceOrderCreateShipmentParams(BaseModel):
 class CommerceOrderCreateUpdateShipmentParams(BaseModel):
     """Parameters for CommerceOrder.create_update_shipment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     external_shipment_id: str | None = Field(None)
     fulfillment_id: str | None = Field(None)
     idempotency_key: str = Field(...)
@@ -47099,7 +47099,7 @@ class CommerceOrderCreateUpdateShipmentParams(BaseModel):
 class EventCreateLiveVideoParams(BaseModel):
     """Parameters for Event.create_live_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     content_tags: list[str] | None = Field(None)
     description: str | None = Field(None)
     enable_backup_ingest: bool | None = Field(None)
@@ -47125,21 +47125,21 @@ class EventCreateLiveVideoParams(BaseModel):
 class ProductFeedUploadGetErrorsParams(BaseModel):
     """Parameters for ProductFeedUpload.get_errors()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     error_priority: productfeeduploaderrors_error_priority_enum_param | None = Field(None)
 
 
 class IGUserGetAuthorizedAdaccountsParams(BaseModel):
     """Parameters for IGUser.get_authorized_adaccounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class IGUserCreateAuthorizedAdaccountParams(BaseModel):
     """Parameters for IGUser.create_authorized_adaccount()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     account_id: str = Field(...)
     business: str = Field(...)
 
@@ -47147,7 +47147,7 @@ class IGUserCreateAuthorizedAdaccountParams(BaseModel):
 class IGUserCreateBrandedContentAdPermissionParams(BaseModel):
     """Parameters for IGUser.create_branded_content_ad_permission()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     creator_instagram_account: str | None = Field(None)
     creator_instagram_username: str | None = Field(None)
     revoke: bool | None = Field(None)
@@ -47156,7 +47156,7 @@ class IGUserCreateBrandedContentAdPermissionParams(BaseModel):
 class IGUserGetBrandedContentAdvertisableMediasParams(BaseModel):
     """Parameters for IGUser.get_branded_content_advertisable_medias()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_code: str | None = Field(None)
     creator_username: str | None = Field(None)
     only_fetch_allowlisted: bool | None = Field(None)
@@ -47167,28 +47167,28 @@ class IGUserGetBrandedContentAdvertisableMediasParams(BaseModel):
 class IGUserDeleteBrandedContentTagApprovalParams(BaseModel):
     """Parameters for IGUser.delete_branded_content_tag_approval()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user_ids: list[Any] = Field(...)
 
 
 class IGUserGetBrandedContentTagApprovalParams(BaseModel):
     """Parameters for IGUser.get_branded_content_tag_approval()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user_ids: list[Any] = Field(...)
 
 
 class IGUserCreateBrandedContentTagApprovalParams(BaseModel):
     """Parameters for IGUser.create_branded_content_tag_approval()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user_ids: list[Any] = Field(...)
 
 
 class IGUserGetCatalogProductSearchParams(BaseModel):
     """Parameters for IGUser.get_catalog_product_search()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     catalog_id: str = Field(...)
     q: str | None = Field(None)
 
@@ -47196,21 +47196,21 @@ class IGUserGetCatalogProductSearchParams(BaseModel):
 class IGUserGetContentPublishingLimitParams(BaseModel):
     """Parameters for IGUser.get_content_publishing_limit()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
 
 
 class IGUserCreateDatasetParams(BaseModel):
     """Parameters for IGUser.create_dataset()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     dataset_name: str | None = Field(None)
 
 
 class IGUserGetInsightsParams(BaseModel):
     """Parameters for IGUser.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdown: list[Any] | None = Field(None)
     metric: list[Any] = Field(...)
     metric_type: shadowiguserinsights_metric_type_enum_param | None = Field(None)
@@ -47223,7 +47223,7 @@ class IGUserGetInsightsParams(BaseModel):
 class IGUserGetLiveMediaParams(BaseModel):
     """Parameters for IGUser.get_live_media()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
     until: datetime | None = Field(None)
 
@@ -47231,7 +47231,7 @@ class IGUserGetLiveMediaParams(BaseModel):
 class IGUserGetMediaParams(BaseModel):
     """Parameters for IGUser.get_media()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
     until: datetime | None = Field(None)
 
@@ -47239,7 +47239,7 @@ class IGUserGetMediaParams(BaseModel):
 class IGUserCreateMediaParams(BaseModel):
     """Parameters for IGUser.create_media()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     alt_text: str | None = Field(None)
     audio_name: str | None = Field(None)
     caption: str | None = Field(None)
@@ -47261,14 +47261,14 @@ class IGUserCreateMediaParams(BaseModel):
 class IGUserCreateMediaPublishParams(BaseModel):
     """Parameters for IGUser.create_media_publish()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     creation_id: int = Field(...)
 
 
 class IGUserCreateMentionParams(BaseModel):
     """Parameters for IGUser.create_mention()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     comment_id: str | None = Field(None)
     media_id: str = Field(...)
     message: str = Field(...)
@@ -47277,14 +47277,14 @@ class IGUserCreateMentionParams(BaseModel):
 class IGUserGetProductAppealParams(BaseModel):
     """Parameters for IGUser.get_product_appeal()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     product_id: str = Field(...)
 
 
 class IGUserCreateProductAppealParams(BaseModel):
     """Parameters for IGUser.create_product_appeal()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     appeal_reason: str = Field(...)
     product_id: str = Field(...)
 
@@ -47292,7 +47292,7 @@ class IGUserCreateProductAppealParams(BaseModel):
 class IGUserCreateUpcomingEventParams(BaseModel):
     """Parameters for IGUser.create_upcoming_event()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time: datetime | None = Field(None)
     notification_subtypes: list[Any] | None = Field(None)
     start_time: datetime = Field(...)
@@ -47302,7 +47302,7 @@ class IGUserCreateUpcomingEventParams(BaseModel):
 class IGUserGetWelcomeMessageFlowsParams(BaseModel):
     """Parameters for IGUser.get_welcome_message_flows()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
     flow_id: str | None = Field(None)
 
@@ -47310,7 +47310,7 @@ class IGUserGetWelcomeMessageFlowsParams(BaseModel):
 class HomeListingGetOverrideDetailsParams(BaseModel):
     """Parameters for HomeListing.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: homelistingoverride_details_type_enum_param | None = Field(None)
 
@@ -47318,7 +47318,7 @@ class HomeListingGetOverrideDetailsParams(BaseModel):
 class CommerceMerchantSettingsCreateAcknowledgeOrderParams(BaseModel):
     """Parameters for CommerceMerchantSettings.create_acknowledge_order()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     idempotency_key: str = Field(...)
     orders: list[Any] = Field(...)
 
@@ -47326,7 +47326,7 @@ class CommerceMerchantSettingsCreateAcknowledgeOrderParams(BaseModel):
 class CommerceMerchantSettingsGetCommerceOrdersParams(BaseModel):
     """Parameters for CommerceMerchantSettings.get_commerce_orders()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filters: list[Any] | None = Field(None)
     state: list[Any] | None = Field(None)
     updated_after: datetime | None = Field(None)
@@ -47336,7 +47336,7 @@ class CommerceMerchantSettingsGetCommerceOrdersParams(BaseModel):
 class CommerceMerchantSettingsGetCommercePayoutsParams(BaseModel):
     """Parameters for CommerceMerchantSettings.get_commerce_payouts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time: datetime | None = Field(None)
     start_time: datetime | None = Field(None)
 
@@ -47344,7 +47344,7 @@ class CommerceMerchantSettingsGetCommercePayoutsParams(BaseModel):
 class CommerceMerchantSettingsGetCommerceTransactionsParams(BaseModel):
     """Parameters for CommerceMerchantSettings.get_commerce_transactions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time: datetime | None = Field(None)
     payout_reference_id: str | None = Field(None)
     start_time: datetime | None = Field(None)
@@ -47353,7 +47353,7 @@ class CommerceMerchantSettingsGetCommerceTransactionsParams(BaseModel):
 class CommerceMerchantSettingsGetReturnsParams(BaseModel):
     """Parameters for CommerceMerchantSettings.get_returns()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time_created: datetime | None = Field(None)
     merchant_return_id: str | None = Field(None)
     start_time_created: datetime | None = Field(None)
@@ -47363,14 +47363,14 @@ class CommerceMerchantSettingsGetReturnsParams(BaseModel):
 class CommerceMerchantSettingsGetShippingProfilesParams(BaseModel):
     """Parameters for CommerceMerchantSettings.get_shipping_profiles()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     reference_id: str | None = Field(None)
 
 
 class CommerceMerchantSettingsCreateShippingProfileParams(BaseModel):
     """Parameters for CommerceMerchantSettings.create_shipping_profile()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     handling_time: dict[str, Any] | None = Field(None)
     is_default: bool | None = Field(None)
     is_default_shipping_profile: bool | None = Field(None)
@@ -47382,7 +47382,7 @@ class CommerceMerchantSettingsCreateShippingProfileParams(BaseModel):
 class MediaTitleGetOverrideDetailsParams(BaseModel):
     """Parameters for MediaTitle.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: mediatitleoverride_details_type_enum_param | None = Field(None)
 
@@ -47390,7 +47390,7 @@ class MediaTitleGetOverrideDetailsParams(BaseModel):
 class DestinationGetOverrideDetailsParams(BaseModel):
     """Parameters for Destination.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: destinationoverride_details_type_enum_param | None = Field(None)
 
@@ -47398,7 +47398,7 @@ class DestinationGetOverrideDetailsParams(BaseModel):
 class AdSetGetActivitiesParams(BaseModel):
     """Parameters for AdSet.get_activities()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     after: str | None = Field(None)
     business_id: str | None = Field(None)
     category: adcampaignactivities_category_enum_param | None = Field(None)
@@ -47411,7 +47411,7 @@ class AdSetGetActivitiesParams(BaseModel):
 class AdSetDeleteAdLabelsParams(BaseModel):
     """Parameters for AdSet.delete_ad_labels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adlabels: list[Any] = Field(...)
     execution_options: list[Any] | None = Field(None)
 
@@ -47419,7 +47419,7 @@ class AdSetDeleteAdLabelsParams(BaseModel):
 class AdSetCreateAdLabelParams(BaseModel):
     """Parameters for AdSet.create_ad_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adlabels: list[Any] = Field(...)
     execution_options: list[Any] | None = Field(None)
 
@@ -47427,14 +47427,14 @@ class AdSetCreateAdLabelParams(BaseModel):
 class AdSetGetAdrulesGovernedParams(BaseModel):
     """Parameters for AdSet.get_adrules_governed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     pass_evaluation: bool | None = Field(None)
 
 
 class AdSetGetAdSParams(BaseModel):
     """Parameters for AdSet.get_ad_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adcampaignads_date_preset_enum_param | None = Field(None)
     effective_status: list[str] | None = Field(None)
     time_range: dict[str, Any] | None = Field(None)
@@ -47444,14 +47444,14 @@ class AdSetGetAdSParams(BaseModel):
 class AdSetGetAsyncAdRequestsParams(BaseModel):
     """Parameters for AdSet.get_async_ad_requests()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     statuses: list[Any] | None = Field(None)
 
 
 class AdSetCreateBudgetScheduleParams(BaseModel):
     """Parameters for AdSet.create_budget_schedule()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     budget_value: int = Field(...)
     budget_value_type: adcampaignbudget_schedules_budget_value_type_enum_param = Field(...)
     time_end: int = Field(...)
@@ -47461,7 +47461,7 @@ class AdSetCreateBudgetScheduleParams(BaseModel):
 class AdSetGetCopiesParams(BaseModel):
     """Parameters for AdSet.get_copies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: adcampaigncopies_date_preset_enum_param | None = Field(None)
     effective_status: list[Any] | None = Field(None)
     is_completed: bool | None = Field(None)
@@ -47471,7 +47471,7 @@ class AdSetGetCopiesParams(BaseModel):
 class AdSetCreateCopieParams(BaseModel):
     """Parameters for AdSet.create_copie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     campaign_id: str | None = Field(None)
     create_dco_adset: bool | None = Field(None)
     deep_copy: bool | None = Field(None)
@@ -47484,7 +47484,7 @@ class AdSetCreateCopieParams(BaseModel):
 class AdSetGetDeliveryEstimateParams(BaseModel):
     """Parameters for AdSet.get_delivery_estimate()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     optimization_goal: adcampaigndelivery_estimate_optimization_goal_enum_param | None = Field(None)
     promoted_object: dict[str, Any] | None = Field(None)
     targeting_spec: TargetingFields | None = Field(None)
@@ -47493,7 +47493,7 @@ class AdSetGetDeliveryEstimateParams(BaseModel):
 class AdSetGetInsightsParams(BaseModel):
     """Parameters for AdSet.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adcampaigninsights_action_report_time_enum_param | None = Field(None)
@@ -47521,7 +47521,7 @@ class AdSetGetInsightsParams(BaseModel):
 class AdSetCreateInsightParams(BaseModel):
     """Parameters for AdSet.create_insight()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action_attribution_windows: list[Any] | None = Field(None)
     action_breakdowns: list[Any] | None = Field(None)
     action_report_time: adcampaigninsights_action_report_time_enum_param | None = Field(None)
@@ -47549,7 +47549,7 @@ class AdSetCreateInsightParams(BaseModel):
 class AdSetGetMessageDeliveryEstimateParams(BaseModel):
     """Parameters for AdSet.get_message_delivery_estimate()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bid_amount: int | None = Field(None)
     daily_budget: int | None = Field(None)
     is_direct_send_campaign: bool | None = Field(None)
@@ -47566,35 +47566,35 @@ class AdSetGetMessageDeliveryEstimateParams(BaseModel):
 class ShadowIGHashtagGetRecentMediaParams(BaseModel):
     """Parameters for ShadowIGHashtag.get_recent_media()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user_id: str = Field(...)
 
 
 class ShadowIGHashtagGetTopMediaParams(BaseModel):
     """Parameters for ShadowIGHashtag.get_top_media()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user_id: str = Field(...)
 
 
 class PublisherBlockListCreateAppendPublisherUrlParams(BaseModel):
     """Parameters for PublisherBlockList.create_append_publisher_url()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     publisher_urls: list[str] = Field(...)
 
 
 class PublisherBlockListGetPagedWebPublishersParams(BaseModel):
     """Parameters for PublisherBlockList.get_paged_web_publishers()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     draft_id: str | None = Field(None)
 
 
 class ProductGroupCreateProductParams(BaseModel):
     """Parameters for ProductGroup.create_product_()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     additional_image_urls: list[str] | None = Field(None)
     additional_variant_attributes: dict[str, Any] | None = Field(None)
     age_group: productgroupproducts_age_group_enum_param | None = Field(None)
@@ -47675,7 +47675,7 @@ class ProductGroupCreateProductParams(BaseModel):
 class UserCreateAccessTokenParams(BaseModel):
     """Parameters for User.create_access_token()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business_app: str = Field(...)
     page_id: str | None = Field(None)
     scope: list[str] | None = Field(None)
@@ -47685,7 +47685,7 @@ class UserCreateAccessTokenParams(BaseModel):
 class UserGetAccountsParams(BaseModel):
     """Parameters for User.get_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_id: str | None = Field(None)
     is_place: bool | None = Field(None)
     is_promotable: bool | None = Field(None)
@@ -47694,7 +47694,7 @@ class UserGetAccountsParams(BaseModel):
 class UserCreateAccountParams(BaseModel):
     """Parameters for User.create_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     about: str | None = Field(None)
     address: str | None = Field(None)
     category: int | None = Field(None)
@@ -47716,7 +47716,7 @@ class UserCreateAccountParams(BaseModel):
 class UserCreateAdStudieParams(BaseModel):
     """Parameters for User.create_ad_studie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     cells: list[Any] | None = Field(None)
     client_business: str | None = Field(None)
     confidence_level: float | None = Field(None)
@@ -47734,35 +47734,35 @@ class UserCreateAdStudieParams(BaseModel):
 class UserCreateApplicationParams(BaseModel):
     """Parameters for User.create_application()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business_app: int = Field(...)
 
 
 class UserGetAssignedBusinessAssetGroupsParams(BaseModel):
     """Parameters for User.get_assigned_business_asset_groups()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     contained_asset_id: str | None = Field(None)
 
 
 class UserGetAssignedPagesParams(BaseModel):
     """Parameters for User.get_assigned_pages()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     pages: list[Any] | None = Field(None)
 
 
 class UserDeleteBusinessesParams(BaseModel):
     """Parameters for User.delete_businesses()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str | None = Field(None)
 
 
 class UserCreateBusinesseParams(BaseModel):
     """Parameters for User.create_businesse()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     child_business_external_id: str | None = Field(None)
     email: str | None = Field(None)
     name: str = Field(...)
@@ -47778,7 +47778,7 @@ class UserCreateBusinesseParams(BaseModel):
 class UserGetConversationsParams(BaseModel):
     """Parameters for User.get_conversations()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     folder: str | None = Field(None)
     platform: userconversations_platform_enum_param | None = Field(None)
     tags: list[str] | None = Field(None)
@@ -47788,7 +47788,7 @@ class UserGetConversationsParams(BaseModel):
 class UserGetEventsParams(BaseModel):
     """Parameters for User.get_events()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_canceled: bool | None = Field(None)
     type: userevents_type_enum_param | None = Field(None)
 
@@ -47796,7 +47796,7 @@ class UserGetEventsParams(BaseModel):
 class UserGetFeedParams(BaseModel):
     """Parameters for User.get_feed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_hidden: bool | None = Field(None)
     q: str | None = Field(None)
     show_expired: bool | None = Field(None)
@@ -47808,7 +47808,7 @@ class UserGetFeedParams(BaseModel):
 class UserCreateFeedParams(BaseModel):
     """Parameters for User.create_feed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     actions: dict[str, Any] | None = Field(None)
     album_id: str | None = Field(None)
     android_key_hash: str | None = Field(None)
@@ -47919,14 +47919,14 @@ class UserCreateFeedParams(BaseModel):
 class UserGetFriendsParams(BaseModel):
     """Parameters for User.get_friends()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     uid: int | None = Field(None)
 
 
 class UserCreateFundraiserParams(BaseModel):
     """Parameters for User.create_fundraiser()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     charity_id: str | None = Field(None)
     cover_photo: Any | None = Field(None)
     currency: str = Field(...)
@@ -47946,7 +47946,7 @@ class UserCreateFundraiserParams(BaseModel):
 class UserGetGroupsParams(BaseModel):
     """Parameters for User.get_groups()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     admin_only: bool | None = Field(None)
     parent: str | None = Field(None)
 
@@ -47954,35 +47954,35 @@ class UserGetGroupsParams(BaseModel):
 class UserGetIdsForAppsParams(BaseModel):
     """Parameters for User.get_ids_for_apps()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app: int | None = Field(None)
 
 
 class UserGetIdsForBusinessParams(BaseModel):
     """Parameters for User.get_ids_for_business()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app: int | None = Field(None)
 
 
 class UserGetIdsForPagesParams(BaseModel):
     """Parameters for User.get_ids_for_pages()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     page: int | None = Field(None)
 
 
 class UserGetLikesParams(BaseModel):
     """Parameters for User.get_likes()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     target_id: str | None = Field(None)
 
 
 class UserGetLiveVideosParams(BaseModel):
     """Parameters for User.get_live_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     broadcast_status: list[Any] | None = Field(None)
     source: userlive_videos_source_enum_param | None = Field(None)
 
@@ -47990,7 +47990,7 @@ class UserGetLiveVideosParams(BaseModel):
 class UserCreateLiveVideoParams(BaseModel):
     """Parameters for User.create_live_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     content_tags: list[str] | None = Field(None)
     description: str | None = Field(None)
     enable_backup_ingest: bool | None = Field(None)
@@ -48016,21 +48016,21 @@ class UserCreateLiveVideoParams(BaseModel):
 class UserCreateMessengerKidsAccountsUnreadBadgeParams(BaseModel):
     """Parameters for User.create_messenger_kids_accounts_unread_badge()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     proxied_app_id: int = Field(...)
 
 
 class UserGetMusicParams(BaseModel):
     """Parameters for User.get_music()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     target_id: str | None = Field(None)
 
 
 class UserCreateNotificationParams(BaseModel):
     """Parameters for User.create_notification()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     bot_message_payload_elements: str | None = Field(None)
     filtering: list[Any] | None = Field(None)
     href: dict[str, Any] | None = Field(None)
@@ -48049,14 +48049,14 @@ class UserCreateNotificationParams(BaseModel):
 class UserDeletePermissionsParams(BaseModel):
     """Parameters for User.delete_permissions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     permission: str | None = Field(None)
 
 
 class UserGetPermissionsParams(BaseModel):
     """Parameters for User.get_permissions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     permission: str | None = Field(None)
     status: userpermissions_status_enum_param | None = Field(None)
 
@@ -48064,14 +48064,14 @@ class UserGetPermissionsParams(BaseModel):
 class UserGetPhotosParams(BaseModel):
     """Parameters for User.get_photos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: userphotos_type_enum_param | None = Field(None)
 
 
 class UserCreatePhotoParams(BaseModel):
     """Parameters for User.create_photo()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aid: str | None = Field(None)
     allow_spherical_photo: bool | None = Field(None)
     alt_text_custom: str | None = Field(None)
@@ -48131,7 +48131,7 @@ class UserCreatePhotoParams(BaseModel):
 class UserGetPictureParams(BaseModel):
     """Parameters for User.get_picture()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     height: int | None = Field(None)
     redirect: bool | None = Field(None)
     type: userpicture_type_enum_param | None = Field(None)
@@ -48141,7 +48141,7 @@ class UserGetPictureParams(BaseModel):
 class UserGetPostsParams(BaseModel):
     """Parameters for User.get_posts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_hidden: bool | None = Field(None)
     q: str | None = Field(None)
     show_expired: bool | None = Field(None)
@@ -48153,28 +48153,28 @@ class UserGetPostsParams(BaseModel):
 class UserGetRichMediaDocumentsParams(BaseModel):
     """Parameters for User.get_rich_media_documents()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     query: str | None = Field(None)
 
 
 class UserCreateStagingResourceParams(BaseModel):
     """Parameters for User.create_staging_resource()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     file: Any | None = Field(None)
 
 
 class UserGetVideosParams(BaseModel):
     """Parameters for User.get_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: uservideos_type_enum_param | None = Field(None)
 
 
 class UserCreateVideoParams(BaseModel):
     """Parameters for User.create_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     application_id: str | None = Field(None)
     asked_fun_fact_prompt_id: int | None = Field(None)
     audio_story_wave_animation_handle: str | None = Field(None)
@@ -48251,7 +48251,7 @@ class UserCreateVideoParams(BaseModel):
 class LocalServiceBusinessGetOverrideDetailsParams(BaseModel):
     """Parameters for LocalServiceBusiness.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: localservicebusinessoverride_details_type_enum_param | None = Field(None)
 
@@ -48259,14 +48259,14 @@ class LocalServiceBusinessGetOverrideDetailsParams(BaseModel):
 class InstagramUserGetAuthorizedAdaccountsParams(BaseModel):
     """Parameters for InstagramUser.get_authorized_adaccounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class AdRuleGetHistoryParams(BaseModel):
     """Parameters for AdRule.get_history()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action: adrulehistory_action_enum_param | None = Field(None)
     hide_no_changes: bool | None = Field(None)
     object_id: str | None = Field(None)
@@ -48275,7 +48275,7 @@ class AdRuleGetHistoryParams(BaseModel):
 class LeadgenFormCreateTestLeadParams(BaseModel):
     """Parameters for LeadgenForm.create_test_lead()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     custom_disclaimer_responses: list[Any] | None = Field(None)
     field_data: list[Any] | None = Field(None)
 
@@ -48283,7 +48283,7 @@ class LeadgenFormCreateTestLeadParams(BaseModel):
 class FundraiserPersonToCharityCreateExternalDonationParams(BaseModel):
     """Parameters for FundraiserPersonToCharity.create_external_donation()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     amount_received: int = Field(...)
     currency: str = Field(...)
     donation_id_hash: str = Field(...)
@@ -48294,7 +48294,7 @@ class FundraiserPersonToCharityCreateExternalDonationParams(BaseModel):
 class PagePostGetCommentsParams(BaseModel):
     """Parameters for PagePost.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: pagepostcomments_filter_enum_param | None = Field(None)
     live_filter: pagepostcomments_live_filter_enum_param | None = Field(None)
     order: pagepostcomments_order_enum_param | None = Field(None)
@@ -48304,7 +48304,7 @@ class PagePostGetCommentsParams(BaseModel):
 class PagePostCreateCommentParams(BaseModel):
     """Parameters for PagePost.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attachment_id: str | None = Field(None)
     attachment_share_url: str | None = Field(None)
     attachment_url: str | None = Field(None)
@@ -48321,7 +48321,7 @@ class PagePostCreateCommentParams(BaseModel):
 class PagePostGetInsightsParams(BaseModel):
     """Parameters for PagePost.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: pagepostinsights_date_preset_enum_param | None = Field(None)
     metric: list[Any] | None = Field(None)
     period: pagepostinsights_period_enum_param | None = Field(None)
@@ -48332,7 +48332,7 @@ class PagePostGetInsightsParams(BaseModel):
 class PagePostDeleteLikesParams(BaseModel):
     """Parameters for PagePost.delete_likes()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     nectar_module: str | None = Field(None)
     tracking: str | None = Field(None)
 
@@ -48340,7 +48340,7 @@ class PagePostDeleteLikesParams(BaseModel):
 class PagePostCreateLikeParams(BaseModel):
     """Parameters for PagePost.create_like()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     tracking: str | None = Field(None)
@@ -48349,14 +48349,14 @@ class PagePostCreateLikeParams(BaseModel):
 class PagePostGetReactionsParams(BaseModel):
     """Parameters for PagePost.get_reactions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: pagepostreactions_type_enum_param | None = Field(None)
 
 
 class HotelGetOverrideDetailsParams(BaseModel):
     """Parameters for Hotel.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: hoteloverride_details_type_enum_param | None = Field(None)
 
@@ -48364,7 +48364,7 @@ class HotelGetOverrideDetailsParams(BaseModel):
 class WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams(BaseModel):
     """Parameters for WhatsAppBusinessPreVerifiedPhoneNumber.create_request_code()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     code_method: whatsappbusinesspreverifiedphonenumberrequest_code_code_method_enum_param = Field(
         ...
     )
@@ -48374,14 +48374,14 @@ class WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams(BaseModel):
 class WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams(BaseModel):
     """Parameters for WhatsAppBusinessPreVerifiedPhoneNumber.create_verify_code()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     code: str = Field(...)
 
 
 class AvatarGetModelsParams(BaseModel):
     """Parameters for Avatar.get_models()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     client_name: str | None = Field(None)
     client_version: str | None = Field(None)
     config_id: str | None = Field(None)
@@ -48394,7 +48394,7 @@ class AvatarGetModelsParams(BaseModel):
 class ProductItemGetOverrideDetailsParams(BaseModel):
     """Parameters for ProductItem.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: productitemoverride_details_type_enum_param | None = Field(None)
 
@@ -48402,7 +48402,7 @@ class ProductItemGetOverrideDetailsParams(BaseModel):
 class AlbumGetCommentsParams(BaseModel):
     """Parameters for Album.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: albumcomments_filter_enum_param | None = Field(None)
     live_filter: albumcomments_live_filter_enum_param | None = Field(None)
     order: albumcomments_order_enum_param | None = Field(None)
@@ -48412,7 +48412,7 @@ class AlbumGetCommentsParams(BaseModel):
 class AlbumCreateCommentParams(BaseModel):
     """Parameters for Album.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attachment_id: str | None = Field(None)
     attachment_share_url: str | None = Field(None)
     attachment_url: str | None = Field(None)
@@ -48431,7 +48431,7 @@ class AlbumCreateCommentParams(BaseModel):
 class AlbumCreateLikeParams(BaseModel):
     """Parameters for Album.create_like()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     notify: bool | None = Field(None)
@@ -48441,7 +48441,7 @@ class AlbumCreateLikeParams(BaseModel):
 class AlbumCreatePhotoParams(BaseModel):
     """Parameters for Album.create_photo()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aid: str | None = Field(None)
     allow_spherical_photo: bool | None = Field(None)
     alt_text_custom: str | None = Field(None)
@@ -48500,7 +48500,7 @@ class AlbumCreatePhotoParams(BaseModel):
 class AlbumGetPictureParams(BaseModel):
     """Parameters for Album.get_picture()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     redirect: bool | None = Field(None)
     type: albumpicture_type_enum_param | None = Field(None)
 
@@ -48508,14 +48508,14 @@ class AlbumGetPictureParams(BaseModel):
 class AdgroupFacebookFeedbackGetCommentsParams(BaseModel):
     """Parameters for AdgroupFacebookFeedback.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     order: adgroupfacebookfeedbackcomments_order_enum_param | None = Field(None)
 
 
 class AdVideoCreateCaptionParams(BaseModel):
     """Parameters for AdVideo.create_caption()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     captions_file: Any | None = Field(None)
     default_locale: str | None = Field(None)
     locales_to_delete: list[str] | None = Field(None)
@@ -48524,14 +48524,14 @@ class AdVideoCreateCaptionParams(BaseModel):
 class AdVideoCreateCollaboratorParams(BaseModel):
     """Parameters for AdVideo.create_collaborator()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     target_id: str = Field(...)
 
 
 class AdVideoGetCommentsParams(BaseModel):
     """Parameters for AdVideo.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: videocomments_filter_enum_param | None = Field(None)
     live_filter: videocomments_live_filter_enum_param | None = Field(None)
     order: videocomments_order_enum_param | None = Field(None)
@@ -48541,7 +48541,7 @@ class AdVideoGetCommentsParams(BaseModel):
 class AdVideoCreateCommentParams(BaseModel):
     """Parameters for AdVideo.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attachment_id: str | None = Field(None)
     attachment_share_url: str | None = Field(None)
     attachment_url: str | None = Field(None)
@@ -48560,14 +48560,14 @@ class AdVideoCreateCommentParams(BaseModel):
 class AdVideoCreateGamingClipCreateParams(BaseModel):
     """Parameters for AdVideo.create_gaming_clip_create()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     duration_seconds: float | None = Field(None)
 
 
 class AdVideoCreateLikeParams(BaseModel):
     """Parameters for AdVideo.create_like()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     notify: bool | None = Field(None)
@@ -48577,7 +48577,7 @@ class AdVideoCreateLikeParams(BaseModel):
 class AdVideoCreatePollParams(BaseModel):
     """Parameters for AdVideo.create_poll()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     close_after_voting: bool | None = Field(None)
     correct_option: int | None = Field(None)
     default_open: bool | None = Field(None)
@@ -48590,7 +48590,7 @@ class AdVideoCreatePollParams(BaseModel):
 class AdVideoCreateThumbnailParams(BaseModel):
     """Parameters for AdVideo.create_thumbnail()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     is_preferred: bool | None = Field(None)
     source: Any = Field(...)
 
@@ -48598,7 +48598,7 @@ class AdVideoCreateThumbnailParams(BaseModel):
 class AdVideoGetVideoInsightsParams(BaseModel):
     """Parameters for AdVideo.get_video_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     metric: list[Any] | None = Field(None)
     period: videovideo_insights_period_enum_param | None = Field(None)
     since: datetime | None = Field(None)
@@ -48608,14 +48608,14 @@ class AdVideoGetVideoInsightsParams(BaseModel):
 class AdCreativeCreateAdLabelParams(BaseModel):
     """Parameters for AdCreative.create_ad_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     adlabels: list[Any] = Field(...)
 
 
 class AdCreativeGetPreviewsParams(BaseModel):
     """Parameters for AdCreative.get_previews()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_format: adcreativepreviews_ad_format_enum_param = Field(...)
     creative_feature: adcreativepreviews_creative_feature_enum_param | None = Field(None)
     dynamic_asset_label: str | None = Field(None)
@@ -48635,21 +48635,21 @@ class AdCreativeGetPreviewsParams(BaseModel):
 class AdsPixelGetAdAccountsParams(BaseModel):
     """Parameters for AdsPixel.get_ad_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class AdsPixelDeleteAgenciesParams(BaseModel):
     """Parameters for AdsPixel.delete_agencies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class AdsPixelCreateAgencieParams(BaseModel):
     """Parameters for AdsPixel.create_agencie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
     permitted_tasks: list[Any] = Field(...)
 
@@ -48657,21 +48657,21 @@ class AdsPixelCreateAgencieParams(BaseModel):
 class AdsPixelCreateAhpConfigParams(BaseModel):
     """Parameters for AdsPixel.create_ahp_config()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     applink_autosetup: bool = Field(...)
 
 
 class AdsPixelGetAssignedUsersParams(BaseModel):
     """Parameters for AdsPixel.get_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class AdsPixelCreateAssignedUserParams(BaseModel):
     """Parameters for AdsPixel.create_assigned_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tasks: list[Any] = Field(...)
     user: int = Field(...)
 
@@ -48679,7 +48679,7 @@ class AdsPixelCreateAssignedUserParams(BaseModel):
 class AdsPixelGetDaChecksParams(BaseModel):
     """Parameters for AdsPixel.get_da_checks()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     checks: list[str] | None = Field(None)
     connection_method: adspixelda_checks_connection_method_enum_param | None = Field(None)
 
@@ -48687,7 +48687,7 @@ class AdsPixelGetDaChecksParams(BaseModel):
 class AdsPixelCreateEventParams(BaseModel):
     """Parameters for AdsPixel.create_event()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     data: list[str] = Field(...)
     namespace_id: str | None = Field(None)
     partner_agent: str | None = Field(None)
@@ -48703,7 +48703,7 @@ class AdsPixelCreateEventParams(BaseModel):
 class AdsPixelGetOfflineEventUploadsParams(BaseModel):
     """Parameters for AdsPixel.get_offline_event_uploads()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time: datetime | None = Field(None)
     order: adspixeloffline_event_uploads_order_enum_param | None = Field(None)
     sort_by: adspixeloffline_event_uploads_sort_by_enum_param | None = Field(None)
@@ -48714,7 +48714,7 @@ class AdsPixelGetOfflineEventUploadsParams(BaseModel):
 class AdsPixelDeleteSharedAccountsParams(BaseModel):
     """Parameters for AdsPixel.delete_shared_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     account_id: str = Field(...)
     business: str = Field(...)
 
@@ -48722,14 +48722,14 @@ class AdsPixelDeleteSharedAccountsParams(BaseModel):
 class AdsPixelGetSharedAccountsParams(BaseModel):
     """Parameters for AdsPixel.get_shared_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class AdsPixelCreateSharedAccountParams(BaseModel):
     """Parameters for AdsPixel.create_shared_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     account_id: str = Field(...)
     business: str = Field(...)
 
@@ -48737,7 +48737,7 @@ class AdsPixelCreateSharedAccountParams(BaseModel):
 class AdsPixelGetStatsParams(BaseModel):
     """Parameters for AdsPixel.get_stats()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation: adspixelstats_aggregation_enum_param | None = Field(None)
     end_time: datetime | None = Field(None)
     event: str | None = Field(None)
@@ -48748,21 +48748,21 @@ class AdsPixelGetStatsParams(BaseModel):
 class GroupDeleteAdMinsParams(BaseModel):
     """Parameters for Group.delete_ad_mins()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     uid: int = Field(...)
 
 
 class GroupCreateAdMinParams(BaseModel):
     """Parameters for Group.create_ad_min()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     uid: int = Field(...)
 
 
 class GroupGetFeedParams(BaseModel):
     """Parameters for Group.get_feed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_hidden: bool | None = Field(None)
     q: str | None = Field(None)
     show_expired: bool | None = Field(None)
@@ -48774,7 +48774,7 @@ class GroupGetFeedParams(BaseModel):
 class GroupCreateFeedParams(BaseModel):
     """Parameters for Group.create_feed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     actions: dict[str, Any] | None = Field(None)
     album_id: str | None = Field(None)
     android_key_hash: str | None = Field(None)
@@ -48885,7 +48885,7 @@ class GroupCreateFeedParams(BaseModel):
 class GroupCreateGroupParams(BaseModel):
     """Parameters for Group.create_group()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     admin: int | None = Field(None)
     description: str | None = Field(None)
     group_icon_id: str | None = Field(None)
@@ -48902,7 +48902,7 @@ class GroupCreateGroupParams(BaseModel):
 class GroupGetLiveVideosParams(BaseModel):
     """Parameters for Group.get_live_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     broadcast_status: list[Any] | None = Field(None)
     source: grouplive_videos_source_enum_param | None = Field(None)
 
@@ -48910,7 +48910,7 @@ class GroupGetLiveVideosParams(BaseModel):
 class GroupCreateLiveVideoParams(BaseModel):
     """Parameters for Group.create_live_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     content_tags: list[str] | None = Field(None)
     description: str | None = Field(None)
     enable_backup_ingest: bool | None = Field(None)
@@ -48936,7 +48936,7 @@ class GroupCreateLiveVideoParams(BaseModel):
 class GroupDeleteMembersParams(BaseModel):
     """Parameters for Group.delete_members()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     email: str | None = Field(None)
     member: int | None = Field(None)
 
@@ -48944,7 +48944,7 @@ class GroupDeleteMembersParams(BaseModel):
 class GroupCreateMemberParams(BaseModel):
     """Parameters for Group.create_member()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     email: str | None = Field(None)
     field_from: int | None = Field(None, alias="from")
     member: int | None = Field(None)
@@ -48955,7 +48955,7 @@ class GroupCreateMemberParams(BaseModel):
 class GroupCreatePhotoParams(BaseModel):
     """Parameters for Group.create_photo()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aid: str | None = Field(None)
     allow_spherical_photo: bool | None = Field(None)
     alt_text_custom: str | None = Field(None)
@@ -49014,7 +49014,7 @@ class GroupCreatePhotoParams(BaseModel):
 class GroupGetPictureParams(BaseModel):
     """Parameters for Group.get_picture()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     height: int | None = Field(None)
     redirect: bool | None = Field(None)
     type: grouppicture_type_enum_param | None = Field(None)
@@ -49024,14 +49024,14 @@ class GroupGetPictureParams(BaseModel):
 class GroupGetVideosParams(BaseModel):
     """Parameters for Group.get_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: groupvideos_type_enum_param | None = Field(None)
 
 
 class GroupCreateVideoParams(BaseModel):
     """Parameters for Group.create_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     application_id: str | None = Field(None)
     asked_fun_fact_prompt_id: int | None = Field(None)
     audio_story_wave_animation_handle: str | None = Field(None)
@@ -49106,21 +49106,21 @@ class GroupCreateVideoParams(BaseModel):
 class PageUserMessageThreadLabelDeleteLabelParams(BaseModel):
     """Parameters for PageUserMessageThreadLabel.delete_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user: int = Field(...)
 
 
 class PageUserMessageThreadLabelCreateLabelParams(BaseModel):
     """Parameters for PageUserMessageThreadLabel.create_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user: int = Field(...)
 
 
 class ApplicationDeleteAccountsParams(BaseModel):
     """Parameters for Application.delete_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: applicationaccounts_type_enum_param | None = Field(None)
     uid: int = Field(...)
 
@@ -49128,14 +49128,14 @@ class ApplicationDeleteAccountsParams(BaseModel):
 class ApplicationGetAccountsParams(BaseModel):
     """Parameters for Application.get_accounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: applicationaccounts_type_enum_param | None = Field(None)
 
 
 class ApplicationCreateAccountParams(BaseModel):
     """Parameters for Application.create_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     installed: bool | None = Field(None)
     minor: bool | None = Field(None)
     name: str | None = Field(None)
@@ -49148,7 +49148,7 @@ class ApplicationCreateAccountParams(BaseModel):
 class ApplicationCreateActivitieParams(BaseModel):
     """Parameters for Application.create_activitie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     advertiser_id: str | None = Field(None)
     advertiser_tracking_enabled: bool | None = Field(None)
     anon_id: str | None = Field(None)
@@ -49200,14 +49200,14 @@ class ApplicationCreateActivitieParams(BaseModel):
 class ApplicationGetAdnetworkPlacementsParams(BaseModel):
     """Parameters for Application.get_adnetwork_placements()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     request_id: str | None = Field(None)
 
 
 class ApplicationGetAdNetworkanalyticsParams(BaseModel):
     """Parameters for Application.get_ad_networkanalytics()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation_period: applicationadnetworkanalytics_aggregation_period_enum_param | None = Field(
         None
     )
@@ -49225,7 +49225,7 @@ class ApplicationGetAdNetworkanalyticsParams(BaseModel):
 class ApplicationCreateAdNetworkanalyticParams(BaseModel):
     """Parameters for Application.create_ad_networkanalytic()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation_period: applicationadnetworkanalytics_aggregation_period_enum_param | None = Field(
         None
     )
@@ -49242,14 +49242,14 @@ class ApplicationCreateAdNetworkanalyticParams(BaseModel):
 class ApplicationGetAdnetworkanalyticsResultsParams(BaseModel):
     """Parameters for Application.get_adnetworkanalytics_results()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     query_ids: list[str] | None = Field(None)
 
 
 class ApplicationGetAemAttributionParams(BaseModel):
     """Parameters for Application.get_aem_attribution()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     advertiser_ids: list[str] | None = Field(None)
     fb_content_data: str | None = Field(None)
 
@@ -49257,14 +49257,14 @@ class ApplicationGetAemAttributionParams(BaseModel):
 class ApplicationGetAemConversionConfigsParams(BaseModel):
     """Parameters for Application.get_aem_conversion_configs()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     advertiser_ids: list[str] | None = Field(None)
 
 
 class ApplicationGetAemConversionFilterParams(BaseModel):
     """Parameters for Application.get_aem_conversion_filter()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     catalog_id: str | None = Field(None)
     fb_content_ids: str | None = Field(None)
 
@@ -49272,14 +49272,14 @@ class ApplicationGetAemConversionFilterParams(BaseModel):
 class ApplicationCreateAemConversionParams(BaseModel):
     """Parameters for Application.create_aem_conversion()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aem_conversions: list[Any] = Field(...)
 
 
 class ApplicationCreateAemSkanReadineParams(BaseModel):
     """Parameters for Application.create_aem_skan_readine()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: int = Field(...)
     is_aem_ready: bool | None = Field(None)
     is_app_aem_install_ready: bool | None = Field(None)
@@ -49291,7 +49291,7 @@ class ApplicationCreateAemSkanReadineParams(BaseModel):
 class ApplicationCreateAggregateRevenueParams(BaseModel):
     """Parameters for Application.create_aggregate_revenue()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ecpms: list[str] | None = Field(None)
     query_ids: list[str] | None = Field(None)
     request_id: str | None = Field(None)
@@ -49301,7 +49301,7 @@ class ApplicationCreateAggregateRevenueParams(BaseModel):
 class ApplicationCreateAppIndexingParams(BaseModel):
     """Parameters for Application.create_app_indexing()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_version: str = Field(...)
     device_session_id: str | None = Field(None)
     extra_info: str | None = Field(None)
@@ -49313,7 +49313,7 @@ class ApplicationCreateAppIndexingParams(BaseModel):
 class ApplicationCreateAppIndexingSessionParams(BaseModel):
     """Parameters for Application.create_app_indexing_session()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     device_session_id: str = Field(...)
     extinfo: str | None = Field(None)
 
@@ -49321,14 +49321,14 @@ class ApplicationCreateAppIndexingSessionParams(BaseModel):
 class ApplicationGetAppInstalledGroupsParams(BaseModel):
     """Parameters for Application.get_app_installed_groups()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     group_id: str | None = Field(None)
 
 
 class ApplicationCreateAppPushDeviceTokenParams(BaseModel):
     """Parameters for Application.create_app_push_device_token()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     device_id: str = Field(...)
     device_token: str = Field(...)
     platform: applicationapp_push_device_token_platform_enum_param | None = Field(None)
@@ -49337,7 +49337,7 @@ class ApplicationCreateAppPushDeviceTokenParams(BaseModel):
 class ApplicationCreateAssetParams(BaseModel):
     """Parameters for Application.create_asset()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asset: Any = Field(...)
     comment: str | None = Field(None)
     type: str = Field(...)
@@ -49346,21 +49346,21 @@ class ApplicationCreateAssetParams(BaseModel):
 class ApplicationGetAuthorizedAdaccountsParams(BaseModel):
     """Parameters for Application.get_authorized_adaccounts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str | None = Field(None)
 
 
 class ApplicationGetButtonAutoDetectionDeviceSelectionParams(BaseModel):
     """Parameters for Application.get_button_auto_detection_device_selection()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     device_id: str | None = Field(None)
 
 
 class ApplicationCreateCodelessEventMappingParams(BaseModel):
     """Parameters for Application.create_codeless_event_mapping()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     mappings: list[Any] = Field(...)
     mutation_method: applicationcodeless_event_mappings_mutation_method_enum_param = Field(...)
     platform: applicationcodeless_event_mappings_platform_enum_param = Field(...)
@@ -49370,7 +49370,7 @@ class ApplicationCreateCodelessEventMappingParams(BaseModel):
 class ApplicationGetDaChecksParams(BaseModel):
     """Parameters for Application.get_da_checks()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     checks: list[str] | None = Field(None)
     connection_method: applicationda_checks_connection_method_enum_param | None = Field(None)
 
@@ -49378,28 +49378,28 @@ class ApplicationGetDaChecksParams(BaseModel):
 class ApplicationCreateDomainReportParams(BaseModel):
     """Parameters for Application.create_domain_report()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tracking_domains: list[str] = Field(...)
 
 
 class ApplicationGetIapPurchasesParams(BaseModel):
     """Parameters for Application.get_iap_purchases()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     order_id: str = Field(...)
 
 
 class ApplicationGetMessageTemplatesParams(BaseModel):
     """Parameters for Application.get_message_templates()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     template_id: str | None = Field(None)
 
 
 class ApplicationCreateMmpAuditingParams(BaseModel):
     """Parameters for Application.create_mmp_auditing()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     advertiser_id: str | None = Field(None)
     attribution: str | None = Field(None)
     attribution_method: str | None = Field(None)
@@ -49430,7 +49430,7 @@ class ApplicationCreateMmpAuditingParams(BaseModel):
 class ApplicationGetMobileSdkGkParams(BaseModel):
     """Parameters for Application.get_mobile_sdk_gk()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     device_id: str | None = Field(None)
     extinfo: dict[str, Any] | None = Field(None)
     os_version: str | None = Field(None)
@@ -49441,7 +49441,7 @@ class ApplicationGetMobileSdkGkParams(BaseModel):
 class ApplicationCreateMonetizedDigitalStoreObjectParams(BaseModel):
     """Parameters for Application.create_monetized_digital_store_object()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     content_id: str = Field(...)
     store: str = Field(...)
 
@@ -49449,7 +49449,7 @@ class ApplicationCreateMonetizedDigitalStoreObjectParams(BaseModel):
 class ApplicationCreateOccludespopupParams(BaseModel):
     """Parameters for Application.create_occludespopup()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     flash: bool | None = Field(None)
     unity: bool | None = Field(None)
 
@@ -49457,7 +49457,7 @@ class ApplicationCreateOccludespopupParams(BaseModel):
 class ApplicationGetPermissionsParams(BaseModel):
     """Parameters for Application.get_permissions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     android_key_hash: str | None = Field(None)
     ios_bundle_id: str | None = Field(None)
     permission: list[Any] | None = Field(None)
@@ -49468,21 +49468,21 @@ class ApplicationGetPermissionsParams(BaseModel):
 class ApplicationGetProductSParams(BaseModel):
     """Parameters for Application.get_product_s()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     product_ids: list[str] | None = Field(None)
 
 
 class ApplicationGetSgwDatasetStatusParams(BaseModel):
     """Parameters for Application.get_sgw_dataset_status()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     dataset_id: int = Field(...)
 
 
 class ApplicationGetSgwInstallDeferralLinkParams(BaseModel):
     """Parameters for Application.get_sgw_install_deferral_link()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     client_ip: str | None = Field(None)
     dataset_id: int = Field(...)
 
@@ -49490,7 +49490,7 @@ class ApplicationGetSgwInstallDeferralLinkParams(BaseModel):
 class ApplicationCreateSubscribedDomainParams(BaseModel):
     """Parameters for Application.create_subscribed_domain()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     subscribe: list[str] | None = Field(None)
     unsubscribe: list[str] | None = Field(None)
 
@@ -49498,7 +49498,7 @@ class ApplicationCreateSubscribedDomainParams(BaseModel):
 class ApplicationCreateSubscribedDomainsPhishingParams(BaseModel):
     """Parameters for Application.create_subscribed_domains_phishing()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     subscribe: list[str] | None = Field(None)
     unsubscribe: list[str] | None = Field(None)
 
@@ -49506,7 +49506,7 @@ class ApplicationCreateSubscribedDomainsPhishingParams(BaseModel):
 class ApplicationDeleteSubscriptionsParams(BaseModel):
     """Parameters for Application.delete_subscriptions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     fields: list[str] | None = Field(None)
     object: str | None = Field(None)
 
@@ -49514,7 +49514,7 @@ class ApplicationDeleteSubscriptionsParams(BaseModel):
 class ApplicationCreateSubscriptionParams(BaseModel):
     """Parameters for Application.create_subscription()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     callback_url: str | None = Field(None)
     fields: list[str] | None = Field(None)
     include_values: bool | None = Field(None)
@@ -49525,7 +49525,7 @@ class ApplicationCreateSubscriptionParams(BaseModel):
 class ApplicationCreateUploadParams(BaseModel):
     """Parameters for Application.create_upload()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     file_length: int | None = Field(None)
     file_name: dict[str, Any] | None = Field(None)
     file_type: dict[str, Any] | None = Field(None)
@@ -49535,7 +49535,7 @@ class ApplicationCreateUploadParams(BaseModel):
 class ApplicationCreateWhatsappBusinessSolutionParams(BaseModel):
     """Parameters for Application.create_whatsapp_business_solution()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     owner_permissions: list[Any] = Field(...)
     partner_app_id: str = Field(...)
     partner_permissions: list[Any] = Field(...)
@@ -49545,28 +49545,28 @@ class ApplicationCreateWhatsappBusinessSolutionParams(BaseModel):
 class ApplicationGetWhatsappBusinessSolutionsParams(BaseModel):
     """Parameters for Application.get_whatsapp_business_solutions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     role: applicationwhatsapp_business_solutions_role_enum_param | None = Field(None)
 
 
 class IGUserForIGOnlyAPIGetBusinessMessagingFeatureStatusParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_business_messaging_feature_status()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feature: str = Field(...)
 
 
 class IGUserForIGOnlyAPIGetContentPublishingLimitParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_content_publishing_limit()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
 
 
 class IGUserForIGOnlyAPIGetConversationsParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_conversations()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     folder: str | None = Field(None)
     platform: userconversations_platform_enum_param | None = Field(None)
     tags: list[str] | None = Field(None)
@@ -49576,7 +49576,7 @@ class IGUserForIGOnlyAPIGetConversationsParams(BaseModel):
 class IGUserForIGOnlyAPIGetInsightsParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdown: list[Any] | None = Field(None)
     metric: list[Any] = Field(...)
     metric_type: userinsights_metric_type_enum_param | None = Field(None)
@@ -49589,7 +49589,7 @@ class IGUserForIGOnlyAPIGetInsightsParams(BaseModel):
 class IGUserForIGOnlyAPIGetMediaParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_media()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
     until: datetime | None = Field(None)
 
@@ -49597,7 +49597,7 @@ class IGUserForIGOnlyAPIGetMediaParams(BaseModel):
 class IGUserForIGOnlyAPICreateMediaParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_media()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     alt_text: str | None = Field(None)
     audio_name: str | None = Field(None)
     caption: str | None = Field(None)
@@ -49619,14 +49619,14 @@ class IGUserForIGOnlyAPICreateMediaParams(BaseModel):
 class IGUserForIGOnlyAPICreateMediapublishParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_mediapublish()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     creation_id: int = Field(...)
 
 
 class IGUserForIGOnlyAPICreateMentionParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_mention()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     comment_id: str | None = Field(None)
     media_id: str = Field(...)
     message: str = Field(...)
@@ -49635,14 +49635,14 @@ class IGUserForIGOnlyAPICreateMentionParams(BaseModel):
 class IGUserForIGOnlyAPICreateMessageattachmentParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_messageattachment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     message: dict[str, Any] = Field(...)
 
 
 class IGUserForIGOnlyAPICreateMessageParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_message()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     message: dict[str, Any] | None = Field(None)
     messaging_type: iggraphusermessages_messaging_type_enum_param | None = Field(None)
     payload: str | None = Field(None)
@@ -49655,14 +49655,14 @@ class IGUserForIGOnlyAPICreateMessageParams(BaseModel):
 class IGUserForIGOnlyAPIDeleteMessengerProfileParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.delete_messenger_profile()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     fields: list[Any] = Field(...)
 
 
 class IGUserForIGOnlyAPICreateMessengerProfileParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_messenger_profile()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ice_breakers: list[Any] | None = Field(None)
     persistent_menu: list[Any] | None = Field(None)
 
@@ -49670,21 +49670,21 @@ class IGUserForIGOnlyAPICreateMessengerProfileParams(BaseModel):
 class IGUserForIGOnlyAPICreateSubscribedAppParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_subscribed_app()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     subscribed_fields: list[Any] = Field(...)
 
 
 class IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.delete_welcome_message_flows()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     flow_id: str | None = Field(None)
 
 
 class IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.get_welcome_message_flows()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
     flow_id: str | None = Field(None)
 
@@ -49692,7 +49692,7 @@ class IGUserForIGOnlyAPIGetWelcomeMessageFlowsParams(BaseModel):
 class IGUserForIGOnlyAPICreateWelcomeMessageFlowParams(BaseModel):
     """Parameters for IGUserForIGOnlyAPI.create_welcome_message_flow()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     eligible_platforms: list[Any] | None = Field(None)
     flow_id: str | None = Field(None)
     name: str | None = Field(None)
@@ -49702,7 +49702,7 @@ class IGUserForIGOnlyAPICreateWelcomeMessageFlowParams(BaseModel):
 class LinkCreateCommentParams(BaseModel):
     """Parameters for Link.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attachment_id: str | None = Field(None)
     attachment_share_url: str | None = Field(None)
     attachment_url: str | None = Field(None)
@@ -49721,7 +49721,7 @@ class LinkCreateCommentParams(BaseModel):
 class StatusCreateLikeParams(BaseModel):
     """Parameters for Status.create_like()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     notify: bool | None = Field(None)
@@ -49731,21 +49731,21 @@ class StatusCreateLikeParams(BaseModel):
 class SystemUserGetAssignedBusinessAssetGroupsParams(BaseModel):
     """Parameters for SystemUser.get_assigned_business_asset_groups()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     contained_asset_id: str | None = Field(None)
 
 
 class SystemUserGetAssignedPagesParams(BaseModel):
     """Parameters for SystemUser.get_assigned_pages()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     pages: list[Any] | None = Field(None)
 
 
 class CustomConversionGetStatsParams(BaseModel):
     """Parameters for CustomConversion.get_stats()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aggregation: customconversionstats_aggregation_enum_param | None = Field(None)
     end_time: datetime | None = Field(None)
     start_time: datetime | None = Field(None)
@@ -49754,7 +49754,7 @@ class CustomConversionGetStatsParams(BaseModel):
 class PageCreateAbTestParams(BaseModel):
     """Parameters for Page.create_ab_test()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     control_video_id: str = Field(...)
     description: str = Field(...)
     duration: int = Field(...)
@@ -49767,7 +49767,7 @@ class PageCreateAbTestParams(BaseModel):
 class PageCreateAcknowledgeOrderParams(BaseModel):
     """Parameters for Page.create_acknowledge_order()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     idempotency_key: str = Field(...)
     orders: list[Any] = Field(...)
 
@@ -49775,7 +49775,7 @@ class PageCreateAcknowledgeOrderParams(BaseModel):
 class PageGetAdsPostsParams(BaseModel):
     """Parameters for Page.get_ads_posts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     exclude_dynamic_ads: bool | None = Field(None)
     include_inline_create: bool | None = Field(None)
     since: datetime | None = Field(None)
@@ -49785,14 +49785,14 @@ class PageGetAdsPostsParams(BaseModel):
 class PageDeleteAgenciesParams(BaseModel):
     """Parameters for Page.delete_agencies()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class PageCreateAgencieParams(BaseModel):
     """Parameters for Page.create_agencie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
     permitted_tasks: list[Any] | None = Field(None)
 
@@ -49800,21 +49800,21 @@ class PageCreateAgencieParams(BaseModel):
 class PageDeleteAssignedUsersParams(BaseModel):
     """Parameters for Page.delete_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     user: int = Field(...)
 
 
 class PageGetAssignedUsersParams(BaseModel):
     """Parameters for Page.get_assigned_users()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str = Field(...)
 
 
 class PageCreateAssignedUserParams(BaseModel):
     """Parameters for Page.create_assigned_user()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tasks: list[Any] | None = Field(None)
     user: int = Field(...)
 
@@ -49822,7 +49822,7 @@ class PageCreateAssignedUserParams(BaseModel):
 class PageDeleteBlockedParams(BaseModel):
     """Parameters for Page.delete_blocked()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asid: str | None = Field(None)
     psid: int | None = Field(None)
     uid: int | None = Field(None)
@@ -49832,7 +49832,7 @@ class PageDeleteBlockedParams(BaseModel):
 class PageGetBlockedParams(BaseModel):
     """Parameters for Page.get_blocked()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     uid: int | None = Field(None)
     user: int | None = Field(None)
 
@@ -49840,7 +49840,7 @@ class PageGetBlockedParams(BaseModel):
 class PageCreateBlockedParams(BaseModel):
     """Parameters for Page.create_blocked()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     asid: list[str] | None = Field(None)
     psid: list[int] | None = Field(None)
     uid: list[str] | None = Field(None)
@@ -49850,7 +49850,7 @@ class PageCreateBlockedParams(BaseModel):
 class PageCreateBusinessDataParams(BaseModel):
     """Parameters for Page.create_business_data()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     data: list[str] = Field(...)
     partner_agent: str = Field(...)
     processing_type: str | None = Field(None)
@@ -49859,14 +49859,14 @@ class PageCreateBusinessDataParams(BaseModel):
 class PageGetBusinessprojectsParams(BaseModel):
     """Parameters for Page.get_businessprojects()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     business: str | None = Field(None)
 
 
 class PageCreateCallParams(BaseModel):
     """Parameters for Page.create_call()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action: pagecalls_action_enum_param = Field(...)
     call_id: str | None = Field(None)
     platform: pagecalls_platform_enum_param | None = Field(None)
@@ -49877,7 +49877,7 @@ class PageCreateCallParams(BaseModel):
 class PageCreateCanvasElementParams(BaseModel):
     """Parameters for Page.create_canvas_element()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     canvas_button: dict[str, Any] | None = Field(None)
     canvas_carousel: dict[str, Any] | None = Field(None)
     canvas_footer: dict[str, Any] | None = Field(None)
@@ -49895,7 +49895,7 @@ class PageCreateCanvasElementParams(BaseModel):
 class PageGetCanvasesParams(BaseModel):
     """Parameters for Page.get_canvases()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     is_hidden: bool | None = Field(None)
     is_published: bool | None = Field(None)
 
@@ -49903,7 +49903,7 @@ class PageGetCanvasesParams(BaseModel):
 class PageCreateCanvaseParams(BaseModel):
     """Parameters for Page.create_canvase()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     background_color: str | None = Field(None)
     body_element_ids: list[str] | None = Field(None)
     enable_swipe_to_open: bool | None = Field(None)
@@ -49916,7 +49916,7 @@ class PageCreateCanvaseParams(BaseModel):
 class PageGetCommerceOrdersParams(BaseModel):
     """Parameters for Page.get_commerce_orders()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filters: list[Any] | None = Field(None)
     state: list[Any] | None = Field(None)
     updated_after: datetime | None = Field(None)
@@ -49926,7 +49926,7 @@ class PageGetCommerceOrdersParams(BaseModel):
 class PageGetCommercePayoutsParams(BaseModel):
     """Parameters for Page.get_commerce_payouts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time: datetime | None = Field(None)
     start_time: datetime | None = Field(None)
 
@@ -49934,7 +49934,7 @@ class PageGetCommercePayoutsParams(BaseModel):
 class PageGetCommerceTransactionsParams(BaseModel):
     """Parameters for Page.get_commerce_transactions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     end_time: datetime | None = Field(None)
     payout_reference_id: str | None = Field(None)
     start_time: datetime | None = Field(None)
@@ -49943,7 +49943,7 @@ class PageGetCommerceTransactionsParams(BaseModel):
 class PageGetConversationsParams(BaseModel):
     """Parameters for Page.get_conversations()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     folder: str | None = Field(None)
     platform: pageconversations_platform_enum_param | None = Field(None)
     tags: list[str] | None = Field(None)
@@ -49953,7 +49953,7 @@ class PageGetConversationsParams(BaseModel):
 class PageCreateCopyrightManualClaimParams(BaseModel):
     """Parameters for Page.create_copyright_manual_claim()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     action: pagecopyright_manual_claims_action_enum_param | None = Field(None)
     action_reason: pagecopyright_manual_claims_action_reason_enum_param | None = Field(None)
     countries: dict[str, Any] | None = Field(None)
@@ -49966,7 +49966,7 @@ class PageCreateCopyrightManualClaimParams(BaseModel):
 class PageCreateCustomLabelParams(BaseModel):
     """Parameters for Page.create_custom_label()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str | None = Field(None)
     page_label_name: str = Field(...)
 
@@ -49974,7 +49974,7 @@ class PageCreateCustomLabelParams(BaseModel):
 class PageDeleteCustomUserSettingsParams(BaseModel):
     """Parameters for Page.delete_custom_user_settings()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     params: list[Any] = Field(...)
     psid: str = Field(...)
 
@@ -49982,14 +49982,14 @@ class PageDeleteCustomUserSettingsParams(BaseModel):
 class PageGetCustomUserSettingsParams(BaseModel):
     """Parameters for Page.get_custom_user_settings()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     psid: str = Field(...)
 
 
 class PageCreateCustomUserSettingParams(BaseModel):
     """Parameters for Page.create_custom_user_setting()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     persistent_menu: list[Any] | None = Field(None)
     psid: str = Field(...)
 
@@ -49997,14 +49997,14 @@ class PageCreateCustomUserSettingParams(BaseModel):
 class PageCreateDatasetParams(BaseModel):
     """Parameters for Page.create_dataset()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     dataset_name: str | None = Field(None)
 
 
 class PageGetEventsParams(BaseModel):
     """Parameters for Page.get_events()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     event_state_filter: list[Any] | None = Field(None)
     include_canceled: bool | None = Field(None)
     time_filter: pageevents_time_filter_enum_param | None = Field(None)
@@ -50014,7 +50014,7 @@ class PageGetEventsParams(BaseModel):
 class PageCreateExtendThreadControlParams(BaseModel):
     """Parameters for Page.create_extend_thread_control()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     duration: int | None = Field(None)
     recipient: dict[str, Any] = Field(...)
 
@@ -50022,7 +50022,7 @@ class PageCreateExtendThreadControlParams(BaseModel):
 class PageGetFeedParams(BaseModel):
     """Parameters for Page.get_feed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_hidden: bool | None = Field(None)
     limit: int | None = Field(None)
     show_expired: bool | None = Field(None)
@@ -50032,7 +50032,7 @@ class PageGetFeedParams(BaseModel):
 class PageCreateFeedParams(BaseModel):
     """Parameters for Page.create_feed()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     actions: dict[str, Any] | None = Field(None)
     album_id: str | None = Field(None)
     android_key_hash: str | None = Field(None)
@@ -50144,7 +50144,7 @@ class PageCreateFeedParams(BaseModel):
 class PageCreateImageCopyrightParams(BaseModel):
     """Parameters for Page.create_image_copyright()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     artist: str | None = Field(None)
     attribution_link: str | None = Field(None)
     creator: str | None = Field(None)
@@ -50160,7 +50160,7 @@ class PageCreateImageCopyrightParams(BaseModel):
 class PageGetInsightsParams(BaseModel):
     """Parameters for Page.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     breakdown: list[Any] | None = Field(None)
     date_preset: pageinsights_date_preset_enum_param | None = Field(None)
     metric: list[Any] | None = Field(None)
@@ -50173,7 +50173,7 @@ class PageGetInsightsParams(BaseModel):
 class PageCreateLeadgenFormParams(BaseModel):
     """Parameters for Page.create_leadgen_form()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     allow_organic_lead_retrieval: bool | None = Field(None)
     block_display_for_non_targeted_viewer: bool | None = Field(None)
     context_card: dict[str, Any] | None = Field(None)
@@ -50195,14 +50195,14 @@ class PageCreateLeadgenFormParams(BaseModel):
 class PageGetLikesParams(BaseModel):
     """Parameters for Page.get_likes()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     target_id: str | None = Field(None)
 
 
 class PageGetLiveVideosParams(BaseModel):
     """Parameters for Page.get_live_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     broadcast_status: list[Any] | None = Field(None)
     source: pagelive_videos_source_enum_param | None = Field(None)
 
@@ -50210,7 +50210,7 @@ class PageGetLiveVideosParams(BaseModel):
 class PageCreateLiveVideoParams(BaseModel):
     """Parameters for Page.create_live_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     content_tags: list[str] | None = Field(None)
     crossposting_actions: list[Any] | None = Field(None)
     custom_labels: list[str] | None = Field(None)
@@ -50240,7 +50240,7 @@ class PageCreateLiveVideoParams(BaseModel):
 class PageDeleteLocationsParams(BaseModel):
     """Parameters for Page.delete_locations()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     location_page_ids: list[str] = Field(...)
     store_numbers: list[Any] = Field(...)
 
@@ -50248,7 +50248,7 @@ class PageDeleteLocationsParams(BaseModel):
 class PageCreateLocationParams(BaseModel):
     """Parameters for Page.create_location()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     always_open: bool | None = Field(None)
     delivery_and_pickup_option_info: list[str] | None = Field(None)
     differently_open_offerings: dict[str, Any] | None = Field(None)
@@ -50274,14 +50274,14 @@ class PageCreateLocationParams(BaseModel):
 class PageGetMediaFingerprintsParams(BaseModel):
     """Parameters for Page.get_media_fingerprints()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     universal_content_id: str | None = Field(None)
 
 
 class PageCreateMediaFingerprintParams(BaseModel):
     """Parameters for Page.create_media_fingerprint()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     fingerprint_content_type: pagemedia_fingerprints_fingerprint_content_type_enum_param = Field(
         ...
     )
@@ -50294,7 +50294,7 @@ class PageCreateMediaFingerprintParams(BaseModel):
 class PageCreateMessageAttachmentParams(BaseModel):
     """Parameters for Page.create_message_attachment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     message: dict[str, Any] = Field(...)
     platform: pagemessage_attachments_platform_enum_param | None = Field(None)
 
@@ -50302,7 +50302,7 @@ class PageCreateMessageAttachmentParams(BaseModel):
 class PageDeleteMessageTemplatesParams(BaseModel):
     """Parameters for Page.delete_message_templates()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str = Field(...)
     template_id: str | None = Field(None)
 
@@ -50310,7 +50310,7 @@ class PageDeleteMessageTemplatesParams(BaseModel):
 class PageGetMessageTemplatesParams(BaseModel):
     """Parameters for Page.get_message_templates()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     category: list[Any] | None = Field(None)
     content: str | None = Field(None)
     language: list[str] | None = Field(None)
@@ -50322,7 +50322,7 @@ class PageGetMessageTemplatesParams(BaseModel):
 class PageCreateMessageTemplateParams(BaseModel):
     """Parameters for Page.create_message_template()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     category: pagemessage_templates_category_enum_param = Field(...)
     components: list[Any] | None = Field(None)
     language: str = Field(...)
@@ -50334,7 +50334,7 @@ class PageCreateMessageTemplateParams(BaseModel):
 class PageCreateMessageParams(BaseModel):
     """Parameters for Page.create_message()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     message: dict[str, Any] | None = Field(None)
     messaging_type: pagemessages_messaging_type_enum_param | None = Field(None)
     notification_type: pagemessages_notification_type_enum_param | None = Field(None)
@@ -50351,7 +50351,7 @@ class PageCreateMessageParams(BaseModel):
 class PageCreateMessengerCallSettingParams(BaseModel):
     """Parameters for Page.create_messenger_call_setting()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     audio_enabled: bool | None = Field(None)
     call_hours: dict[str, Any] | None = Field(None)
     call_routing: dict[str, Any] | None = Field(None)
@@ -50361,7 +50361,7 @@ class PageCreateMessengerCallSettingParams(BaseModel):
 class PageCreateMessengerLeadFormParams(BaseModel):
     """Parameters for Page.create_messenger_lead_form()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     account_id: int | None = Field(None)
     block_send_api: bool | None = Field(None)
     exit_keyphrases: str | None = Field(None)
@@ -50378,7 +50378,7 @@ class PageCreateMessengerLeadFormParams(BaseModel):
 class PageDeleteMessengerProfileParams(BaseModel):
     """Parameters for Page.delete_messenger_profile()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     fields: list[Any] = Field(...)
     platform: pagemessenger_profile_platform_enum_param | None = Field(None)
 
@@ -50386,14 +50386,14 @@ class PageDeleteMessengerProfileParams(BaseModel):
 class PageGetMessengerProfileParams(BaseModel):
     """Parameters for Page.get_messenger_profile()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     platform: pagemessenger_profile_platform_enum_param | None = Field(None)
 
 
 class PageCreateMessengerProfileParams(BaseModel):
     """Parameters for Page.create_messenger_profile()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     account_linking_url: str | None = Field(None)
     commands: list[Any] | None = Field(None)
     description: list[Any] | None = Field(None)
@@ -50409,7 +50409,7 @@ class PageCreateMessengerProfileParams(BaseModel):
 class PageCreateModerateConversationParams(BaseModel):
     """Parameters for Page.create_moderate_conversation()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     actions: list[Any] = Field(...)
     user_ids: list[Any] = Field(...)
 
@@ -50417,7 +50417,7 @@ class PageCreateModerateConversationParams(BaseModel):
 class PageCreateNlpConfigParams(BaseModel):
     """Parameters for Page.create_nlp_config()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     api_version: dict[str, Any] | None = Field(None)
     custom_token: str | None = Field(None)
     model: pagenlp_configs_model_enum_param | None = Field(None)
@@ -50430,7 +50430,7 @@ class PageCreateNlpConfigParams(BaseModel):
 class PageCreateNotificationMessagesDevSupportParams(BaseModel):
     """Parameters for Page.create_notification_messages_dev_support()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     developer_action: pagenotification_messages_dev_support_developer_action_enum_param = Field(...)
     recipient: dict[str, Any] = Field(...)
 
@@ -50438,7 +50438,7 @@ class PageCreateNotificationMessagesDevSupportParams(BaseModel):
 class PageCreatePageWhatsappNumberVerificationParams(BaseModel):
     """Parameters for Page.create_page_whatsapp_number_verification()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     verification_code: str | None = Field(None)
     whatsapp_number: str = Field(...)
 
@@ -50446,7 +50446,7 @@ class PageCreatePageWhatsappNumberVerificationParams(BaseModel):
 class PageCreatePassThreadControlParams(BaseModel):
     """Parameters for Page.create_pass_thread_control()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     metadata: str | None = Field(None)
     recipient: dict[str, Any] = Field(...)
     target_app_id: str | None = Field(None)
@@ -50455,7 +50455,7 @@ class PageCreatePassThreadControlParams(BaseModel):
 class PageCreatePersonaParams(BaseModel):
     """Parameters for Page.create_persona()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     name: str = Field(...)
     profile_picture_url: str = Field(...)
 
@@ -50463,14 +50463,14 @@ class PageCreatePersonaParams(BaseModel):
 class PageCreatePhotoStorieParams(BaseModel):
     """Parameters for Page.create_photo_storie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     photo_id: str | None = Field(None)
 
 
 class PageGetPhotosParams(BaseModel):
     """Parameters for Page.get_photos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     biz_tag_id: int | None = Field(None)
     business_id: str | None = Field(None)
     type: pagephotos_type_enum_param | None = Field(None)
@@ -50479,7 +50479,7 @@ class PageGetPhotosParams(BaseModel):
 class PageCreatePhotoParams(BaseModel):
     """Parameters for Page.create_photo()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     aid: str | None = Field(None)
     allow_spherical_photo: bool | None = Field(None)
     alt_text_custom: str | None = Field(None)
@@ -50543,7 +50543,7 @@ class PageCreatePhotoParams(BaseModel):
 class PageGetPictureParams(BaseModel):
     """Parameters for Page.get_picture()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     height: int | None = Field(None)
     redirect: bool | None = Field(None)
     type: pagepicture_type_enum_param | None = Field(None)
@@ -50553,7 +50553,7 @@ class PageGetPictureParams(BaseModel):
 class PageCreatePictureParams(BaseModel):
     """Parameters for Page.create_picture()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     android_key_hash: str | None = Field(None)
     burn_media_effect: bool | None = Field(None)
     caption: str | None = Field(None)
@@ -50585,7 +50585,7 @@ class PageCreatePictureParams(BaseModel):
 class PageGetPostsParams(BaseModel):
     """Parameters for Page.get_posts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_hidden: bool | None = Field(None)
     limit: int | None = Field(None)
     q: str | None = Field(None)
@@ -50596,7 +50596,7 @@ class PageGetPostsParams(BaseModel):
 class PageGetPublishedPostsParams(BaseModel):
     """Parameters for Page.get_published_posts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_hidden: bool | None = Field(None)
     limit: int | None = Field(None)
     show_expired: bool | None = Field(None)
@@ -50606,14 +50606,14 @@ class PageGetPublishedPostsParams(BaseModel):
 class PageCreateReleaseThreadControlParams(BaseModel):
     """Parameters for Page.create_release_thread_control()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     recipient: dict[str, Any] = Field(...)
 
 
 class PageCreateRequestThreadControlParams(BaseModel):
     """Parameters for Page.create_request_thread_control()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     metadata: str | None = Field(None)
     recipient: dict[str, Any] = Field(...)
 
@@ -50621,7 +50621,7 @@ class PageCreateRequestThreadControlParams(BaseModel):
 class PageGetRolesParams(BaseModel):
     """Parameters for Page.get_roles()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_deactivated: bool | None = Field(None)
     uid: int | None = Field(None)
 
@@ -50629,21 +50629,21 @@ class PageGetRolesParams(BaseModel):
 class PageGetSecondaryReceiversParams(BaseModel):
     """Parameters for Page.get_secondary_receivers()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     platform: pagesecondary_receivers_platform_enum_param | None = Field(None)
 
 
 class PageCreateSettingParams(BaseModel):
     """Parameters for Page.create_setting()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     option: dict[str, Any] | None = Field(None)
 
 
 class PageGetStoriesParams(BaseModel):
     """Parameters for Page.get_stories()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
     status: list[Any] | None = Field(None)
     until: datetime | None = Field(None)
@@ -50652,21 +50652,21 @@ class PageGetStoriesParams(BaseModel):
 class PageCreateSubscribedAppParams(BaseModel):
     """Parameters for Page.create_subscribed_app()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     subscribed_fields: list[Any] = Field(...)
 
 
 class PageGetTabsParams(BaseModel):
     """Parameters for Page.get_tabs()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     tab: list[str] | None = Field(None)
 
 
 class PageCreateTakeThreadControlParams(BaseModel):
     """Parameters for Page.create_take_thread_control()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     metadata: str | None = Field(None)
     recipient: dict[str, Any] = Field(...)
 
@@ -50674,14 +50674,14 @@ class PageCreateTakeThreadControlParams(BaseModel):
 class PageGetThreadOwnerParams(BaseModel):
     """Parameters for Page.get_thread_owner()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     recipient: str = Field(...)
 
 
 class PageGetThreadsParams(BaseModel):
     """Parameters for Page.get_threads()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     folder: str | None = Field(None)
     platform: pagethreads_platform_enum_param | None = Field(None)
     tags: list[str] | None = Field(None)
@@ -50691,14 +50691,14 @@ class PageGetThreadsParams(BaseModel):
 class PageCreateUnlinkAccountParams(BaseModel):
     """Parameters for Page.create_unlink_account()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     psid: str = Field(...)
 
 
 class PageGetVideoCopyrightRulesParams(BaseModel):
     """Parameters for Page.get_video_copyright_rules()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     selected_rule_id: str | None = Field(None)
     source: pagevideo_copyright_rules_source_enum_param | None = Field(None)
 
@@ -50706,7 +50706,7 @@ class PageGetVideoCopyrightRulesParams(BaseModel):
 class PageCreateVideoCopyrightRuleParams(BaseModel):
     """Parameters for Page.create_video_copyright_rule()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     condition_groups: list[Any] = Field(...)
     name: str = Field(...)
 
@@ -50714,7 +50714,7 @@ class PageCreateVideoCopyrightRuleParams(BaseModel):
 class PageCreateVideoCopyrightParams(BaseModel):
     """Parameters for Page.create_video_copyright()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attribution_id: str | None = Field(None)
     content_category: pagevideo_copyrights_content_category_enum_param | None = Field(None)
     copyright_content_id: str = Field(...)
@@ -50733,7 +50733,7 @@ class PageCreateVideoCopyrightParams(BaseModel):
 class PageGetVideoReelsParams(BaseModel):
     """Parameters for Page.get_video_reels()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     since: datetime | None = Field(None)
     until: datetime | None = Field(None)
 
@@ -50741,7 +50741,7 @@ class PageGetVideoReelsParams(BaseModel):
 class PageCreateVideoReelParams(BaseModel):
     """Parameters for Page.create_video_reel()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     description: str | None = Field(None)
     feed_targeting: dict[str, Any] | None = Field(None)
     place: str | None = Field(None)
@@ -50756,7 +50756,7 @@ class PageCreateVideoReelParams(BaseModel):
 class PageCreateVideoStorieParams(BaseModel):
     """Parameters for Page.create_video_storie()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     description: str | None = Field(None)
     feed_targeting: dict[str, Any] | None = Field(None)
     place: str | None = Field(None)
@@ -50771,14 +50771,14 @@ class PageCreateVideoStorieParams(BaseModel):
 class PageGetVideosParams(BaseModel):
     """Parameters for Page.get_videos()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: pagevideos_type_enum_param | None = Field(None)
 
 
 class PageCreateVideoParams(BaseModel):
     """Parameters for Page.create_video()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     ad_breaks: Any | None = Field(None)
     application_id: str | None = Field(None)
     asked_fun_fact_prompt_id: int | None = Field(None)
@@ -50873,7 +50873,7 @@ class PageCreateVideoParams(BaseModel):
 class PageGetVisitorPostsParams(BaseModel):
     """Parameters for Page.get_visitor_posts()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     include_hidden: bool | None = Field(None)
     limit: int | None = Field(None)
     show_expired: bool | None = Field(None)
@@ -50883,14 +50883,14 @@ class PageGetVisitorPostsParams(BaseModel):
 class PageDeleteWelcomeMessageFlowsParams(BaseModel):
     """Parameters for Page.delete_welcome_message_flows()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     flow_id: str = Field(...)
 
 
 class PageGetWelcomeMessageFlowsParams(BaseModel):
     """Parameters for Page.get_welcome_message_flows()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     app_id: str | None = Field(None)
     flow_id: str | None = Field(None)
 
@@ -50898,7 +50898,7 @@ class PageGetWelcomeMessageFlowsParams(BaseModel):
 class PageCreateWelcomeMessageFlowParams(BaseModel):
     """Parameters for Page.create_welcome_message_flow()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     eligible_platforms: list[Any] | None = Field(None)
     flow_id: str | None = Field(None)
     name: str | None = Field(None)
@@ -50908,7 +50908,7 @@ class PageCreateWelcomeMessageFlowParams(BaseModel):
 class ProfileGetPictureParams(BaseModel):
     """Parameters for Profile.get_picture()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     height: int | None = Field(None)
     redirect: bool | None = Field(None)
     type: profilepicture_type_enum_param | None = Field(None)
@@ -50918,7 +50918,7 @@ class ProfileGetPictureParams(BaseModel):
 class PhotoGetCommentsParams(BaseModel):
     """Parameters for Photo.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: photocomments_filter_enum_param | None = Field(None)
     live_filter: photocomments_live_filter_enum_param | None = Field(None)
     order: photocomments_order_enum_param | None = Field(None)
@@ -50928,7 +50928,7 @@ class PhotoGetCommentsParams(BaseModel):
 class PhotoCreateCommentParams(BaseModel):
     """Parameters for Photo.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attachment_id: str | None = Field(None)
     attachment_share_url: str | None = Field(None)
     attachment_url: str | None = Field(None)
@@ -50947,7 +50947,7 @@ class PhotoCreateCommentParams(BaseModel):
 class PhotoGetInsightsParams(BaseModel):
     """Parameters for Photo.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: photoinsights_date_preset_enum_param | None = Field(None)
     metric: list[Any] | None = Field(None)
     period: photoinsights_period_enum_param | None = Field(None)
@@ -50958,7 +50958,7 @@ class PhotoGetInsightsParams(BaseModel):
 class PhotoCreateLikeParams(BaseModel):
     """Parameters for Photo.create_like()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     notify: bool | None = Field(None)
@@ -50968,7 +50968,7 @@ class PhotoCreateLikeParams(BaseModel):
 class PostGetCommentsParams(BaseModel):
     """Parameters for Post.get_comments()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     filter: postcomments_filter_enum_param | None = Field(None)
     live_filter: postcomments_live_filter_enum_param | None = Field(None)
     order: postcomments_order_enum_param | None = Field(None)
@@ -50978,7 +50978,7 @@ class PostGetCommentsParams(BaseModel):
 class PostCreateCommentParams(BaseModel):
     """Parameters for Post.create_comment()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     attachment_id: str | None = Field(None)
     attachment_share_url: str | None = Field(None)
     attachment_url: str | None = Field(None)
@@ -50995,7 +50995,7 @@ class PostCreateCommentParams(BaseModel):
 class PostGetInsightsParams(BaseModel):
     """Parameters for Post.get_insights()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     date_preset: postinsights_date_preset_enum_param | None = Field(None)
     metric: list[Any] | None = Field(None)
     period: postinsights_period_enum_param | None = Field(None)
@@ -51006,7 +51006,7 @@ class PostGetInsightsParams(BaseModel):
 class PostDeleteLikesParams(BaseModel):
     """Parameters for Post.delete_likes()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     nectar_module: str | None = Field(None)
     tracking: str | None = Field(None)
 
@@ -51014,7 +51014,7 @@ class PostDeleteLikesParams(BaseModel):
 class PostCreateLikeParams(BaseModel):
     """Parameters for Post.create_like()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     feedback_source: str | None = Field(None)
     nectar_module: str | None = Field(None)
     tracking: str | None = Field(None)
@@ -51023,14 +51023,14 @@ class PostCreateLikeParams(BaseModel):
 class PostGetReactionsParams(BaseModel):
     """Parameters for Post.get_reactions()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     type: postreactions_type_enum_param | None = Field(None)
 
 
 class VehicleOfferGetOverrideDetailsParams(BaseModel):
     """Parameters for VehicleOffer.get_override_details()."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="allow")
     keys: list[str] | None = Field(None)
     type: vehicleofferoverride_details_type_enum_param | None = Field(None)
 
