@@ -9,11 +9,10 @@ from .utils import get_logger, load_dotenv
 
 logger = get_logger(__name__)
 
-# Load .env from current working directory
 load_dotenv(".env")
 
 
-async def async_main() -> None:
+async def run() -> None:
     """Main entry point."""
     try:
         # root mcp server
@@ -34,13 +33,9 @@ async def async_main() -> None:
         logger.info("\nServer stopped by user.")
     except Exception as e:
         logger.info(f"Error starting server: {e}")
+    finally:
         sys.exit(1)
 
 
-def main() -> None:
-    """Synchronous entry point."""
-    asyncio.run(async_main())
-
-
 if __name__ == "__main__":
-    main()
+    asyncio.run(run())
