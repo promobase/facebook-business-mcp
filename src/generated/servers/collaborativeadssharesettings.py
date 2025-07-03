@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.collaborativeadssharesettings import CollaborativeAdsShareSettings
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-collaborativeadssharesettings")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-collaborativeadssharesettings")
 
 
 @mcp.tool()
-async def api_create_collaborativeadssharesettings(
+@wrapped_fn_tool
+async def api_create(
     collaborativeadssharesettings_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_collaborativeadssharesettings(
 
 
 @mcp.tool()
-async def api_delete_collaborativeadssharesettings(
+@wrapped_fn_tool
+async def api_delete(
     collaborativeadssharesettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_collaborativeadssharesettings(
 
 
 @mcp.tool()
-async def api_get_collaborativeadssharesettings(
+@wrapped_fn_tool
+async def api_get(
     collaborativeadssharesettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_collaborativeadssharesettings(
 
 
 @mcp.tool()
-async def api_update_collaborativeadssharesettings(
+@wrapped_fn_tool
+async def api_update(
     collaborativeadssharesettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CollaborativeAdsShareSettings(fbid=collaborativeadssharesettings_id).api_update(
         fields=fields,
         params=params,

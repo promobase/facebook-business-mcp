@@ -17,36 +17,252 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class productcatalogproducts_marked_for_product_launch_enum_param(str, Enum):
-    """productcatalogproducts_marked_for_product_launch_enum_param enum values."""
+class productcatalogpricing_variables_batch_standard_enum_param(str, Enum):
+    """productcatalogpricing_variables_batch_standard_enum_param enum values."""
 
-    default = "default"
-    marked = "marked"
-    not_marked = "not_marked"
+    google = "google"
 
 
-class productcatalogcreator_asset_creatives_moderation_status_enum_param(str, Enum):
-    """productcatalogcreator_asset_creatives_moderation_status_enum_param enum values."""
+class productcatalogagencies_permitted_tasks_enum_param(str, Enum):
+    """productcatalogagencies_permitted_tasks_enum_param enum values."""
 
-    ARCHIVED = "ARCHIVED"
-    ELIGIBLE = "ELIGIBLE"
-    EXPIRED = "EXPIRED"
-    INELIGIBLE = "INELIGIBLE"
-    IN_REVIEW = "IN_REVIEW"
-    PAUSED = "PAUSED"
-    UNKNOWN = "UNKNOWN"
+    AA_ANALYZE = "AA_ANALYZE"
+    ADVERTISE = "ADVERTISE"
+    MANAGE = "MANAGE"
+    MANAGE_AR = "MANAGE_AR"
 
 
-class productcatalogvehicles_drivetrain_enum_param(str, Enum):
-    """productcatalogvehicles_drivetrain_enum_param enum values."""
+class productcatalogproducts_commerce_tax_category_enum_param(str, Enum):
+    """productcatalogproducts_commerce_tax_category_enum_param enum values."""
 
-    AWD = "AWD"
-    FOUR_WD = "FOUR_WD"
-    FWD = "FWD"
-    NONE = "NONE"
-    OTHER = "OTHER"
-    RWD = "RWD"
-    TWO_WD = "TWO_WD"
+    FB_ANIMAL = "FB_ANIMAL"
+    FB_ANIMAL_SUPP = "FB_ANIMAL_SUPP"
+    FB_APRL = "FB_APRL"
+    FB_APRL_ACCESSORIES = "FB_APRL_ACCESSORIES"
+    FB_APRL_ATHL_UNIF = "FB_APRL_ATHL_UNIF"
+    FB_APRL_CASES = "FB_APRL_CASES"
+    FB_APRL_CLOTHING = "FB_APRL_CLOTHING"
+    FB_APRL_COSTUME = "FB_APRL_COSTUME"
+    FB_APRL_CSTM = "FB_APRL_CSTM"
+    FB_APRL_FORMAL = "FB_APRL_FORMAL"
+    FB_APRL_HANDBAG = "FB_APRL_HANDBAG"
+    FB_APRL_JEWELRY = "FB_APRL_JEWELRY"
+    FB_APRL_SHOE = "FB_APRL_SHOE"
+    FB_APRL_SHOE_ACC = "FB_APRL_SHOE_ACC"
+    FB_APRL_SWIM = "FB_APRL_SWIM"
+    FB_APRL_SWIM_CHIL = "FB_APRL_SWIM_CHIL"
+    FB_APRL_SWIM_CVR = "FB_APRL_SWIM_CVR"
+    FB_ARTS = "FB_ARTS"
+    FB_ARTS_HOBBY = "FB_ARTS_HOBBY"
+    FB_ARTS_PARTY = "FB_ARTS_PARTY"
+    FB_ARTS_PARTY_GIFT_CARD = "FB_ARTS_PARTY_GIFT_CARD"
+    FB_ARTS_TICKET = "FB_ARTS_TICKET"
+    FB_BABY = "FB_BABY"
+    FB_BABY_BATH = "FB_BABY_BATH"
+    FB_BABY_BLANKET = "FB_BABY_BLANKET"
+    FB_BABY_DIAPER = "FB_BABY_DIAPER"
+    FB_BABY_GIFT_SET = "FB_BABY_GIFT_SET"
+    FB_BABY_HEALTH = "FB_BABY_HEALTH"
+    FB_BABY_NURSING = "FB_BABY_NURSING"
+    FB_BABY_POTTY_TRN = "FB_BABY_POTTY_TRN"
+    FB_BABY_SAFE = "FB_BABY_SAFE"
+    FB_BABY_TOYS = "FB_BABY_TOYS"
+    FB_BABY_TRANSPORT = "FB_BABY_TRANSPORT"
+    FB_BABY_TRANSPORT_ACC = "FB_BABY_TRANSPORT_ACC"
+    FB_BAGS = "FB_BAGS"
+    FB_BAGS_BKPK = "FB_BAGS_BKPK"
+    FB_BAGS_BOXES = "FB_BAGS_BOXES"
+    FB_BAGS_BRFCS = "FB_BAGS_BRFCS"
+    FB_BAGS_CSMT_BAG = "FB_BAGS_CSMT_BAG"
+    FB_BAGS_DFFL = "FB_BAGS_DFFL"
+    FB_BAGS_DIPR = "FB_BAGS_DIPR"
+    FB_BAGS_FNNY = "FB_BAGS_FNNY"
+    FB_BAGS_GRMT = "FB_BAGS_GRMT"
+    FB_BAGS_LUGG = "FB_BAGS_LUGG"
+    FB_BAGS_LUG_ACC = "FB_BAGS_LUG_ACC"
+    FB_BAGS_MSGR = "FB_BAGS_MSGR"
+    FB_BAGS_TOTE = "FB_BAGS_TOTE"
+    FB_BAGS_TRN_CAS = "FB_BAGS_TRN_CAS"
+    FB_BLDG = "FB_BLDG"
+    FB_BLDG_ACC = "FB_BLDG_ACC"
+    FB_BLDG_CNSMB = "FB_BLDG_CNSMB"
+    FB_BLDG_FENCE = "FB_BLDG_FENCE"
+    FB_BLDG_FUEL_TNK = "FB_BLDG_FUEL_TNK"
+    FB_BLDG_HT_VNT = "FB_BLDG_HT_VNT"
+    FB_BLDG_LOCK = "FB_BLDG_LOCK"
+    FB_BLDG_MATRL = "FB_BLDG_MATRL"
+    FB_BLDG_PLMB = "FB_BLDG_PLMB"
+    FB_BLDG_PUMP = "FB_BLDG_PUMP"
+    FB_BLDG_PWRS = "FB_BLDG_PWRS"
+    FB_BLDG_STR_TANK = "FB_BLDG_STR_TANK"
+    FB_BLDG_S_ENG = "FB_BLDG_S_ENG"
+    FB_BLDG_TL_ACC = "FB_BLDG_TL_ACC"
+    FB_BLDG_TOOL = "FB_BLDG_TOOL"
+    FB_BUSIND = "FB_BUSIND"
+    FB_BUSIND_ADVERTISING = "FB_BUSIND_ADVERTISING"
+    FB_BUSIND_AGRICULTURE = "FB_BUSIND_AGRICULTURE"
+    FB_BUSIND_AUTOMATION = "FB_BUSIND_AUTOMATION"
+    FB_BUSIND_HEAVY_MACH = "FB_BUSIND_HEAVY_MACH"
+    FB_BUSIND_LAB = "FB_BUSIND_LAB"
+    FB_BUSIND_MEDICAL = "FB_BUSIND_MEDICAL"
+    FB_BUSIND_RETAIL = "FB_BUSIND_RETAIL"
+    FB_BUSIND_SANITARY_CT = "FB_BUSIND_SANITARY_CT"
+    FB_BUSIND_SIGN = "FB_BUSIND_SIGN"
+    FB_BUSIND_STORAGE = "FB_BUSIND_STORAGE"
+    FB_BUSIND_STORAGE_ACC = "FB_BUSIND_STORAGE_ACC"
+    FB_BUSIND_WORK_GEAR = "FB_BUSIND_WORK_GEAR"
+    FB_CAMERA_ACC = "FB_CAMERA_ACC"
+    FB_CAMERA_CAMERA = "FB_CAMERA_CAMERA"
+    FB_CAMERA_OPTIC = "FB_CAMERA_OPTIC"
+    FB_CAMERA_OPTICS = "FB_CAMERA_OPTICS"
+    FB_CAMERA_PHOTO = "FB_CAMERA_PHOTO"
+    FB_ELEC = "FB_ELEC"
+    FB_ELEC_ACC = "FB_ELEC_ACC"
+    FB_ELEC_ARCDADE = "FB_ELEC_ARCDADE"
+    FB_ELEC_AUDIO = "FB_ELEC_AUDIO"
+    FB_ELEC_CIRCUIT = "FB_ELEC_CIRCUIT"
+    FB_ELEC_COMM = "FB_ELEC_COMM"
+    FB_ELEC_COMPUTER = "FB_ELEC_COMPUTER"
+    FB_ELEC_GPS_ACC = "FB_ELEC_GPS_ACC"
+    FB_ELEC_GPS_NAV = "FB_ELEC_GPS_NAV"
+    FB_ELEC_GPS_TRK = "FB_ELEC_GPS_TRK"
+    FB_ELEC_MARINE = "FB_ELEC_MARINE"
+    FB_ELEC_NETWORK = "FB_ELEC_NETWORK"
+    FB_ELEC_PART = "FB_ELEC_PART"
+    FB_ELEC_PRINT = "FB_ELEC_PRINT"
+    FB_ELEC_RADAR = "FB_ELEC_RADAR"
+    FB_ELEC_SFTWR = "FB_ELEC_SFTWR"
+    FB_ELEC_SPEED_RDR = "FB_ELEC_SPEED_RDR"
+    FB_ELEC_TELEVISION = "FB_ELEC_TELEVISION"
+    FB_ELEC_TOLL = "FB_ELEC_TOLL"
+    FB_ELEC_VIDEO = "FB_ELEC_VIDEO"
+    FB_ELEC_VID_GM_ACC = "FB_ELEC_VID_GM_ACC"
+    FB_ELEC_VID_GM_CNSL = "FB_ELEC_VID_GM_CNSL"
+    FB_FOOD = "FB_FOOD"
+    FB_FURN = "FB_FURN"
+    FB_FURN_BABY = "FB_FURN_BABY"
+    FB_FURN_BENCH = "FB_FURN_BENCH"
+    FB_FURN_CART = "FB_FURN_CART"
+    FB_FURN_CHAIR = "FB_FURN_CHAIR"
+    FB_FURN_CHAIR_ACC = "FB_FURN_CHAIR_ACC"
+    FB_FURN_DIVIDE = "FB_FURN_DIVIDE"
+    FB_FURN_DIVIDE_ACC = "FB_FURN_DIVIDE_ACC"
+    FB_FURN_ENT_CTR = "FB_FURN_ENT_CTR"
+    FB_FURN_FUTN = "FB_FURN_FUTN"
+    FB_FURN_FUTN_PAD = "FB_FURN_FUTN_PAD"
+    FB_FURN_OFFICE = "FB_FURN_OFFICE"
+    FB_FURN_OFFICE_ACC = "FB_FURN_OFFICE_ACC"
+    FB_FURN_OTTO = "FB_FURN_OTTO"
+    FB_FURN_OUTDOOR = "FB_FURN_OUTDOOR"
+    FB_FURN_OUTDOOR_ACC = "FB_FURN_OUTDOOR_ACC"
+    FB_FURN_SETS = "FB_FURN_SETS"
+    FB_FURN_SHELVE_ACC = "FB_FURN_SHELVE_ACC"
+    FB_FURN_SHLF = "FB_FURN_SHLF"
+    FB_FURN_SOFA = "FB_FURN_SOFA"
+    FB_FURN_SOFA_ACC = "FB_FURN_SOFA_ACC"
+    FB_FURN_STORAGE = "FB_FURN_STORAGE"
+    FB_FURN_TABL = "FB_FURN_TABL"
+    FB_FURN_TABL_ACC = "FB_FURN_TABL_ACC"
+    FB_GENERIC_TAXABLE = "FB_GENERIC_TAXABLE"
+    FB_HLTH = "FB_HLTH"
+    FB_HLTH_HLTH = "FB_HLTH_HLTH"
+    FB_HLTH_JWL_CR = "FB_HLTH_JWL_CR"
+    FB_HLTH_LILP_BLM = "FB_HLTH_LILP_BLM"
+    FB_HLTH_LTN_SPF = "FB_HLTH_LTN_SPF"
+    FB_HLTH_PRSL_CR = "FB_HLTH_PRSL_CR"
+    FB_HLTH_SKN_CR = "FB_HLTH_SKN_CR"
+    FB_HMGN = "FB_HMGN"
+    FB_HMGN_BATH = "FB_HMGN_BATH"
+    FB_HMGN_DCOR = "FB_HMGN_DCOR"
+    FB_HMGN_EMGY = "FB_HMGN_EMGY"
+    FB_HMGN_FPLC = "FB_HMGN_FPLC"
+    FB_HMGN_FPLC_ACC = "FB_HMGN_FPLC_ACC"
+    FB_HMGN_GS_SFT = "FB_HMGN_GS_SFT"
+    FB_HMGN_HS_ACC = "FB_HMGN_HS_ACC"
+    FB_HMGN_HS_APP = "FB_HMGN_HS_APP"
+    FB_HMGN_HS_SPL = "FB_HMGN_HS_SPL"
+    FB_HMGN_KTCN = "FB_HMGN_KTCN"
+    FB_HMGN_LAWN = "FB_HMGN_LAWN"
+    FB_HMGN_LGHT = "FB_HMGN_LGHT"
+    FB_HMGN_LINN = "FB_HMGN_LINN"
+    FB_HMGN_LT_ACC = "FB_HMGN_LT_ACC"
+    FB_HMGN_OTDR = "FB_HMGN_OTDR"
+    FB_HMGN_POOL = "FB_HMGN_POOL"
+    FB_HMGN_SCTY = "FB_HMGN_SCTY"
+    FB_HMGN_SMK_ACC = "FB_HMGN_SMK_ACC"
+    FB_HMGN_UMBR = "FB_HMGN_UMBR"
+    FB_HMGN_UMBR_ACC = "FB_HMGN_UMBR_ACC"
+    FB_MDIA = "FB_MDIA"
+    FB_MDIA_BOOK = "FB_MDIA_BOOK"
+    FB_MDIA_DVDS = "FB_MDIA_DVDS"
+    FB_MDIA_MAG = "FB_MDIA_MAG"
+    FB_MDIA_MANL = "FB_MDIA_MANL"
+    FB_MDIA_MUSC = "FB_MDIA_MUSC"
+    FB_MDIA_PRJ_PLN = "FB_MDIA_PRJ_PLN"
+    FB_MDIA_SHT_MUS = "FB_MDIA_SHT_MUS"
+    FB_OFFC = "FB_OFFC"
+    FB_OFFC_BKAC = "FB_OFFC_BKAC"
+    FB_OFFC_CRTS = "FB_OFFC_CRTS"
+    FB_OFFC_DSKP = "FB_OFFC_DSKP"
+    FB_OFFC_EQIP = "FB_OFFC_EQIP"
+    FB_OFFC_FLNG = "FB_OFFC_FLNG"
+    FB_OFFC_GNRL = "FB_OFFC_GNRL"
+    FB_OFFC_INSTM = "FB_OFFC_INSTM"
+    FB_OFFC_LP_DSK = "FB_OFFC_LP_DSK"
+    FB_OFFC_MATS = "FB_OFFC_MATS"
+    FB_OFFC_NM_PLT = "FB_OFFC_NM_PLT"
+    FB_OFFC_PPR_HNDL = "FB_OFFC_PPR_HNDL"
+    FB_OFFC_PRSNT_SPL = "FB_OFFC_PRSNT_SPL"
+    FB_OFFC_SEALR = "FB_OFFC_SEALR"
+    FB_OFFC_SHIP_SPL = "FB_OFFC_SHIP_SPL"
+    FB_RLGN = "FB_RLGN"
+    FB_RLGN_CMNY = "FB_RLGN_CMNY"
+    FB_RLGN_ITEM = "FB_RLGN_ITEM"
+    FB_RLGN_WEDD = "FB_RLGN_WEDD"
+    FB_SFTWR = "FB_SFTWR"
+    FB_SFWR_CMPTR = "FB_SFWR_CMPTR"
+    FB_SFWR_DGTL_GD = "FB_SFWR_DGTL_GD"
+    FB_SFWR_GAME = "FB_SFWR_GAME"
+    FB_SHIPPING = "FB_SHIPPING"
+    FB_SPOR = "FB_SPOR"
+    FB_SPORT_ATHL = "FB_SPORT_ATHL"
+    FB_SPORT_ATHL_CLTH = "FB_SPORT_ATHL_CLTH"
+    FB_SPORT_ATHL_SHOE = "FB_SPORT_ATHL_SHOE"
+    FB_SPORT_ATHL_SPRT = "FB_SPORT_ATHL_SPRT"
+    FB_SPORT_EXRCS = "FB_SPORT_EXRCS"
+    FB_SPORT_INDR_GM = "FB_SPORT_INDR_GM"
+    FB_SPORT_OTDR_GM = "FB_SPORT_OTDR_GM"
+    FB_TOYS = "FB_TOYS"
+    FB_TOYS_EQIP = "FB_TOYS_EQIP"
+    FB_TOYS_GAME = "FB_TOYS_GAME"
+    FB_TOYS_PZZL = "FB_TOYS_PZZL"
+    FB_TOYS_TMRS = "FB_TOYS_TMRS"
+    FB_TOYS_TOYS = "FB_TOYS_TOYS"
+    FB_VEHI = "FB_VEHI"
+    FB_VEHI_PART = "FB_VEHI_PART"
+
+
+class productcatalogproducts_wa_compliance_category_enum_param(str, Enum):
+    """productcatalogproducts_wa_compliance_category_enum_param enum values."""
+
+    COUNTRY_ORIGIN_EXEMPT = "COUNTRY_ORIGIN_EXEMPT"
+    DEFAULT = "DEFAULT"
+
+
+class productcatalogvehicles_state_of_vehicle_enum_param(str, Enum):
+    """productcatalogvehicles_state_of_vehicle_enum_param enum values."""
+
+    CPO = "CPO"
+    NEW = "NEW"
+    USED = "USED"
+
+
+class productcatalogproducts_error_priority_enum_param(str, Enum):
+    """productcatalogproducts_error_priority_enum_param enum values."""
+
+    HIGH = "HIGH"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
 
 
 class productcatalogproducts_condition_enum_param(str, Enum):
@@ -62,48 +278,11 @@ class productcatalogproducts_condition_enum_param(str, Enum):
     used_like_new = "used_like_new"
 
 
-class productcatalogvehicles_body_style_enum_param(str, Enum):
-    """productcatalogvehicles_body_style_enum_param enum values."""
+class productcatalogagencies_permitted_roles_enum_param(str, Enum):
+    """productcatalogagencies_permitted_roles_enum_param enum values."""
 
-    CONVERTIBLE = "CONVERTIBLE"
-    COUPE = "COUPE"
-    CROSSOVER = "CROSSOVER"
-    ESTATE = "ESTATE"
-    GRANDTOURER = "GRANDTOURER"
-    HATCHBACK = "HATCHBACK"
-    MINIBUS = "MINIBUS"
-    MINIVAN = "MINIVAN"
-    MPV = "MPV"
-    NONE = "NONE"
-    OTHER = "OTHER"
-    PICKUP = "PICKUP"
-    ROADSTER = "ROADSTER"
-    SALOON = "SALOON"
-    SEDAN = "SEDAN"
-    SMALL_CAR = "SMALL_CAR"
-    SPORTSCAR = "SPORTSCAR"
-    SUPERCAR = "SUPERCAR"
-    SUPERMINI = "SUPERMINI"
-    SUV = "SUV"
-    TRUCK = "TRUCK"
-    VAN = "VAN"
-    WAGON = "WAGON"
-
-
-class productcatalogproduct_feeds_quoted_fields_mode_enum_param(str, Enum):
-    """productcatalogproduct_feeds_quoted_fields_mode_enum_param enum values."""
-
-    autodetect = "autodetect"
-    off = "off"
-    on = "on"
-
-
-class productcatalogproducts_gender_enum_param(str, Enum):
-    """productcatalogproducts_gender_enum_param enum values."""
-
-    female = "female"
-    male = "male"
-    unisex = "unisex"
+    ADMIN = "ADMIN"
+    ADVERTISER = "ADVERTISER"
 
 
 class productcatalogvehicles_availability_enum_param(str, Enum):
@@ -115,87 +294,10 @@ class productcatalogvehicles_availability_enum_param(str, Enum):
     UNKNOWN = "UNKNOWN"
 
 
-class productcatalogproducts_error_priority_enum_param(str, Enum):
-    """productcatalogproducts_error_priority_enum_param enum values."""
+class productcataloghotel_rooms_batch_standard_enum_param(str, Enum):
+    """productcataloghotel_rooms_batch_standard_enum_param enum values."""
 
-    HIGH = "HIGH"
-    LOW = "LOW"
-    MEDIUM = "MEDIUM"
-
-
-class productcatalogvehicles_state_of_vehicle_enum_param(str, Enum):
-    """productcatalogvehicles_state_of_vehicle_enum_param enum values."""
-
-    CPO = "CPO"
-    NEW = "NEW"
-    USED = "USED"
-
-
-class productcatalogproducts_availability_enum_param(str, Enum):
-    """productcatalogproducts_availability_enum_param enum values."""
-
-    AVAILABLE_FOR_ORDER = "available for order"
-    discontinued = "discontinued"
-    IN_STOCK = "in stock"
-    mark_as_sold = "mark_as_sold"
-    OUT_OF_STOCK = "out of stock"
-    pending = "pending"
-    preorder = "preorder"
-
-
-class productcatalogproduct_feeds_encoding_enum_param(str, Enum):
-    """productcatalogproduct_feeds_encoding_enum_param enum values."""
-
-    AUTODETECT = "AUTODETECT"
-    LATIN1 = "LATIN1"
-    UTF16BE = "UTF16BE"
-    UTF16LE = "UTF16LE"
-    UTF32BE = "UTF32BE"
-    UTF32LE = "UTF32LE"
-    UTF8 = "UTF8"
-
-
-class productcatalogdiagnostics_affected_channels_enum_param(str, Enum):
-    """productcatalogdiagnostics_affected_channels_enum_param enum values."""
-
-    b2c_marketplace = "b2c_marketplace"
-    c2c_marketplace = "c2c_marketplace"
-    da = "da"
-    daily_deals = "daily_deals"
-    daily_deals_legacy = "daily_deals_legacy"
-    ig_product_tagging = "ig_product_tagging"
-    marketplace = "marketplace"
-    marketplace_ads_deprecated = "marketplace_ads_deprecated"
-    marketplace_shops = "marketplace_shops"
-    mini_shops = "mini_shops"
-    offline_conversions = "offline_conversions"
-    shops = "shops"
-    universal_checkout = "universal_checkout"
-    whatsapp = "whatsapp"
-
-
-class productcatalogdata_sources_ingestion_source_type_enum_param(str, Enum):
-    """productcatalogdata_sources_ingestion_source_type_enum_param enum values."""
-
-    ALL = "ALL"
-    PRIMARY = "PRIMARY"
-    SUPPLEMENTARY = "SUPPLEMENTARY"
-
-
-class productcatalogmarketplace_partner_signals_event_name_enum_param(str, Enum):
-    """productcatalogmarketplace_partner_signals_event_name_enum_param enum values."""
-
-    ADD_TO_CART = "ADD_TO_CART"
-    PURCHASE = "PURCHASE"
-    TEST = "TEST"
-    VIEW_ITEM = "VIEW_ITEM"
-
-
-class productcatalogagencies_permitted_roles_enum_param(str, Enum):
-    """productcatalogagencies_permitted_roles_enum_param enum values."""
-
-    ADMIN = "ADMIN"
-    ADVERTISER = "ADVERTISER"
+    google = "google"
 
 
 class productcatalogitems_batch_item_sub_type_enum_param(str, Enum):
@@ -229,6 +331,26 @@ class productcatalogitems_batch_item_sub_type_enum_param(str, Enum):
     WATCHES = "WATCHES"
 
 
+class productcatalogproducts_marked_for_product_launch_enum_param(str, Enum):
+    """productcatalogproducts_marked_for_product_launch_enum_param enum values."""
+
+    default = "default"
+    marked = "marked"
+    not_marked = "not_marked"
+
+
+class productcatalogvehicles_condition_enum_param(str, Enum):
+    """productcatalogvehicles_condition_enum_param enum values."""
+
+    EXCELLENT = "EXCELLENT"
+    FAIR = "FAIR"
+    GOOD = "GOOD"
+    NONE = "NONE"
+    OTHER = "OTHER"
+    POOR = "POOR"
+    VERY_GOOD = "VERY_GOOD"
+
+
 class productcatalogcategories_categorization_criteria_enum_param(str, Enum):
     """productcatalogcategories_categorization_criteria_enum_param enum values."""
 
@@ -237,64 +359,58 @@ class productcatalogcategories_categorization_criteria_enum_param(str, Enum):
     PRODUCT_TYPE = "PRODUCT_TYPE"
 
 
-class productcatalogproduct_feeds_ingestion_source_type_enum_param(str, Enum):
-    """productcatalogproduct_feeds_ingestion_source_type_enum_param enum values."""
+class productcatalogproduct_feeds_override_type_enum_param(str, Enum):
+    """productcatalogproduct_feeds_override_type_enum_param enum values."""
 
-    PRIMARY_FEED = "PRIMARY_FEED"
-    SUPPLEMENTARY_FEED = "SUPPLEMENTARY_FEED"
-
-
-class productcatalogassigned_users_tasks_enum_param(str, Enum):
-    """productcatalogassigned_users_tasks_enum_param enum values."""
-
-    AA_ANALYZE = "AA_ANALYZE"
-    ADVERTISE = "ADVERTISE"
-    MANAGE = "MANAGE"
-    MANAGE_AR = "MANAGE_AR"
+    BATCH_API_LANGUAGE_OR_COUNTRY = "BATCH_API_LANGUAGE_OR_COUNTRY"
+    CATALOG_SEGMENT_CUSTOMIZE_DEFAULT = "CATALOG_SEGMENT_CUSTOMIZE_DEFAULT"
+    COUNTRY = "COUNTRY"
+    LANGUAGE = "LANGUAGE"
+    LANGUAGE_AND_COUNTRY = "LANGUAGE_AND_COUNTRY"
+    LOCAL = "LOCAL"
+    SMART_PIXEL_LANGUAGE_OR_COUNTRY = "SMART_PIXEL_LANGUAGE_OR_COUNTRY"
+    VERSION = "VERSION"
 
 
-class productcatalogdiagnostics_types_enum_param(str, Enum):
-    """productcatalogdiagnostics_types_enum_param enum values."""
+class productcatalogproduct_feeds_encoding_enum_param(str, Enum):
+    """productcatalogproduct_feeds_encoding_enum_param enum values."""
 
-    AR_VISIBILITY_ISSUES = "AR_VISIBILITY_ISSUES"
-    ATTRIBUTES_INVALID = "ATTRIBUTES_INVALID"
-    ATTRIBUTES_MISSING = "ATTRIBUTES_MISSING"
-    CATEGORY = "CATEGORY"
-    CHECKOUT = "CHECKOUT"
-    DA_VISIBILITY_ISSUES = "DA_VISIBILITY_ISSUES"
-    EVENT_SOURCE_ISSUES = "EVENT_SOURCE_ISSUES"
-    IMAGE_QUALITY = "IMAGE_QUALITY"
-    LOW_QUALITY_TITLE_AND_DESCRIPTION = "LOW_QUALITY_TITLE_AND_DESCRIPTION"
-    POLICY_VIOLATION = "POLICY_VIOLATION"
-    SHOPS_VISIBILITY_ISSUES = "SHOPS_VISIBILITY_ISSUES"
+    AUTODETECT = "AUTODETECT"
+    LATIN1 = "LATIN1"
+    UTF16BE = "UTF16BE"
+    UTF16LE = "UTF16LE"
+    UTF32BE = "UTF32BE"
+    UTF32LE = "UTF32LE"
+    UTF8 = "UTF8"
 
 
-class productcataloghotel_rooms_batch_standard_enum_param(str, Enum):
-    """productcataloghotel_rooms_batch_standard_enum_param enum values."""
+class productcatalogdiagnostics_affected_entities_enum_param(str, Enum):
+    """productcatalogdiagnostics_affected_entities_enum_param enum values."""
 
-    google = "google"
-
-
-class productcatalogproducts_wa_compliance_category_enum_param(str, Enum):
-    """productcatalogproducts_wa_compliance_category_enum_param enum values."""
-
-    COUNTRY_ORIGIN_EXEMPT = "COUNTRY_ORIGIN_EXEMPT"
-    DEFAULT = "DEFAULT"
+    product_catalog = "product_catalog"
+    product_event = "product_event"
+    product_item = "product_item"
+    product_set = "product_set"
 
 
-class productcatalogpricing_variables_batch_standard_enum_param(str, Enum):
-    """productcatalogpricing_variables_batch_standard_enum_param enum values."""
+class productcatalogcreator_asset_creatives_moderation_status_enum_param(str, Enum):
+    """productcatalogcreator_asset_creatives_moderation_status_enum_param enum values."""
 
-    google = "google"
+    ARCHIVED = "ARCHIVED"
+    ELIGIBLE = "ELIGIBLE"
+    EXPIRED = "EXPIRED"
+    INELIGIBLE = "INELIGIBLE"
+    IN_REVIEW = "IN_REVIEW"
+    PAUSED = "PAUSED"
+    UNKNOWN = "UNKNOWN"
 
 
-class productcatalogagencies_permitted_tasks_enum_param(str, Enum):
-    """productcatalogagencies_permitted_tasks_enum_param enum values."""
+class productcatalogproducts_gender_enum_param(str, Enum):
+    """productcatalogproducts_gender_enum_param enum values."""
 
-    AA_ANALYZE = "AA_ANALYZE"
-    ADVERTISE = "ADVERTISE"
-    MANAGE = "MANAGE"
-    MANAGE_AR = "MANAGE_AR"
+    female = "female"
+    male = "male"
+    unisex = "unisex"
 
 
 class productcatalogproduct_feeds_item_sub_type_enum_param(str, Enum):
@@ -326,230 +442,6 @@ class productcatalogproduct_feeds_item_sub_type_enum_param(str, Enum):
     TVS_AND_MONITORS = "TVS_AND_MONITORS"
     VIDEO_GAME_CONSOLES_AND_VIDEO_GAMES = "VIDEO_GAME_CONSOLES_AND_VIDEO_GAMES"
     WATCHES = "WATCHES"
-
-
-class productcatalogvehicles_vehicle_type_enum_param(str, Enum):
-    """productcatalogvehicles_vehicle_type_enum_param enum values."""
-
-    BOAT = "BOAT"
-    CAR_TRUCK = "CAR_TRUCK"
-    COMMERCIAL = "COMMERCIAL"
-    MOTORCYCLE = "MOTORCYCLE"
-    OTHER = "OTHER"
-    POWERSPORT = "POWERSPORT"
-    RV_CAMPER = "RV_CAMPER"
-    TRAILER = "TRAILER"
-
-
-class productcatalogdiagnostics_severities_enum_param(str, Enum):
-    """productcatalogdiagnostics_severities_enum_param enum values."""
-
-    MUST_FIX = "MUST_FIX"
-    OPPORTUNITY = "OPPORTUNITY"
-
-
-class productcatalogproduct_feeds_delimiter_enum_param(str, Enum):
-    """productcatalogproduct_feeds_delimiter_enum_param enum values."""
-
-    AUTODETECT = "AUTODETECT"
-    BAR = "BAR"
-    COMMA = "COMMA"
-    SEMICOLON = "SEMICOLON"
-    TAB = "TAB"
-    TILDE = "TILDE"
-
-
-class productcatalogvehicles_fuel_type_enum_param(str, Enum):
-    """productcatalogvehicles_fuel_type_enum_param enum values."""
-
-    DIESEL = "DIESEL"
-    ELECTRIC = "ELECTRIC"
-    FLEX = "FLEX"
-    GASOLINE = "GASOLINE"
-    HYBRID = "HYBRID"
-    NONE = "NONE"
-    OTHER = "OTHER"
-    PETROL = "PETROL"
-    PLUGIN_HYBRID = "PLUGIN_HYBRID"
-
-
-class productcatalogdiagnostics_affected_features_enum_param(str, Enum):
-    """productcatalogdiagnostics_affected_features_enum_param enum values."""
-
-    augmented_reality = "augmented_reality"
-    checkout = "checkout"
-
-
-class productcatalogproducts_error_type_enum_param(str, Enum):
-    """productcatalogproducts_error_type_enum_param enum values."""
-
-    ADDRESS_BLOCKLISTED_IN_MARKET = "ADDRESS_BLOCKLISTED_IN_MARKET"
-    AGGREGATED_LOCALIZATION_ISSUES = "AGGREGATED_LOCALIZATION_ISSUES"
-    APP_HAS_NO_AEM_SETUP = "APP_HAS_NO_AEM_SETUP"
-    AR_DELETED_DUE_TO_UPDATE = "AR_DELETED_DUE_TO_UPDATE"
-    AR_POLICY_VIOLATED = "AR_POLICY_VIOLATED"
-    AVAILABLE = "AVAILABLE"
-    BAD_QUALITY_IMAGE = "BAD_QUALITY_IMAGE"
-    BIG_CATALOG_WITH_ALL_ITEMS_IN_STOCK = "BIG_CATALOG_WITH_ALL_ITEMS_IN_STOCK"
-    BIZ_MSG_AI_AGENT_DISABLED_BY_USER = "BIZ_MSG_AI_AGENT_DISABLED_BY_USER"
-    BIZ_MSG_GEN_AI_POLICY_VIOLATED = "BIZ_MSG_GEN_AI_POLICY_VIOLATED"
-    CANNOT_EDIT_SUBSCRIPTION_PRODUCTS = "CANNOT_EDIT_SUBSCRIPTION_PRODUCTS"
-    CATALOG_NOT_CONNECTED_TO_EVENT_SOURCE = "CATALOG_NOT_CONNECTED_TO_EVENT_SOURCE"
-    CHECKOUT_DISABLED_BY_USER = "CHECKOUT_DISABLED_BY_USER"
-    COMMERCE_ACCOUNT_LEGAL_ADDRESS_INVALID = "COMMERCE_ACCOUNT_LEGAL_ADDRESS_INVALID"
-    COMMERCE_ACCOUNT_NOT_LEGALLY_COMPLIANT = "COMMERCE_ACCOUNT_NOT_LEGALLY_COMPLIANT"
-    CRAWLED_AVAILABILITY_MISMATCH = "CRAWLED_AVAILABILITY_MISMATCH"
-    DA_DISABLED_BY_USER = "DA_DISABLED_BY_USER"
-    DA_POLICY_UNFIT_FOR_AUDIENCE = "DA_POLICY_UNFIT_FOR_AUDIENCE"
-    DA_POLICY_VIOLATION = "DA_POLICY_VIOLATION"
-    DELETED_ITEM = "DELETED_ITEM"
-    DIGITAL_GOODS_NOT_AVAILABLE_FOR_CHECKOUT = "DIGITAL_GOODS_NOT_AVAILABLE_FOR_CHECKOUT"
-    DUPLICATE_IMAGES = "DUPLICATE_IMAGES"
-    DUPLICATE_TITLE_AND_DESCRIPTION = "DUPLICATE_TITLE_AND_DESCRIPTION"
-    EMPTY_AVAILABILITY = "EMPTY_AVAILABILITY"
-    EMPTY_CONDITION = "EMPTY_CONDITION"
-    EMPTY_DESCRIPTION = "EMPTY_DESCRIPTION"
-    EMPTY_IMAGE_URL = "EMPTY_IMAGE_URL"
-    EMPTY_PRICE = "EMPTY_PRICE"
-    EMPTY_PRODUCT_URL = "EMPTY_PRODUCT_URL"
-    EMPTY_SELLER_DESCRIPTION = "EMPTY_SELLER_DESCRIPTION"
-    EMPTY_TITLE = "EMPTY_TITLE"
-    EXTERNAL_MERCHANT_ID_MISMATCH = "EXTERNAL_MERCHANT_ID_MISMATCH"
-    GENERIC_INVALID_FIELD = "GENERIC_INVALID_FIELD"
-    GROUPS_DISABLED_BY_USER = "GROUPS_DISABLED_BY_USER"
-    HIDDEN_UNTIL_PRODUCT_LAUNCH = "HIDDEN_UNTIL_PRODUCT_LAUNCH"
-    ILLEGAL_PRODUCT_CATEGORY = "ILLEGAL_PRODUCT_CATEGORY"
-    IMAGE_FETCH_FAILED = "IMAGE_FETCH_FAILED"
-    IMAGE_FETCH_FAILED_BAD_GATEWAY = "IMAGE_FETCH_FAILED_BAD_GATEWAY"
-    IMAGE_FETCH_FAILED_FILE_SIZE_EXCEEDED = "IMAGE_FETCH_FAILED_FILE_SIZE_EXCEEDED"
-    IMAGE_FETCH_FAILED_FORBIDDEN = "IMAGE_FETCH_FAILED_FORBIDDEN"
-    IMAGE_FETCH_FAILED_LINK_BROKEN = "IMAGE_FETCH_FAILED_LINK_BROKEN"
-    IMAGE_FETCH_FAILED_TIMED_OUT = "IMAGE_FETCH_FAILED_TIMED_OUT"
-    IMAGE_RESOLUTION_LOW = "IMAGE_RESOLUTION_LOW"
-    INACTIVE_SHOPIFY_PRODUCT = "INACTIVE_SHOPIFY_PRODUCT"
-    INVALID_COMMERCE_TAX_CATEGORY = "INVALID_COMMERCE_TAX_CATEGORY"
-    INVALID_CONSOLIDATED_LOCALITY_INFORMATION = "INVALID_CONSOLIDATED_LOCALITY_INFORMATION"
-    INVALID_CONTENT_ID = "INVALID_CONTENT_ID"
-    INVALID_DEALER_COMMUNICATION_PARAMETERS = "INVALID_DEALER_COMMUNICATION_PARAMETERS"
-    INVALID_DMA_CODES = "INVALID_DMA_CODES"
-    INVALID_FB_PAGE_ID = "INVALID_FB_PAGE_ID"
-    INVALID_IMAGES = "INVALID_IMAGES"
-    INVALID_MONETIZER_RETURN_POLICY = "INVALID_MONETIZER_RETURN_POLICY"
-    INVALID_OFFER_DISCLAIMER_URL = "INVALID_OFFER_DISCLAIMER_URL"
-    INVALID_OFFER_END_DATE = "INVALID_OFFER_END_DATE"
-    INVALID_PRE_ORDER_PARAMS = "INVALID_PRE_ORDER_PARAMS"
-    INVALID_RANGE_FOR_AREA_SIZE = "INVALID_RANGE_FOR_AREA_SIZE"
-    INVALID_RANGE_FOR_BUILT_UP_AREA_SIZE = "INVALID_RANGE_FOR_BUILT_UP_AREA_SIZE"
-    INVALID_RANGE_FOR_NUM_OF_BATHS = "INVALID_RANGE_FOR_NUM_OF_BATHS"
-    INVALID_RANGE_FOR_NUM_OF_BEDS = "INVALID_RANGE_FOR_NUM_OF_BEDS"
-    INVALID_RANGE_FOR_NUM_OF_ROOMS = "INVALID_RANGE_FOR_NUM_OF_ROOMS"
-    INVALID_RANGE_FOR_PARKING_SPACES = "INVALID_RANGE_FOR_PARKING_SPACES"
-    INVALID_SHELTER_PAGE_ID = "INVALID_SHELTER_PAGE_ID"
-    INVALID_SHIPPING_PROFILE_PARAMS = "INVALID_SHIPPING_PROFILE_PARAMS"
-    INVALID_SUBSCRIPTION_DISABLE_PARAMS = "INVALID_SUBSCRIPTION_DISABLE_PARAMS"
-    INVALID_SUBSCRIPTION_ENABLE_PARAMS = "INVALID_SUBSCRIPTION_ENABLE_PARAMS"
-    INVALID_SUBSCRIPTION_PARAMS = "INVALID_SUBSCRIPTION_PARAMS"
-    INVALID_TAX_EXTENSION_STATE = "INVALID_TAX_EXTENSION_STATE"
-    INVALID_VEHICLE_STATE = "INVALID_VEHICLE_STATE"
-    INVALID_VIRTUAL_TOUR_URL_DOMAIN = "INVALID_VIRTUAL_TOUR_URL_DOMAIN"
-    INVENTORY_ZERO_AVAILABILITY_IN_STOCK = "INVENTORY_ZERO_AVAILABILITY_IN_STOCK"
-    IN_ANOTHER_PRODUCT_LAUNCH = "IN_ANOTHER_PRODUCT_LAUNCH"
-    ITEM_GROUP_NOT_SPECIFIED = "ITEM_GROUP_NOT_SPECIFIED"
-    ITEM_NOT_SHIPPABLE_FOR_SCA_SHOP = "ITEM_NOT_SHIPPABLE_FOR_SCA_SHOP"
-    ITEM_OVERRIDE_EMPTY_AVAILABILITY = "ITEM_OVERRIDE_EMPTY_AVAILABILITY"
-    ITEM_OVERRIDE_EMPTY_PRICE = "ITEM_OVERRIDE_EMPTY_PRICE"
-    ITEM_OVERRIDE_NOT_VISIBLE = "ITEM_OVERRIDE_NOT_VISIBLE"
-    ITEM_PRICE_NOT_POSITIVE = "ITEM_PRICE_NOT_POSITIVE"
-    ITEM_STALE_OUT_OF_STOCK = "ITEM_STALE_OUT_OF_STOCK"
-    MARKETPLACE_DISABLED_BY_USER = "MARKETPLACE_DISABLED_BY_USER"
-    MARKETPLACE_PARTNER_AUCTION_NO_BID_CLOSE_TIME = "MARKETPLACE_PARTNER_AUCTION_NO_BID_CLOSE_TIME"
-    MARKETPLACE_PARTNER_CURRENCY_NOT_VALID = "MARKETPLACE_PARTNER_CURRENCY_NOT_VALID"
-    MARKETPLACE_PARTNER_LISTING_COUNTRY_NOT_MATCH_CATALOG = (
-        "MARKETPLACE_PARTNER_LISTING_COUNTRY_NOT_MATCH_CATALOG"
-    )
-    MARKETPLACE_PARTNER_LISTING_LIMIT_EXCEEDED = "MARKETPLACE_PARTNER_LISTING_LIMIT_EXCEEDED"
-    MARKETPLACE_PARTNER_MISSING_LATLONG = "MARKETPLACE_PARTNER_MISSING_LATLONG"
-    MARKETPLACE_PARTNER_MISSING_SHIPPING_COST = "MARKETPLACE_PARTNER_MISSING_SHIPPING_COST"
-    MARKETPLACE_PARTNER_NOT_LOCAL_ITEM = "MARKETPLACE_PARTNER_NOT_LOCAL_ITEM"
-    MARKETPLACE_PARTNER_NOT_SHIPPED_ITEM = "MARKETPLACE_PARTNER_NOT_SHIPPED_ITEM"
-    MARKETPLACE_PARTNER_POLICY_VIOLATION = "MARKETPLACE_PARTNER_POLICY_VIOLATION"
-    MARKETPLACE_PARTNER_RULE_LISTING_LIMIT_EXCEEDED = (
-        "MARKETPLACE_PARTNER_RULE_LISTING_LIMIT_EXCEEDED"
-    )
-    MARKETPLACE_PARTNER_SELLER_BANNED = "MARKETPLACE_PARTNER_SELLER_BANNED"
-    MARKETPLACE_PARTNER_SELLER_NOT_VALID = "MARKETPLACE_PARTNER_SELLER_NOT_VALID"
-    MINI_SHOPS_DISABLED_BY_USER = "MINI_SHOPS_DISABLED_BY_USER"
-    MISSING_CHECKOUT = "MISSING_CHECKOUT"
-    MISSING_CHECKOUT_CURRENCY = "MISSING_CHECKOUT_CURRENCY"
-    MISSING_COLOR = "MISSING_COLOR"
-    MISSING_COUNTRY_OVERRIDE_IN_SHIPPING_PROFILE = "MISSING_COUNTRY_OVERRIDE_IN_SHIPPING_PROFILE"
-    MISSING_EVENT = "MISSING_EVENT"
-    MISSING_INDIA_COMPLIANCE_FIELDS = "MISSING_INDIA_COMPLIANCE_FIELDS"
-    MISSING_SHIPPING_PROFILE = "MISSING_SHIPPING_PROFILE"
-    MISSING_SIZE = "MISSING_SIZE"
-    MISSING_TAX_CATEGORY = "MISSING_TAX_CATEGORY"
-    NEGATIVE_COMMUNITY_FEEDBACK = "NEGATIVE_COMMUNITY_FEEDBACK"
-    NEGATIVE_PRICE = "NEGATIVE_PRICE"
-    NOT_ENOUGH_IMAGES = "NOT_ENOUGH_IMAGES"
-    NOT_ENOUGH_UNIQUE_PRODUCTS = "NOT_ENOUGH_UNIQUE_PRODUCTS"
-    NO_CONTENT_ID = "NO_CONTENT_ID"
-    OVERLAY_DISCLAIMER_EXCEEDED_MAX_LENGTH = "OVERLAY_DISCLAIMER_EXCEEDED_MAX_LENGTH"
-    PART_OF_PRODUCT_LAUNCH = "PART_OF_PRODUCT_LAUNCH"
-    PASSING_MULTIPLE_CONTENT_IDS = "PASSING_MULTIPLE_CONTENT_IDS"
-    PRODUCT_DOMINANT_CURRENCY_MISMATCH = "PRODUCT_DOMINANT_CURRENCY_MISMATCH"
-    PRODUCT_EXPIRED = "PRODUCT_EXPIRED"
-    PRODUCT_ITEM_HIDDEN_FROM_ALL_SHOPS = "PRODUCT_ITEM_HIDDEN_FROM_ALL_SHOPS"
-    PRODUCT_ITEM_INVALID_PARTNER_TOKENS = "PRODUCT_ITEM_INVALID_PARTNER_TOKENS"
-    PRODUCT_ITEM_NOT_INCLUDED_IN_ANY_SHOP = "PRODUCT_ITEM_NOT_INCLUDED_IN_ANY_SHOP"
-    PRODUCT_ITEM_NOT_VISIBLE = "PRODUCT_ITEM_NOT_VISIBLE"
-    PRODUCT_NOT_APPROVED = "PRODUCT_NOT_APPROVED"
-    PRODUCT_NOT_DOMINANT_CURRENCY = "PRODUCT_NOT_DOMINANT_CURRENCY"
-    PRODUCT_OUT_OF_STOCK = "PRODUCT_OUT_OF_STOCK"
-    PRODUCT_URL_EQUALS_DOMAIN = "PRODUCT_URL_EQUALS_DOMAIN"
-    PROPERTY_PRICE_CURRENCY_NOT_SUPPORTED = "PROPERTY_PRICE_CURRENCY_NOT_SUPPORTED"
-    PROPERTY_PRICE_TOO_HIGH = "PROPERTY_PRICE_TOO_HIGH"
-    PROPERTY_PRICE_TOO_LOW = "PROPERTY_PRICE_TOO_LOW"
-    PROPERTY_UNIT_PRICE_CURRENCY_MISMATCH_ITEM_PRICE_CURRENCY = (
-        "PROPERTY_UNIT_PRICE_CURRENCY_MISMATCH_ITEM_PRICE_CURRENCY"
-    )
-    PROPERTY_VALUE_CONTAINS_HTML_TAGS = "PROPERTY_VALUE_CONTAINS_HTML_TAGS"
-    PROPERTY_VALUE_DESCRIPTION_CONTAINS_OFF_PLATFORM_LINK = (
-        "PROPERTY_VALUE_DESCRIPTION_CONTAINS_OFF_PLATFORM_LINK"
-    )
-    PROPERTY_VALUE_FORMAT = "PROPERTY_VALUE_FORMAT"
-    PROPERTY_VALUE_MISSING = "PROPERTY_VALUE_MISSING"
-    PROPERTY_VALUE_MISSING_WARNING = "PROPERTY_VALUE_MISSING_WARNING"
-    PROPERTY_VALUE_NON_POSITIVE = "PROPERTY_VALUE_NON_POSITIVE"
-    PROPERTY_VALUE_STRING_EXCEEDS_LENGTH = "PROPERTY_VALUE_STRING_EXCEEDS_LENGTH"
-    PROPERTY_VALUE_STRING_TOO_SHORT = "PROPERTY_VALUE_STRING_TOO_SHORT"
-    PROPERTY_VALUE_UPPERCASE = "PROPERTY_VALUE_UPPERCASE"
-    PROPERTY_VALUE_UPPERCASE_WARNING = "PROPERTY_VALUE_UPPERCASE_WARNING"
-    PURCHASE_RATE_BELOW_ADDTOCART = "PURCHASE_RATE_BELOW_ADDTOCART"
-    PURCHASE_RATE_BELOW_VIEWCONTENT = "PURCHASE_RATE_BELOW_VIEWCONTENT"
-    QUALITY_DUPLICATED_DESCRIPTION = "QUALITY_DUPLICATED_DESCRIPTION"
-    QUALITY_ITEM_LINK_BROKEN = "QUALITY_ITEM_LINK_BROKEN"
-    QUALITY_ITEM_LINK_REDIRECTING = "QUALITY_ITEM_LINK_REDIRECTING"
-    RETAILER_ID_NOT_PROVIDED = "RETAILER_ID_NOT_PROVIDED"
-    SHOPIFY_INVALID_RETAILER_ID = "SHOPIFY_INVALID_RETAILER_ID"
-    SHOPIFY_ITEM_MISSING_SHIPPING_PROFILE = "SHOPIFY_ITEM_MISSING_SHIPPING_PROFILE"
-    SHOPS_POLICY_VIOLATION = "SHOPS_POLICY_VIOLATION"
-    SUBSCRIPTION_INFO_NOT_ENABLED_FOR_FEED = "SUBSCRIPTION_INFO_NOT_ENABLED_FOR_FEED"
-    TAX_CATEGORY_NOT_SUPPORTED_IN_UK = "TAX_CATEGORY_NOT_SUPPORTED_IN_UK"
-    UNIQUE_PRODUCT_IDENTIFIER_MISSING = "UNIQUE_PRODUCT_IDENTIFIER_MISSING"
-    UNMATCHED_EVENTS = "UNMATCHED_EVENTS"
-    UNSUPPORTED_PRODUCT_CATEGORY = "UNSUPPORTED_PRODUCT_CATEGORY"
-    VARIANT_ATTRIBUTE_ISSUE = "VARIANT_ATTRIBUTE_ISSUE"
-    VIDEO_FETCH_FAILED = "VIDEO_FETCH_FAILED"
-    VIDEO_FETCH_FAILED_BAD_GATEWAY = "VIDEO_FETCH_FAILED_BAD_GATEWAY"
-    VIDEO_FETCH_FAILED_FILE_SIZE_EXCEEDED = "VIDEO_FETCH_FAILED_FILE_SIZE_EXCEEDED"
-    VIDEO_FETCH_FAILED_FORBIDDEN = "VIDEO_FETCH_FAILED_FORBIDDEN"
-    VIDEO_FETCH_FAILED_LINK_BROKEN = "VIDEO_FETCH_FAILED_LINK_BROKEN"
-    VIDEO_FETCH_FAILED_TIMED_OUT = "VIDEO_FETCH_FAILED_TIMED_OUT"
-    VIDEO_NOT_DOWNLOADABLE = "VIDEO_NOT_DOWNLOADABLE"
-    WHATSAPP_DISABLED_BY_USER = "WHATSAPP_DISABLED_BY_USER"
-    WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER = "WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER"
-    WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION = "WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION"
-    WHATSAPP_POLICY_VIOLATION = "WHATSAPP_POLICY_VIOLATION"
 
 
 class productcatalogproducts_origin_country_enum_param(str, Enum):
@@ -808,29 +700,108 @@ class productcatalogproducts_origin_country_enum_param(str, Enum):
     ZW = "ZW"
 
 
-class productcatalogvehicles_condition_enum_param(str, Enum):
-    """productcatalogvehicles_condition_enum_param enum values."""
+class productcatalogassigned_users_tasks_enum_param(str, Enum):
+    """productcatalogassigned_users_tasks_enum_param enum values."""
 
-    EXCELLENT = "EXCELLENT"
-    FAIR = "FAIR"
-    GOOD = "GOOD"
+    AA_ANALYZE = "AA_ANALYZE"
+    ADVERTISE = "ADVERTISE"
+    MANAGE = "MANAGE"
+    MANAGE_AR = "MANAGE_AR"
+
+
+class productcatalogproducts_availability_enum_param(str, Enum):
+    """productcatalogproducts_availability_enum_param enum values."""
+
+    AVAILABLE_FOR_ORDER = "available for order"
+    discontinued = "discontinued"
+    IN_STOCK = "in stock"
+    mark_as_sold = "mark_as_sold"
+    OUT_OF_STOCK = "out of stock"
+    pending = "pending"
+    preorder = "preorder"
+
+
+class productcatalogvehicles_transmission_enum_param(str, Enum):
+    """productcatalogvehicles_transmission_enum_param enum values."""
+
+    AUTOMATIC = "AUTOMATIC"
+    MANUAL = "MANUAL"
     NONE = "NONE"
     OTHER = "OTHER"
-    POOR = "POOR"
-    VERY_GOOD = "VERY_GOOD"
 
 
-class productcatalogproduct_feeds_override_type_enum_param(str, Enum):
-    """productcatalogproduct_feeds_override_type_enum_param enum values."""
+class productcatalogevent_stats_breakdowns_enum_param(str, Enum):
+    """productcatalogevent_stats_breakdowns_enum_param enum values."""
 
-    BATCH_API_LANGUAGE_OR_COUNTRY = "BATCH_API_LANGUAGE_OR_COUNTRY"
-    CATALOG_SEGMENT_CUSTOMIZE_DEFAULT = "CATALOG_SEGMENT_CUSTOMIZE_DEFAULT"
-    COUNTRY = "COUNTRY"
-    LANGUAGE = "LANGUAGE"
-    LANGUAGE_AND_COUNTRY = "LANGUAGE_AND_COUNTRY"
-    LOCAL = "LOCAL"
-    SMART_PIXEL_LANGUAGE_OR_COUNTRY = "SMART_PIXEL_LANGUAGE_OR_COUNTRY"
-    VERSION = "VERSION"
+    DEVICE_TYPE = "DEVICE_TYPE"
+
+
+class productcatalogdiagnostics_severities_enum_param(str, Enum):
+    """productcatalogdiagnostics_severities_enum_param enum values."""
+
+    MUST_FIX = "MUST_FIX"
+    OPPORTUNITY = "OPPORTUNITY"
+
+
+class productcatalogvehicles_body_style_enum_param(str, Enum):
+    """productcatalogvehicles_body_style_enum_param enum values."""
+
+    CONVERTIBLE = "CONVERTIBLE"
+    COUPE = "COUPE"
+    CROSSOVER = "CROSSOVER"
+    ESTATE = "ESTATE"
+    GRANDTOURER = "GRANDTOURER"
+    HATCHBACK = "HATCHBACK"
+    MINIBUS = "MINIBUS"
+    MINIVAN = "MINIVAN"
+    MPV = "MPV"
+    NONE = "NONE"
+    OTHER = "OTHER"
+    PICKUP = "PICKUP"
+    ROADSTER = "ROADSTER"
+    SALOON = "SALOON"
+    SEDAN = "SEDAN"
+    SMALL_CAR = "SMALL_CAR"
+    SPORTSCAR = "SPORTSCAR"
+    SUPERCAR = "SUPERCAR"
+    SUPERMINI = "SUPERMINI"
+    SUV = "SUV"
+    TRUCK = "TRUCK"
+    VAN = "VAN"
+    WAGON = "WAGON"
+
+
+class productcatalogvehicles_drivetrain_enum_param(str, Enum):
+    """productcatalogvehicles_drivetrain_enum_param enum values."""
+
+    AWD = "AWD"
+    FOUR_WD = "FOUR_WD"
+    FWD = "FWD"
+    NONE = "NONE"
+    OTHER = "OTHER"
+    RWD = "RWD"
+    TWO_WD = "TWO_WD"
+
+
+class productcatalogdiagnostics_affected_features_enum_param(str, Enum):
+    """productcatalogdiagnostics_affected_features_enum_param enum values."""
+
+    augmented_reality = "augmented_reality"
+    checkout = "checkout"
+
+
+class productcatalogvehicles_fuel_type_enum_param(str, Enum):
+    """productcatalogvehicles_fuel_type_enum_param enum values."""
+
+    DIESEL = "DIESEL"
+    ELECTRIC = "ELECTRIC"
+    FLEX = "FLEX"
+    GASOLINE = "GASOLINE"
+    HYBRID = "HYBRID"
+    NONE = "NONE"
+    OTHER = "OTHER"
+    PETROL = "PETROL"
+    PLUGIN_HYBRID = "PLUGIN_HYBRID"
 
 
 class productcatalogcheck_batch_request_status_error_priority_enum_param(str, Enum):
@@ -839,6 +810,288 @@ class productcatalogcheck_batch_request_status_error_priority_enum_param(str, En
     HIGH = "HIGH"
     LOW = "LOW"
     MEDIUM = "MEDIUM"
+
+
+class productcatalogproduct_feeds_delimiter_enum_param(str, Enum):
+    """productcatalogproduct_feeds_delimiter_enum_param enum values."""
+
+    AUTODETECT = "AUTODETECT"
+    BAR = "BAR"
+    COMMA = "COMMA"
+    SEMICOLON = "SEMICOLON"
+    TAB = "TAB"
+    TILDE = "TILDE"
+
+
+class productcatalogmarketplace_partner_signals_event_name_enum_param(str, Enum):
+    """productcatalogmarketplace_partner_signals_event_name_enum_param enum values."""
+
+    ADD_TO_CART = "ADD_TO_CART"
+    PURCHASE = "PURCHASE"
+    TEST = "TEST"
+    VIEW_ITEM = "VIEW_ITEM"
+
+
+class productcatalogproducts_visibility_enum_param(str, Enum):
+    """productcatalogproducts_visibility_enum_param enum values."""
+
+    published = "published"
+    staging = "staging"
+
+
+class productcatalogdiagnostics_types_enum_param(str, Enum):
+    """productcatalogdiagnostics_types_enum_param enum values."""
+
+    AR_VISIBILITY_ISSUES = "AR_VISIBILITY_ISSUES"
+    ATTRIBUTES_INVALID = "ATTRIBUTES_INVALID"
+    ATTRIBUTES_MISSING = "ATTRIBUTES_MISSING"
+    CATEGORY = "CATEGORY"
+    CHECKOUT = "CHECKOUT"
+    DA_VISIBILITY_ISSUES = "DA_VISIBILITY_ISSUES"
+    EVENT_SOURCE_ISSUES = "EVENT_SOURCE_ISSUES"
+    IMAGE_QUALITY = "IMAGE_QUALITY"
+    LOW_QUALITY_TITLE_AND_DESCRIPTION = "LOW_QUALITY_TITLE_AND_DESCRIPTION"
+    POLICY_VIOLATION = "POLICY_VIOLATION"
+    SHOPS_VISIBILITY_ISSUES = "SHOPS_VISIBILITY_ISSUES"
+
+
+class productcatalogproduct_feeds_ingestion_source_type_enum_param(str, Enum):
+    """productcatalogproduct_feeds_ingestion_source_type_enum_param enum values."""
+
+    PRIMARY_FEED = "PRIMARY_FEED"
+    SUPPLEMENTARY_FEED = "SUPPLEMENTARY_FEED"
+
+
+class productcatalogproduct_feeds_quoted_fields_mode_enum_param(str, Enum):
+    """productcatalogproduct_feeds_quoted_fields_mode_enum_param enum values."""
+
+    autodetect = "autodetect"
+    off = "off"
+    on = "on"
+
+
+class productcatalogproducts_age_group_enum_param(str, Enum):
+    """productcatalogproducts_age_group_enum_param enum values."""
+
+    adult = "adult"
+    ALL_AGES = "all ages"
+    infant = "infant"
+    kids = "kids"
+    newborn = "newborn"
+    teen = "teen"
+    toddler = "toddler"
+
+
+class productcatalogvehicles_vehicle_type_enum_param(str, Enum):
+    """productcatalogvehicles_vehicle_type_enum_param enum values."""
+
+    BOAT = "BOAT"
+    CAR_TRUCK = "CAR_TRUCK"
+    COMMERCIAL = "COMMERCIAL"
+    MOTORCYCLE = "MOTORCYCLE"
+    OTHER = "OTHER"
+    POWERSPORT = "POWERSPORT"
+    RV_CAMPER = "RV_CAMPER"
+    TRAILER = "TRAILER"
+
+
+class productcatalogdiagnostics_affected_channels_enum_param(str, Enum):
+    """productcatalogdiagnostics_affected_channels_enum_param enum values."""
+
+    b2c_marketplace = "b2c_marketplace"
+    c2c_marketplace = "c2c_marketplace"
+    da = "da"
+    daily_deals = "daily_deals"
+    daily_deals_legacy = "daily_deals_legacy"
+    ig_product_tagging = "ig_product_tagging"
+    marketplace = "marketplace"
+    marketplace_ads_deprecated = "marketplace_ads_deprecated"
+    marketplace_shops = "marketplace_shops"
+    mini_shops = "mini_shops"
+    offline_conversions = "offline_conversions"
+    shops = "shops"
+    universal_checkout = "universal_checkout"
+    whatsapp = "whatsapp"
+
+
+class productcatalogproducts_error_type_enum_param(str, Enum):
+    """productcatalogproducts_error_type_enum_param enum values."""
+
+    ADDRESS_BLOCKLISTED_IN_MARKET = "ADDRESS_BLOCKLISTED_IN_MARKET"
+    AGGREGATED_LOCALIZATION_ISSUES = "AGGREGATED_LOCALIZATION_ISSUES"
+    APP_HAS_NO_AEM_SETUP = "APP_HAS_NO_AEM_SETUP"
+    AR_DELETED_DUE_TO_UPDATE = "AR_DELETED_DUE_TO_UPDATE"
+    AR_POLICY_VIOLATED = "AR_POLICY_VIOLATED"
+    AVAILABLE = "AVAILABLE"
+    BAD_QUALITY_IMAGE = "BAD_QUALITY_IMAGE"
+    BIG_CATALOG_WITH_ALL_ITEMS_IN_STOCK = "BIG_CATALOG_WITH_ALL_ITEMS_IN_STOCK"
+    BIZ_MSG_AI_AGENT_DISABLED_BY_USER = "BIZ_MSG_AI_AGENT_DISABLED_BY_USER"
+    BIZ_MSG_GEN_AI_POLICY_VIOLATED = "BIZ_MSG_GEN_AI_POLICY_VIOLATED"
+    CANNOT_EDIT_SUBSCRIPTION_PRODUCTS = "CANNOT_EDIT_SUBSCRIPTION_PRODUCTS"
+    CATALOG_NOT_CONNECTED_TO_EVENT_SOURCE = "CATALOG_NOT_CONNECTED_TO_EVENT_SOURCE"
+    CHECKOUT_DISABLED_BY_USER = "CHECKOUT_DISABLED_BY_USER"
+    COMMERCE_ACCOUNT_LEGAL_ADDRESS_INVALID = "COMMERCE_ACCOUNT_LEGAL_ADDRESS_INVALID"
+    COMMERCE_ACCOUNT_NOT_LEGALLY_COMPLIANT = "COMMERCE_ACCOUNT_NOT_LEGALLY_COMPLIANT"
+    CRAWLED_AVAILABILITY_MISMATCH = "CRAWLED_AVAILABILITY_MISMATCH"
+    DA_DISABLED_BY_USER = "DA_DISABLED_BY_USER"
+    DA_POLICY_UNFIT_FOR_AUDIENCE = "DA_POLICY_UNFIT_FOR_AUDIENCE"
+    DA_POLICY_VIOLATION = "DA_POLICY_VIOLATION"
+    DELETED_ITEM = "DELETED_ITEM"
+    DIGITAL_GOODS_NOT_AVAILABLE_FOR_CHECKOUT = "DIGITAL_GOODS_NOT_AVAILABLE_FOR_CHECKOUT"
+    DUPLICATE_IMAGES = "DUPLICATE_IMAGES"
+    DUPLICATE_TITLE_AND_DESCRIPTION = "DUPLICATE_TITLE_AND_DESCRIPTION"
+    EMPTY_AVAILABILITY = "EMPTY_AVAILABILITY"
+    EMPTY_CONDITION = "EMPTY_CONDITION"
+    EMPTY_DESCRIPTION = "EMPTY_DESCRIPTION"
+    EMPTY_IMAGE_URL = "EMPTY_IMAGE_URL"
+    EMPTY_PRICE = "EMPTY_PRICE"
+    EMPTY_PRODUCT_URL = "EMPTY_PRODUCT_URL"
+    EMPTY_SELLER_DESCRIPTION = "EMPTY_SELLER_DESCRIPTION"
+    EMPTY_TITLE = "EMPTY_TITLE"
+    EXTERNAL_MERCHANT_ID_MISMATCH = "EXTERNAL_MERCHANT_ID_MISMATCH"
+    GENERIC_INVALID_FIELD = "GENERIC_INVALID_FIELD"
+    GROUPS_DISABLED_BY_USER = "GROUPS_DISABLED_BY_USER"
+    HIDDEN_UNTIL_PRODUCT_LAUNCH = "HIDDEN_UNTIL_PRODUCT_LAUNCH"
+    ILLEGAL_PRODUCT_CATEGORY = "ILLEGAL_PRODUCT_CATEGORY"
+    IMAGE_FETCH_FAILED = "IMAGE_FETCH_FAILED"
+    IMAGE_FETCH_FAILED_BAD_GATEWAY = "IMAGE_FETCH_FAILED_BAD_GATEWAY"
+    IMAGE_FETCH_FAILED_FILE_SIZE_EXCEEDED = "IMAGE_FETCH_FAILED_FILE_SIZE_EXCEEDED"
+    IMAGE_FETCH_FAILED_FORBIDDEN = "IMAGE_FETCH_FAILED_FORBIDDEN"
+    IMAGE_FETCH_FAILED_LINK_BROKEN = "IMAGE_FETCH_FAILED_LINK_BROKEN"
+    IMAGE_FETCH_FAILED_TIMED_OUT = "IMAGE_FETCH_FAILED_TIMED_OUT"
+    IMAGE_RESOLUTION_LOW = "IMAGE_RESOLUTION_LOW"
+    INACTIVE_SHOPIFY_PRODUCT = "INACTIVE_SHOPIFY_PRODUCT"
+    INVALID_COMMERCE_TAX_CATEGORY = "INVALID_COMMERCE_TAX_CATEGORY"
+    INVALID_CONSOLIDATED_LOCALITY_INFORMATION = "INVALID_CONSOLIDATED_LOCALITY_INFORMATION"
+    INVALID_CONTENT_ID = "INVALID_CONTENT_ID"
+    INVALID_DEALER_COMMUNICATION_PARAMETERS = "INVALID_DEALER_COMMUNICATION_PARAMETERS"
+    INVALID_DMA_CODES = "INVALID_DMA_CODES"
+    INVALID_FB_PAGE_ID = "INVALID_FB_PAGE_ID"
+    INVALID_IMAGES = "INVALID_IMAGES"
+    INVALID_MONETIZER_RETURN_POLICY = "INVALID_MONETIZER_RETURN_POLICY"
+    INVALID_OFFER_DISCLAIMER_URL = "INVALID_OFFER_DISCLAIMER_URL"
+    INVALID_OFFER_END_DATE = "INVALID_OFFER_END_DATE"
+    INVALID_PRE_ORDER_PARAMS = "INVALID_PRE_ORDER_PARAMS"
+    INVALID_RANGE_FOR_AREA_SIZE = "INVALID_RANGE_FOR_AREA_SIZE"
+    INVALID_RANGE_FOR_BUILT_UP_AREA_SIZE = "INVALID_RANGE_FOR_BUILT_UP_AREA_SIZE"
+    INVALID_RANGE_FOR_NUM_OF_BATHS = "INVALID_RANGE_FOR_NUM_OF_BATHS"
+    INVALID_RANGE_FOR_NUM_OF_BEDS = "INVALID_RANGE_FOR_NUM_OF_BEDS"
+    INVALID_RANGE_FOR_NUM_OF_ROOMS = "INVALID_RANGE_FOR_NUM_OF_ROOMS"
+    INVALID_RANGE_FOR_PARKING_SPACES = "INVALID_RANGE_FOR_PARKING_SPACES"
+    INVALID_SHELTER_PAGE_ID = "INVALID_SHELTER_PAGE_ID"
+    INVALID_SHIPPING_PROFILE_PARAMS = "INVALID_SHIPPING_PROFILE_PARAMS"
+    INVALID_SUBSCRIPTION_DISABLE_PARAMS = "INVALID_SUBSCRIPTION_DISABLE_PARAMS"
+    INVALID_SUBSCRIPTION_ENABLE_PARAMS = "INVALID_SUBSCRIPTION_ENABLE_PARAMS"
+    INVALID_SUBSCRIPTION_PARAMS = "INVALID_SUBSCRIPTION_PARAMS"
+    INVALID_TAX_EXTENSION_STATE = "INVALID_TAX_EXTENSION_STATE"
+    INVALID_VEHICLE_STATE = "INVALID_VEHICLE_STATE"
+    INVALID_VIRTUAL_TOUR_URL_DOMAIN = "INVALID_VIRTUAL_TOUR_URL_DOMAIN"
+    INVENTORY_ZERO_AVAILABILITY_IN_STOCK = "INVENTORY_ZERO_AVAILABILITY_IN_STOCK"
+    IN_ANOTHER_PRODUCT_LAUNCH = "IN_ANOTHER_PRODUCT_LAUNCH"
+    ITEM_GROUP_NOT_SPECIFIED = "ITEM_GROUP_NOT_SPECIFIED"
+    ITEM_NOT_SHIPPABLE_FOR_SCA_SHOP = "ITEM_NOT_SHIPPABLE_FOR_SCA_SHOP"
+    ITEM_OVERRIDE_EMPTY_AVAILABILITY = "ITEM_OVERRIDE_EMPTY_AVAILABILITY"
+    ITEM_OVERRIDE_EMPTY_PRICE = "ITEM_OVERRIDE_EMPTY_PRICE"
+    ITEM_OVERRIDE_NOT_VISIBLE = "ITEM_OVERRIDE_NOT_VISIBLE"
+    ITEM_PRICE_NOT_POSITIVE = "ITEM_PRICE_NOT_POSITIVE"
+    ITEM_STALE_OUT_OF_STOCK = "ITEM_STALE_OUT_OF_STOCK"
+    MARKETPLACE_DISABLED_BY_USER = "MARKETPLACE_DISABLED_BY_USER"
+    MARKETPLACE_PARTNER_AUCTION_NO_BID_CLOSE_TIME = "MARKETPLACE_PARTNER_AUCTION_NO_BID_CLOSE_TIME"
+    MARKETPLACE_PARTNER_CURRENCY_NOT_VALID = "MARKETPLACE_PARTNER_CURRENCY_NOT_VALID"
+    MARKETPLACE_PARTNER_LISTING_COUNTRY_NOT_MATCH_CATALOG = (
+        "MARKETPLACE_PARTNER_LISTING_COUNTRY_NOT_MATCH_CATALOG"
+    )
+    MARKETPLACE_PARTNER_LISTING_LIMIT_EXCEEDED = "MARKETPLACE_PARTNER_LISTING_LIMIT_EXCEEDED"
+    MARKETPLACE_PARTNER_MISSING_LATLONG = "MARKETPLACE_PARTNER_MISSING_LATLONG"
+    MARKETPLACE_PARTNER_MISSING_SHIPPING_COST = "MARKETPLACE_PARTNER_MISSING_SHIPPING_COST"
+    MARKETPLACE_PARTNER_NOT_LOCAL_ITEM = "MARKETPLACE_PARTNER_NOT_LOCAL_ITEM"
+    MARKETPLACE_PARTNER_NOT_SHIPPED_ITEM = "MARKETPLACE_PARTNER_NOT_SHIPPED_ITEM"
+    MARKETPLACE_PARTNER_POLICY_VIOLATION = "MARKETPLACE_PARTNER_POLICY_VIOLATION"
+    MARKETPLACE_PARTNER_RULE_LISTING_LIMIT_EXCEEDED = (
+        "MARKETPLACE_PARTNER_RULE_LISTING_LIMIT_EXCEEDED"
+    )
+    MARKETPLACE_PARTNER_SELLER_BANNED = "MARKETPLACE_PARTNER_SELLER_BANNED"
+    MARKETPLACE_PARTNER_SELLER_NOT_VALID = "MARKETPLACE_PARTNER_SELLER_NOT_VALID"
+    MINI_SHOPS_DISABLED_BY_USER = "MINI_SHOPS_DISABLED_BY_USER"
+    MISSING_CHECKOUT = "MISSING_CHECKOUT"
+    MISSING_CHECKOUT_CURRENCY = "MISSING_CHECKOUT_CURRENCY"
+    MISSING_COLOR = "MISSING_COLOR"
+    MISSING_COUNTRY_OVERRIDE_IN_SHIPPING_PROFILE = "MISSING_COUNTRY_OVERRIDE_IN_SHIPPING_PROFILE"
+    MISSING_EVENT = "MISSING_EVENT"
+    MISSING_INDIA_COMPLIANCE_FIELDS = "MISSING_INDIA_COMPLIANCE_FIELDS"
+    MISSING_SHIPPING_PROFILE = "MISSING_SHIPPING_PROFILE"
+    MISSING_SIZE = "MISSING_SIZE"
+    MISSING_TAX_CATEGORY = "MISSING_TAX_CATEGORY"
+    NEGATIVE_COMMUNITY_FEEDBACK = "NEGATIVE_COMMUNITY_FEEDBACK"
+    NEGATIVE_PRICE = "NEGATIVE_PRICE"
+    NOT_ENOUGH_IMAGES = "NOT_ENOUGH_IMAGES"
+    NOT_ENOUGH_UNIQUE_PRODUCTS = "NOT_ENOUGH_UNIQUE_PRODUCTS"
+    NO_CONTENT_ID = "NO_CONTENT_ID"
+    OVERLAY_DISCLAIMER_EXCEEDED_MAX_LENGTH = "OVERLAY_DISCLAIMER_EXCEEDED_MAX_LENGTH"
+    PART_OF_PRODUCT_LAUNCH = "PART_OF_PRODUCT_LAUNCH"
+    PASSING_MULTIPLE_CONTENT_IDS = "PASSING_MULTIPLE_CONTENT_IDS"
+    PRODUCT_DOMINANT_CURRENCY_MISMATCH = "PRODUCT_DOMINANT_CURRENCY_MISMATCH"
+    PRODUCT_EXPIRED = "PRODUCT_EXPIRED"
+    PRODUCT_ITEM_HIDDEN_FROM_ALL_SHOPS = "PRODUCT_ITEM_HIDDEN_FROM_ALL_SHOPS"
+    PRODUCT_ITEM_INVALID_PARTNER_TOKENS = "PRODUCT_ITEM_INVALID_PARTNER_TOKENS"
+    PRODUCT_ITEM_NOT_INCLUDED_IN_ANY_SHOP = "PRODUCT_ITEM_NOT_INCLUDED_IN_ANY_SHOP"
+    PRODUCT_ITEM_NOT_VISIBLE = "PRODUCT_ITEM_NOT_VISIBLE"
+    PRODUCT_NOT_APPROVED = "PRODUCT_NOT_APPROVED"
+    PRODUCT_NOT_DOMINANT_CURRENCY = "PRODUCT_NOT_DOMINANT_CURRENCY"
+    PRODUCT_OUT_OF_STOCK = "PRODUCT_OUT_OF_STOCK"
+    PRODUCT_URL_EQUALS_DOMAIN = "PRODUCT_URL_EQUALS_DOMAIN"
+    PROPERTY_PRICE_CURRENCY_NOT_SUPPORTED = "PROPERTY_PRICE_CURRENCY_NOT_SUPPORTED"
+    PROPERTY_PRICE_TOO_HIGH = "PROPERTY_PRICE_TOO_HIGH"
+    PROPERTY_PRICE_TOO_LOW = "PROPERTY_PRICE_TOO_LOW"
+    PROPERTY_UNIT_PRICE_CURRENCY_MISMATCH_ITEM_PRICE_CURRENCY = (
+        "PROPERTY_UNIT_PRICE_CURRENCY_MISMATCH_ITEM_PRICE_CURRENCY"
+    )
+    PROPERTY_VALUE_CONTAINS_HTML_TAGS = "PROPERTY_VALUE_CONTAINS_HTML_TAGS"
+    PROPERTY_VALUE_DESCRIPTION_CONTAINS_OFF_PLATFORM_LINK = (
+        "PROPERTY_VALUE_DESCRIPTION_CONTAINS_OFF_PLATFORM_LINK"
+    )
+    PROPERTY_VALUE_FORMAT = "PROPERTY_VALUE_FORMAT"
+    PROPERTY_VALUE_MISSING = "PROPERTY_VALUE_MISSING"
+    PROPERTY_VALUE_MISSING_WARNING = "PROPERTY_VALUE_MISSING_WARNING"
+    PROPERTY_VALUE_NON_POSITIVE = "PROPERTY_VALUE_NON_POSITIVE"
+    PROPERTY_VALUE_STRING_EXCEEDS_LENGTH = "PROPERTY_VALUE_STRING_EXCEEDS_LENGTH"
+    PROPERTY_VALUE_STRING_TOO_SHORT = "PROPERTY_VALUE_STRING_TOO_SHORT"
+    PROPERTY_VALUE_UPPERCASE = "PROPERTY_VALUE_UPPERCASE"
+    PROPERTY_VALUE_UPPERCASE_WARNING = "PROPERTY_VALUE_UPPERCASE_WARNING"
+    PURCHASE_RATE_BELOW_ADDTOCART = "PURCHASE_RATE_BELOW_ADDTOCART"
+    PURCHASE_RATE_BELOW_VIEWCONTENT = "PURCHASE_RATE_BELOW_VIEWCONTENT"
+    QUALITY_DUPLICATED_DESCRIPTION = "QUALITY_DUPLICATED_DESCRIPTION"
+    QUALITY_ITEM_LINK_BROKEN = "QUALITY_ITEM_LINK_BROKEN"
+    QUALITY_ITEM_LINK_REDIRECTING = "QUALITY_ITEM_LINK_REDIRECTING"
+    RETAILER_ID_NOT_PROVIDED = "RETAILER_ID_NOT_PROVIDED"
+    SHOPIFY_INVALID_RETAILER_ID = "SHOPIFY_INVALID_RETAILER_ID"
+    SHOPIFY_ITEM_MISSING_SHIPPING_PROFILE = "SHOPIFY_ITEM_MISSING_SHIPPING_PROFILE"
+    SHOPS_POLICY_VIOLATION = "SHOPS_POLICY_VIOLATION"
+    SUBSCRIPTION_INFO_NOT_ENABLED_FOR_FEED = "SUBSCRIPTION_INFO_NOT_ENABLED_FOR_FEED"
+    TAX_CATEGORY_NOT_SUPPORTED_IN_UK = "TAX_CATEGORY_NOT_SUPPORTED_IN_UK"
+    UNIQUE_PRODUCT_IDENTIFIER_MISSING = "UNIQUE_PRODUCT_IDENTIFIER_MISSING"
+    UNMATCHED_EVENTS = "UNMATCHED_EVENTS"
+    UNSUPPORTED_PRODUCT_CATEGORY = "UNSUPPORTED_PRODUCT_CATEGORY"
+    VARIANT_ATTRIBUTE_ISSUE = "VARIANT_ATTRIBUTE_ISSUE"
+    VIDEO_FETCH_FAILED = "VIDEO_FETCH_FAILED"
+    VIDEO_FETCH_FAILED_BAD_GATEWAY = "VIDEO_FETCH_FAILED_BAD_GATEWAY"
+    VIDEO_FETCH_FAILED_FILE_SIZE_EXCEEDED = "VIDEO_FETCH_FAILED_FILE_SIZE_EXCEEDED"
+    VIDEO_FETCH_FAILED_FORBIDDEN = "VIDEO_FETCH_FAILED_FORBIDDEN"
+    VIDEO_FETCH_FAILED_LINK_BROKEN = "VIDEO_FETCH_FAILED_LINK_BROKEN"
+    VIDEO_FETCH_FAILED_TIMED_OUT = "VIDEO_FETCH_FAILED_TIMED_OUT"
+    VIDEO_NOT_DOWNLOADABLE = "VIDEO_NOT_DOWNLOADABLE"
+    WHATSAPP_DISABLED_BY_USER = "WHATSAPP_DISABLED_BY_USER"
+    WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER = "WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER"
+    WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION = "WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION"
+    WHATSAPP_POLICY_VIOLATION = "WHATSAPP_POLICY_VIOLATION"
+
+
+class productcatalogdata_sources_ingestion_source_type_enum_param(str, Enum):
+    """productcatalogdata_sources_ingestion_source_type_enum_param enum values."""
+
+    ALL = "ALL"
+    PRIMARY = "PRIMARY"
+    SUPPLEMENTARY = "SUPPLEMENTARY"
 
 
 class productcatalogproduct_feeds_feed_type_enum_param(str, Enum):
@@ -859,259 +1112,6 @@ class productcatalogproduct_feeds_feed_type_enum_param(str, Enum):
     TRANSACTABLE_ITEMS = "TRANSACTABLE_ITEMS"
     VEHICLES = "VEHICLES"
     VEHICLE_OFFER = "VEHICLE_OFFER"
-
-
-class productcatalogproducts_visibility_enum_param(str, Enum):
-    """productcatalogproducts_visibility_enum_param enum values."""
-
-    published = "published"
-    staging = "staging"
-
-
-class productcatalogvehicles_transmission_enum_param(str, Enum):
-    """productcatalogvehicles_transmission_enum_param enum values."""
-
-    AUTOMATIC = "AUTOMATIC"
-    MANUAL = "MANUAL"
-    NONE = "NONE"
-    OTHER = "OTHER"
-
-
-class productcatalogdiagnostics_affected_entities_enum_param(str, Enum):
-    """productcatalogdiagnostics_affected_entities_enum_param enum values."""
-
-    product_catalog = "product_catalog"
-    product_event = "product_event"
-    product_item = "product_item"
-    product_set = "product_set"
-
-
-class productcatalogevent_stats_breakdowns_enum_param(str, Enum):
-    """productcatalogevent_stats_breakdowns_enum_param enum values."""
-
-    DEVICE_TYPE = "DEVICE_TYPE"
-
-
-class productcatalogproducts_commerce_tax_category_enum_param(str, Enum):
-    """productcatalogproducts_commerce_tax_category_enum_param enum values."""
-
-    FB_ANIMAL = "FB_ANIMAL"
-    FB_ANIMAL_SUPP = "FB_ANIMAL_SUPP"
-    FB_APRL = "FB_APRL"
-    FB_APRL_ACCESSORIES = "FB_APRL_ACCESSORIES"
-    FB_APRL_ATHL_UNIF = "FB_APRL_ATHL_UNIF"
-    FB_APRL_CASES = "FB_APRL_CASES"
-    FB_APRL_CLOTHING = "FB_APRL_CLOTHING"
-    FB_APRL_COSTUME = "FB_APRL_COSTUME"
-    FB_APRL_CSTM = "FB_APRL_CSTM"
-    FB_APRL_FORMAL = "FB_APRL_FORMAL"
-    FB_APRL_HANDBAG = "FB_APRL_HANDBAG"
-    FB_APRL_JEWELRY = "FB_APRL_JEWELRY"
-    FB_APRL_SHOE = "FB_APRL_SHOE"
-    FB_APRL_SHOE_ACC = "FB_APRL_SHOE_ACC"
-    FB_APRL_SWIM = "FB_APRL_SWIM"
-    FB_APRL_SWIM_CHIL = "FB_APRL_SWIM_CHIL"
-    FB_APRL_SWIM_CVR = "FB_APRL_SWIM_CVR"
-    FB_ARTS = "FB_ARTS"
-    FB_ARTS_HOBBY = "FB_ARTS_HOBBY"
-    FB_ARTS_PARTY = "FB_ARTS_PARTY"
-    FB_ARTS_PARTY_GIFT_CARD = "FB_ARTS_PARTY_GIFT_CARD"
-    FB_ARTS_TICKET = "FB_ARTS_TICKET"
-    FB_BABY = "FB_BABY"
-    FB_BABY_BATH = "FB_BABY_BATH"
-    FB_BABY_BLANKET = "FB_BABY_BLANKET"
-    FB_BABY_DIAPER = "FB_BABY_DIAPER"
-    FB_BABY_GIFT_SET = "FB_BABY_GIFT_SET"
-    FB_BABY_HEALTH = "FB_BABY_HEALTH"
-    FB_BABY_NURSING = "FB_BABY_NURSING"
-    FB_BABY_POTTY_TRN = "FB_BABY_POTTY_TRN"
-    FB_BABY_SAFE = "FB_BABY_SAFE"
-    FB_BABY_TOYS = "FB_BABY_TOYS"
-    FB_BABY_TRANSPORT = "FB_BABY_TRANSPORT"
-    FB_BABY_TRANSPORT_ACC = "FB_BABY_TRANSPORT_ACC"
-    FB_BAGS = "FB_BAGS"
-    FB_BAGS_BKPK = "FB_BAGS_BKPK"
-    FB_BAGS_BOXES = "FB_BAGS_BOXES"
-    FB_BAGS_BRFCS = "FB_BAGS_BRFCS"
-    FB_BAGS_CSMT_BAG = "FB_BAGS_CSMT_BAG"
-    FB_BAGS_DFFL = "FB_BAGS_DFFL"
-    FB_BAGS_DIPR = "FB_BAGS_DIPR"
-    FB_BAGS_FNNY = "FB_BAGS_FNNY"
-    FB_BAGS_GRMT = "FB_BAGS_GRMT"
-    FB_BAGS_LUGG = "FB_BAGS_LUGG"
-    FB_BAGS_LUG_ACC = "FB_BAGS_LUG_ACC"
-    FB_BAGS_MSGR = "FB_BAGS_MSGR"
-    FB_BAGS_TOTE = "FB_BAGS_TOTE"
-    FB_BAGS_TRN_CAS = "FB_BAGS_TRN_CAS"
-    FB_BLDG = "FB_BLDG"
-    FB_BLDG_ACC = "FB_BLDG_ACC"
-    FB_BLDG_CNSMB = "FB_BLDG_CNSMB"
-    FB_BLDG_FENCE = "FB_BLDG_FENCE"
-    FB_BLDG_FUEL_TNK = "FB_BLDG_FUEL_TNK"
-    FB_BLDG_HT_VNT = "FB_BLDG_HT_VNT"
-    FB_BLDG_LOCK = "FB_BLDG_LOCK"
-    FB_BLDG_MATRL = "FB_BLDG_MATRL"
-    FB_BLDG_PLMB = "FB_BLDG_PLMB"
-    FB_BLDG_PUMP = "FB_BLDG_PUMP"
-    FB_BLDG_PWRS = "FB_BLDG_PWRS"
-    FB_BLDG_STR_TANK = "FB_BLDG_STR_TANK"
-    FB_BLDG_S_ENG = "FB_BLDG_S_ENG"
-    FB_BLDG_TL_ACC = "FB_BLDG_TL_ACC"
-    FB_BLDG_TOOL = "FB_BLDG_TOOL"
-    FB_BUSIND = "FB_BUSIND"
-    FB_BUSIND_ADVERTISING = "FB_BUSIND_ADVERTISING"
-    FB_BUSIND_AGRICULTURE = "FB_BUSIND_AGRICULTURE"
-    FB_BUSIND_AUTOMATION = "FB_BUSIND_AUTOMATION"
-    FB_BUSIND_HEAVY_MACH = "FB_BUSIND_HEAVY_MACH"
-    FB_BUSIND_LAB = "FB_BUSIND_LAB"
-    FB_BUSIND_MEDICAL = "FB_BUSIND_MEDICAL"
-    FB_BUSIND_RETAIL = "FB_BUSIND_RETAIL"
-    FB_BUSIND_SANITARY_CT = "FB_BUSIND_SANITARY_CT"
-    FB_BUSIND_SIGN = "FB_BUSIND_SIGN"
-    FB_BUSIND_STORAGE = "FB_BUSIND_STORAGE"
-    FB_BUSIND_STORAGE_ACC = "FB_BUSIND_STORAGE_ACC"
-    FB_BUSIND_WORK_GEAR = "FB_BUSIND_WORK_GEAR"
-    FB_CAMERA_ACC = "FB_CAMERA_ACC"
-    FB_CAMERA_CAMERA = "FB_CAMERA_CAMERA"
-    FB_CAMERA_OPTIC = "FB_CAMERA_OPTIC"
-    FB_CAMERA_OPTICS = "FB_CAMERA_OPTICS"
-    FB_CAMERA_PHOTO = "FB_CAMERA_PHOTO"
-    FB_ELEC = "FB_ELEC"
-    FB_ELEC_ACC = "FB_ELEC_ACC"
-    FB_ELEC_ARCDADE = "FB_ELEC_ARCDADE"
-    FB_ELEC_AUDIO = "FB_ELEC_AUDIO"
-    FB_ELEC_CIRCUIT = "FB_ELEC_CIRCUIT"
-    FB_ELEC_COMM = "FB_ELEC_COMM"
-    FB_ELEC_COMPUTER = "FB_ELEC_COMPUTER"
-    FB_ELEC_GPS_ACC = "FB_ELEC_GPS_ACC"
-    FB_ELEC_GPS_NAV = "FB_ELEC_GPS_NAV"
-    FB_ELEC_GPS_TRK = "FB_ELEC_GPS_TRK"
-    FB_ELEC_MARINE = "FB_ELEC_MARINE"
-    FB_ELEC_NETWORK = "FB_ELEC_NETWORK"
-    FB_ELEC_PART = "FB_ELEC_PART"
-    FB_ELEC_PRINT = "FB_ELEC_PRINT"
-    FB_ELEC_RADAR = "FB_ELEC_RADAR"
-    FB_ELEC_SFTWR = "FB_ELEC_SFTWR"
-    FB_ELEC_SPEED_RDR = "FB_ELEC_SPEED_RDR"
-    FB_ELEC_TELEVISION = "FB_ELEC_TELEVISION"
-    FB_ELEC_TOLL = "FB_ELEC_TOLL"
-    FB_ELEC_VIDEO = "FB_ELEC_VIDEO"
-    FB_ELEC_VID_GM_ACC = "FB_ELEC_VID_GM_ACC"
-    FB_ELEC_VID_GM_CNSL = "FB_ELEC_VID_GM_CNSL"
-    FB_FOOD = "FB_FOOD"
-    FB_FURN = "FB_FURN"
-    FB_FURN_BABY = "FB_FURN_BABY"
-    FB_FURN_BENCH = "FB_FURN_BENCH"
-    FB_FURN_CART = "FB_FURN_CART"
-    FB_FURN_CHAIR = "FB_FURN_CHAIR"
-    FB_FURN_CHAIR_ACC = "FB_FURN_CHAIR_ACC"
-    FB_FURN_DIVIDE = "FB_FURN_DIVIDE"
-    FB_FURN_DIVIDE_ACC = "FB_FURN_DIVIDE_ACC"
-    FB_FURN_ENT_CTR = "FB_FURN_ENT_CTR"
-    FB_FURN_FUTN = "FB_FURN_FUTN"
-    FB_FURN_FUTN_PAD = "FB_FURN_FUTN_PAD"
-    FB_FURN_OFFICE = "FB_FURN_OFFICE"
-    FB_FURN_OFFICE_ACC = "FB_FURN_OFFICE_ACC"
-    FB_FURN_OTTO = "FB_FURN_OTTO"
-    FB_FURN_OUTDOOR = "FB_FURN_OUTDOOR"
-    FB_FURN_OUTDOOR_ACC = "FB_FURN_OUTDOOR_ACC"
-    FB_FURN_SETS = "FB_FURN_SETS"
-    FB_FURN_SHELVE_ACC = "FB_FURN_SHELVE_ACC"
-    FB_FURN_SHLF = "FB_FURN_SHLF"
-    FB_FURN_SOFA = "FB_FURN_SOFA"
-    FB_FURN_SOFA_ACC = "FB_FURN_SOFA_ACC"
-    FB_FURN_STORAGE = "FB_FURN_STORAGE"
-    FB_FURN_TABL = "FB_FURN_TABL"
-    FB_FURN_TABL_ACC = "FB_FURN_TABL_ACC"
-    FB_GENERIC_TAXABLE = "FB_GENERIC_TAXABLE"
-    FB_HLTH = "FB_HLTH"
-    FB_HLTH_HLTH = "FB_HLTH_HLTH"
-    FB_HLTH_JWL_CR = "FB_HLTH_JWL_CR"
-    FB_HLTH_LILP_BLM = "FB_HLTH_LILP_BLM"
-    FB_HLTH_LTN_SPF = "FB_HLTH_LTN_SPF"
-    FB_HLTH_PRSL_CR = "FB_HLTH_PRSL_CR"
-    FB_HLTH_SKN_CR = "FB_HLTH_SKN_CR"
-    FB_HMGN = "FB_HMGN"
-    FB_HMGN_BATH = "FB_HMGN_BATH"
-    FB_HMGN_DCOR = "FB_HMGN_DCOR"
-    FB_HMGN_EMGY = "FB_HMGN_EMGY"
-    FB_HMGN_FPLC = "FB_HMGN_FPLC"
-    FB_HMGN_FPLC_ACC = "FB_HMGN_FPLC_ACC"
-    FB_HMGN_GS_SFT = "FB_HMGN_GS_SFT"
-    FB_HMGN_HS_ACC = "FB_HMGN_HS_ACC"
-    FB_HMGN_HS_APP = "FB_HMGN_HS_APP"
-    FB_HMGN_HS_SPL = "FB_HMGN_HS_SPL"
-    FB_HMGN_KTCN = "FB_HMGN_KTCN"
-    FB_HMGN_LAWN = "FB_HMGN_LAWN"
-    FB_HMGN_LGHT = "FB_HMGN_LGHT"
-    FB_HMGN_LINN = "FB_HMGN_LINN"
-    FB_HMGN_LT_ACC = "FB_HMGN_LT_ACC"
-    FB_HMGN_OTDR = "FB_HMGN_OTDR"
-    FB_HMGN_POOL = "FB_HMGN_POOL"
-    FB_HMGN_SCTY = "FB_HMGN_SCTY"
-    FB_HMGN_SMK_ACC = "FB_HMGN_SMK_ACC"
-    FB_HMGN_UMBR = "FB_HMGN_UMBR"
-    FB_HMGN_UMBR_ACC = "FB_HMGN_UMBR_ACC"
-    FB_MDIA = "FB_MDIA"
-    FB_MDIA_BOOK = "FB_MDIA_BOOK"
-    FB_MDIA_DVDS = "FB_MDIA_DVDS"
-    FB_MDIA_MAG = "FB_MDIA_MAG"
-    FB_MDIA_MANL = "FB_MDIA_MANL"
-    FB_MDIA_MUSC = "FB_MDIA_MUSC"
-    FB_MDIA_PRJ_PLN = "FB_MDIA_PRJ_PLN"
-    FB_MDIA_SHT_MUS = "FB_MDIA_SHT_MUS"
-    FB_OFFC = "FB_OFFC"
-    FB_OFFC_BKAC = "FB_OFFC_BKAC"
-    FB_OFFC_CRTS = "FB_OFFC_CRTS"
-    FB_OFFC_DSKP = "FB_OFFC_DSKP"
-    FB_OFFC_EQIP = "FB_OFFC_EQIP"
-    FB_OFFC_FLNG = "FB_OFFC_FLNG"
-    FB_OFFC_GNRL = "FB_OFFC_GNRL"
-    FB_OFFC_INSTM = "FB_OFFC_INSTM"
-    FB_OFFC_LP_DSK = "FB_OFFC_LP_DSK"
-    FB_OFFC_MATS = "FB_OFFC_MATS"
-    FB_OFFC_NM_PLT = "FB_OFFC_NM_PLT"
-    FB_OFFC_PPR_HNDL = "FB_OFFC_PPR_HNDL"
-    FB_OFFC_PRSNT_SPL = "FB_OFFC_PRSNT_SPL"
-    FB_OFFC_SEALR = "FB_OFFC_SEALR"
-    FB_OFFC_SHIP_SPL = "FB_OFFC_SHIP_SPL"
-    FB_RLGN = "FB_RLGN"
-    FB_RLGN_CMNY = "FB_RLGN_CMNY"
-    FB_RLGN_ITEM = "FB_RLGN_ITEM"
-    FB_RLGN_WEDD = "FB_RLGN_WEDD"
-    FB_SFTWR = "FB_SFTWR"
-    FB_SFWR_CMPTR = "FB_SFWR_CMPTR"
-    FB_SFWR_DGTL_GD = "FB_SFWR_DGTL_GD"
-    FB_SFWR_GAME = "FB_SFWR_GAME"
-    FB_SHIPPING = "FB_SHIPPING"
-    FB_SPOR = "FB_SPOR"
-    FB_SPORT_ATHL = "FB_SPORT_ATHL"
-    FB_SPORT_ATHL_CLTH = "FB_SPORT_ATHL_CLTH"
-    FB_SPORT_ATHL_SHOE = "FB_SPORT_ATHL_SHOE"
-    FB_SPORT_ATHL_SPRT = "FB_SPORT_ATHL_SPRT"
-    FB_SPORT_EXRCS = "FB_SPORT_EXRCS"
-    FB_SPORT_INDR_GM = "FB_SPORT_INDR_GM"
-    FB_SPORT_OTDR_GM = "FB_SPORT_OTDR_GM"
-    FB_TOYS = "FB_TOYS"
-    FB_TOYS_EQIP = "FB_TOYS_EQIP"
-    FB_TOYS_GAME = "FB_TOYS_GAME"
-    FB_TOYS_PZZL = "FB_TOYS_PZZL"
-    FB_TOYS_TMRS = "FB_TOYS_TMRS"
-    FB_TOYS_TOYS = "FB_TOYS_TOYS"
-    FB_VEHI = "FB_VEHI"
-    FB_VEHI_PART = "FB_VEHI_PART"
-
-
-class productcatalogproducts_age_group_enum_param(str, Enum):
-    """productcatalogproducts_age_group_enum_param enum values."""
-
-    adult = "adult"
-    ALL_AGES = "all ages"
-    infant = "infant"
-    kids = "kids"
-    newborn = "newborn"
-    teen = "teen"
-    toddler = "toddler"
 
 
 # Field literal type

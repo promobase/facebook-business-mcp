@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.highdemandperiod import HighDemandPeriod
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-highdemandperiod")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-highdemandperiod")
 
 
 @mcp.tool()
-async def api_create_highdemandperiod(
+@wrapped_fn_tool
+async def api_create(
     highdemandperiod_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HighDemandPeriod(fbid=highdemandperiod_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_highdemandperiod(
 
 
 @mcp.tool()
-async def api_delete_highdemandperiod(
+@wrapped_fn_tool
+async def api_delete(
     highdemandperiod_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HighDemandPeriod(fbid=highdemandperiod_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_highdemandperiod(
 
 
 @mcp.tool()
-async def api_get_highdemandperiod(
+@wrapped_fn_tool
+async def api_get(
     highdemandperiod_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HighDemandPeriod(fbid=highdemandperiod_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_highdemandperiod(
 
 
 @mcp.tool()
-async def api_update_highdemandperiod(
+@wrapped_fn_tool
+async def api_update(
     highdemandperiod_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HighDemandPeriod(fbid=highdemandperiod_id).api_update(
         fields=fields,
         params=params,

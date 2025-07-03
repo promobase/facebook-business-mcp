@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.hotelroom import HotelRoom
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-hotelroom")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-hotelroom")
 
 
 @mcp.tool()
-async def api_create_hotelroom(
+@wrapped_fn_tool
+async def api_create(
     hotelroom_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HotelRoom(fbid=hotelroom_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_hotelroom(
 
 
 @mcp.tool()
-async def api_delete_hotelroom(
+@wrapped_fn_tool
+async def api_delete(
     hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HotelRoom(fbid=hotelroom_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_hotelroom(
 
 
 @mcp.tool()
-async def api_get_hotelroom(
+@wrapped_fn_tool
+async def api_get(
     hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HotelRoom(fbid=hotelroom_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_hotelroom(
 
 
 @mcp.tool()
-async def api_update_hotelroom(
+@wrapped_fn_tool
+async def api_update(
     hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HotelRoom(fbid=hotelroom_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_hotelroom(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_pricing_variables(
     hotelroom_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = HotelRoom(fbid=hotelroom_id).get_pricing_variables(
         fields=fields,
         params=params,

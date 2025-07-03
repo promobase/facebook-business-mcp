@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.catalogsmartpixelsettings import CatalogSmartPixelSettings
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-catalogsmartpixelsettings")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-catalogsmartpixelsettings")
 
 
 @mcp.tool()
-async def api_create_catalogsmartpixelsettings(
+@wrapped_fn_tool
+async def api_create(
     catalogsmartpixelsettings_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogSmartPixelSettings(fbid=catalogsmartpixelsettings_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_catalogsmartpixelsettings(
 
 
 @mcp.tool()
-async def api_delete_catalogsmartpixelsettings(
+@wrapped_fn_tool
+async def api_delete(
     catalogsmartpixelsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogSmartPixelSettings(fbid=catalogsmartpixelsettings_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_catalogsmartpixelsettings(
 
 
 @mcp.tool()
-async def api_get_catalogsmartpixelsettings(
+@wrapped_fn_tool
+async def api_get(
     catalogsmartpixelsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogSmartPixelSettings(fbid=catalogsmartpixelsettings_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_catalogsmartpixelsettings(
 
 
 @mcp.tool()
-async def api_update_catalogsmartpixelsettings(
+@wrapped_fn_tool
+async def api_update(
     catalogsmartpixelsettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogSmartPixelSettings(fbid=catalogsmartpixelsettings_id).api_update(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.comment import Comment
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-comment")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-comment")
 
 
 @mcp.tool()
-async def api_create_comment(
+@wrapped_fn_tool
+async def api_create(
     comment_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_comment(
 
 
 @mcp.tool()
-async def api_delete_comment(
+@wrapped_fn_tool
+async def api_delete(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_comment(
 
 
 @mcp.tool()
-async def api_get_comment(
+@wrapped_fn_tool
+async def api_get(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_comment(
 
 
 @mcp.tool()
-async def api_update_comment(
+@wrapped_fn_tool
+async def api_update(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_comment(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_comment(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).create_comment(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_comment(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_like(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).create_like(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def create_like(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_likes(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).delete_likes(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def delete_likes(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_comments(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).get_comments(
         fields=fields,
         params=params,
@@ -133,11 +143,12 @@ async def get_comments(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_likes(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).get_likes(
         fields=fields,
         params=params,
@@ -147,11 +158,12 @@ async def get_likes(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_reactions(
     comment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Comment(fbid=comment_id).get_reactions(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.reachfrequencyprediction import ReachFrequencyPrediction
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-reachfrequencyprediction")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-reachfrequencyprediction")
 
 
 @mcp.tool()
-async def api_create_reachfrequencyprediction(
+@wrapped_fn_tool
+async def api_create(
     reachfrequencyprediction_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ReachFrequencyPrediction(fbid=reachfrequencyprediction_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_reachfrequencyprediction(
 
 
 @mcp.tool()
-async def api_delete_reachfrequencyprediction(
+@wrapped_fn_tool
+async def api_delete(
     reachfrequencyprediction_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ReachFrequencyPrediction(fbid=reachfrequencyprediction_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_reachfrequencyprediction(
 
 
 @mcp.tool()
-async def api_get_reachfrequencyprediction(
+@wrapped_fn_tool
+async def api_get(
     reachfrequencyprediction_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ReachFrequencyPrediction(fbid=reachfrequencyprediction_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_reachfrequencyprediction(
 
 
 @mcp.tool()
-async def api_update_reachfrequencyprediction(
+@wrapped_fn_tool
+async def api_update(
     reachfrequencyprediction_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ReachFrequencyPrediction(fbid=reachfrequencyprediction_id).api_update(
         fields=fields,
         params=params,

@@ -41,18 +41,18 @@ class livevideocomments_order_enum_param(str, Enum):
     reverse_chronological = "reverse_chronological"
 
 
-class livevideocomments_filter_enum_param(str, Enum):
-    """livevideocomments_filter_enum_param enum values."""
-
-    stream = "stream"
-    toplevel = "toplevel"
-
-
 class livevideocomments_live_filter_enum_param(str, Enum):
     """livevideocomments_live_filter_enum_param enum values."""
 
     filter_low_quality = "filter_low_quality"
     no_filter = "no_filter"
+
+
+class livevideocomments_filter_enum_param(str, Enum):
+    """livevideocomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
 
 
 # Field literal type

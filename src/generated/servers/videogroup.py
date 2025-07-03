@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.videogroup import VideoGroup
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-videogroup")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-videogroup")
 
 
 @mcp.tool()
-async def api_create_videogroup(
+@wrapped_fn_tool
+async def api_create(
     videogroup_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoGroup(fbid=videogroup_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_videogroup(
 
 
 @mcp.tool()
-async def api_delete_videogroup(
+@wrapped_fn_tool
+async def api_delete(
     videogroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoGroup(fbid=videogroup_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_videogroup(
 
 
 @mcp.tool()
-async def api_get_videogroup(
+@wrapped_fn_tool
+async def api_get(
     videogroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoGroup(fbid=videogroup_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_videogroup(
 
 
 @mcp.tool()
-async def api_update_videogroup(
+@wrapped_fn_tool
+async def api_update(
     videogroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoGroup(fbid=videogroup_id).api_update(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adstudyobjectiveid import AdStudyObjectiveID
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adstudyobjectiveid")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adstudyobjectiveid")
 
 
 @mcp.tool()
-async def api_create_adstudyobjectiveid(
+@wrapped_fn_tool
+async def api_create(
     adstudyobjectiveid_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adstudyobjectiveid(
 
 
 @mcp.tool()
-async def api_delete_adstudyobjectiveid(
+@wrapped_fn_tool
+async def api_delete(
     adstudyobjectiveid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adstudyobjectiveid(
 
 
 @mcp.tool()
-async def api_get_adstudyobjectiveid(
+@wrapped_fn_tool
+async def api_get(
     adstudyobjectiveid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adstudyobjectiveid(
 
 
 @mcp.tool()
-async def api_update_adstudyobjectiveid(
+@wrapped_fn_tool
+async def api_update(
     adstudyobjectiveid_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdStudyObjectiveID(fbid=adstudyobjectiveid_id).api_update(
         fields=fields,
         params=params,

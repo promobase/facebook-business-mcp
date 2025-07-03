@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.businessagreement import BusinessAgreement
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-businessagreement")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-businessagreement")
 
 
 @mcp.tool()
-async def api_create_businessagreement(
+@wrapped_fn_tool
+async def api_create(
     businessagreement_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAgreement(fbid=businessagreement_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_businessagreement(
 
 
 @mcp.tool()
-async def api_delete_businessagreement(
+@wrapped_fn_tool
+async def api_delete(
     businessagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAgreement(fbid=businessagreement_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_businessagreement(
 
 
 @mcp.tool()
-async def api_get_businessagreement(
+@wrapped_fn_tool
+async def api_get(
     businessagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAgreement(fbid=businessagreement_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_businessagreement(
 
 
 @mcp.tool()
-async def api_update_businessagreement(
+@wrapped_fn_tool
+async def api_update(
     businessagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAgreement(fbid=businessagreement_id).api_update(
         fields=fields,
         params=params,

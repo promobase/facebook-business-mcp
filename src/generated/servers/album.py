@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.album import Album
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-album")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-album")
 
 
 @mcp.tool()
-async def api_create_album(
+@wrapped_fn_tool
+async def api_create(
     album_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_album(
 
 
 @mcp.tool()
-async def api_delete_album(
+@wrapped_fn_tool
+async def api_delete(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_album(
 
 
 @mcp.tool()
-async def api_get_album(
+@wrapped_fn_tool
+async def api_get(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_album(
 
 
 @mcp.tool()
-async def api_update_album(
+@wrapped_fn_tool
+async def api_update(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_album(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_comment(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).create_comment(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_comment(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_like(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).create_like(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def create_like(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_photo(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).create_photo(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def create_photo(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_comments(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).get_comments(
         fields=fields,
         params=params,
@@ -133,11 +143,12 @@ async def get_comments(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_likes(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).get_likes(
         fields=fields,
         params=params,
@@ -147,11 +158,12 @@ async def get_likes(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_photos(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).get_photos(
         fields=fields,
         params=params,
@@ -161,11 +173,12 @@ async def get_photos(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_picture(
     album_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Album(fbid=album_id).get_picture(
         fields=fields,
         params=params,

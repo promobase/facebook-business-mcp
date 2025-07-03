@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.pageinsightsasyncexportrun import PageInsightsAsyncExportRun
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-pageinsightsasyncexportrun")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-pageinsightsasyncexportrun")
 
 
 @mcp.tool()
-async def api_create_pageinsightsasyncexportrun(
+@wrapped_fn_tool
+async def api_create(
     pageinsightsasyncexportrun_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageInsightsAsyncExportRun(fbid=pageinsightsasyncexportrun_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_pageinsightsasyncexportrun(
 
 
 @mcp.tool()
-async def api_delete_pageinsightsasyncexportrun(
+@wrapped_fn_tool
+async def api_delete(
     pageinsightsasyncexportrun_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageInsightsAsyncExportRun(fbid=pageinsightsasyncexportrun_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_pageinsightsasyncexportrun(
 
 
 @mcp.tool()
-async def api_get_pageinsightsasyncexportrun(
+@wrapped_fn_tool
+async def api_get(
     pageinsightsasyncexportrun_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageInsightsAsyncExportRun(fbid=pageinsightsasyncexportrun_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_pageinsightsasyncexportrun(
 
 
 @mcp.tool()
-async def api_update_pageinsightsasyncexportrun(
+@wrapped_fn_tool
+async def api_update(
     pageinsightsasyncexportrun_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageInsightsAsyncExportRun(fbid=pageinsightsasyncexportrun_id).api_update(
         fields=fields,
         params=params,

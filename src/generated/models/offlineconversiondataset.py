@@ -15,26 +15,16 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class offlineconversiondatasetstats_granularity_enum_param(str, Enum):
-    """offlineconversiondatasetstats_granularity_enum_param enum values."""
+class offlineconversiondatasetuploads_sort_by_enum_param(str, Enum):
+    """offlineconversiondatasetuploads_sort_by_enum_param enum values."""
 
-    daily = "daily"
-    hourly = "hourly"
-    six_hourly = "six_hourly"
-
-
-class offlineconversiondatasetshared_agencies_action_source_enum_param(str, Enum):
-    """offlineconversiondatasetshared_agencies_action_source_enum_param enum values."""
-
-    PHYSICAL_STORE = "PHYSICAL_STORE"
-    WEBSITE = "WEBSITE"
-
-
-class offlineconversiondatasetuploads_order_enum_param(str, Enum):
-    """offlineconversiondatasetuploads_order_enum_param enum values."""
-
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
+    API_CALLS = "API_CALLS"
+    CREATION_TIME = "CREATION_TIME"
+    EVENT_TIME_MAX = "EVENT_TIME_MAX"
+    EVENT_TIME_MIN = "EVENT_TIME_MIN"
+    FIRST_UPLOAD_TIME = "FIRST_UPLOAD_TIME"
+    IS_EXCLUDED_FOR_LIFT = "IS_EXCLUDED_FOR_LIFT"
+    LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
 
 
 class offlineconversiondatasetshared_accounts_action_source_enum_param(str, Enum):
@@ -51,6 +41,21 @@ class offlineconversiondatasetaudiences_action_source_enum_param(str, Enum):
     WEBSITE = "WEBSITE"
 
 
+class offlineconversiondatasetuploads_order_enum_param(str, Enum):
+    """offlineconversiondatasetuploads_order_enum_param enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class offlineconversiondatasetstats_granularity_enum_param(str, Enum):
+    """offlineconversiondatasetstats_granularity_enum_param enum values."""
+
+    daily = "daily"
+    hourly = "hourly"
+    six_hourly = "six_hourly"
+
+
 class offlineconversiondatasetstats_aggr_time_enum_param(str, Enum):
     """offlineconversiondatasetstats_aggr_time_enum_param enum values."""
 
@@ -58,16 +63,11 @@ class offlineconversiondatasetstats_aggr_time_enum_param(str, Enum):
     upload_time = "upload_time"
 
 
-class offlineconversiondatasetuploads_sort_by_enum_param(str, Enum):
-    """offlineconversiondatasetuploads_sort_by_enum_param enum values."""
+class offlineconversiondatasetshared_agencies_action_source_enum_param(str, Enum):
+    """offlineconversiondatasetshared_agencies_action_source_enum_param enum values."""
 
-    API_CALLS = "API_CALLS"
-    CREATION_TIME = "CREATION_TIME"
-    EVENT_TIME_MAX = "EVENT_TIME_MAX"
-    EVENT_TIME_MIN = "EVENT_TIME_MIN"
-    FIRST_UPLOAD_TIME = "FIRST_UPLOAD_TIME"
-    IS_EXCLUDED_FOR_LIFT = "IS_EXCLUDED_FOR_LIFT"
-    LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
+    PHYSICAL_STORE = "PHYSICAL_STORE"
+    WEBSITE = "WEBSITE"
 
 
 # Field literal type

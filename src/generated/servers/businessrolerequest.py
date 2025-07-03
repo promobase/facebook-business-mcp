@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.businessrolerequest import BusinessRoleRequest
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-businessrolerequest")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-businessrolerequest")
 
 
 @mcp.tool()
-async def api_create_businessrolerequest(
+@wrapped_fn_tool
+async def api_create(
     businessrolerequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessRoleRequest(fbid=businessrolerequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_businessrolerequest(
 
 
 @mcp.tool()
-async def api_delete_businessrolerequest(
+@wrapped_fn_tool
+async def api_delete(
     businessrolerequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessRoleRequest(fbid=businessrolerequest_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_businessrolerequest(
 
 
 @mcp.tool()
-async def api_get_businessrolerequest(
+@wrapped_fn_tool
+async def api_get(
     businessrolerequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessRoleRequest(fbid=businessrolerequest_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_businessrolerequest(
 
 
 @mcp.tool()
-async def api_update_businessrolerequest(
+@wrapped_fn_tool
+async def api_update(
     businessrolerequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessRoleRequest(fbid=businessrolerequest_id).api_update(
         fields=fields,
         params=params,

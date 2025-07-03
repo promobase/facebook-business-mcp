@@ -68,26 +68,25 @@ class Event_type(str, Enum):
     work_company = "work_company"
 
 
-class eventlive_videos_projection_enum_param(str, Enum):
-    """eventlive_videos_projection_enum_param enum values."""
-
-    CUBEMAP = "CUBEMAP"
-    EQUIRECTANGULAR = "EQUIRECTANGULAR"
-    HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
-
-
 class eventlive_videos_spatial_audio_format_enum_param(str, Enum):
     """eventlive_videos_spatial_audio_format_enum_param enum values."""
 
     ambiX_4 = "ambiX_4"
 
 
-class eventlive_videos_stereoscopic_mode_enum_param(str, Enum):
-    """eventlive_videos_stereoscopic_mode_enum_param enum values."""
+class eventlive_videos_stream_type_enum_param(str, Enum):
+    """eventlive_videos_stream_type_enum_param enum values."""
 
-    LEFT_RIGHT = "LEFT_RIGHT"
-    MONO = "MONO"
-    TOP_BOTTOM = "TOP_BOTTOM"
+    AMBIENT = "AMBIENT"
+    REGULAR = "REGULAR"
+
+
+class eventlive_videos_projection_enum_param(str, Enum):
+    """eventlive_videos_projection_enum_param enum values."""
+
+    CUBEMAP = "CUBEMAP"
+    EQUIRECTANGULAR = "EQUIRECTANGULAR"
+    HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
 
 
 class eventlive_videos_status_enum_param(str, Enum):
@@ -100,11 +99,12 @@ class eventlive_videos_status_enum_param(str, Enum):
     UNPUBLISHED = "UNPUBLISHED"
 
 
-class eventlive_videos_stream_type_enum_param(str, Enum):
-    """eventlive_videos_stream_type_enum_param enum values."""
+class eventlive_videos_stereoscopic_mode_enum_param(str, Enum):
+    """eventlive_videos_stereoscopic_mode_enum_param enum values."""
 
-    AMBIENT = "AMBIENT"
-    REGULAR = "REGULAR"
+    LEFT_RIGHT = "LEFT_RIGHT"
+    MONO = "MONO"
+    TOP_BOTTOM = "TOP_BOTTOM"
 
 
 # Field literal type

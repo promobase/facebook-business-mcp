@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.pageusermessagethreadlabel import PageUserMessageThreadLabel
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-pageusermessagethreadlabel")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-pageusermessagethreadlabel")
 
 
 @mcp.tool()
-async def api_create_pageusermessagethreadlabel(
+@wrapped_fn_tool
+async def api_create(
     pageusermessagethreadlabel_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageUserMessageThreadLabel(fbid=pageusermessagethreadlabel_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_pageusermessagethreadlabel(
 
 
 @mcp.tool()
-async def api_delete_pageusermessagethreadlabel(
+@wrapped_fn_tool
+async def api_delete(
     pageusermessagethreadlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageUserMessageThreadLabel(fbid=pageusermessagethreadlabel_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_pageusermessagethreadlabel(
 
 
 @mcp.tool()
-async def api_get_pageusermessagethreadlabel(
+@wrapped_fn_tool
+async def api_get(
     pageusermessagethreadlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageUserMessageThreadLabel(fbid=pageusermessagethreadlabel_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_pageusermessagethreadlabel(
 
 
 @mcp.tool()
-async def api_update_pageusermessagethreadlabel(
+@wrapped_fn_tool
+async def api_update(
     pageusermessagethreadlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageUserMessageThreadLabel(fbid=pageusermessagethreadlabel_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_pageusermessagethreadlabel(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_label(
     pageusermessagethreadlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageUserMessageThreadLabel(fbid=pageusermessagethreadlabel_id).create_label(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_label(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_label(
     pageusermessagethreadlabel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageUserMessageThreadLabel(fbid=pageusermessagethreadlabel_id).delete_label(
         fields=fields,
         params=params,

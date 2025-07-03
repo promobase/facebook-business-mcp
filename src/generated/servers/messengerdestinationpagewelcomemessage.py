@@ -10,6 +10,8 @@ from facebook_business.adobjects.messengerdestinationpagewelcomemessage import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-messengerdestinationpagewelcomemessage")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-messengerdestinationpagewelcomemessage")
 
 
 @mcp.tool()
-async def api_create_messengerdestinationpagewelcomemessage(
+@wrapped_fn_tool
+async def api_create(
     messengerdestinationpagewelcomemessage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerDestinationPageWelcomeMessage(
         fbid=messengerdestinationpagewelcomemessage_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_messengerdestinationpagewelcomemessage(
 
 
 @mcp.tool()
-async def api_delete_messengerdestinationpagewelcomemessage(
+@wrapped_fn_tool
+async def api_delete(
     messengerdestinationpagewelcomemessage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerDestinationPageWelcomeMessage(
         fbid=messengerdestinationpagewelcomemessage_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_messengerdestinationpagewelcomemessage(
 
 
 @mcp.tool()
-async def api_get_messengerdestinationpagewelcomemessage(
+@wrapped_fn_tool
+async def api_get(
     messengerdestinationpagewelcomemessage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerDestinationPageWelcomeMessage(
         fbid=messengerdestinationpagewelcomemessage_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_messengerdestinationpagewelcomemessage(
 
 
 @mcp.tool()
-async def api_update_messengerdestinationpagewelcomemessage(
+@wrapped_fn_tool
+async def api_update(
     messengerdestinationpagewelcomemessage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerDestinationPageWelcomeMessage(
         fbid=messengerdestinationpagewelcomemessage_id
     ).api_update(

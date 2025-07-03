@@ -10,6 +10,8 @@ from facebook_business.adobjects.adsreportbuildermmmreportscheduler import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adsreportbuildermmmreportscheduler")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-adsreportbuildermmmreportscheduler")
 
 
 @mcp.tool()
-async def api_create_adsreportbuildermmmreportscheduler(
+@wrapped_fn_tool
+async def api_create(
     adsreportbuildermmmreportscheduler_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsReportBuilderMMMReportScheduler(
         fbid=adsreportbuildermmmreportscheduler_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_adsreportbuildermmmreportscheduler(
 
 
 @mcp.tool()
-async def api_delete_adsreportbuildermmmreportscheduler(
+@wrapped_fn_tool
+async def api_delete(
     adsreportbuildermmmreportscheduler_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsReportBuilderMMMReportScheduler(
         fbid=adsreportbuildermmmreportscheduler_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_adsreportbuildermmmreportscheduler(
 
 
 @mcp.tool()
-async def api_get_adsreportbuildermmmreportscheduler(
+@wrapped_fn_tool
+async def api_get(
     adsreportbuildermmmreportscheduler_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsReportBuilderMMMReportScheduler(fbid=adsreportbuildermmmreportscheduler_id).api_get(
         fields=fields,
         params=params,
@@ -66,11 +71,12 @@ async def api_get_adsreportbuildermmmreportscheduler(
 
 
 @mcp.tool()
-async def api_update_adsreportbuildermmmreportscheduler(
+@wrapped_fn_tool
+async def api_update(
     adsreportbuildermmmreportscheduler_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsReportBuilderMMMReportScheduler(
         fbid=adsreportbuildermmmreportscheduler_id
     ).api_update(

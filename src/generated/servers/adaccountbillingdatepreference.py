@@ -10,6 +10,8 @@ from facebook_business.adobjects.adaccountbillingdatepreference import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adaccountbillingdatepreference")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-adaccountbillingdatepreference")
 
 
 @mcp.tool()
-async def api_create_adaccountbillingdatepreference(
+@wrapped_fn_tool
+async def api_create(
     adaccountbillingdatepreference_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountBillingDatePreference(fbid=adaccountbillingdatepreference_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -34,11 +37,12 @@ async def api_create_adaccountbillingdatepreference(
 
 
 @mcp.tool()
-async def api_delete_adaccountbillingdatepreference(
+@wrapped_fn_tool
+async def api_delete(
     adaccountbillingdatepreference_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountBillingDatePreference(fbid=adaccountbillingdatepreference_id).api_delete(
         fields=fields,
         params=params,
@@ -48,11 +52,12 @@ async def api_delete_adaccountbillingdatepreference(
 
 
 @mcp.tool()
-async def api_get_adaccountbillingdatepreference(
+@wrapped_fn_tool
+async def api_get(
     adaccountbillingdatepreference_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountBillingDatePreference(fbid=adaccountbillingdatepreference_id).api_get(
         fields=fields,
         params=params,
@@ -62,11 +67,12 @@ async def api_get_adaccountbillingdatepreference(
 
 
 @mcp.tool()
-async def api_update_adaccountbillingdatepreference(
+@wrapped_fn_tool
+async def api_update(
     adaccountbillingdatepreference_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountBillingDatePreference(fbid=adaccountbillingdatepreference_id).api_update(
         fields=fields,
         params=params,

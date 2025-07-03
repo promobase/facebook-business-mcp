@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adassetfeedspecevents import AdAssetFeedSpecEvents
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adassetfeedspecevents")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adassetfeedspecevents")
 
 
 @mcp.tool()
-async def api_create_adassetfeedspecevents(
+@wrapped_fn_tool
+async def api_create(
     adassetfeedspecevents_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adassetfeedspecevents(
 
 
 @mcp.tool()
-async def api_delete_adassetfeedspecevents(
+@wrapped_fn_tool
+async def api_delete(
     adassetfeedspecevents_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adassetfeedspecevents(
 
 
 @mcp.tool()
-async def api_get_adassetfeedspecevents(
+@wrapped_fn_tool
+async def api_get(
     adassetfeedspecevents_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adassetfeedspecevents(
 
 
 @mcp.tool()
-async def api_update_adassetfeedspecevents(
+@wrapped_fn_tool
+async def api_update(
     adassetfeedspecevents_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAssetFeedSpecEvents(fbid=adassetfeedspecevents_id).api_update(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.whatsappbusinessprofile import WhatsAppBusinessProfile
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-whatsappbusinessprofile")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-whatsappbusinessprofile")
 
 
 @mcp.tool()
-async def api_create_whatsappbusinessprofile(
+@wrapped_fn_tool
+async def api_create(
     whatsappbusinessprofile_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_whatsappbusinessprofile(
 
 
 @mcp.tool()
-async def api_delete_whatsappbusinessprofile(
+@wrapped_fn_tool
+async def api_delete(
     whatsappbusinessprofile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_whatsappbusinessprofile(
 
 
 @mcp.tool()
-async def api_get_whatsappbusinessprofile(
+@wrapped_fn_tool
+async def api_get(
     whatsappbusinessprofile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_whatsappbusinessprofile(
 
 
 @mcp.tool()
-async def api_update_whatsappbusinessprofile(
+@wrapped_fn_tool
+async def api_update(
     whatsappbusinessprofile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessProfile(fbid=whatsappbusinessprofile_id).api_update(
         fields=fields,
         params=params,

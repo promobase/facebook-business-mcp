@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.cpasbusinesssetupconfig import CPASBusinessSetupConfig
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-cpasbusinesssetupconfig")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-cpasbusinesssetupconfig")
 
 
 @mcp.tool()
-async def api_create_cpasbusinesssetupconfig(
+@wrapped_fn_tool
+async def api_create(
     cpasbusinesssetupconfig_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASBusinessSetupConfig(fbid=cpasbusinesssetupconfig_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_cpasbusinesssetupconfig(
 
 
 @mcp.tool()
-async def api_delete_cpasbusinesssetupconfig(
+@wrapped_fn_tool
+async def api_delete(
     cpasbusinesssetupconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASBusinessSetupConfig(fbid=cpasbusinesssetupconfig_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_cpasbusinesssetupconfig(
 
 
 @mcp.tool()
-async def api_get_cpasbusinesssetupconfig(
+@wrapped_fn_tool
+async def api_get(
     cpasbusinesssetupconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASBusinessSetupConfig(fbid=cpasbusinesssetupconfig_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_cpasbusinesssetupconfig(
 
 
 @mcp.tool()
-async def api_update_cpasbusinesssetupconfig(
+@wrapped_fn_tool
+async def api_update(
     cpasbusinesssetupconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASBusinessSetupConfig(fbid=cpasbusinesssetupconfig_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_cpasbusinesssetupconfig(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_accounts(
     cpasbusinesssetupconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASBusinessSetupConfig(fbid=cpasbusinesssetupconfig_id).get_ad_accounts(
         fields=fields,
         params=params,

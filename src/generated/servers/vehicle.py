@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.vehicle import Vehicle
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-vehicle")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-vehicle")
 
 
 @mcp.tool()
-async def api_create_vehicle(
+@wrapped_fn_tool
+async def api_create(
     vehicle_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Vehicle(fbid=vehicle_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_vehicle(
 
 
 @mcp.tool()
-async def api_delete_vehicle(
+@wrapped_fn_tool
+async def api_delete(
     vehicle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Vehicle(fbid=vehicle_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_vehicle(
 
 
 @mcp.tool()
-async def api_get_vehicle(
+@wrapped_fn_tool
+async def api_get(
     vehicle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Vehicle(fbid=vehicle_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_vehicle(
 
 
 @mcp.tool()
-async def api_update_vehicle(
+@wrapped_fn_tool
+async def api_update(
     vehicle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Vehicle(fbid=vehicle_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_vehicle(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_channels_to_integrity_status(
     vehicle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Vehicle(fbid=vehicle_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def get_channels_to_integrity_status(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_override_details(
     vehicle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Vehicle(fbid=vehicle_id).get_override_details(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def get_override_details(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_videos_metadata(
     vehicle_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Vehicle(fbid=vehicle_id).get_videos_metadata(
         fields=fields,
         params=params,

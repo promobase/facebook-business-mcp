@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.assigneduser import AssignedUser
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-assigneduser")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-assigneduser")
 
 
 @mcp.tool()
-async def api_create_assigneduser(
+@wrapped_fn_tool
+async def api_create(
     assigneduser_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AssignedUser(fbid=assigneduser_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_assigneduser(
 
 
 @mcp.tool()
-async def api_delete_assigneduser(
+@wrapped_fn_tool
+async def api_delete(
     assigneduser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AssignedUser(fbid=assigneduser_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_assigneduser(
 
 
 @mcp.tool()
-async def api_get_assigneduser(
+@wrapped_fn_tool
+async def api_get(
     assigneduser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AssignedUser(fbid=assigneduser_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_assigneduser(
 
 
 @mcp.tool()
-async def api_update_assigneduser(
+@wrapped_fn_tool
+async def api_update(
     assigneduser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AssignedUser(fbid=assigneduser_id).api_update(
         fields=fields,
         params=params,

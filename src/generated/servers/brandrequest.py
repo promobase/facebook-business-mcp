@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.brandrequest import BrandRequest
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-brandrequest")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-brandrequest")
 
 
 @mcp.tool()
-async def api_create_brandrequest(
+@wrapped_fn_tool
+async def api_create(
     brandrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandRequest(fbid=brandrequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_brandrequest(
 
 
 @mcp.tool()
-async def api_delete_brandrequest(
+@wrapped_fn_tool
+async def api_delete(
     brandrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandRequest(fbid=brandrequest_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_brandrequest(
 
 
 @mcp.tool()
-async def api_get_brandrequest(
+@wrapped_fn_tool
+async def api_get(
     brandrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandRequest(fbid=brandrequest_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_brandrequest(
 
 
 @mcp.tool()
-async def api_update_brandrequest(
+@wrapped_fn_tool
+async def api_update(
     brandrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandRequest(fbid=brandrequest_id).api_update(
         fields=fields,
         params=params,

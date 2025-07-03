@@ -10,6 +10,8 @@ from facebook_business.adobjects.chinabusinessonboardingvettingrequest import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-chinabusinessonboardingvettingrequest")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-chinabusinessonboardingvettingrequest")
 
 
 @mcp.tool()
-async def api_create_chinabusinessonboardingvettingrequest(
+@wrapped_fn_tool
+async def api_create(
     chinabusinessonboardingvettingrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ChinaBusinessOnboardingVettingRequest(
         fbid=chinabusinessonboardingvettingrequest_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_chinabusinessonboardingvettingrequest(
 
 
 @mcp.tool()
-async def api_delete_chinabusinessonboardingvettingrequest(
+@wrapped_fn_tool
+async def api_delete(
     chinabusinessonboardingvettingrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ChinaBusinessOnboardingVettingRequest(
         fbid=chinabusinessonboardingvettingrequest_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_chinabusinessonboardingvettingrequest(
 
 
 @mcp.tool()
-async def api_get_chinabusinessonboardingvettingrequest(
+@wrapped_fn_tool
+async def api_get(
     chinabusinessonboardingvettingrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ChinaBusinessOnboardingVettingRequest(
         fbid=chinabusinessonboardingvettingrequest_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_chinabusinessonboardingvettingrequest(
 
 
 @mcp.tool()
-async def api_update_chinabusinessonboardingvettingrequest(
+@wrapped_fn_tool
+async def api_update(
     chinabusinessonboardingvettingrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ChinaBusinessOnboardingVettingRequest(
         fbid=chinabusinessonboardingvettingrequest_id
     ).api_update(

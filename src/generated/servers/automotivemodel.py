@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.automotivemodel import AutomotiveModel
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-automotivemodel")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-automotivemodel")
 
 
 @mcp.tool()
-async def api_create_automotivemodel(
+@wrapped_fn_tool
+async def api_create(
     automotivemodel_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AutomotiveModel(fbid=automotivemodel_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_automotivemodel(
 
 
 @mcp.tool()
-async def api_delete_automotivemodel(
+@wrapped_fn_tool
+async def api_delete(
     automotivemodel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AutomotiveModel(fbid=automotivemodel_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_automotivemodel(
 
 
 @mcp.tool()
-async def api_get_automotivemodel(
+@wrapped_fn_tool
+async def api_get(
     automotivemodel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AutomotiveModel(fbid=automotivemodel_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_automotivemodel(
 
 
 @mcp.tool()
-async def api_update_automotivemodel(
+@wrapped_fn_tool
+async def api_update(
     automotivemodel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AutomotiveModel(fbid=automotivemodel_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_automotivemodel(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_channels_to_integrity_status(
     automotivemodel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AutomotiveModel(fbid=automotivemodel_id).get_channels_to_integrity_status(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def get_channels_to_integrity_status(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_override_details(
     automotivemodel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AutomotiveModel(fbid=automotivemodel_id).get_override_details(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def get_override_details(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_videos_metadata(
     automotivemodel_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AutomotiveModel(fbid=automotivemodel_id).get_videos_metadata(
         fields=fields,
         params=params,

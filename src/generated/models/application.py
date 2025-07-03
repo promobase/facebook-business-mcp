@@ -10,12 +10,14 @@ from pydantic import BaseModel, ConfigDict, Field
 
 if TYPE_CHECKING:
     from .business import BusinessFields
+    from .permission import PermissionFields
 
 
-class applicationaccounts_type_enum_param(str, Enum):
-    """applicationaccounts_type_enum_param enum values."""
+class applicationcodeless_event_mappings_post_method_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_post_method_enum_param enum values."""
 
-    TEST_USERS = "test-users"
+    CODELESS = "CODELESS"
+    EYMT = "EYMT"
 
 
 class applicationmobile_sdk_gk_platform_enum_param(str, Enum):
@@ -25,6 +27,83 @@ class applicationmobile_sdk_gk_platform_enum_param(str, Enum):
     IOS = "IOS"
 
 
+class applicationadnetworkanalytics_aggregation_period_enum_param(str, Enum):
+    """applicationadnetworkanalytics_aggregation_period_enum_param enum values."""
+
+    DAY = "DAY"
+    TOTAL = "TOTAL"
+
+
+class applicationadnetworkanalytics_ordering_column_enum_param(str, Enum):
+    """applicationadnetworkanalytics_ordering_column_enum_param enum values."""
+
+    METRIC = "METRIC"
+    TIME = "TIME"
+    VALUE = "VALUE"
+
+
+class applicationadnetworkanalytics_metrics_enum_param(str, Enum):
+    """applicationadnetworkanalytics_metrics_enum_param enum values."""
+
+    FB_AD_NETWORK_BIDDING_BID_RATE = "FB_AD_NETWORK_BIDDING_BID_RATE"
+    FB_AD_NETWORK_BIDDING_REQUEST = "FB_AD_NETWORK_BIDDING_REQUEST"
+    FB_AD_NETWORK_BIDDING_RESPONSE = "FB_AD_NETWORK_BIDDING_RESPONSE"
+    FB_AD_NETWORK_BIDDING_REVENUE = "FB_AD_NETWORK_BIDDING_REVENUE"
+    FB_AD_NETWORK_BIDDING_WIN_RATE = "FB_AD_NETWORK_BIDDING_WIN_RATE"
+    FB_AD_NETWORK_CLICK = "FB_AD_NETWORK_CLICK"
+    FB_AD_NETWORK_CPM = "FB_AD_NETWORK_CPM"
+    FB_AD_NETWORK_CTR = "FB_AD_NETWORK_CTR"
+    FB_AD_NETWORK_FILLED_REQUEST = "FB_AD_NETWORK_FILLED_REQUEST"
+    FB_AD_NETWORK_FILL_RATE = "FB_AD_NETWORK_FILL_RATE"
+    FB_AD_NETWORK_IMP = "FB_AD_NETWORK_IMP"
+    FB_AD_NETWORK_IMPRESSION_RATE = "FB_AD_NETWORK_IMPRESSION_RATE"
+    FB_AD_NETWORK_REQUEST = "FB_AD_NETWORK_REQUEST"
+    FB_AD_NETWORK_REVENUE = "FB_AD_NETWORK_REVENUE"
+    FB_AD_NETWORK_SHOW_RATE = "FB_AD_NETWORK_SHOW_RATE"
+    FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE = "FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE"
+    FB_AD_NETWORK_VIDEO_MRC = "FB_AD_NETWORK_VIDEO_MRC"
+    FB_AD_NETWORK_VIDEO_MRC_RATE = "FB_AD_NETWORK_VIDEO_MRC_RATE"
+    FB_AD_NETWORK_VIDEO_VIEW = "FB_AD_NETWORK_VIDEO_VIEW"
+    FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
+
+
+class applicationwhatsapp_business_solution_owner_permissions_enum_param(str, Enum):
+    """applicationwhatsapp_business_solution_owner_permissions_enum_param enum values."""
+
+    DEVELOP = "DEVELOP"
+    MANAGE = "MANAGE"
+    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
+    MANAGE_PHONE = "MANAGE_PHONE"
+    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
+    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
+    MESSAGING = "MESSAGING"
+    VIEW_COST = "VIEW_COST"
+    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
+    VIEW_TEMPLATES = "VIEW_TEMPLATES"
+
+
+class applicationadnetworkanalytics_ordering_type_enum_param(str, Enum):
+    """applicationadnetworkanalytics_ordering_type_enum_param enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class applicationwhatsapp_business_solution_partner_permissions_enum_param(str, Enum):
+    """applicationwhatsapp_business_solution_partner_permissions_enum_param enum values."""
+
+    DEVELOP = "DEVELOP"
+    MANAGE = "MANAGE"
+    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
+    MANAGE_PHONE = "MANAGE_PHONE"
+    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
+    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
+    MESSAGING = "MESSAGING"
+    VIEW_COST = "VIEW_COST"
+    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
+    VIEW_TEMPLATES = "VIEW_TEMPLATES"
+
+
 class applicationpermissions_status_enum_param(str, Enum):
     """applicationpermissions_status_enum_param enum values."""
 
@@ -32,13 +111,26 @@ class applicationpermissions_status_enum_param(str, Enum):
     unapproved = "unapproved"
 
 
-class applicationda_checks_connection_method_enum_param(str, Enum):
-    """applicationda_checks_connection_method_enum_param enum values."""
+class applicationcodeless_event_mappings_mutation_method_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_mutation_method_enum_param enum values."""
 
-    ALL = "ALL"
-    APP = "APP"
-    BROWSER = "BROWSER"
-    SERVER = "SERVER"
+    ADD = "ADD"
+    DELETE = "DELETE"
+    REPLACE = "REPLACE"
+
+
+class applicationuploads_session_type_enum_param(str, Enum):
+    """applicationuploads_session_type_enum_param enum values."""
+
+    attachment = "attachment"
+
+
+class applicationapp_indexing_request_type_enum_param(str, Enum):
+    """applicationapp_indexing_request_type_enum_param enum values."""
+
+    APP_INDEXING = "APP_INDEXING"
+    BUTTON_SAMPLING = "BUTTON_SAMPLING"
+    PLUGIN = "PLUGIN"
 
 
 class applicationadnetworkanalytics_breakdowns_enum_param(str, Enum):
@@ -67,6 +159,12 @@ class applicationadnetworkanalytics_breakdowns_enum_param(str, Enum):
     SDK_VERSION = "SDK_VERSION"
 
 
+class applicationaccounts_type_enum_param(str, Enum):
+    """applicationaccounts_type_enum_param enum values."""
+
+    TEST_USERS = "test-users"
+
+
 class applicationwhatsapp_business_solutions_role_enum_param(str, Enum):
     """applicationwhatsapp_business_solutions_role_enum_param enum values."""
 
@@ -74,32 +172,18 @@ class applicationwhatsapp_business_solutions_role_enum_param(str, Enum):
     PARTNER = "PARTNER"
 
 
-class applicationwhatsapp_business_solution_owner_permissions_enum_param(str, Enum):
-    """applicationwhatsapp_business_solution_owner_permissions_enum_param enum values."""
+class applicationcodeless_event_mappings_platform_enum_param(str, Enum):
+    """applicationcodeless_event_mappings_platform_enum_param enum values."""
 
-    DEVELOP = "DEVELOP"
-    MANAGE = "MANAGE"
-    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
-    MANAGE_PHONE = "MANAGE_PHONE"
-    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
-    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
-    MESSAGING = "MESSAGING"
-    VIEW_COST = "VIEW_COST"
-    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
-    VIEW_TEMPLATES = "VIEW_TEMPLATES"
+    ANDROID = "ANDROID"
+    IOS = "IOS"
 
 
-class applicationcodeless_event_mappings_post_method_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_post_method_enum_param enum values."""
+class applicationapp_indexing_platform_enum_param(str, Enum):
+    """applicationapp_indexing_platform_enum_param enum values."""
 
-    CODELESS = "CODELESS"
-    EYMT = "EYMT"
-
-
-class applicationuploads_session_type_enum_param(str, Enum):
-    """applicationuploads_session_type_enum_param enum values."""
-
-    attachment = "attachment"
+    ANDROID = "ANDROID"
+    IOS = "IOS"
 
 
 class applicationapp_push_device_token_platform_enum_param(str, Enum):
@@ -110,110 +194,27 @@ class applicationapp_push_device_token_platform_enum_param(str, Enum):
     UNKNOWN = "UNKNOWN"
 
 
-class applicationwhatsapp_business_solution_partner_permissions_enum_param(str, Enum):
-    """applicationwhatsapp_business_solution_partner_permissions_enum_param enum values."""
-
-    DEVELOP = "DEVELOP"
-    MANAGE = "MANAGE"
-    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
-    MANAGE_PHONE = "MANAGE_PHONE"
-    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
-    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
-    MESSAGING = "MESSAGING"
-    VIEW_COST = "VIEW_COST"
-    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
-    VIEW_TEMPLATES = "VIEW_TEMPLATES"
-
-
-class applicationapp_indexing_request_type_enum_param(str, Enum):
-    """applicationapp_indexing_request_type_enum_param enum values."""
-
-    APP_INDEXING = "APP_INDEXING"
-    BUTTON_SAMPLING = "BUTTON_SAMPLING"
-    PLUGIN = "PLUGIN"
-
-
-class applicationcodeless_event_mappings_mutation_method_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_mutation_method_enum_param enum values."""
-
-    ADD = "ADD"
-    DELETE = "DELETE"
-    REPLACE = "REPLACE"
-
-
-class applicationcodeless_event_mappings_platform_enum_param(str, Enum):
-    """applicationcodeless_event_mappings_platform_enum_param enum values."""
-
-    ANDROID = "ANDROID"
-    IOS = "IOS"
-
-
-class applicationadnetworkanalytics_metrics_enum_param(str, Enum):
-    """applicationadnetworkanalytics_metrics_enum_param enum values."""
-
-    FB_AD_NETWORK_BIDDING_BID_RATE = "FB_AD_NETWORK_BIDDING_BID_RATE"
-    FB_AD_NETWORK_BIDDING_REQUEST = "FB_AD_NETWORK_BIDDING_REQUEST"
-    FB_AD_NETWORK_BIDDING_RESPONSE = "FB_AD_NETWORK_BIDDING_RESPONSE"
-    FB_AD_NETWORK_BIDDING_REVENUE = "FB_AD_NETWORK_BIDDING_REVENUE"
-    FB_AD_NETWORK_BIDDING_WIN_RATE = "FB_AD_NETWORK_BIDDING_WIN_RATE"
-    FB_AD_NETWORK_CLICK = "FB_AD_NETWORK_CLICK"
-    FB_AD_NETWORK_CPM = "FB_AD_NETWORK_CPM"
-    FB_AD_NETWORK_CTR = "FB_AD_NETWORK_CTR"
-    FB_AD_NETWORK_FILLED_REQUEST = "FB_AD_NETWORK_FILLED_REQUEST"
-    FB_AD_NETWORK_FILL_RATE = "FB_AD_NETWORK_FILL_RATE"
-    FB_AD_NETWORK_IMP = "FB_AD_NETWORK_IMP"
-    FB_AD_NETWORK_IMPRESSION_RATE = "FB_AD_NETWORK_IMPRESSION_RATE"
-    FB_AD_NETWORK_REQUEST = "FB_AD_NETWORK_REQUEST"
-    FB_AD_NETWORK_REVENUE = "FB_AD_NETWORK_REVENUE"
-    FB_AD_NETWORK_SHOW_RATE = "FB_AD_NETWORK_SHOW_RATE"
-    FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE = "FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE"
-    FB_AD_NETWORK_VIDEO_MRC = "FB_AD_NETWORK_VIDEO_MRC"
-    FB_AD_NETWORK_VIDEO_MRC_RATE = "FB_AD_NETWORK_VIDEO_MRC_RATE"
-    FB_AD_NETWORK_VIDEO_VIEW = "FB_AD_NETWORK_VIDEO_VIEW"
-    FB_AD_NETWORK_VIDEO_VIEW_RATE = "FB_AD_NETWORK_VIDEO_VIEW_RATE"
-
-
-class applicationadnetworkanalytics_ordering_column_enum_param(str, Enum):
-    """applicationadnetworkanalytics_ordering_column_enum_param enum values."""
-
-    METRIC = "METRIC"
-    TIME = "TIME"
-    VALUE = "VALUE"
-
-
-class applicationadnetworkanalytics_aggregation_period_enum_param(str, Enum):
-    """applicationadnetworkanalytics_aggregation_period_enum_param enum values."""
-
-    DAY = "DAY"
-    TOTAL = "TOTAL"
-
-
-class applicationactivities_user_id_type_enum_param(str, Enum):
-    """applicationactivities_user_id_type_enum_param enum values."""
-
-    INSTANT_GAMES_PLAYER_ID = "INSTANT_GAMES_PLAYER_ID"
-
-
-class applicationapp_indexing_platform_enum_param(str, Enum):
-    """applicationapp_indexing_platform_enum_param enum values."""
-
-    ANDROID = "ANDROID"
-    IOS = "IOS"
-
-
-class applicationadnetworkanalytics_ordering_type_enum_param(str, Enum):
-    """applicationadnetworkanalytics_ordering_type_enum_param enum values."""
-
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
-
-
 class applicationactivities_event_enum_param(str, Enum):
     """applicationactivities_event_enum_param enum values."""
 
     CUSTOM_APP_EVENTS = "CUSTOM_APP_EVENTS"
     DEFERRED_APP_LINK = "DEFERRED_APP_LINK"
     MOBILE_APP_INSTALL = "MOBILE_APP_INSTALL"
+
+
+class applicationda_checks_connection_method_enum_param(str, Enum):
+    """applicationda_checks_connection_method_enum_param enum values."""
+
+    ALL = "ALL"
+    APP = "APP"
+    BROWSER = "BROWSER"
+    SERVER = "SERVER"
+
+
+class applicationactivities_user_id_type_enum_param(str, Enum):
+    """applicationactivities_user_id_type_enum_param enum values."""
+
+    INSTANT_GAMES_PLAYER_ID = "INSTANT_GAMES_PLAYER_ID"
 
 
 # Field literal type
@@ -473,7 +474,7 @@ class ApplicationCreateAccountParams(BaseModel):
     minor: bool | None = Field(None, description="minor parameter")
     name: str | None = Field(None, description="name parameter")
     owner_access_token: str | None = Field(None, description="owner_access_token parameter")
-    permissions: list[dict[str, Any]] | None = Field(None, description="permissions parameter")
+    permissions: list[PermissionFields] | None = Field(None, description="permissions parameter")
     type: applicationaccounts_type_enum_param | None = Field(None, description="type parameter")
     uid: int | None = Field(None, description="uid parameter")
 
@@ -855,7 +856,7 @@ class ApplicationGetPermissionsParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
     android_key_hash: str | None = Field(None, description="android_key_hash parameter")
     ios_bundle_id: str | None = Field(None, description="ios_bundle_id parameter")
-    permission: list[dict[str, Any]] | None = Field(None, description="permission parameter")
+    permission: list[PermissionFields] | None = Field(None, description="permission parameter")
     proxied_app_id: int | None = Field(None, description="proxied_app_id parameter")
     status: list[applicationpermissions_status_enum_param] | None = Field(
         None, description="status parameter"

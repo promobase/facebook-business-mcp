@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.managedpartnerextendedcredit import ManagedPartnerExtendedCredit
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-managedpartnerextendedcredit")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-managedpartnerextendedcredit")
 
 
 @mcp.tool()
-async def api_create_managedpartnerextendedcredit(
+@wrapped_fn_tool
+async def api_create(
     managedpartnerextendedcredit_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagedPartnerExtendedCredit(fbid=managedpartnerextendedcredit_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_managedpartnerextendedcredit(
 
 
 @mcp.tool()
-async def api_delete_managedpartnerextendedcredit(
+@wrapped_fn_tool
+async def api_delete(
     managedpartnerextendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagedPartnerExtendedCredit(fbid=managedpartnerextendedcredit_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_managedpartnerextendedcredit(
 
 
 @mcp.tool()
-async def api_get_managedpartnerextendedcredit(
+@wrapped_fn_tool
+async def api_get(
     managedpartnerextendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagedPartnerExtendedCredit(fbid=managedpartnerextendedcredit_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_managedpartnerextendedcredit(
 
 
 @mcp.tool()
-async def api_update_managedpartnerextendedcredit(
+@wrapped_fn_tool
+async def api_update(
     managedpartnerextendedcredit_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagedPartnerExtendedCredit(fbid=managedpartnerextendedcredit_id).api_update(
         fields=fields,
         params=params,

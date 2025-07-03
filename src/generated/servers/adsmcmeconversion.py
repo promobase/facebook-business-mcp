@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adsmcmeconversion import AdsMcmeConversion
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adsmcmeconversion")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adsmcmeconversion")
 
 
 @mcp.tool()
-async def api_create_adsmcmeconversion(
+@wrapped_fn_tool
+async def api_create(
     adsmcmeconversion_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adsmcmeconversion(
 
 
 @mcp.tool()
-async def api_delete_adsmcmeconversion(
+@wrapped_fn_tool
+async def api_delete(
     adsmcmeconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adsmcmeconversion(
 
 
 @mcp.tool()
-async def api_get_adsmcmeconversion(
+@wrapped_fn_tool
+async def api_get(
     adsmcmeconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adsmcmeconversion(
 
 
 @mcp.tool()
-async def api_update_adsmcmeconversion(
+@wrapped_fn_tool
+async def api_update(
     adsmcmeconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsMcmeConversion(fbid=adsmcmeconversion_id).api_update(
         fields=fields,
         params=params,

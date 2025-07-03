@@ -10,6 +10,8 @@ from facebook_business.adobjects.commerceordertransactiondetail import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-commerceordertransactiondetail")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-commerceordertransactiondetail")
 
 
 @mcp.tool()
-async def api_create_commerceordertransactiondetail(
+@wrapped_fn_tool
+async def api_create(
     commerceordertransactiondetail_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CommerceOrderTransactionDetail(fbid=commerceordertransactiondetail_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -34,11 +37,12 @@ async def api_create_commerceordertransactiondetail(
 
 
 @mcp.tool()
-async def api_delete_commerceordertransactiondetail(
+@wrapped_fn_tool
+async def api_delete(
     commerceordertransactiondetail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CommerceOrderTransactionDetail(fbid=commerceordertransactiondetail_id).api_delete(
         fields=fields,
         params=params,
@@ -48,11 +52,12 @@ async def api_delete_commerceordertransactiondetail(
 
 
 @mcp.tool()
-async def api_get_commerceordertransactiondetail(
+@wrapped_fn_tool
+async def api_get(
     commerceordertransactiondetail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CommerceOrderTransactionDetail(fbid=commerceordertransactiondetail_id).api_get(
         fields=fields,
         params=params,
@@ -62,11 +67,12 @@ async def api_get_commerceordertransactiondetail(
 
 
 @mcp.tool()
-async def api_update_commerceordertransactiondetail(
+@wrapped_fn_tool
+async def api_update(
     commerceordertransactiondetail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CommerceOrderTransactionDetail(fbid=commerceordertransactiondetail_id).api_update(
         fields=fields,
         params=params,
@@ -79,11 +85,12 @@ async def api_update_commerceordertransactiondetail(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_items(
     commerceordertransactiondetail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CommerceOrderTransactionDetail(fbid=commerceordertransactiondetail_id).get_items(
         fields=fields,
         params=params,
@@ -93,11 +100,12 @@ async def get_items(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_tax_details(
     commerceordertransactiondetail_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CommerceOrderTransactionDetail(fbid=commerceordertransactiondetail_id).get_tax_details(
         fields=fields,
         params=params,

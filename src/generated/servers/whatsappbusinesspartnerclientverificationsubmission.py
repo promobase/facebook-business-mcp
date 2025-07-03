@@ -10,6 +10,8 @@ from facebook_business.adobjects.whatsappbusinesspartnerclientverificationsubmis
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-whatsappbusinesspartnerclientverificationsubmission")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-whatsappbusinesspartnerclientverificationsubmission")
 
 
 @mcp.tool()
-async def api_create_whatsappbusinesspartnerclientverificationsubmission(
+@wrapped_fn_tool
+async def api_create(
     whatsappbusinesspartnerclientverificationsubmission_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessPartnerClientVerificationSubmission(
         fbid=whatsappbusinesspartnerclientverificationsubmission_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_whatsappbusinesspartnerclientverificationsubmission(
 
 
 @mcp.tool()
-async def api_delete_whatsappbusinesspartnerclientverificationsubmission(
+@wrapped_fn_tool
+async def api_delete(
     whatsappbusinesspartnerclientverificationsubmission_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessPartnerClientVerificationSubmission(
         fbid=whatsappbusinesspartnerclientverificationsubmission_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_whatsappbusinesspartnerclientverificationsubmission(
 
 
 @mcp.tool()
-async def api_get_whatsappbusinesspartnerclientverificationsubmission(
+@wrapped_fn_tool
+async def api_get(
     whatsappbusinesspartnerclientverificationsubmission_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessPartnerClientVerificationSubmission(
         fbid=whatsappbusinesspartnerclientverificationsubmission_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_whatsappbusinesspartnerclientverificationsubmission(
 
 
 @mcp.tool()
-async def api_update_whatsappbusinesspartnerclientverificationsubmission(
+@wrapped_fn_tool
+async def api_update(
     whatsappbusinesspartnerclientverificationsubmission_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WhatsAppBusinessPartnerClientVerificationSubmission(
         fbid=whatsappbusinesspartnerclientverificationsubmission_id
     ).api_update(

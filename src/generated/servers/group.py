@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.group import Group
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-group")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-group")
 
 
 @mcp.tool()
-async def api_create_group(
+@wrapped_fn_tool
+async def api_create(
     group_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_group(
 
 
 @mcp.tool()
-async def api_delete_group(
+@wrapped_fn_tool
+async def api_delete(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_group(
 
 
 @mcp.tool()
-async def api_get_group(
+@wrapped_fn_tool
+async def api_get(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_group(
 
 
 @mcp.tool()
-async def api_update_group(
+@wrapped_fn_tool
+async def api_update(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_group(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_admin(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).create_admin(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_admin(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_feed(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).create_feed(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def create_feed(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_group(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).create_group(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def create_group(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_live_video(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).create_live_video(
         fields=fields,
         params=params,
@@ -133,11 +143,12 @@ async def create_live_video(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_member(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).create_member(
         fields=fields,
         params=params,
@@ -147,11 +158,12 @@ async def create_member(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_photo(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).create_photo(
         fields=fields,
         params=params,
@@ -161,11 +173,12 @@ async def create_photo(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_video(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).create_video(
         fields=fields,
         params=params,
@@ -175,11 +188,12 @@ async def create_video(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_admins(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).delete_admins(
         fields=fields,
         params=params,
@@ -189,11 +203,12 @@ async def delete_admins(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_members(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).delete_members(
         fields=fields,
         params=params,
@@ -203,11 +218,12 @@ async def delete_members(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_albums(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_albums(
         fields=fields,
         params=params,
@@ -217,11 +233,12 @@ async def get_albums(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_docs(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_docs(
         fields=fields,
         params=params,
@@ -231,11 +248,12 @@ async def get_docs(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_events(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_events(
         fields=fields,
         params=params,
@@ -245,11 +263,12 @@ async def get_events(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_feed(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_feed(
         fields=fields,
         params=params,
@@ -259,11 +278,12 @@ async def get_feed(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_files(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_files(
         fields=fields,
         params=params,
@@ -273,11 +293,12 @@ async def get_files(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_groups(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_groups(
         fields=fields,
         params=params,
@@ -287,11 +308,12 @@ async def get_groups(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_live_videos(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_live_videos(
         fields=fields,
         params=params,
@@ -301,11 +323,12 @@ async def get_live_videos(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_opted_in_members(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_opted_in_members(
         fields=fields,
         params=params,
@@ -315,11 +338,12 @@ async def get_opted_in_members(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_picture(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_picture(
         fields=fields,
         params=params,
@@ -329,11 +353,12 @@ async def get_picture(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_videos(
     group_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Group(fbid=group_id).get_videos(
         fields=fields,
         params=params,

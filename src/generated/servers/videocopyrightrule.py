@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.videocopyrightrule import VideoCopyrightRule
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-videocopyrightrule")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-videocopyrightrule")
 
 
 @mcp.tool()
-async def api_create_videocopyrightrule(
+@wrapped_fn_tool
+async def api_create(
     videocopyrightrule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoCopyrightRule(fbid=videocopyrightrule_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_videocopyrightrule(
 
 
 @mcp.tool()
-async def api_delete_videocopyrightrule(
+@wrapped_fn_tool
+async def api_delete(
     videocopyrightrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoCopyrightRule(fbid=videocopyrightrule_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_videocopyrightrule(
 
 
 @mcp.tool()
-async def api_get_videocopyrightrule(
+@wrapped_fn_tool
+async def api_get(
     videocopyrightrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoCopyrightRule(fbid=videocopyrightrule_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_videocopyrightrule(
 
 
 @mcp.tool()
-async def api_update_videocopyrightrule(
+@wrapped_fn_tool
+async def api_update(
     videocopyrightrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = VideoCopyrightRule(fbid=videocopyrightrule_id).api_update(
         fields=fields,
         params=params,

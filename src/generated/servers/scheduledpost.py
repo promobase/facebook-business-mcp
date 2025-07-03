@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.scheduledpost import ScheduledPost
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-scheduledpost")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-scheduledpost")
 
 
 @mcp.tool()
-async def api_create_scheduledpost(
+@wrapped_fn_tool
+async def api_create(
     scheduledpost_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ScheduledPost(fbid=scheduledpost_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_scheduledpost(
 
 
 @mcp.tool()
-async def api_delete_scheduledpost(
+@wrapped_fn_tool
+async def api_delete(
     scheduledpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ScheduledPost(fbid=scheduledpost_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_scheduledpost(
 
 
 @mcp.tool()
-async def api_get_scheduledpost(
+@wrapped_fn_tool
+async def api_get(
     scheduledpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ScheduledPost(fbid=scheduledpost_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_scheduledpost(
 
 
 @mcp.tool()
-async def api_update_scheduledpost(
+@wrapped_fn_tool
+async def api_update(
     scheduledpost_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ScheduledPost(fbid=scheduledpost_id).api_update(
         fields=fields,
         params=params,

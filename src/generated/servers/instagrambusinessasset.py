@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.instagrambusinessasset import InstagramBusinessAsset
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-instagrambusinessasset")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-instagrambusinessasset")
 
 
 @mcp.tool()
-async def api_create_instagrambusinessasset(
+@wrapped_fn_tool
+async def api_create(
     instagrambusinessasset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_instagrambusinessasset(
 
 
 @mcp.tool()
-async def api_delete_instagrambusinessasset(
+@wrapped_fn_tool
+async def api_delete(
     instagrambusinessasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_instagrambusinessasset(
 
 
 @mcp.tool()
-async def api_get_instagrambusinessasset(
+@wrapped_fn_tool
+async def api_get(
     instagrambusinessasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_instagrambusinessasset(
 
 
 @mcp.tool()
-async def api_update_instagrambusinessasset(
+@wrapped_fn_tool
+async def api_update(
     instagrambusinessasset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramBusinessAsset(fbid=instagrambusinessasset_id).api_update(
         fields=fields,
         params=params,

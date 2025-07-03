@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.leadgenquestion import LeadGenQuestion
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-leadgenquestion")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-leadgenquestion")
 
 
 @mcp.tool()
-async def api_create_leadgenquestion(
+@wrapped_fn_tool
+async def api_create(
     leadgenquestion_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenQuestion(fbid=leadgenquestion_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_leadgenquestion(
 
 
 @mcp.tool()
-async def api_delete_leadgenquestion(
+@wrapped_fn_tool
+async def api_delete(
     leadgenquestion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenQuestion(fbid=leadgenquestion_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_leadgenquestion(
 
 
 @mcp.tool()
-async def api_get_leadgenquestion(
+@wrapped_fn_tool
+async def api_get(
     leadgenquestion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenQuestion(fbid=leadgenquestion_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_leadgenquestion(
 
 
 @mcp.tool()
-async def api_update_leadgenquestion(
+@wrapped_fn_tool
+async def api_update(
     leadgenquestion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenQuestion(fbid=leadgenquestion_id).api_update(
         fields=fields,
         params=params,

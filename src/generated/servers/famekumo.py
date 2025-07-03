@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.famekumo import FAMEKumo
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-famekumo")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-famekumo")
 
 
 @mcp.tool()
-async def api_create_famekumo(
+@wrapped_fn_tool
+async def api_create(
     famekumo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = FAMEKumo(fbid=famekumo_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_famekumo(
 
 
 @mcp.tool()
-async def api_delete_famekumo(
+@wrapped_fn_tool
+async def api_delete(
     famekumo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = FAMEKumo(fbid=famekumo_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_famekumo(
 
 
 @mcp.tool()
-async def api_get_famekumo(
+@wrapped_fn_tool
+async def api_get(
     famekumo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = FAMEKumo(fbid=famekumo_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_famekumo(
 
 
 @mcp.tool()
-async def api_update_famekumo(
+@wrapped_fn_tool
+async def api_update(
     famekumo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = FAMEKumo(fbid=famekumo_id).api_update(
         fields=fields,
         params=params,

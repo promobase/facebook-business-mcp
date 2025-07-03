@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.openbridgeconfiguration import OpenBridgeConfiguration
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-openbridgeconfiguration")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-openbridgeconfiguration")
 
 
 @mcp.tool()
-async def api_create_openbridgeconfiguration(
+@wrapped_fn_tool
+async def api_create(
     openbridgeconfiguration_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_openbridgeconfiguration(
 
 
 @mcp.tool()
-async def api_delete_openbridgeconfiguration(
+@wrapped_fn_tool
+async def api_delete(
     openbridgeconfiguration_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_openbridgeconfiguration(
 
 
 @mcp.tool()
-async def api_get_openbridgeconfiguration(
+@wrapped_fn_tool
+async def api_get(
     openbridgeconfiguration_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_openbridgeconfiguration(
 
 
 @mcp.tool()
-async def api_update_openbridgeconfiguration(
+@wrapped_fn_tool
+async def api_update(
     openbridgeconfiguration_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OpenBridgeConfiguration(fbid=openbridgeconfiguration_id).api_update(
         fields=fields,
         params=params,

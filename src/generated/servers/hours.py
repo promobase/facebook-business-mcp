@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.hours import Hours
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-hours")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-hours")
 
 
 @mcp.tool()
-async def api_create_hours(
+@wrapped_fn_tool
+async def api_create(
     hours_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Hours(fbid=hours_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_hours(
 
 
 @mcp.tool()
-async def api_delete_hours(
+@wrapped_fn_tool
+async def api_delete(
     hours_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Hours(fbid=hours_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_hours(
 
 
 @mcp.tool()
-async def api_get_hours(
+@wrapped_fn_tool
+async def api_get(
     hours_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Hours(fbid=hours_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_hours(
 
 
 @mcp.tool()
-async def api_update_hours(
+@wrapped_fn_tool
+async def api_update(
     hours_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Hours(fbid=hours_id).api_update(
         fields=fields,
         params=params,

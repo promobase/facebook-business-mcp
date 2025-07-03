@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.publisherwhitelist import PublisherWhiteList
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-publisherwhitelist")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-publisherwhitelist")
 
 
 @mcp.tool()
-async def api_create_publisherwhitelist(
+@wrapped_fn_tool
+async def api_create(
     publisherwhitelist_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherWhiteList(fbid=publisherwhitelist_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_publisherwhitelist(
 
 
 @mcp.tool()
-async def api_delete_publisherwhitelist(
+@wrapped_fn_tool
+async def api_delete(
     publisherwhitelist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherWhiteList(fbid=publisherwhitelist_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_publisherwhitelist(
 
 
 @mcp.tool()
-async def api_get_publisherwhitelist(
+@wrapped_fn_tool
+async def api_get(
     publisherwhitelist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherWhiteList(fbid=publisherwhitelist_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_publisherwhitelist(
 
 
 @mcp.tool()
-async def api_update_publisherwhitelist(
+@wrapped_fn_tool
+async def api_update(
     publisherwhitelist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherWhiteList(fbid=publisherwhitelist_id).api_update(
         fields=fields,
         params=params,

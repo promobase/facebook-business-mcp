@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.ad import Ad
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-ad")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-ad")
 
 
 @mcp.tool()
-async def api_create_ad(
+@wrapped_fn_tool
+async def api_create(
     ad_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_ad(
 
 
 @mcp.tool()
-async def api_delete_ad(
+@wrapped_fn_tool
+async def api_delete(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_ad(
 
 
 @mcp.tool()
-async def api_get_ad(
+@wrapped_fn_tool
+async def api_get(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_ad(
 
 
 @mcp.tool()
-async def api_update_ad(
+@wrapped_fn_tool
+async def api_update(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_ad(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_ad_label(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).create_ad_label(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_ad_label(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_copy(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).create_copy(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def create_copy(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_creatives(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_ad_creatives(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def get_ad_creatives(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_rules_governed(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_ad_rules_governed(
         fields=fields,
         params=params,
@@ -133,11 +143,12 @@ async def get_ad_rules_governed(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_copies(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_copies(
         fields=fields,
         params=params,
@@ -147,11 +158,12 @@ async def get_copies(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_insights(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_insights(
         fields=fields,
         params=params,
@@ -161,11 +173,12 @@ async def get_insights(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_insights_async(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_insights_async(
         fields=fields,
         params=params,
@@ -175,11 +188,12 @@ async def get_insights_async(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_leads(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_leads(
         fields=fields,
         params=params,
@@ -189,11 +203,12 @@ async def get_leads(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_previews(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_previews(
         fields=fields,
         params=params,
@@ -203,11 +218,12 @@ async def get_previews(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_targeting_sentence_lines(
     ad_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Ad(fbid=ad_id).get_targeting_sentence_lines(
         fields=fields,
         params=params,

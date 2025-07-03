@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adruleexecutionspec import AdRuleExecutionSpec
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adruleexecutionspec")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adruleexecutionspec")
 
 
 @mcp.tool()
-async def api_create_adruleexecutionspec(
+@wrapped_fn_tool
+async def api_create(
     adruleexecutionspec_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleExecutionSpec(fbid=adruleexecutionspec_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adruleexecutionspec(
 
 
 @mcp.tool()
-async def api_delete_adruleexecutionspec(
+@wrapped_fn_tool
+async def api_delete(
     adruleexecutionspec_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleExecutionSpec(fbid=adruleexecutionspec_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adruleexecutionspec(
 
 
 @mcp.tool()
-async def api_get_adruleexecutionspec(
+@wrapped_fn_tool
+async def api_get(
     adruleexecutionspec_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleExecutionSpec(fbid=adruleexecutionspec_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adruleexecutionspec(
 
 
 @mcp.tool()
-async def api_update_adruleexecutionspec(
+@wrapped_fn_tool
+async def api_update(
     adruleexecutionspec_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleExecutionSpec(fbid=adruleexecutionspec_id).api_update(
         fields=fields,
         params=params,

@@ -16,21 +16,11 @@ if TYPE_CHECKING:
     from .profile import ProfileFields
 
 
-class postreactions_type_enum_param(str, Enum):
-    """postreactions_type_enum_param enum values."""
+class postcomments_live_filter_enum_param(str, Enum):
+    """postcomments_live_filter_enum_param enum values."""
 
-    ANGRY = "ANGRY"
-    CARE = "CARE"
-    FIRE = "FIRE"
-    HAHA = "HAHA"
-    HUNDRED = "HUNDRED"
-    LIKE = "LIKE"
-    LOVE = "LOVE"
-    NONE = "NONE"
-    PRIDE = "PRIDE"
-    SAD = "SAD"
-    THANKFUL = "THANKFUL"
-    WOW = "WOW"
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
 
 
 class postcomments_order_enum_param(str, Enum):
@@ -38,47 +28,6 @@ class postcomments_order_enum_param(str, Enum):
 
     chronological = "chronological"
     reverse_chronological = "reverse_chronological"
-
-
-class postinsights_period_enum_param(str, Enum):
-    """postinsights_period_enum_param enum values."""
-
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
-
-
-class postcomments_filter_enum_param(str, Enum):
-    """postcomments_filter_enum_param enum values."""
-
-    stream = "stream"
-    toplevel = "toplevel"
-
-
-class postcomments_comment_privacy_value_enum_param(str, Enum):
-    """postcomments_comment_privacy_value_enum_param enum values."""
-
-    DECLINED_BY_ADMIN_ASSISTANT = "DECLINED_BY_ADMIN_ASSISTANT"
-    DEFAULT_PRIVACY = "DEFAULT_PRIVACY"
-    FRIENDS_AND_POST_OWNER = "FRIENDS_AND_POST_OWNER"
-    FRIENDS_ONLY = "FRIENDS_ONLY"
-    GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE = "GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE"
-    OWNER_OR_COMMENTER = "OWNER_OR_COMMENTER"
-    PENDING_APPROVAL = "PENDING_APPROVAL"
-    REMOVED_BY_ADMIN_ASSISTANT = "REMOVED_BY_ADMIN_ASSISTANT"
-    SIDE_CONVERSATION = "SIDE_CONVERSATION"
-    SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
-    SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
-
-
-class postcomments_live_filter_enum_param(str, Enum):
-    """postcomments_live_filter_enum_param enum values."""
-
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
 
 
 class postinsights_date_preset_enum_param(str, Enum):
@@ -104,6 +53,57 @@ class postinsights_date_preset_enum_param(str, Enum):
     this_year = "this_year"
     today = "today"
     yesterday = "yesterday"
+
+
+class postreactions_type_enum_param(str, Enum):
+    """postreactions_type_enum_param enum values."""
+
+    ANGRY = "ANGRY"
+    CARE = "CARE"
+    FIRE = "FIRE"
+    HAHA = "HAHA"
+    HUNDRED = "HUNDRED"
+    LIKE = "LIKE"
+    LOVE = "LOVE"
+    NONE = "NONE"
+    PRIDE = "PRIDE"
+    SAD = "SAD"
+    THANKFUL = "THANKFUL"
+    WOW = "WOW"
+
+
+class postinsights_period_enum_param(str, Enum):
+    """postinsights_period_enum_param enum values."""
+
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
+
+
+class postcomments_comment_privacy_value_enum_param(str, Enum):
+    """postcomments_comment_privacy_value_enum_param enum values."""
+
+    DECLINED_BY_ADMIN_ASSISTANT = "DECLINED_BY_ADMIN_ASSISTANT"
+    DEFAULT_PRIVACY = "DEFAULT_PRIVACY"
+    FRIENDS_AND_POST_OWNER = "FRIENDS_AND_POST_OWNER"
+    FRIENDS_ONLY = "FRIENDS_ONLY"
+    GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE = "GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE"
+    OWNER_OR_COMMENTER = "OWNER_OR_COMMENTER"
+    PENDING_APPROVAL = "PENDING_APPROVAL"
+    REMOVED_BY_ADMIN_ASSISTANT = "REMOVED_BY_ADMIN_ASSISTANT"
+    SIDE_CONVERSATION = "SIDE_CONVERSATION"
+    SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
+    SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
+
+
+class postcomments_filter_enum_param(str, Enum):
+    """postcomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
 
 
 # Field literal type

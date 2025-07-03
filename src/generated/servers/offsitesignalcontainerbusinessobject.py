@@ -10,6 +10,8 @@ from facebook_business.adobjects.offsitesignalcontainerbusinessobject import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-offsitesignalcontainerbusinessobject")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-offsitesignalcontainerbusinessobject")
 
 
 @mcp.tool()
-async def api_create_offsitesignalcontainerbusinessobject(
+@wrapped_fn_tool
+async def api_create(
     offsitesignalcontainerbusinessobject_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OffsiteSignalContainerBusinessObject(
         fbid=offsitesignalcontainerbusinessobject_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def api_delete_offsitesignalcontainerbusinessobject(
+@wrapped_fn_tool
+async def api_delete(
     offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OffsiteSignalContainerBusinessObject(
         fbid=offsitesignalcontainerbusinessobject_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def api_get_offsitesignalcontainerbusinessobject(
+@wrapped_fn_tool
+async def api_get(
     offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OffsiteSignalContainerBusinessObject(
         fbid=offsitesignalcontainerbusinessobject_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
-async def api_update_offsitesignalcontainerbusinessobject(
+@wrapped_fn_tool
+async def api_update(
     offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OffsiteSignalContainerBusinessObject(
         fbid=offsitesignalcontainerbusinessobject_id
     ).api_update(
@@ -87,11 +93,12 @@ async def api_update_offsitesignalcontainerbusinessobject(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_linked_application(
     offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OffsiteSignalContainerBusinessObject(
         fbid=offsitesignalcontainerbusinessobject_id
     ).get_linked_application(
@@ -103,11 +110,12 @@ async def get_linked_application(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_linked_page(
     offsitesignalcontainerbusinessobject_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = OffsiteSignalContainerBusinessObject(
         fbid=offsitesignalcontainerbusinessobject_id
     ).get_linked_page(

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.admonetizationproperty import AdMonetizationProperty
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-admonetizationproperty")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-admonetizationproperty")
 
 
 @mcp.tool()
-async def api_create_admonetizationproperty(
+@wrapped_fn_tool
+async def api_create(
     admonetizationproperty_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdMonetizationProperty(fbid=admonetizationproperty_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_admonetizationproperty(
 
 
 @mcp.tool()
-async def api_delete_admonetizationproperty(
+@wrapped_fn_tool
+async def api_delete(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdMonetizationProperty(fbid=admonetizationproperty_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_admonetizationproperty(
 
 
 @mcp.tool()
-async def api_get_admonetizationproperty(
+@wrapped_fn_tool
+async def api_get(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdMonetizationProperty(fbid=admonetizationproperty_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_admonetizationproperty(
 
 
 @mcp.tool()
-async def api_update_admonetizationproperty(
+@wrapped_fn_tool
+async def api_update(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdMonetizationProperty(fbid=admonetizationproperty_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_admonetizationproperty(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_ad_network_analytic(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdMonetizationProperty(fbid=admonetizationproperty_id).create_ad_network_analytic(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_ad_network_analytic(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_network_analytics(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdMonetizationProperty(fbid=admonetizationproperty_id).get_ad_network_analytics(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def get_ad_network_analytics(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_network_analytics_results(
     admonetizationproperty_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdMonetizationProperty(
         fbid=admonetizationproperty_id
     ).get_ad_network_analytics_results(

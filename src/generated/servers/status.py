@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.status import Status
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-status")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-status")
 
 
 @mcp.tool()
-async def api_create_status(
+@wrapped_fn_tool
+async def api_create(
     status_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Status(fbid=status_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_status(
 
 
 @mcp.tool()
-async def api_delete_status(
+@wrapped_fn_tool
+async def api_delete(
     status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Status(fbid=status_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_status(
 
 
 @mcp.tool()
-async def api_get_status(
+@wrapped_fn_tool
+async def api_get(
     status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Status(fbid=status_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_status(
 
 
 @mcp.tool()
-async def api_update_status(
+@wrapped_fn_tool
+async def api_update(
     status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Status(fbid=status_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_status(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_like(
     status_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Status(fbid=status_id).create_like(
         fields=fields,
         params=params,

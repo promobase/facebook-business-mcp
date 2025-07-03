@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.analyticssegment import AnalyticsSegment
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-analyticssegment")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-analyticssegment")
 
 
 @mcp.tool()
-async def api_create_analyticssegment(
+@wrapped_fn_tool
+async def api_create(
     analyticssegment_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AnalyticsSegment(fbid=analyticssegment_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_analyticssegment(
 
 
 @mcp.tool()
-async def api_delete_analyticssegment(
+@wrapped_fn_tool
+async def api_delete(
     analyticssegment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AnalyticsSegment(fbid=analyticssegment_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_analyticssegment(
 
 
 @mcp.tool()
-async def api_get_analyticssegment(
+@wrapped_fn_tool
+async def api_get(
     analyticssegment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AnalyticsSegment(fbid=analyticssegment_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_analyticssegment(
 
 
 @mcp.tool()
-async def api_update_analyticssegment(
+@wrapped_fn_tool
+async def api_update(
     analyticssegment_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AnalyticsSegment(fbid=analyticssegment_id).api_update(
         fields=fields,
         params=params,

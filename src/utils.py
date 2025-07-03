@@ -105,6 +105,31 @@ def wrapped_fn_tool(f: Callable) -> Callable:
     return wrapper
 
 
+def wrapped_adaccount_tool(f: Callable) -> Callable:
+    "for ad account object"
+
+    @with_adaccount_id
+    @wrapped_fn_tool
+    def wrapper(adaccount_id: str, *args, **kwargs):
+        return f(adaccount_id, *args, **kwargs)
+
+    return wrapper
+
+
+def with_adaccount_id(fn: Callable) -> Callable:
+    """Decorator to ensure the first argument is an ad account ID."""
+
+    @wraps(fn)
+    def wrapper(adaccount_id: str, *args, **kwargs):
+        if not adaccount_id:
+            raise ValueError("adaccount_id must be provided")
+        if not adaccount_id.startswith("act_"):
+            adaccount_id = "act_" + adaccount_id
+        return fn(adaccount_id, *args, **kwargs)
+
+    return wrapper
+
+
 #  ---- utils for source code extraction ----
 def safe_getsource(obj: Any) -> str:
     try:
@@ -158,3 +183,15 @@ def fmt_cls(cls: Any) -> str:
     Format a class for LLM consumption. Provides utility
     """
     raise NotImplementedError
+
+
+def snake_case_to_camel_case(snake_str: str) -> str:
+    components = snake_str.split("_")
+    return components[0] + "".join(x.title() for x in components[1:]) if components else ""
+
+
+def camel_case_to_snake_case(camel_str: str) -> str:
+    import re
+
+    # Insert underscores before uppercase letters and convert to lowercase
+    return re.sub(r"(?<!^)(?=[A-Z])", "_", camel_str).lower()

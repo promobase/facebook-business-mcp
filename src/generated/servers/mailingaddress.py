@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.mailingaddress import MailingAddress
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-mailingaddress")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-mailingaddress")
 
 
 @mcp.tool()
-async def api_create_mailingaddress(
+@wrapped_fn_tool
+async def api_create(
     mailingaddress_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MailingAddress(fbid=mailingaddress_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_mailingaddress(
 
 
 @mcp.tool()
-async def api_delete_mailingaddress(
+@wrapped_fn_tool
+async def api_delete(
     mailingaddress_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MailingAddress(fbid=mailingaddress_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_mailingaddress(
 
 
 @mcp.tool()
-async def api_get_mailingaddress(
+@wrapped_fn_tool
+async def api_get(
     mailingaddress_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MailingAddress(fbid=mailingaddress_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_mailingaddress(
 
 
 @mcp.tool()
-async def api_update_mailingaddress(
+@wrapped_fn_tool
+async def api_update(
     mailingaddress_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MailingAddress(fbid=mailingaddress_id).api_update(
         fields=fields,
         params=params,

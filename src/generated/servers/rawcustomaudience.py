@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.rawcustomaudience import RawCustomAudience
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-rawcustomaudience")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-rawcustomaudience")
 
 
 @mcp.tool()
-async def api_create_rawcustomaudience(
+@wrapped_fn_tool
+async def api_create(
     rawcustomaudience_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = RawCustomAudience(fbid=rawcustomaudience_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_rawcustomaudience(
 
 
 @mcp.tool()
-async def api_delete_rawcustomaudience(
+@wrapped_fn_tool
+async def api_delete(
     rawcustomaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = RawCustomAudience(fbid=rawcustomaudience_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_rawcustomaudience(
 
 
 @mcp.tool()
-async def api_get_rawcustomaudience(
+@wrapped_fn_tool
+async def api_get(
     rawcustomaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = RawCustomAudience(fbid=rawcustomaudience_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_rawcustomaudience(
 
 
 @mcp.tool()
-async def api_update_rawcustomaudience(
+@wrapped_fn_tool
+async def api_update(
     rawcustomaudience_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = RawCustomAudience(fbid=rawcustomaudience_id).api_update(
         fields=fields,
         params=params,

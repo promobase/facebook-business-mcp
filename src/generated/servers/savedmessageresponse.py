@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.savedmessageresponse import SavedMessageResponse
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-savedmessageresponse")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-savedmessageresponse")
 
 
 @mcp.tool()
-async def api_create_savedmessageresponse(
+@wrapped_fn_tool
+async def api_create(
     savedmessageresponse_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SavedMessageResponse(fbid=savedmessageresponse_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_savedmessageresponse(
 
 
 @mcp.tool()
-async def api_delete_savedmessageresponse(
+@wrapped_fn_tool
+async def api_delete(
     savedmessageresponse_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SavedMessageResponse(fbid=savedmessageresponse_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_savedmessageresponse(
 
 
 @mcp.tool()
-async def api_get_savedmessageresponse(
+@wrapped_fn_tool
+async def api_get(
     savedmessageresponse_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SavedMessageResponse(fbid=savedmessageresponse_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_savedmessageresponse(
 
 
 @mcp.tool()
-async def api_update_savedmessageresponse(
+@wrapped_fn_tool
+async def api_update(
     savedmessageresponse_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SavedMessageResponse(fbid=savedmessageresponse_id).api_update(
         fields=fields,
         params=params,

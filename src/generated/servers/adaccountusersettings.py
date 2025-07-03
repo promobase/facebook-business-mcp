@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adaccountusersettings import AdAccountUserSettings
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adaccountusersettings")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adaccountusersettings")
 
 
 @mcp.tool()
-async def api_create_adaccountusersettings(
+@wrapped_fn_tool
+async def api_create(
     adaccountusersettings_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountUserSettings(fbid=adaccountusersettings_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adaccountusersettings(
 
 
 @mcp.tool()
-async def api_delete_adaccountusersettings(
+@wrapped_fn_tool
+async def api_delete(
     adaccountusersettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountUserSettings(fbid=adaccountusersettings_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adaccountusersettings(
 
 
 @mcp.tool()
-async def api_get_adaccountusersettings(
+@wrapped_fn_tool
+async def api_get(
     adaccountusersettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountUserSettings(fbid=adaccountusersettings_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adaccountusersettings(
 
 
 @mcp.tool()
-async def api_update_adaccountusersettings(
+@wrapped_fn_tool
+async def api_update(
     adaccountusersettings_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountUserSettings(fbid=adaccountusersettings_id).api_update(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.brandsafetydownloadable import BrandSafetyDownloadable
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-brandsafetydownloadable")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-brandsafetydownloadable")
 
 
 @mcp.tool()
-async def api_create_brandsafetydownloadable(
+@wrapped_fn_tool
+async def api_create(
     brandsafetydownloadable_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandSafetyDownloadable(fbid=brandsafetydownloadable_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_brandsafetydownloadable(
 
 
 @mcp.tool()
-async def api_delete_brandsafetydownloadable(
+@wrapped_fn_tool
+async def api_delete(
     brandsafetydownloadable_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandSafetyDownloadable(fbid=brandsafetydownloadable_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_brandsafetydownloadable(
 
 
 @mcp.tool()
-async def api_get_brandsafetydownloadable(
+@wrapped_fn_tool
+async def api_get(
     brandsafetydownloadable_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandSafetyDownloadable(fbid=brandsafetydownloadable_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_brandsafetydownloadable(
 
 
 @mcp.tool()
-async def api_update_brandsafetydownloadable(
+@wrapped_fn_tool
+async def api_update(
     brandsafetydownloadable_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BrandSafetyDownloadable(fbid=brandsafetydownloadable_id).api_update(
         fields=fields,
         params=params,

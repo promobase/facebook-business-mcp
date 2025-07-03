@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.cloudgame import CloudGame
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-cloudgame")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-cloudgame")
 
 
 @mcp.tool()
-async def api_create_cloudgame(
+@wrapped_fn_tool
+async def api_create(
     cloudgame_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CloudGame(fbid=cloudgame_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_cloudgame(
 
 
 @mcp.tool()
-async def api_delete_cloudgame(
+@wrapped_fn_tool
+async def api_delete(
     cloudgame_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CloudGame(fbid=cloudgame_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_cloudgame(
 
 
 @mcp.tool()
-async def api_get_cloudgame(
+@wrapped_fn_tool
+async def api_get(
     cloudgame_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CloudGame(fbid=cloudgame_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_cloudgame(
 
 
 @mcp.tool()
-async def api_update_cloudgame(
+@wrapped_fn_tool
+async def api_update(
     cloudgame_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CloudGame(fbid=cloudgame_id).api_update(
         fields=fields,
         params=params,

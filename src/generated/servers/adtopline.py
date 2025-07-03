@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adtopline import AdTopline
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adtopline")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adtopline")
 
 
 @mcp.tool()
-async def api_create_adtopline(
+@wrapped_fn_tool
+async def api_create(
     adtopline_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdTopline(fbid=adtopline_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adtopline(
 
 
 @mcp.tool()
-async def api_delete_adtopline(
+@wrapped_fn_tool
+async def api_delete(
     adtopline_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdTopline(fbid=adtopline_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adtopline(
 
 
 @mcp.tool()
-async def api_get_adtopline(
+@wrapped_fn_tool
+async def api_get(
     adtopline_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdTopline(fbid=adtopline_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adtopline(
 
 
 @mcp.tool()
-async def api_update_adtopline(
+@wrapped_fn_tool
+async def api_update(
     adtopline_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdTopline(fbid=adtopline_id).api_update(
         fields=fields,
         params=params,

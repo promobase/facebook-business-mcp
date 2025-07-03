@@ -39,24 +39,6 @@ class ProductFeed_quoted_fields_mode(str, Enum):
     ON = "ON"
 
 
-class productfeedrules_rule_type_enum_param(str, Enum):
-    """productfeedrules_rule_type_enum_param enum values."""
-
-    fallback_rule = "fallback_rule"
-    letter_case_rule = "letter_case_rule"
-    mapping_rule = "mapping_rule"
-    regex_replace_rule = "regex_replace_rule"
-    value_mapping_rule = "value_mapping_rule"
-
-
-class productfeedproducts_error_priority_enum_param(str, Enum):
-    """productfeedproducts_error_priority_enum_param enum values."""
-
-    HIGH = "HIGH"
-    LOW = "LOW"
-    MEDIUM = "MEDIUM"
-
-
 class productfeedproducts_error_type_enum_param(str, Enum):
     """productfeedproducts_error_type_enum_param enum values."""
 
@@ -227,6 +209,24 @@ class productfeedproducts_error_type_enum_param(str, Enum):
     WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER = "WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER"
     WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION = "WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION"
     WHATSAPP_POLICY_VIOLATION = "WHATSAPP_POLICY_VIOLATION"
+
+
+class productfeedrules_rule_type_enum_param(str, Enum):
+    """productfeedrules_rule_type_enum_param enum values."""
+
+    fallback_rule = "fallback_rule"
+    letter_case_rule = "letter_case_rule"
+    mapping_rule = "mapping_rule"
+    regex_replace_rule = "regex_replace_rule"
+    value_mapping_rule = "value_mapping_rule"
+
+
+class productfeedproducts_error_priority_enum_param(str, Enum):
+    """productfeedproducts_error_priority_enum_param enum values."""
+
+    HIGH = "HIGH"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
 
 
 # Field literal type

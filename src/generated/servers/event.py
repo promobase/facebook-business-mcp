@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.event import Event
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-event")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-event")
 
 
 @mcp.tool()
-async def api_create_event(
+@wrapped_fn_tool
+async def api_create(
     event_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_event(
 
 
 @mcp.tool()
-async def api_delete_event(
+@wrapped_fn_tool
+async def api_delete(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_event(
 
 
 @mcp.tool()
-async def api_get_event(
+@wrapped_fn_tool
+async def api_get(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_event(
 
 
 @mcp.tool()
-async def api_update_event(
+@wrapped_fn_tool
+async def api_update(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_event(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_live_video(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).create_live_video(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_live_video(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_comments(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_comments(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def get_comments(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_feed(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_feed(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def get_feed(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_live_videos(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_live_videos(
         fields=fields,
         params=params,
@@ -133,11 +143,12 @@ async def get_live_videos(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_photos(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_photos(
         fields=fields,
         params=params,
@@ -147,11 +158,12 @@ async def get_photos(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_picture(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_picture(
         fields=fields,
         params=params,
@@ -161,11 +173,12 @@ async def get_picture(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_posts(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_posts(
         fields=fields,
         params=params,
@@ -175,11 +188,12 @@ async def get_posts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_roles(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_roles(
         fields=fields,
         params=params,
@@ -189,11 +203,12 @@ async def get_roles(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ticket_tiers(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_ticket_tiers(
         fields=fields,
         params=params,
@@ -203,11 +218,12 @@ async def get_ticket_tiers(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_videos(
     event_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Event(fbid=event_id).get_videos(
         fields=fields,
         params=params,

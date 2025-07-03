@@ -12,17 +12,6 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
-class mediainsights_period_enum_param(str, Enum):
-    """mediainsights_period_enum_param enum values."""
-
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
-
-
 class mediainsights_breakdown_enum_param(str, Enum):
     """mediainsights_breakdown_enum_param enum values."""
 
@@ -60,6 +49,17 @@ class mediainsights_metric_enum_param(str, Enum):
     threads_views = "threads_views"
     total_interactions = "total_interactions"
     views = "views"
+
+
+class mediainsights_period_enum_param(str, Enum):
+    """mediainsights_period_enum_param enum values."""
+
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
 
 
 # Field literal type

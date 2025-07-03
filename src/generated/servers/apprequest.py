@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.apprequest import AppRequest
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-apprequest")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-apprequest")
 
 
 @mcp.tool()
-async def api_create_apprequest(
+@wrapped_fn_tool
+async def api_create(
     apprequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AppRequest(fbid=apprequest_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_apprequest(
 
 
 @mcp.tool()
-async def api_delete_apprequest(
+@wrapped_fn_tool
+async def api_delete(
     apprequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AppRequest(fbid=apprequest_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_apprequest(
 
 
 @mcp.tool()
-async def api_get_apprequest(
+@wrapped_fn_tool
+async def api_get(
     apprequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AppRequest(fbid=apprequest_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_apprequest(
 
 
 @mcp.tool()
-async def api_update_apprequest(
+@wrapped_fn_tool
+async def api_update(
     apprequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AppRequest(fbid=apprequest_id).api_update(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.almendadvertiserinfo import ALMEndAdvertiserInfo
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-almendadvertiserinfo")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-almendadvertiserinfo")
 
 
 @mcp.tool()
-async def api_create_almendadvertiserinfo(
+@wrapped_fn_tool
+async def api_create(
     almendadvertiserinfo_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ALMEndAdvertiserInfo(fbid=almendadvertiserinfo_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_almendadvertiserinfo(
 
 
 @mcp.tool()
-async def api_delete_almendadvertiserinfo(
+@wrapped_fn_tool
+async def api_delete(
     almendadvertiserinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ALMEndAdvertiserInfo(fbid=almendadvertiserinfo_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_almendadvertiserinfo(
 
 
 @mcp.tool()
-async def api_get_almendadvertiserinfo(
+@wrapped_fn_tool
+async def api_get(
     almendadvertiserinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ALMEndAdvertiserInfo(fbid=almendadvertiserinfo_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_almendadvertiserinfo(
 
 
 @mcp.tool()
-async def api_update_almendadvertiserinfo(
+@wrapped_fn_tool
+async def api_update(
     almendadvertiserinfo_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ALMEndAdvertiserInfo(fbid=almendadvertiserinfo_id).api_update(
         fields=fields,
         params=params,

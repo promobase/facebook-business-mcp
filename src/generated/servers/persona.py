@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.persona import Persona
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-persona")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-persona")
 
 
 @mcp.tool()
-async def api_create_persona(
+@wrapped_fn_tool
+async def api_create(
     persona_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Persona(fbid=persona_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_persona(
 
 
 @mcp.tool()
-async def api_delete_persona(
+@wrapped_fn_tool
+async def api_delete(
     persona_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Persona(fbid=persona_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_persona(
 
 
 @mcp.tool()
-async def api_get_persona(
+@wrapped_fn_tool
+async def api_get(
     persona_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Persona(fbid=persona_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_persona(
 
 
 @mcp.tool()
-async def api_update_persona(
+@wrapped_fn_tool
+async def api_update(
     persona_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Persona(fbid=persona_id).api_update(
         fields=fields,
         params=params,

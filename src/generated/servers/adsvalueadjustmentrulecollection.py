@@ -10,6 +10,8 @@ from facebook_business.adobjects.adsvalueadjustmentrulecollection import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adsvalueadjustmentrulecollection")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-adsvalueadjustmentrulecollection")
 
 
 @mcp.tool()
-async def api_create_adsvalueadjustmentrulecollection(
+@wrapped_fn_tool
+async def api_create(
     adsvalueadjustmentrulecollection_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsValueAdjustmentRuleCollection(fbid=adsvalueadjustmentrulecollection_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -34,11 +37,12 @@ async def api_create_adsvalueadjustmentrulecollection(
 
 
 @mcp.tool()
-async def api_delete_adsvalueadjustmentrulecollection(
+@wrapped_fn_tool
+async def api_delete(
     adsvalueadjustmentrulecollection_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsValueAdjustmentRuleCollection(fbid=adsvalueadjustmentrulecollection_id).api_delete(
         fields=fields,
         params=params,
@@ -48,11 +52,12 @@ async def api_delete_adsvalueadjustmentrulecollection(
 
 
 @mcp.tool()
-async def api_get_adsvalueadjustmentrulecollection(
+@wrapped_fn_tool
+async def api_get(
     adsvalueadjustmentrulecollection_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsValueAdjustmentRuleCollection(fbid=adsvalueadjustmentrulecollection_id).api_get(
         fields=fields,
         params=params,
@@ -62,11 +67,12 @@ async def api_get_adsvalueadjustmentrulecollection(
 
 
 @mcp.tool()
-async def api_update_adsvalueadjustmentrulecollection(
+@wrapped_fn_tool
+async def api_update(
     adsvalueadjustmentrulecollection_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsValueAdjustmentRuleCollection(fbid=adsvalueadjustmentrulecollection_id).api_update(
         fields=fields,
         params=params,
@@ -79,11 +85,12 @@ async def api_update_adsvalueadjustmentrulecollection(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_delete_rule_set(
     adsvalueadjustmentrulecollection_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsValueAdjustmentRuleCollection(
         fbid=adsvalueadjustmentrulecollection_id
     ).create_delete_rule_set(
@@ -95,11 +102,12 @@ async def create_delete_rule_set(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_rules(
     adsvalueadjustmentrulecollection_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsValueAdjustmentRuleCollection(fbid=adsvalueadjustmentrulecollection_id).get_rules(
         fields=fields,
         params=params,

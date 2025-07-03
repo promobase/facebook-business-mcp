@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adaccountaslschedule import AdAccountASLSchedule
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adaccountaslschedule")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adaccountaslschedule")
 
 
 @mcp.tool()
-async def api_create_adaccountaslschedule(
+@wrapped_fn_tool
+async def api_create(
     adaccountaslschedule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountASLSchedule(fbid=adaccountaslschedule_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adaccountaslschedule(
 
 
 @mcp.tool()
-async def api_delete_adaccountaslschedule(
+@wrapped_fn_tool
+async def api_delete(
     adaccountaslschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountASLSchedule(fbid=adaccountaslschedule_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adaccountaslschedule(
 
 
 @mcp.tool()
-async def api_get_adaccountaslschedule(
+@wrapped_fn_tool
+async def api_get(
     adaccountaslschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountASLSchedule(fbid=adaccountaslschedule_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adaccountaslschedule(
 
 
 @mcp.tool()
-async def api_update_adaccountaslschedule(
+@wrapped_fn_tool
+async def api_update(
     adaccountaslschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAccountASLSchedule(fbid=adaccountaslschedule_id).api_update(
         fields=fields,
         params=params,

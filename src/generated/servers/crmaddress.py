@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.crmaddress import CRMAddress
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-crmaddress")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-crmaddress")
 
 
 @mcp.tool()
-async def api_create_crmaddress(
+@wrapped_fn_tool
+async def api_create(
     crmaddress_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CRMAddress(fbid=crmaddress_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_crmaddress(
 
 
 @mcp.tool()
-async def api_delete_crmaddress(
+@wrapped_fn_tool
+async def api_delete(
     crmaddress_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CRMAddress(fbid=crmaddress_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_crmaddress(
 
 
 @mcp.tool()
-async def api_get_crmaddress(
+@wrapped_fn_tool
+async def api_get(
     crmaddress_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CRMAddress(fbid=crmaddress_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_crmaddress(
 
 
 @mcp.tool()
-async def api_update_crmaddress(
+@wrapped_fn_tool
+async def api_update(
     crmaddress_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CRMAddress(fbid=crmaddress_id).api_update(
         fields=fields,
         params=params,

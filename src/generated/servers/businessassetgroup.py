@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.businessassetgroup import BusinessAssetGroup
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-businessassetgroup")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-businessassetgroup")
 
 
 @mcp.tool()
-async def api_create_businessassetgroup(
+@wrapped_fn_tool
+async def api_create(
     businessassetgroup_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_businessassetgroup(
 
 
 @mcp.tool()
-async def api_delete_businessassetgroup(
+@wrapped_fn_tool
+async def api_delete(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_businessassetgroup(
 
 
 @mcp.tool()
-async def api_get_businessassetgroup(
+@wrapped_fn_tool
+async def api_get(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_businessassetgroup(
 
 
 @mcp.tool()
-async def api_update_businessassetgroup(
+@wrapped_fn_tool
+async def api_update(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_businessassetgroup(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_assigned_user(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_assigned_user(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_assigned_user(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_contained_ad_account(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_contained_ad_account(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def create_contained_ad_account(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_contained_application(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_contained_application(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def create_contained_application(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_contained_custom_conversion(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_contained_custom_conversion(
         fields=fields,
         params=params,
@@ -133,11 +143,12 @@ async def create_contained_custom_conversion(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_contained_instagram_account(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_contained_instagram_account(
         fields=fields,
         params=params,
@@ -147,11 +158,12 @@ async def create_contained_instagram_account(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_contained_page(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_contained_page(
         fields=fields,
         params=params,
@@ -161,11 +173,12 @@ async def create_contained_page(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_contained_pixel(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_contained_pixel(
         fields=fields,
         params=params,
@@ -175,11 +188,12 @@ async def create_contained_pixel(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_contained_product_catalog(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).create_contained_product_catalog(
         fields=fields,
         params=params,
@@ -189,11 +203,12 @@ async def create_contained_product_catalog(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_assigned_users(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_assigned_users(
         fields=fields,
         params=params,
@@ -203,11 +218,12 @@ async def delete_assigned_users(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_contained_ad_accounts(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_contained_ad_accounts(
         fields=fields,
         params=params,
@@ -217,11 +233,12 @@ async def delete_contained_ad_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_contained_applications(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_contained_applications(
         fields=fields,
         params=params,
@@ -231,11 +248,12 @@ async def delete_contained_applications(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_contained_custom_conversions(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_contained_custom_conversions(
         fields=fields,
         params=params,
@@ -245,11 +263,12 @@ async def delete_contained_custom_conversions(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_contained_instagram_accounts(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_contained_instagram_accounts(
         fields=fields,
         params=params,
@@ -259,11 +278,12 @@ async def delete_contained_instagram_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_contained_pages(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_contained_pages(
         fields=fields,
         params=params,
@@ -273,11 +293,12 @@ async def delete_contained_pages(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_contained_pixels(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_contained_pixels(
         fields=fields,
         params=params,
@@ -287,11 +308,12 @@ async def delete_contained_pixels(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_contained_product_catalogs(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).delete_contained_product_catalogs(
         fields=fields,
         params=params,
@@ -301,11 +323,12 @@ async def delete_contained_product_catalogs(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_assigned_users(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_assigned_users(
         fields=fields,
         params=params,
@@ -315,11 +338,12 @@ async def get_assigned_users(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_contained_ad_accounts(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_contained_ad_accounts(
         fields=fields,
         params=params,
@@ -329,11 +353,12 @@ async def get_contained_ad_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_contained_applications(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_contained_applications(
         fields=fields,
         params=params,
@@ -343,11 +368,12 @@ async def get_contained_applications(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_contained_custom_conversions(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_contained_custom_conversions(
         fields=fields,
         params=params,
@@ -357,11 +383,12 @@ async def get_contained_custom_conversions(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_contained_instagram_accounts(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_contained_instagram_accounts(
         fields=fields,
         params=params,
@@ -371,11 +398,12 @@ async def get_contained_instagram_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_contained_pages(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_contained_pages(
         fields=fields,
         params=params,
@@ -385,11 +413,12 @@ async def get_contained_pages(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_contained_pixels(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_contained_pixels(
         fields=fields,
         params=params,
@@ -399,11 +428,12 @@ async def get_contained_pixels(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_contained_product_catalogs(
     businessassetgroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessAssetGroup(fbid=businessassetgroup_id).get_contained_product_catalogs(
         fields=fields,
         params=params,

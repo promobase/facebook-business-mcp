@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.bcpcampaign import BCPCampaign
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-bcpcampaign")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-bcpcampaign")
 
 
 @mcp.tool()
-async def api_create_bcpcampaign(
+@wrapped_fn_tool
+async def api_create(
     bcpcampaign_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BCPCampaign(fbid=bcpcampaign_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_bcpcampaign(
 
 
 @mcp.tool()
-async def api_delete_bcpcampaign(
+@wrapped_fn_tool
+async def api_delete(
     bcpcampaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BCPCampaign(fbid=bcpcampaign_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_bcpcampaign(
 
 
 @mcp.tool()
-async def api_get_bcpcampaign(
+@wrapped_fn_tool
+async def api_get(
     bcpcampaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BCPCampaign(fbid=bcpcampaign_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_bcpcampaign(
 
 
 @mcp.tool()
-async def api_update_bcpcampaign(
+@wrapped_fn_tool
+async def api_update(
     bcpcampaign_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BCPCampaign(fbid=bcpcampaign_id).api_update(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.customconversion import CustomConversion
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-customconversion")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-customconversion")
 
 
 @mcp.tool()
-async def api_create_customconversion(
+@wrapped_fn_tool
+async def api_create(
     customconversion_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CustomConversion(fbid=customconversion_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_customconversion(
 
 
 @mcp.tool()
-async def api_delete_customconversion(
+@wrapped_fn_tool
+async def api_delete(
     customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CustomConversion(fbid=customconversion_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_customconversion(
 
 
 @mcp.tool()
-async def api_get_customconversion(
+@wrapped_fn_tool
+async def api_get(
     customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CustomConversion(fbid=customconversion_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_customconversion(
 
 
 @mcp.tool()
-async def api_update_customconversion(
+@wrapped_fn_tool
+async def api_update(
     customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CustomConversion(fbid=customconversion_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_customconversion(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_stats(
     customconversion_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CustomConversion(fbid=customconversion_id).get_stats(
         fields=fields,
         params=params,

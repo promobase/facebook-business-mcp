@@ -10,6 +10,8 @@ from facebook_business.adobjects.shadowiguserctxpartnerappwelcomemessageflow imp
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-shadowiguserctxpartnerappwelcomemessageflow")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-shadowiguserctxpartnerappwelcomemessageflow")
 
 
 @mcp.tool()
-async def api_create_shadowiguserctxpartnerappwelcomemessageflow(
+@wrapped_fn_tool
+async def api_create(
     shadowiguserctxpartnerappwelcomemessageflow_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
         fbid=shadowiguserctxpartnerappwelcomemessageflow_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_shadowiguserctxpartnerappwelcomemessageflow(
 
 
 @mcp.tool()
-async def api_delete_shadowiguserctxpartnerappwelcomemessageflow(
+@wrapped_fn_tool
+async def api_delete(
     shadowiguserctxpartnerappwelcomemessageflow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
         fbid=shadowiguserctxpartnerappwelcomemessageflow_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_shadowiguserctxpartnerappwelcomemessageflow(
 
 
 @mcp.tool()
-async def api_get_shadowiguserctxpartnerappwelcomemessageflow(
+@wrapped_fn_tool
+async def api_get(
     shadowiguserctxpartnerappwelcomemessageflow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
         fbid=shadowiguserctxpartnerappwelcomemessageflow_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_shadowiguserctxpartnerappwelcomemessageflow(
 
 
 @mcp.tool()
-async def api_update_shadowiguserctxpartnerappwelcomemessageflow(
+@wrapped_fn_tool
+async def api_update(
     shadowiguserctxpartnerappwelcomemessageflow_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
         fbid=shadowiguserctxpartnerappwelcomemessageflow_id
     ).api_update(

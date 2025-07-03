@@ -9,6 +9,16 @@ from typing import TYPE_CHECKING, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 
+class commerceorderreturns_statuses_enum_param(str, Enum):
+    """commerceorderreturns_statuses_enum_param enum values."""
+
+    APPROVED = "APPROVED"
+    DISAPPROVED = "DISAPPROVED"
+    MERCHANT_MARKED_COMPLETED = "MERCHANT_MARKED_COMPLETED"
+    REFUNDED = "REFUNDED"
+    REQUESTED = "REQUESTED"
+
+
 class commerceorderrefunds_reason_code_enum_param(str, Enum):
     """commerceorderrefunds_reason_code_enum_param enum values."""
 
@@ -23,16 +33,6 @@ class commerceorderrefunds_reason_code_enum_param(str, Enum):
     REFUND_SFI_FAKE = "REFUND_SFI_FAKE"
     REFUND_SFI_REAL = "REFUND_SFI_REAL"
     WRONG_ITEM = "WRONG_ITEM"
-
-
-class commerceorderreturns_statuses_enum_param(str, Enum):
-    """commerceorderreturns_statuses_enum_param enum values."""
-
-    APPROVED = "APPROVED"
-    DISAPPROVED = "DISAPPROVED"
-    MERCHANT_MARKED_COMPLETED = "MERCHANT_MARKED_COMPLETED"
-    REFUNDED = "REFUNDED"
-    REQUESTED = "REQUESTED"
 
 
 # Field literal type

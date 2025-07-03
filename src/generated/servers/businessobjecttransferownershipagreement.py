@@ -10,6 +10,8 @@ from facebook_business.adobjects.businessobjecttransferownershipagreement import
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-businessobjecttransferownershipagreement")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-businessobjecttransferownershipagreement")
 
 
 @mcp.tool()
-async def api_create_businessobjecttransferownershipagreement(
+@wrapped_fn_tool
+async def api_create(
     businessobjecttransferownershipagreement_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessObjectTransferOwnershipAgreement(
         fbid=businessobjecttransferownershipagreement_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_businessobjecttransferownershipagreement(
 
 
 @mcp.tool()
-async def api_delete_businessobjecttransferownershipagreement(
+@wrapped_fn_tool
+async def api_delete(
     businessobjecttransferownershipagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessObjectTransferOwnershipAgreement(
         fbid=businessobjecttransferownershipagreement_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_businessobjecttransferownershipagreement(
 
 
 @mcp.tool()
-async def api_get_businessobjecttransferownershipagreement(
+@wrapped_fn_tool
+async def api_get(
     businessobjecttransferownershipagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessObjectTransferOwnershipAgreement(
         fbid=businessobjecttransferownershipagreement_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_businessobjecttransferownershipagreement(
 
 
 @mcp.tool()
-async def api_update_businessobjecttransferownershipagreement(
+@wrapped_fn_tool
+async def api_update(
     businessobjecttransferownershipagreement_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessObjectTransferOwnershipAgreement(
         fbid=businessobjecttransferownershipagreement_id
     ).api_update(

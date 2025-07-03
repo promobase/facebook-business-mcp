@@ -31,6 +31,644 @@ if TYPE_CHECKING:
     from .voipinfo import VoipInfoFields
 
 
+class pageagencies_permitted_tasks_enum_param(str, Enum):
+    """pageagencies_permitted_tasks_enum_param enum values."""
+
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    CASHIER_ROLE = "CASHIER_ROLE"
+    CREATE_CONTENT = "CREATE_CONTENT"
+    GLOBAL_STRUCTURE_MANAGEMENT = "GLOBAL_STRUCTURE_MANAGEMENT"
+    MANAGE = "MANAGE"
+    MANAGE_JOBS = "MANAGE_JOBS"
+    MANAGE_LEADS = "MANAGE_LEADS"
+    MESSAGING = "MESSAGING"
+    MODERATE = "MODERATE"
+    MODERATE_COMMUNITY = "MODERATE_COMMUNITY"
+    PAGES_MESSAGING = "PAGES_MESSAGING"
+    PAGES_MESSAGING_SUBSCRIPTIONS = "PAGES_MESSAGING_SUBSCRIPTIONS"
+    PROFILE_PLUS_ADVERTISE = "PROFILE_PLUS_ADVERTISE"
+    PROFILE_PLUS_ANALYZE = "PROFILE_PLUS_ANALYZE"
+    PROFILE_PLUS_CREATE_CONTENT = "PROFILE_PLUS_CREATE_CONTENT"
+    PROFILE_PLUS_FACEBOOK_ACCESS = "PROFILE_PLUS_FACEBOOK_ACCESS"
+    PROFILE_PLUS_FULL_CONTROL = "PROFILE_PLUS_FULL_CONTROL"
+    PROFILE_PLUS_MANAGE = "PROFILE_PLUS_MANAGE"
+    PROFILE_PLUS_MANAGE_LEADS = "PROFILE_PLUS_MANAGE_LEADS"
+    PROFILE_PLUS_MESSAGING = "PROFILE_PLUS_MESSAGING"
+    PROFILE_PLUS_MODERATE = "PROFILE_PLUS_MODERATE"
+    PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY = "PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY"
+    PROFILE_PLUS_REVENUE = "PROFILE_PLUS_REVENUE"
+    READ_PAGE_MAILBOXES = "READ_PAGE_MAILBOXES"
+    VIEW_MONETIZATION_INSIGHTS = "VIEW_MONETIZATION_INSIGHTS"
+
+
+class pagelocations_pickup_options_enum_param(str, Enum):
+    """pagelocations_pickup_options_enum_param enum values."""
+
+    CURBSIDE = "CURBSIDE"
+    IN_STORE = "IN_STORE"
+    OTHER = "OTHER"
+
+
+class pagefeed_unpublished_content_type_enum_param(str, Enum):
+    """pagefeed_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
+class pageconversations_platform_enum_param(str, Enum):
+    """pageconversations_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class pagenotification_messages_dev_support_developer_action_enum_param(str, Enum):
+    """pagenotification_messages_dev_support_developer_action_enum_param enum values."""
+
+    ENABLE_FOLLOWUP_MESSAGE = "ENABLE_FOLLOWUP_MESSAGE"
+
+
+class pagephotos_backdated_time_granularity_enum_param(str, Enum):
+    """pagephotos_backdated_time_granularity_enum_param enum values."""
+
+    day = "day"
+    hour = "hour"
+    min = "min"
+    month = "month"
+    none = "none"
+    year = "year"
+
+
+class pagelive_videos_spatial_audio_format_enum_param(str, Enum):
+    """pagelive_videos_spatial_audio_format_enum_param enum values."""
+
+    ambiX_4 = "ambiX_4"
+
+
+class pagephotos_unpublished_content_type_enum_param(str, Enum):
+    """pagephotos_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
+class pagevideo_copyrights_monitoring_type_enum_param(str, Enum):
+    """pagevideo_copyrights_monitoring_type_enum_param enum values."""
+
+    AUDIO_ONLY = "AUDIO_ONLY"
+    VIDEO_AND_AUDIO = "VIDEO_AND_AUDIO"
+    VIDEO_ONLY = "VIDEO_ONLY"
+
+
+class pagefeed_with_enum_param(str, Enum):
+    """pagefeed_with_enum_param enum values."""
+
+    LOCATION = "LOCATION"
+
+
+class pagephotos_type_enum_param(str, Enum):
+    """pagephotos_type_enum_param enum values."""
+
+    profile = "profile"
+    tagged = "tagged"
+    uploaded = "uploaded"
+
+
+class pagemessage_templates_category_enum_param(str, Enum):
+    """pagemessage_templates_category_enum_param enum values."""
+
+    UTILITY = "UTILITY"
+
+
+class pagestories_status_enum_param(str, Enum):
+    """pagestories_status_enum_param enum values."""
+
+    ARCHIVED = "ARCHIVED"
+    PUBLISHED = "PUBLISHED"
+
+
+class pagevideo_copyright_rules_source_enum_param(str, Enum):
+    """pagevideo_copyright_rules_source_enum_param enum values."""
+
+    MATCH_SETTINGS_DIALOG = "MATCH_SETTINGS_DIALOG"
+    RULES_SELECTOR = "RULES_SELECTOR"
+    RULES_TAB = "RULES_TAB"
+
+
+class pageevents_event_state_filter_enum_param(str, Enum):
+    """pageevents_event_state_filter_enum_param enum values."""
+
+    canceled = "canceled"
+    draft = "draft"
+    published = "published"
+    scheduled_draft_for_publication = "scheduled_draft_for_publication"
+
+
+class pagecalls_platform_enum_param(str, Enum):
+    """pagecalls_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class pagemessenger_profile_platform_enum_param(str, Enum):
+    """pagemessenger_profile_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class pagelive_videos_broadcast_status_enum_param(str, Enum):
+    """pagelive_videos_broadcast_status_enum_param enum values."""
+
+    LIVE = "LIVE"
+    LIVE_STOPPED = "LIVE_STOPPED"
+    PROCESSING = "PROCESSING"
+    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
+    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
+    SCHEDULED_LIVE = "SCHEDULED_LIVE"
+    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
+    UNPUBLISHED = "UNPUBLISHED"
+    VOD = "VOD"
+
+
+class pagecalls_action_enum_param(str, Enum):
+    """pagecalls_action_enum_param enum values."""
+
+    ACCEPT = "ACCEPT"
+    CONNECT = "CONNECT"
+    MEDIA_UPDATE = "MEDIA_UPDATE"
+    REJECT = "REJECT"
+    TERMINATE = "TERMINATE"
+
+
+class pagevideos_formatting_enum_param(str, Enum):
+    """pagevideos_formatting_enum_param enum values."""
+
+    MARKDOWN = "MARKDOWN"
+    PLAINTEXT = "PLAINTEXT"
+
+
+class pagecommerce_orders_state_enum_param(str, Enum):
+    """pagecommerce_orders_state_enum_param enum values."""
+
+    COMPLETED = "COMPLETED"
+    CREATED = "CREATED"
+    FB_PROCESSING = "FB_PROCESSING"
+    IN_PROGRESS = "IN_PROGRESS"
+
+
+class pagemedia_fingerprints_fingerprint_content_type_enum_param(str, Enum):
+    """pagemedia_fingerprints_fingerprint_content_type_enum_param enum values."""
+
+    AM_SONGTRACK = "AM_SONGTRACK"
+    EPISODE = "EPISODE"
+    MOVIE = "MOVIE"
+    OTHER = "OTHER"
+    SONGTRACK = "SONGTRACK"
+
+
+class pagefeed_post_surfaces_blacklist_enum_param(str, Enum):
+    """pagefeed_post_surfaces_blacklist_enum_param enum values."""
+
+    VALUE_1 = "1"
+    VALUE_2 = "2"
+    VALUE_3 = "3"
+    VALUE_4 = "4"
+    VALUE_5 = "5"
+
+
+class pagefeed_posting_to_redspace_enum_param(str, Enum):
+    """pagefeed_posting_to_redspace_enum_param enum values."""
+
+    disabled = "disabled"
+    enabled = "enabled"
+
+
+class pagelive_videos_source_enum_param(str, Enum):
+    """pagelive_videos_source_enum_param enum values."""
+
+    owner = "owner"
+    target = "target"
+
+
+class pagemessage_templates_status_enum_param(str, Enum):
+    """pagemessage_templates_status_enum_param enum values."""
+
+    APPROVED = "APPROVED"
+    ARCHIVED = "ARCHIVED"
+    DELETED = "DELETED"
+    DISABLED = "DISABLED"
+    IN_APPEAL = "IN_APPEAL"
+    LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
+    PAUSED = "PAUSED"
+    PENDING = "PENDING"
+    PENDING_DELETION = "PENDING_DELETION"
+    REJECTED = "REJECTED"
+
+
+class pagesubscribed_apps_subscribed_fields_enum_param(str, Enum):
+    """pagesubscribed_apps_subscribed_fields_enum_param enum values."""
+
+    affiliation = "affiliation"
+    attire = "attire"
+    awards = "awards"
+    bio = "bio"
+    birthday = "birthday"
+    call_permission_reply = "call_permission_reply"
+    calls = "calls"
+    category = "category"
+    checkins = "checkins"
+    company_overview = "company_overview"
+    conversations = "conversations"
+    culinary_team = "culinary_team"
+    current_location = "current_location"
+    description = "description"
+    email = "email"
+    feature_access_list = "feature_access_list"
+    feed = "feed"
+    founded = "founded"
+    general_info = "general_info"
+    general_manager = "general_manager"
+    group_feed = "group_feed"
+    hometown = "hometown"
+    hours = "hours"
+    inbox_labels = "inbox_labels"
+    invalid_topic_placeholder = "invalid_topic_placeholder"
+    invoice_access_bank_slip_events = "invoice_access_bank_slip_events"
+    invoice_access_invoice_change = "invoice_access_invoice_change"
+    invoice_access_invoice_draft_change = "invoice_access_invoice_draft_change"
+    invoice_access_onboarding_status_active = "invoice_access_onboarding_status_active"
+    leadgen = "leadgen"
+    leadgen_fat = "leadgen_fat"
+    live_videos = "live_videos"
+    local_delivery = "local_delivery"
+    location = "location"
+    marketing_message_delivery_failed = "marketing_message_delivery_failed"
+    mcom_invoice_change = "mcom_invoice_change"
+    members = "members"
+    mention = "mention"
+    merchant_review = "merchant_review"
+    message_context = "message_context"
+    message_deliveries = "message_deliveries"
+    message_echoes = "message_echoes"
+    message_edits = "message_edits"
+    message_mention = "message_mention"
+    message_reactions = "message_reactions"
+    message_reads = "message_reads"
+    message_template_status_update = "message_template_status_update"
+    messages = "messages"
+    messaging_account_linking = "messaging_account_linking"
+    messaging_appointments = "messaging_appointments"
+    messaging_checkout_updates = "messaging_checkout_updates"
+    messaging_customer_information = "messaging_customer_information"
+    messaging_direct_sends = "messaging_direct_sends"
+    messaging_fblogin_account_linking = "messaging_fblogin_account_linking"
+    messaging_feedback = "messaging_feedback"
+    messaging_game_plays = "messaging_game_plays"
+    messaging_handovers = "messaging_handovers"
+    messaging_in_thread_lead_form_submit = "messaging_in_thread_lead_form_submit"
+    messaging_integrity = "messaging_integrity"
+    messaging_optins = "messaging_optins"
+    messaging_optouts = "messaging_optouts"
+    messaging_payments = "messaging_payments"
+    messaging_policy_enforcement = "messaging_policy_enforcement"
+    messaging_postbacks = "messaging_postbacks"
+    messaging_pre_checkouts = "messaging_pre_checkouts"
+    messaging_referrals = "messaging_referrals"
+    mission = "mission"
+    name = "name"
+    page_about_story = "page_about_story"
+    page_change_proposal = "page_change_proposal"
+    page_upcoming_change = "page_upcoming_change"
+    parking = "parking"
+    payment_options = "payment_options"
+    payment_request_update = "payment_request_update"
+    personal_info = "personal_info"
+    personal_interests = "personal_interests"
+    phone = "phone"
+    picture = "picture"
+    price_range = "price_range"
+    product_review = "product_review"
+    products = "products"
+    public_transit = "public_transit"
+    publisher_subscriptions = "publisher_subscriptions"
+    ratings = "ratings"
+    registration = "registration"
+    response_feedback = "response_feedback"
+    send_cart = "send_cart"
+    standby = "standby"
+    user_action = "user_action"
+    video_text_question_responses = "video_text_question_responses"
+    videos = "videos"
+    website = "website"
+
+
+class pagevideo_stories_upload_phase_enum_param(str, Enum):
+    """pagevideo_stories_upload_phase_enum_param enum values."""
+
+    FINISH = "FINISH"
+    START = "START"
+
+
+class pagevideos_original_projection_type_enum_param(str, Enum):
+    """pagevideos_original_projection_type_enum_param enum values."""
+
+    cubemap = "cubemap"
+    equirectangular = "equirectangular"
+    half_equirectangular = "half_equirectangular"
+
+
+class pagemessages_notification_type_enum_param(str, Enum):
+    """pagemessages_notification_type_enum_param enum values."""
+
+    NO_PUSH = "NO_PUSH"
+    REGULAR = "REGULAR"
+    SILENT_PUSH = "SILENT_PUSH"
+
+
+class pagelive_videos_stream_type_enum_param(str, Enum):
+    """pagelive_videos_stream_type_enum_param enum values."""
+
+    AMBIENT = "AMBIENT"
+    REGULAR = "REGULAR"
+
+
+class pagevideos_container_type_enum_param(str, Enum):
+    """pagevideos_container_type_enum_param enum values."""
+
+    ACO_VIDEO_VARIATION = "ACO_VIDEO_VARIATION"
+    ADS_AI_GENERATED = "ADS_AI_GENERATED"
+    AD_BREAK_PREVIEW = "AD_BREAK_PREVIEW"
+    AD_DERIVATIVE = "AD_DERIVATIVE"
+    AD_LIBRARY_WATERMARK = "AD_LIBRARY_WATERMARK"
+    ALBUM_MULTIMEDIA_POST = "ALBUM_MULTIMEDIA_POST"
+    ALOHA_SUPERFRAME = "ALOHA_SUPERFRAME"
+    APP_REREVIEW_SCREENCAST = "APP_REREVIEW_SCREENCAST"
+    APP_REVIEW_SCREENCAST = "APP_REVIEW_SCREENCAST"
+    ASSET_MANAGER = "ASSET_MANAGER"
+    ATLAS_VIDEO = "ATLAS_VIDEO"
+    AUDIO_BROADCAST = "AUDIO_BROADCAST"
+    AUDIO_COMMENT = "AUDIO_COMMENT"
+    BROADCAST = "BROADCAST"
+    CANVAS = "CANVAS"
+    CMS_MEDIA_MANAGER = "CMS_MEDIA_MANAGER"
+    CONTAINED_POST_ATTACHMENT = "CONTAINED_POST_ATTACHMENT"
+    CONTAINED_POST_AUDIO_BROADCAST = "CONTAINED_POST_AUDIO_BROADCAST"
+    CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST = "CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST"
+    COPYRIGHT_REFERENCE_BROADCAST = "COPYRIGHT_REFERENCE_BROADCAST"
+    COPYRIGHT_REFERENCE_IG_XPOST_VIDEO = "COPYRIGHT_REFERENCE_IG_XPOST_VIDEO"
+    COPYRIGHT_REFERENCE_VIDEO = "COPYRIGHT_REFERENCE_VIDEO"
+    CREATION_ML_PRECREATION = "CREATION_ML_PRECREATION"
+    CREATOR_FAN_CHALLENGE = "CREATOR_FAN_CHALLENGE"
+    CREATOR_STOREFRONT_PERSONALIZED_VIDEO = "CREATOR_STOREFRONT_PERSONALIZED_VIDEO"
+    DATAGENIX_VIDEO = "DATAGENIX_VIDEO"
+    DCO_AD_ASSET_FEED = "DCO_AD_ASSET_FEED"
+    DCO_AUTOGEN_VIDEO = "DCO_AUTOGEN_VIDEO"
+    DCO_TRIMMED_VIDEO = "DCO_TRIMMED_VIDEO"
+    DIM_SUM = "DIM_SUM"
+    DIRECTED_POST_ATTACHMENT = "DIRECTED_POST_ATTACHMENT"
+    DIRECT_INBOX = "DIRECT_INBOX"
+    DROPS_SHOPPING_EVENT_PAGE = "DROPS_SHOPPING_EVENT_PAGE"
+    DYNAMIC_ITEM_VIDEO = "DYNAMIC_ITEM_VIDEO"
+    DYNAMIC_TEMPLATE_VIDEO = "DYNAMIC_TEMPLATE_VIDEO"
+    EVENT_COVER_VIDEO = "EVENT_COVER_VIDEO"
+    EVENT_TOUR = "EVENT_TOUR"
+    FACECAST_DVR = "FACECAST_DVR"
+    FB_AVATAR_ANIMATED_SATP = "FB_AVATAR_ANIMATED_SATP"
+    FB_COLLECTIBLE_VIDEO = "FB_COLLECTIBLE_VIDEO"
+    FB_SHORTS = "FB_SHORTS"
+    FB_SHORTS_CONTENT_REMIXABLE = "FB_SHORTS_CONTENT_REMIXABLE"
+    FB_SHORTS_GROUP_POST = "FB_SHORTS_GROUP_POST"
+    FB_SHORTS_LINKED_PRODUCT = "FB_SHORTS_LINKED_PRODUCT"
+    FB_SHORTS_PMV_POST = "FB_SHORTS_PMV_POST"
+    FB_SHORTS_POST = "FB_SHORTS_POST"
+    FB_SHORTS_REMIX_POST = "FB_SHORTS_REMIX_POST"
+    FUNDRAISER_COVER_VIDEO = "FUNDRAISER_COVER_VIDEO"
+    GAME_CLIP = "GAME_CLIP"
+    GIF_TO_VIDEO = "GIF_TO_VIDEO"
+    GOODWILL_ANNIVERSARY_DEPRECATED = "GOODWILL_ANNIVERSARY_DEPRECATED"
+    GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED = "GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED"
+    GOODWILL_VIDEO_CONTAINED_SHARE = "GOODWILL_VIDEO_CONTAINED_SHARE"
+    GOODWILL_VIDEO_PROMOTION = "GOODWILL_VIDEO_PROMOTION"
+    GOODWILL_VIDEO_SHARE = "GOODWILL_VIDEO_SHARE"
+    GOODWILL_VIDEO_TOKEN_REQUIRED = "GOODWILL_VIDEO_TOKEN_REQUIRED"
+    GROUP_POST = "GROUP_POST"
+    HEURISTIC_CLUSTER_VIDEO = "HEURISTIC_CLUSTER_VIDEO"
+    HIGHLIGHT_CLIP_VIDEO = "HIGHLIGHT_CLIP_VIDEO"
+    HORIZON_WORLDS_TV = "HORIZON_WORLDS_TV"
+    HUDDLE_BROADCAST = "HUDDLE_BROADCAST"
+    IG_REELS_XPV = "IG_REELS_XPV"
+    IG_STORIES_READER = "IG_STORIES_READER"
+    INJECTABLE = "INJECTABLE"
+    INSPIRATION_VIDEO = "INSPIRATION_VIDEO"
+    INSTAGRAM_VIDEO_COPY = "INSTAGRAM_VIDEO_COPY"
+    INSTANT_APPLICATION_PREVIEW = "INSTANT_APPLICATION_PREVIEW"
+    INSTANT_ARTICLE = "INSTANT_ARTICLE"
+    ISSUE_MODULE = "ISSUE_MODULE"
+    LEARN = "LEARN"
+    LEGACY = "LEGACY"
+    LEGACY_CONTAINED_POST_BROADCAST = "LEGACY_CONTAINED_POST_BROADCAST"
+    LIVE_AUDIO_ROOM_BROADCAST = "LIVE_AUDIO_ROOM_BROADCAST"
+    LIVE_CLIP_PREVIEW = "LIVE_CLIP_PREVIEW"
+    LIVE_CLIP_WORKCHAT = "LIVE_CLIP_WORKCHAT"
+    LIVE_CREATIVE_KIT_VIDEO = "LIVE_CREATIVE_KIT_VIDEO"
+    LIVE_PHOTO = "LIVE_PHOTO"
+    LOOK_NOW_DEPRECATED = "LOOK_NOW_DEPRECATED"
+    MARKETPLACE_LISTING_VIDEO = "MARKETPLACE_LISTING_VIDEO"
+    MARKETPLACE_PRE_RECORDED_VIDEO = "MARKETPLACE_PRE_RECORDED_VIDEO"
+    MOMENTS_VIDEO = "MOMENTS_VIDEO"
+    MUSIC_CLIP = "MUSIC_CLIP"
+    MUSIC_CLIP_IN_COMMENT = "MUSIC_CLIP_IN_COMMENT"
+    MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS = "MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS"
+    MUSIC_CLIP_IN_MSGR_NOTE = "MUSIC_CLIP_IN_MSGR_NOTE"
+    MUSIC_CLIP_IN_POLL_OPTION = "MUSIC_CLIP_IN_POLL_OPTION"
+    MUSIC_CLIP_ON_DATING_PROFILE = "MUSIC_CLIP_ON_DATING_PROFILE"
+    NEO_ASYNC_GAME_VIDEO = "NEO_ASYNC_GAME_VIDEO"
+    NEW_CONTAINED_POST_BROADCAST = "NEW_CONTAINED_POST_BROADCAST"
+    NO_STORY = "NO_STORY"
+    OCULUS_CREATOR_PORTAL = "OCULUS_CREATOR_PORTAL"
+    OCULUS_VENUES_BROADCAST = "OCULUS_VENUES_BROADCAST"
+    ORIGINALITY_SELF_ADVOCACY = "ORIGINALITY_SELF_ADVOCACY"
+    PAGES_COVER_VIDEO = "PAGES_COVER_VIDEO"
+    PAGE_REVIEW_SCREENCAST = "PAGE_REVIEW_SCREENCAST"
+    PAGE_SLIDESHOW_VIDEO = "PAGE_SLIDESHOW_VIDEO"
+    PAID_CONTENT_PREVIEW = "PAID_CONTENT_PREVIEW"
+    PAID_CONTENT_VIDEO = "PAID_CONTENT_VIDEO"
+    PAID_CONTENT_VIDEO__POST = "PAID_CONTENT_VIDEO__POST"
+    PIXELCLOUD = "PIXELCLOUD"
+    PODCAST_HIGHLIGHT = "PODCAST_HIGHLIGHT"
+    PODCAST_ML_PREVIEW = "PODCAST_ML_PREVIEW"
+    PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY = "PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY"
+    PODCAST_RSS = "PODCAST_RSS"
+    PODCAST_RSS_EPHEMERAL = "PODCAST_RSS_EPHEMERAL"
+    PODCAST_RSS_NO_NEWSFEED_STORY = "PODCAST_RSS_NO_NEWSFEED_STORY"
+    PODCAST_VOICES = "PODCAST_VOICES"
+    PODCAST_VOICES_NO_NEWSFEED_STORY = "PODCAST_VOICES_NO_NEWSFEED_STORY"
+    PREMIERE_SOURCE = "PREMIERE_SOURCE"
+    PREMIUM_MUSIC_VIDEO_CLIP = "PREMIUM_MUSIC_VIDEO_CLIP"
+    PREMIUM_MUSIC_VIDEO_CROPPED_CLIP = "PREMIUM_MUSIC_VIDEO_CROPPED_CLIP"
+    PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY"
+    PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY"
+    PRIVATE_GALLERY_VIDEO = "PRIVATE_GALLERY_VIDEO"
+    PRODUCT_VIDEO = "PRODUCT_VIDEO"
+    PROFILE_COVER_VIDEO = "PROFILE_COVER_VIDEO"
+    PROFILE_INTRO_CARD = "PROFILE_INTRO_CARD"
+    PROFILE_VIDEO = "PROFILE_VIDEO"
+    PROTON = "PROTON"
+    QUICK_CLIP_WORKPLACE_POST = "QUICK_CLIP_WORKPLACE_POST"
+    QUICK_PROMOTION = "QUICK_PROMOTION"
+    REPLACE_VIDEO = "REPLACE_VIDEO"
+    SALES_CLIENT_INTERACTION = "SALES_CLIENT_INTERACTION"
+    SHOWREEL_NATIVE_DUMMY_VIDEO = "SHOWREEL_NATIVE_DUMMY_VIDEO"
+    SLIDESHOW_ANIMOTO = "SLIDESHOW_ANIMOTO"
+    SLIDESHOW_SHAKR = "SLIDESHOW_SHAKR"
+    SLIDESHOW_VARIATION_VIDEO = "SLIDESHOW_VARIATION_VIDEO"
+    SOUND_PLATFORM_STREAM = "SOUND_PLATFORM_STREAM"
+    SRT_ATTACHMENT = "SRT_ATTACHMENT"
+    STORIES_VIDEO = "STORIES_VIDEO"
+    STORYLINE = "STORYLINE"
+    STORYLINE_WITH_EXTERNAL_MUSIC = "STORYLINE_WITH_EXTERNAL_MUSIC"
+    STORY_ARCHIVE_VIDEO = "STORY_ARCHIVE_VIDEO"
+    STORY_CARD_TEMPLATE = "STORY_CARD_TEMPLATE"
+    STREAM_HIGHLIGHTS_VIDEO = "STREAM_HIGHLIGHTS_VIDEO"
+    TAROT_DIGEST = "TAROT_DIGEST"
+    TEMPORARY_UNLISTED = "TEMPORARY_UNLISTED"
+    TEMP_VIDEO_COPYRIGHT_SCAN = "TEMP_VIDEO_COPYRIGHT_SCAN"
+    UNLISTED = "UNLISTED"
+    UNLISTED_OCULUS = "UNLISTED_OCULUS"
+    VIDEO_COMMENT = "VIDEO_COMMENT"
+    VIDEO_COMPOSITION_VARIATION = "VIDEO_COMPOSITION_VARIATION"
+    VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO = "VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO"
+    VIDEO_SUPERRES = "VIDEO_SUPERRES"
+    VOICES_ARTICLE_VIDEO = "VOICES_ARTICLE_VIDEO"
+    VU_GENERATED_VIDEO = "VU_GENERATED_VIDEO"
+    WOODHENGE = "WOODHENGE"
+    WORK_KNOWLEDGE_VIDEO = "WORK_KNOWLEDGE_VIDEO"
+    YOUR_DAY = "YOUR_DAY"
+
+
+class pagethreads_platform_enum_param(str, Enum):
+    """pagethreads_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class pagevisitor_posts_with_enum_param(str, Enum):
+    """pagevisitor_posts_with_enum_param enum values."""
+
+    LOCATION = "LOCATION"
+
+
+class pagecustom_user_settings_params_enum_param(str, Enum):
+    """pagecustom_user_settings_params_enum_param enum values."""
+
+    PERSISTENT_MENU = "PERSISTENT_MENU"
+
+
+class pagepublished_posts_with_enum_param(str, Enum):
+    """pagepublished_posts_with_enum_param enum values."""
+
+    LOCATION = "LOCATION"
+
+
+class pagefeed_backdated_time_granularity_enum_param(str, Enum):
+    """pagefeed_backdated_time_granularity_enum_param enum values."""
+
+    day = "day"
+    hour = "hour"
+    min = "min"
+    month = "month"
+    none = "none"
+    year = "year"
+
+
+class pagevideos_unpublished_content_type_enum_param(str, Enum):
+    """pagevideos_unpublished_content_type_enum_param enum values."""
+
+    ADS_POST = "ADS_POST"
+    DRAFT = "DRAFT"
+    INLINE_CREATED = "INLINE_CREATED"
+    PUBLISHED = "PUBLISHED"
+    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
+    SCHEDULED = "SCHEDULED"
+    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
+
+
+class pagecopyright_manual_claims_match_content_type_enum_param(str, Enum):
+    """pagecopyright_manual_claims_match_content_type_enum_param enum values."""
+
+    AUDIO_ONLY = "AUDIO_ONLY"
+    VIDEO_AND_AUDIO = "VIDEO_AND_AUDIO"
+    VIDEO_ONLY = "VIDEO_ONLY"
+
+
+class pagevideos_upload_phase_enum_param(str, Enum):
+    """pagevideos_upload_phase_enum_param enum values."""
+
+    cancel = "cancel"
+    finish = "finish"
+    start = "start"
+    transfer = "transfer"
+
+
+class pagewelcome_message_flows_eligible_platforms_enum_param(str, Enum):
+    """pagewelcome_message_flows_eligible_platforms_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+    WHATSAPP = "WHATSAPP"
+
+
+class pagelive_videos_stereoscopic_mode_enum_param(str, Enum):
+    """pagelive_videos_stereoscopic_mode_enum_param enum values."""
+
+    LEFT_RIGHT = "LEFT_RIGHT"
+    MONO = "MONO"
+    TOP_BOTTOM = "TOP_BOTTOM"
+
+
+class pagecopyright_manual_claims_action_reason_enum_param(str, Enum):
+    """pagecopyright_manual_claims_action_reason_enum_param enum values."""
+
+    ARTICLE_17_PREFLAGGING = "ARTICLE_17_PREFLAGGING"
+    ARTIST_OBJECTION = "ARTIST_OBJECTION"
+    OBJECTIONABLE_CONTENT = "OBJECTIONABLE_CONTENT"
+    PREMIUM_MUSIC_VIDEO = "PREMIUM_MUSIC_VIDEO"
+    PRERELEASE_CONTENT = "PRERELEASE_CONTENT"
+    PRODUCT_PARAMETERS = "PRODUCT_PARAMETERS"
+    RESTRICTED_CONTENT = "RESTRICTED_CONTENT"
+    UNAUTHORIZED_COMMERCIAL_USE = "UNAUTHORIZED_COMMERCIAL_USE"
+
+
+class pagefeed_formatting_enum_param(str, Enum):
+    """pagefeed_formatting_enum_param enum values."""
+
+    MARKDOWN = "MARKDOWN"
+    PLAINTEXT = "PLAINTEXT"
+
+
+class pagevideo_reels_video_state_enum_param(str, Enum):
+    """pagevideo_reels_video_state_enum_param enum values."""
+
+    DRAFT = "DRAFT"
+    PUBLISHED = "PUBLISHED"
+    SCHEDULED = "SCHEDULED"
+
+
 class pageimage_copyrights_geo_ownership_enum_param(str, Enum):
     """pageimage_copyrights_geo_ownership_enum_param enum values."""
 
@@ -288,79 +926,40 @@ class pageimage_copyrights_geo_ownership_enum_param(str, Enum):
     ZW = "ZW"
 
 
-class pagevideo_reels_video_state_enum_param(str, Enum):
-    """pagevideo_reels_video_state_enum_param enum values."""
+class pagelocations_temporary_status_enum_param(str, Enum):
+    """pagelocations_temporary_status_enum_param enum values."""
 
-    DRAFT = "DRAFT"
-    PUBLISHED = "PUBLISHED"
-    SCHEDULED = "SCHEDULED"
-
-
-class pagecustom_user_settings_params_enum_param(str, Enum):
-    """pagecustom_user_settings_params_enum_param enum values."""
-
-    PERSISTENT_MENU = "PERSISTENT_MENU"
+    DIFFERENTLY_OPEN = "DIFFERENTLY_OPEN"
+    NO_DATA = "NO_DATA"
+    OPERATING_AS_USUAL = "OPERATING_AS_USUAL"
+    TEMPORARILY_CLOSED = "TEMPORARILY_CLOSED"
 
 
-class pagelive_videos_source_enum_param(str, Enum):
-    """pagelive_videos_source_enum_param enum values."""
+class pagecommerce_orders_filters_enum_param(str, Enum):
+    """pagecommerce_orders_filters_enum_param enum values."""
 
-    owner = "owner"
-    target = "target"
-
-
-class pagestories_status_enum_param(str, Enum):
-    """pagestories_status_enum_param enum values."""
-
-    ARCHIVED = "ARCHIVED"
-    PUBLISHED = "PUBLISHED"
+    HAS_CANCELLATIONS = "HAS_CANCELLATIONS"
+    HAS_FULFILLMENTS = "HAS_FULFILLMENTS"
+    HAS_REFUNDS = "HAS_REFUNDS"
+    NO_CANCELLATIONS = "NO_CANCELLATIONS"
+    NO_REFUNDS = "NO_REFUNDS"
+    NO_SHIPMENTS = "NO_SHIPMENTS"
 
 
-class pagevideos_formatting_enum_param(str, Enum):
-    """pagevideos_formatting_enum_param enum values."""
+class pagemessages_sender_action_enum_param(str, Enum):
+    """pagemessages_sender_action_enum_param enum values."""
 
-    MARKDOWN = "MARKDOWN"
-    PLAINTEXT = "PLAINTEXT"
-
-
-class pagemedia_fingerprints_fingerprint_content_type_enum_param(str, Enum):
-    """pagemedia_fingerprints_fingerprint_content_type_enum_param enum values."""
-
-    AM_SONGTRACK = "AM_SONGTRACK"
-    EPISODE = "EPISODE"
-    MOVIE = "MOVIE"
-    OTHER = "OTHER"
-    SONGTRACK = "SONGTRACK"
+    MARK_SEEN = "MARK_SEEN"
+    REACT = "REACT"
+    TYPING_OFF = "TYPING_OFF"
+    TYPING_ON = "TYPING_ON"
+    UNREACT = "UNREACT"
 
 
-class pagenotification_messages_dev_support_developer_action_enum_param(str, Enum):
-    """pagenotification_messages_dev_support_developer_action_enum_param enum values."""
+class pageposts_with_enum_param(str, Enum):
+    """pageposts_with_enum_param enum values."""
 
-    ENABLE_FOLLOWUP_MESSAGE = "ENABLE_FOLLOWUP_MESSAGE"
-
-
-class pagemessage_templates_status_enum_param(str, Enum):
-    """pagemessage_templates_status_enum_param enum values."""
-
-    APPROVED = "APPROVED"
-    ARCHIVED = "ARCHIVED"
-    DELETED = "DELETED"
-    DISABLED = "DISABLED"
-    IN_APPEAL = "IN_APPEAL"
-    LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
-    PAUSED = "PAUSED"
-    PENDING = "PENDING"
-    PENDING_DELETION = "PENDING_DELETION"
-    REJECTED = "REJECTED"
-
-
-class pagemessages_messaging_type_enum_param(str, Enum):
-    """pagemessages_messaging_type_enum_param enum values."""
-
-    MESSAGE_TAG = "MESSAGE_TAG"
-    RESPONSE = "RESPONSE"
-    UPDATE = "UPDATE"
-    UTILITY = "UTILITY"
+    LOCATION = "LOCATION"
 
 
 class pagemessenger_profile_fields_enum_param(str, Enum):
@@ -380,12 +979,70 @@ class pagemessenger_profile_fields_enum_param(str, Enum):
     WHITELISTED_DOMAINS = "WHITELISTED_DOMAINS"
 
 
+class pagecopyright_manual_claims_action_enum_param(str, Enum):
+    """pagecopyright_manual_claims_action_enum_param enum values."""
+
+    BLOCK = "BLOCK"
+    CLAIM_AD_EARNINGS = "CLAIM_AD_EARNINGS"
+    MANUAL_REVIEW = "MANUAL_REVIEW"
+    MONITOR = "MONITOR"
+    REQUEST_TAKEDOWN = "REQUEST_TAKEDOWN"
+
+
+class pagelive_videos_status_enum_param(str, Enum):
+    """pagelive_videos_status_enum_param enum values."""
+
+    LIVE_NOW = "LIVE_NOW"
+    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
+    SCHEDULED_LIVE = "SCHEDULED_LIVE"
+    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
+    UNPUBLISHED = "UNPUBLISHED"
+
+
+class pagesecondary_receivers_platform_enum_param(str, Enum):
+    """pagesecondary_receivers_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class pagevideos_swap_mode_enum_param(str, Enum):
+    """pagevideos_swap_mode_enum_param enum values."""
+
+    replace = "replace"
+
+
+class pagevideo_reels_upload_phase_enum_param(str, Enum):
+    """pagevideo_reels_upload_phase_enum_param enum values."""
+
+    FINISH = "FINISH"
+    START = "START"
+
+
 class pagelive_videos_projection_enum_param(str, Enum):
     """pagelive_videos_projection_enum_param enum values."""
 
     CUBEMAP = "CUBEMAP"
     EQUIRECTANGULAR = "EQUIRECTANGULAR"
     HALF_EQUIRECTANGULAR = "HALF_EQUIRECTANGULAR"
+
+
+class pagemoderate_conversations_actions_enum_param(str, Enum):
+    """pagemoderate_conversations_actions_enum_param enum values."""
+
+    BAN_USER = "BAN_USER"
+    BLOCK_USER = "BLOCK_USER"
+    MOVE_TO_SPAM = "MOVE_TO_SPAM"
+    UNBAN_USER = "UNBAN_USER"
+    UNBLOCK_USER = "UNBLOCK_USER"
+
+
+class pagevideo_stories_video_state_enum_param(str, Enum):
+    """pagevideo_stories_video_state_enum_param enum values."""
+
+    DRAFT = "DRAFT"
+    PUBLISHED = "PUBLISHED"
+    SCHEDULED = "SCHEDULED"
 
 
 class pageab_tests_optimization_goal_enum_param(str, Enum):
@@ -404,774 +1061,11 @@ class pageab_tests_optimization_goal_enum_param(str, Enum):
     VIDEO_VIEWS_60S = "VIDEO_VIEWS_60S"
 
 
-class pagevideos_swap_mode_enum_param(str, Enum):
-    """pagevideos_swap_mode_enum_param enum values."""
-
-    replace = "replace"
-
-
-class pagevideo_copyright_rules_source_enum_param(str, Enum):
-    """pagevideo_copyright_rules_source_enum_param enum values."""
-
-    MATCH_SETTINGS_DIALOG = "MATCH_SETTINGS_DIALOG"
-    RULES_SELECTOR = "RULES_SELECTOR"
-    RULES_TAB = "RULES_TAB"
-
-
-class pageagencies_permitted_tasks_enum_param(str, Enum):
-    """pageagencies_permitted_tasks_enum_param enum values."""
-
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    CASHIER_ROLE = "CASHIER_ROLE"
-    CREATE_CONTENT = "CREATE_CONTENT"
-    GLOBAL_STRUCTURE_MANAGEMENT = "GLOBAL_STRUCTURE_MANAGEMENT"
-    MANAGE = "MANAGE"
-    MANAGE_JOBS = "MANAGE_JOBS"
-    MANAGE_LEADS = "MANAGE_LEADS"
-    MESSAGING = "MESSAGING"
-    MODERATE = "MODERATE"
-    MODERATE_COMMUNITY = "MODERATE_COMMUNITY"
-    PAGES_MESSAGING = "PAGES_MESSAGING"
-    PAGES_MESSAGING_SUBSCRIPTIONS = "PAGES_MESSAGING_SUBSCRIPTIONS"
-    PROFILE_PLUS_ADVERTISE = "PROFILE_PLUS_ADVERTISE"
-    PROFILE_PLUS_ANALYZE = "PROFILE_PLUS_ANALYZE"
-    PROFILE_PLUS_CREATE_CONTENT = "PROFILE_PLUS_CREATE_CONTENT"
-    PROFILE_PLUS_FACEBOOK_ACCESS = "PROFILE_PLUS_FACEBOOK_ACCESS"
-    PROFILE_PLUS_FULL_CONTROL = "PROFILE_PLUS_FULL_CONTROL"
-    PROFILE_PLUS_MANAGE = "PROFILE_PLUS_MANAGE"
-    PROFILE_PLUS_MANAGE_LEADS = "PROFILE_PLUS_MANAGE_LEADS"
-    PROFILE_PLUS_MESSAGING = "PROFILE_PLUS_MESSAGING"
-    PROFILE_PLUS_MODERATE = "PROFILE_PLUS_MODERATE"
-    PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY = "PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY"
-    PROFILE_PLUS_REVENUE = "PROFILE_PLUS_REVENUE"
-    READ_PAGE_MAILBOXES = "READ_PAGE_MAILBOXES"
-    VIEW_MONETIZATION_INSIGHTS = "VIEW_MONETIZATION_INSIGHTS"
-
-
-class pagevideos_container_type_enum_param(str, Enum):
-    """pagevideos_container_type_enum_param enum values."""
-
-    ACO_VIDEO_VARIATION = "ACO_VIDEO_VARIATION"
-    ADS_AI_GENERATED = "ADS_AI_GENERATED"
-    AD_BREAK_PREVIEW = "AD_BREAK_PREVIEW"
-    AD_DERIVATIVE = "AD_DERIVATIVE"
-    AD_LIBRARY_WATERMARK = "AD_LIBRARY_WATERMARK"
-    ALBUM_MULTIMEDIA_POST = "ALBUM_MULTIMEDIA_POST"
-    ALOHA_SUPERFRAME = "ALOHA_SUPERFRAME"
-    APP_REREVIEW_SCREENCAST = "APP_REREVIEW_SCREENCAST"
-    APP_REVIEW_SCREENCAST = "APP_REVIEW_SCREENCAST"
-    ASSET_MANAGER = "ASSET_MANAGER"
-    ATLAS_VIDEO = "ATLAS_VIDEO"
-    AUDIO_BROADCAST = "AUDIO_BROADCAST"
-    AUDIO_COMMENT = "AUDIO_COMMENT"
-    BROADCAST = "BROADCAST"
-    CANVAS = "CANVAS"
-    CMS_MEDIA_MANAGER = "CMS_MEDIA_MANAGER"
-    CONTAINED_POST_ATTACHMENT = "CONTAINED_POST_ATTACHMENT"
-    CONTAINED_POST_AUDIO_BROADCAST = "CONTAINED_POST_AUDIO_BROADCAST"
-    CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST = "CONTAINED_POST_COPYRIGHT_REFERENCE_BROADCAST"
-    COPYRIGHT_REFERENCE_BROADCAST = "COPYRIGHT_REFERENCE_BROADCAST"
-    COPYRIGHT_REFERENCE_IG_XPOST_VIDEO = "COPYRIGHT_REFERENCE_IG_XPOST_VIDEO"
-    COPYRIGHT_REFERENCE_VIDEO = "COPYRIGHT_REFERENCE_VIDEO"
-    CREATION_ML_PRECREATION = "CREATION_ML_PRECREATION"
-    CREATOR_FAN_CHALLENGE = "CREATOR_FAN_CHALLENGE"
-    CREATOR_STOREFRONT_PERSONALIZED_VIDEO = "CREATOR_STOREFRONT_PERSONALIZED_VIDEO"
-    DATAGENIX_VIDEO = "DATAGENIX_VIDEO"
-    DCO_AD_ASSET_FEED = "DCO_AD_ASSET_FEED"
-    DCO_AUTOGEN_VIDEO = "DCO_AUTOGEN_VIDEO"
-    DCO_TRIMMED_VIDEO = "DCO_TRIMMED_VIDEO"
-    DIM_SUM = "DIM_SUM"
-    DIRECTED_POST_ATTACHMENT = "DIRECTED_POST_ATTACHMENT"
-    DIRECT_INBOX = "DIRECT_INBOX"
-    DROPS_SHOPPING_EVENT_PAGE = "DROPS_SHOPPING_EVENT_PAGE"
-    DYNAMIC_ITEM_VIDEO = "DYNAMIC_ITEM_VIDEO"
-    DYNAMIC_TEMPLATE_VIDEO = "DYNAMIC_TEMPLATE_VIDEO"
-    EVENT_COVER_VIDEO = "EVENT_COVER_VIDEO"
-    EVENT_TOUR = "EVENT_TOUR"
-    FACECAST_DVR = "FACECAST_DVR"
-    FB_AVATAR_ANIMATED_SATP = "FB_AVATAR_ANIMATED_SATP"
-    FB_COLLECTIBLE_VIDEO = "FB_COLLECTIBLE_VIDEO"
-    FB_SHORTS = "FB_SHORTS"
-    FB_SHORTS_CONTENT_REMIXABLE = "FB_SHORTS_CONTENT_REMIXABLE"
-    FB_SHORTS_GROUP_POST = "FB_SHORTS_GROUP_POST"
-    FB_SHORTS_LINKED_PRODUCT = "FB_SHORTS_LINKED_PRODUCT"
-    FB_SHORTS_PMV_POST = "FB_SHORTS_PMV_POST"
-    FB_SHORTS_POST = "FB_SHORTS_POST"
-    FB_SHORTS_REMIX_POST = "FB_SHORTS_REMIX_POST"
-    FUNDRAISER_COVER_VIDEO = "FUNDRAISER_COVER_VIDEO"
-    GAME_CLIP = "GAME_CLIP"
-    GIF_TO_VIDEO = "GIF_TO_VIDEO"
-    GOODWILL_ANNIVERSARY_DEPRECATED = "GOODWILL_ANNIVERSARY_DEPRECATED"
-    GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED = "GOODWILL_ANNIVERSARY_PROMOTION_DEPRECATED"
-    GOODWILL_VIDEO_CONTAINED_SHARE = "GOODWILL_VIDEO_CONTAINED_SHARE"
-    GOODWILL_VIDEO_PROMOTION = "GOODWILL_VIDEO_PROMOTION"
-    GOODWILL_VIDEO_SHARE = "GOODWILL_VIDEO_SHARE"
-    GOODWILL_VIDEO_TOKEN_REQUIRED = "GOODWILL_VIDEO_TOKEN_REQUIRED"
-    GROUP_POST = "GROUP_POST"
-    HEURISTIC_CLUSTER_VIDEO = "HEURISTIC_CLUSTER_VIDEO"
-    HIGHLIGHT_CLIP_VIDEO = "HIGHLIGHT_CLIP_VIDEO"
-    HORIZON_WORLDS_TV = "HORIZON_WORLDS_TV"
-    HUDDLE_BROADCAST = "HUDDLE_BROADCAST"
-    IG_REELS_XPV = "IG_REELS_XPV"
-    IG_STORIES_READER = "IG_STORIES_READER"
-    INJECTABLE = "INJECTABLE"
-    INSPIRATION_VIDEO = "INSPIRATION_VIDEO"
-    INSTAGRAM_VIDEO_COPY = "INSTAGRAM_VIDEO_COPY"
-    INSTANT_APPLICATION_PREVIEW = "INSTANT_APPLICATION_PREVIEW"
-    INSTANT_ARTICLE = "INSTANT_ARTICLE"
-    ISSUE_MODULE = "ISSUE_MODULE"
-    LEARN = "LEARN"
-    LEGACY = "LEGACY"
-    LEGACY_CONTAINED_POST_BROADCAST = "LEGACY_CONTAINED_POST_BROADCAST"
-    LIVE_AUDIO_ROOM_BROADCAST = "LIVE_AUDIO_ROOM_BROADCAST"
-    LIVE_CLIP_PREVIEW = "LIVE_CLIP_PREVIEW"
-    LIVE_CLIP_WORKCHAT = "LIVE_CLIP_WORKCHAT"
-    LIVE_CREATIVE_KIT_VIDEO = "LIVE_CREATIVE_KIT_VIDEO"
-    LIVE_PHOTO = "LIVE_PHOTO"
-    LOOK_NOW_DEPRECATED = "LOOK_NOW_DEPRECATED"
-    MARKETPLACE_LISTING_VIDEO = "MARKETPLACE_LISTING_VIDEO"
-    MARKETPLACE_PRE_RECORDED_VIDEO = "MARKETPLACE_PRE_RECORDED_VIDEO"
-    MOMENTS_VIDEO = "MOMENTS_VIDEO"
-    MUSIC_CLIP = "MUSIC_CLIP"
-    MUSIC_CLIP_IN_COMMENT = "MUSIC_CLIP_IN_COMMENT"
-    MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS = "MUSIC_CLIP_IN_LIGHTWEIGHT_STATUS"
-    MUSIC_CLIP_IN_MSGR_NOTE = "MUSIC_CLIP_IN_MSGR_NOTE"
-    MUSIC_CLIP_IN_POLL_OPTION = "MUSIC_CLIP_IN_POLL_OPTION"
-    MUSIC_CLIP_ON_DATING_PROFILE = "MUSIC_CLIP_ON_DATING_PROFILE"
-    NEO_ASYNC_GAME_VIDEO = "NEO_ASYNC_GAME_VIDEO"
-    NEW_CONTAINED_POST_BROADCAST = "NEW_CONTAINED_POST_BROADCAST"
-    NO_STORY = "NO_STORY"
-    OCULUS_CREATOR_PORTAL = "OCULUS_CREATOR_PORTAL"
-    OCULUS_VENUES_BROADCAST = "OCULUS_VENUES_BROADCAST"
-    ORIGINALITY_SELF_ADVOCACY = "ORIGINALITY_SELF_ADVOCACY"
-    PAGES_COVER_VIDEO = "PAGES_COVER_VIDEO"
-    PAGE_REVIEW_SCREENCAST = "PAGE_REVIEW_SCREENCAST"
-    PAGE_SLIDESHOW_VIDEO = "PAGE_SLIDESHOW_VIDEO"
-    PAID_CONTENT_PREVIEW = "PAID_CONTENT_PREVIEW"
-    PAID_CONTENT_VIDEO = "PAID_CONTENT_VIDEO"
-    PAID_CONTENT_VIDEO__POST = "PAID_CONTENT_VIDEO__POST"
-    PIXELCLOUD = "PIXELCLOUD"
-    PODCAST_HIGHLIGHT = "PODCAST_HIGHLIGHT"
-    PODCAST_ML_PREVIEW = "PODCAST_ML_PREVIEW"
-    PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY = "PODCAST_ML_PREVIEW_NO_NEWSFEED_STORY"
-    PODCAST_RSS = "PODCAST_RSS"
-    PODCAST_RSS_EPHEMERAL = "PODCAST_RSS_EPHEMERAL"
-    PODCAST_RSS_NO_NEWSFEED_STORY = "PODCAST_RSS_NO_NEWSFEED_STORY"
-    PODCAST_VOICES = "PODCAST_VOICES"
-    PODCAST_VOICES_NO_NEWSFEED_STORY = "PODCAST_VOICES_NO_NEWSFEED_STORY"
-    PREMIERE_SOURCE = "PREMIERE_SOURCE"
-    PREMIUM_MUSIC_VIDEO_CLIP = "PREMIUM_MUSIC_VIDEO_CLIP"
-    PREMIUM_MUSIC_VIDEO_CROPPED_CLIP = "PREMIUM_MUSIC_VIDEO_CROPPED_CLIP"
-    PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_NO_NEWSFEED_STORY"
-    PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY = "PREMIUM_MUSIC_VIDEO_WITH_NEWSFEED_STORY"
-    PRIVATE_GALLERY_VIDEO = "PRIVATE_GALLERY_VIDEO"
-    PRODUCT_VIDEO = "PRODUCT_VIDEO"
-    PROFILE_COVER_VIDEO = "PROFILE_COVER_VIDEO"
-    PROFILE_INTRO_CARD = "PROFILE_INTRO_CARD"
-    PROFILE_VIDEO = "PROFILE_VIDEO"
-    PROTON = "PROTON"
-    QUICK_CLIP_WORKPLACE_POST = "QUICK_CLIP_WORKPLACE_POST"
-    QUICK_PROMOTION = "QUICK_PROMOTION"
-    REPLACE_VIDEO = "REPLACE_VIDEO"
-    SALES_CLIENT_INTERACTION = "SALES_CLIENT_INTERACTION"
-    SHOWREEL_NATIVE_DUMMY_VIDEO = "SHOWREEL_NATIVE_DUMMY_VIDEO"
-    SLIDESHOW_ANIMOTO = "SLIDESHOW_ANIMOTO"
-    SLIDESHOW_SHAKR = "SLIDESHOW_SHAKR"
-    SLIDESHOW_VARIATION_VIDEO = "SLIDESHOW_VARIATION_VIDEO"
-    SOUND_PLATFORM_STREAM = "SOUND_PLATFORM_STREAM"
-    SRT_ATTACHMENT = "SRT_ATTACHMENT"
-    STORIES_VIDEO = "STORIES_VIDEO"
-    STORYLINE = "STORYLINE"
-    STORYLINE_WITH_EXTERNAL_MUSIC = "STORYLINE_WITH_EXTERNAL_MUSIC"
-    STORY_ARCHIVE_VIDEO = "STORY_ARCHIVE_VIDEO"
-    STORY_CARD_TEMPLATE = "STORY_CARD_TEMPLATE"
-    STREAM_HIGHLIGHTS_VIDEO = "STREAM_HIGHLIGHTS_VIDEO"
-    TAROT_DIGEST = "TAROT_DIGEST"
-    TEMPORARY_UNLISTED = "TEMPORARY_UNLISTED"
-    TEMP_VIDEO_COPYRIGHT_SCAN = "TEMP_VIDEO_COPYRIGHT_SCAN"
-    UNLISTED = "UNLISTED"
-    UNLISTED_OCULUS = "UNLISTED_OCULUS"
-    VIDEO_COMMENT = "VIDEO_COMMENT"
-    VIDEO_COMPOSITION_VARIATION = "VIDEO_COMPOSITION_VARIATION"
-    VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO = "VIDEO_CREATIVE_EDITOR_AUTOGEN_AD_VIDEO"
-    VIDEO_SUPERRES = "VIDEO_SUPERRES"
-    VOICES_ARTICLE_VIDEO = "VOICES_ARTICLE_VIDEO"
-    VU_GENERATED_VIDEO = "VU_GENERATED_VIDEO"
-    WOODHENGE = "WOODHENGE"
-    WORK_KNOWLEDGE_VIDEO = "WORK_KNOWLEDGE_VIDEO"
-    YOUR_DAY = "YOUR_DAY"
-
-
-class pagecopyright_manual_claims_match_content_type_enum_param(str, Enum):
-    """pagecopyright_manual_claims_match_content_type_enum_param enum values."""
-
-    AUDIO_ONLY = "AUDIO_ONLY"
-    VIDEO_AND_AUDIO = "VIDEO_AND_AUDIO"
-    VIDEO_ONLY = "VIDEO_ONLY"
-
-
-class pagephotos_backdated_time_granularity_enum_param(str, Enum):
-    """pagephotos_backdated_time_granularity_enum_param enum values."""
-
-    day = "day"
-    hour = "hour"
-    min = "min"
-    month = "month"
-    none = "none"
-    year = "year"
-
-
-class pagefeed_unpublished_content_type_enum_param(str, Enum):
-    """pagefeed_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class pagemessage_templates_category_enum_param(str, Enum):
-    """pagemessage_templates_category_enum_param enum values."""
-
-    UTILITY = "UTILITY"
-
-
-class pagenlp_configs_model_enum_param(str, Enum):
-    """pagenlp_configs_model_enum_param enum values."""
-
-    ARABIC = "ARABIC"
-    CHINESE = "CHINESE"
-    CROATIAN = "CROATIAN"
-    CUSTOM = "CUSTOM"
-    DANISH = "DANISH"
-    DUTCH = "DUTCH"
-    ENGLISH = "ENGLISH"
-    FRENCH_STANDARD = "FRENCH_STANDARD"
-    GEORGIAN = "GEORGIAN"
-    GERMAN_STANDARD = "GERMAN_STANDARD"
-    GREEK = "GREEK"
-    HEBREW = "HEBREW"
-    HUNGARIAN = "HUNGARIAN"
-    IRISH = "IRISH"
-    ITALIAN_STANDARD = "ITALIAN_STANDARD"
-    KOREAN = "KOREAN"
-    NORWEGIAN_BOKMAL = "NORWEGIAN_BOKMAL"
-    POLISH = "POLISH"
-    PORTUGUESE = "PORTUGUESE"
-    ROMANIAN = "ROMANIAN"
-    SPANISH = "SPANISH"
-    SWEDISH = "SWEDISH"
-    VIETNAMESE = "VIETNAMESE"
-
-
-class pagephotos_unpublished_content_type_enum_param(str, Enum):
-    """pagephotos_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class pagefeed_target_surface_enum_param(str, Enum):
-    """pagefeed_target_surface_enum_param enum values."""
-
-    STORY = "STORY"
-    TIMELINE = "TIMELINE"
-
-
-class pagefeed_post_surfaces_blacklist_enum_param(str, Enum):
-    """pagefeed_post_surfaces_blacklist_enum_param enum values."""
+class pagefeed_place_attachment_setting_enum_param(str, Enum):
+    """pagefeed_place_attachment_setting_enum_param enum values."""
 
     VALUE_1 = "1"
     VALUE_2 = "2"
-    VALUE_3 = "3"
-    VALUE_4 = "4"
-    VALUE_5 = "5"
-
-
-class pagevideo_copyrights_content_category_enum_param(str, Enum):
-    """pagevideo_copyrights_content_category_enum_param enum values."""
-
-    episode = "episode"
-    movie = "movie"
-    web = "web"
-
-
-class pagemessage_attachments_platform_enum_param(str, Enum):
-    """pagemessage_attachments_platform_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-
-
-class pagevideo_stories_upload_phase_enum_param(str, Enum):
-    """pagevideo_stories_upload_phase_enum_param enum values."""
-
-    FINISH = "FINISH"
-    START = "START"
-
-
-class pagevideos_content_category_enum_param(str, Enum):
-    """pagevideos_content_category_enum_param enum values."""
-
-    BEAUTY_FASHION = "BEAUTY_FASHION"
-    BUSINESS = "BUSINESS"
-    CARS_TRUCKS = "CARS_TRUCKS"
-    COMEDY = "COMEDY"
-    CUTE_ANIMALS = "CUTE_ANIMALS"
-    ENTERTAINMENT = "ENTERTAINMENT"
-    FAMILY = "FAMILY"
-    FOOD_HEALTH = "FOOD_HEALTH"
-    HOME = "HOME"
-    LIFESTYLE = "LIFESTYLE"
-    MUSIC = "MUSIC"
-    NEWS = "NEWS"
-    OTHER = "OTHER"
-    POLITICS = "POLITICS"
-    SCIENCE = "SCIENCE"
-    SPORTS = "SPORTS"
-    TECHNOLOGY = "TECHNOLOGY"
-    VIDEO_GAMING = "VIDEO_GAMING"
-
-
-class pagepicture_type_enum_param(str, Enum):
-    """pagepicture_type_enum_param enum values."""
-
-    album = "album"
-    large = "large"
-    normal = "normal"
-    small = "small"
-    square = "square"
-
-
-class pagevideo_copyrights_monitoring_type_enum_param(str, Enum):
-    """pagevideo_copyrights_monitoring_type_enum_param enum values."""
-
-    AUDIO_ONLY = "AUDIO_ONLY"
-    VIDEO_AND_AUDIO = "VIDEO_AND_AUDIO"
-    VIDEO_ONLY = "VIDEO_ONLY"
-
-
-class pagelive_videos_stream_type_enum_param(str, Enum):
-    """pagelive_videos_stream_type_enum_param enum values."""
-
-    AMBIENT = "AMBIENT"
-    REGULAR = "REGULAR"
-
-
-class pagefeed_formatting_enum_param(str, Enum):
-    """pagefeed_formatting_enum_param enum values."""
-
-    MARKDOWN = "MARKDOWN"
-    PLAINTEXT = "PLAINTEXT"
-
-
-class pagemessages_sender_action_enum_param(str, Enum):
-    """pagemessages_sender_action_enum_param enum values."""
-
-    MARK_SEEN = "MARK_SEEN"
-    REACT = "REACT"
-    TYPING_OFF = "TYPING_OFF"
-    TYPING_ON = "TYPING_ON"
-    UNREACT = "UNREACT"
-
-
-class pagethreads_platform_enum_param(str, Enum):
-    """pagethreads_platform_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-
-
-class pagevideos_unpublished_content_type_enum_param(str, Enum):
-    """pagevideos_unpublished_content_type_enum_param enum values."""
-
-    ADS_POST = "ADS_POST"
-    DRAFT = "DRAFT"
-    INLINE_CREATED = "INLINE_CREATED"
-    PUBLISHED = "PUBLISHED"
-    REVIEWABLE_BRANDED_CONTENT = "REVIEWABLE_BRANDED_CONTENT"
-    SCHEDULED = "SCHEDULED"
-    SCHEDULED_RECURRING = "SCHEDULED_RECURRING"
-
-
-class pagelive_videos_status_enum_param(str, Enum):
-    """pagelive_videos_status_enum_param enum values."""
-
-    LIVE_NOW = "LIVE_NOW"
-    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
-    SCHEDULED_LIVE = "SCHEDULED_LIVE"
-    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
-    UNPUBLISHED = "UNPUBLISHED"
-
-
-class pagepublished_posts_with_enum_param(str, Enum):
-    """pagepublished_posts_with_enum_param enum values."""
-
-    LOCATION = "LOCATION"
-
-
-class pageconversations_platform_enum_param(str, Enum):
-    """pageconversations_platform_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-
-
-class pageinsights_date_preset_enum_param(str, Enum):
-    """pageinsights_date_preset_enum_param enum values."""
-
-    data_maximum = "data_maximum"
-    last_14d = "last_14d"
-    last_28d = "last_28d"
-    last_30d = "last_30d"
-    last_3d = "last_3d"
-    last_7d = "last_7d"
-    last_90d = "last_90d"
-    last_month = "last_month"
-    last_quarter = "last_quarter"
-    last_week_mon_sun = "last_week_mon_sun"
-    last_week_sun_sat = "last_week_sun_sat"
-    last_year = "last_year"
-    maximum = "maximum"
-    this_month = "this_month"
-    this_quarter = "this_quarter"
-    this_week_mon_today = "this_week_mon_today"
-    this_week_sun_today = "this_week_sun_today"
-    this_year = "this_year"
-    today = "today"
-    yesterday = "yesterday"
-
-
-class pagefeed_with_enum_param(str, Enum):
-    """pagefeed_with_enum_param enum values."""
-
-    LOCATION = "LOCATION"
-
-
-class pagecommerce_orders_filters_enum_param(str, Enum):
-    """pagecommerce_orders_filters_enum_param enum values."""
-
-    HAS_CANCELLATIONS = "HAS_CANCELLATIONS"
-    HAS_FULFILLMENTS = "HAS_FULFILLMENTS"
-    HAS_REFUNDS = "HAS_REFUNDS"
-    NO_CANCELLATIONS = "NO_CANCELLATIONS"
-    NO_REFUNDS = "NO_REFUNDS"
-    NO_SHIPMENTS = "NO_SHIPMENTS"
-
-
-class pagecopyright_manual_claims_action_enum_param(str, Enum):
-    """pagecopyright_manual_claims_action_enum_param enum values."""
-
-    BLOCK = "BLOCK"
-    CLAIM_AD_EARNINGS = "CLAIM_AD_EARNINGS"
-    MANUAL_REVIEW = "MANUAL_REVIEW"
-    MONITOR = "MONITOR"
-    REQUEST_TAKEDOWN = "REQUEST_TAKEDOWN"
-
-
-class pageinsights_period_enum_param(str, Enum):
-    """pageinsights_period_enum_param enum values."""
-
-    day = "day"
-    days_28 = "days_28"
-    lifetime = "lifetime"
-    month = "month"
-    total_over_range = "total_over_range"
-    week = "week"
-
-
-class pagemessages_notification_type_enum_param(str, Enum):
-    """pagemessages_notification_type_enum_param enum values."""
-
-    NO_PUSH = "NO_PUSH"
-    REGULAR = "REGULAR"
-    SILENT_PUSH = "SILENT_PUSH"
-
-
-class pageposts_with_enum_param(str, Enum):
-    """pageposts_with_enum_param enum values."""
-
-    LOCATION = "LOCATION"
-
-
-class pagesecondary_receivers_platform_enum_param(str, Enum):
-    """pagesecondary_receivers_platform_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-
-
-class pagecalls_platform_enum_param(str, Enum):
-    """pagecalls_platform_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-
-
-class pagelive_videos_stereoscopic_mode_enum_param(str, Enum):
-    """pagelive_videos_stereoscopic_mode_enum_param enum values."""
-
-    LEFT_RIGHT = "LEFT_RIGHT"
-    MONO = "MONO"
-    TOP_BOTTOM = "TOP_BOTTOM"
-
-
-class pagesubscribed_apps_subscribed_fields_enum_param(str, Enum):
-    """pagesubscribed_apps_subscribed_fields_enum_param enum values."""
-
-    affiliation = "affiliation"
-    attire = "attire"
-    awards = "awards"
-    bio = "bio"
-    birthday = "birthday"
-    call_permission_reply = "call_permission_reply"
-    calls = "calls"
-    category = "category"
-    checkins = "checkins"
-    company_overview = "company_overview"
-    conversations = "conversations"
-    culinary_team = "culinary_team"
-    current_location = "current_location"
-    description = "description"
-    email = "email"
-    feature_access_list = "feature_access_list"
-    feed = "feed"
-    founded = "founded"
-    general_info = "general_info"
-    general_manager = "general_manager"
-    group_feed = "group_feed"
-    hometown = "hometown"
-    hours = "hours"
-    inbox_labels = "inbox_labels"
-    invalid_topic_placeholder = "invalid_topic_placeholder"
-    invoice_access_bank_slip_events = "invoice_access_bank_slip_events"
-    invoice_access_invoice_change = "invoice_access_invoice_change"
-    invoice_access_invoice_draft_change = "invoice_access_invoice_draft_change"
-    invoice_access_onboarding_status_active = "invoice_access_onboarding_status_active"
-    leadgen = "leadgen"
-    leadgen_fat = "leadgen_fat"
-    live_videos = "live_videos"
-    local_delivery = "local_delivery"
-    location = "location"
-    marketing_message_delivery_failed = "marketing_message_delivery_failed"
-    mcom_invoice_change = "mcom_invoice_change"
-    members = "members"
-    mention = "mention"
-    merchant_review = "merchant_review"
-    message_context = "message_context"
-    message_deliveries = "message_deliveries"
-    message_echoes = "message_echoes"
-    message_edits = "message_edits"
-    message_mention = "message_mention"
-    message_reactions = "message_reactions"
-    message_reads = "message_reads"
-    message_template_status_update = "message_template_status_update"
-    messages = "messages"
-    messaging_account_linking = "messaging_account_linking"
-    messaging_appointments = "messaging_appointments"
-    messaging_checkout_updates = "messaging_checkout_updates"
-    messaging_customer_information = "messaging_customer_information"
-    messaging_direct_sends = "messaging_direct_sends"
-    messaging_fblogin_account_linking = "messaging_fblogin_account_linking"
-    messaging_feedback = "messaging_feedback"
-    messaging_game_plays = "messaging_game_plays"
-    messaging_handovers = "messaging_handovers"
-    messaging_in_thread_lead_form_submit = "messaging_in_thread_lead_form_submit"
-    messaging_integrity = "messaging_integrity"
-    messaging_optins = "messaging_optins"
-    messaging_optouts = "messaging_optouts"
-    messaging_payments = "messaging_payments"
-    messaging_policy_enforcement = "messaging_policy_enforcement"
-    messaging_postbacks = "messaging_postbacks"
-    messaging_pre_checkouts = "messaging_pre_checkouts"
-    messaging_referrals = "messaging_referrals"
-    mission = "mission"
-    name = "name"
-    page_about_story = "page_about_story"
-    page_change_proposal = "page_change_proposal"
-    page_upcoming_change = "page_upcoming_change"
-    parking = "parking"
-    payment_options = "payment_options"
-    payment_request_update = "payment_request_update"
-    personal_info = "personal_info"
-    personal_interests = "personal_interests"
-    phone = "phone"
-    picture = "picture"
-    price_range = "price_range"
-    product_review = "product_review"
-    products = "products"
-    public_transit = "public_transit"
-    publisher_subscriptions = "publisher_subscriptions"
-    ratings = "ratings"
-    registration = "registration"
-    response_feedback = "response_feedback"
-    send_cart = "send_cart"
-    standby = "standby"
-    user_action = "user_action"
-    video_text_question_responses = "video_text_question_responses"
-    videos = "videos"
-    website = "website"
-
-
-class pageevents_time_filter_enum_param(str, Enum):
-    """pageevents_time_filter_enum_param enum values."""
-
-    past = "past"
-    upcoming = "upcoming"
-
-
-class pagefeed_backdated_time_granularity_enum_param(str, Enum):
-    """pagefeed_backdated_time_granularity_enum_param enum values."""
-
-    day = "day"
-    hour = "hour"
-    min = "min"
-    month = "month"
-    none = "none"
-    year = "year"
-
-
-class pagewelcome_message_flows_eligible_platforms_enum_param(str, Enum):
-    """pagewelcome_message_flows_eligible_platforms_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-    WHATSAPP = "WHATSAPP"
-
-
-class pagecommerce_orders_state_enum_param(str, Enum):
-    """pagecommerce_orders_state_enum_param enum values."""
-
-    COMPLETED = "COMPLETED"
-    CREATED = "CREATED"
-    FB_PROCESSING = "FB_PROCESSING"
-    IN_PROGRESS = "IN_PROGRESS"
-
-
-class pagemoderate_conversations_actions_enum_param(str, Enum):
-    """pagemoderate_conversations_actions_enum_param enum values."""
-
-    BAN_USER = "BAN_USER"
-    BLOCK_USER = "BLOCK_USER"
-    MOVE_TO_SPAM = "MOVE_TO_SPAM"
-    UNBAN_USER = "UNBAN_USER"
-    UNBLOCK_USER = "UNBLOCK_USER"
-
-
-class pageevents_event_state_filter_enum_param(str, Enum):
-    """pageevents_event_state_filter_enum_param enum values."""
-
-    canceled = "canceled"
-    draft = "draft"
-    published = "published"
-    scheduled_draft_for_publication = "scheduled_draft_for_publication"
-
-
-class pagevideos_type_enum_param(str, Enum):
-    """pagevideos_type_enum_param enum values."""
-
-    TAGGED = "TAGGED"
-    UPLOADED = "UPLOADED"
-
-
-class pagevideos_upload_phase_enum_param(str, Enum):
-    """pagevideos_upload_phase_enum_param enum values."""
-
-    cancel = "cancel"
-    finish = "finish"
-    start = "start"
-    transfer = "transfer"
-
-
-class pagevideos_original_projection_type_enum_param(str, Enum):
-    """pagevideos_original_projection_type_enum_param enum values."""
-
-    cubemap = "cubemap"
-    equirectangular = "equirectangular"
-    half_equirectangular = "half_equirectangular"
-
-
-class pagefeed_posting_to_redspace_enum_param(str, Enum):
-    """pagefeed_posting_to_redspace_enum_param enum values."""
-
-    disabled = "disabled"
-    enabled = "enabled"
-
-
-class pagevideo_reels_upload_phase_enum_param(str, Enum):
-    """pagevideo_reels_upload_phase_enum_param enum values."""
-
-    FINISH = "FINISH"
-    START = "START"
-
-
-class pageassigned_users_tasks_enum_param(str, Enum):
-    """pageassigned_users_tasks_enum_param enum values."""
-
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    CASHIER_ROLE = "CASHIER_ROLE"
-    CREATE_CONTENT = "CREATE_CONTENT"
-    GLOBAL_STRUCTURE_MANAGEMENT = "GLOBAL_STRUCTURE_MANAGEMENT"
-    MANAGE = "MANAGE"
-    MANAGE_JOBS = "MANAGE_JOBS"
-    MANAGE_LEADS = "MANAGE_LEADS"
-    MESSAGING = "MESSAGING"
-    MODERATE = "MODERATE"
-    MODERATE_COMMUNITY = "MODERATE_COMMUNITY"
-    PAGES_MESSAGING = "PAGES_MESSAGING"
-    PAGES_MESSAGING_SUBSCRIPTIONS = "PAGES_MESSAGING_SUBSCRIPTIONS"
-    PROFILE_PLUS_ADVERTISE = "PROFILE_PLUS_ADVERTISE"
-    PROFILE_PLUS_ANALYZE = "PROFILE_PLUS_ANALYZE"
-    PROFILE_PLUS_CREATE_CONTENT = "PROFILE_PLUS_CREATE_CONTENT"
-    PROFILE_PLUS_FACEBOOK_ACCESS = "PROFILE_PLUS_FACEBOOK_ACCESS"
-    PROFILE_PLUS_FULL_CONTROL = "PROFILE_PLUS_FULL_CONTROL"
-    PROFILE_PLUS_MANAGE = "PROFILE_PLUS_MANAGE"
-    PROFILE_PLUS_MANAGE_LEADS = "PROFILE_PLUS_MANAGE_LEADS"
-    PROFILE_PLUS_MESSAGING = "PROFILE_PLUS_MESSAGING"
-    PROFILE_PLUS_MODERATE = "PROFILE_PLUS_MODERATE"
-    PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY = "PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY"
-    PROFILE_PLUS_REVENUE = "PROFILE_PLUS_REVENUE"
-    READ_PAGE_MAILBOXES = "READ_PAGE_MAILBOXES"
-    VIEW_MONETIZATION_INSIGHTS = "VIEW_MONETIZATION_INSIGHTS"
-
-
-class pagelocations_temporary_status_enum_param(str, Enum):
-    """pagelocations_temporary_status_enum_param enum values."""
-
-    DIFFERENTLY_OPEN = "DIFFERENTLY_OPEN"
-    NO_DATA = "NO_DATA"
-    OPERATING_AS_USUAL = "OPERATING_AS_USUAL"
-    TEMPORARILY_CLOSED = "TEMPORARILY_CLOSED"
-
-
-class pagevisitor_posts_with_enum_param(str, Enum):
-    """pagevisitor_posts_with_enum_param enum values."""
-
-    LOCATION = "LOCATION"
-
-
-class pagelive_videos_broadcast_status_enum_param(str, Enum):
-    """pagelive_videos_broadcast_status_enum_param enum values."""
-
-    LIVE = "LIVE"
-    LIVE_STOPPED = "LIVE_STOPPED"
-    PROCESSING = "PROCESSING"
-    SCHEDULED_CANCELED = "SCHEDULED_CANCELED"
-    SCHEDULED_EXPIRED = "SCHEDULED_EXPIRED"
-    SCHEDULED_LIVE = "SCHEDULED_LIVE"
-    SCHEDULED_UNPUBLISHED = "SCHEDULED_UNPUBLISHED"
-    UNPUBLISHED = "UNPUBLISHED"
-    VOD = "VOD"
 
 
 class pageleadgen_forms_locale_enum_param(str, Enum):
@@ -1211,61 +1105,6 @@ class pageleadgen_forms_locale_enum_param(str, Enum):
     ZH_TW = "ZH_TW"
 
 
-class pagemessenger_profile_platform_enum_param(str, Enum):
-    """pagemessenger_profile_platform_enum_param enum values."""
-
-    INSTAGRAM = "INSTAGRAM"
-    MESSENGER = "MESSENGER"
-
-
-class pagecalls_action_enum_param(str, Enum):
-    """pagecalls_action_enum_param enum values."""
-
-    ACCEPT = "ACCEPT"
-    CONNECT = "CONNECT"
-    MEDIA_UPDATE = "MEDIA_UPDATE"
-    REJECT = "REJECT"
-    TERMINATE = "TERMINATE"
-
-
-class pagelocations_pickup_options_enum_param(str, Enum):
-    """pagelocations_pickup_options_enum_param enum values."""
-
-    CURBSIDE = "CURBSIDE"
-    IN_STORE = "IN_STORE"
-    OTHER = "OTHER"
-
-
-class pagemessages_suggestion_action_enum_param(str, Enum):
-    """pagemessages_suggestion_action_enum_param enum values."""
-
-    ACCEPT = "ACCEPT"
-    DISMISS = "DISMISS"
-    IMPRESSION = "IMPRESSION"
-
-
-class pagelive_videos_spatial_audio_format_enum_param(str, Enum):
-    """pagelive_videos_spatial_audio_format_enum_param enum values."""
-
-    ambiX_4 = "ambiX_4"
-
-
-class pagephotos_type_enum_param(str, Enum):
-    """pagephotos_type_enum_param enum values."""
-
-    profile = "profile"
-    tagged = "tagged"
-    uploaded = "uploaded"
-
-
-class pagevideo_stories_video_state_enum_param(str, Enum):
-    """pagevideo_stories_video_state_enum_param enum values."""
-
-    DRAFT = "DRAFT"
-    PUBLISHED = "PUBLISHED"
-    SCHEDULED = "SCHEDULED"
-
-
 class pageevents_type_enum_param(str, Enum):
     """pageevents_type_enum_param enum values."""
 
@@ -1276,24 +1115,185 @@ class pageevents_type_enum_param(str, Enum):
     not_replied = "not_replied"
 
 
-class pagefeed_place_attachment_setting_enum_param(str, Enum):
-    """pagefeed_place_attachment_setting_enum_param enum values."""
+class pagemessages_messaging_type_enum_param(str, Enum):
+    """pagemessages_messaging_type_enum_param enum values."""
 
-    VALUE_1 = "1"
-    VALUE_2 = "2"
+    MESSAGE_TAG = "MESSAGE_TAG"
+    RESPONSE = "RESPONSE"
+    UPDATE = "UPDATE"
+    UTILITY = "UTILITY"
 
 
-class pagecopyright_manual_claims_action_reason_enum_param(str, Enum):
-    """pagecopyright_manual_claims_action_reason_enum_param enum values."""
+class pagepicture_type_enum_param(str, Enum):
+    """pagepicture_type_enum_param enum values."""
 
-    ARTICLE_17_PREFLAGGING = "ARTICLE_17_PREFLAGGING"
-    ARTIST_OBJECTION = "ARTIST_OBJECTION"
-    OBJECTIONABLE_CONTENT = "OBJECTIONABLE_CONTENT"
-    PREMIUM_MUSIC_VIDEO = "PREMIUM_MUSIC_VIDEO"
-    PRERELEASE_CONTENT = "PRERELEASE_CONTENT"
-    PRODUCT_PARAMETERS = "PRODUCT_PARAMETERS"
-    RESTRICTED_CONTENT = "RESTRICTED_CONTENT"
-    UNAUTHORIZED_COMMERCIAL_USE = "UNAUTHORIZED_COMMERCIAL_USE"
+    album = "album"
+    large = "large"
+    normal = "normal"
+    small = "small"
+    square = "square"
+
+
+class pagefeed_target_surface_enum_param(str, Enum):
+    """pagefeed_target_surface_enum_param enum values."""
+
+    STORY = "STORY"
+    TIMELINE = "TIMELINE"
+
+
+class pagenlp_configs_model_enum_param(str, Enum):
+    """pagenlp_configs_model_enum_param enum values."""
+
+    ARABIC = "ARABIC"
+    CHINESE = "CHINESE"
+    CROATIAN = "CROATIAN"
+    CUSTOM = "CUSTOM"
+    DANISH = "DANISH"
+    DUTCH = "DUTCH"
+    ENGLISH = "ENGLISH"
+    FRENCH_STANDARD = "FRENCH_STANDARD"
+    GEORGIAN = "GEORGIAN"
+    GERMAN_STANDARD = "GERMAN_STANDARD"
+    GREEK = "GREEK"
+    HEBREW = "HEBREW"
+    HUNGARIAN = "HUNGARIAN"
+    IRISH = "IRISH"
+    ITALIAN_STANDARD = "ITALIAN_STANDARD"
+    KOREAN = "KOREAN"
+    NORWEGIAN_BOKMAL = "NORWEGIAN_BOKMAL"
+    POLISH = "POLISH"
+    PORTUGUESE = "PORTUGUESE"
+    ROMANIAN = "ROMANIAN"
+    SPANISH = "SPANISH"
+    SWEDISH = "SWEDISH"
+    VIETNAMESE = "VIETNAMESE"
+
+
+class pageevents_time_filter_enum_param(str, Enum):
+    """pageevents_time_filter_enum_param enum values."""
+
+    past = "past"
+    upcoming = "upcoming"
+
+
+class pagevideo_copyrights_content_category_enum_param(str, Enum):
+    """pagevideo_copyrights_content_category_enum_param enum values."""
+
+    episode = "episode"
+    movie = "movie"
+    web = "web"
+
+
+class pagemessage_attachments_platform_enum_param(str, Enum):
+    """pagemessage_attachments_platform_enum_param enum values."""
+
+    INSTAGRAM = "INSTAGRAM"
+    MESSENGER = "MESSENGER"
+
+
+class pageinsights_date_preset_enum_param(str, Enum):
+    """pageinsights_date_preset_enum_param enum values."""
+
+    data_maximum = "data_maximum"
+    last_14d = "last_14d"
+    last_28d = "last_28d"
+    last_30d = "last_30d"
+    last_3d = "last_3d"
+    last_7d = "last_7d"
+    last_90d = "last_90d"
+    last_month = "last_month"
+    last_quarter = "last_quarter"
+    last_week_mon_sun = "last_week_mon_sun"
+    last_week_sun_sat = "last_week_sun_sat"
+    last_year = "last_year"
+    maximum = "maximum"
+    this_month = "this_month"
+    this_quarter = "this_quarter"
+    this_week_mon_today = "this_week_mon_today"
+    this_week_sun_today = "this_week_sun_today"
+    this_year = "this_year"
+    today = "today"
+    yesterday = "yesterday"
+
+
+class pageinsights_period_enum_param(str, Enum):
+    """pageinsights_period_enum_param enum values."""
+
+    day = "day"
+    days_28 = "days_28"
+    lifetime = "lifetime"
+    month = "month"
+    total_over_range = "total_over_range"
+    week = "week"
+
+
+class pagevideos_type_enum_param(str, Enum):
+    """pagevideos_type_enum_param enum values."""
+
+    TAGGED = "TAGGED"
+    UPLOADED = "UPLOADED"
+
+
+class pageassigned_users_tasks_enum_param(str, Enum):
+    """pageassigned_users_tasks_enum_param enum values."""
+
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    CASHIER_ROLE = "CASHIER_ROLE"
+    CREATE_CONTENT = "CREATE_CONTENT"
+    GLOBAL_STRUCTURE_MANAGEMENT = "GLOBAL_STRUCTURE_MANAGEMENT"
+    MANAGE = "MANAGE"
+    MANAGE_JOBS = "MANAGE_JOBS"
+    MANAGE_LEADS = "MANAGE_LEADS"
+    MESSAGING = "MESSAGING"
+    MODERATE = "MODERATE"
+    MODERATE_COMMUNITY = "MODERATE_COMMUNITY"
+    PAGES_MESSAGING = "PAGES_MESSAGING"
+    PAGES_MESSAGING_SUBSCRIPTIONS = "PAGES_MESSAGING_SUBSCRIPTIONS"
+    PROFILE_PLUS_ADVERTISE = "PROFILE_PLUS_ADVERTISE"
+    PROFILE_PLUS_ANALYZE = "PROFILE_PLUS_ANALYZE"
+    PROFILE_PLUS_CREATE_CONTENT = "PROFILE_PLUS_CREATE_CONTENT"
+    PROFILE_PLUS_FACEBOOK_ACCESS = "PROFILE_PLUS_FACEBOOK_ACCESS"
+    PROFILE_PLUS_FULL_CONTROL = "PROFILE_PLUS_FULL_CONTROL"
+    PROFILE_PLUS_MANAGE = "PROFILE_PLUS_MANAGE"
+    PROFILE_PLUS_MANAGE_LEADS = "PROFILE_PLUS_MANAGE_LEADS"
+    PROFILE_PLUS_MESSAGING = "PROFILE_PLUS_MESSAGING"
+    PROFILE_PLUS_MODERATE = "PROFILE_PLUS_MODERATE"
+    PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY = "PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY"
+    PROFILE_PLUS_REVENUE = "PROFILE_PLUS_REVENUE"
+    READ_PAGE_MAILBOXES = "READ_PAGE_MAILBOXES"
+    VIEW_MONETIZATION_INSIGHTS = "VIEW_MONETIZATION_INSIGHTS"
+
+
+class pagevideos_content_category_enum_param(str, Enum):
+    """pagevideos_content_category_enum_param enum values."""
+
+    BEAUTY_FASHION = "BEAUTY_FASHION"
+    BUSINESS = "BUSINESS"
+    CARS_TRUCKS = "CARS_TRUCKS"
+    COMEDY = "COMEDY"
+    CUTE_ANIMALS = "CUTE_ANIMALS"
+    ENTERTAINMENT = "ENTERTAINMENT"
+    FAMILY = "FAMILY"
+    FOOD_HEALTH = "FOOD_HEALTH"
+    HOME = "HOME"
+    LIFESTYLE = "LIFESTYLE"
+    MUSIC = "MUSIC"
+    NEWS = "NEWS"
+    OTHER = "OTHER"
+    POLITICS = "POLITICS"
+    SCIENCE = "SCIENCE"
+    SPORTS = "SPORTS"
+    TECHNOLOGY = "TECHNOLOGY"
+    VIDEO_GAMING = "VIDEO_GAMING"
+
+
+class pagemessages_suggestion_action_enum_param(str, Enum):
+    """pagemessages_suggestion_action_enum_param enum values."""
+
+    ACCEPT = "ACCEPT"
+    DISMISS = "DISMISS"
+    IMPRESSION = "IMPRESSION"
 
 
 # Field literal type

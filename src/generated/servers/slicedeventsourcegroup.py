@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.slicedeventsourcegroup import SlicedEventSourceGroup
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-slicedeventsourcegroup")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-slicedeventsourcegroup")
 
 
 @mcp.tool()
-async def api_create_slicedeventsourcegroup(
+@wrapped_fn_tool
+async def api_create(
     slicedeventsourcegroup_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SlicedEventSourceGroup(fbid=slicedeventsourcegroup_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_slicedeventsourcegroup(
 
 
 @mcp.tool()
-async def api_delete_slicedeventsourcegroup(
+@wrapped_fn_tool
+async def api_delete(
     slicedeventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SlicedEventSourceGroup(fbid=slicedeventsourcegroup_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_slicedeventsourcegroup(
 
 
 @mcp.tool()
-async def api_get_slicedeventsourcegroup(
+@wrapped_fn_tool
+async def api_get(
     slicedeventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SlicedEventSourceGroup(fbid=slicedeventsourcegroup_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_slicedeventsourcegroup(
 
 
 @mcp.tool()
-async def api_update_slicedeventsourcegroup(
+@wrapped_fn_tool
+async def api_update(
     slicedeventsourcegroup_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SlicedEventSourceGroup(fbid=slicedeventsourcegroup_id).api_update(
         fields=fields,
         params=params,

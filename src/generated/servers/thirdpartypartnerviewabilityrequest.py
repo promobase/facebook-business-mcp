@@ -10,6 +10,8 @@ from facebook_business.adobjects.thirdpartypartnerviewabilityrequest import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-thirdpartypartnerviewabilityrequest")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-thirdpartypartnerviewabilityrequest")
 
 
 @mcp.tool()
-async def api_create_thirdpartypartnerviewabilityrequest(
+@wrapped_fn_tool
+async def api_create(
     thirdpartypartnerviewabilityrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ThirdPartyPartnerViewabilityRequest(
         fbid=thirdpartypartnerviewabilityrequest_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_thirdpartypartnerviewabilityrequest(
 
 
 @mcp.tool()
-async def api_delete_thirdpartypartnerviewabilityrequest(
+@wrapped_fn_tool
+async def api_delete(
     thirdpartypartnerviewabilityrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ThirdPartyPartnerViewabilityRequest(
         fbid=thirdpartypartnerviewabilityrequest_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_thirdpartypartnerviewabilityrequest(
 
 
 @mcp.tool()
-async def api_get_thirdpartypartnerviewabilityrequest(
+@wrapped_fn_tool
+async def api_get(
     thirdpartypartnerviewabilityrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ThirdPartyPartnerViewabilityRequest(
         fbid=thirdpartypartnerviewabilityrequest_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_thirdpartypartnerviewabilityrequest(
 
 
 @mcp.tool()
-async def api_update_thirdpartypartnerviewabilityrequest(
+@wrapped_fn_tool
+async def api_update(
     thirdpartypartnerviewabilityrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ThirdPartyPartnerViewabilityRequest(
         fbid=thirdpartypartnerviewabilityrequest_id
     ).api_update(

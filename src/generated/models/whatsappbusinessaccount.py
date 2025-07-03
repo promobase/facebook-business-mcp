@@ -31,58 +31,18 @@ class WhatsAppBusinessAccount_business_verification_status(str, Enum):
     verified = "verified"
 
 
-class whatsappbusinessaccountpayment_configuration_provider_name_enum_param(str, Enum):
-    """whatsappbusinessaccountpayment_configuration_provider_name_enum_param enum values."""
+class whatsappbusinessaccountpricing_analytics_metric_types_enum_param(str, Enum):
+    """whatsappbusinessaccountpricing_analytics_metric_types_enum_param enum values."""
 
-    BILLDESK = "BILLDESK"
-    PAYU = "PAYU"
-    RAZORPAY = "RAZORPAY"
-    UPI_VPA = "UPI_VPA"
-    ZAAKPAY = "ZAAKPAY"
-
-
-class whatsappbusinessaccounttemplate_group_analytics_granularity_enum_param(str, Enum):
-    """whatsappbusinessaccounttemplate_group_analytics_granularity_enum_param enum values."""
-
-    DAILY = "DAILY"
-
-
-class whatsappbusinessaccountmessage_templates_display_format_enum_param(str, Enum):
-    """whatsappbusinessaccountmessage_templates_display_format_enum_param enum values."""
-
-    ORDER_DETAILS = "ORDER_DETAILS"
-
-
-class whatsappbusinessaccountconversation_analytics_metric_types_enum_param(str, Enum):
-    """whatsappbusinessaccountconversation_analytics_metric_types_enum_param enum values."""
-
-    CONVERSATION = "CONVERSATION"
     COST = "COST"
-    UNKNOWN = "UNKNOWN"
+    VOLUME = "VOLUME"
 
 
-class whatsappbusinessaccounttemplate_analytics_granularity_enum_param(str, Enum):
-    """whatsappbusinessaccounttemplate_analytics_granularity_enum_param enum values."""
+class whatsappbusinessaccounttemplate_analytics_product_type_enum_param(str, Enum):
+    """whatsappbusinessaccounttemplate_analytics_product_type_enum_param enum values."""
 
-    DAILY = "DAILY"
-
-
-class whatsappbusinessaccountcall_analytics_granularity_enum_param(str, Enum):
-    """whatsappbusinessaccountcall_analytics_granularity_enum_param enum values."""
-
-    DAILY = "DAILY"
-    HALF_HOUR = "HALF_HOUR"
-    MONTHLY = "MONTHLY"
-
-
-class whatsappbusinessaccountpricing_analytics_dimensions_enum_param(str, Enum):
-    """whatsappbusinessaccountpricing_analytics_dimensions_enum_param enum values."""
-
-    COUNTRY = "COUNTRY"
-    PHONE = "PHONE"
-    PRICING_CATEGORY = "PRICING_CATEGORY"
-    PRICING_TYPE = "PRICING_TYPE"
-    TIER = "TIER"
+    CLOUD_API = "CLOUD_API"
+    MARKETING_MESSAGES_LITE_API = "MARKETING_MESSAGES_LITE_API"
 
 
 class whatsappbusinessaccountcall_analytics_directions_enum_param(str, Enum):
@@ -93,30 +53,40 @@ class whatsappbusinessaccountcall_analytics_directions_enum_param(str, Enum):
     USER_INITIATED = "USER_INITIATED"
 
 
-class whatsappbusinessaccountmessage_template_previews_button_types_enum_param(str, Enum):
-    """whatsappbusinessaccountmessage_template_previews_button_types_enum_param enum values."""
+class whatsappbusinessaccountmessage_templates_category_enum_param(str, Enum):
+    """whatsappbusinessaccountmessage_templates_category_enum_param enum values."""
 
-    OTP = "OTP"
-
-
-class whatsappbusinessaccountmessage_templates_parameter_format_enum_param(str, Enum):
-    """whatsappbusinessaccountmessage_templates_parameter_format_enum_param enum values."""
-
-    NAMED = "NAMED"
-    POSITIONAL = "POSITIONAL"
+    AUTHENTICATION = "AUTHENTICATION"
+    MARKETING = "MARKETING"
+    UTILITY = "UTILITY"
 
 
-class whatsappbusinessaccountmessage_templates_sub_category_enum_param(str, Enum):
-    """whatsappbusinessaccountmessage_templates_sub_category_enum_param enum values."""
+class whatsappbusinessaccounttemplate_analytics_granularity_enum_param(str, Enum):
+    """whatsappbusinessaccounttemplate_analytics_granularity_enum_param enum values."""
 
-    ORDER_DETAILS = "ORDER_DETAILS"
-    ORDER_STATUS = "ORDER_STATUS"
+    DAILY = "DAILY"
 
 
 class whatsappbusinessaccountmessage_template_previews_category_enum_param(str, Enum):
     """whatsappbusinessaccountmessage_template_previews_category_enum_param enum values."""
 
     AUTHENTICATION = "AUTHENTICATION"
+
+
+class whatsappbusinessaccountconversation_analytics_conversation_directions_enum_param(str, Enum):
+    """whatsappbusinessaccountconversation_analytics_conversation_directions_enum_param enum values."""
+
+    BUSINESS_INITIATED = "BUSINESS_INITIATED"
+    UNKNOWN = "UNKNOWN"
+    USER_INITIATED = "USER_INITIATED"
+
+
+class whatsappbusinessaccountpricing_analytics_pricing_types_enum_param(str, Enum):
+    """whatsappbusinessaccountpricing_analytics_pricing_types_enum_param enum values."""
+
+    FREE_CUSTOMER_SERVICE = "FREE_CUSTOMER_SERVICE"
+    FREE_ENTRY_POINT = "FREE_ENTRY_POINT"
+    REGULAR = "REGULAR"
 
 
 class whatsappbusinessaccountmessage_templates_quality_score_enum_param(str, Enum):
@@ -128,126 +98,14 @@ class whatsappbusinessaccountmessage_templates_quality_score_enum_param(str, Enu
     YELLOW = "YELLOW"
 
 
-class whatsappbusinessaccountmessage_templates_status_enum_param(str, Enum):
-    """whatsappbusinessaccountmessage_templates_status_enum_param enum values."""
+class whatsappbusinessaccountcall_analytics_dimensions_enum_param(str, Enum):
+    """whatsappbusinessaccountcall_analytics_dimensions_enum_param enum values."""
 
-    APPROVED = "APPROVED"
-    ARCHIVED = "ARCHIVED"
-    DELETED = "DELETED"
-    DISABLED = "DISABLED"
-    IN_APPEAL = "IN_APPEAL"
-    LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
-    PAUSED = "PAUSED"
-    PENDING = "PENDING"
-    PENDING_DELETION = "PENDING_DELETION"
-    REJECTED = "REJECTED"
-
-
-class whatsappbusinessaccountcall_analytics_metric_types_enum_param(str, Enum):
-    """whatsappbusinessaccountcall_analytics_metric_types_enum_param enum values."""
-
-    AVERAGE_DURATION = "AVERAGE_DURATION"
-    COST = "COST"
-    COUNT = "COUNT"
-    UNKNOWN = "UNKNOWN"
-
-
-class whatsappbusinessaccountconversation_analytics_conversation_types_enum_param(str, Enum):
-    """whatsappbusinessaccountconversation_analytics_conversation_types_enum_param enum values."""
-
-    FREE_ENTRY_POINT = "FREE_ENTRY_POINT"
-    FREE_TIER = "FREE_TIER"
-    REGULAR = "REGULAR"
-    UNKNOWN = "UNKNOWN"
-
-
-class whatsappbusinessaccountmessage_templates_category_enum_param(str, Enum):
-    """whatsappbusinessaccountmessage_templates_category_enum_param enum values."""
-
-    AUTHENTICATION = "AUTHENTICATION"
-    MARKETING = "MARKETING"
-    UTILITY = "UTILITY"
-
-
-class whatsappbusinessaccounttemplate_group_analytics_metric_types_enum_param(str, Enum):
-    """whatsappbusinessaccounttemplate_group_analytics_metric_types_enum_param enum values."""
-
-    CLICKED = "CLICKED"
-    COST = "COST"
-    DELIVERED = "DELIVERED"
-    READ = "READ"
-    REPLIED = "REPLIED"
-    SENT = "SENT"
-
-
-class whatsappbusinessaccountpricing_analytics_granularity_enum_param(str, Enum):
-    """whatsappbusinessaccountpricing_analytics_granularity_enum_param enum values."""
-
-    DAILY = "DAILY"
-    HALF_HOUR = "HALF_HOUR"
-    MONTHLY = "MONTHLY"
-
-
-class whatsappbusinessaccountpricing_analytics_pricing_types_enum_param(str, Enum):
-    """whatsappbusinessaccountpricing_analytics_pricing_types_enum_param enum values."""
-
-    FREE_CUSTOMER_SERVICE = "FREE_CUSTOMER_SERVICE"
-    FREE_ENTRY_POINT = "FREE_ENTRY_POINT"
-    REGULAR = "REGULAR"
-
-
-class whatsappbusinessaccountflows_categories_enum_param(str, Enum):
-    """whatsappbusinessaccountflows_categories_enum_param enum values."""
-
-    APPOINTMENT_BOOKING = "APPOINTMENT_BOOKING"
-    CONTACT_US = "CONTACT_US"
-    CUSTOMER_SUPPORT = "CUSTOMER_SUPPORT"
-    LEAD_GENERATION = "LEAD_GENERATION"
-    OTHER = "OTHER"
-    SHOPPING = "SHOPPING"
-    SIGN_IN = "SIGN_IN"
-    SIGN_UP = "SIGN_UP"
-    SURVEY = "SURVEY"
-
-
-class whatsappbusinessaccountupsert_message_templates_category_enum_param(str, Enum):
-    """whatsappbusinessaccountupsert_message_templates_category_enum_param enum values."""
-
-    AUTHENTICATION = "AUTHENTICATION"
-
-
-class whatsappbusinessaccountassigned_users_tasks_enum_param(str, Enum):
-    """whatsappbusinessaccountassigned_users_tasks_enum_param enum values."""
-
-    DEVELOP = "DEVELOP"
-    MANAGE = "MANAGE"
-    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
-    MANAGE_PHONE = "MANAGE_PHONE"
-    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
-    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
-    MESSAGING = "MESSAGING"
-    VIEW_COST = "VIEW_COST"
-    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
-    VIEW_TEMPLATES = "VIEW_TEMPLATES"
-
-
-class whatsappbusinessaccountconversation_analytics_dimensions_enum_param(str, Enum):
-    """whatsappbusinessaccountconversation_analytics_dimensions_enum_param enum values."""
-
-    CONVERSATION_CATEGORY = "CONVERSATION_CATEGORY"
-    CONVERSATION_DIRECTION = "CONVERSATION_DIRECTION"
-    CONVERSATION_TYPE = "CONVERSATION_TYPE"
     COUNTRY = "COUNTRY"
+    DIRECTION = "DIRECTION"
     PHONE = "PHONE"
+    TIER = "TIER"
     UNKNOWN = "UNKNOWN"
-
-
-class whatsappbusinessaccountconversation_analytics_granularity_enum_param(str, Enum):
-    """whatsappbusinessaccountconversation_analytics_granularity_enum_param enum values."""
-
-    DAILY = "DAILY"
-    HALF_HOUR = "HALF_HOUR"
-    MONTHLY = "MONTHLY"
 
 
 class whatsappbusinessaccountpricing_analytics_pricing_categories_enum_param(str, Enum):
@@ -275,14 +133,136 @@ class whatsappbusinessaccounttemplate_analytics_metric_types_enum_param(str, Enu
     SENT = "SENT"
 
 
-class whatsappbusinessaccountcall_analytics_dimensions_enum_param(str, Enum):
-    """whatsappbusinessaccountcall_analytics_dimensions_enum_param enum values."""
+class whatsappbusinessaccountassigned_users_tasks_enum_param(str, Enum):
+    """whatsappbusinessaccountassigned_users_tasks_enum_param enum values."""
+
+    DEVELOP = "DEVELOP"
+    MANAGE = "MANAGE"
+    MANAGE_EXTENSIONS = "MANAGE_EXTENSIONS"
+    MANAGE_PHONE = "MANAGE_PHONE"
+    MANAGE_PHONE_ASSETS = "MANAGE_PHONE_ASSETS"
+    MANAGE_TEMPLATES = "MANAGE_TEMPLATES"
+    MESSAGING = "MESSAGING"
+    VIEW_COST = "VIEW_COST"
+    VIEW_PHONE_ASSETS = "VIEW_PHONE_ASSETS"
+    VIEW_TEMPLATES = "VIEW_TEMPLATES"
+
+
+class whatsappbusinessaccountmessage_templates_display_format_enum_param(str, Enum):
+    """whatsappbusinessaccountmessage_templates_display_format_enum_param enum values."""
+
+    ORDER_DETAILS = "ORDER_DETAILS"
+
+
+class whatsappbusinessaccountmessage_templates_sub_category_enum_param(str, Enum):
+    """whatsappbusinessaccountmessage_templates_sub_category_enum_param enum values."""
+
+    ORDER_DETAILS = "ORDER_DETAILS"
+    ORDER_STATUS = "ORDER_STATUS"
+
+
+class whatsappbusinessaccountpricing_analytics_granularity_enum_param(str, Enum):
+    """whatsappbusinessaccountpricing_analytics_granularity_enum_param enum values."""
+
+    DAILY = "DAILY"
+    HALF_HOUR = "HALF_HOUR"
+    MONTHLY = "MONTHLY"
+
+
+class whatsappbusinessaccountflows_categories_enum_param(str, Enum):
+    """whatsappbusinessaccountflows_categories_enum_param enum values."""
+
+    APPOINTMENT_BOOKING = "APPOINTMENT_BOOKING"
+    CONTACT_US = "CONTACT_US"
+    CUSTOMER_SUPPORT = "CUSTOMER_SUPPORT"
+    LEAD_GENERATION = "LEAD_GENERATION"
+    OTHER = "OTHER"
+    SHOPPING = "SHOPPING"
+    SIGN_IN = "SIGN_IN"
+    SIGN_UP = "SIGN_UP"
+    SURVEY = "SURVEY"
+
+
+class whatsappbusinessaccountcall_analytics_granularity_enum_param(str, Enum):
+    """whatsappbusinessaccountcall_analytics_granularity_enum_param enum values."""
+
+    DAILY = "DAILY"
+    HALF_HOUR = "HALF_HOUR"
+    MONTHLY = "MONTHLY"
+
+
+class whatsappbusinessaccounttemplate_group_analytics_granularity_enum_param(str, Enum):
+    """whatsappbusinessaccounttemplate_group_analytics_granularity_enum_param enum values."""
+
+    DAILY = "DAILY"
+
+
+class whatsappbusinessaccountcall_analytics_metric_types_enum_param(str, Enum):
+    """whatsappbusinessaccountcall_analytics_metric_types_enum_param enum values."""
+
+    AVERAGE_DURATION = "AVERAGE_DURATION"
+    COST = "COST"
+    COUNT = "COUNT"
+    UNKNOWN = "UNKNOWN"
+
+
+class whatsappbusinessaccountpricing_analytics_dimensions_enum_param(str, Enum):
+    """whatsappbusinessaccountpricing_analytics_dimensions_enum_param enum values."""
 
     COUNTRY = "COUNTRY"
-    DIRECTION = "DIRECTION"
     PHONE = "PHONE"
+    PRICING_CATEGORY = "PRICING_CATEGORY"
+    PRICING_TYPE = "PRICING_TYPE"
     TIER = "TIER"
+
+
+class whatsappbusinessaccountmessage_templates_status_enum_param(str, Enum):
+    """whatsappbusinessaccountmessage_templates_status_enum_param enum values."""
+
+    APPROVED = "APPROVED"
+    ARCHIVED = "ARCHIVED"
+    DELETED = "DELETED"
+    DISABLED = "DISABLED"
+    IN_APPEAL = "IN_APPEAL"
+    LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
+    PAUSED = "PAUSED"
+    PENDING = "PENDING"
+    PENDING_DELETION = "PENDING_DELETION"
+    REJECTED = "REJECTED"
+
+
+class whatsappbusinessaccountconversation_analytics_dimensions_enum_param(str, Enum):
+    """whatsappbusinessaccountconversation_analytics_dimensions_enum_param enum values."""
+
+    CONVERSATION_CATEGORY = "CONVERSATION_CATEGORY"
+    CONVERSATION_DIRECTION = "CONVERSATION_DIRECTION"
+    CONVERSATION_TYPE = "CONVERSATION_TYPE"
+    COUNTRY = "COUNTRY"
+    PHONE = "PHONE"
     UNKNOWN = "UNKNOWN"
+
+
+class whatsappbusinessaccountconversation_analytics_granularity_enum_param(str, Enum):
+    """whatsappbusinessaccountconversation_analytics_granularity_enum_param enum values."""
+
+    DAILY = "DAILY"
+    HALF_HOUR = "HALF_HOUR"
+    MONTHLY = "MONTHLY"
+
+
+class whatsappbusinessaccountconversation_analytics_metric_types_enum_param(str, Enum):
+    """whatsappbusinessaccountconversation_analytics_metric_types_enum_param enum values."""
+
+    CONVERSATION = "CONVERSATION"
+    COST = "COST"
+    UNKNOWN = "UNKNOWN"
+
+
+class whatsappbusinessaccountmessage_templates_parameter_format_enum_param(str, Enum):
+    """whatsappbusinessaccountmessage_templates_parameter_format_enum_param enum values."""
+
+    NAMED = "NAMED"
+    POSITIONAL = "POSITIONAL"
 
 
 class whatsappbusinessaccountconversation_analytics_conversation_categories_enum_param(str, Enum):
@@ -296,26 +276,46 @@ class whatsappbusinessaccountconversation_analytics_conversation_categories_enum
     UTILITY = "UTILITY"
 
 
-class whatsappbusinessaccountconversation_analytics_conversation_directions_enum_param(str, Enum):
-    """whatsappbusinessaccountconversation_analytics_conversation_directions_enum_param enum values."""
+class whatsappbusinessaccountconversation_analytics_conversation_types_enum_param(str, Enum):
+    """whatsappbusinessaccountconversation_analytics_conversation_types_enum_param enum values."""
 
-    BUSINESS_INITIATED = "BUSINESS_INITIATED"
+    FREE_ENTRY_POINT = "FREE_ENTRY_POINT"
+    FREE_TIER = "FREE_TIER"
+    REGULAR = "REGULAR"
     UNKNOWN = "UNKNOWN"
-    USER_INITIATED = "USER_INITIATED"
 
 
-class whatsappbusinessaccountpricing_analytics_metric_types_enum_param(str, Enum):
-    """whatsappbusinessaccountpricing_analytics_metric_types_enum_param enum values."""
+class whatsappbusinessaccounttemplate_group_analytics_metric_types_enum_param(str, Enum):
+    """whatsappbusinessaccounttemplate_group_analytics_metric_types_enum_param enum values."""
 
+    CLICKED = "CLICKED"
     COST = "COST"
-    VOLUME = "VOLUME"
+    DELIVERED = "DELIVERED"
+    READ = "READ"
+    REPLIED = "REPLIED"
+    SENT = "SENT"
 
 
-class whatsappbusinessaccounttemplate_analytics_product_type_enum_param(str, Enum):
-    """whatsappbusinessaccounttemplate_analytics_product_type_enum_param enum values."""
+class whatsappbusinessaccountmessage_template_previews_button_types_enum_param(str, Enum):
+    """whatsappbusinessaccountmessage_template_previews_button_types_enum_param enum values."""
 
-    CLOUD_API = "CLOUD_API"
-    MARKETING_MESSAGES_LITE_API = "MARKETING_MESSAGES_LITE_API"
+    OTP = "OTP"
+
+
+class whatsappbusinessaccountpayment_configuration_provider_name_enum_param(str, Enum):
+    """whatsappbusinessaccountpayment_configuration_provider_name_enum_param enum values."""
+
+    BILLDESK = "BILLDESK"
+    PAYU = "PAYU"
+    RAZORPAY = "RAZORPAY"
+    UPI_VPA = "UPI_VPA"
+    ZAAKPAY = "ZAAKPAY"
+
+
+class whatsappbusinessaccountupsert_message_templates_category_enum_param(str, Enum):
+    """whatsappbusinessaccountupsert_message_templates_category_enum_param enum values."""
+
+    AUTHENTICATION = "AUTHENTICATION"
 
 
 # Field literal type

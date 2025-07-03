@@ -10,6 +10,8 @@ from facebook_business.adobjects.businessimagetbusinessfolderpathitem import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-businessimagetbusinessfolderpathitem")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-businessimagetbusinessfolderpathitem")
 
 
 @mcp.tool()
-async def api_create_businessimagetbusinessfolderpathitem(
+@wrapped_fn_tool
+async def api_create(
     businessimagetbusinessfolderpathitem_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImageTBusinessFolderPathItem(
         fbid=businessimagetbusinessfolderpathitem_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_businessimagetbusinessfolderpathitem(
 
 
 @mcp.tool()
-async def api_delete_businessimagetbusinessfolderpathitem(
+@wrapped_fn_tool
+async def api_delete(
     businessimagetbusinessfolderpathitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImageTBusinessFolderPathItem(
         fbid=businessimagetbusinessfolderpathitem_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_businessimagetbusinessfolderpathitem(
 
 
 @mcp.tool()
-async def api_get_businessimagetbusinessfolderpathitem(
+@wrapped_fn_tool
+async def api_get(
     businessimagetbusinessfolderpathitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImageTBusinessFolderPathItem(
         fbid=businessimagetbusinessfolderpathitem_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_businessimagetbusinessfolderpathitem(
 
 
 @mcp.tool()
-async def api_update_businessimagetbusinessfolderpathitem(
+@wrapped_fn_tool
+async def api_update(
     businessimagetbusinessfolderpathitem_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImageTBusinessFolderPathItem(
         fbid=businessimagetbusinessfolderpathitem_id
     ).api_update(

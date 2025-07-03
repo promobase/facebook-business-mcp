@@ -360,8 +360,11 @@ def parse_type_to_python(
     # For fields referencing other AdObjects
     if known_types and type_str in known_types:
         if is_param:
-            # For params, we can't use forward references
-            return "dict[str, Any]"
+            # For params, we need to track the reference and use the proper type
+            if referenced_types is not None:
+                referenced_types.add(type_str)
+            # Return the actual type name for params - we'll handle imports properly
+            return f"{type_str}Fields"
         else:
             # For fields, use the Fields model and track the reference
             if referenced_types is not None:
@@ -522,8 +525,10 @@ class UnifiedModelGenerator:
                     param_type = param.get("type", "Any")
                     python_name = sanitize_field_name(param_name)
 
-                    # Map type - no need to collect enums here since we already did above
-                    python_type = parse_type_to_python(param_type, known_types, is_param=True)
+                    # Map type and collect referenced types
+                    python_type = parse_type_to_python(
+                        param_type, known_types, is_param=True, referenced_types=referenced_types
+                    )
 
                     field_alias = None
                     if python_name != param_name:

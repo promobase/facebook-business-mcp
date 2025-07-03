@@ -10,6 +10,8 @@ from facebook_business.adobjects.cpasadvertiserpartnershiprecommendation import 
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-cpasadvertiserpartnershiprecommendation")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-cpasadvertiserpartnershiprecommendation")
 
 
 @mcp.tool()
-async def api_create_cpasadvertiserpartnershiprecommendation(
+@wrapped_fn_tool
+async def api_create(
     cpasadvertiserpartnershiprecommendation_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASAdvertiserPartnershipRecommendation(
         fbid=cpasadvertiserpartnershiprecommendation_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_cpasadvertiserpartnershiprecommendation(
 
 
 @mcp.tool()
-async def api_delete_cpasadvertiserpartnershiprecommendation(
+@wrapped_fn_tool
+async def api_delete(
     cpasadvertiserpartnershiprecommendation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASAdvertiserPartnershipRecommendation(
         fbid=cpasadvertiserpartnershiprecommendation_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_cpasadvertiserpartnershiprecommendation(
 
 
 @mcp.tool()
-async def api_get_cpasadvertiserpartnershiprecommendation(
+@wrapped_fn_tool
+async def api_get(
     cpasadvertiserpartnershiprecommendation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASAdvertiserPartnershipRecommendation(
         fbid=cpasadvertiserpartnershiprecommendation_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_cpasadvertiserpartnershiprecommendation(
 
 
 @mcp.tool()
-async def api_update_cpasadvertiserpartnershiprecommendation(
+@wrapped_fn_tool
+async def api_update(
     cpasadvertiserpartnershiprecommendation_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CPASAdvertiserPartnershipRecommendation(
         fbid=cpasadvertiserpartnershiprecommendation_id
     ).api_update(

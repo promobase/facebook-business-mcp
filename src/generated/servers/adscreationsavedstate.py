@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adscreationsavedstate import AdsCreationSavedState
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adscreationsavedstate")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adscreationsavedstate")
 
 
 @mcp.tool()
-async def api_create_adscreationsavedstate(
+@wrapped_fn_tool
+async def api_create(
     adscreationsavedstate_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsCreationSavedState(fbid=adscreationsavedstate_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adscreationsavedstate(
 
 
 @mcp.tool()
-async def api_delete_adscreationsavedstate(
+@wrapped_fn_tool
+async def api_delete(
     adscreationsavedstate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsCreationSavedState(fbid=adscreationsavedstate_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adscreationsavedstate(
 
 
 @mcp.tool()
-async def api_get_adscreationsavedstate(
+@wrapped_fn_tool
+async def api_get(
     adscreationsavedstate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsCreationSavedState(fbid=adscreationsavedstate_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adscreationsavedstate(
 
 
 @mcp.tool()
-async def api_update_adscreationsavedstate(
+@wrapped_fn_tool
+async def api_update(
     adscreationsavedstate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdsCreationSavedState(fbid=adscreationsavedstate_id).api_update(
         fields=fields,
         params=params,

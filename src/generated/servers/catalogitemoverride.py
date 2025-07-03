@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.catalogitemoverride import CatalogItemOverride
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-catalogitemoverride")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-catalogitemoverride")
 
 
 @mcp.tool()
-async def api_create_catalogitemoverride(
+@wrapped_fn_tool
+async def api_create(
     catalogitemoverride_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogItemOverride(fbid=catalogitemoverride_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_catalogitemoverride(
 
 
 @mcp.tool()
-async def api_delete_catalogitemoverride(
+@wrapped_fn_tool
+async def api_delete(
     catalogitemoverride_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogItemOverride(fbid=catalogitemoverride_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_catalogitemoverride(
 
 
 @mcp.tool()
-async def api_get_catalogitemoverride(
+@wrapped_fn_tool
+async def api_get(
     catalogitemoverride_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogItemOverride(fbid=catalogitemoverride_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_catalogitemoverride(
 
 
 @mcp.tool()
-async def api_update_catalogitemoverride(
+@wrapped_fn_tool
+async def api_update(
     catalogitemoverride_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CatalogItemOverride(fbid=catalogitemoverride_id).api_update(
         fields=fields,
         params=params,

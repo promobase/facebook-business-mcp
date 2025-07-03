@@ -10,6 +10,8 @@ from facebook_business.adobjects.pagedirectintegrationcrmwithleadsaccess import 
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-pagedirectintegrationcrmwithleadsaccess")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-pagedirectintegrationcrmwithleadsaccess")
 
 
 @mcp.tool()
-async def api_create_pagedirectintegrationcrmwithleadsaccess(
+@wrapped_fn_tool
+async def api_create(
     pagedirectintegrationcrmwithleadsaccess_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageDirectIntegrationCrmWithLeadsAccess(
         fbid=pagedirectintegrationcrmwithleadsaccess_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_pagedirectintegrationcrmwithleadsaccess(
 
 
 @mcp.tool()
-async def api_delete_pagedirectintegrationcrmwithleadsaccess(
+@wrapped_fn_tool
+async def api_delete(
     pagedirectintegrationcrmwithleadsaccess_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageDirectIntegrationCrmWithLeadsAccess(
         fbid=pagedirectintegrationcrmwithleadsaccess_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_pagedirectintegrationcrmwithleadsaccess(
 
 
 @mcp.tool()
-async def api_get_pagedirectintegrationcrmwithleadsaccess(
+@wrapped_fn_tool
+async def api_get(
     pagedirectintegrationcrmwithleadsaccess_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageDirectIntegrationCrmWithLeadsAccess(
         fbid=pagedirectintegrationcrmwithleadsaccess_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_pagedirectintegrationcrmwithleadsaccess(
 
 
 @mcp.tool()
-async def api_update_pagedirectintegrationcrmwithleadsaccess(
+@wrapped_fn_tool
+async def api_update(
     pagedirectintegrationcrmwithleadsaccess_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PageDirectIntegrationCrmWithLeadsAccess(
         fbid=pagedirectintegrationcrmwithleadsaccess_id
     ).api_update(

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.instagramrelatedproducttags import InstagramRelatedProductTags
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-instagramrelatedproducttags")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-instagramrelatedproducttags")
 
 
 @mcp.tool()
-async def api_create_instagramrelatedproducttags(
+@wrapped_fn_tool
+async def api_create(
     instagramrelatedproducttags_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramRelatedProductTags(fbid=instagramrelatedproducttags_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_instagramrelatedproducttags(
 
 
 @mcp.tool()
-async def api_delete_instagramrelatedproducttags(
+@wrapped_fn_tool
+async def api_delete(
     instagramrelatedproducttags_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramRelatedProductTags(fbid=instagramrelatedproducttags_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_instagramrelatedproducttags(
 
 
 @mcp.tool()
-async def api_get_instagramrelatedproducttags(
+@wrapped_fn_tool
+async def api_get(
     instagramrelatedproducttags_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramRelatedProductTags(fbid=instagramrelatedproducttags_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_instagramrelatedproducttags(
 
 
 @mcp.tool()
-async def api_update_instagramrelatedproducttags(
+@wrapped_fn_tool
+async def api_update(
     instagramrelatedproducttags_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = InstagramRelatedProductTags(fbid=instagramrelatedproducttags_id).api_update(
         fields=fields,
         params=params,

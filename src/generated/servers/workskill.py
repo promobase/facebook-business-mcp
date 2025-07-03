@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.workskill import WorkSkill
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-workskill")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-workskill")
 
 
 @mcp.tool()
-async def api_create_workskill(
+@wrapped_fn_tool
+async def api_create(
     workskill_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WorkSkill(fbid=workskill_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_workskill(
 
 
 @mcp.tool()
-async def api_delete_workskill(
+@wrapped_fn_tool
+async def api_delete(
     workskill_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WorkSkill(fbid=workskill_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_workskill(
 
 
 @mcp.tool()
-async def api_get_workskill(
+@wrapped_fn_tool
+async def api_get(
     workskill_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WorkSkill(fbid=workskill_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_workskill(
 
 
 @mcp.tool()
-async def api_update_workskill(
+@wrapped_fn_tool
+async def api_update(
     workskill_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WorkSkill(fbid=workskill_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_workskill(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_users(
     workskill_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WorkSkill(fbid=workskill_id).get_users(
         fields=fields,
         params=params,

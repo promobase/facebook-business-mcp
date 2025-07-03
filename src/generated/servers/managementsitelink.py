@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.managementsitelink import ManagementSiteLink
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-managementsitelink")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-managementsitelink")
 
 
 @mcp.tool()
-async def api_create_managementsitelink(
+@wrapped_fn_tool
+async def api_create(
     managementsitelink_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagementSiteLink(fbid=managementsitelink_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_managementsitelink(
 
 
 @mcp.tool()
-async def api_delete_managementsitelink(
+@wrapped_fn_tool
+async def api_delete(
     managementsitelink_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagementSiteLink(fbid=managementsitelink_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_managementsitelink(
 
 
 @mcp.tool()
-async def api_get_managementsitelink(
+@wrapped_fn_tool
+async def api_get(
     managementsitelink_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagementSiteLink(fbid=managementsitelink_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_managementsitelink(
 
 
 @mcp.tool()
-async def api_update_managementsitelink(
+@wrapped_fn_tool
+async def api_update(
     managementsitelink_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ManagementSiteLink(fbid=managementsitelink_id).api_update(
         fields=fields,
         params=params,

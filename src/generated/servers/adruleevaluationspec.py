@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adruleevaluationspec import AdRuleEvaluationSpec
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adruleevaluationspec")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adruleevaluationspec")
 
 
 @mcp.tool()
-async def api_create_adruleevaluationspec(
+@wrapped_fn_tool
+async def api_create(
     adruleevaluationspec_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleEvaluationSpec(fbid=adruleevaluationspec_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adruleevaluationspec(
 
 
 @mcp.tool()
-async def api_delete_adruleevaluationspec(
+@wrapped_fn_tool
+async def api_delete(
     adruleevaluationspec_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleEvaluationSpec(fbid=adruleevaluationspec_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adruleevaluationspec(
 
 
 @mcp.tool()
-async def api_get_adruleevaluationspec(
+@wrapped_fn_tool
+async def api_get(
     adruleevaluationspec_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleEvaluationSpec(fbid=adruleevaluationspec_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adruleevaluationspec(
 
 
 @mcp.tool()
-async def api_update_adruleevaluationspec(
+@wrapped_fn_tool
+async def api_update(
     adruleevaluationspec_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdRuleEvaluationSpec(fbid=adruleevaluationspec_id).api_update(
         fields=fields,
         params=params,

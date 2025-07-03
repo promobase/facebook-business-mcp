@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.systemuser import SystemUser
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-systemuser")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-systemuser")
 
 
 @mcp.tool()
-async def api_create_systemuser(
+@wrapped_fn_tool
+async def api_create(
     systemuser_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_systemuser(
 
 
 @mcp.tool()
-async def api_delete_systemuser(
+@wrapped_fn_tool
+async def api_delete(
     systemuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_systemuser(
 
 
 @mcp.tool()
-async def api_get_systemuser(
+@wrapped_fn_tool
+async def api_get(
     systemuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_systemuser(
 
 
 @mcp.tool()
-async def api_update_systemuser(
+@wrapped_fn_tool
+async def api_update(
     systemuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_systemuser(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_assigned_ad_accounts(
     systemuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).get_assigned_ad_accounts(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def get_assigned_ad_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_assigned_business_asset_groups(
     systemuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).get_assigned_business_asset_groups(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def get_assigned_business_asset_groups(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_assigned_pages(
     systemuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).get_assigned_pages(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def get_assigned_pages(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_assigned_product_catalogs(
     systemuser_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = SystemUser(fbid=systemuser_id).get_assigned_product_catalogs(
         fields=fields,
         params=params,

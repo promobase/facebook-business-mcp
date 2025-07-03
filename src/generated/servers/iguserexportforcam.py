@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.iguserexportforcam import IGUserExportForCAM
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-iguserexportforcam")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-iguserexportforcam")
 
 
 @mcp.tool()
-async def api_create_iguserexportforcam(
+@wrapped_fn_tool
+async def api_create(
     iguserexportforcam_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = IGUserExportForCAM(fbid=iguserexportforcam_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_iguserexportforcam(
 
 
 @mcp.tool()
-async def api_delete_iguserexportforcam(
+@wrapped_fn_tool
+async def api_delete(
     iguserexportforcam_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = IGUserExportForCAM(fbid=iguserexportforcam_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_iguserexportforcam(
 
 
 @mcp.tool()
-async def api_get_iguserexportforcam(
+@wrapped_fn_tool
+async def api_get(
     iguserexportforcam_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = IGUserExportForCAM(fbid=iguserexportforcam_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_iguserexportforcam(
 
 
 @mcp.tool()
-async def api_update_iguserexportforcam(
+@wrapped_fn_tool
+async def api_update(
     iguserexportforcam_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = IGUserExportForCAM(fbid=iguserexportforcam_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_iguserexportforcam(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_branded_content_media(
     iguserexportforcam_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = IGUserExportForCAM(fbid=iguserexportforcam_id).get_branded_content_media(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def get_branded_content_media(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_insights(
     iguserexportforcam_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = IGUserExportForCAM(fbid=iguserexportforcam_id).get_insights(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def get_insights(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_recent_media(
     iguserexportforcam_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = IGUserExportForCAM(fbid=iguserexportforcam_id).get_recent_media(
         fields=fields,
         params=params,

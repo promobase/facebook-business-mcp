@@ -10,6 +10,8 @@ from facebook_business.adobjects.messengeradspartialautomatedsteplist import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-messengeradspartialautomatedsteplist")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-messengeradspartialautomatedsteplist")
 
 
 @mcp.tool()
-async def api_create_messengeradspartialautomatedsteplist(
+@wrapped_fn_tool
+async def api_create(
     messengeradspartialautomatedsteplist_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerAdsPartialAutomatedStepList(
         fbid=messengeradspartialautomatedsteplist_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_messengeradspartialautomatedsteplist(
 
 
 @mcp.tool()
-async def api_delete_messengeradspartialautomatedsteplist(
+@wrapped_fn_tool
+async def api_delete(
     messengeradspartialautomatedsteplist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerAdsPartialAutomatedStepList(
         fbid=messengeradspartialautomatedsteplist_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_messengeradspartialautomatedsteplist(
 
 
 @mcp.tool()
-async def api_get_messengeradspartialautomatedsteplist(
+@wrapped_fn_tool
+async def api_get(
     messengeradspartialautomatedsteplist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerAdsPartialAutomatedStepList(
         fbid=messengeradspartialautomatedsteplist_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_messengeradspartialautomatedsteplist(
 
 
 @mcp.tool()
-async def api_update_messengeradspartialautomatedsteplist(
+@wrapped_fn_tool
+async def api_update(
     messengeradspartialautomatedsteplist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerAdsPartialAutomatedStepList(
         fbid=messengeradspartialautomatedsteplist_id
     ).api_update(
@@ -87,11 +93,12 @@ async def api_update_messengeradspartialautomatedsteplist(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_steps(
     messengeradspartialautomatedsteplist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = MessengerAdsPartialAutomatedStepList(
         fbid=messengeradspartialautomatedsteplist_id
     ).get_steps(

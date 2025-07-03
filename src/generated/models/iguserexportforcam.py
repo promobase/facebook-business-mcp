@@ -9,6 +9,23 @@ from typing import TYPE_CHECKING, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 
+class iguserexportforcaminsights_period_enum_param(str, Enum):
+    """iguserexportforcaminsights_period_enum_param enum values."""
+
+    DAY = "DAY"
+    OVERALL = "OVERALL"
+
+
+class iguserexportforcaminsights_metrics_enum_param(str, Enum):
+    """iguserexportforcaminsights_metrics_enum_param enum values."""
+
+    CREATOR_ENGAGED_ACCOUNTS = "CREATOR_ENGAGED_ACCOUNTS"
+    CREATOR_REACH = "CREATOR_REACH"
+    REELS_HOOK_RATE = "REELS_HOOK_RATE"
+    REELS_INTERACTION_RATE = "REELS_INTERACTION_RATE"
+    TOTAL_FOLLOWERS = "TOTAL_FOLLOWERS"
+
+
 class iguserexportforcaminsights_breakdown_enum_param(str, Enum):
     """iguserexportforcaminsights_breakdown_enum_param enum values."""
 
@@ -28,23 +45,6 @@ class iguserexportforcaminsights_time_range_enum_param(str, Enum):
     LIFETIME = "LIFETIME"
     THIS_MONTH = "THIS_MONTH"
     THIS_WEEK = "THIS_WEEK"
-
-
-class iguserexportforcaminsights_period_enum_param(str, Enum):
-    """iguserexportforcaminsights_period_enum_param enum values."""
-
-    DAY = "DAY"
-    OVERALL = "OVERALL"
-
-
-class iguserexportforcaminsights_metrics_enum_param(str, Enum):
-    """iguserexportforcaminsights_metrics_enum_param enum values."""
-
-    CREATOR_ENGAGED_ACCOUNTS = "CREATOR_ENGAGED_ACCOUNTS"
-    CREATOR_REACH = "CREATOR_REACH"
-    REELS_HOOK_RATE = "REELS_HOOK_RATE"
-    REELS_INTERACTION_RATE = "REELS_INTERACTION_RATE"
-    TOTAL_FOLLOWERS = "TOTAL_FOLLOWERS"
 
 
 # Field literal type

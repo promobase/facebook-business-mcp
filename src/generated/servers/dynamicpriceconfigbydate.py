@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.dynamicpriceconfigbydate import DynamicPriceConfigByDate
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-dynamicpriceconfigbydate")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-dynamicpriceconfigbydate")
 
 
 @mcp.tool()
-async def api_create_dynamicpriceconfigbydate(
+@wrapped_fn_tool
+async def api_create(
     dynamicpriceconfigbydate_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = DynamicPriceConfigByDate(fbid=dynamicpriceconfigbydate_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_dynamicpriceconfigbydate(
 
 
 @mcp.tool()
-async def api_delete_dynamicpriceconfigbydate(
+@wrapped_fn_tool
+async def api_delete(
     dynamicpriceconfigbydate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = DynamicPriceConfigByDate(fbid=dynamicpriceconfigbydate_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_dynamicpriceconfigbydate(
 
 
 @mcp.tool()
-async def api_get_dynamicpriceconfigbydate(
+@wrapped_fn_tool
+async def api_get(
     dynamicpriceconfigbydate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = DynamicPriceConfigByDate(fbid=dynamicpriceconfigbydate_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_dynamicpriceconfigbydate(
 
 
 @mcp.tool()
-async def api_update_dynamicpriceconfigbydate(
+@wrapped_fn_tool
+async def api_update(
     dynamicpriceconfigbydate_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = DynamicPriceConfigByDate(fbid=dynamicpriceconfigbydate_id).api_update(
         fields=fields,
         params=params,

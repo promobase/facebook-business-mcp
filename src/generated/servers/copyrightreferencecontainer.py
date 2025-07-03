@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.copyrightreferencecontainer import CopyrightReferenceContainer
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-copyrightreferencecontainer")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-copyrightreferencecontainer")
 
 
 @mcp.tool()
-async def api_create_copyrightreferencecontainer(
+@wrapped_fn_tool
+async def api_create(
     copyrightreferencecontainer_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CopyrightReferenceContainer(fbid=copyrightreferencecontainer_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_copyrightreferencecontainer(
 
 
 @mcp.tool()
-async def api_delete_copyrightreferencecontainer(
+@wrapped_fn_tool
+async def api_delete(
     copyrightreferencecontainer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CopyrightReferenceContainer(fbid=copyrightreferencecontainer_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_copyrightreferencecontainer(
 
 
 @mcp.tool()
-async def api_get_copyrightreferencecontainer(
+@wrapped_fn_tool
+async def api_get(
     copyrightreferencecontainer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CopyrightReferenceContainer(fbid=copyrightreferencecontainer_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_copyrightreferencecontainer(
 
 
 @mcp.tool()
-async def api_update_copyrightreferencecontainer(
+@wrapped_fn_tool
+async def api_update(
     copyrightreferencecontainer_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CopyrightReferenceContainer(fbid=copyrightreferencecontainer_id).api_update(
         fields=fields,
         params=params,

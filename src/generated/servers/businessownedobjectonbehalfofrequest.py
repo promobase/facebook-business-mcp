@@ -10,6 +10,8 @@ from facebook_business.adobjects.businessownedobjectonbehalfofrequest import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-businessownedobjectonbehalfofrequest")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-businessownedobjectonbehalfofrequest")
 
 
 @mcp.tool()
-async def api_create_businessownedobjectonbehalfofrequest(
+@wrapped_fn_tool
+async def api_create(
     businessownedobjectonbehalfofrequest_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessOwnedObjectOnBehalfOfRequest(
         fbid=businessownedobjectonbehalfofrequest_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_businessownedobjectonbehalfofrequest(
 
 
 @mcp.tool()
-async def api_delete_businessownedobjectonbehalfofrequest(
+@wrapped_fn_tool
+async def api_delete(
     businessownedobjectonbehalfofrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessOwnedObjectOnBehalfOfRequest(
         fbid=businessownedobjectonbehalfofrequest_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_businessownedobjectonbehalfofrequest(
 
 
 @mcp.tool()
-async def api_get_businessownedobjectonbehalfofrequest(
+@wrapped_fn_tool
+async def api_get(
     businessownedobjectonbehalfofrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessOwnedObjectOnBehalfOfRequest(
         fbid=businessownedobjectonbehalfofrequest_id
     ).api_get(
@@ -68,11 +73,12 @@ async def api_get_businessownedobjectonbehalfofrequest(
 
 
 @mcp.tool()
-async def api_update_businessownedobjectonbehalfofrequest(
+@wrapped_fn_tool
+async def api_update(
     businessownedobjectonbehalfofrequest_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessOwnedObjectOnBehalfOfRequest(
         fbid=businessownedobjectonbehalfofrequest_id
     ).api_update(

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.canvas import Canvas
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-canvas")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-canvas")
 
 
 @mcp.tool()
-async def api_create_canvas(
+@wrapped_fn_tool
+async def api_create(
     canvas_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Canvas(fbid=canvas_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_canvas(
 
 
 @mcp.tool()
-async def api_delete_canvas(
+@wrapped_fn_tool
+async def api_delete(
     canvas_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Canvas(fbid=canvas_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_canvas(
 
 
 @mcp.tool()
-async def api_get_canvas(
+@wrapped_fn_tool
+async def api_get(
     canvas_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Canvas(fbid=canvas_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_canvas(
 
 
 @mcp.tool()
-async def api_update_canvas(
+@wrapped_fn_tool
+async def api_update(
     canvas_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Canvas(fbid=canvas_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_canvas(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_pre_views(
     canvas_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Canvas(fbid=canvas_id).get_pre_views(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def get_pre_views(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_preview(
     canvas_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Canvas(fbid=canvas_id).get_preview(
         fields=fields,
         params=params,

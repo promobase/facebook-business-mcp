@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.leadgendatadraft import LeadGenDataDraft
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-leadgendatadraft")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-leadgendatadraft")
 
 
 @mcp.tool()
-async def api_create_leadgendatadraft(
+@wrapped_fn_tool
+async def api_create(
     leadgendatadraft_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_leadgendatadraft(
 
 
 @mcp.tool()
-async def api_delete_leadgendatadraft(
+@wrapped_fn_tool
+async def api_delete(
     leadgendatadraft_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_leadgendatadraft(
 
 
 @mcp.tool()
-async def api_get_leadgendatadraft(
+@wrapped_fn_tool
+async def api_get(
     leadgendatadraft_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_leadgendatadraft(
 
 
 @mcp.tool()
-async def api_update_leadgendatadraft(
+@wrapped_fn_tool
+async def api_update(
     leadgendatadraft_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDataDraft(fbid=leadgendatadraft_id).api_update(
         fields=fields,
         params=params,

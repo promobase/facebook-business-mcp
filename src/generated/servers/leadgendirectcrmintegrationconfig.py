@@ -10,6 +10,8 @@ from facebook_business.adobjects.leadgendirectcrmintegrationconfig import (
 )
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-leadgendirectcrmintegrationconfig")
 
@@ -18,12 +20,13 @@ mcp = FastMCP("facebook-leadgendirectcrmintegrationconfig")
 
 
 @mcp.tool()
-async def api_create_leadgendirectcrmintegrationconfig(
+@wrapped_fn_tool
+async def api_create(
     leadgendirectcrmintegrationconfig_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDirectCRMIntegrationConfig(
         fbid=leadgendirectcrmintegrationconfig_id
     ).api_create(
@@ -36,11 +39,12 @@ async def api_create_leadgendirectcrmintegrationconfig(
 
 
 @mcp.tool()
-async def api_delete_leadgendirectcrmintegrationconfig(
+@wrapped_fn_tool
+async def api_delete(
     leadgendirectcrmintegrationconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDirectCRMIntegrationConfig(
         fbid=leadgendirectcrmintegrationconfig_id
     ).api_delete(
@@ -52,11 +56,12 @@ async def api_delete_leadgendirectcrmintegrationconfig(
 
 
 @mcp.tool()
-async def api_get_leadgendirectcrmintegrationconfig(
+@wrapped_fn_tool
+async def api_get(
     leadgendirectcrmintegrationconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDirectCRMIntegrationConfig(fbid=leadgendirectcrmintegrationconfig_id).api_get(
         fields=fields,
         params=params,
@@ -66,11 +71,12 @@ async def api_get_leadgendirectcrmintegrationconfig(
 
 
 @mcp.tool()
-async def api_update_leadgendirectcrmintegrationconfig(
+@wrapped_fn_tool
+async def api_update(
     leadgendirectcrmintegrationconfig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = LeadGenDirectCRMIntegrationConfig(
         fbid=leadgendirectcrmintegrationconfig_id
     ).api_update(

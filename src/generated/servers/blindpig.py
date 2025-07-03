@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.blindpig import BlindPig
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-blindpig")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-blindpig")
 
 
 @mcp.tool()
-async def api_create_blindpig(
+@wrapped_fn_tool
+async def api_create(
     blindpig_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BlindPig(fbid=blindpig_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_blindpig(
 
 
 @mcp.tool()
-async def api_delete_blindpig(
+@wrapped_fn_tool
+async def api_delete(
     blindpig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BlindPig(fbid=blindpig_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_blindpig(
 
 
 @mcp.tool()
-async def api_get_blindpig(
+@wrapped_fn_tool
+async def api_get(
     blindpig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BlindPig(fbid=blindpig_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_blindpig(
 
 
 @mcp.tool()
-async def api_update_blindpig(
+@wrapped_fn_tool
+async def api_update(
     blindpig_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BlindPig(fbid=blindpig_id).api_update(
         fields=fields,
         params=params,

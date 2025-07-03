@@ -12,13 +12,6 @@ if TYPE_CHECKING:
     from .dynamicpostchildattachment import DynamicPostChildAttachmentFields
 
 
-class rtbdynamicpostcomments_filter_enum_param(str, Enum):
-    """rtbdynamicpostcomments_filter_enum_param enum values."""
-
-    stream = "stream"
-    toplevel = "toplevel"
-
-
 class rtbdynamicpostcomments_order_enum_param(str, Enum):
     """rtbdynamicpostcomments_order_enum_param enum values."""
 
@@ -31,6 +24,13 @@ class rtbdynamicpostcomments_live_filter_enum_param(str, Enum):
 
     filter_low_quality = "filter_low_quality"
     no_filter = "no_filter"
+
+
+class rtbdynamicpostcomments_filter_enum_param(str, Enum):
+    """rtbdynamicpostcomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
 
 
 # Field literal type

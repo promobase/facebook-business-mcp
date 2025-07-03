@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.woodhengepurchasedpaygreceipt import WoodhengePurchasedPAYGReceipt
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-woodhengepurchasedpaygreceipt")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-woodhengepurchasedpaygreceipt")
 
 
 @mcp.tool()
-async def api_create_woodhengepurchasedpaygreceipt(
+@wrapped_fn_tool
+async def api_create(
     woodhengepurchasedpaygreceipt_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_woodhengepurchasedpaygreceipt(
 
 
 @mcp.tool()
-async def api_delete_woodhengepurchasedpaygreceipt(
+@wrapped_fn_tool
+async def api_delete(
     woodhengepurchasedpaygreceipt_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_woodhengepurchasedpaygreceipt(
 
 
 @mcp.tool()
-async def api_get_woodhengepurchasedpaygreceipt(
+@wrapped_fn_tool
+async def api_get(
     woodhengepurchasedpaygreceipt_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_woodhengepurchasedpaygreceipt(
 
 
 @mcp.tool()
-async def api_update_woodhengepurchasedpaygreceipt(
+@wrapped_fn_tool
+async def api_update(
     woodhengepurchasedpaygreceipt_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WoodhengePurchasedPAYGReceipt(fbid=woodhengepurchasedpaygreceipt_id).api_update(
         fields=fields,
         params=params,

@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.websitecreativeassetsource import WebsiteCreativeAssetSource
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-websitecreativeassetsource")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-websitecreativeassetsource")
 
 
 @mcp.tool()
-async def api_create_websitecreativeassetsource(
+@wrapped_fn_tool
+async def api_create(
     websitecreativeassetsource_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WebsiteCreativeAssetSource(fbid=websitecreativeassetsource_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_websitecreativeassetsource(
 
 
 @mcp.tool()
-async def api_delete_websitecreativeassetsource(
+@wrapped_fn_tool
+async def api_delete(
     websitecreativeassetsource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WebsiteCreativeAssetSource(fbid=websitecreativeassetsource_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_websitecreativeassetsource(
 
 
 @mcp.tool()
-async def api_get_websitecreativeassetsource(
+@wrapped_fn_tool
+async def api_get(
     websitecreativeassetsource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WebsiteCreativeAssetSource(fbid=websitecreativeassetsource_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_websitecreativeassetsource(
 
 
 @mcp.tool()
-async def api_update_websitecreativeassetsource(
+@wrapped_fn_tool
+async def api_update(
     websitecreativeassetsource_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = WebsiteCreativeAssetSource(fbid=websitecreativeassetsource_id).api_update(
         fields=fields,
         params=params,

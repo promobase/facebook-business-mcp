@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.profile import Profile
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-profile")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-profile")
 
 
 @mcp.tool()
-async def api_create_profile(
+@wrapped_fn_tool
+async def api_create(
     profile_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Profile(fbid=profile_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_profile(
 
 
 @mcp.tool()
-async def api_delete_profile(
+@wrapped_fn_tool
+async def api_delete(
     profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Profile(fbid=profile_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_profile(
 
 
 @mcp.tool()
-async def api_get_profile(
+@wrapped_fn_tool
+async def api_get(
     profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Profile(fbid=profile_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_profile(
 
 
 @mcp.tool()
-async def api_update_profile(
+@wrapped_fn_tool
+async def api_update(
     profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Profile(fbid=profile_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_profile(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_picture(
     profile_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Profile(fbid=profile_id).get_picture(
         fields=fields,
         params=params,

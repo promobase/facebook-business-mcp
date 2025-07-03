@@ -16,11 +16,11 @@ if TYPE_CHECKING:
     from .profile import ProfileFields
 
 
-class pagepostcomments_filter_enum_param(str, Enum):
-    """pagepostcomments_filter_enum_param enum values."""
+class pagepostcomments_order_enum_param(str, Enum):
+    """pagepostcomments_order_enum_param enum values."""
 
-    stream = "stream"
-    toplevel = "toplevel"
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 class pagepostinsights_period_enum_param(str, Enum):
@@ -32,6 +32,37 @@ class pagepostinsights_period_enum_param(str, Enum):
     month = "month"
     total_over_range = "total_over_range"
     week = "week"
+
+
+class pagepostreactions_type_enum_param(str, Enum):
+    """pagepostreactions_type_enum_param enum values."""
+
+    ANGRY = "ANGRY"
+    CARE = "CARE"
+    FIRE = "FIRE"
+    HAHA = "HAHA"
+    HUNDRED = "HUNDRED"
+    LIKE = "LIKE"
+    LOVE = "LOVE"
+    NONE = "NONE"
+    PRIDE = "PRIDE"
+    SAD = "SAD"
+    THANKFUL = "THANKFUL"
+    WOW = "WOW"
+
+
+class pagepostcomments_filter_enum_param(str, Enum):
+    """pagepostcomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
+
+
+class pagepostcomments_live_filter_enum_param(str, Enum):
+    """pagepostcomments_live_filter_enum_param enum values."""
+
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
 
 
 class pagepostinsights_date_preset_enum_param(str, Enum):
@@ -57,37 +88,6 @@ class pagepostinsights_date_preset_enum_param(str, Enum):
     this_year = "this_year"
     today = "today"
     yesterday = "yesterday"
-
-
-class pagepostcomments_live_filter_enum_param(str, Enum):
-    """pagepostcomments_live_filter_enum_param enum values."""
-
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
-
-
-class pagepostreactions_type_enum_param(str, Enum):
-    """pagepostreactions_type_enum_param enum values."""
-
-    ANGRY = "ANGRY"
-    CARE = "CARE"
-    FIRE = "FIRE"
-    HAHA = "HAHA"
-    HUNDRED = "HUNDRED"
-    LIKE = "LIKE"
-    LOVE = "LOVE"
-    NONE = "NONE"
-    PRIDE = "PRIDE"
-    SAD = "SAD"
-    THANKFUL = "THANKFUL"
-    WOW = "WOW"
-
-
-class pagepostcomments_order_enum_param(str, Enum):
-    """pagepostcomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
 
 
 class pagepostcomments_comment_privacy_value_enum_param(str, Enum):

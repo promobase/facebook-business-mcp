@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.publisherblocklist import PublisherBlockList
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-publisherblocklist")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-publisherblocklist")
 
 
 @mcp.tool()
-async def api_create_publisherblocklist(
+@wrapped_fn_tool
+async def api_create(
     publisherblocklist_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherBlockList(fbid=publisherblocklist_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_publisherblocklist(
 
 
 @mcp.tool()
-async def api_delete_publisherblocklist(
+@wrapped_fn_tool
+async def api_delete(
     publisherblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherBlockList(fbid=publisherblocklist_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_publisherblocklist(
 
 
 @mcp.tool()
-async def api_get_publisherblocklist(
+@wrapped_fn_tool
+async def api_get(
     publisherblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherBlockList(fbid=publisherblocklist_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_publisherblocklist(
 
 
 @mcp.tool()
-async def api_update_publisherblocklist(
+@wrapped_fn_tool
+async def api_update(
     publisherblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherBlockList(fbid=publisherblocklist_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_publisherblocklist(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_append_publisher_url(
     publisherblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherBlockList(fbid=publisherblocklist_id).create_append_publisher_url(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_append_publisher_url(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_paged_web_publishers(
     publisherblocklist_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = PublisherBlockList(fbid=publisherblocklist_id).get_paged_web_publishers(
         fields=fields,
         params=params,

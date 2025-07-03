@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.businessimage import BusinessImage
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-businessimage")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-businessimage")
 
 
 @mcp.tool()
-async def api_create_businessimage(
+@wrapped_fn_tool
+async def api_create(
     businessimage_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImage(fbid=businessimage_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_businessimage(
 
 
 @mcp.tool()
-async def api_delete_businessimage(
+@wrapped_fn_tool
+async def api_delete(
     businessimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImage(fbid=businessimage_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_businessimage(
 
 
 @mcp.tool()
-async def api_get_businessimage(
+@wrapped_fn_tool
+async def api_get(
     businessimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImage(fbid=businessimage_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_businessimage(
 
 
 @mcp.tool()
-async def api_update_businessimage(
+@wrapped_fn_tool
+async def api_update(
     businessimage_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = BusinessImage(fbid=businessimage_id).api_update(
         fields=fields,
         params=params,

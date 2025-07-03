@@ -14,19 +14,11 @@ if TYPE_CHECKING:
     from .place import PlaceFields
 
 
-class albumpicture_type_enum_param(str, Enum):
-    """albumpicture_type_enum_param enum values."""
+class albumcomments_live_filter_enum_param(str, Enum):
+    """albumcomments_live_filter_enum_param enum values."""
 
-    album = "album"
-    small = "small"
-    thumbnail = "thumbnail"
-
-
-class albumcomments_order_enum_param(str, Enum):
-    """albumcomments_order_enum_param enum values."""
-
-    chronological = "chronological"
-    reverse_chronological = "reverse_chronological"
+    filter_low_quality = "filter_low_quality"
+    no_filter = "no_filter"
 
 
 class albumphotos_backdated_time_granularity_enum_param(str, Enum):
@@ -40,18 +32,11 @@ class albumphotos_backdated_time_granularity_enum_param(str, Enum):
     year = "year"
 
 
-class albumcomments_filter_enum_param(str, Enum):
-    """albumcomments_filter_enum_param enum values."""
+class albumcomments_order_enum_param(str, Enum):
+    """albumcomments_order_enum_param enum values."""
 
-    stream = "stream"
-    toplevel = "toplevel"
-
-
-class albumcomments_live_filter_enum_param(str, Enum):
-    """albumcomments_live_filter_enum_param enum values."""
-
-    filter_low_quality = "filter_low_quality"
-    no_filter = "no_filter"
+    chronological = "chronological"
+    reverse_chronological = "reverse_chronological"
 
 
 class albumcomments_comment_privacy_value_enum_param(str, Enum):
@@ -68,6 +53,21 @@ class albumcomments_comment_privacy_value_enum_param(str, Enum):
     SIDE_CONVERSATION = "SIDE_CONVERSATION"
     SIDE_CONVERSATION_AND_POST_OWNER = "SIDE_CONVERSATION_AND_POST_OWNER"
     SPOTLIGHT_TAB = "SPOTLIGHT_TAB"
+
+
+class albumcomments_filter_enum_param(str, Enum):
+    """albumcomments_filter_enum_param enum values."""
+
+    stream = "stream"
+    toplevel = "toplevel"
+
+
+class albumpicture_type_enum_param(str, Enum):
+    """albumpicture_type_enum_param enum values."""
+
+    album = "album"
+    small = "small"
+    thumbnail = "thumbnail"
 
 
 class albumphotos_unpublished_content_type_enum_param(str, Enum):

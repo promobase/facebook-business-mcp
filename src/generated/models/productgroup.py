@@ -20,18 +20,6 @@ class productgroupproducts_visibility_enum_param(str, Enum):
     staging = "staging"
 
 
-class productgroupproducts_availability_enum_param(str, Enum):
-    """productgroupproducts_availability_enum_param enum values."""
-
-    AVAILABLE_FOR_ORDER = "available for order"
-    discontinued = "discontinued"
-    IN_STOCK = "in stock"
-    mark_as_sold = "mark_as_sold"
-    OUT_OF_STOCK = "out of stock"
-    pending = "pending"
-    preorder = "preorder"
-
-
 class productgroupproducts_condition_enum_param(str, Enum):
     """productgroupproducts_condition_enum_param enum values."""
 
@@ -43,22 +31,6 @@ class productgroupproducts_condition_enum_param(str, Enum):
     used_fair = "used_fair"
     used_good = "used_good"
     used_like_new = "used_like_new"
-
-
-class productgroupproducts_marked_for_product_launch_enum_param(str, Enum):
-    """productgroupproducts_marked_for_product_launch_enum_param enum values."""
-
-    default = "default"
-    marked = "marked"
-    not_marked = "not_marked"
-
-
-class productgroupproducts_gender_enum_param(str, Enum):
-    """productgroupproducts_gender_enum_param enum values."""
-
-    female = "female"
-    male = "male"
-    unisex = "unisex"
 
 
 class productgroupproducts_commerce_tax_category_enum_param(str, Enum):
@@ -271,6 +243,18 @@ class productgroupproducts_commerce_tax_category_enum_param(str, Enum):
     FB_VEHI_PART = "FB_VEHI_PART"
 
 
+class productgroupproducts_availability_enum_param(str, Enum):
+    """productgroupproducts_availability_enum_param enum values."""
+
+    AVAILABLE_FOR_ORDER = "available for order"
+    discontinued = "discontinued"
+    IN_STOCK = "in stock"
+    mark_as_sold = "mark_as_sold"
+    OUT_OF_STOCK = "out of stock"
+    pending = "pending"
+    preorder = "preorder"
+
+
 class productgroupproducts_age_group_enum_param(str, Enum):
     """productgroupproducts_age_group_enum_param enum values."""
 
@@ -281,6 +265,22 @@ class productgroupproducts_age_group_enum_param(str, Enum):
     newborn = "newborn"
     teen = "teen"
     toddler = "toddler"
+
+
+class productgroupproducts_marked_for_product_launch_enum_param(str, Enum):
+    """productgroupproducts_marked_for_product_launch_enum_param enum values."""
+
+    default = "default"
+    marked = "marked"
+    not_marked = "not_marked"
+
+
+class productgroupproducts_gender_enum_param(str, Enum):
+    """productgroupproducts_gender_enum_param enum values."""
+
+    female = "female"
+    male = "male"
+    unisex = "unisex"
 
 
 # Field literal type

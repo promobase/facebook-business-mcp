@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.application import Application
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-application")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-application")
 
 
 @mcp.tool()
-async def api_create_application(
+@wrapped_fn_tool
+async def api_create(
     application_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_application(
 
 
 @mcp.tool()
-async def api_delete_application(
+@wrapped_fn_tool
+async def api_delete(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_application(
 
 
 @mcp.tool()
-async def api_get_application(
+@wrapped_fn_tool
+async def api_get(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_application(
 
 
 @mcp.tool()
-async def api_update_application(
+@wrapped_fn_tool
+async def api_update(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_application(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_account(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_account(
         fields=fields,
         params=params,
@@ -91,11 +98,12 @@ async def create_account(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_activity(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_activity(
         fields=fields,
         params=params,
@@ -105,11 +113,12 @@ async def create_activity(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_ad_network_analytic(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_ad_network_analytic(
         fields=fields,
         params=params,
@@ -119,11 +128,12 @@ async def create_ad_network_analytic(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_aem_conversion(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_aem_conversion(
         fields=fields,
         params=params,
@@ -133,11 +143,12 @@ async def create_aem_conversion(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_aem_skan_readiness(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_aem_skan_readiness(
         fields=fields,
         params=params,
@@ -147,11 +158,12 @@ async def create_aem_skan_readiness(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_aggregate_revenue(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_aggregate_revenue(
         fields=fields,
         params=params,
@@ -161,11 +173,12 @@ async def create_aggregate_revenue(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_app_indexing(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_app_indexing(
         fields=fields,
         params=params,
@@ -175,11 +188,12 @@ async def create_app_indexing(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_app_indexing_session(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_app_indexing_session(
         fields=fields,
         params=params,
@@ -189,11 +203,12 @@ async def create_app_indexing_session(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_app_push_device_token(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_app_push_device_token(
         fields=fields,
         params=params,
@@ -203,11 +218,12 @@ async def create_app_push_device_token(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_asset(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_asset(
         fields=fields,
         params=params,
@@ -217,11 +233,12 @@ async def create_asset(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_codeless_event_mapping(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_codeless_event_mapping(
         fields=fields,
         params=params,
@@ -231,11 +248,12 @@ async def create_codeless_event_mapping(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_domain_report(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_domain_report(
         fields=fields,
         params=params,
@@ -245,11 +263,12 @@ async def create_domain_report(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_mmp_auditing(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_mmp_auditing(
         fields=fields,
         params=params,
@@ -259,11 +278,12 @@ async def create_mmp_auditing(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_monetized_digital_store_object(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_monetized_digital_store_object(
         fields=fields,
         params=params,
@@ -273,11 +293,12 @@ async def create_monetized_digital_store_object(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_occludes_popup(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_occludes_popup(
         fields=fields,
         params=params,
@@ -287,11 +308,12 @@ async def create_occludes_popup(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_subscribed_domain(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_subscribed_domain(
         fields=fields,
         params=params,
@@ -301,11 +323,12 @@ async def create_subscribed_domain(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_subscribed_domains_phishing(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_subscribed_domains_phishing(
         fields=fields,
         params=params,
@@ -315,11 +338,12 @@ async def create_subscribed_domains_phishing(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_subscription(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_subscription(
         fields=fields,
         params=params,
@@ -329,11 +353,12 @@ async def create_subscription(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_upload(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_upload(
         fields=fields,
         params=params,
@@ -343,11 +368,12 @@ async def create_upload(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def create_whats_app_business_solution(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).create_whats_app_business_solution(
         fields=fields,
         params=params,
@@ -357,11 +383,12 @@ async def create_whats_app_business_solution(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_accounts(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).delete_accounts(
         fields=fields,
         params=params,
@@ -371,11 +398,12 @@ async def delete_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def delete_subscriptions(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).delete_subscriptions(
         fields=fields,
         params=params,
@@ -385,11 +413,12 @@ async def delete_subscriptions(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_accounts(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_accounts(
         fields=fields,
         params=params,
@@ -399,11 +428,12 @@ async def get_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_network_analytics(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_ad_network_analytics(
         fields=fields,
         params=params,
@@ -413,11 +443,12 @@ async def get_ad_network_analytics(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_network_analytics_results(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_ad_network_analytics_results(
         fields=fields,
         params=params,
@@ -427,11 +458,12 @@ async def get_ad_network_analytics_results(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_network_placements(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_ad_network_placements(
         fields=fields,
         params=params,
@@ -441,11 +473,12 @@ async def get_ad_network_placements(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ad_placement_groups(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_ad_placement_groups(
         fields=fields,
         params=params,
@@ -455,11 +488,12 @@ async def get_ad_placement_groups(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_aem_attribution(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_aem_attribution(
         fields=fields,
         params=params,
@@ -469,11 +503,12 @@ async def get_aem_attribution(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_aem_conversion_configs(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_aem_conversion_configs(
         fields=fields,
         params=params,
@@ -483,11 +518,12 @@ async def get_aem_conversion_configs(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_aem_conversion_filter(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_aem_conversion_filter(
         fields=fields,
         params=params,
@@ -497,11 +533,12 @@ async def get_aem_conversion_filter(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_agencies(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_agencies(
         fields=fields,
         params=params,
@@ -511,11 +548,12 @@ async def get_agencies(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_android_dialog_configs(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_android_dialog_configs(
         fields=fields,
         params=params,
@@ -525,11 +563,12 @@ async def get_android_dialog_configs(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_app_assets(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_app_assets(
         fields=fields,
         params=params,
@@ -539,11 +578,12 @@ async def get_app_assets(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_app_capi_settings(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_app_capi_settings(
         fields=fields,
         params=params,
@@ -553,11 +593,12 @@ async def get_app_capi_settings(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_app_event_types(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_app_event_types(
         fields=fields,
         params=params,
@@ -567,11 +608,12 @@ async def get_app_event_types(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_app_installed_groups(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_app_installed_groups(
         fields=fields,
         params=params,
@@ -581,11 +623,12 @@ async def get_app_installed_groups(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_authorized_ad_accounts(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_authorized_ad_accounts(
         fields=fields,
         params=params,
@@ -595,11 +638,12 @@ async def get_authorized_ad_accounts(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_button_auto_detection_device_selection(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_button_auto_detection_device_selection(
         fields=fields,
         params=params,
@@ -609,11 +653,12 @@ async def get_button_auto_detection_device_selection(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_cloudbridge_settings(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_cloudbridge_settings(
         fields=fields,
         params=params,
@@ -623,11 +668,12 @@ async def get_cloudbridge_settings(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_connected_client_businesses(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_connected_client_businesses(
         fields=fields,
         params=params,
@@ -637,11 +683,12 @@ async def get_connected_client_businesses(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_da_checks(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_da_checks(
         fields=fields,
         params=params,
@@ -651,11 +698,12 @@ async def get_da_checks(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_iap_purchases(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_iap_purchases(
         fields=fields,
         params=params,
@@ -665,11 +713,12 @@ async def get_iap_purchases(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_ios_dialog_configs(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_ios_dialog_configs(
         fields=fields,
         params=params,
@@ -679,11 +728,12 @@ async def get_ios_dialog_configs(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_linked_dataset(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_linked_dataset(
         fields=fields,
         params=params,
@@ -693,11 +743,12 @@ async def get_linked_dataset(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_message_templates(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_message_templates(
         fields=fields,
         params=params,
@@ -707,11 +758,12 @@ async def get_message_templates(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_mobile_sdk_gk(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_mobile_sdk_gk(
         fields=fields,
         params=params,
@@ -721,11 +773,12 @@ async def get_mobile_sdk_gk(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_monetized_digital_store_objects(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_monetized_digital_store_objects(
         fields=fields,
         params=params,
@@ -735,11 +788,12 @@ async def get_monetized_digital_store_objects(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_object_types(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_object_types(
         fields=fields,
         params=params,
@@ -749,11 +803,12 @@ async def get_object_types(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_objects(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_objects(
         fields=fields,
         params=params,
@@ -763,11 +818,12 @@ async def get_objects(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_permissions(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_permissions(
         fields=fields,
         params=params,
@@ -777,11 +833,12 @@ async def get_permissions(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_products(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_products(
         fields=fields,
         params=params,
@@ -791,11 +848,12 @@ async def get_products(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_purchases(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_purchases(
         fields=fields,
         params=params,
@@ -805,11 +863,12 @@ async def get_purchases(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_roles(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_roles(
         fields=fields,
         params=params,
@@ -819,11 +878,12 @@ async def get_roles(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_server_domain_infos(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_server_domain_infos(
         fields=fields,
         params=params,
@@ -833,11 +893,12 @@ async def get_server_domain_infos(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_sgw_dataset_status(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_sgw_dataset_status(
         fields=fields,
         params=params,
@@ -847,11 +908,12 @@ async def get_sgw_dataset_status(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_sgw_install_deferral_link(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_sgw_install_deferral_link(
         fields=fields,
         params=params,
@@ -861,11 +923,12 @@ async def get_sgw_install_deferral_link(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_subscribed_domains(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_subscribed_domains(
         fields=fields,
         params=params,
@@ -875,11 +938,12 @@ async def get_subscribed_domains(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_subscribed_domains_phishing(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_subscribed_domains_phishing(
         fields=fields,
         params=params,
@@ -889,11 +953,12 @@ async def get_subscribed_domains_phishing(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_subscriptions(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_subscriptions(
         fields=fields,
         params=params,
@@ -903,11 +968,12 @@ async def get_subscriptions(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_whats_app_business_solutions(
     application_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = Application(fbid=application_id).get_whats_app_business_solutions(
         fields=fields,
         params=params,

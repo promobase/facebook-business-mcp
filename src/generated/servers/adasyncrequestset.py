@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.adasyncrequestset import AdAsyncRequestSet
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-adasyncrequestset")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-adasyncrequestset")
 
 
 @mcp.tool()
-async def api_create_adasyncrequestset(
+@wrapped_fn_tool
+async def api_create(
     adasyncrequestset_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_adasyncrequestset(
 
 
 @mcp.tool()
-async def api_delete_adasyncrequestset(
+@wrapped_fn_tool
+async def api_delete(
     adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_adasyncrequestset(
 
 
 @mcp.tool()
-async def api_get_adasyncrequestset(
+@wrapped_fn_tool
+async def api_get(
     adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_adasyncrequestset(
 
 
 @mcp.tool()
-async def api_update_adasyncrequestset(
+@wrapped_fn_tool
+async def api_update(
     adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAsyncRequestSet(fbid=adasyncrequestset_id).api_update(
         fields=fields,
         params=params,
@@ -77,11 +83,12 @@ async def api_update_adasyncrequestset(
 
 
 @mcp.tool()
+@wrapped_fn_tool
 async def get_requests(
     adasyncrequestset_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = AdAsyncRequestSet(fbid=adasyncrequestset_id).get_requests(
         fields=fields,
         params=params,

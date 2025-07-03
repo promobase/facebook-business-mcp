@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.productfeedschedule import ProductFeedSchedule
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-productfeedschedule")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-productfeedschedule")
 
 
 @mcp.tool()
-async def api_create_productfeedschedule(
+@wrapped_fn_tool
+async def api_create(
     productfeedschedule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ProductFeedSchedule(fbid=productfeedschedule_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_productfeedschedule(
 
 
 @mcp.tool()
-async def api_delete_productfeedschedule(
+@wrapped_fn_tool
+async def api_delete(
     productfeedschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ProductFeedSchedule(fbid=productfeedschedule_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_productfeedschedule(
 
 
 @mcp.tool()
-async def api_get_productfeedschedule(
+@wrapped_fn_tool
+async def api_get(
     productfeedschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ProductFeedSchedule(fbid=productfeedschedule_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_productfeedschedule(
 
 
 @mcp.tool()
-async def api_update_productfeedschedule(
+@wrapped_fn_tool
+async def api_update(
     productfeedschedule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = ProductFeedSchedule(fbid=productfeedschedule_id).api_update(
         fields=fields,
         params=params,

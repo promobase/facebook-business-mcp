@@ -15,6 +15,53 @@ if TYPE_CHECKING:
     from .user import UserFields
 
 
+class adspixelassigned_users_tasks_enum_param(str, Enum):
+    """adspixelassigned_users_tasks_enum_param enum values."""
+
+    AA_ANALYZE = "AA_ANALYZE"
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    EDIT = "EDIT"
+    UPLOAD = "UPLOAD"
+
+
+class adspixelagencies_permitted_tasks_enum_param(str, Enum):
+    """adspixelagencies_permitted_tasks_enum_param enum values."""
+
+    ADVERTISE = "ADVERTISE"
+    ANALYZE = "ANALYZE"
+    EDIT = "EDIT"
+    UPLOAD = "UPLOAD"
+
+
+class adspixeloffline_event_uploads_order_enum_param(str, Enum):
+    """adspixeloffline_event_uploads_order_enum_param enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class adspixelda_checks_connection_method_enum_param(str, Enum):
+    """adspixelda_checks_connection_method_enum_param enum values."""
+
+    ALL = "ALL"
+    APP = "APP"
+    BROWSER = "BROWSER"
+    SERVER = "SERVER"
+
+
+class adspixeloffline_event_uploads_sort_by_enum_param(str, Enum):
+    """adspixeloffline_event_uploads_sort_by_enum_param enum values."""
+
+    API_CALLS = "API_CALLS"
+    CREATION_TIME = "CREATION_TIME"
+    EVENT_TIME_MAX = "EVENT_TIME_MAX"
+    EVENT_TIME_MIN = "EVENT_TIME_MIN"
+    FIRST_UPLOAD_TIME = "FIRST_UPLOAD_TIME"
+    IS_EXCLUDED_FOR_LIFT = "IS_EXCLUDED_FOR_LIFT"
+    LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
+
+
 class adspixelstats_aggregation_enum_param(str, Enum):
     """adspixelstats_aggregation_enum_param enum values."""
 
@@ -34,53 +81,6 @@ class adspixelstats_aggregation_enum_param(str, Enum):
     pixel_fire = "pixel_fire"
     url = "url"
     url_by_rule = "url_by_rule"
-
-
-class adspixeloffline_event_uploads_order_enum_param(str, Enum):
-    """adspixeloffline_event_uploads_order_enum_param enum values."""
-
-    ASCENDING = "ASCENDING"
-    DESCENDING = "DESCENDING"
-
-
-class adspixelagencies_permitted_tasks_enum_param(str, Enum):
-    """adspixelagencies_permitted_tasks_enum_param enum values."""
-
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    EDIT = "EDIT"
-    UPLOAD = "UPLOAD"
-
-
-class adspixelassigned_users_tasks_enum_param(str, Enum):
-    """adspixelassigned_users_tasks_enum_param enum values."""
-
-    AA_ANALYZE = "AA_ANALYZE"
-    ADVERTISE = "ADVERTISE"
-    ANALYZE = "ANALYZE"
-    EDIT = "EDIT"
-    UPLOAD = "UPLOAD"
-
-
-class adspixeloffline_event_uploads_sort_by_enum_param(str, Enum):
-    """adspixeloffline_event_uploads_sort_by_enum_param enum values."""
-
-    API_CALLS = "API_CALLS"
-    CREATION_TIME = "CREATION_TIME"
-    EVENT_TIME_MAX = "EVENT_TIME_MAX"
-    EVENT_TIME_MIN = "EVENT_TIME_MIN"
-    FIRST_UPLOAD_TIME = "FIRST_UPLOAD_TIME"
-    IS_EXCLUDED_FOR_LIFT = "IS_EXCLUDED_FOR_LIFT"
-    LAST_UPLOAD_TIME = "LAST_UPLOAD_TIME"
-
-
-class adspixelda_checks_connection_method_enum_param(str, Enum):
-    """adspixelda_checks_connection_method_enum_param enum values."""
-
-    ALL = "ALL"
-    APP = "APP"
-    BROWSER = "BROWSER"
-    SERVER = "SERVER"
 
 
 # Field literal type

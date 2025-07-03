@@ -7,6 +7,7 @@ from typing import Any, Optional
 
 from facebook_business.adobjects.{{ module_path }} import {{ class_name }}
 from fastmcp import FastMCP
+from src.utils import wrapped_fn_tool
 
 # Initialize FastMCP server
 mcp = FastMCP(f"facebook-{{ module_path }}")
@@ -15,7 +16,8 @@ mcp = FastMCP(f"facebook-{{ module_path }}")
 # CRUD Operations
 {% for method in crud_methods %}
 @mcp.tool()
-async def {{ method.name }}_{{ module_path }}(
+@wrapped_fn_tool
+async def {{ method.name }}(
     {{ module_path }}_id: str,
     {%- for param in method.params %}
     {%- if param not in ['fields', 'params', 'batch', 'success', 'failure', 'pending'] %}
@@ -24,7 +26,7 @@ async def {{ method.name }}_{{ module_path }}(
     {%- endfor %}
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = {{ class_name }}(fbid={{ module_path }}_id).{{ method.name }}(
         {%- if method.params %}
         {%- for param in method.params %}
@@ -51,6 +53,7 @@ async def {{ method.name }}_{{ module_path }}(
 # Edge Methods
 {% for method in edge_methods %}
 @mcp.tool()
+@wrapped_fn_tool
 async def {{ method.name }}(
 {{ module_path }}_id: str,
     {%- for param in method.params %}
@@ -60,7 +63,7 @@ async def {{ method.name }}(
     {%- endfor %}
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = {{ class_name }}(fbid={{ module_path }}_id).{{ method.name }}(
         {%- set has_custom_params = false %}
         {%- for param in method.params %}

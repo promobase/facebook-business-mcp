@@ -8,6 +8,8 @@ from typing import Any, Optional
 from facebook_business.adobjects.calibratorexistingrule import CalibratorExistingRule
 from fastmcp import FastMCP
 
+from src.utils import wrapped_fn_tool
+
 # Initialize FastMCP server
 mcp = FastMCP("facebook-calibratorexistingrule")
 
@@ -16,12 +18,13 @@ mcp = FastMCP("facebook-calibratorexistingrule")
 
 
 @mcp.tool()
-async def api_create_calibratorexistingrule(
+@wrapped_fn_tool
+async def api_create(
     calibratorexistingrule_id: str,
     parent_id: Optional[Any] = None,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_create(
         parent_id=parent_id,
         fields=fields,
@@ -32,11 +35,12 @@ async def api_create_calibratorexistingrule(
 
 
 @mcp.tool()
-async def api_delete_calibratorexistingrule(
+@wrapped_fn_tool
+async def api_delete(
     calibratorexistingrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_delete(
         fields=fields,
         params=params,
@@ -46,11 +50,12 @@ async def api_delete_calibratorexistingrule(
 
 
 @mcp.tool()
-async def api_get_calibratorexistingrule(
+@wrapped_fn_tool
+async def api_get(
     calibratorexistingrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_get(
         fields=fields,
         params=params,
@@ -60,11 +65,12 @@ async def api_get_calibratorexistingrule(
 
 
 @mcp.tool()
-async def api_update_calibratorexistingrule(
+@wrapped_fn_tool
+async def api_update(
     calibratorexistingrule_id: str,
     fields: list[str] = [],
     params: dict[str, Any] = {},
-) -> dict[str, Any]:
+) -> Any:
     result = CalibratorExistingRule(fbid=calibratorexistingrule_id).api_update(
         fields=fields,
         params=params,
