@@ -11,7 +11,7 @@ from .crud import (
 )
 from .helpers import (
     create_carousel_ad_creative,
-    create_dynamic_ad_creative,
+    create_dynamic_asset_ad_creative,
     create_link_ad_creative,
     create_video_ad_creative,
 )
@@ -61,4 +61,4 @@ server.tool(adcreative_get_creative_insights)
 server.tool(create_link_ad_creative)
 server.tool(create_video_ad_creative)
 server.tool(create_carousel_ad_creative)
-server.tool(create_dynamic_ad_creative)
+server.tool(create_dynamic_asset_ad_creative)

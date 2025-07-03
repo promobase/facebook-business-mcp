@@ -4,8 +4,6 @@ from fastmcp import FastMCP
 
 from .ad_creatives import adaccount_get_ad_creatives
 from .ad_sets import adaccount_get_ad_sets
-from .ads import adaccount_get_ads
-from .campaigns import adaccount_delete_campaigns, adaccount_get_campaigns
 from .crud import adaccount_api_get, adaccount_api_update
 
 server_name = "FacebookAdAccount"
@@ -29,8 +27,5 @@ adaccount_server = FastMCP(
 # Register all tools
 adaccount_server.tool(adaccount_api_get)
 adaccount_server.tool(adaccount_api_update)
-adaccount_server.tool(adaccount_get_campaigns)
-adaccount_server.tool(adaccount_delete_campaigns)
 adaccount_server.tool(adaccount_get_ad_sets)
-adaccount_server.tool(adaccount_get_ads)
 adaccount_server.tool(adaccount_get_ad_creatives)

@@ -18,6 +18,8 @@ from .copies import (
 
 # Import all campaign operations
 from .crud import (
+    adaccount_delete_campaigns,
+    adaccount_get_campaigns,
     campaign_api_create,
     campaign_api_delete,
     campaign_api_get,
@@ -49,6 +51,8 @@ server.tool(campaign_api_get)
 server.tool(campaign_api_create)
 server.tool(campaign_api_update)
 server.tool(campaign_api_delete)
+server.tool(adaccount_get_campaigns)
+server.tool(adaccount_delete_campaigns)
 
 # Ad Sets operations
 server.tool(campaign_get_ad_sets)

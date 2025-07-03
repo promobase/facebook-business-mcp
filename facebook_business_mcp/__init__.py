@@ -3,6 +3,7 @@ from facebook_business.api import FacebookAdsApi
 from fastmcp import FastMCP
 
 from .config import get_config_from_env
+from .servers.ad import server as ad_server
 from .servers.adaccount import adaccount_server
 from .servers.adcreative import server as adcreative_server
 from .servers.adset import server as adset_server
@@ -17,7 +18,7 @@ instructions = """
 This is MCP server implementation of Facebook Business API.
 It provides tools to interact with Facebook's business api using LLMs.
 
-Each tool has a `domain`, following the format of <doman>_<tool_name>.
+Each tool has a `domain`, following the format of <domain>_<tool_name>.
 
 Facebook's marketing structure is hierarchical:
 - Ad Account: The top-level entity for managing ads.
@@ -74,6 +75,7 @@ def create_root_mcp() -> FastMCP:
     mcp.mount(adaccount_server)
     mcp.mount(campaign_server)
     mcp.mount(adset_server)
+    mcp.mount(ad_server)
     mcp.mount(insights_server)
     mcp.mount(adcreative_server)
 
