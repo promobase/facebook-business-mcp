@@ -16,14 +16,3 @@ def get_ad_creatives(
     """get all ad creatives of an ad account"""
     adaccount_id = use_adaccount_id(adaccount_id)
     return AdAccount(adaccount_id).get_ad_creatives(fields=fields)
-
-
-@wrapped_fn_tool
-def create_ad_creative(
-    adaccount_id: str,
-    fields: list[str] = [],
-    params: AdAccountCreateAdCreativeParams = {},
-) -> AdAccountField:
-    """create a new ad creative in the ad account"""
-    adaccount_id = use_adaccount_id(adaccount_id)
-    return AdAccount(adaccount_id).create_ad_creative(fields=fields, params=params)

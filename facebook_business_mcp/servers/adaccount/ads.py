@@ -17,14 +17,3 @@ def get_ads(
     """get all ads of an ad account"""
     adaccount_id = use_adaccount_id(adaccount_id)
     return AdAccount(adaccount_id).get_ads(fields=fields, params=params)
-
-
-@wrapped_fn_tool
-def create_ad(
-    adaccount_id: str,
-    fields: list[str] = [],
-    params: AdAccountCreateAdParams = {},
-) -> AdAccountField:
-    """create a new ad in the ad account"""
-    adaccount_id = use_adaccount_id(adaccount_id)
-    return AdAccount(adaccount_id).create_ad(fields=fields, params=params)

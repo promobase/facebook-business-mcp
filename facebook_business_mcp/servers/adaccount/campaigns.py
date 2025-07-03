@@ -21,18 +21,6 @@ def get_campaigns(
 
 
 @wrapped_fn_tool
-def create_campaign(
-    adaccount_id: str,
-    fields: list[str] = [],
-    params: dict[str, Any] = {},
-) -> AdAccountField:
-    """create a new campaign in the ad account"""
-    adaccount_id = use_adaccount_id(adaccount_id)
-    ad_account = AdAccount(adaccount_id)
-    return ad_account.create_campaign(fields=fields, params=params)
-
-
-@wrapped_fn_tool
 def delete_campaigns(
     adaccount_id: str,
     params: dict[

@@ -7,6 +7,7 @@ from .servers.adaccount import adaccount_server
 from .servers.campaign import server as campaign_server
 from .servers.adset import server as adset_server
 from .servers.insights import server as insights_server
+from .servers.adcreative import server as adcreative_server
 from .utils import handle_facebook_errors
 
 __version__ = "0.1.0"
@@ -75,5 +76,6 @@ def create_root_mcp() -> FastMCP:
     mcp.mount(campaign_server)
     mcp.mount(adset_server)
     mcp.mount(insights_server)
+    mcp.mount(adcreative_server)
 
     return mcp
