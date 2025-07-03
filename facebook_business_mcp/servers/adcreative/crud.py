@@ -8,7 +8,7 @@ from typing import Any
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.adcreative import AdCreative
 
-from facebook_business_mcp.utils import handle_facebook_errors, use_adaccount_id
+from facebook_business_mcp.utils import use_adaccount_id, wrapped_fn_tool
 
 
 class CommonAdCreativeFields:
@@ -49,48 +49,38 @@ class CommonAdCreativeFields:
     basic = list(set(high_frequency + medium_frequency))
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
+def adaccount_get_ad_creatives(
+    adaccount_id: str,
+    fields: list[str] = [],
+) -> Any:
+    """get all ad creatives of an ad account"""
+    adaccount_id = use_adaccount_id(adaccount_id)
+    return AdAccount(adaccount_id).get_ad_creatives(fields=fields)
+
+
+@wrapped_fn_tool
 def adcreative_api_get(
     creative_id: str, fields: list[str] = [], params: dict[str, Any] = {}
 ) -> dict[str, Any]:
-    """Get an ad creative. If no fields are specified, will fallback to use basic fields.
-
-    Args:
-        creative_id: The ad creative ID
-        fields: Fields to retrieve
-        params: Additional parameters
-
-    Returns:
-        Ad creative data from the API
-    """
+    """Get an ad creative."""
     creative = AdCreative(creative_id)
     if not fields:
         fields = CommonAdCreativeFields.basic
     return creative.api_get(fields=fields, params=params)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def adcreative_api_create(
     account_id: str, params: dict[str, Any], fields: list[str] = []
 ) -> dict[str, Any]:
-    """Create an ad creative using the Facebook API.
-
-    This is a direct wrapper around AdAccount.create_ad_creative().
-
-    Args:
-        account_id: The ad account ID (with or without 'act_' prefix)
-        params: Ad creative creation parameters
-        fields: Fields to return in the response
-
-    Returns:
-        Created ad creative data
-    """
+    """create ad creative from ad account."""
     account_id = use_adaccount_id(account_id)
     account = AdAccount(account_id)
     return account.create_ad_creative(fields=fields, params=params)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def adcreative_api_update(
     creative_id: str, params: dict[str, Any], fields: list[str] = []
 ) -> dict[str, Any]:
@@ -101,7 +91,7 @@ def adcreative_api_update(
     return creative.api_update(fields=fields, params=params)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def adcreative_api_delete(creative_id: str, params: dict[str, Any] = {}) -> dict[str, Any]:
     """Delete an ad creative."""
     creative = AdCreative(creative_id)

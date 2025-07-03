@@ -16,10 +16,10 @@ from facebook_business_mcp.generated.models.generated_models import (
     AdCreativeVideoDataFields,
 )
 from facebook_business_mcp.servers.adcreative.crud import adcreative_api_create
-from facebook_business_mcp.utils import handle_facebook_errors
+from facebook_business_mcp.utils import wrapped_fn_tool
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_link_ad_creative(
     account_id: str,
     name: str,
@@ -68,7 +68,7 @@ def create_link_ad_creative(
     return adcreative_api_create(account_id, params_dict, fields)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_video_ad_creative(
     account_id: str,
     name: str,
@@ -118,7 +118,7 @@ def create_video_ad_creative(
     return adcreative_api_create(account_id, params_dict, fields)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_carousel_ad_creative(
     account_id: str,
     name: str,
@@ -156,7 +156,7 @@ def create_carousel_ad_creative(
     return adcreative_api_create(account_id, params_dict, fields)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_ad_creative_from_post(
     account_id: str,
     name: str,
@@ -180,7 +180,7 @@ def create_ad_creative_from_post(
     return adcreative_api_create(account_id, params_dict, fields)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_lead_gen_ad_creative(
     account_id: str,
     name: str,
@@ -232,7 +232,7 @@ def create_lead_gen_ad_creative(
     return adcreative_api_create(account_id, params_dict, fields)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_slideshow_ad_creative(
     account_id: str,
     name: str,
@@ -290,7 +290,7 @@ def create_slideshow_ad_creative(
     return adcreative_api_create(account_id, params_dict, fields)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_dynamic_product_ad_creative(
     account_id: str,
     name: str,
@@ -334,7 +334,7 @@ def create_dynamic_product_ad_creative(
     return adcreative_api_create(account_id, params_dict, fields)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def create_dynamic_asset_ad_creative(
     account_id: str,
     name: str,

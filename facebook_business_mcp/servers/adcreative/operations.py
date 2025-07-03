@@ -7,10 +7,10 @@ from typing import Any
 
 from facebook_business.adobjects.adcreative import AdCreative
 
-from facebook_business_mcp.utils import handle_facebook_errors
+from facebook_business_mcp.utils import wrapped_fn_tool
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def adcreative_get_previews(
     creative_id: str, fields: list[str] = [], params: dict[str, Any] = {}
 ) -> list[dict[str, Any]]:
@@ -30,7 +30,7 @@ def adcreative_get_previews(
     return creative.get_previews(fields=fields, params=params)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def adcreative_create_ad_label(
     creative_id: str, params: dict[str, Any], fields: list[str] = []
 ) -> dict[str, Any]:
@@ -50,7 +50,7 @@ def adcreative_create_ad_label(
     return creative.create_ad_label(fields=fields, params=params)
 
 
-@handle_facebook_errors
+@wrapped_fn_tool
 def adcreative_get_creative_insights(
     creative_id: str, fields: list[str] = [], params: dict[str, Any] = {}
 ) -> list[dict[str, Any]]:

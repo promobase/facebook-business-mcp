@@ -2,7 +2,6 @@
 
 from fastmcp import FastMCP
 
-from .ad_creatives import adaccount_get_ad_creatives
 from .ad_sets import adaccount_get_ad_sets
 from .crud import adaccount_api_get, adaccount_api_update
 
@@ -28,4 +27,3 @@ adaccount_server = FastMCP(
 adaccount_server.tool(adaccount_api_get)
 adaccount_server.tool(adaccount_api_update)
 adaccount_server.tool(adaccount_get_ad_sets)
-adaccount_server.tool(adaccount_get_ad_creatives)

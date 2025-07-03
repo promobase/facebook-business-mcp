@@ -14,18 +14,7 @@ from facebook_business_mcp.utils import handle_facebook_errors
 def adset_get_activities(
     adset_id: str, fields: list[str] = [], params: dict[str, Any] = {}
 ) -> list[dict[str, Any]]:
-    """Get activities for an ad set.
-
-    This is a direct wrapper around AdSet.get_activities().
-
-    Args:
-        adset_id: The ad set ID
-        fields: Fields to retrieve
-        params: Additional parameters
-
-    Returns:
-        List of activities
-    """
+    """Get activities for an ad set."""
     adset = AdSet(adset_id)
     return adset.get_activities(fields=fields, params=params)
 
@@ -34,18 +23,7 @@ def adset_get_activities(
 def adset_get_copies(
     adset_id: str, fields: list[str] = [], params: dict[str, Any] = {}
 ) -> list[dict[str, Any]]:
-    """Get copies of an ad set.
-
-    This is a direct wrapper around AdSet.get_copies().
-
-    Args:
-        adset_id: The ad set ID
-        fields: Fields to retrieve
-        params: Additional parameters
-
-    Returns:
-        List of ad set copies
-    """
+    """Get copies of an ad set."""
     adset = AdSet(adset_id)
     return adset.get_copies(fields=fields, params=params)
 
@@ -54,18 +32,7 @@ def adset_get_copies(
 def adset_create_copy(
     adset_id: str, params: dict[str, Any], fields: list[str] = []
 ) -> dict[str, Any]:
-    """Create a copy of an ad set.
-
-    This is a direct wrapper around AdSet.create_copy().
-
-    Args:
-        adset_id: The ad set ID to copy
-        params: Copy parameters (e.g., deep_copy, rename_options)
-        fields: Fields to return
-
-    Returns:
-        Created ad set copy data
-    """
+    """Create a copy of an ad set."""
     adset = AdSet(adset_id)
     return adset.create_copy(fields=fields, params=params)
 
@@ -74,18 +41,7 @@ def adset_create_copy(
 def adset_create_budget_schedule(
     adset_id: str, params: dict[str, Any], fields: list[str] = []
 ) -> dict[str, Any]:
-    """Create a budget schedule for an ad set.
-
-    This is a direct wrapper around AdSet.create_budget_schedule().
-
-    Args:
-        adset_id: The ad set ID
-        params: Budget schedule parameters
-        fields: Fields to return
-
-    Returns:
-        Created budget schedule data
-    """
+    """Create a budget schedule for an ad set."""
     adset = AdSet(adset_id)
     return adset.create_budget_schedule(fields=fields, params=params)
 
@@ -94,17 +50,6 @@ def adset_create_budget_schedule(
 def adset_get_async_ad_requests(
     adset_id: str, fields: list[str] = [], params: dict[str, Any] = {}
 ) -> list[dict[str, Any]]:
-    """Get async ad requests for an ad set.
-
-    This is a direct wrapper around AdSet.get_async_ad_requests().
-
-    Args:
-        adset_id: The ad set ID
-        fields: Fields to retrieve
-        params: Additional parameters
-
-    Returns:
-        List of async ad requests
-    """
+    """Get async ad requests for an ad set."""
     adset = AdSet(adset_id)
     return adset.get_async_ad_requests(fields=fields, params=params)

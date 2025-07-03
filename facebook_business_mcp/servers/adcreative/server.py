@@ -4,6 +4,7 @@ from fastmcp import FastMCP
 
 # Import all adcreative operations
 from .crud import (
+    adaccount_get_ad_creatives,
     adcreative_api_create,
     adcreative_api_delete,
     adcreative_api_get,
@@ -62,3 +63,6 @@ server.tool(create_link_ad_creative)
 server.tool(create_video_ad_creative)
 server.tool(create_carousel_ad_creative)
 server.tool(create_dynamic_asset_ad_creative)
+
+# Ad account level operations
+server.tool(adaccount_get_ad_creatives)
