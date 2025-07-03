@@ -5,6 +5,12 @@ This module provides helper functions for common ad creative creation patterns.
 
 from typing import Any
 
+from facebook_business_mcp.generated.models import AdAccountCreateAdCreativeParams
+from facebook_business_mcp.generated.models.generated_models import (
+    AdCreative_call_to_action_type,
+    AdCreativeLinkDataFields,
+    AdCreativeObjectStorySpecFields,
+)
 from facebook_business_mcp.servers.adcreative.crud import adcreative_api_create
 from facebook_business_mcp.utils import handle_facebook_errors
 
@@ -19,7 +25,7 @@ def create_link_ad_creative(
     title: str = "",
     description: str = "",
     image_hash: str = "",
-    call_to_action_type: str = "LEARN_MORE",
+    call_to_action_type: AdCreative_call_to_action_type = AdCreative_call_to_action_type.LEARN_MORE,
     fields: list[str] = [],
 ) -> dict[str, Any]:
     """Create a link ad creative with common parameters.
@@ -41,29 +47,41 @@ def create_link_ad_creative(
     Returns:
         Created ad creative data
     """
-    params = {
-        "name": name,
-        "object_story_spec": {
-            "page_id": page_id,
-            "link_data": {
-                "link": link_url,
-                "message": message,
-            },
-        },
+    # Build link_data with required fields
+    link_data_dict: dict[str, Any] = {
+        "link": link_url,
+        "message": message,
     }
 
-    # Add optional fields to link_data
-    link_data = params["object_story_spec"]["link_data"]
+    # Add optional fields
     if title:
-        link_data["name"] = title
+        link_data_dict["name"] = title
     if description:
-        link_data["description"] = description
+        link_data_dict["description"] = description
     if image_hash:
-        link_data["image_hash"] = image_hash
+        link_data_dict["image_hash"] = image_hash
     if call_to_action_type:
-        link_data["call_to_action"] = {"type": call_to_action_type}
+        link_data_dict["call_to_action"] = {"type": call_to_action_type.value}
 
-    return adcreative_api_create(account_id, params, fields)
+    # Create the link data model
+    link_data = AdCreativeLinkDataFields(**link_data_dict)
+
+    # Create object story spec
+    object_story_spec = AdCreativeObjectStorySpecFields(
+        page_id=page_id,
+        link_data=link_data,
+    )
+
+    # Create the params model
+    params = AdAccountCreateAdCreativeParams(
+        name=name,
+        object_story_spec=object_story_spec,
+    )
+
+    # Convert to dict for SDK
+    params_dict = params.model_dump(exclude_none=True)
+
+    return adcreative_api_create(account_id, params_dict, fields)
 
 
 @handle_facebook_errors
@@ -75,7 +93,7 @@ def create_video_ad_creative(
     message: str,
     title: str = "",
     description: str = "",
-    call_to_action_type: str = "LEARN_MORE",
+    call_to_action_type: AdCreative_call_to_action_type = AdCreative_call_to_action_type.LEARN_MORE,
     call_to_action_link: str = "",
     fields: list[str] = [],
 ) -> dict[str, Any]:
@@ -98,30 +116,46 @@ def create_video_ad_creative(
     Returns:
         Created ad creative data
     """
-    params = {
-        "name": name,
-        "object_story_spec": {
-            "page_id": page_id,
-            "video_data": {
-                "video_id": video_id,
-                "message": message,
-            },
-        },
+    from facebook_business_mcp.generated.models.generated_models import (
+        AdCreativeVideoDataFields,
+    )
+
+    # Build video_data with required fields
+    video_data_dict: dict[str, Any] = {
+        "video_id": video_id,
+        "message": message,
     }
 
-    # Add optional fields to video_data
-    video_data = params["object_story_spec"]["video_data"]
+    # Add optional fields
     if title:
-        video_data["title"] = title
+        video_data_dict["title"] = title
     if description:
-        video_data["description"] = description
+        video_data_dict["description"] = description
     if call_to_action_type and call_to_action_link:
-        video_data["call_to_action"] = {
-            "type": call_to_action_type,
+        video_data_dict["call_to_action"] = {
+            "type": call_to_action_type.value,
             "value": {"link": call_to_action_link},
         }
 
-    return adcreative_api_create(account_id, params, fields)
+    # Create the video data model
+    video_data = AdCreativeVideoDataFields(**video_data_dict)
+
+    # Create object story spec
+    object_story_spec = AdCreativeObjectStorySpecFields(
+        page_id=page_id,
+        video_data=video_data,
+    )
+
+    # Create the params model
+    params = AdAccountCreateAdCreativeParams(
+        name=name,
+        object_story_spec=object_story_spec,
+    )
+
+    # Convert to dict for SDK
+    params_dict = params.model_dump(exclude_none=True)
+
+    return adcreative_api_create(account_id, params_dict, fields)
 
 
 @handle_facebook_errors
@@ -154,19 +188,29 @@ def create_carousel_ad_creative(
     Returns:
         Created ad creative data
     """
-    params = {
-        "name": name,
-        "object_story_spec": {
-            "page_id": page_id,
-            "link_data": {
-                "link": link_url,
-                "message": message,
-                "child_attachments": child_attachments,
-            },
-        },
-    }
+    # Build link_data for carousel
+    link_data = AdCreativeLinkDataFields(
+        link=link_url,
+        message=message,
+        child_attachments=child_attachments,
+    )
 
-    return adcreative_api_create(account_id, params, fields)
+    # Create object story spec
+    object_story_spec = AdCreativeObjectStorySpecFields(
+        page_id=page_id,
+        link_data=link_data,
+    )
+
+    # Create the params model
+    params = AdAccountCreateAdCreativeParams(
+        name=name,
+        object_story_spec=object_story_spec,
+    )
+
+    # Convert to dict for SDK
+    params_dict = params.model_dump(exclude_none=True)
+
+    return adcreative_api_create(account_id, params_dict, fields)
 
 
 @handle_facebook_errors
@@ -197,18 +241,32 @@ def create_dynamic_ad_creative(
     Returns:
         Created ad creative data
     """
-    params = {
-        "name": name,
-        "product_set_id": product_set_id,
-        "template_url_spec": template_url_spec,
-        "object_story_spec": {
-            "page_id": page_id,
-            "template_data": {
-                "message": message,
-                "description": description,
-                "link": "{{product.link}}",
-            },
-        },
-    }
+    from facebook_business_mcp.generated.models.generated_models import (
+        AdCreativeTemplateDataFields,
+    )
 
-    return adcreative_api_create(account_id, params, fields)
+    # Create template data
+    template_data = AdCreativeTemplateDataFields(
+        message=message,
+        description=description,
+        link="{{product.link}}",
+    )
+
+    # Create object story spec
+    object_story_spec = AdCreativeObjectStorySpecFields(
+        page_id=page_id,
+        template_data=template_data,
+    )
+
+    # Create the params model
+    params = AdAccountCreateAdCreativeParams(
+        name=name,
+        product_set_id=product_set_id,
+        template_url_spec=template_url_spec,
+        object_story_spec=object_story_spec,
+    )
+
+    # Convert to dict for SDK
+    params_dict = params.model_dump(exclude_none=True)
+
+    return adcreative_api_create(account_id, params_dict, fields)
