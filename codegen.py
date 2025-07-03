@@ -279,13 +279,13 @@ def create_generation_steps() -> list[GenerationStep]:
             description="Generate Pydantic models from Facebook API specs",
             required=True,
         ),
-        GenerationStep(
-            name="servers",
-            script_path="scripts/generate_mcp_servers.py",
-            description="Generate MCP tool servers",
-            required=True,
-            depends_on=["models"],  # Servers might depend on models
-        ),
+        # GenerationStep(
+        #     name="servers",
+        #     script_path="scripts/generate_mcp_servers.py",
+        #     description="Generate MCP tool servers",
+        #     required=True,
+        #     depends_on=["models"],  # Servers might depend on models
+        # ),
     ]
 
 
