@@ -37,7 +37,9 @@ def load_dotenv(path: str) -> bool:
     env_path = Path(path)
 
     if not env_path.exists():
-        raise FileNotFoundError(f"Environment file '{path}' does not exist.")
+        logger = get_logger()
+        logger.warning(f"Environment file {env_path} does not exist.")
+        return False
 
     with open(env_path, encoding="utf-8") as f:
         for line in f:
