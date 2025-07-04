@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/OpenPromo.svg" alt="OpenPromo Logo" width="340" height="50" />
+  <img src="https://raw.githubusercontent.com/promobase/facebook-business-mcp/refs/heads/dev/assets/OpenPromo.svg" alt="OpenPromo Logo" width="340" height="50" />
 </div>
 
 ---
