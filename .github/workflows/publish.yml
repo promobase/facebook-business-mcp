@@ -1,9 +1,7 @@
-name: Publish to PyPI
+name: Manual Publish to PyPI
 
 on:
-  release:
-    types: [published]
-  workflow_dispatch: # Enable manual trigger.
+  workflow_dispatch: # Enable manual trigger only
 
 jobs:
   build-and-publish:
