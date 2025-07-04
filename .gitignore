@@ -179,3 +179,4 @@ cython_debug/
 .pypirc
 .claude
 api_specs
+.DS_Store
