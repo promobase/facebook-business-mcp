@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- ASCII-style P with brackets -->
+  <g fill="#000000" font-family="'IBM Plex Mono', 'Courier New', monospace" font-weight="600">
+    <!-- Left bracket -->
+    <text x="40" y="120" font-size="90" text-anchor="middle">[</text>
+    
+    <!-- Letter P -->
+    <text x="100" y="120" font-size="90" text-anchor="middle">P</text>
+    
+    <!-- Right bracket -->
+    <text x="160" y="120" font-size="90" text-anchor="middle">]</text>
+    
+    <!-- Underscore accent -->
+    <text x="100" y="155" font-size="45" text-anchor="middle">_</text>
+  </g>
+  
+</svg>
