@@ -4,7 +4,7 @@
 
 ---
 
-<div align="center">
+<div align="center">****
 
 [![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/) [![MCP](https://img.shields.io/badge/MCP-Protocol-green)](https://modelcontextprotocol.io/) [![Facebook API](https://img.shields.io/badge/Facebook-Business_API-1877F2?logo=facebook)](https://developers.facebook.com/docs/marketing-apis) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Code style: pyright](https://img.shields.io/badge/code%20style-pyright-000000.svg)](https://github.com/psf/pyright)
 
@@ -20,15 +20,25 @@ Unofficial MCP server implementation for [Facebook Business API](https://develop
 - **MCP Compliant**: Built with [FastMCP](https://gofastmcp.com/getting-started/welcome) for seamless integration with any MCP-compatible client or LLM.
 - **Easy Setup**: Simple configuration with environment variables and immediate connectivity to Facebook Business API.
 
+## Installation
+
+### Quick Start
+
+You can run the server directly without installation using `uvx`:
+
+```bash
+uvx facebook-business-mcp
+```
+
+### Local Installation
+
+```bash
+pip install facebook-business-mcp
+```
+
 ## Setup
 
-1. Install dependencies:
-
-   ```bash
-   uv sync
-   ```
-
-2. Set environment variables:
+1. Set environment variables:
 
    ```bash
    export FACEBOOK_APP_ID="your-app-id"
@@ -37,9 +47,24 @@ Unofficial MCP server implementation for [Facebook Business API](https://develop
    export FACEBOOK_AD_ACCOUNT_ID="your-ad-account-id"  # optional
    ```
 
-3. Run the server:
+2. Run the server:
+
+   Using uvx (no installation needed):
+
    ```bash
-   uv run  main.py
+   uvx facebook-business-mcp
+   ```
+
+   Or if installed via pip:
+
+   ```bash
+   facebook-business-mcp
+   ```
+
+   Or from source:
+
+   ```bash
+   uv run main.py
    ```
 
 ## License
